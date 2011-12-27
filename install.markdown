@@ -1,3 +1,8 @@
+---
+layout: default
+title: Codeception Installation
+---
+
 # Installation
 
 Easiest way to start using Codeception is by installing it by PEAR.
