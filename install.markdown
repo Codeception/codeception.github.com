@@ -10,11 +10,11 @@ Easiest way to start using Codeception is by installing it via PEAR.
 ### PEAR
 Install latest PEAR package:
 
-{% highlight %}
+{% highlight bash %}
 $ pear channel-discover codeception.com/pear
 {% endhighlight %}
 
-{% highlight %}
+{% highlight bash %}
 $ pear install codeception/Codeception
 {% endhighlight %}
 
@@ -25,7 +25,7 @@ Download [codecept.phar](https://github.com/Codeception/Codeception/raw/master/p
 Copy it into your project.
 Run CLI utility:
 
-{% highlight %}
+{% highlight bash %}
 $ php codecept.phar
 {% endhighlight %}
 
@@ -33,19 +33,19 @@ $ php codecept.phar
 
 If you sucessfully installed Codeception, run this commands:
 
-{% highlight %}
+{% highlight bash %}
 $ codecept install
 {% endhighlight %}
 
 this will install all dependency tools like PHPUnit and Mink
 
-{% highlight %}
+{% highlight bash %}
 $ codecept bootstrap
 {% endhighlight %}
 
 this will create default directory structure and default test suites
 
-{% highlight %}
+{% highlight bash %}
 $ codecept build
 {% endhighlight %}
 
