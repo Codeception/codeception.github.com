@@ -60,7 +60,6 @@ class UserControllerCest {
     }
 }
 ?>
-
 {% endhighlight %}
 
 Anyway, If you don't really like writing unit tests in DSL, Codeceptance can run PHPUnit tests natively.
