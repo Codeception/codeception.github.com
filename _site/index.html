@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="title" content="Codeception - BDD-style PHP testing framework" />
+    <title>  Codeception Collection of symfony framework tools - Symfohub: useful libs for symfony frameworks</title>   
+    <link rel="shortcut icon" href="/images/favicon.png" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/screen.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/twilight.css" />
+  </head>
+  <body>
+  <div id="root">
+
+  <div class="head">
+
+    <div class="nav">
+    <a class="logo" href="/" alt="Codeception">Codeception
+    </a>
+          <ul>
+    <li><a class="" href="/repository">REPOSITORIES</a></li>
+
+        </ul>
+  </div>
+
+  </div>
+
+  <div class="layout">
+    <div class="content">           
+      <div class="promo">
+        <div class="button">
+          <em>Start testing pragmatically</em>
+        </div>
+        <div class="disclaimer">
+          Test your PHP applications with fun!
+        </div>
+      </div>
+
+      <div>
+            ---
+layout: default
+title: Codeception - BDD-style PHP testing.
+---
+
+# Codeception
+
+Codeception is new PHP full-stack testing framework.
+Inspired by BDD, it provides you absolutely new way for writing acceptance, functional and even unit tests.
+Powered by PHPUnit 3.6.
+
+[![Build Status](https://secure.travis-ci.org/Codeception/Codeception.png?branch=master)](http://travis-ci.org/Codeception/codeception)
+
+### In a Glance
+
+Describe what you test and how you test it. Use PHP to write descriptions faster.
+
+Run tests and see what actions were taken and what results were seen.
+
+#### Sample acceptance test
+
+``` php
+<?php
+
+$I = new TestGuy($scenario);
+$I->wantTo('create wiki page');
+$I->amOnPage('/');
+$I->click('Pages');
+$I->click('New');
+$I->see('New Page');
+$I->submitForm('#pageForm', array('page' => array(
+    'title' => 'Tree of Life Movie Review',
+    'body' => 'Next time don\'t let Hollywood create arthouse =) '
+)));
+$I->see('page created'); // notice generated
+$I->see('Tree of Life Movie Review','h1'); // head of page of is our title
+$I->seeInCurrentUrl('pages/tree-of-life-mobie-review'); // slug is generated
+$I->seeInDatabase('pages', array('title' => 'Tree of Life Movie Review')); // data is stored in database
+?>
+```
+Ok, as for unit test similar approach may seem weired, but...
+Take a look at this:
+
+#### Sample unit test
+
+``` php
+<?php
+class UserControllerCest {
+    public $class = 'UserController';
+
+    public function createAction(CodeGuy $I)
+    {
+        $I->haveFakeClass($userController = Stub::make('UserController'));
+        $I->executeTestedMethodOn($userController, array('username' => 'MilesDavis', 'email' => 'miles@davis.com'))
+            ->seeResultEquals(true)
+            ->seeMethodInvoked($userController, 'renderHtml')
+            ->seeInDabatase('users', array('username' => 'MilesDavis'));
+    }
+}
+?>
+
+```
+
+Anyway, If you don't really like writing unit tests in DSL, Codeceptance can run PHPUnit tests natively.
+
+## Documentation
+
+[Documentation on Github](https://github.com/Codeception/Codeception/tree/master/docs)
+
+Documentation is currently bounded with project. Look for it in 'docs' directory.
+
+## Installation
+
+### PEAR
+Install latest PEAR package from GitHub:
+
+```
+pear channel-discover codeception.github.com/pear
+pear install codeception/Codeception
+```
+
+### Phar
+
+Download [codecept.phar](https://github.com/Codeception/Codeception/raw/master/package/codecept.phar)
+
+Copy it into your project.
+Run CLI utility:
+
+```
+php codecept.phar
+```
+
+## Getting Started
+
+If you sucessfully installed Codeception, run this commands:
+
+```
+codecept install
+```
+
+this will install all dependency tools like PHPUnit and Mink
+
+```
+codecept bootstrap
+```
+
+this will create default directory structure and default test suites
+
+```
+codecept build
+```
+
+This will generate Guy-classes, in order to make autocomplete works.
+
+See Documentation for more information.
+
+### License
+MIT
+
+(c) Michael Bodnarchuk "Davert"
+2011
+      </div>  
+    </div>
+    <div class="sidebar">
+      <div class="inner">           
+      </div>
+    </div>
+    </div>
+    <div id="root_footer"></div>
+  </div>
+
+  <div id="footer">
+    <div class="inner">
+
+      <div class="col">
+        <div class="footnote">
+          <h4>Related links</h4>
+          <h4>Powered by GitHub</h4>
+
+          <div class="small">
+            Works with Jakyll and Github.
+          </div>
+          </div>
+
+        </div>
+      <div class="col">
+        <div class="footnote">
+
+        <h4>Codeception is...</h4>
+
+          <div class="small">
+
+          Codeception is new PHP full-stack testing framework. Inspired by BDD, it provides you absolutely new way for writing acceptance, functional and even unit tests. Powered by PHPUnit 3.6.
+
+        </div>
+
+        </div>
+      </div>
+      <div class="col last">
+        <div class="footnote">
+        <h4>Credits</h4>
+
+          <div class="small">
+        Symfohub was created by <a href="https://github.com/DavertMik" target="_blank">Davert</a>.
+            <a href="http://dryicons.com">DryIcons</a> icons were used in design.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+<script type="text/javascript">
+var disqus_shortname = 'symfohub';
+(function () {
+  var s = document.createElement('script'); s.async = true;
+  s.src = 'http://disqus.com/forums/symfohub/count.js';
+  (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+<script type="text/javascript">
+var uservoiceOptions = {
+  /* required */
+  key: 'symfohub',
+  host: 'symfohub.uservoice.com',
+  forum: '96525',
+  showTab: true,
+  /* optional */
+  alignment: 'left',
+  background_color:'#656270',
+  text_color: 'white',
+  hover_color: '#06C',
+  lang: 'en'
+};
+
+function _loadUserVoice() {
+  var s = document.createElement('script');
+  s.setAttribute('type', 'text/javascript');
+  s.setAttribute('src', ("https:" == document.location.protocol ? "https://" : "http://") + "cdn.uservoice.com/javascripts/widgets/tab.js");
+  document.getElementsByTagName('head')[0].appendChild(s);
+}
+_loadSuper = window.onload;
+window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function() { _loadSuper(); _loadUserVoice(); };
+</script>  
+
+  </body>
+</html>
