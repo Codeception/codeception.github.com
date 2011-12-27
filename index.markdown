@@ -67,8 +67,9 @@ Anyway, If you don't really like writing unit tests in DSL, Codeceptance can run
 Install latest PEAR package from GitHub:
 
 ```
-pear channel-discover codeception.com/pear
-pear install codeception/Codeception
+$ pear channel-discover codeception.com/pear
+
+$ pear install codeception/Codeception
 ```
 
 ### Phar
@@ -79,7 +80,7 @@ Copy it into your project.
 Run CLI utility:
 
 ```
-php codecept.phar
+$ php codecept.phar
 ```
 
 ## Getting Started
@@ -87,19 +88,19 @@ php codecept.phar
 If you sucessfully installed Codeception, run this commands:
 
 ```
-codecept install
+$ codecept install
 ```
 
 this will install all dependency tools like PHPUnit and Mink
 
 ```
-codecept bootstrap
+$ codecept bootstrap
 ```
 
 this will create default directory structure and default test suites
 
 ```
-codecept build
+$ codecept build
 ```
 
 This will generate Guy-classes, in order to make autocomplete works.
