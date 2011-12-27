@@ -19,7 +19,7 @@ Run tests and see what actions were taken and what results were seen.
 
 #### Sample acceptance test
 
-``` php
+{% highlight php %}
 <?php
 
 $I = new TestGuy($scenario);
@@ -37,13 +37,15 @@ $I->see('Tree of Life Movie Review','h1'); // head of page of is our title
 $I->seeInCurrentUrl('pages/tree-of-life-mobie-review'); // slug is generated
 $I->seeInDatabase('pages', array('title' => 'Tree of Life Movie Review')); // data is stored in database
 ?>
-```
+{% endhighlight %}
+
+
 Ok, as for unit test similar approach may seem weired, but...
 Take a look at this:
 
 #### Sample unit test
 
-``` php
+{% highlight php %}
 <?php
 class UserControllerCest {
     public $class = 'UserController';
@@ -59,7 +61,7 @@ class UserControllerCest {
 }
 ?>
 
-```
+{% endhighlight %}
 
 Anyway, If you don't really like writing unit tests in DSL, Codeceptance can run PHPUnit tests natively.
 
