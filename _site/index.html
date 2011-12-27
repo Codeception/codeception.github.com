@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="title" content="Codeception - BDD-style PHP testing framework" />
-    <title>  Codeception - BDD-style PHP testing. Collection of symfony framework tools - Symfohub: useful libs for symfony frameworks</title>   
+    <title>  Codeception Collection of symfony framework tools - Symfohub: useful libs for symfony frameworks</title>   
     <link rel="shortcut icon" href="/images/favicon.png" />
     <link rel="stylesheet" type="text/css" media="screen" href="/css/screen.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="/css/twilight.css" />
@@ -36,131 +36,7 @@
       </div>
 
       <div>
-            <h1>Codeception</h1>
-
-<p>Codeception is new PHP full-stack testing framework.
-Inspired by BDD, it provides you absolutely new way for writing acceptance, functional and even unit tests.
-Powered by PHPUnit 3.6.</p>
-
-<p><a href="http://travis-ci.org/Codeception/codeception"><img src="https://secure.travis-ci.org/Codeception/Codeception.png?branch=master" alt="Build Status" /></a></p>
-
-<h3>In a Glance</h3>
-
-<p>Describe what you test and how you test it. Use PHP to write descriptions faster.</p>
-
-<p>Run tests and see what actions were taken and what results were seen.</p>
-
-<h4>Sample acceptance test</h4>
-
-<p>``` php
-&lt;?php</p>
-
-<p>$I = new TestGuy($scenario);
-$I->wantTo('create wiki page');
-$I->amOnPage('/');
-$I->click('Pages');
-$I->click('New');
-$I->see('New Page');
-$I->submitForm('#pageForm', array('page' => array(</p>
-
-<pre><code>'title' =&gt; 'Tree of Life Movie Review',
-'body' =&gt; 'Next time don\'t let Hollywood create arthouse =) '
-</code></pre>
-
-<p>)));
-$I->see('page created'); // notice generated
-$I->see('Tree of Life Movie Review','h1'); // head of page of is our title
-$I->seeInCurrentUrl('pages/tree-of-life-mobie-review'); // slug is generated
-$I->seeInDatabase('pages', array('title' => 'Tree of Life Movie Review')); // data is stored in database
-?>
-```
-Ok, as for unit test similar approach may seem weired, but...
-Take a look at this:</p>
-
-<h4>Sample unit test</h4>
-
-<p>``` php
-&lt;?php
-class UserControllerCest {</p>
-
-<pre><code>public $class = 'UserController';
-
-public function createAction(CodeGuy $I)
-{
-    $I-&gt;haveFakeClass($userController = Stub::make('UserController'));
-    $I-&gt;executeTestedMethodOn($userController, array('username' =&gt; 'MilesDavis', 'email' =&gt; 'miles@davis.com'))
-        -&gt;seeResultEquals(true)
-        -&gt;seeMethodInvoked($userController, 'renderHtml')
-        -&gt;seeInDabatase('users', array('username' =&gt; 'MilesDavis'));
-}
-</code></pre>
-
-<p>}
-?></p>
-
-<p>```</p>
-
-<p>Anyway, If you don't really like writing unit tests in DSL, Codeceptance can run PHPUnit tests natively.</p>
-
-<h2>Documentation</h2>
-
-<p><a href="https://github.com/Codeception/Codeception/tree/master/docs">Documentation on Github</a></p>
-
-<p>Documentation is currently bounded with project. Look for it in 'docs' directory.</p>
-
-<h2>Installation</h2>
-
-<h3>PEAR</h3>
-
-<p>Install latest PEAR package from GitHub:</p>
-
-<p><code>
-pear channel-discover codeception.github.com/pear
-pear install codeception/Codeception
-</code></p>
-
-<h3>Phar</h3>
-
-<p>Download <a href="https://github.com/Codeception/Codeception/raw/master/package/codecept.phar">codecept.phar</a></p>
-
-<p>Copy it into your project.
-Run CLI utility:</p>
-
-<p><code>
-php codecept.phar
-</code></p>
-
-<h2>Getting Started</h2>
-
-<p>If you sucessfully installed Codeception, run this commands:</p>
-
-<p><code>
-codecept install
-</code></p>
-
-<p>this will install all dependency tools like PHPUnit and Mink</p>
-
-<p><code>
-codecept bootstrap
-</code></p>
-
-<p>this will create default directory structure and default test suites</p>
-
-<p><code>
-codecept build
-</code></p>
-
-<p>This will generate Guy-classes, in order to make autocomplete works.</p>
-
-<p>See Documentation for more information.</p>
-
-<h3>License</h3>
-
-<p>MIT</p>
-
-<p>(c) Michael Bodnarchuk "Davert"
-2011</p>
-
+            {% includeindex.markdown %}
       </div>  
     </div>
     <div class="sidebar">
