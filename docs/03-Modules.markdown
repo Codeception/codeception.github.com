@@ -13,7 +13,6 @@ All actions and assertions that can be performed by Guy object in class are defi
 Let's look at this test.
 
 {% highlight php %}
-
 <?php
 
 $I = new TestGuy($scenario);
@@ -62,7 +61,6 @@ It's good idea to define missing actions or assertion commands in helpers.
 Let's say we are going to extend TestHelper class. By default it's linked with a TestGuy class and functional test suite.
 
 {% highlight php %}
-
 <?php
 namespace Codeception\Module;
 // here you can define custom functions for TestGuy
@@ -89,7 +87,6 @@ dontSeeUserExist($user);
 And then use them in your tests:
 
 {% highlight php %}
-
 <?php
 $I = new TestGuy($scenario);
 $I->seePageReloaded();
@@ -105,7 +102,6 @@ You can define asserts by using assertXXX functions, from 'PHPUnit/Framework/Ass
 In case your application falls into conflict with one of this functions, you can use PHPUnit static methods from class PHPUnit_Framework_Assert to define asserts.
 
 {% highlight php %}
-
 <?php
 
 function seeClassExist($class)
@@ -120,7 +116,6 @@ function seeClassExist($class)
 Each module has special $this->assert and $this->assertNot methods. They take the same arguments and are useful if you need to define both positive and negative assertions in your module. This functions take an array as parameter, where the first value of array is the name of PHPUnit assert function.
 
 {% highlight php %}
-
 <?php
 
 $this->assert(array('Equals',$int,3));
@@ -131,7 +126,6 @@ $this->assert(array('Contains', array(3,5,9), 3));
 Let's see how define both 'see' and don't see action without code duplication.
 
 {% highlight php %}
-
 <?php
 
 public function seeClassExist($class)
@@ -167,7 +161,6 @@ Each modules can interact with each other by getModule method. Please, note that
 Let's imagine we are writing module which reconnects to database. It's supposed to use the dbh connection value from Db module.
 
 {% highlight php %}
-
 <?php
 
 function reconnectToDatabase() {
@@ -185,7 +178,6 @@ That may be also useful if you need to perform sequence of actions taken from ot
 For example:
 
 {% highlight php %}
-
 <?php
 function seeConfigFilesCreated()
 {
@@ -208,7 +200,6 @@ All hooks are defined in \Codeception\Module
 Here are they listed. You are free to redefine them in you module.
 
 {% highlight php %}
-
 <?php
 
     // HOOK: used after configuration is loaded
@@ -255,7 +246,6 @@ To print additional information use debug amd debugSection methods of module.
 Here is the sample how it works for PhpBrowser:
 
 {% highlight php %}
-
 <?php
     $this->debug('Request ('.$method.'): '.$uri.' '. json_encode($params));
     $browser->request($method, $uri, $params);
@@ -287,7 +277,6 @@ Next time you start suite without this values set, an exception will be thrown.
 For the optional parameters you should have default values set. The $config property is used to define optional parameters as well as their values. In Seleinum module we use default Selenium Server address and port. 
 
 {% highlight php %}
-
 <?php
 class Selenium extends \Codeception\Util\MinkJS
 {

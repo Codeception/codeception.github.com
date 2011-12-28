@@ -14,7 +14,6 @@ Unit tests are required to be readable as much as possible. They should be clean
 With the Codeception you should describe your test in a scenario, as we did it for acceptance test.
 
 {% highlight php %}
-
 <?php
 
 $I = new CodeGuy($scenario);
@@ -28,7 +27,6 @@ $I->seeResultEquals(true);
 This a simple test of very simple function. The similar test in PHPUnit will look like this:
 
 {% highlight php %}
-
 <?php
 public function testValidateEmail()
     $this->assertTrue(Validator::validateEmail('davert@mail.ua'));
@@ -51,7 +49,6 @@ Let's show how Codeception simplifies unit testing for controller classes.
 We have controller class of imaginable MVC framework:
 
 {% highlight php %}
-
 <?php
 class UserController extends AbtractController {
 
@@ -81,7 +78,6 @@ For unit tests Codeception provides a different test file format. It's called Ce
 Here is the Codeception test for the 'show' action:
 
 {% highlight php %}
-
 <?php
 class UserControllerCest {
     public $class = 'UserController';
@@ -130,7 +126,6 @@ For $db property which is supposed to be DbConnector (Database class) instance w
 Next we connect both stubbed classes. We'd normally use:
 
 {% highlight php %}
-
 <?php
     $controller->db = $db;
 ?>
@@ -156,7 +151,6 @@ To prove Codeception was useful for controller testing, we will write same test 
 Remember, it can be run with Codeception too.
 
 {% highlight php %}
-
 <?php
 
 class UserControllerTest extends PHPUnit_Framework_TestCase
