@@ -12,8 +12,7 @@ All actions and assertions that can be performed by Guy object in class are defi
 
 Let's look at this test.
 
-``
-
+ php
 {% highlight php %}
 <?php
 
@@ -24,7 +23,6 @@ $I->seeInDatabase('users', array('id' => 1));
 $I->seeFileFound('running.lock');
 ?>
 {% endhighlight %}
-``
 
 
 It can operate with different entities: the web page can be loaded with Symfony1 module, the database assertion uses Db module, and file state can be checked with Filesystem module. 
@@ -32,12 +30,10 @@ It can operate with different entities: the web page can be loaded with Symfony1
 Modules are attached to Guy-classes in suite config.
 For current example in 'tests/functional.suite.yml' we should see.
 
-``
 
 class_name: TestGuy
 modules:
     enabled: [Symfony1, Db, Filesystem]
-``
 
 
 The TestGuy class has it's methods defined in modules. Actually, it doesn't contain any of them, but acts as a proxy for them. It knows which module executes this action and passes parameters into it. To make your IDE see all methods of TestGuy listed, you use the 'build' command. It generates definition of TestGuy class by copying signatures from modules.
@@ -66,8 +62,7 @@ It's good idea to define missing actions or assertion commands in helpers.
 
 Let's say we are going to extend TestHelper class. By default it's linked with a TestGuy class and functional test suite.
 
-``
-
+ php
 {% highlight php %}
 <?php
 namespace Codeception\Module;
@@ -80,7 +75,6 @@ class TestHelper extends \Codeception\Module
 }
 ?>
 {% endhighlight %}
-``
 
 
 As for actions everything is quite simple. Every action you define is a public function. Write down any public method, run 'build' command, and you will see this function added into TestGuy class. Still, public methods prefixed by '_' are treated as hidden and won't be added you your Guy class. 
@@ -89,17 +83,14 @@ Assertions are a bit tricky. First of all it's recommended to prefix all your as
 
 Name your assertions like:
 
-``
 
 seePageReloaded();
 seeClassIsLoaded($classname);
 dontSeeUserExist($user);
-``
 
 And then use them in your tests:
 
-``
-
+ php
 {% highlight php %}
 <?php
 $I = new TestGuy($scenario);
@@ -108,7 +99,6 @@ $I->seeClassIsLoaded('TestGuy');
 $I->dontSeeUserExist($user);
 ?>
 {% endhighlight %}
-``
 
 
 Every 'see' or 'dontSee' function requires at least one assert. Codeception uses PHPUnit assertions.
@@ -117,8 +107,7 @@ Every 'see' or 'dontSee' function requires at least one assert. Codeception uses
 You can define asserts by using assertXXX functions, from 'PHPUnit/Framework/Assert/Functions.php' file.
 In case your application falls into conflict with one of this functions, you can use PHPUnit static methods from class PHPUnit_Framework_Assert to define asserts.
 
-``
-
+ php
 {% highlight php %}
 <?php
 
@@ -130,13 +119,11 @@ function seeClassExist($class)
 }
 ?>
 {% endhighlight %}
-``
 
 
 Each module has special $this->assert and $this->assertNot methods. They take the same arguments and are useful if you need to define both positive and negative assertions in your module. This functions take an array as parameter, where the first value of array is the name of PHPUnit assert function.
 
-``
-
+ php
 {% highlight php %}
 <?php
 
@@ -145,12 +132,10 @@ $this->assertNot(array('internalType',$int,'bool'));
 $this->assert(array('Contains', array(3,5,9), 3));
 ?>
 {% endhighlight %}
-``
 
 Let's see how define both 'see' and don't see action without code duplication.
 
-``
-
+ php
 {% highlight php %}
 <?php
 
@@ -170,7 +155,6 @@ protected function proceedSeeClassExist($class)
 }
 ?>
 {% endhighlight %}
-``
 
 For dontSeeClassExist, the 'assertFalse' will be called.
 
@@ -188,8 +172,7 @@ Each modules can interact with each other by getModule method. Please, note that
 
 Let's imagine we are writing module which reconnects to database. It's supposed to use the dbh connection value from Db module.
 
-``
-
+ php
 {% highlight php %}
 <?php
 
@@ -200,7 +183,6 @@ function reconnectToDatabase() {
 }
 ?>
 {% endhighlight %}
-``
 
 By using getModule function you get access to all public methods and properties of module.
 The dbh property was defined public specially to be avaible to other modules.
@@ -209,8 +191,7 @@ That may be also useful if you need to perform sequence of actions taken from ot
 
 For example:
 
-``
-
+ php
 {% highlight php %}
 <?php
 function seeConfigFilesCreated()
@@ -222,7 +203,6 @@ function seeConfigFilesCreated()
 }
 ?>
 {% endhighlight %}
-``
 
 
 ### Hooks
@@ -235,8 +215,7 @@ All hooks are defined in \Codeception\Module
 
 Here are they listed. You are free to redefine them in you module.
 
-``
-
+ php
 {% highlight php %}
 <?php
 
@@ -269,7 +248,6 @@ Here are they listed. You are free to redefine them in you module.
 	}
 ?>
 {% endhighlight %}
-``
 
 
 Please, note, that methods with '_' prefix are not added to the Guy class. This allows them to be defined as public, but used for internal purposes.
@@ -285,8 +263,7 @@ Thus, modules are not a black boxes, they are trying to show you what is happeni
 To print additional information use debug amd debugSection methods of module.
 Here is the sample how it works for PhpBrowser:
 
-``
-
+ php
 {% highlight php %}
 <?php
     $this->debug('Request ('.$method.'): '.$uri.' '. json_encode($params));
@@ -294,17 +271,14 @@ Here is the sample how it works for PhpBrowser:
     $this->debug('Response code: '.$this->session->getStatusCode());
 ?>
 {% endhighlight %}    
-``
 
 
 The test running with PhpBrowser module in debug mode will print something like this:
 
-``
 
 I click "All pages"
 * Request (GET) http://localhost/pages {}
 * Response code: 200
-``
 
 
 ### Configuration
@@ -312,7 +286,6 @@ I click "All pages"
 Modules can be configured from suite config file, or globally from codeception.yml.
 Mandatory parameters should be defined in $$requiredFields property of module class. Here how it is done in Db module
 
-``
 
 {% highlight php %}
 <?php
@@ -320,14 +293,12 @@ class Db extends \Codeception\Module {
     protected $requiredFields = array('dsn', 'user', 'password');
 ?>
 {% endhighlight %}
-``
 
 Next time you start suite without this values set, an exception will be thrown. 
 
 For the optional parameters you should have default values set. The $config property is used to define optional parameters as well as their values. In Seleinum module we use default Selenium Server address and port. 
 
-``
-
+ php
 {% highlight php %}
 <?php
 class Selenium extends \Codeception\Util\MinkJS
@@ -336,12 +307,10 @@ class Selenium extends \Codeception\Util\MinkJS
     protected $config = array('host' => '127.0.0.1', 'port' => '4444');
 ?>
 {% endhighlight %}    
-``
 
 
 The host and port parameter can be redefined in suite config. Values are set in 'modules:config' section of configuration file.
 
-``
 
 modules:
     enabled:
@@ -354,7 +323,6 @@ modules:
         Db:
             cleanup: false
             repopulate: false
-``
 
 
  Optional and mandatory parameters can be accessed through the $config property. Use $this->config['parameter'] to get it's value. 
