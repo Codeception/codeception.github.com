@@ -12,8 +12,7 @@ We call him a WebGuy, as he uses web browser to open your site and test it's beh
 
 Writing Codeception tests is just the same as describing actions you perform on a site. Only the basic knowlegde of HTML and PHP is required for wrinig such tests. 
 
- php
-{% highlight php %}
+``` php
 <?php
 $I = new WebGuy($scenario);
 $I->wantTo('sign in');
@@ -23,13 +22,12 @@ $I->fillField('signin[password]','qwerty');
 $I->click('LOGIN');
 $I->see('Welcome, Davert!');
 ?>
-{% endhighlight %}
-
+```
 
 With no knowledge in PHP or HTML you can still read this scenario. Or not?
 Well, if you have problems reading this, Codeception can convert this scenario into text written mostly in native English:
 
-
+```
 
 I WANT TO SIGN IN
 I am on page '/login'
@@ -38,7 +36,7 @@ I fill field ['signin[password]', 'qwerty']
 I click 'LOGIN'
 I see 'Welcome, Davert!'
 
-
+```
 
 This scenario can be performed in either simple PHP browser or within the browser through Selenium (also Sahi or ZombieJS).
 
