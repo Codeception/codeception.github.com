@@ -23,9 +23,9 @@ html,body{margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;fon
 #footer h4 {
   color: #000;
 }
-.layout {
+.body {
  background: url(/images/bg.png); 
 }
-.layout .content {
+.layout, .layout .content {
   background: none;
 }
