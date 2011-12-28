@@ -44,9 +44,11 @@ $I->submitForm('#login', array('login' => 'davert', 'password' => '123456'));
 
 ```
 
+
 For sample Sign Up form:
 
-``` html
+```
+ html
 <form action="/sign_up">
     Login: <input type="text" name="user[login]" /><br/>
     Password: <input type="password" name="user[password]" /><br/>
@@ -55,6 +57,7 @@ For sample Sign Up form:
     <input type="submit" value="Submit" />
 </form>
 ```
+
 I can write this:
 
 {% highlight php %}
@@ -63,6 +66,7 @@ I can write this:
 $I->submitForm('#userForm', array('user' => array('login' => 'Davert', 'password' => '123456', 'agree' => true)));
 
 ```
+
 Note, that pricing plan will be set to Paid, as it's selected on page.
 
  * param $selector
@@ -87,6 +91,7 @@ Note, that pricing plan will be set to Paid, as it's selected on page.
  $I->sendAjaxGetRequest('/updateSettings', array('notifications' => true); // GET
 
  ```
+
 
   * param $uri
   * param $params
@@ -117,12 +122,14 @@ Specify the css selector to match only specific region.
 
 Examples:
 
-```php
+```
+php
 <?php
 $I->dontSee('Login'); // I can suppose user is already logged in
 $I->dontSee('Sign Up','h1'); // I can suppose it's not a signup page
 
 ```
+
 
  * param $text
  * param null $selector
@@ -143,6 +150,7 @@ $I->see('Sign Up','h1'); // I can suppose it's a signup page
 
 ```
 
+
  * param $text
  * param null $selector
 
@@ -162,6 +170,7 @@ $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
 
 ```
 
+
  * param $text
  * param null $url
 
@@ -179,6 +188,7 @@ Examples:
 $I->dontSeeLink('Logout'); // I suppose user is not logged in
 
 ```
+
 
  * param $text
  * param null $url
@@ -278,6 +288,7 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
 
 ```
 
+
  * param $selector
 
 ### dontSeeCheckboxIsChecked
@@ -295,6 +306,7 @@ $I->dontSeeCheckboxIsChecked('#agree'); // I suppose user didn't agree to terms
 $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user didn't check the first checkbox in form.
 
 ```
+
 
  * param $selector
 

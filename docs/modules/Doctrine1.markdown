@@ -33,6 +33,7 @@ $I->seeInTable('User', array('name' => 'Davert', 'email' => 'davert * mail.com')
 
 ```
 
+
  * param $model
  * param array $values
 
@@ -50,6 +51,7 @@ Example:
 $I->dontSeeInTable('User', array('name' => 'Davert', 'email' => 'davert * mail.com'));
 
 ```
+
 
  * param $model
  * param array $values

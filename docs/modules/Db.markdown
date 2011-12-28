@@ -12,7 +12,9 @@ That's why this module was added into global configuration file: codeception.yml
 To have your database properly cleaned you should configure it to access the database.
 
 In order to have your database populated with data you need a raw SQL dump.
-Just put it in ``` tests/_data ``` dir (by default) and specify path to it in config.
+Just put it in ```
+ tests/_data ```
+ dir (by default) and specify path to it in config.
 Next time after database is cleared all your data will be restored from dump.
 Don't forget to include CREATE TABLE statements into it.
 
@@ -48,11 +50,14 @@ Example:
 $I->seeInDatabase('users', array('name' => 'Davert', 'email' => 'davert * mail.com'));
 
 ```
+
 Will generate:
 
-``` sql
+```
+ sql
 SELECT COUNT(*) FROM `users` WHERE `name` = 'Davert' AND `email` = 'davert * mail.com'
 ```
+
 Fails if no such user found.
 
  * param $table
@@ -74,11 +79,14 @@ Example:
 $I->seeInDatabase('users', array('name' => 'Davert', 'email' => 'davert * mail.com'));
 
 ```
+
 Will generate:
 
-``` sql
+```
+ sql
 SELECT COUNT(*) FROM `users` WHERE `name` = 'Davert' AND `email` = 'davert * mail.com'
 ```
+
 Fails if such user was found.
 
  * param $table

@@ -25,6 +25,7 @@ $I->seeResultEquals(true);
 
 ```
 
+
 This a simple test of very simple function. The similar test in PHPUnit will look like this:
 
 {% highlight php %}
@@ -35,6 +36,7 @@ public function testValidateEmail()
 }
 ?>
 ```
+
 
 As you can see there is no any practical reason using Codeception for simple methods. No problems if you prefer PHPUnit tests over Codeception DSL. The Codeception can run any PHPUnit test natively, as it uses PHPUnit engine. 
 
@@ -66,6 +68,7 @@ class UserController extends AbtractController {
 ?>
 
 ```
+
 
 We want to test the show method. As you can see it's rather different then the 'validateEmail' function from previous example.
 This because method show relies on other functions and classes.
@@ -106,6 +109,7 @@ class UserControllerCest {
 ?>
 ```
 
+
 This test is written as a simple scenario. Every command of scenario clearly describes the action being taken. We will review this code now.
 
 First of all, take a look at Cest suffix. By it Codeception knows it's a Cest testing class. Public property class is not less important. It defines the class which is being tested. Each public method of class will be treated as a test. Please note, that name of each test method is the same as method which is actually being tested. In other words, to test UserController.show we use UserControllerCest.show, UserController.edit => UserControllerCest.edit, etc. The only parameter of test method is CodeGuy class instance. 
@@ -135,6 +139,7 @@ Next we connect both stubbed classes. We'd normally use:
     $controller->db = $db;
 ?>
 ```
+
 
 But $controller->db property can be protected. By using 'setProperty' command we can set values even to protected and private properties! It can be done with the power of [Reflection](http://php.net/manual/en/book.reflection.php).
 
@@ -193,6 +198,7 @@ class UserControllerTest extends PHPUnit_Framework_TestCase
 }
 ?>
 ```
+
 This test is 1.5 times longer. One test is split into two. Mocking requires strong knowledge of PHPUnit API. It's hard to understand behavior of tested method 'show' without looking into it's code.
 Nevertheless this test is quite readable. 
 

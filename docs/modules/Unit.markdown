@@ -44,6 +44,7 @@ class ScenarioCest
 
 ```
 
+
 ## Features
 * Descriptive - simply write what do you test and how do you test.
 * Method execution limit - you are allowed only to execute tested method inside the scenario. Don't test several methods inside one unit.
@@ -86,6 +87,7 @@ class Unit {
 
 ```
 
+
 For PHPUnit our test will look like:
 
 {% highlight php %}
@@ -98,6 +100,7 @@ $observer->expects($this->once())
 
 $unit->run();
 ```
+
 
 For assertion we use ->expects($this->once()) construction.
 So, we have assertions that are assertions, and assertions that are expectations...
@@ -116,6 +119,7 @@ $I->executeTestedMethodOn($unit);
 $I->seeMethodInvoked($unit, 'runExtra');
 
 ```
+
 So, that becomes much clearer.
 We define stub (as environment) before the method execution.
 We execute method.
@@ -155,6 +159,7 @@ For non-static methods:
 $I->testMethod('ClassName.MethodName'); // I will need ClassName instance for this
 ```
 
+
 For static methods:
 
 {% highlight php %}
@@ -162,6 +167,7 @@ For static methods:
 <?php
 $I->testMethod('ClassName::MethodName');
 ```
+
 
  * param $signature
 
@@ -213,6 +219,7 @@ For non-static methods:
 $I->executeTestedMethod($object, 1, 'hello', array(5,4,5));
 ```
 
+
 The same for static method
 
 {% highlight php %}
@@ -220,6 +227,7 @@ The same for static method
 <?php
 $I->executeTestedMethod(1, 'hello', array(5,4,5));
 ```
+
 
  * param $object null
  * throws \InvalidArgumentException

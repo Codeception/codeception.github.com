@@ -28,6 +28,8 @@ With no knowledge in PHP or HTML you can still read this scenario. Or not?
 Well, if you have problems reading this, Codeception can convert this scenario into text written mostly in native English:
 
 ```
+
+
 I WANT TO SIGN IN
 I am on page '/login'
 I fill field ['signin[username]', 'davert']
@@ -36,6 +38,7 @@ I click 'LOGIN'
 I see 'Welcome, Davert!'
 
 ```
+
 
 This scenario can be performed in either simple PHP browser or within the browser through Selenium (also Sahi or ZombieJS).
 

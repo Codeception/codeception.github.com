@@ -40,6 +40,7 @@ $I->see('Thank you for Signing Up!');
 
 ```
 
+
 #### Pros
 
 * can be run on any website
@@ -77,6 +78,7 @@ $I->seeEmailSent('miles@davis.com', 'Thank you for registration');
 $I->seeInDatabase('users', array('email' => 'miles@davis.com'));
 
 ```
+
 
 #### Pros
 
@@ -118,6 +120,7 @@ $I->seeMethodInvoked($unit, 'save');
 $I->seeInDatabase('users', array('id' => 1, 'username' => 'miles'));
 
 ```
+
 
 #### Pros
 
