@@ -13,7 +13,7 @@ To have your database properly cleaned you should configure it to access the dat
 
 In order to have your database populated with data you need a raw SQL dump.
 Just put it in {% highlight bash %}
-
+ tests/_data 
 {% endhighlight %} dir (by default) and specify path to it in config.
 Next time after database is cleared all your data will be restored from dump.
 Don't forget to include CREATE TABLE statements into it.
