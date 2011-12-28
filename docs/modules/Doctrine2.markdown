@@ -12,14 +12,12 @@ As the module uses active connection and active entity manager, instance of this
 
 It can be done in bootstrap file, by setting static $em property:
 
-``
-
+ php
 {% highlight php %}
 <?php
 
 \Codeception\Module\Doctrine2::$em = $em
 
-``
 
 
 ## Config
@@ -40,12 +38,10 @@ Adds entity to repository and flushes. You can redefine it's properties with the
 
 Example:
 
-``
-
+ php
 {% highlight php %}
 <?php
 $I->persistEntity($user, array('name' => 'Miles'));
-``
 
 
  * param $obj
@@ -61,14 +57,12 @@ Please, note: this fake repositories will be accessible through entity manager t
 
 Example:
 
-``
-
+ php
 {% highlight php %}
 <?php
 
 $I->haveFakeRepository('Entity\User', array('findByUsername' => function($username) {  return null; }));
 
-``
 
 
 This creates a stub class for Entity\User repository with redefined method findByUsername, which will always return the NULL value.
