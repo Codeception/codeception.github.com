@@ -31,8 +31,7 @@ Example:
 <?php
 $I->seeInTable('User', array('name' => 'Davert', 'email' => 'davert * mail.com'));
 
-```
-
+``
 
  * param $model
  * param array $values
@@ -50,8 +49,7 @@ Example:
 <?php
 $I->dontSeeInTable('User', array('name' => 'Davert', 'email' => 'davert * mail.com'));
 
-```
-
+``
 
  * param $model
  * param array $values

@@ -112,14 +112,12 @@ Specify the css selector to match only specific region.
 
 Examples:
 
-```
-php
+``php
 <?php
 $I->dontSee('Login'); // I can suppose user is already logged in
 $I->dontSee('Sign Up','h1'); // I can suppose it's not a signup page
 
-```
-
+``
 
  * param $text
  * param null $selector
@@ -138,8 +136,7 @@ Examples:
 $I->see('Logout'); // I can suppose user is logged in
 $I->see('Sign Up','h1'); // I can suppose it's a signup page
 
-```
-
+``
 
  * param $text
  * param null $selector
@@ -158,8 +155,7 @@ Examples:
 $I->seeLink('Logout'); // matches <a href="#">Logout</a>
 $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
 
-```
-
+``
 
  * param $text
  * param null $url
@@ -177,8 +173,7 @@ Examples:
 <?php
 $I->dontSeeLink('Logout'); // I suppose user is not logged in
 
-```
-
+``
 
  * param $text
  * param null $url
@@ -276,8 +271,7 @@ Example:
 $I->seeCheckboxIsChecked('#agree'); // I suppose user agreed to terms
 $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user agreed to terms, If there is only one checkbox in form.
 
-```
-
+``
 
  * param $selector
 
@@ -295,8 +289,7 @@ Example:
 $I->dontSeeCheckboxIsChecked('#agree'); // I suppose user didn't agree to terms
 $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user didn't check the first checkbox in form.
 
-```
-
+``
 
  * param $selector
 

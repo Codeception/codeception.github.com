@@ -18,8 +18,7 @@ It can be done in bootstrap file, by setting static $em property:
 
 \Codeception\Module\Doctrine2::$em = $em
 
-```
-
+``
 
 ## Config
 * cleanup: true - all doctrine queries will be run in transaction, which will be rolled back at the end of test.
@@ -43,8 +42,7 @@ Example:
 
 <?php
 $I->persistEntity($user, array('name' => 'Miles'));
-```
-
+``
 
  * param $obj
  * param array $values
@@ -65,8 +63,7 @@ Example:
 
 $I->haveFakeRepository('Entity\User', array('findByUsername' => function($username) {  return null; }));
 
-```
-
+``
 
 This creates a stub class for Entity\User repository with redefined method findByUsername, which will always return the NULL value.
 
