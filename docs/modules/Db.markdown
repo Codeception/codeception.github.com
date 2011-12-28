@@ -42,8 +42,9 @@ Provide table name and column values.
 
 Example:
 
-
+``
 {% highlight php %}
+<?php
 $I->seeInDatabase('users', array('name' => 'Davert', 'email' => 'davert * mail.com'));
 
 ``
@@ -67,8 +68,9 @@ Provide table name and column values.
 
 Example:
 
-
+``
 {% highlight php %}
+<?php
 $I->seeInDatabase('users', array('name' => 'Davert', 'email' => 'davert * mail.com'));
 
 ``

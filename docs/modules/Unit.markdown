@@ -12,8 +12,9 @@ By providing unique set of features Unit module makes your tests cleaner, readab
 
 Here is example of unit test, which tests one of the methods of Codeception core.
 
-
+``
 {% highlight php %}
+<?php
 class ScenarioCest
 {
     public $class = '\Codeception\Scenario';
@@ -66,8 +67,9 @@ Thus, the structure of test becomes harder for reading and understanding. Assert
 
 Let's say we want to test method run for class Unit
 
-
+``
 {% highlight php %}
+<?php
 
 class Unit {
 
@@ -86,8 +88,9 @@ class Unit {
 
 For PHPUnit our test will look like:
 
-
+``
 {% highlight php %}
+<?php
 
 $unit = $this->getMock('Unit', array('runExtra'));
 $observer->expects($this->once())
@@ -102,8 +105,9 @@ What a mess!
 
 Here, how the CodeGuy scenario looks like:
 
-
+``
 {% highlight php %}
+<?php
 
 $I = new CodeGuy($scenario);
 $I->testMethod('Unit.run');
@@ -145,15 +149,17 @@ Please, not that it also update the feature section of scenario.
 
 For non-static methods:
 
-
+``
 {% highlight php %}
+<?php
 $I->testMethod('ClassName.MethodName'); // I will need ClassName instance for this
 ``
 
 For static methods:
 
-
+``
 {% highlight php %}
+<?php
 $I->testMethod('ClassName::MethodName');
 ``
 
@@ -201,15 +207,17 @@ Examples:
 
 For non-static methods:
 
-
+``
 {% highlight php %}
+<?php
 $I->executeTestedMethod($object, 1, 'hello', array(5,4,5));
 ``
 
 The same for static method
 
-
+``
 {% highlight php %}
+<?php
 $I->executeTestedMethod(1, 'hello', array(5,4,5));
 ``
 

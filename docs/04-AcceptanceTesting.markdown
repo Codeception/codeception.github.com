@@ -12,8 +12,9 @@ We call him a WebGuy, as he uses web browser to open your site and test it's beh
 
 Writing Codeception tests is just the same as describing actions you perform on a site. Only the basic knowlegde of HTML and PHP is required for wrinig such tests. 
 
-
+``
 {% highlight php %}
+<?php
 $I = new WebGuy($scenario);
 $I->wantTo('sign in');
 $I->amOnPage('/login');
@@ -21,6 +22,7 @@ $I->fillField('signin[username]', 'davert');
 $I->fillField('signin[password]','qwerty');
 $I->click('LOGIN');
 $I->see('Welcome, Davert!');
+?>
 {% endhighlight %}
 ``
 

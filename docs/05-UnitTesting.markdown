@@ -13,24 +13,28 @@ Unit tests are required to be readable as much as possible. They should be clean
 
 With the Codeception you should describe your test in a scenario, as we did it for acceptance test.
 
-
+``
 {% highlight php %}
+<?php
 
 $I = new CodeGuy($scenario);
 $I->testMethod('Validator::validateEmail');
 $I->executeTestedMethodWith('davert@mail.ua');
 $I->seeResultEquals(true);
+?>
 {% endhighlight %}
 
 ``
 
 This a simple test of very simple function. The similar test in PHPUnit will look like this:
 
-
+``
 {% highlight php %}
+<?php
 public function testValidateEmail()
     $this->assertTrue(Validator::validateEmail('davert@mail.ua'));
 }
+?>
 {% endhighlight %}
 ``
 
@@ -48,8 +52,9 @@ Let's show how Codeception simplifies unit testing for controller classes.
 
 We have controller class of imaginable MVC framework:
 
-
+``
 {% highlight php %}
+<?php
 class UserController extends AbtractController {
 
     public function show($id)
@@ -60,6 +65,7 @@ class UserController extends AbtractController {
         return true;
     }
 }
+?>
 {% endhighlight %}
 
 ``
@@ -77,8 +83,9 @@ For unit tests Codeception provides a different test file format. It's called Ce
 
 Here is the Codeception test for the 'show' action:
 
-
+``
 {% highlight php %}
+<?php
 class UserControllerCest {
     public $class = 'UserController';
 
@@ -99,6 +106,7 @@ class UserControllerCest {
             ->seeMethodNotInvoked($controller, 'render');
     }
 }
+?>
 {% endhighlight %}
 ``
 
@@ -125,9 +133,11 @@ For $db property which is supposed to be DbConnector (Database class) instance w
 
 Next we connect both stubbed classes. We'd normally use:
 
-
+``
 {% highlight php %}
+<?php
     $controller->db = $db;
+?>
 {% endhighlight %}
 ``
 
@@ -150,8 +160,9 @@ That's why we use 'expect' to describe the function description.
 To prove Codeception was useful for controller testing, we will write same test in PHPUnit. 
 Remember, it can be run with Codeception too.
 
-
+``
 {% highlight php %}
+<?php
 
 class UserControllerTest extends PHPUnit_Framework_TestCase
 {
@@ -185,6 +196,7 @@ class UserControllerTest extends PHPUnit_Framework_TestCase
         $this->assertNotEquals(true, $controller->show(0));
     }
 }
+?>
 {% endhighlight %}
 ``
 This test is 1.5 times longer. One test is split into two. Mocking requires strong knowledge of PHPUnit API. It's hard to understand behavior of tested method 'show' without looking into it's code.

@@ -29,8 +29,9 @@ Please, note, that **any site** can be covered with acceptance tests. Even you u
 
 #### Sample acceptance test
 
-
+``
 {% highlight php %}
+<?php
 $I = new TestGuy($scenario);
 $I->amOnPage('/');
 $I->click('Sign Up');
@@ -64,8 +65,9 @@ Codeceptance provides connectors to several popular PHP frameworks, but you can 
 
 #### Sample functional test
 
-
+``
 {% highlight php %}
+<?php
 $I = new TestGuy($scenario);
 $I->amOnPage('/');
 $I->click('Sign Up');
@@ -101,8 +103,9 @@ But Codeception provides some good tools to have your unit tests simplier and cl
 
 #### Sample integration test
 
-
+``
 {% highlight php %}
+<?php
 // we are testing public method of User class.
 // It requires the user_id and array of parameters.
 
