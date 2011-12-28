@@ -23,14 +23,11 @@ $I->amOnPage('/');
 $I->click('Pages');
 $I->click('New');
 $I->see('New Page');
-$I->submitForm('#pageForm', array('page' => array(
-    'title' => 'Tree of Life Movie Review',
-    'body' => 'Next time don\'t let Hollywood create arthouse =) '
-)));
+$I->submitForm('form#new', array('title' => 'Hobbit', 'body' => 'From Peter Jackson'));
 $I->see('page created'); // notice generated
-$I->see('Tree of Life Movie Review','h1'); // head of page of is our title
-$I->seeInCurrentUrl('pages/tree-of-life-mobie-review'); // slug is generated
-$I->seeInDatabase('pages', array('title' => 'Tree of Life Movie Review')); // data is stored in database
+$I->see('Hobbit','h1'); // head of page of is our title
+$I->seeInCurrentUrl('pages/hobbit'); // slug is generated
+$I->seeInDatabase('pages', array('title' => 'Hobbit')); // data is stored in database
 ?>
 {% endhighlight %}
 
