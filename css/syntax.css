@@ -32,6 +32,8 @@ code.yaml .nv {color: #fff;}
 }
 
 code {
-	color: white;
-	background: #222;
+	font-family: "Bitstream Vera Sans Mono",monospace;
+	color: #222;
+	padding: 5px;
+	background: white;
 }	

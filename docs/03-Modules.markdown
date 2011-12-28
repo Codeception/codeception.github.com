@@ -341,8 +341,7 @@ class Selenium extends \Codeception\Util\MinkJS
 
 The host and port parameter can be redefined in suite config. Values are set in 'modules:config' section of configuration file.
 
-``
-
+`
 modules:
     enabled:
         - Selenium
@@ -354,7 +353,7 @@ modules:
         Db:
             cleanup: false
             repopulate: false
-``
+`
 
 
  Optional and mandatory parameters can be accessed through the $config property. Use $this->config['parameter'] to get it's value. 
