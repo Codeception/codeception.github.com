@@ -13,6 +13,7 @@ By providing unique set of features Unit module makes your tests cleaner, readab
 Here is example of unit test, which tests one of the methods of Codeception core.
 
 ``
+
 {% highlight php %}
 <?php
 class ScenarioCest
@@ -44,6 +45,7 @@ class ScenarioCest
 
 ``
 
+
 ## Features
 * Descriptive - simply write what do you test and how do you test.
 * Method execution limit - you are allowed only to execute tested method inside the scenario. Don't test several methods inside one unit.
@@ -68,6 +70,7 @@ Thus, the structure of test becomes harder for reading and understanding. Assert
 Let's say we want to test method run for class Unit
 
 ``
+
 {% highlight php %}
 <?php
 
@@ -86,9 +89,11 @@ class Unit {
 
 ``
 
+
 For PHPUnit our test will look like:
 
 ``
+
 {% highlight php %}
 <?php
 
@@ -99,6 +104,7 @@ $observer->expects($this->once())
 $unit->run();
 ``
 
+
 For assertion we use ->expects($this->once()) construction.
 So, we have assertions that are assertions, and assertions that are expectations...
 What a mess!
@@ -106,6 +112,7 @@ What a mess!
 Here, how the CodeGuy scenario looks like:
 
 ``
+
 {% highlight php %}
 <?php
 
@@ -116,6 +123,7 @@ $I->executeTestedMethodOn($unit);
 $I->seeMethodInvoked($unit, 'runExtra');
 
 ``
+
 So, that becomes much clearer.
 We define stub (as environment) before the method execution.
 We execute method.
@@ -150,18 +158,22 @@ Please, not that it also update the feature section of scenario.
 For non-static methods:
 
 ``
+
 {% highlight php %}
 <?php
 $I->testMethod('ClassName.MethodName'); // I will need ClassName instance for this
 ``
 
+
 For static methods:
 
 ``
+
 {% highlight php %}
 <?php
 $I->testMethod('ClassName::MethodName');
 ``
+
 
  * param $signature
 
@@ -208,18 +220,22 @@ Examples:
 For non-static methods:
 
 ``
+
 {% highlight php %}
 <?php
 $I->executeTestedMethod($object, 1, 'hello', array(5,4,5));
 ``
 
+
 The same for static method
 
 ``
+
 {% highlight php %}
 <?php
 $I->executeTestedMethod(1, 'hello', array(5,4,5));
 ``
+
 
  * param $object null
  * throws \InvalidArgumentException
