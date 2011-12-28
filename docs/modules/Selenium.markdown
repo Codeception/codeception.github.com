@@ -113,7 +113,7 @@ Specify the css selector to match only specific region.
 Examples:
 
 ``php
-<?php
+{% highlight php %}
 $I->dontSee('Login'); // I can suppose user is already logged in
 $I->dontSee('Sign Up','h1'); // I can suppose it's not a signup page
 
@@ -130,8 +130,8 @@ Specify the css selector to match only specific region.
 
 Examples:
 
+
 {% highlight php %}
-<?php
 $I->see('Logout'); // I can suppose user is logged in
 $I->see('Sign Up','h1'); // I can suppose it's a signup page
 
@@ -148,8 +148,8 @@ Specify url to match link with exact this url.
 
 Examples:
 
+
 {% highlight php %}
-<?php
 $I->seeLink('Logout'); // matches <a href="#">Logout</a>
 $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
 
@@ -166,8 +166,8 @@ Specify url to narrow the results.
 
 Examples:
 
+
 {% highlight php %}
-<?php
 $I->dontSeeLink('Logout'); // I suppose user is not logged in
 
 ``
@@ -262,8 +262,8 @@ Use css selector or xpath to match.
 
 Example:
 
+
 {% highlight php %}
-<?php
 $I->seeCheckboxIsChecked('#agree'); // I suppose user agreed to terms
 $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user agreed to terms, If there is only one checkbox in form.
 
@@ -279,8 +279,8 @@ Use css selector or xpath to match.
 
 Example:
 
+
 {% highlight php %}
-<?php
 $I->dontSeeCheckboxIsChecked('#agree'); // I suppose user didn't agree to terms
 $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user didn't check the first checkbox in form.
 
