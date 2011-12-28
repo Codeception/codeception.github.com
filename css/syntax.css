@@ -1,10 +1,10 @@
 .php .hll { background-color: #ffffcc }
 .php .c { color: #60a0b0; font-style: italic } /* Comment */
 .php .err { border: 1px solid #FF0000 } /* Error */
-.php .k { color: #007020; font-weight: bold } /* Keyword */
+.php .k { color: #CCCCCC; font-weight: bold } /* Keyword */
 .php .o { color: #666666 } /* Operator */
 .php .cm { color: #60a0b0; font-style: italic } /* Comment.Multiline */
-.php .cp { color: #007020 } /* Comment.Preproc */
+.php .cp { color: #fff } /* Comment.Preproc */
 .php .c1 { color: #60a0b0; font-style: italic } /* Comment.Single */
 .php .cs { color: #60a0b0; background-color: #fff0f0 } /* Comment.Special */
 .php .gd { color: #A00000 } /* Generic.Deleted */
@@ -25,14 +25,14 @@
 .php .kt { color: #902000 } /* Keyword.Type */
 .php .m { color: #40a070 } /* Literal.Number */
 .php .s { color: #4070a0 } /* Literal.String */
-.php .na { color: #4070a0 } /* Name.Attribute */
+.php .na { color: #6DA5EA; } /* Name.Attribute */
 .php .nb { color: #007020 } /* Name.Builtin */
-.php .nc { color: #0e84b5; font-weight: bold } /* Name.Class */
-.php .no { color: #60add5 } /* Name.Constant */
+.php .nc { color: #97C9D8; font-weight: bold } /* Name.Class */
+.php .no { color: #97C9D8; } /* Name.Constant */
 .php .nd { color: #555555; font-weight: bold } /* Name.Decorator */
 .php .ni { color: #d55537; font-weight: bold } /* Name.Entity */
-.php .ne { color: #007020 } /* Name.Exception */
-.php .nf { color: #06287e } /* Name.Function */
+.php .ne { color: #97C9D8; } /* Name.Exception */
+.php .nf { color: #97C9D8; } /* Name.Function */
 .php .nl { color: #002070; font-weight: bold } /* Name.Label */
 .php .nn { color: #0e84b5; font-weight: bold } /* Name.Namespace */
 .php .nt { color: #062873; font-weight: bold } /* Name.Tag */
@@ -52,7 +52,7 @@
 .php .si { color: #70a0d0; font-style: italic } /* Literal.String.Interpol */
 .php .sx { color: #c65d09 } /* Literal.String.Other */
 .php .sr { color: #235388 } /* Literal.String.Regex */
-.php .s1 { color: #4070a0 } /* Literal.String.Single */
+.php .s1 { color: #87D139 } /* Literal.String.Single */
 .php .ss { color: #517918 } /* Literal.String.Symbol */
 .php .bp { color: #007020 } /* Name.Builtin.Pseudo */
 .php .vc { color: #bb60d5 } /* Name.Variable.Class */
