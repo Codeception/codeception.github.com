@@ -20,3 +20,6 @@ html,body{margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;fon
     text-decoration: none;
     text-shadow: 0 0 0.5em #444444;
 }
+.footer h4 {
+  color: #000;
+}
