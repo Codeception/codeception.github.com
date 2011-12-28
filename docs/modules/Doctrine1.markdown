@@ -26,11 +26,13 @@ Provide Doctrine model name can be passed to addWhere DQL
 
 Example:
 
-``` php
+{% highlight php %}
+
 <?php
 $I->seeInTable('User', array('name' => 'Davert', 'email' => 'davert * mail.com'));
 
-```
+
+{% endhighlight %}
 
  * param $model
  * param array $values
@@ -43,11 +45,13 @@ Provide Doctrine model name and criteria that can be passed to addWhere DQL
 
 Example:
 
-``` php
+{% highlight php %}
+
 <?php
 $I->dontSeeInTable('User', array('name' => 'Davert', 'email' => 'davert * mail.com'));
 
-```
+
+{% endhighlight %}
 
  * param $model
  * param array $values

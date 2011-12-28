@@ -44,16 +44,20 @@ Provide table name and column values.
 
 Example:
 
-``` php
+{% highlight php %}
+
 <?php
 $I->seeInDatabase('users', array('name' => 'Davert', 'email' => 'davert * mail.com'));
 
-```
+
+{% endhighlight %}
 Will generate:
 
-``` sql
+{% highlight bash %}
+ sql
 SELECT COUNT(*) FROM `users` WHERE `name` = 'Davert' AND `email` = 'davert * mail.com'
-```
+
+{% endhighlight %}
 Fails if no such user found.
 
  * param $table
@@ -69,16 +73,20 @@ Provide table name and column values.
 
 Example:
 
-``` php
+{% highlight php %}
+
 <?php
 $I->seeInDatabase('users', array('name' => 'Davert', 'email' => 'davert * mail.com'));
 
-```
+
+{% endhighlight %}
 Will generate:
 
-``` sql
+{% highlight bash %}
+ sql
 SELECT COUNT(*) FROM `users` WHERE `name` = 'Davert' AND `email` = 'davert * mail.com'
-```
+
+{% endhighlight %}
 Fails if such user was found.
 
  * param $table
