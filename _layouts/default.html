@@ -32,15 +32,12 @@
 
   <div class="layout">
     <div class="content">      
-          <div id="toc">
-
-          </div>
-               
+              
 
     <script type="text/javascript" charset="utf-8">
   $(document).ready(function(){ 
     $("#toc").tableOfContents(
-      $("#wrapper"),      // Scoped to div#wrapper
+      $(".content"),      // Scoped to div#wrapper
       {
         startLevel: 2,    // H2 and up
         depth:      3,    // H2 through H4,
@@ -51,6 +48,9 @@
 </script>
 
       <div>
+                <div id="toc">
+          </div>
+
             {{ content }}
       </div>  
     </div>
