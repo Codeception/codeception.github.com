@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Codeception - Documentation
 ---
 
@@ -15,6 +15,7 @@ There is no difference what CMS or Framework is used on the site. You can event 
 Probably, the test you want to run in a first place would be signing in. To write such test we still require basic knowledge of PHP and HTML.
 
 {% highlight php %}
+
 <?php
 $I = new WebGuy($scenario);
 $I->wantTo('sign in');
@@ -24,11 +25,14 @@ $I->fillField('signin[password]','qwerty');
 $I->click('LOGIN');
 $I->see('Welcome, Davert!');
 ?>
+
 {% endhighlight %}
 
 Probably, this scenario can be read by non-technical people. Codeception can even 'naturalize' this scenario, converting it into plain English:
 
-{% endhighlight %}
+{% highlight bash %}
+
+
 I WANT TO SIGN IN
 I am on page '/login'
 I fill field ['signin[username]', 'davert']
@@ -36,12 +40,15 @@ I fill field ['signin[password]', 'qwerty']
 I click 'LOGIN'
 I see 'Welcome, Davert!'
 
+
 {% endhighlight %}
 
 Such transformation can be done by command. 
 
-{% endhighlight %}
+{% highlight bash %}
+
 $ codecept generate:scenarios
+
 {% endhighlight %}
 Generated scenarios will be stored in your data dir within a text files.
 
@@ -53,7 +60,8 @@ This is the most fastest way of running acceptance test, as it doesn't require r
 
 Before we start we need a local copy of site running on your host. We need to specify the url parameter in acceptance suite config (tests/acceptance.suite.yml).
 
-{% endhighlight %}
+{% highlight bash %}
+
 
 class_name: WebGuy
 modules:
@@ -64,23 +72,28 @@ modules:
     config:
         PhpBrowser:
             url: [your site's url]
+
 {% endhighlight %}
 
  We should start by creating a 'Cept' file in tests/acceptance dir. Let's call it as SigninCept.php. We will write the first lines into it.
 
 {% highlight php %}
+
 <?php
 $I = new WebGuy($scenario);
 $I->wantTo('sign in with valid account');
 ?>
+
 {% endhighlight %}
 
 The 'wantTo' section describe your scenario in short. Then we can use the $I object to write next interactions. All the methods of the $I object are taken from PHPBrowser and Db modules. We will briefly describe them. For the full reference look into modules reference, here on (Codeception.com)[http://codeception.com]. 
 
-{% endhighlight %}
+{% highlight bash %}
+
 <?php
 $I->amOnPage('/login');
 ?>
+
 {% endhighlight %}
 
 We assume that all 'am' commands should describe the starting environment. amOnPage command sets the starting point of test on /login page. By default browser starts on the fron page of your local site. 
@@ -93,6 +106,7 @@ Emulates click on a valid anchors. Page from the "href" parameter will be opened
 As a parameter you can specify link name or valid CSS selector. Before clicking the link you can perform a check if the link really exists on a page. This can be done by seeLink action.
 
 {% highlight php %}
+
 <?php
 $I->click('Log in'); 
 
@@ -104,6 +118,7 @@ $I->seeLink('Login');
 $I->seeLink('Login','/login');
 $I->seeLink('#login a','/login');
 ?>
+
 {% endhighlight %}
 
 #### Forms
@@ -113,7 +128,8 @@ The most routine and waste of time goes to testing of forms. Codeception provide
 
 Let's submit this sample form inside the Codeception test.
 
-{% endhighlight %} html
+{% highlight php %}
+
 <form method="post" action="/update" id="update_form">
 	<label for="user_name">Name</label>
 	<input type="text" name="user[name]" id="user_name" />
@@ -126,11 +142,13 @@ Let's submit this sample form inside the Codeception test.
 	</select>	
 	<input type="submit" value="Update" />
 </form>
+
 {% endhighlight %}
 
 From user's perspective form consists of fields which should be filled, and then a Update button clicked. 
 
 {% highlight php %}
+
 <?php
 // we are using label to match user_name field
 $I->fillField('Name', 'Miles');
@@ -139,6 +157,7 @@ $I->fillField('user[email]','miles@davis.com');
 $I->selectOption('Gender','Male');
 $I->press('Update');
 ?>
+
 {% endhighlight %}
 
 To match fields by their labels, you should write a 'for' attribute in label tag.
@@ -148,6 +167,7 @@ Sometimes it's easier to fill all the fields at once and send the form without c
 Similar scenario can be rewritten with only one command.
 
 {% highlight php %}
+
 <?php
 $I->submitForm('#update_form', array('user' => array(
 	'name' => 'Miles',
@@ -155,6 +175,7 @@ $I->submitForm('#update_form', array('user' => array(
 	'gender' => 'm'
 )));
 ?>
+
 {% endhighlight %}
 
 The submitForm is not emulating a user's actions. But it's quite useful in situations when the form is not formatted properly.
@@ -169,10 +190,12 @@ As we know, PHP browser can't process javascript. Still, all the ajax calls can 
 Consider using this methods, for Ajax interactions.
 
 {% highlight php %}
+
 <?php
 $I->sendAjaxGetRequest('/refresh');
 $I->sendAjaxPostRequest('/update',array('name' => 'Miles', 'email' => 'Davis'));
 ?>
+
 {% endhighlight %}
 
 #### Assertions
@@ -180,7 +203,8 @@ $I->sendAjaxPostRequest('/update',array('name' => 'Miles', 'email' => 'Davis'));
 In PHP browser you can test a page contents. In most cases just need to check that required text or element is on the page.
 Most useful command fir this is 'see'.
 
-{% endhighlight %}
+{% highlight bash %}
+
 <?php
 // We check that 'Thank you, Miles' is on page.
 $I->see('Thank you, Miles');
@@ -192,16 +216,19 @@ $I->see('Thank you, Miles','.notice');
 // We check this message is not on page.
 $I->dontSee('Form is filled incorrectly');
 ?>
+
 {% endhighlight %}
 
 Also we have other useful commands to perform checks. Please, note, all of them starts with the 'see' prefix.
 
 {% highlight php %}
+
 <?php
 $I->seeInCurrentUrl('/user/miles');
 $I->seeCheckboxIsChecked('#agree');
 $I->seeInField('user[name]','Miles');
 ?>
+
 {% endhighlight %}
 
 #### Comments
@@ -210,6 +237,7 @@ Within a long scenarios you should describe what actions are you going to perfor
 Commands like amGoingTo, expect, expectTo helps you in making test more descriptive.
 
 {% highlight php %}
+
 <?php
 $I->amGoingTo('submit user form with invalid values');
 $I->fillField('user[email]','miles');
@@ -217,13 +245,15 @@ $I->click('Update');
 $I->expect('the for is not submitted');
 $I->see('Form is filled incorrectly');
 ?>
+
 {% endhighlight %}
 
 ### Cleaning the things up
 
 While testing your actions may change data on site. Tests will fail trying to create or update the same data twice. To avoid this problem, your database should be repopulated for each test. Codeception provides a Db module for that purposes. It will load a database dump after each passed test. To make repopulation works create sql dump of your database and put it into /tests/data dir. Set the database connection and path to dump in global Codection config.
 
-{% endhighlight %}`
+{% highlight bash %}
+`
 # in codeception.yml:
 modules:
     config:
@@ -232,6 +262,7 @@ modules:
             user: '[set user]'
             password: '[set password]'
             dump: tests/data/dump.sql
+
 
 {% endhighlight %}`
 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Codeception - Documentation
 ---
 
@@ -27,8 +27,10 @@ Provide Doctrine model name can be passed to addWhere DQL
 Example:
 
 {% highlight php %}
+
 <?php
 $I->seeInTable('User', array('name' => 'Davert', 'email' => 'davert * mail.com'));
+
 
 {% endhighlight %}
 
@@ -44,8 +46,10 @@ Provide Doctrine model name and criteria that can be passed to addWhere DQL
 Example:
 
 {% highlight php %}
+
 <?php
 $I->dontSeeInTable('User', array('name' => 'Davert', 'email' => 'davert * mail.com'));
+
 
 {% endhighlight %}
 
