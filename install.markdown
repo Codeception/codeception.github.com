@@ -29,7 +29,7 @@ Run CLI utility:
 $ php codecept.phar
 {% endhighlight %}
 
-## Getting Started
+## Setup
 
 If you sucessfully installed Codeception, run this commands:
 
