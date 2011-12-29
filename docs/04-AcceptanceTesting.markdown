@@ -30,7 +30,7 @@ $I->see('Welcome, Davert!');
 
 Probably, this scenario can be read by non-technical people. Codeception can even 'naturalize' this scenario, converting it into plain English:
 
-{% highlight bash %}
+{% highlight yaml %}
 
 
 I WANT TO SIGN IN
@@ -45,7 +45,7 @@ I see 'Welcome, Davert!'
 
 Such transformation can be done by command. 
 
-{% highlight bash %}
+{% highlight yaml %}
 
 $ codecept generate:scenarios
 
@@ -60,7 +60,7 @@ This is the most fastest way of running acceptance test, as it doesn't require r
 
 Before we start we need a local copy of site running on your host. We need to specify the url parameter in acceptance suite config (tests/acceptance.suite.yml).
 
-{% highlight bash %}
+{% highlight yaml %}
 
 
 class_name: WebGuy
@@ -88,7 +88,7 @@ $I->wantTo('sign in with valid account');
 
 The 'wantTo' section describe your scenario in short. Then we can use the $I object to write next interactions. All the methods of the $I object are taken from PHPBrowser and Db modules. We will briefly describe them. For the full reference look into modules reference, here on (Codeception.com)[http://codeception.com]. 
 
-{% highlight bash %}
+{% highlight yaml %}
 
 <?php
 $I->amOnPage('/login');
@@ -203,7 +203,7 @@ $I->sendAjaxPostRequest('/update',array('name' => 'Miles', 'email' => 'Davis'));
 In PHP browser you can test a page contents. In most cases just need to check that required text or element is on the page.
 Most useful command fir this is 'see'.
 
-{% highlight bash %}
+{% highlight yaml %}
 
 <?php
 // We check that 'Thank you, Miles' is on page.
@@ -252,7 +252,7 @@ $I->see('Form is filled incorrectly');
 
 While testing your actions may change data on site. Tests will fail trying to create or update the same data twice. To avoid this problem, your database should be repopulated for each test. Codeception provides a Db module for that purposes. It will load a database dump after each passed test. To make repopulation works create sql dump of your database and put it into /tests/data dir. Set the database connection and path to dump in global Codection config.
 
-{% highlight bash %}
+{% highlight yaml %}
 `
 # in codeception.yml:
 modules:

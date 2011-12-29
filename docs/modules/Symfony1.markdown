@@ -47,7 +47,7 @@ Specify the css selector to match only specific region.
 
 Examples:
 
-{% highlight bash %}
+{% highlight yaml %}
 php
 <?php
 $I->dontSee('Login'); // I can suppose user is already logged in
