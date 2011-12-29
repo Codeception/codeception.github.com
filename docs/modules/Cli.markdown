@@ -3,23 +3,23 @@ layout: page
 title: Codeception - Documentation
 ---
 
-# Cli
+## Cli
 
-## Actions
+### Actions
 
 
-### amInPath
-
-__not documented__
-
-### runShellCommmand
+#### amInPath
 
 __not documented__
 
-### seeInShellOutput
+#### runShellCommmand
 
 __not documented__
 
-### dontSeeInShellOutput
+#### seeInShellOutput
+
+__not documented__
+
+#### dontSeeInShellOutput
 
 __not documented__

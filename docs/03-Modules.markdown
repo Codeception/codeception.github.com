@@ -30,7 +30,7 @@ It can operate with different entities: the web page can be loaded with Symfony1
 Modules are attached to Guy-classes in suite config.
 For current example in 'tests/functional.suite.yml' we should see.
 
-{% highlight bash %}
+{% highlight yaml %}
 
 class_name: TestGuy
 modules:
@@ -85,7 +85,7 @@ Assertions are a bit tricky. First of all it's recommended to prefix all your as
 
 Name your assertions like:
 
-{% highlight bash %}
+{% highlight yaml %}
 
 seePageReloaded();
 seeClassIsLoaded($classname);
@@ -279,7 +279,7 @@ Here is the sample how it works for PhpBrowser:
 
 The test running with PhpBrowser module in debug mode will print something like this:
 
-{% highlight bash %}
+{% highlight yaml %}
 
 I click "All pages"
 * Request (GET) http://localhost/pages {}
@@ -292,7 +292,7 @@ I click "All pages"
 Modules can be configured from suite config file, or globally from codeception.yml.
 Mandatory parameters should be defined in $$requiredFields property of module class. Here how it is done in Db module
 
-{% highlight bash %}
+{% highlight yaml %}
 
 <?php
 class Db extends \Codeception\Module {
@@ -317,7 +317,7 @@ class Selenium extends \Codeception\Util\MinkJS
 
 The host and port parameter can be redefined in suite config. Values are set in 'modules:config' section of configuration file.
 
-{% highlight bash %}
+{% highlight yaml %}
 
 modules:
     enabled:

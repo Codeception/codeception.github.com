@@ -3,7 +3,7 @@ layout: page
 title: Codeception - Documentation
 ---
 
-# Unit
+## Unit
 
 Unit testing module
 
@@ -45,13 +45,13 @@ class ScenarioCest
 
 {% endhighlight %}
 
-## Features
+### Features
 * Descriptive - simply write what do you test and how do you test.
 * Method execution limit - you are allowed only to execute tested method inside the scenario. Don't test several methods inside one unit.
 * Simple stub definition - create stubbed class with one call. All properties and methods can be passed as callable functions.
 * Dynamic mocking - stubs can be automatically turned to mocks.
 
-## Unit Testing With Scenarios
+### Unit Testing With Scenarios
 
 CodeGuy allows you to define testing scenarios in a natural way.
 Typical test should consist of 3 steps, in this direct order:
@@ -131,7 +131,7 @@ Even junior developer can understand how and what you test here.
 But how is that possible?
 How can we execute $unit->run() and see it triggered $unit->runExtra() afterwards?
 
-## Simple Magic
+### Simple Magic
 
 The magic inside of this module is behind the conecept of Codecept scenarios.
 You describe your test in PHP DSL, then it's logged into scenario, and after that it's run step by step.
@@ -141,10 +141,10 @@ Unit module gets a benefit from it: it's methods can review next steps in scenar
 Thus, the trick is: command $I->executeTestedMethod() doesn't actually execute it :)
 
 
-## Actions
+### Actions
 
 
-### testMethod
+#### testMethod
 
 
 Registers a class/method which will be tested.
@@ -171,7 +171,7 @@ $I->testMethod('ClassName::MethodName');
 
  * param $signature
 
-### haveFakeClass
+#### haveFakeClass
 
 
 Adds a stub to internal registry.
@@ -180,7 +180,7 @@ Without adding stub to registry you can't trace it's method invocations.
 
  * param $instance
 
-### haveStub
+#### haveStub
 
 
 Alias for haveFakeClass
@@ -188,7 +188,7 @@ Alias for haveFakeClass
  * alias haveFakeClass
  * param $instance
 
-### executeTestedMethodOn
+#### executeTestedMethodOn
 
 
 Alias for executeTestedMethod, only for non-static methods
@@ -196,11 +196,11 @@ Alias for executeTestedMethod, only for non-static methods
  * alias executeTestedMethod
  * param $object
 
-### executeTestedMethodWith
+#### executeTestedMethodWith
 
 __not documented__
 
-### executeTestedMethod
+#### executeTestedMethod
 
 
 Executes the method which is tested.
@@ -232,7 +232,7 @@ $I->executeTestedMethod(1, 'hello', array(5,4,5));
  * param $object null
  * throws \InvalidArgumentException
 
-### changeProperties
+#### changeProperties
 
 
 Updates selected properties for object passed.
@@ -241,7 +241,7 @@ Can update even private and protected properties.
  * param $obj
  * param array $values
 
-### changeProperty
+#### changeProperty
 
 
 Updates property of selected object
@@ -251,11 +251,11 @@ Can update even private and protected properties.
  * param $property
  * param $value
 
-### seeExceptionThrown
+#### seeExceptionThrown
 
 __not documented__
 
-### seeMethodInvoked
+#### seeMethodInvoked
 
 
 
@@ -266,7 +266,7 @@ __not documented__
  * param $method
  * param array $params
 
-### seeMethodInvokedOnce
+#### seeMethodInvokedOnce
 
 
 
@@ -276,7 +276,7 @@ __not documented__
  * param $method
  * param array $params
 
-### seeMethodNotInvoked
+#### seeMethodNotInvoked
 
 
 
@@ -286,7 +286,7 @@ __not documented__
  * param $method
  * param array $params
 
-### seeMethodInvokedMultipleTimes
+#### seeMethodInvokedMultipleTimes
 
 
 
@@ -297,37 +297,37 @@ __not documented__
  * param $times
  * param array $params
 
-### seeResultEquals
+#### seeResultEquals
 
 
 Asserts that the last result from tested method is equal to value
 
  * param $value
 
-### seeResultContains
+#### seeResultContains
 
 __not documented__
 
-### dontSeeResultContains
+#### dontSeeResultContains
 
 __not documented__
 
-### seeResultNotEquals
+#### seeResultNotEquals
 
 __not documented__
 
-### seeEmptyResult
+#### seeEmptyResult
 
 __not documented__
 
-### seeResultIs
+#### seeResultIs
 
 __not documented__
 
-### seePropertyEquals
+#### seePropertyEquals
 
 __not documented__
 
-### seePropertyIs
+#### seePropertyIs
 
 __not documented__

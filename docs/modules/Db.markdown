@@ -3,7 +3,7 @@ layout: page
 title: Codeception - Documentation
 ---
 
-# Db
+## Db
 
 Works with SQL dabatase (MySQL tested).
 
@@ -12,13 +12,13 @@ That's why this module was added into global configuration file: codeception.yml
 To have your database properly cleaned you should configure it to access the database.
 
 In order to have your database populated with data you need a raw SQL dump.
-Just put it in {% highlight bash %}
+Just put it in {% highlight yaml %}
  tests/_data 
 {% endhighlight %} dir (by default) and specify path to it in config.
 Next time after database is cleared all your data will be restored from dump.
 Don't forget to include CREATE TABLE statements into it.
 
-## Config
+### Config
 
 * dsn *required* - PDO DSN
 * user *required* - user to access database
@@ -29,14 +29,14 @@ Don't forget to include CREATE TABLE statements into it.
 
 Also provides actions to perform checks in database.
 
-## Public Properties
+### Public Properties
 * dbh - contains PDO connection.
 
 
-## Actions
+### Actions
 
 
-### seeInDatabase
+#### seeInDatabase
 
 
 Checks if a row with given column values exists.
@@ -53,7 +53,7 @@ $I->seeInDatabase('users', array('name' => 'Davert', 'email' => 'davert * mail.c
 {% endhighlight %}
 Will generate:
 
-{% highlight bash %}
+{% highlight yaml %}
  sql
 SELECT COUNT(*) FROM `users` WHERE `name` = 'Davert' AND `email` = 'davert * mail.com'
 
@@ -63,7 +63,7 @@ Fails if no such user found.
  * param $table
  * param array $criteria
 
-### dontSeeInDatabase
+#### dontSeeInDatabase
 
 
 Effect is opposite to ->seeInDatabase
@@ -82,7 +82,7 @@ $I->seeInDatabase('users', array('name' => 'Davert', 'email' => 'davert * mail.c
 {% endhighlight %}
 Will generate:
 
-{% highlight bash %}
+{% highlight yaml %}
  sql
 SELECT COUNT(*) FROM `users` WHERE `name` = 'Davert' AND `email` = 'davert * mail.com'
 
