@@ -31,22 +31,28 @@ $ php codecept.phar
 
 ## Setup
 
-If you sucessfully installed Codeception, run this commands:
+Install required libraries PHPUnit and Mink, by running this command
 
 {% highlight bash %}
 $ codecept install
 {% endhighlight %}
 
-this will install all dependency tools like PHPUnit and Mink
+Go to project you want to test and bootstrap the test environment:
 
 {% highlight bash %}
 $ codecept bootstrap
 {% endhighlight %}
 
-this will create default directory structure and default test suites
+Next, run the build command.
 
 {% highlight bash %}
 $ codecept build
 {% endhighlight %}
 
-This will generate Guy-classes, in order to make autocomplete works.
+At last, Codeception is ready to run the tests.
+
+{% highlight bash %}
+$ codecept run
+{% endhighlight %}
+
+Refer to Codeception Guide to write your first tests.
