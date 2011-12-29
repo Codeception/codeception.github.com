@@ -29,3 +29,8 @@ body {
 .layout, .layout .content {
   background: none;
 }
+
+#toc {
+	margin-bottom: 15px;
+}
+

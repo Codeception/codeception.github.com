@@ -32,11 +32,22 @@
 
   <div class="layout">
     <div class="content">      
-          <div class="promo"></div>
+          <div id="toc">
+
+          </div>
                
 
     <script type="text/javascript" charset="utf-8">
-  $(function(){ $(".promo").tableOfContents(); })
+  $(document).ready(function(){ 
+    $("#toc").tableOfContents(
+      $("#wrapper"),      // Scoped to div#wrapper
+      {
+        startLevel: 2,    // H2 and up
+        depth:      3,    // H2 through H4,
+        topLinks:   true, // Add "Top" Links to Each Header
+      }
+    ); 
+  });
 </script>
 
       <div>
