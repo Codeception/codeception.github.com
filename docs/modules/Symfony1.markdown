@@ -3,7 +3,7 @@ layout: page
 title: Codeception - Documentation
 ---
 
-# Symfony1
+## Symfony1
 
 Module that interacts with Symfony 1.4 applications.
 
@@ -12,26 +12,26 @@ Uses native symfony connections and test classes. Provides additional invormatio
 
 If test fails stores last shown page in 'output' dir.
 
-## Configuration
+### Configuration
 
 * app *required* - application you want to test. In most cases it will be 'frontend'
 * output - dir were last shown page should be stored. Will be stored to 'sf_log_dir' log path If none specified
 
-## Public Properties
+### Public Properties
 * browser - current instance of sfBrowser class.
 
 
-## Actions
+### Actions
 
 
-### amOnPage
+#### amOnPage
 
 
 Opens the page.
 
  * param $page
 
-### click
+#### click
 
 
 Click on link or button and move to next page.
@@ -39,7 +39,7 @@ Either link text, css selector, or xpath can be passed
 
  * param $link
 
-### dontSee
+#### dontSee
 
 
 Check if current page doesn't contain the text specified.
@@ -59,7 +59,7 @@ $I->dontSee('Sign Up','h1'); // I can suppose it's not a signup page
  * param $text
  * param null $selector
 
-### see
+#### see
 
 
 Check if current page contains the text specified.
@@ -79,7 +79,7 @@ $I->see('Sign Up','h1'); // I can suppose it's a signup page
  * param $text
  * param null $selector
 
-### seeLink
+#### seeLink
 
 
 Checks if there is a link with text specified.
@@ -99,7 +99,7 @@ $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
  * param $text
  * param null $url
 
-### dontSeeLink
+#### dontSeeLink
 
 
 Checks if page doesn't contain the link with text specified.
@@ -118,7 +118,7 @@ $I->dontSeeLink('Logout'); // I suppose user is not logged in
  * param $text
  * param null $url
 
-### seeCheckboxIsChecked
+#### seeCheckboxIsChecked
 
 
 Assert if the specified checkbox is checked.
@@ -137,7 +137,7 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
 
  * param $selector
 
-### dontSeeCheckboxIsChecked
+#### dontSeeCheckboxIsChecked
 
 
 Assert if the specified checkbox is unchecked.
@@ -156,12 +156,12 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
 
  * param $selector
 
-### seeEmailReceived
+#### seeEmailReceived
 
 
 Checks if there were at least one email sent through Symfony test mailer.
 
-### submitForm
+#### submitForm
 
 
 Submits a form located on page.
@@ -209,7 +209,7 @@ Note, that pricing plan will be set to Paid, as it's selected on page.
  * param $selector
  * param $params
 
-### sendAjaxPostRequest
+#### sendAjaxPostRequest
 
 
 If your page triggers an ajax request, you can perform it manually.
@@ -233,7 +233,7 @@ $I->sendAjaxGetRequest('/updateSettings', array('notifications' => true); // GET
  * param $uri
  * param $params
 
-### sendAjaxGetRequest
+#### sendAjaxGetRequest
 
 
 If your page triggers an ajax request, you can perform it manually.
@@ -244,7 +244,7 @@ See ->sendAjaxPostRequest for examples.
  * param $uri
  * param $params
 
-### clickSubmitButton
+#### clickSubmitButton
 
 
 Emulates click on form's submit button.
@@ -252,20 +252,20 @@ You don't need that action if you fill form by ->submitForm action.
 
  * param $selector
 
-### seeFormIsValid
+#### seeFormIsValid
 
 
 Performs validation of Symfony1 form.
 Matches the first sfForm instance from controller and returns isValid() value.
 
-### seeErrorsInForm
+#### seeErrorsInForm
 
 
 Performs validation of Symfony1 form.
 Matches the first sfForm instance from controller and returns getErrorSchema() values.
 Shows all errors in debug.
 
-### seeErrorInField
+#### seeErrorInField
 
 
 Checks for invalid value in Symfony1 form.
@@ -274,7 +274,7 @@ Specify field which should contain error message.
 
  * param $field
 
-### signIn
+#### signIn
 
 
 Sign's user in with sfGuardAuth.
@@ -284,13 +284,13 @@ Provide username and password.
  * param $username
  * param $password
 
-### signOut
+#### signOut
 
 
 Sign out is performing by triggering '/logout' url.
 
 
-### am
+#### am
 
 
 Log in as sfGuardUser.
@@ -299,7 +299,7 @@ Only name of user should be provided.
  * alias amLoggedAs
  * param $name
 
-### amLoggedAs
+#### amLoggedAs
 
 
 Log in as sfDoctrineGuardUser.

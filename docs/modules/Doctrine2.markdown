@@ -3,7 +3,7 @@ layout: page
 title: Codeception - Documentation
 ---
 
-# Doctrine2
+## Doctrine2
 
 Allows integration and testing for projects with Doctrine2 ORM.
 
@@ -21,18 +21,18 @@ It can be done in bootstrap file, by setting static $em property:
 
 {% endhighlight %}
 
-## Config
+### Config
 * cleanup: true - all doctrine queries will be run in transaction, which will be rolled back at the end of test.
 
-## Actions
+### Actions
 
 
-### flushToDatabase
+#### flushToDatabase
 
 
 Performs $em->flush();
 
-### persistEntity
+#### persistEntity
 
 
 Adds entity to repository and flushes. You can redefine it's properties with the second parameter.
@@ -49,7 +49,7 @@ $I->persistEntity($user, array('name' => 'Miles'));
  * param $obj
  * param array $values
 
-### haveFakeRepository
+#### haveFakeRepository
 
 
 Mocks the repository.
@@ -73,7 +73,7 @@ This creates a stub class for Entity\User repository with redefined method findB
  * param $classname
  * param array $methods
 
-### seeInRepository
+#### seeInRepository
 
 
 Flushes changes to database and performs ->findOneBy() call for current repository.
@@ -82,7 +82,7 @@ Fails if record for given criteria can\'t be found,
  * param $entity
  * param array $params
 
-### dontSeeInRepository
+#### dontSeeInRepository
 
 
 Flushes changes to database and performs ->findOneBy() call for current repository.

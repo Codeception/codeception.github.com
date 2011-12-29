@@ -3,7 +3,7 @@ layout: page
 title: Codeception - Documentation
 ---
 
-# Selenium
+## Selenium
 
 Uses Mink to launch and manipulate Selenium Server (formerly the Selenium RC Server).
 
@@ -13,7 +13,7 @@ For form fields you can use name of matched label.
 
 Will save a screenshot of browser window to log directory on fail.
 
-## Installation
+### Installation
 
 Take Selenium Server from http://seleniumhq.org/download
 
@@ -23,41 +23,41 @@ Best used with Firefox browser.
 
 Don't forget to turn on Db repopulation if you are using database.
 
-## Configuration
+### Configuration
 
 * url *required* - start url for your app
 * browser *required* - browser that would be launched
 * host  - Selenium server host (localhost by default)
 * port - Selenium server port (4444 by default)
 
-## Public Properties
+### Public Properties
 
 * session - contains Mink Session
 
-## Actions
+### Actions
 
 
-### doubleClick
-
-__not documented__
-
-### clickWithRightButton
+#### doubleClick
 
 __not documented__
 
-### moveMouseOver
+#### clickWithRightButton
 
 __not documented__
 
-### focus
+#### moveMouseOver
 
 __not documented__
 
-### blur
+#### focus
 
 __not documented__
 
-### dragAndDrop
+#### blur
+
+__not documented__
+
+#### dragAndDrop
 
 
 Drag first element to second
@@ -65,7 +65,7 @@ Drag first element to second
  * param $el1
  * param $el2
 
-### seeElement
+#### seeElement
 
 
 Checks element visibility.
@@ -73,38 +73,38 @@ Fails if element exists but is invisible to user.
 
  * param $css
 
-### pressKey
+#### pressKey
 
 __not documented__
 
-### pressKeyUp
+#### pressKeyUp
 
 __not documented__
 
-### pressKeyDown
+#### pressKeyDown
 
 __not documented__
 
-### wait
+#### wait
 
 __not documented__
 
-### waitForJS
+#### waitForJS
 
 __not documented__
 
-### executeJs
+#### executeJs
 
 __not documented__
 
-### amOnPage
+#### amOnPage
 
 
 Opens the page.
 
  * param $page
 
-### dontSee
+#### dontSee
 
 
 Check if current page doesn't contain the text specified.
@@ -124,7 +124,7 @@ $I->dontSee('Sign Up','h1'); // I can suppose it's not a signup page
  * param $text
  * param null $selector
 
-### see
+#### see
 
 
 Check if current page contains the text specified.
@@ -144,7 +144,7 @@ $I->see('Sign Up','h1'); // I can suppose it's a signup page
  * param $text
  * param null $selector
 
-### seeLink
+#### seeLink
 
 
 Checks if there is a link with text specified.
@@ -164,7 +164,7 @@ $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
  * param $text
  * param null $url
 
-### dontSeeLink
+#### dontSeeLink
 
 
 Checks if page doesn't contain the link with text specified.
@@ -183,7 +183,7 @@ $I->dontSeeLink('Logout'); // I suppose user is not logged in
  * param $text
  * param null $url
 
-### click
+#### click
 
 
 Clicks on either link (for PHPBrowser) or on any selector for JS browsers.
@@ -191,22 +191,22 @@ Link text or css selector can be passed.
 
  * param $link
 
-### reloadPage
+#### reloadPage
 
 
 Reloads current page
 
-### moveBack
+#### moveBack
 
 
 Moves back in history
 
-### moveForward
+#### moveForward
 
 
 Moves forward in history
 
-### fillField
+#### fillField
 
 
 Fill the field found by it's name with given value
@@ -214,7 +214,7 @@ Fill the field found by it's name with given value
  * param $field
  * param $value
 
-### fillFields
+#### fillFields
 
 
 Shortcut for filling multiple fields by their names.
@@ -223,14 +223,14 @@ Array with field names => values expected.
 
  * param array $fields
 
-### press
+#### press
 
 
 Press the button, found by it's name.
 
  * param $button
 
-### selectOption
+#### selectOption
 
 
 Selects opition from selectbox.
@@ -240,29 +240,29 @@ Either values or text of options can be used to fetch option.
  * param $select
  * param $option
 
-### checkOption
+#### checkOption
 
 
 Check matched checkbox or radiobutton.
  * param $option
 
-### uncheckOption
+#### uncheckOption
 
 
 Uncheck matched checkbox or radiobutton.
  * param $option
 
-### attachFileToField
+#### attachFileToField
 
 __not documented__
 
-### seeInCurrentUrl
+#### seeInCurrentUrl
 
 
 Checks if current url contains the $uri.
  * param $uri
 
-### seeCheckboxIsChecked
+#### seeCheckboxIsChecked
 
 
 Assert if the specified checkbox is checked.
@@ -281,7 +281,7 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
 
  * param $selector
 
-### dontSeeCheckboxIsChecked
+#### dontSeeCheckboxIsChecked
 
 
 Assert if the specified checkbox is unchecked.
@@ -300,7 +300,7 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
 
  * param $selector
 
-### seeInField
+#### seeInField
 
 
 Checks matched field has a passed value
@@ -308,7 +308,7 @@ Checks matched field has a passed value
  * param $field
  * param $value
 
-### dontSeeInField
+#### dontSeeInField
 
 
 Checks matched field doesn't contain a value passed

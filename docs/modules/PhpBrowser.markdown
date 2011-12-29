@@ -3,7 +3,7 @@ layout: page
 title: Codeception - Documentation
 ---
 
-# PhpBrowser
+## PhpBrowser
 
 Uses Mink (http://mink.behat.org) with Goutte Driver to interact with your application.
 Contains all Mink actions and additional ones, listed below.
@@ -12,19 +12,19 @@ Use to perform web acceptance tests with non-javascript browser.
 
 If test fails stores last shown page in 'output' dir.
 
-## Configuration
+### Configuration
 
 * url *required* - start url of your app
 
-## Public Properties
+### Public Properties
 
 * session - contains Mink Session
 
 
-## Actions
+### Actions
 
 
-### submitForm
+#### submitForm
 
 
 Submits a form located on page.
@@ -72,7 +72,7 @@ Note, that pricing plan will be set to Paid, as it's selected on page.
  * param $selector
  * param $params
 
-### sendAjaxPostRequest
+#### sendAjaxPostRequest
 
 
  If your page triggers an ajax request, you can perform it manually.
@@ -96,7 +96,7 @@ Note, that pricing plan will be set to Paid, as it's selected on page.
   * param $uri
   * param $params
 /
-### sendAjaxGetRequest
+#### sendAjaxGetRequest
 
 
 If your page triggers an ajax request, you can perform it manually.
@@ -107,14 +107,14 @@ See ->sendAjaxPostRequest for examples.
  * param $uri
  * param $params
 
-### amOnPage
+#### amOnPage
 
 
 Opens the page.
 
  * param $page
 
-### dontSee
+#### dontSee
 
 
 Check if current page doesn't contain the text specified.
@@ -134,7 +134,7 @@ $I->dontSee('Sign Up','h1'); // I can suppose it's not a signup page
  * param $text
  * param null $selector
 
-### see
+#### see
 
 
 Check if current page contains the text specified.
@@ -154,7 +154,7 @@ $I->see('Sign Up','h1'); // I can suppose it's a signup page
  * param $text
  * param null $selector
 
-### seeLink
+#### seeLink
 
 
 Checks if there is a link with text specified.
@@ -174,7 +174,7 @@ $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
  * param $text
  * param null $url
 
-### dontSeeLink
+#### dontSeeLink
 
 
 Checks if page doesn't contain the link with text specified.
@@ -193,7 +193,7 @@ $I->dontSeeLink('Logout'); // I suppose user is not logged in
  * param $text
  * param null $url
 
-### click
+#### click
 
 
 Clicks on either link (for PHPBrowser) or on any selector for JS browsers.
@@ -201,22 +201,22 @@ Link text or css selector can be passed.
 
  * param $link
 
-### reloadPage
+#### reloadPage
 
 
 Reloads current page
 
-### moveBack
+#### moveBack
 
 
 Moves back in history
 
-### moveForward
+#### moveForward
 
 
 Moves forward in history
 
-### fillField
+#### fillField
 
 
 Fill the field found by it's name with given value
@@ -224,7 +224,7 @@ Fill the field found by it's name with given value
  * param $field
  * param $value
 
-### fillFields
+#### fillFields
 
 
 Shortcut for filling multiple fields by their names.
@@ -233,14 +233,14 @@ Array with field names => values expected.
 
  * param array $fields
 
-### press
+#### press
 
 
 Press the button, found by it's name.
 
  * param $button
 
-### selectOption
+#### selectOption
 
 
 Selects opition from selectbox.
@@ -250,29 +250,29 @@ Either values or text of options can be used to fetch option.
  * param $select
  * param $option
 
-### checkOption
+#### checkOption
 
 
 Check matched checkbox or radiobutton.
  * param $option
 
-### uncheckOption
+#### uncheckOption
 
 
 Uncheck matched checkbox or radiobutton.
  * param $option
 
-### attachFileToField
+#### attachFileToField
 
 __not documented__
 
-### seeInCurrentUrl
+#### seeInCurrentUrl
 
 
 Checks if current url contains the $uri.
  * param $uri
 
-### seeCheckboxIsChecked
+#### seeCheckboxIsChecked
 
 
 Assert if the specified checkbox is checked.
@@ -291,7 +291,7 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
 
  * param $selector
 
-### dontSeeCheckboxIsChecked
+#### dontSeeCheckboxIsChecked
 
 
 Assert if the specified checkbox is unchecked.
@@ -310,7 +310,7 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
 
  * param $selector
 
-### seeInField
+#### seeInField
 
 
 Checks matched field has a passed value
@@ -318,7 +318,7 @@ Checks matched field has a passed value
  * param $field
  * param $value
 
-### dontSeeInField
+#### dontSeeInField
 
 
 Checks matched field doesn't contain a value passed

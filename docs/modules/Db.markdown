@@ -3,7 +3,7 @@ layout: page
 title: Codeception - Documentation
 ---
 
-# Db
+## Db
 
 Works with SQL dabatase (MySQL tested).
 
@@ -18,7 +18,7 @@ Just put it in {% highlight yaml %}
 Next time after database is cleared all your data will be restored from dump.
 Don't forget to include CREATE TABLE statements into it.
 
-## Config
+### Config
 
 * dsn *required* - PDO DSN
 * user *required* - user to access database
@@ -29,14 +29,14 @@ Don't forget to include CREATE TABLE statements into it.
 
 Also provides actions to perform checks in database.
 
-## Public Properties
+### Public Properties
 * dbh - contains PDO connection.
 
 
-## Actions
+### Actions
 
 
-### seeInDatabase
+#### seeInDatabase
 
 
 Checks if a row with given column values exists.
@@ -63,7 +63,7 @@ Fails if no such user found.
  * param $table
  * param array $criteria
 
-### dontSeeInDatabase
+#### dontSeeInDatabase
 
 
 Effect is opposite to ->seeInDatabase

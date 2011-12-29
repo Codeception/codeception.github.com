@@ -3,23 +3,23 @@ layout: page
 title: Codeception - Documentation
 ---
 
-# Filesystem
+## Filesystem
 
-## Actions
+### Actions
 
 
-### openFile
-
-__not documented__
-
-### seeInFile
+#### openFile
 
 __not documented__
 
-### dontSeeInFile
+#### seeInFile
 
 __not documented__
 
-### seeFileFound
+#### dontSeeInFile
+
+__not documented__
+
+#### seeFileFound
 
 __not documented__
