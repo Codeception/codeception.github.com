@@ -8,6 +8,9 @@
         <link href='http://fonts.googleapis.com/css?family=Philosopher&subset=latin' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" media="screen" href="/css/screen.css" />
   <link rel="stylesheet" type="text/css" media="screen" href="/css/syntax.css" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+  <script src="/js/jquery.tableofcontents.min.js" type="text/javascript" charset="utf-8"></script>
+    
   </head>
   <body>
   <div class="ribbon">
@@ -28,7 +31,14 @@
   </div>
 
   <div class="layout">
-    <div class="content">           
+    <div class="content">      
+          <div class="promo"></div>
+               
+
+    <script type="text/javascript" charset="utf-8">
+  $(function(){ $(".promo").tableOfContents(); })
+</script>
+
       <div>
             {{ content }}
       </div>  
