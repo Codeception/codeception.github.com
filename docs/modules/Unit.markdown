@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Codeception - Documentation
 ---
 
@@ -13,7 +13,6 @@ By providing unique set of features Unit module makes your tests cleaner, readab
 Here is example of unit test, which tests one of the methods of Codeception core.
 
 {% highlight php %}
-
 <?php
 class ScenarioCest
 {
@@ -42,7 +41,6 @@ class ScenarioCest
            ->seePropertyEquals($scenario, 'currentStep', 1);
    }
 
-
 {% endhighlight %}
 
 ## Features
@@ -69,7 +67,6 @@ Thus, the structure of test becomes harder for reading and understanding. Assert
 Let's say we want to test method run for class Unit
 
 {% highlight php %}
-
 <?php
 
 class Unit {
@@ -85,13 +82,11 @@ class Unit {
 
 }
 
-
 {% endhighlight %}
 
 For PHPUnit our test will look like:
 
 {% highlight php %}
-
 <?php
 
 $unit = $this->getMock('Unit', array('runExtra'));
@@ -99,7 +94,6 @@ $observer->expects($this->once())
   ->method('runExtra');
 
 $unit->run();
-
 {% endhighlight %}
 
 For assertion we use ->expects($this->once()) construction.
@@ -109,7 +103,6 @@ What a mess!
 Here, how the CodeGuy scenario looks like:
 
 {% highlight php %}
-
 <?php
 
 $I = new CodeGuy($scenario);
@@ -117,7 +110,6 @@ $I->testMethod('Unit.run');
 $I->haveStubClass($unit = Stub::make('Unit'));
 $I->executeTestedMethodOn($unit);
 $I->seeMethodInvoked($unit, 'runExtra');
-
 
 {% endhighlight %}
 So, that becomes much clearer.
@@ -154,19 +146,15 @@ Please, not that it also update the feature section of scenario.
 For non-static methods:
 
 {% highlight php %}
-
 <?php
 $I->testMethod('ClassName.MethodName'); // I will need ClassName instance for this
-
 {% endhighlight %}
 
 For static methods:
 
 {% highlight php %}
-
 <?php
 $I->testMethod('ClassName::MethodName');
-
 {% endhighlight %}
 
  * param $signature
@@ -214,19 +202,15 @@ Examples:
 For non-static methods:
 
 {% highlight php %}
-
 <?php
 $I->executeTestedMethod($object, 1, 'hello', array(5,4,5));
-
 {% endhighlight %}
 
 The same for static method
 
 {% highlight php %}
-
 <?php
 $I->executeTestedMethod(1, 'hello', array(5,4,5));
-
 {% endhighlight %}
 
  * param $object null

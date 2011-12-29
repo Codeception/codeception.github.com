@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Codeception - Documentation
 ---
 
@@ -13,11 +13,9 @@ As the module uses active connection and active entity manager, instance of this
 It can be done in bootstrap file, by setting static $em property:
 
 {% highlight php %}
-
 <?php
 
 \Codeception\Module\Doctrine2::$em = $em
-
 
 {% endhighlight %}
 
@@ -40,10 +38,8 @@ Adds entity to repository and flushes. You can redefine it's properties with the
 Example:
 
 {% highlight php %}
-
 <?php
 $I->persistEntity($user, array('name' => 'Miles'));
-
 {% endhighlight %}
 
  * param $obj
@@ -60,11 +56,9 @@ Please, note: this fake repositories will be accessible through entity manager t
 Example:
 
 {% highlight php %}
-
 <?php
 
 $I->haveFakeRepository('Entity\User', array('findByUsername' => function($username) {  return null; }));
-
 
 {% endhighlight %}
 
