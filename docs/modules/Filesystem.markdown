@@ -8,21 +8,17 @@ title: Codeception - Documentation
 ### Actions
 
 
-#### openFile
+tSeeInFile
 
 
-#### seeInFile
+
+nFile
 
 
-#### dontSeeInFile
+
+FileFound
 
 
-#### seeFileFound
 
-__not documented__
+InFile
 
-__not documented__
-
-__not documented__
-
-__not documented__

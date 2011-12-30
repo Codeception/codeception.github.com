@@ -37,119 +37,30 @@ Don't forget to turn on Db repopulation if you are using database.
 ### Actions
 
 
-#### doubleClick
-
-
-#### clickWithRightButton
-
-
-#### moveMouseOver
-
-
-#### focus
-
-
-#### blur
-
-
-#### dragAndDrop
-
-
-#### seeElement
-
-
-#### pressKey
-
-
-#### pressKeyUp
-
-
-#### pressKeyDown
-
-
-#### wait
-
-
-#### waitForJS
-
-
-#### executeJs
-
-
-#### amOnPage
-
-
-#### dontSee
-
-
-#### see
-
-
-#### seeLink
-
-
-#### dontSeeLink
-
-
-#### click
-
-
-#### reloadPage
-
-
-#### moveBack
-
-
-#### moveForward
-
-
-#### fillField
-
-
-#### fillFields
-
-
-#### press
-
-
-#### selectOption
-
-
-#### checkOption
-
-
-#### uncheckOption
-
-
-#### attachFileToField
-
-
-#### seeInCurrentUrl
-
-
-#### seeCheckboxIsChecked
-
-
-#### dontSeeCheckboxIsChecked
-
-
-#### seeInField
-
-
-#### dontSeeInField
+nPage
 
 
 Opens the page.
 
  * param $page
 
-__not documented__
 
-__not documented__
+achFileToField
+
+
+
+r
+
+
+
+ckOption
 
 
 Check matched checkbox or radiobutton.
  * param $option
+
+
+ck
 
 
 Clicks on either link (for PHPBrowser) or on any selector for JS browsers.
@@ -157,7 +68,12 @@ Link text or css selector can be passed.
 
  * param $link
 
-__not documented__
+
+ckWithRightButton
+
+
+
+tSee
 
 
 Check if current page doesn't contain the text specified.
@@ -178,6 +94,9 @@ $I->dontSee('Sign Up','h1'); // I can suppose it's not a signup page
  * param null $selector
 
 
+tSeeCheckboxIsChecked
+
+
 Assert if the specified checkbox is unchecked.
 Use css selector or xpath to match.
 
@@ -195,10 +114,16 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
  * param $selector
 
 
+tSeeInField
+
+
 Checks matched field doesn't contain a value passed
 
  * param $field
  * param $value
+
+
+tSeeLink
 
 
 Checks if page doesn't contain the link with text specified.
@@ -217,7 +142,12 @@ $I->dontSeeLink('Logout'); // I suppose user is not logged in
  * param $text
  * param null $url
 
-__not documented__
+
+bleClick
+
+
+
+gAndDrop
 
 
 Drag first element to second
@@ -225,7 +155,12 @@ Drag first element to second
  * param $el1
  * param $el2
 
-__not documented__
+
+cuteJs
+
+
+
+lField
 
 
 Fill the field found by it's name with given value
@@ -234,35 +169,63 @@ Fill the field found by it's name with given value
  * param $value
 
 
+lFields
+
+
 Shortcut for filling multiple fields by their names.
 Array with field names => values expected.
 
 
  * param array $fields
 
-__not documented__
+
+us
+
+
+
+eBack
 
 
 Moves back in history
 
 
+eForward
+
+
 Moves forward in history
 
-__not documented__
+
+eMouseOver
+
+
+
+ss
 
 
 Press the button, found by it's name.
 
  * param $button
 
-__not documented__
 
-__not documented__
+ssKey
 
-__not documented__
+
+
+ssKeyDown
+
+
+
+ssKeyUp
+
+
+
+oadPage
 
 
 Reloads current page
+
+
+
 
 
 Check if current page contains the text specified.
@@ -283,6 +246,9 @@ $I->see('Sign Up','h1'); // I can suppose it's a signup page
  * param null $selector
 
 
+CheckboxIsChecked
+
+
 Assert if the specified checkbox is checked.
 Use css selector or xpath to match.
 
@@ -300,20 +266,32 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
  * param $selector
 
 
+Element
+
+
 Checks element visibility.
 Fails if element exists but is invisible to user.
 
  * param $css
 
 
+InCurrentUrl
+
+
 Checks if current url contains the $uri.
  * param $uri
+
+
+InField
 
 
 Checks matched field has a passed value
 
  * param $field
  * param $value
+
+
+Link
 
 
 Checks if there is a link with text specified.
@@ -334,6 +312,9 @@ $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
  * param null $url
 
 
+ectOption
+
+
 Selects opition from selectbox.
 Use CSS selector to match selectbox.
 Either values or text of options can be used to fetch option.
@@ -342,9 +323,16 @@ Either values or text of options can be used to fetch option.
  * param $option
 
 
+heckOption
+
+
 Uncheck matched checkbox or radiobutton.
  * param $option
 
-__not documented__
 
-__not documented__
+t
+
+
+
+tForJS
+

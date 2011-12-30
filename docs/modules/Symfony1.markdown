@@ -24,64 +24,7 @@ If test fails stores last shown page in 'output' dir.
 ### Actions
 
 
-#### amOnPage
 
-
-#### click
-
-
-#### dontSee
-
-
-#### see
-
-
-#### seeLink
-
-
-#### dontSeeLink
-
-
-#### seeCheckboxIsChecked
-
-
-#### dontSeeCheckboxIsChecked
-
-
-#### seeEmailReceived
-
-
-#### submitForm
-
-
-#### sendAjaxPostRequest
-
-
-#### sendAjaxGetRequest
-
-
-#### clickSubmitButton
-
-
-#### seeFormIsValid
-
-
-#### seeErrorsInForm
-
-
-#### seeErrorInField
-
-
-#### signIn
-
-
-#### signOut
-
-
-#### am
-
-
-#### amLoggedAs
 
 
 Log in as sfGuardUser.
@@ -89,6 +32,9 @@ Only name of user should be provided.
 
  * alias amLoggedAs
  * param $name
+
+
+oggedAs
 
 
 Log in as sfDoctrineGuardUser.
@@ -99,9 +45,15 @@ Fetches user by it's username from sfGuardUser table.
  * throws \Exception
 
 
+nPage
+
+
 Opens the page.
 
  * param $page
+
+
+ck
 
 
 Click on link or button and move to next page.
@@ -110,10 +62,16 @@ Either link text, css selector, or xpath can be passed
  * param $link
 
 
+ckSubmitButton
+
+
 Emulates click on form's submit button.
 You don't need that action if you fill form by ->submitForm action.
 
  * param $selector
+
+
+tSee
 
 
 Check if current page doesn't contain the text specified.
@@ -134,6 +92,9 @@ $I->dontSee('Sign Up','h1'); // I can suppose it's not a signup page
  * param null $selector
 
 
+tSeeCheckboxIsChecked
+
+
 Assert if the specified checkbox is unchecked.
 Use css selector or xpath to match.
 
@@ -151,6 +112,9 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
  * param $selector
 
 
+tSeeLink
+
+
 Checks if page doesn't contain the link with text specified.
 Specify url to narrow the results.
 
@@ -166,6 +130,9 @@ $I->dontSeeLink('Logout'); // I suppose user is not logged in
 
  * param $text
  * param null $url
+
+
+
 
 
 Check if current page contains the text specified.
@@ -186,6 +153,9 @@ $I->see('Sign Up','h1'); // I can suppose it's a signup page
  * param null $selector
 
 
+CheckboxIsChecked
+
+
 Assert if the specified checkbox is checked.
 Use css selector or xpath to match.
 
@@ -203,7 +173,13 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
  * param $selector
 
 
+EmailReceived
+
+
 Checks if there were at least one email sent through Symfony test mailer.
+
+
+ErrorInField
 
 
 Checks for invalid value in Symfony1 form.
@@ -213,13 +189,22 @@ Specify field which should contain error message.
  * param $field
 
 
+ErrorsInForm
+
+
 Performs validation of Symfony1 form.
 Matches the first sfForm instance from controller and returns getErrorSchema() values.
 Shows all errors in debug.
 
 
+FormIsValid
+
+
 Performs validation of Symfony1 form.
 Matches the first sfForm instance from controller and returns isValid() value.
+
+
+Link
 
 
 Checks if there is a link with text specified.
@@ -240,6 +225,9 @@ $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
  * param null $url
 
 
+dAjaxGetRequest
+
+
 If your page triggers an ajax request, you can perform it manually.
 This action sends a GET ajax request with specified params.
 
@@ -247,6 +235,9 @@ See ->sendAjaxPostRequest for examples.
 
  * param $uri
  * param $params
+
+
+dAjaxPostRequest
 
 
 If your page triggers an ajax request, you can perform it manually.
@@ -271,6 +262,9 @@ $I->sendAjaxGetRequest('/updateSettings', array('notifications' => true); // GET
  * param $params
 
 
+nIn
+
+
 Sign's user in with sfGuardAuth.
 Uses standard path: /sfGuardAuth/signin for authorization.
 Provide username and password.
@@ -279,8 +273,14 @@ Provide username and password.
  * param $password
 
 
+nOut
+
+
 Sign out is performing by triggering '/logout' url.
 
+
+
+mitForm
 
 
 Submits a form located on page.

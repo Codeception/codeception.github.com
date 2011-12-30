@@ -24,93 +24,35 @@ If test fails stores last shown page in 'output' dir.
 ### Actions
 
 
-#### submitForm
-
-
-#### sendAjaxPostRequest
-
-
-#### sendAjaxGetRequest
-
-
-#### amOnPage
-
-
-#### dontSee
-
-
-#### see
-
-
-#### seeLink
-
-
-#### dontSeeLink
-
-
-#### click
-
-
-#### reloadPage
-
-
-#### moveBack
-
-
-#### moveForward
-
-
-#### fillField
-
-
-#### fillFields
-
-
-#### press
-
-
-#### selectOption
-
-
-#### checkOption
-
-
-#### uncheckOption
-
-
-#### attachFileToField
-
-
-#### seeInCurrentUrl
-
-
-#### seeCheckboxIsChecked
-
-
-#### dontSeeCheckboxIsChecked
-
-
-#### seeInField
-
-
-#### dontSeeInField
+nPage
 
 
 Opens the page.
 
  * param $page
 
-__not documented__
+
+achFileToField
+
+
+
+ckOption
 
 
 Check matched checkbox or radiobutton.
  * param $option
 
 
+ck
+
+
 Clicks on either link (for PHPBrowser) or on any selector for JS browsers.
 Link text or css selector can be passed.
 
  * param $link
+
+
+tSee
 
 
 Check if current page doesn't contain the text specified.
@@ -131,6 +73,9 @@ $I->dontSee('Sign Up','h1'); // I can suppose it's not a signup page
  * param null $selector
 
 
+tSeeCheckboxIsChecked
+
+
 Assert if the specified checkbox is unchecked.
 Use css selector or xpath to match.
 
@@ -148,10 +93,16 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
  * param $selector
 
 
+tSeeInField
+
+
 Checks matched field doesn't contain a value passed
 
  * param $field
  * param $value
+
+
+tSeeLink
 
 
 Checks if page doesn't contain the link with text specified.
@@ -171,10 +122,16 @@ $I->dontSeeLink('Logout'); // I suppose user is not logged in
  * param null $url
 
 
+lField
+
+
 Fill the field found by it's name with given value
 
  * param $field
  * param $value
+
+
+lFields
 
 
 Shortcut for filling multiple fields by their names.
@@ -184,10 +141,19 @@ Array with field names => values expected.
  * param array $fields
 
 
+eBack
+
+
 Moves back in history
 
 
+eForward
+
+
 Moves forward in history
+
+
+ss
 
 
 Press the button, found by it's name.
@@ -195,7 +161,13 @@ Press the button, found by it's name.
  * param $button
 
 
+oadPage
+
+
 Reloads current page
+
+
+
 
 
 Check if current page contains the text specified.
@@ -216,6 +188,9 @@ $I->see('Sign Up','h1'); // I can suppose it's a signup page
  * param null $selector
 
 
+CheckboxIsChecked
+
+
 Assert if the specified checkbox is checked.
 Use css selector or xpath to match.
 
@@ -233,14 +208,23 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
  * param $selector
 
 
+InCurrentUrl
+
+
 Checks if current url contains the $uri.
  * param $uri
+
+
+InField
 
 
 Checks matched field has a passed value
 
  * param $field
  * param $value
+
+
+Link
 
 
 Checks if there is a link with text specified.
@@ -261,12 +245,18 @@ $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
  * param null $url
 
 
+ectOption
+
+
 Selects opition from selectbox.
 Use CSS selector to match selectbox.
 Either values or text of options can be used to fetch option.
 
  * param $select
  * param $option
+
+
+dAjaxGetRequest
 
 
 If your page triggers an ajax request, you can perform it manually.
@@ -276,6 +266,9 @@ See ->sendAjaxPostRequest for examples.
 
  * param $uri
  * param $params
+
+
+dAjaxPostRequest
 
 
  If your page triggers an ajax request, you can perform it manually.
@@ -299,6 +292,9 @@ See ->sendAjaxPostRequest for examples.
   * param $uri
   * param $params
 /
+
+mitForm
+
 
 Submits a form located on page.
 Specify the form by it's css or xpath selector.
@@ -344,6 +340,9 @@ Note, that pricing plan will be set to Paid, as it's selected on page.
 
  * param $selector
  * param $params
+
+
+heckOption
 
 
 Uncheck matched checkbox or radiobutton.

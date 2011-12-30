@@ -144,67 +144,7 @@ Thus, the trick is: command $I->executeTestedMethod() doesn't actually execute i
 ### Actions
 
 
-#### testMethod
-
-
-#### haveFakeClass
-
-
-#### haveStub
-
-
-#### executeTestedMethodOn
-
-
-#### executeTestedMethodWith
-
-
-#### executeTestedMethod
-
-
-#### changeProperties
-
-
-#### changeProperty
-
-
-#### seeExceptionThrown
-
-
-#### seeMethodInvoked
-
-
-#### seeMethodInvokedOnce
-
-
-#### seeMethodNotInvoked
-
-
-#### seeMethodInvokedMultipleTimes
-
-
-#### seeResultEquals
-
-
-#### seeResultContains
-
-
-#### dontSeeResultContains
-
-
-#### seeResultNotEquals
-
-
-#### seeEmptyResult
-
-
-#### seeResultIs
-
-
-#### seePropertyEquals
-
-
-#### seePropertyIs
+ngeProperties
 
 
 Updates selected properties for object passed.
@@ -214,6 +154,9 @@ Can update even private and protected properties.
  * param array $values
 
 
+ngeProperty
+
+
 Updates property of selected object
 Can update even private and protected properties.
 
@@ -221,7 +164,12 @@ Can update even private and protected properties.
  * param $property
  * param $value
 
-__not documented__
+
+tSeeResultContains
+
+
+
+cuteTestedMethod
 
 
 Executes the method which is tested.
@@ -254,12 +202,20 @@ $I->executeTestedMethod(1, 'hello', array(5,4,5));
  * throws \InvalidArgumentException
 
 
+cuteTestedMethodOn
+
+
 Alias for executeTestedMethod, only for non-static methods
 
  * alias executeTestedMethod
  * param $object
 
-__not documented__
+
+cuteTestedMethodWith
+
+
+
+eFakeClass
 
 
 Adds a stub to internal registry.
@@ -269,14 +225,24 @@ Without adding stub to registry you can't trace it's method invocations.
  * param $instance
 
 
+eStub
+
+
 Alias for haveFakeClass
 
  * alias haveFakeClass
  * param $instance
 
-__not documented__
 
-__not documented__
+EmptyResult
+
+
+
+ExceptionThrown
+
+
+
+MethodInvoked
 
 
 
@@ -286,6 +252,9 @@ __not documented__
  * param $mock
  * param $method
  * param array $params
+
+
+MethodInvokedMultipleTimes
 
 
 
@@ -297,12 +266,7 @@ __not documented__
  * param array $params
 
 
-
- * magic
- * see createMocks
- * param $mock
- * param $method
- * param array $params
+MethodInvokedOnce
 
 
 
@@ -312,20 +276,47 @@ __not documented__
  * param $method
  * param array $params
 
-__not documented__
 
-__not documented__
+MethodNotInvoked
 
-__not documented__
+
+
+ * magic
+ * see createMocks
+ * param $mock
+ * param $method
+ * param array $params
+
+
+PropertyEquals
+
+
+
+PropertyIs
+
+
+
+ResultContains
+
+
+
+ResultEquals
 
 
 Asserts that the last result from tested method is equal to value
 
  * param $value
 
-__not documented__
 
-__not documented__
+ResultIs
+
+
+
+ResultNotEquals
+
+
+
+tMethod
 
 
 Registers a class/method which will be tested.

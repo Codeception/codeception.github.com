@@ -18,10 +18,7 @@ This module cleans all cached data after each test.
 ### Actions
 
 
-#### seeInTable
-
-
-#### dontSeeInTable
+tSeeInTable
 
 
 Checks table doesn't contain row with specified values
@@ -39,6 +36,9 @@ $I->dontSeeInTable('User', array('name' => 'Davert', 'email' => 'davert * mail.c
 
  * param $model
  * param array $values
+
+
+InTable
 
 
 Checks table contains row with specified values

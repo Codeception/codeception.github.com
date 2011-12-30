@@ -36,10 +36,7 @@ Also provides actions to perform checks in database.
 ### Actions
 
 
-#### seeInDatabase
-
-
-#### dontSeeInDatabase
+tSeeInDatabase
 
 
 Effect is opposite to ->seeInDatabase
@@ -67,6 +64,9 @@ Fails if such user was found.
 
  * param $table
  * param array $criteria
+
+
+InDatabase
 
 
 Checks if a row with given column values exists.
