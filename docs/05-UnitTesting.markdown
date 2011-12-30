@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Codeception - Documentation
 ---
 
@@ -14,6 +14,7 @@ Unit tests are required to be readable as much as possible. They should be clean
 With the Codeception you should describe your test in a scenario, as we did it for acceptance test.
 
 {% highlight php %}
+
 <?php
 
 $I = new CodeGuy($scenario);
@@ -22,16 +23,19 @@ $I->executeTestedMethodWith('davert@mail.ua');
 $I->seeResultEquals(true);
 ?>
 
+
 {% endhighlight %}
 
 This a test of a very simple function. The similar test in PHPUnit will look like this:
 
 {% highlight php %}
+
 <?php
 public function testValidateEmail()
     $this->assertTrue(Validator::validateEmail('davert@mail.ua'));
 }
 ?>
+
 {% endhighlight %}
 
 As you can see, there is no practical reason using Codeception for testing simple methods. But not all the functions can be executed and tested that way. Whenever function have dependencies and it's results can't be so easily observable, the Codeception will be quite useful. 
@@ -47,6 +51,7 @@ Let's show how Codeception simplifies unit testing for controller classes.
 We have controller class of imaginable MVC framework:
 
 {% highlight php %}
+
 <?php
 class UserController extends AbtractController {
 
@@ -59,6 +64,7 @@ class UserController extends AbtractController {
     }
 }
 ?>
+
 
 {% endhighlight %}
 
@@ -76,6 +82,7 @@ For unit tests Codeception provides a different test file format. It's called Ce
 Here is the Codeception test for the 'show' action:
 
 {% highlight php %}
+
 <?php
 class UserControllerCest {
     public $class = 'UserController';
@@ -98,6 +105,7 @@ class UserControllerCest {
     }
 }
 ?>
+
 {% endhighlight %}
 
 This test is written as a simple scenario. Every command of scenario clearly describes the action being taken. We will review this code now.
@@ -124,9 +132,11 @@ For $db property which is supposed to be DbConnector (Database class) instance w
 Next we connect both stubbed classes. We'd normally use:
 
 {% highlight php %}
+
 <?php
     $controller->db = $db;
 ?>
+
 {% endhighlight %}
 
 But $controller->db property can be protected. By using 'setProperty' command we can set values even to protected and private properties! It can be done with the power of [Reflection](http://php.net/manual/en/book.reflection.php).
@@ -149,6 +159,7 @@ To prove Codeception was useful for controller testing, we will write same test 
 Remember, it can be run with Codeception too.
 
 {% highlight php %}
+
 <?php
 
 class UserControllerTest extends PHPUnit_Framework_TestCase
@@ -184,6 +195,7 @@ class UserControllerTest extends PHPUnit_Framework_TestCase
     }
 }
 ?>
+
 {% endhighlight %}
 This test is 1.5 times longer. One test is split into two. Mocking requires strong knowledge of PHPUnit API. It's hard to understand behavior of tested method 'show' without looking into it's code.
 Nevertheless this test is quite readable. 
