@@ -311,7 +311,7 @@ modules:
 
 ### Debugging
 
-PhpBrowser module outputs all valuable information while running. Just execute test with --debug option to see additional output. On each fail, the snapshot of last shown page will be stored in 'tests/log' directory. This is quite helpful, as usually tests fail in cases you get unexpected response from server.
+PhpBrowser module outputs all valuable information while running. Just execute test with --debug option to see additional output. On each fail, the snapshot of last shown page will be stored in 'tests/log' directory. PHPBrowser will store html code, and Selenium will save the screenshot of a page.
 
 ## Conclusion
 
