@@ -3,7 +3,7 @@ layout: page
 title: Codeception - Documentation
 ---
 
-## Symfony1
+## Symfony1 Module
 
 Module that interacts with Symfony 1.4 applications.
 

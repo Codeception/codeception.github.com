@@ -3,7 +3,7 @@ layout: page
 title: Codeception - Documentation
 ---
 
-## Db
+## Db Module
 
 Works with SQL dabatase (MySQL tested).
 

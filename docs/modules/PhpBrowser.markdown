@@ -3,7 +3,7 @@ layout: page
 title: Codeception - Documentation
 ---
 
-## PhpBrowser
+## PhpBrowser Module
 
 Uses Mink (http://mink.behat.org) with Goutte Driver to interact with your application.
 Contains all Mink actions and additional ones, listed below.

@@ -3,7 +3,7 @@ layout: page
 title: Codeception - Documentation
 ---
 
-## Cli
+## Cli Module
 
 ### Actions
 

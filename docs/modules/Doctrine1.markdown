@@ -3,7 +3,7 @@ layout: page
 title: Codeception - Documentation
 ---
 
-## Doctrine1
+## Doctrine1 Module
 
 Performs DB operations with Doctrine ORM 1.x
 
