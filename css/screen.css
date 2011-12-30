@@ -56,6 +56,9 @@ body {
 }
 
 #page h4 {
-	color: #333;
-	margin-bottom: 0.5em;
+    background: none repeat scroll 0 0 #D1CFCF;
+    border-radius: 10px 10px 10px 10px;
+    color: #333333;
+    margin-bottom: 0.5em;
+    padding-left: 0.5em;
 }
