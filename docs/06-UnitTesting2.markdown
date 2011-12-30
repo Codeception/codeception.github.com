@@ -97,7 +97,7 @@ No method of Guy class is allowed to return values. It will return the current C
 {% highlight php %}
 
 <?php
-
+// this won't work
 $I->testMethod('Post::insert');
 $I->executeTestedMethod(array('title' => 'Top 10 kitties');
 $post_id = $I->takeLastResult();
