@@ -172,7 +172,7 @@ We test the invokation of 'render' method without any mock definition we did for
 
 But how we can define mock and perform assertion the same time? We don't. Action 'seeMethodInvoked' only performs assertion the mocked method was run. The mock was created by 'executeTestedMethodOn' command. It looked through scenario and created mocks for methods execution of which we want to test.
 
-You should about creating mocks no more! 
+You should no more think about creating mocks! 
 
 Still, you have to use stub classes, in order to make dynamical mocking work.
 
