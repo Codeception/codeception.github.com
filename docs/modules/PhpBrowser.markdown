@@ -3,6 +3,98 @@ layout: page
 title: Codeception - Documentation
 ---
 
+## PhpBrowser
+
+Uses Mink (http://mink.behat.org) with Goutte Driver to interact with your application.
+Contains all Mink actions and additional ones, listed below.
+
+Use to perform web acceptance tests with non-javascript browser.
+
+If test fails stores last shown page in 'output' dir.
+
+### Configuration
+
+* url *required* - start url of your app
+
+### Public Properties
+
+* session - contains Mink Session
+
+
+### Actions
+
+
+#### submitForm
+
+
+#### sendAjaxPostRequest
+
+
+#### sendAjaxGetRequest
+
+
+#### amOnPage
+
+
+#### dontSee
+
+
+#### see
+
+
+#### seeLink
+
+
+#### dontSeeLink
+
+
+#### click
+
+
+#### reloadPage
+
+
+#### moveBack
+
+
+#### moveForward
+
+
+#### fillField
+
+
+#### fillFields
+
+
+#### press
+
+
+#### selectOption
+
+
+#### checkOption
+
+
+#### uncheckOption
+
+
+#### attachFileToField
+
+
+#### seeInCurrentUrl
+
+
+#### seeCheckboxIsChecked
+
+
+#### dontSeeCheckboxIsChecked
+
+
+#### seeInField
+
+
+#### dontSeeInField
+
 
 Opens the page.
 

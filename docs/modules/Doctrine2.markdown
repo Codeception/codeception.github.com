@@ -3,6 +3,44 @@ layout: page
 title: Codeception - Documentation
 ---
 
+## Doctrine2
+
+Allows integration and testing for projects with Doctrine2 ORM.
+
+Doctrine2 uses EntityManager to perform all database operations.
+As the module uses active connection and active entity manager, instance of this object should be passed to this module.
+
+It can be done in bootstrap file, by setting static $em property:
+
+{% highlight php %}
+
+<?php
+
+\Codeception\Module\Doctrine2::$em = $em
+
+
+{% endhighlight %}
+
+### Config
+* cleanup: true - all doctrine queries will be run in transaction, which will be rolled back at the end of test.
+
+### Actions
+
+
+#### flushToDatabase
+
+
+#### persistEntity
+
+
+#### haveFakeRepository
+
+
+#### seeInRepository
+
+
+#### dontSeeInRepository
+
 
 Flushes changes to database and performs ->findOneBy() call for current repository.
 

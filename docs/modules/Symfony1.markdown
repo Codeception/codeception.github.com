@@ -3,6 +3,86 @@ layout: page
 title: Codeception - Documentation
 ---
 
+## Symfony1
+
+Module that interacts with Symfony 1.4 applications.
+
+Replaces functional testing framework from symfony. Authorization features uses Doctrine and sfDoctrineGuardPlugin.
+Uses native symfony connections and test classes. Provides additional invormations on every actions.
+
+If test fails stores last shown page in 'output' dir.
+
+### Configuration
+
+* app *required* - application you want to test. In most cases it will be 'frontend'
+* output - dir were last shown page should be stored. Will be stored to 'sf_log_dir' log path If none specified
+
+### Public Properties
+* browser - current instance of sfBrowser class.
+
+
+### Actions
+
+
+#### amOnPage
+
+
+#### click
+
+
+#### dontSee
+
+
+#### see
+
+
+#### seeLink
+
+
+#### dontSeeLink
+
+
+#### seeCheckboxIsChecked
+
+
+#### dontSeeCheckboxIsChecked
+
+
+#### seeEmailReceived
+
+
+#### submitForm
+
+
+#### sendAjaxPostRequest
+
+
+#### sendAjaxGetRequest
+
+
+#### clickSubmitButton
+
+
+#### seeFormIsValid
+
+
+#### seeErrorsInForm
+
+
+#### seeErrorInField
+
+
+#### signIn
+
+
+#### signOut
+
+
+#### am
+
+
+#### amLoggedAs
+
 
 Log in as sfGuardUser.
 Only name of user should be provided.
