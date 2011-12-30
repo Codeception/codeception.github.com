@@ -186,5 +186,57 @@ $I->haveStub($controller = Stub::makeEmpty('Controller'));
 Only the objects defined by one of those methods can be turned into mocks. 
 For stubs that won't become mocks, haveFakeClass execution is not required. 
 
+## setUp and tearDown
+
+Cest files has analogs for PHPUnit's setUp and tearDown methods. 
+You can use _before and _after methods of Cest class to prepare and clean environment.
+
+{% highlight php %}
+
+<?php
+<?php
+class ControllerCest {
+	$class = 'Controller';
+
+	public function _before() {
+		$this->db = Stub::makeEmpty('DbConnector');
+	}
+
+	public function show(CodeGuy $I)
+	{
+		$controller = Stub::makeEmptyExcept('Controller', 'save');
+		$I->setProperty($controller, 'db', $this->db);
+		// ...
+	}
+
+	public function _after() {		
+	}
+}
+?>
+
+{% endhighlight %}
+
 ## Working with Database
 
+We used Db module widely in examples. As we tested methods of model, it was natural to test result inside the database.
+Connect the Db module to your unit suite to perform 'seeInDatabase' calls. 
+But before each test the database should be cleaned. Deleting all tables and loading dump may take quite a lot of time. For unit tests that are supposed to be run fast that's a catastrophee. 
+
+We could perform all our database interactions inside the transaction, but MySQL doesn't support nested transaction. We recommend you to using SQLite Memory instead MySQL database for running your unit tests.
+
+ORMs like Doctrine or Doctrine2 can emulate nested transaction. Thus, If you use such ORMs, you'd better connect their modules to your suite.  In order to not conflict with Db module they have slightly different actions for looking into database.
+
+{% highlight php %}
+
+<?php
+// For Doctrine2
+$I->seeInRepository('Entity',array('property' => 'value'));
+// For Doctrine1
+$I->seeInTable('Table',array('property' => 'value'));
+?>
+
+{% endhighlight %}
+
+## Conclusion
+
+Codeception has it's powers and it's limits. We belive Codeception limits keeps your tests clean and narrative. Codeception hardens writing a bad code for tests. Codeception has it's simple but powerful tools to create stubs and mocks. Different modules can be attached to unit tests, which, for example, will simplify database interactions. 
