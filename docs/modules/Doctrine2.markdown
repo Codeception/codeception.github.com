@@ -27,7 +27,7 @@ It can be done in bootstrap file, by setting static $em property:
 ### Actions
 
 
-tSeeInRepository
+#### dontSeeInRepository
 
 
 Flushes changes to database and performs ->findOneBy() call for current repository.
@@ -36,13 +36,13 @@ Flushes changes to database and performs ->findOneBy() call for current reposito
  * param array $params
 
 
-shToDatabase
+#### flushToDatabase
 
 
 Performs $em->flush();
 
 
-eFakeRepository
+#### haveFakeRepository
 
 
 Mocks the repository.
@@ -67,7 +67,7 @@ This creates a stub class for Entity\User repository with redefined method findB
  * param array $methods
 
 
-sistEntity
+#### persistEntity
 
 
 Adds entity to repository and flushes. You can redefine it's properties with the second parameter.
@@ -85,7 +85,7 @@ $I->persistEntity($user, array('name' => 'Miles'));
  * param array $values
 
 
-InRepository
+#### seeInRepository
 
 
 Flushes changes to database and performs ->findOneBy() call for current repository.

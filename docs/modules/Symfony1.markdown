@@ -24,7 +24,7 @@ If test fails stores last shown page in 'output' dir.
 ### Actions
 
 
-
+#### am
 
 
 Log in as sfGuardUser.
@@ -34,7 +34,7 @@ Only name of user should be provided.
  * param $name
 
 
-oggedAs
+#### amLoggedAs
 
 
 Log in as sfDoctrineGuardUser.
@@ -45,7 +45,7 @@ Fetches user by it's username from sfGuardUser table.
  * throws \Exception
 
 
-nPage
+#### amOnPage
 
 
 Opens the page.
@@ -53,7 +53,7 @@ Opens the page.
  * param $page
 
 
-ck
+#### click
 
 
 Click on link or button and move to next page.
@@ -62,7 +62,7 @@ Either link text, css selector, or xpath can be passed
  * param $link
 
 
-ckSubmitButton
+#### clickSubmitButton
 
 
 Emulates click on form's submit button.
@@ -71,7 +71,7 @@ You don't need that action if you fill form by ->submitForm action.
  * param $selector
 
 
-tSee
+#### dontSee
 
 
 Check if current page doesn't contain the text specified.
@@ -92,7 +92,7 @@ $I->dontSee('Sign Up','h1'); // I can suppose it's not a signup page
  * param null $selector
 
 
-tSeeCheckboxIsChecked
+#### dontSeeCheckboxIsChecked
 
 
 Assert if the specified checkbox is unchecked.
@@ -112,7 +112,7 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
  * param $selector
 
 
-tSeeLink
+#### dontSeeLink
 
 
 Checks if page doesn't contain the link with text specified.
@@ -132,7 +132,7 @@ $I->dontSeeLink('Logout'); // I suppose user is not logged in
  * param null $url
 
 
-
+#### see
 
 
 Check if current page contains the text specified.
@@ -153,7 +153,7 @@ $I->see('Sign Up','h1'); // I can suppose it's a signup page
  * param null $selector
 
 
-CheckboxIsChecked
+#### seeCheckboxIsChecked
 
 
 Assert if the specified checkbox is checked.
@@ -173,13 +173,13 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
  * param $selector
 
 
-EmailReceived
+#### seeEmailReceived
 
 
 Checks if there were at least one email sent through Symfony test mailer.
 
 
-ErrorInField
+#### seeErrorInField
 
 
 Checks for invalid value in Symfony1 form.
@@ -189,7 +189,7 @@ Specify field which should contain error message.
  * param $field
 
 
-ErrorsInForm
+#### seeErrorsInForm
 
 
 Performs validation of Symfony1 form.
@@ -197,14 +197,14 @@ Matches the first sfForm instance from controller and returns getErrorSchema() v
 Shows all errors in debug.
 
 
-FormIsValid
+#### seeFormIsValid
 
 
 Performs validation of Symfony1 form.
 Matches the first sfForm instance from controller and returns isValid() value.
 
 
-Link
+#### seeLink
 
 
 Checks if there is a link with text specified.
@@ -225,7 +225,7 @@ $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
  * param null $url
 
 
-dAjaxGetRequest
+#### sendAjaxGetRequest
 
 
 If your page triggers an ajax request, you can perform it manually.
@@ -237,7 +237,7 @@ See ->sendAjaxPostRequest for examples.
  * param $params
 
 
-dAjaxPostRequest
+#### sendAjaxPostRequest
 
 
 If your page triggers an ajax request, you can perform it manually.
@@ -262,7 +262,7 @@ $I->sendAjaxGetRequest('/updateSettings', array('notifications' => true); // GET
  * param $params
 
 
-nIn
+#### signIn
 
 
 Sign's user in with sfGuardAuth.
@@ -273,14 +273,14 @@ Provide username and password.
  * param $password
 
 
-nOut
+#### signOut
 
 
 Sign out is performing by triggering '/logout' url.
 
 
 
-mitForm
+#### submitForm
 
 
 Submits a form located on page.

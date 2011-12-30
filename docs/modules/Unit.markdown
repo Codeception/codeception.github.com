@@ -144,7 +144,7 @@ Thus, the trick is: command $I->executeTestedMethod() doesn't actually execute i
 ### Actions
 
 
-ngeProperties
+#### changeProperties
 
 
 Updates selected properties for object passed.
@@ -154,7 +154,7 @@ Can update even private and protected properties.
  * param array $values
 
 
-ngeProperty
+#### changeProperty
 
 
 Updates property of selected object
@@ -165,11 +165,12 @@ Can update even private and protected properties.
  * param $value
 
 
-tSeeResultContains
+#### dontSeeResultContains
+
+__not documented__
 
 
-
-cuteTestedMethod
+#### executeTestedMethod
 
 
 Executes the method which is tested.
@@ -202,7 +203,7 @@ $I->executeTestedMethod(1, 'hello', array(5,4,5));
  * throws \InvalidArgumentException
 
 
-cuteTestedMethodOn
+#### executeTestedMethodOn
 
 
 Alias for executeTestedMethod, only for non-static methods
@@ -211,11 +212,12 @@ Alias for executeTestedMethod, only for non-static methods
  * param $object
 
 
-cuteTestedMethodWith
+#### executeTestedMethodWith
+
+__not documented__
 
 
-
-eFakeClass
+#### haveFakeClass
 
 
 Adds a stub to internal registry.
@@ -225,7 +227,7 @@ Without adding stub to registry you can't trace it's method invocations.
  * param $instance
 
 
-eStub
+#### haveStub
 
 
 Alias for haveFakeClass
@@ -234,15 +236,17 @@ Alias for haveFakeClass
  * param $instance
 
 
-EmptyResult
+#### seeEmptyResult
+
+__not documented__
 
 
+#### seeExceptionThrown
 
-ExceptionThrown
+__not documented__
 
 
-
-MethodInvoked
+#### seeMethodInvoked
 
 
 
@@ -254,7 +258,7 @@ MethodInvoked
  * param array $params
 
 
-MethodInvokedMultipleTimes
+#### seeMethodInvokedMultipleTimes
 
 
 
@@ -266,7 +270,7 @@ MethodInvokedMultipleTimes
  * param array $params
 
 
-MethodInvokedOnce
+#### seeMethodInvokedOnce
 
 
 
@@ -277,7 +281,7 @@ MethodInvokedOnce
  * param array $params
 
 
-MethodNotInvoked
+#### seeMethodNotInvoked
 
 
 
@@ -288,19 +292,22 @@ MethodNotInvoked
  * param array $params
 
 
-PropertyEquals
+#### seePropertyEquals
+
+__not documented__
 
 
+#### seePropertyIs
 
-PropertyIs
-
-
-
-ResultContains
+__not documented__
 
 
+#### seeResultContains
 
-ResultEquals
+__not documented__
+
+
+#### seeResultEquals
 
 
 Asserts that the last result from tested method is equal to value
@@ -308,15 +315,17 @@ Asserts that the last result from tested method is equal to value
  * param $value
 
 
-ResultIs
+#### seeResultIs
+
+__not documented__
 
 
+#### seeResultNotEquals
 
-ResultNotEquals
+__not documented__
 
 
-
-tMethod
+#### testMethod
 
 
 Registers a class/method which will be tested.

@@ -8,17 +8,21 @@ title: Codeception - Documentation
 ### Actions
 
 
-nPath
+#### amInPath
+
+__not documented__
 
 
+#### dontSeeInShellOutput
 
-tSeeInShellOutput
-
-
-
-ShellCommmand
+__not documented__
 
 
+#### runShellCommmand
 
-InShellOutput
+__not documented__
 
+
+#### seeInShellOutput
+
+__not documented__

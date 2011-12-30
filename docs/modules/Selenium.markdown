@@ -37,7 +37,7 @@ Don't forget to turn on Db repopulation if you are using database.
 ### Actions
 
 
-nPage
+#### amOnPage
 
 
 Opens the page.
@@ -45,22 +45,24 @@ Opens the page.
  * param $page
 
 
-achFileToField
+#### attachFileToField
+
+__not documented__
 
 
+#### blur
 
-r
+__not documented__
 
 
-
-ckOption
+#### checkOption
 
 
 Check matched checkbox or radiobutton.
  * param $option
 
 
-ck
+#### click
 
 
 Clicks on either link (for PHPBrowser) or on any selector for JS browsers.
@@ -69,11 +71,12 @@ Link text or css selector can be passed.
  * param $link
 
 
-ckWithRightButton
+#### clickWithRightButton
+
+__not documented__
 
 
-
-tSee
+#### dontSee
 
 
 Check if current page doesn't contain the text specified.
@@ -94,7 +97,7 @@ $I->dontSee('Sign Up','h1'); // I can suppose it's not a signup page
  * param null $selector
 
 
-tSeeCheckboxIsChecked
+#### dontSeeCheckboxIsChecked
 
 
 Assert if the specified checkbox is unchecked.
@@ -114,7 +117,7 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
  * param $selector
 
 
-tSeeInField
+#### dontSeeInField
 
 
 Checks matched field doesn't contain a value passed
@@ -123,7 +126,7 @@ Checks matched field doesn't contain a value passed
  * param $value
 
 
-tSeeLink
+#### dontSeeLink
 
 
 Checks if page doesn't contain the link with text specified.
@@ -143,11 +146,12 @@ $I->dontSeeLink('Logout'); // I suppose user is not logged in
  * param null $url
 
 
-bleClick
+#### doubleClick
+
+__not documented__
 
 
-
-gAndDrop
+#### dragAndDrop
 
 
 Drag first element to second
@@ -156,11 +160,12 @@ Drag first element to second
  * param $el2
 
 
-cuteJs
+#### executeJs
+
+__not documented__
 
 
-
-lField
+#### fillField
 
 
 Fill the field found by it's name with given value
@@ -169,7 +174,7 @@ Fill the field found by it's name with given value
  * param $value
 
 
-lFields
+#### fillFields
 
 
 Shortcut for filling multiple fields by their names.
@@ -179,27 +184,29 @@ Array with field names => values expected.
  * param array $fields
 
 
-us
+#### focus
+
+__not documented__
 
 
-
-eBack
+#### moveBack
 
 
 Moves back in history
 
 
-eForward
+#### moveForward
 
 
 Moves forward in history
 
 
-eMouseOver
+#### moveMouseOver
+
+__not documented__
 
 
-
-ss
+#### press
 
 
 Press the button, found by it's name.
@@ -207,25 +214,28 @@ Press the button, found by it's name.
  * param $button
 
 
-ssKey
+#### pressKey
+
+__not documented__
 
 
+#### pressKeyDown
 
-ssKeyDown
-
-
-
-ssKeyUp
+__not documented__
 
 
+#### pressKeyUp
 
-oadPage
+__not documented__
+
+
+#### reloadPage
 
 
 Reloads current page
 
 
-
+#### see
 
 
 Check if current page contains the text specified.
@@ -246,7 +256,7 @@ $I->see('Sign Up','h1'); // I can suppose it's a signup page
  * param null $selector
 
 
-CheckboxIsChecked
+#### seeCheckboxIsChecked
 
 
 Assert if the specified checkbox is checked.
@@ -266,7 +276,7 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
  * param $selector
 
 
-Element
+#### seeElement
 
 
 Checks element visibility.
@@ -275,14 +285,14 @@ Fails if element exists but is invisible to user.
  * param $css
 
 
-InCurrentUrl
+#### seeInCurrentUrl
 
 
 Checks if current url contains the $uri.
  * param $uri
 
 
-InField
+#### seeInField
 
 
 Checks matched field has a passed value
@@ -291,7 +301,7 @@ Checks matched field has a passed value
  * param $value
 
 
-Link
+#### seeLink
 
 
 Checks if there is a link with text specified.
@@ -312,7 +322,7 @@ $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
  * param null $url
 
 
-ectOption
+#### selectOption
 
 
 Selects opition from selectbox.
@@ -323,16 +333,18 @@ Either values or text of options can be used to fetch option.
  * param $option
 
 
-heckOption
+#### uncheckOption
 
 
 Uncheck matched checkbox or radiobutton.
  * param $option
 
 
-t
+#### wait
+
+__not documented__
 
 
+#### waitForJS
 
-tForJS
-
+__not documented__

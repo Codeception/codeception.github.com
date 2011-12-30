@@ -24,7 +24,7 @@ If test fails stores last shown page in 'output' dir.
 ### Actions
 
 
-nPage
+#### amOnPage
 
 
 Opens the page.
@@ -32,18 +32,19 @@ Opens the page.
  * param $page
 
 
-achFileToField
+#### attachFileToField
+
+__not documented__
 
 
-
-ckOption
+#### checkOption
 
 
 Check matched checkbox or radiobutton.
  * param $option
 
 
-ck
+#### click
 
 
 Clicks on either link (for PHPBrowser) or on any selector for JS browsers.
@@ -52,7 +53,7 @@ Link text or css selector can be passed.
  * param $link
 
 
-tSee
+#### dontSee
 
 
 Check if current page doesn't contain the text specified.
@@ -73,7 +74,7 @@ $I->dontSee('Sign Up','h1'); // I can suppose it's not a signup page
  * param null $selector
 
 
-tSeeCheckboxIsChecked
+#### dontSeeCheckboxIsChecked
 
 
 Assert if the specified checkbox is unchecked.
@@ -93,7 +94,7 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
  * param $selector
 
 
-tSeeInField
+#### dontSeeInField
 
 
 Checks matched field doesn't contain a value passed
@@ -102,7 +103,7 @@ Checks matched field doesn't contain a value passed
  * param $value
 
 
-tSeeLink
+#### dontSeeLink
 
 
 Checks if page doesn't contain the link with text specified.
@@ -122,7 +123,7 @@ $I->dontSeeLink('Logout'); // I suppose user is not logged in
  * param null $url
 
 
-lField
+#### fillField
 
 
 Fill the field found by it's name with given value
@@ -131,7 +132,7 @@ Fill the field found by it's name with given value
  * param $value
 
 
-lFields
+#### fillFields
 
 
 Shortcut for filling multiple fields by their names.
@@ -141,19 +142,19 @@ Array with field names => values expected.
  * param array $fields
 
 
-eBack
+#### moveBack
 
 
 Moves back in history
 
 
-eForward
+#### moveForward
 
 
 Moves forward in history
 
 
-ss
+#### press
 
 
 Press the button, found by it's name.
@@ -161,13 +162,13 @@ Press the button, found by it's name.
  * param $button
 
 
-oadPage
+#### reloadPage
 
 
 Reloads current page
 
 
-
+#### see
 
 
 Check if current page contains the text specified.
@@ -188,7 +189,7 @@ $I->see('Sign Up','h1'); // I can suppose it's a signup page
  * param null $selector
 
 
-CheckboxIsChecked
+#### seeCheckboxIsChecked
 
 
 Assert if the specified checkbox is checked.
@@ -208,14 +209,14 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
  * param $selector
 
 
-InCurrentUrl
+#### seeInCurrentUrl
 
 
 Checks if current url contains the $uri.
  * param $uri
 
 
-InField
+#### seeInField
 
 
 Checks matched field has a passed value
@@ -224,7 +225,7 @@ Checks matched field has a passed value
  * param $value
 
 
-Link
+#### seeLink
 
 
 Checks if there is a link with text specified.
@@ -245,7 +246,7 @@ $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
  * param null $url
 
 
-ectOption
+#### selectOption
 
 
 Selects opition from selectbox.
@@ -256,7 +257,7 @@ Either values or text of options can be used to fetch option.
  * param $option
 
 
-dAjaxGetRequest
+#### sendAjaxGetRequest
 
 
 If your page triggers an ajax request, you can perform it manually.
@@ -268,7 +269,7 @@ See ->sendAjaxPostRequest for examples.
  * param $params
 
 
-dAjaxPostRequest
+#### sendAjaxPostRequest
 
 
  If your page triggers an ajax request, you can perform it manually.
@@ -293,7 +294,7 @@ dAjaxPostRequest
   * param $params
 /
 
-mitForm
+#### submitForm
 
 
 Submits a form located on page.
@@ -342,7 +343,7 @@ Note, that pricing plan will be set to Paid, as it's selected on page.
  * param $params
 
 
-heckOption
+#### uncheckOption
 
 
 Uncheck matched checkbox or radiobutton.
