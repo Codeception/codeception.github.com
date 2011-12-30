@@ -40,7 +40,7 @@ body {
 }
 
 #page ul {
-	padding: 18px;
+	padding-left: 18px;
 }
 
 #page ul li {
@@ -53,4 +53,9 @@ body {
 
 #page h3, #page h4 {
 	color: #AF8E0B;
+}
+
+#page h4 {
+	color: #333;
+	margin-bottom: 0.5em;
 }
