@@ -3,22 +3,22 @@ layout: page
 title: Codeception - Documentation
 ---
 
-## Doctrine1
 
-Performs DB operations with Doctrine ORM 1.x
+Checks table doesn't contain row with specified values
+Provide Doctrine model name and criteria that can be passed to addWhere DQL
 
-Uses active Doctrine connection. If none can be found will fail.
+Example:
 
-This module cleans all cached data after each test.
+{% highlight php %}
 
-### Config
-* cleanup: true - all doctrine queries will be run in transaction, which will be rolled back at the end of test.
-
-
-### Actions
+<?php
+$I->dontSeeInTable('User', array('name' => 'Davert', 'email' => 'davert * mail.com'));
 
 
-#### seeInTable
+{% endhighlight %}
+
+ * param $model
+ * param array $values
 
 
 Checks table contains row with specified values
@@ -30,25 +30,6 @@ Example:
 
 <?php
 $I->seeInTable('User', array('name' => 'Davert', 'email' => 'davert * mail.com'));
-
-
-{% endhighlight %}
-
- * param $model
- * param array $values
-
-#### dontSeeInTable
-
-
-Checks table doesn't contain row with specified values
-Provide Doctrine model name and criteria that can be passed to addWhere DQL
-
-Example:
-
-{% highlight php %}
-
-<?php
-$I->dontSeeInTable('User', array('name' => 'Davert', 'email' => 'davert * mail.com'));
 
 
 {% endhighlight %}
