@@ -26,9 +26,13 @@ class PostCest {
 }
 ?>
 
+{% endhighlight %}
+
 Note, the CodeGuy object is passed as parameter into each test.
 
 To redefine target of test consider using testMethod action. Note, you can't change the method you test inside of test. That's just simply wrong. So the testMethod call should be put in the very begining or ignored. 
+
+{% highlight php %}
 
 <?php
 class PostCase {
@@ -86,7 +90,7 @@ $I->seeInDatabase('posts',array('id' => 5, 'comments_count' => 1));
 
 This scenario will fail, because developer expects the comment counter will be incrementer by DB::updateCounters call. But this method will be executed before comment is saved, so the last assertions will fail. To perform actions inside the scenario add your code as an action into CodeHelper module. 
 
-### Actions won't return any results
+#### Actions won't return any results
 
 No method of Guy class is allowed to return values. It will return the current CodeGuy instance only. Reconsider your testing scenario every time you want write something like this:
 
@@ -104,7 +108,7 @@ $I->seeInDatabase('posts', array('id' => $post_id));
 
 For testing result we use ->seeResult* actions. But you can't use data returned by tested method inside your next actions.
 
-### All variables must be constant.
+#### All variables must be constant.
 
 ALl variables used in scenarios can't be changed. 
 
@@ -121,7 +125,7 @@ $I->seeInDatabase('posts', $post_id);
 
 As we already know, the first assertions won't be executed as expected. The test will start with the $post_id equals to 3. This example could be rewritten with two post_id variables instead of one. 
 
-### Objects can be updated
+#### Objects can be updated
 
 Still, not all varibles are constant. CodeGuy can update objects inside scenarios.
 
@@ -186,7 +190,7 @@ $I->haveStub($controller = Stub::makeEmpty('Controller'));
 Only the objects defined by one of those methods can be turned into mocks. 
 For stubs that won't become mocks, haveFakeClass execution is not required. 
 
-## setUp and tearDown
+### setUp and tearDown
 
 Cest files has analogs for PHPUnit's setUp and tearDown methods. 
 You can use _before and _after methods of Cest class to prepare and clean environment.
