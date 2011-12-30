@@ -197,7 +197,6 @@ You can use _before and _after methods of Cest class to prepare and clean enviro
 {% highlight php %}
 
 <?php
-<?php
 class ControllerCest {
 	$class = 'Controller';
 
