@@ -46,3 +46,11 @@ body {
 #page ul li {
 	list-style-type: disc;
 }
+
+.sidebar h2 {
+	color: #9D78B9;
+}
+
+#page h3, #page h4 {
+	color: #EA9B14;
+}
