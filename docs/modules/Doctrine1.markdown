@@ -3,7 +3,7 @@ layout: page
 title: Codeception - Documentation
 ---
 
-## Doctrine1
+## Doctrine1 Module
 
 Performs DB operations with Doctrine ORM 1.x
 
@@ -18,25 +18,6 @@ This module cleans all cached data after each test.
 ### Actions
 
 
-#### seeInTable
-
-
-Checks table contains row with specified values
-Provide Doctrine model name can be passed to addWhere DQL
-
-Example:
-
-{% highlight php %}
-
-<?php
-$I->seeInTable('User', array('name' => 'Davert', 'email' => 'davert * mail.com'));
-
-
-{% endhighlight %}
-
- * param $model
- * param array $values
-
 #### dontSeeInTable
 
 
@@ -49,6 +30,26 @@ Example:
 
 <?php
 $I->dontSeeInTable('User', array('name' => 'Davert', 'email' => 'davert * mail.com'));
+
+
+{% endhighlight %}
+
+ * param $model
+ * param array $values
+
+
+#### seeInTable
+
+
+Checks table contains row with specified values
+Provide Doctrine model name can be passed to addWhere DQL
+
+Example:
+
+{% highlight php %}
+
+<?php
+$I->seeInTable('User', array('name' => 'Davert', 'email' => 'davert * mail.com'));
 
 
 {% endhighlight %}

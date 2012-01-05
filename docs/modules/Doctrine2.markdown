@@ -3,7 +3,7 @@ layout: page
 title: Codeception - Documentation
 ---
 
-## Doctrine2
+## Doctrine2 Module
 
 Allows integration and testing for projects with Doctrine2 ORM.
 
@@ -27,27 +27,20 @@ It can be done in bootstrap file, by setting static $em property:
 ### Actions
 
 
+#### dontSeeInRepository
+
+
+Flushes changes to database and performs ->findOneBy() call for current repository.
+
+ * param $entity
+ * param array $params
+
+
 #### flushToDatabase
 
 
 Performs $em->flush();
 
-#### persistEntity
-
-
-Adds entity to repository and flushes. You can redefine it's properties with the second parameter.
-
-Example:
-
-{% highlight php %}
-
-<?php
-$I->persistEntity($user, array('name' => 'Miles'));
-
-{% endhighlight %}
-
- * param $obj
- * param array $values
 
 #### haveFakeRepository
 
@@ -73,19 +66,30 @@ This creates a stub class for Entity\User repository with redefined method findB
  * param $classname
  * param array $methods
 
+
+#### persistEntity
+
+
+Adds entity to repository and flushes. You can redefine it's properties with the second parameter.
+
+Example:
+
+{% highlight php %}
+
+<?php
+$I->persistEntity($user, array('name' => 'Miles'));
+
+{% endhighlight %}
+
+ * param $obj
+ * param array $values
+
+
 #### seeInRepository
 
 
 Flushes changes to database and performs ->findOneBy() call for current repository.
 Fails if record for given criteria can\'t be found,
-
- * param $entity
- * param array $params
-
-#### dontSeeInRepository
-
-
-Flushes changes to database and performs ->findOneBy() call for current repository.
 
  * param $entity
  * param array $params

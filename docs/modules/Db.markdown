@@ -3,7 +3,7 @@ layout: page
 title: Codeception - Documentation
 ---
 
-## Db
+## Db Module
 
 Works with SQL dabatase (MySQL tested).
 
@@ -25,7 +25,7 @@ Don't forget to include CREATE TABLE statements into it.
 * password *required* - password
 * dump - path to database dump.
 * populate: true - should the dump be loaded before test suite is started.
-* repopulate: true - should the dump be reloaded after each test
+* cleanup: true - should the dump be reloaded after each test
 
 Also provides actions to perform checks in database.
 
@@ -35,33 +35,6 @@ Also provides actions to perform checks in database.
 
 ### Actions
 
-
-#### seeInDatabase
-
-
-Checks if a row with given column values exists.
-Provide table name and column values.
-
-Example:
-
-{% highlight php %}
-
-<?php
-$I->seeInDatabase('users', array('name' => 'Davert', 'email' => 'davert * mail.com'));
-
-
-{% endhighlight %}
-Will generate:
-
-{% highlight yaml %}
- sql
-SELECT COUNT(*) FROM `users` WHERE `name` = 'Davert' AND `email` = 'davert * mail.com'
-
-{% endhighlight %}
-Fails if no such user found.
-
- * param $table
- * param array $criteria
 
 #### dontSeeInDatabase
 
@@ -88,6 +61,34 @@ SELECT COUNT(*) FROM `users` WHERE `name` = 'Davert' AND `email` = 'davert * mai
 
 {% endhighlight %}
 Fails if such user was found.
+
+ * param $table
+ * param array $criteria
+
+
+#### seeInDatabase
+
+
+Checks if a row with given column values exists.
+Provide table name and column values.
+
+Example:
+
+{% highlight php %}
+
+<?php
+$I->seeInDatabase('users', array('name' => 'Davert', 'email' => 'davert * mail.com'));
+
+
+{% endhighlight %}
+Will generate:
+
+{% highlight yaml %}
+ sql
+SELECT COUNT(*) FROM `users` WHERE `name` = 'Davert' AND `email` = 'davert * mail.com'
+
+{% endhighlight %}
+Fails if no such user found.
 
  * param $table
  * param array $criteria

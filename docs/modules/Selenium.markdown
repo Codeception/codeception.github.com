@@ -3,7 +3,7 @@ layout: page
 title: Codeception - Documentation
 ---
 
-## Selenium
+## Selenium Module
 
 Uses Mink to launch and manipulate Selenium Server (formerly the Selenium RC Server).
 
@@ -37,72 +37,44 @@ Don't forget to turn on Db repopulation if you are using database.
 ### Actions
 
 
-#### doubleClick
-
-__not documented__
-
-#### clickWithRightButton
-
-__not documented__
-
-#### moveMouseOver
-
-__not documented__
-
-#### focus
-
-__not documented__
-
-#### blur
-
-__not documented__
-
-#### dragAndDrop
-
-
-Drag first element to second
-
- * param $el1
- * param $el2
-
-#### seeElement
-
-
-Checks element visibility.
-Fails if element exists but is invisible to user.
-
- * param $css
-
-#### pressKey
-
-__not documented__
-
-#### pressKeyUp
-
-__not documented__
-
-#### pressKeyDown
-
-__not documented__
-
-#### wait
-
-__not documented__
-
-#### waitForJS
-
-__not documented__
-
-#### executeJs
-
-__not documented__
-
 #### amOnPage
 
 
 Opens the page.
 
  * param $page
+
+
+#### attachFileToField
+
+__not documented__
+
+
+#### blur
+
+__not documented__
+
+
+#### checkOption
+
+
+Check matched checkbox or radiobutton.
+ * param $option
+
+
+#### click
+
+
+Clicks on either link (for PHPBrowser) or on any selector for JS browsers.
+Link text or css selector can be passed.
+
+ * param $link
+
+
+#### clickWithRightButton
+
+__not documented__
+
 
 #### dontSee
 
@@ -124,6 +96,145 @@ $I->dontSee('Sign Up','h1'); // I can suppose it's not a signup page
  * param $text
  * param null $selector
 
+
+#### dontSeeCheckboxIsChecked
+
+
+Assert if the specified checkbox is unchecked.
+Use css selector or xpath to match.
+
+Example:
+
+{% highlight php %}
+
+<?php
+$I->dontSeeCheckboxIsChecked('#agree'); // I suppose user didn't agree to terms
+$I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user didn't check the first checkbox in form.
+
+
+{% endhighlight %}
+
+ * param $selector
+
+
+#### dontSeeInField
+
+
+Checks matched field doesn't contain a value passed
+
+ * param $field
+ * param $value
+
+
+#### dontSeeLink
+
+
+Checks if page doesn't contain the link with text specified.
+Specify url to narrow the results.
+
+Examples:
+
+{% highlight php %}
+
+<?php
+$I->dontSeeLink('Logout'); // I suppose user is not logged in
+
+
+{% endhighlight %}
+
+ * param $text
+ * param null $url
+
+
+#### doubleClick
+
+__not documented__
+
+
+#### dragAndDrop
+
+
+Drag first element to second
+
+ * param $el1
+ * param $el2
+
+
+#### executeJs
+
+__not documented__
+
+
+#### fillField
+
+
+Fill the field found by it's name with given value
+
+ * param $field
+ * param $value
+
+
+#### fillFields
+
+
+Shortcut for filling multiple fields by their names.
+Array with field names => values expected.
+
+
+ * param array $fields
+
+
+#### focus
+
+__not documented__
+
+
+#### moveBack
+
+
+Moves back in history
+
+
+#### moveForward
+
+
+Moves forward in history
+
+
+#### moveMouseOver
+
+__not documented__
+
+
+#### press
+
+
+Press the button, found by it's name.
+
+ * param $button
+
+
+#### pressKey
+
+__not documented__
+
+
+#### pressKeyDown
+
+__not documented__
+
+
+#### pressKeyUp
+
+__not documented__
+
+
+#### reloadPage
+
+
+Reloads current page
+
+
 #### see
 
 
@@ -143,6 +254,52 @@ $I->see('Sign Up','h1'); // I can suppose it's a signup page
 
  * param $text
  * param null $selector
+
+
+#### seeCheckboxIsChecked
+
+
+Assert if the specified checkbox is checked.
+Use css selector or xpath to match.
+
+Example:
+
+{% highlight php %}
+
+<?php
+$I->seeCheckboxIsChecked('#agree'); // I suppose user agreed to terms
+$I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user agreed to terms, If there is only one checkbox in form.
+
+
+{% endhighlight %}
+
+ * param $selector
+
+
+#### seeElement
+
+
+Checks element visibility.
+Fails if element exists but is invisible to user.
+
+ * param $css
+
+
+#### seeInCurrentUrl
+
+
+Checks if current url contains the $uri.
+ * param $uri
+
+
+#### seeInField
+
+
+Checks matched field has a passed value
+
+ * param $field
+ * param $value
+
 
 #### seeLink
 
@@ -164,71 +321,6 @@ $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
  * param $text
  * param null $url
 
-#### dontSeeLink
-
-
-Checks if page doesn't contain the link with text specified.
-Specify url to narrow the results.
-
-Examples:
-
-{% highlight php %}
-
-<?php
-$I->dontSeeLink('Logout'); // I suppose user is not logged in
-
-
-{% endhighlight %}
-
- * param $text
- * param null $url
-
-#### click
-
-
-Clicks on either link (for PHPBrowser) or on any selector for JS browsers.
-Link text or css selector can be passed.
-
- * param $link
-
-#### reloadPage
-
-
-Reloads current page
-
-#### moveBack
-
-
-Moves back in history
-
-#### moveForward
-
-
-Moves forward in history
-
-#### fillField
-
-
-Fill the field found by it's name with given value
-
- * param $field
- * param $value
-
-#### fillFields
-
-
-Shortcut for filling multiple fields by their names.
-Array with field names => values expected.
-
-
- * param array $fields
-
-#### press
-
-
-Press the button, found by it's name.
-
- * param $button
 
 #### selectOption
 
@@ -240,11 +332,6 @@ Either values or text of options can be used to fetch option.
  * param $select
  * param $option
 
-#### checkOption
-
-
-Check matched checkbox or radiobutton.
- * param $option
 
 #### uncheckOption
 
@@ -252,66 +339,12 @@ Check matched checkbox or radiobutton.
 Uncheck matched checkbox or radiobutton.
  * param $option
 
-#### attachFileToField
+
+#### wait
 
 __not documented__
 
-#### seeInCurrentUrl
 
+#### waitForJS
 
-Checks if current url contains the $uri.
- * param $uri
-
-#### seeCheckboxIsChecked
-
-
-Assert if the specified checkbox is checked.
-Use css selector or xpath to match.
-
-Example:
-
-{% highlight php %}
-
-<?php
-$I->seeCheckboxIsChecked('#agree'); // I suppose user agreed to terms
-$I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user agreed to terms, If there is only one checkbox in form.
-
-
-{% endhighlight %}
-
- * param $selector
-
-#### dontSeeCheckboxIsChecked
-
-
-Assert if the specified checkbox is unchecked.
-Use css selector or xpath to match.
-
-Example:
-
-{% highlight php %}
-
-<?php
-$I->dontSeeCheckboxIsChecked('#agree'); // I suppose user didn't agree to terms
-$I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user didn't check the first checkbox in form.
-
-
-{% endhighlight %}
-
- * param $selector
-
-#### seeInField
-
-
-Checks matched field has a passed value
-
- * param $field
- * param $value
-
-#### dontSeeInField
-
-
-Checks matched field doesn't contain a value passed
-
- * param $field
- * param $value
+__not documented__
