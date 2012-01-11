@@ -32,6 +32,26 @@ Opens the page.
  * param $page
 
 
+#### attachFile
+
+
+Attaches file from Codeception data directory to upload field.
+
+Example:
+
+{% highlight php %}
+
+<?php
+// file is stored in 'tests/data/tests.xls'
+$I->attachFile('prices.xls');
+?>
+
+{% endhighlight %}
+
+ * param $field
+ * param $filename
+
+
 #### attachFileToField
 
 __not documented__
@@ -91,13 +111,25 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
 
 {% endhighlight %}
 
- * param $selector
+ * param $checkbox
 
 
 #### dontSeeInField
 
 
-Checks matched field doesn't contain a value passed
+Checks that an input field or textarea doesn't contain value.
+
+Example:
+
+{% highlight php %}
+
+<?php
+$I->dontSeeInField('form textarea[name=body]','Type your comment here');
+$I->dontSeeInField('form input[type=hidden]','hidden_value');
+$I->dontSeeInField('#searchform input','Search');
+?>
+
+{% endhighlight %}
 
  * param $field
  * param $value
@@ -206,7 +238,7 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
 
 {% endhighlight %}
 
- * param $selector
+ * param $checkbox
 
 
 #### seeInCurrentUrl
@@ -219,7 +251,19 @@ Checks if current url contains the $uri.
 #### seeInField
 
 
-Checks matched field has a passed value
+Checks that an input field or textarea contains value.
+
+Example:
+
+{% highlight php %}
+
+<?php
+$I->seeInField('form textarea[name=body]','Type your comment here');
+$I->seeInField('form input[type=hidden]','hidden_value');
+$I->seeInField('#searchform input','Search');
+?>
+
+{% endhighlight %}
 
  * param $field
  * param $value
@@ -272,27 +316,27 @@ See ->sendAjaxPostRequest for examples.
 #### sendAjaxPostRequest
 
 
- If your page triggers an ajax request, you can perform it manually.
- This action sends a POST ajax request with specified params.
- Additional params can be passed as array.
+If your page triggers an ajax request, you can perform it manually.
+This action sends a POST ajax request with specified params.
+Additional params can be passed as array.
 
- Example:
+Example:
 
- Imagine that by clicking checkbox you trigger ajax request which updates user settings.
- We emulate that click by running this ajax request manually.
+Imagine that by clicking checkbox you trigger ajax request which updates user settings.
+We emulate that click by running this ajax request manually.
 
- {% highlight php %}
+{% highlight php %}
 
- <?php
- $I->sendAjaxPostRequest('/updateSettings', array('notifications' => true); // POST
- $I->sendAjaxGetRequest('/updateSettings', array('notifications' => true); // GET
+<?php
+$I->sendAjaxPostRequest('/updateSettings', array('notifications' => true); // POST
+$I->sendAjaxGetRequest('/updateSettings', array('notifications' => true); // GET
 
- 
+
 {% endhighlight %}
 
-  * param $uri
-  * param $params
-/
+ * param $uri
+ * param $params
+
 
 #### submitForm
 
