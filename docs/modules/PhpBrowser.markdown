@@ -35,39 +35,26 @@ Opens the page.
 #### attachFile
 
 
-Attaches file from Codeception data directory to upload field.
-
-Example:
-
-{% highlight php %}
-
-<?php
-// file is stored in 'tests/data/tests.xls'
-$I->attachFile('prices.xls');
-?>
-
-{% endhighlight %}
+Attaches file stored in Codeception data directory to field specified.
+Field is searched by its id|name|label|value or CSS selector.
 
  * param $field
  * param $filename
-
-
-#### attachFileToField
-
-__not documented__
 
 
 #### checkOption
 
 
 Check matched checkbox or radiobutton.
+Field is searched by its id|name|label|value or CSS selector.
+
  * param $option
 
 
 #### click
 
 
-Clicks on either link (for PHPBrowser) or on any selector for JS browsers.
+Clicks on either link or button (for PHPBrowser) or on any selector for JS browsers.
 Link text or css selector can be passed.
 
  * param $link
@@ -97,19 +84,8 @@ $I->dontSee('Sign Up','h1'); // I can suppose it's not a signup page
 #### dontSeeCheckboxIsChecked
 
 
-Assert if the specified checkbox is unchecked.
-Use css selector or xpath to match.
-
-Example:
-
-{% highlight php %}
-
-<?php
-$I->dontSeeCheckboxIsChecked('#agree'); // I suppose user didn't agree to terms
-$I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user didn't check the first checkbox in form.
-
-
-{% endhighlight %}
+Asserts that checbox is not checked
+Field is searched by its id|name|label|value or CSS selector.
 
  * param $checkbox
 
@@ -117,19 +93,8 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
 #### dontSeeInField
 
 
-Checks that an input field or textarea doesn't contain value.
-
-Example:
-
-{% highlight php %}
-
-<?php
-$I->dontSeeInField('form textarea[name=body]','Type your comment here');
-$I->dontSeeInField('form input[type=hidden]','hidden_value');
-$I->dontSeeInField('#searchform input','Search');
-?>
-
-{% endhighlight %}
+Checks the value in field is not equal to value passed.
+Field is searched by its id|name|label|value or CSS selector.
 
  * param $field
  * param $value
@@ -158,20 +123,11 @@ $I->dontSeeLink('Logout'); // I suppose user is not logged in
 #### fillField
 
 
-Fill the field found by it's name with given value
+Fill the field with given value.
+Field is searched by its id|name|label|value or CSS selector.
 
  * param $field
  * param $value
-
-
-#### fillFields
-
-
-Shortcut for filling multiple fields by their names.
-Array with field names => values expected.
-
-
- * param array $fields
 
 
 #### moveBack
@@ -184,14 +140,6 @@ Moves back in history
 
 
 Moves forward in history
-
-
-#### press
-
-
-Press the button, found by it's name.
-
- * param $button
 
 
 #### reloadPage
@@ -224,19 +172,8 @@ $I->see('Sign Up','h1'); // I can suppose it's a signup page
 #### seeCheckboxIsChecked
 
 
-Assert if the specified checkbox is checked.
-Use css selector or xpath to match.
-
-Example:
-
-{% highlight php %}
-
-<?php
-$I->seeCheckboxIsChecked('#agree'); // I suppose user agreed to terms
-$I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user agreed to terms, If there is only one checkbox in form.
-
-
-{% endhighlight %}
+Asserts the checkbox is checked.
+Field is searched by its id|name|label|value or CSS selector.
 
  * param $checkbox
 
@@ -245,25 +182,14 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
 
 
 Checks if current url contains the $uri.
+
  * param $uri
 
 
 #### seeInField
 
 
-Checks that an input field or textarea contains value.
-
-Example:
-
-{% highlight php %}
-
-<?php
-$I->seeInField('form textarea[name=body]','Type your comment here');
-$I->seeInField('form input[type=hidden]','hidden_value');
-$I->seeInField('#searchform input','Search');
-?>
-
-{% endhighlight %}
+Checks the value of field is equal to value passed.
 
  * param $field
  * param $value
@@ -294,7 +220,7 @@ $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
 
 
 Selects opition from selectbox.
-Use CSS selector to match selectbox.
+Use field name|label|value|id or CSS selector to match selectbox.
 Either values or text of options can be used to fetch option.
 
  * param $select
@@ -391,4 +317,6 @@ Note, that pricing plan will be set to Paid, as it's selected on page.
 
 
 Uncheck matched checkbox or radiobutton.
+Field is searched by its id|name|label|value or CSS selector.
+
  * param $option
