@@ -22,11 +22,11 @@ $ codecept build
 
 {% endhighlight %}
 
-## Scenarios
+## Writing Sample Scenario
 
 By default tests are written as a narrative scenarios. To make a php file valid scenario it's name should have a Cept suffix. 
 
-Let's say, we created a file "tests/acceptance/SinginCept.php"
+Let's say, we created a file "tests/acceptance/SigninCept.php"
 
 {% highlight php %}
 
@@ -38,7 +38,93 @@ $I = new WebGuy($scenario);
 
 Scenario always starts with Guy class initialization. After that writing a scenario is just like typing "$I->" and choosing a proper action from the auto-completion list.
 
-Scenarios are loaded, stored, and performed step-by-step afterwards. This means, you can't work with scenarios as with regular PHP code. Keep in mind, this PHP will be executed *before* the test is run. You are only logging your future actions. 
+Let's sign in to our site. We assume we have a 'login' page where we are getting authorized by login and password. Then we are moved to user page, where we see text 'Hello, %username%'. Let's look how this scenario is written in Codeception.
+
+{% highlight php %}
+
+<?php
+$I = new WebGuy($scenario);
+$I->wantTo('log in as regular user');
+$I->amOnPage('/login');
+$I->fillField('Username','davert');
+$I->fillField('Password','qwerty');
+$I->click('Login');
+$I->see('Hello, davert');
+?>
+
+{% endhighlight %}
+
+Before we execute this test, we should make sure the site is running on a local web server. Open the 'tests/acceptance.suite.yml' file and replace the url with url of your web application:
+
+{% highlight yaml %}
+
+    config:
+        PhpBrowser:
+            url: 'http://myappurl.local'
+
+{% endhighlight %}
+
+If you don't have web server running, you can use (PHP Built-in Web Server)[http://php.net/manual/en/features.commandline.webserver.php] which is avaible in PHP 5.4. 
+
+After you set proper url, you can run this test with command.
+
+{% highlight yaml %}
+ 
+$ codecept run
+
+{% endhighlight %}
+
+In output you should see: 
+
+{% highlight yaml %}
+
+Suite acceptance started
+Trying log in as regular user (SigninCept.php) - Ok
+
+Suite functional started
+
+Suite unit started
+
+
+Time: 1 second, Memory: 21.00Mb
+
+OK (1 test, 1 assertions)
+
+{% endhighlight %}
+
+Let's get a detailed output:
+
+{% highlight yaml %}
+
+$ codecept run acceptance --steps
+
+{% endhighlight %}
+
+We should see a step-by-step report on performed actions.
+
+{% highlight yaml %}
+
+
+Suite acceptance started
+Trying to log in as regular user (SigninCept.php)
+Scenario:
+* I am on page "/login"
+* I fill field "Username" "davert"
+* I fill field "Password" "qwerty"
+* I click "Login"
+* I see "Hello, davert"
+  OK
+
+
+Time: 0 seconds, Memory: 21.00Mb
+
+OK (1 test, 1 assertions)
+
+{% endhighlight %}
+
+That was a very simple test that you can reproduce for your site.
+By emulating user's action you can test all your site the same way.
+Give it a try!
 
 ## Modules and Helpers
 
