@@ -4,12 +4,13 @@ layout: default
   <div class="layout">
     <div class="content" id="page">           
       <div>
-                      <div id="toc"></div>
             {{ content }}
       </div>  
     </div>
     <div class="sidebar">
       <div class="inner">           
+        <div id="toc"></div>
+
       	{% include toc.html %}
       </div>
     </div>
