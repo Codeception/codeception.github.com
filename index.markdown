@@ -1,16 +1,7 @@
 ---
-layout: page
+layout: index
 title: Codeception - BDD-style PHP testing.
 ---
-
-Codeception is new PHP full-stack testing framework.
-Inspired by BDD, it provides you absolutely new original way for writing acceptance, functional and even unit tests.
-With the power of PHPUnit 3.6 and useful modules you will write tests faster and effectively.
-
-## In a Glance
-
-Describe what you test and how you test it. Use PHP to write descriptions faster.
-Run tests and see what actions were taken and what results were seen.
 
 ### Sample acceptance test
 
