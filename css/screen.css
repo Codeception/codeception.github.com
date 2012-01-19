@@ -47,8 +47,14 @@ body {
 	list-style-type: disc;
 }
 
+.promo h2 {
+	color: a7a7a7;
+	text-shadow: none;
+}
+
 .sidebar h2 {
-	color: #9D78B9;
+	color: #9D78B9;]
+	text-shadow: none;
 }
 
 #page h3, #page h4 {
