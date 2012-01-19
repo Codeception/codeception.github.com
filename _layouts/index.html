@@ -19,7 +19,21 @@ Inspired by BDD, it provides you absolutely new original way for writing accepta
       </div>  
     </div>
     <div class="sidebar">
-      <div class="inner">           
+      <div class="inner">  
+      
+    <script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){ 
+    $("#toc").tableOfContents(
+      $("#page"),      // Scoped to div#wrapper
+      {
+        startLevel: 2,    // H2 and up
+        depth:      2,    // H2 through H4,
+        topLinks:   false, // Add "Top" Links to Each Header
+      }
+    ); 
+  });
+</script>      
+               
       	{% include toc.html %}
       </div>
     </div>
