@@ -34,7 +34,7 @@ body {
 	padding-top: 10px;
 }
 
-.content {
+.content, .layout .content {
 	padding-top: 0px;
 }
 
@@ -55,7 +55,11 @@ body {
 	list-style-type: disc;
 }
 
-.promo h1 {
+.promo {
+	margin-bottom: 0px;
+}
+
+.promo h2 {
 	color: #a7a7a7;
 	text-shadow: none;
 }
