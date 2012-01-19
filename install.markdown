@@ -3,6 +3,12 @@ layout: page
 title: Codeception Installation
 ---
 
+# Requirements
+
+* PHP >= 5.3
+* PEAR (latest)
+* PHPUnit >= 3.6 (will be installed by Codeception)
+
 # Installation
 
 Easiest way to start using Codeception is by installing it via PEAR.
