@@ -27,7 +27,15 @@ body {
  background: url(/images/bg.png); 
 }
 .layout, .layout .content {
-  background: none;
+  background: none;  
+}
+
+.layout {
+	padding-top: 10px;
+}
+
+.content {
+	padding-top: 0px;
 }
 
 #toc {
@@ -49,12 +57,12 @@ body {
 
 .promo h1 {
 	color: #a7a7a7;
-	text-shadow: 0 0 0;
+	text-shadow: none;
 }
 
 .sidebar h2 {
 	color: #5A5A59;
-	text-shadow: 0 0 0;
+	text-shadow: none;
 }
 
 #page h3, #page h4 {
