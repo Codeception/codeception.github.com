@@ -3,8 +3,6 @@ layout: index
 title: Codeception - BDD-style PHP testing.
 ---
 
-With the power of PHPUnit 3.6 and useful modules you will write tests faster and effectively.
-
 Describe what you test and how you test it. Use PHP to write descriptions faster.
 Run tests and see what actions were taken and what results were seen.              
 
