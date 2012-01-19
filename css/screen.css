@@ -39,12 +39,19 @@ body {
 }
 
 #toc {
-	margin-bottom: 20px;
+    float: left;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    margin-top: 73px;
+    width: 180px;
 }
 
 #toc a {
-	padding-right: 20px;
-	line-height: 150%;
+    border-bottom: 1px dashed;
+    display: block;
+    line-height: 150%;
+    padding-right: 20px;
+    text-decoration: none;
 }
 
 #page ul {
