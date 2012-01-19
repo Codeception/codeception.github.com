@@ -39,11 +39,9 @@ body {
 }
 
 #toc {
-    float: left;
     margin-bottom: 20px;
     margin-right: 20px;
-    margin-top: 73px;
-    width: 180px;
+    margin-top: 30px;
 }
 
 #toc a {
@@ -51,6 +49,7 @@ body {
     display: block;
     line-height: 150%;
     padding-right: 20px;
+    color: #333;
     text-decoration: none;
 }
 
