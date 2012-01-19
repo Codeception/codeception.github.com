@@ -64,12 +64,16 @@ body {
 
 .promo {
 	margin-bottom: 0px;
-	padding-top: 30px;
+	padding-top: 20px;
 }
 
 .promo h2 {
-	color: #a7a7a7;
+	color: #B5B890;
 	text-shadow: none;
+}
+
+.promo .col2 {
+	color: #aaa;
 }
 
 .sidebar h2 {
