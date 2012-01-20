@@ -1,3 +1,8 @@
+---
+layout: page
+title: Codeception Credits
+---
+
 # Credits
 
 Project created and maintained by Michael Bodnarchuk "Davert".
