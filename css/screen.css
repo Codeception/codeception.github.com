@@ -76,6 +76,14 @@ body {
 	color: #ccc;
 }
 
+.promo .col1 {
+	padding-top: 70px;
+}
+
+.promo .col1 a {
+	color: #eee;
+}
+
 .sidebar h2 {
 	color: #5A5A59;
 	text-shadow: none;
