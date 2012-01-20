@@ -9,8 +9,7 @@ Project created and maintained by Michael Bodnarchuk "Davert".
 
 ![Davert](http://www.gravatar.com/avatar/aa0518da9d7119444cb02a8f27017d8a.png)
 
-I'm experienced PHP developer from Kiev, Ukraine.
-By the chance I'm self-employed or self-unemployed.
+I'm PHP developer from Kiev, Ukraine.
 
 Follow me on Twitter:
 
