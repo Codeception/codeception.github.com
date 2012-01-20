@@ -91,3 +91,7 @@ body {
     margin-bottom: 0.5em;
     padding-left: 0.5em;
 }
+
+#disqus_thread li {
+	list-style-type: none;
+}
