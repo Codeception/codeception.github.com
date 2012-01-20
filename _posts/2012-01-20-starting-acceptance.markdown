@@ -132,3 +132,4 @@ Codeception is beta, but it will evolve. Use it. Test your applications. Make th
 
 Next time a functional tests will be covered.
 
+{% include comment.html %}
