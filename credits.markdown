@@ -7,7 +7,7 @@ title: Codeception Credits
 
 Project created and maintained by Michael Bodnarchuk "Davert".
 
-![Davert](http://www.gravatar.com/avatar/aa0518da9d7119444cb02a8f27017d8a.png)
+![Davert](https://si0.twimg.com/profile_images/781559256/lj_avatar_reasonably_small.jpg)
 
 I'm PHP developer from Kiev, Ukraine.
 
