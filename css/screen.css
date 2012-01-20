@@ -68,7 +68,8 @@ body {
 }
 
 .promo h2 {
-	color: #B4B78F;
+	color: #ccc;
+	text-shadow: none;
 }
 
 .promo .col2 {
