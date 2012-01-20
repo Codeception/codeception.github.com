@@ -39,10 +39,9 @@ body {
 }
 
 #toc {
-    float: left;
+    float: right;
     margin-bottom: 20px;
     margin-right: 20px;
-    margin-top: 73px;
     width: 180px;
 }
 
