@@ -73,10 +73,10 @@ Now a test can be executed with run command.
 $ codecept run acceptance
 {% endhighlight %}
 
-A result should be seen:
+A result should be shown:
 
 {% highlight bash %}
-<source>Suite acceptance started
+Suite acceptance started
 Trying to see front page of my site (StartPageCept) - Ok
 
 Time: 1 second, Memory: 21.00Mb
