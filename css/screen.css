@@ -76,6 +76,10 @@ body {
 	color: #ccc;
 }
 
+.promo .col2 .inner {
+	padding-left: 20px;
+}
+
 .promo .col1 {
 	padding-top: 70px;
 }
