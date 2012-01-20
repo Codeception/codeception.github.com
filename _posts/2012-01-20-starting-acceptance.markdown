@@ -13,7 +13,7 @@ From my point of view the key issue is not in developers themselves. They are pr
 
 For last two months I was developing a simple, yet powerful alternative testing framework: Codeception. The main point of it is making tests to be easy to read, easy to write and easy to debug. This code illustrates a common acceptance test in Codeception:
 
-```
+{% highlight php %}
 <?php
 $I = new WebGuy($scenario);
 $I->wantTo('create new blog post');
@@ -24,7 +24,7 @@ $I->fillField('Text','Codeception is new PHP full-stack testing framework.');
 $I->click('Send');
 $I->see('Congratulations, your post is successfully created!');
 ?>
-```
+{% endhighlight %}
 
 It's pretty clear, right? But here goes another feature of Codeception: this code can be executed as a functional test in symfony, Symfony2, Zend Framework, with PHP web scrapper Goutte, or even with Selenium!
 
@@ -36,9 +36,10 @@ Writing tests is just about choosing actions from a list and injecting proper pa
 If you are ready to start wiriting first Codeception test just follow the [installtion steps](http://codeception.com/install).
 After you install package and it's dependencies, select a project you want to test (I hope you have one) and run a bootstrap command in it's root:
 
-```
+{% highlight bash %}
 $ codecept bootstrap
-```
+{% endhighlight %}
+
  It has created a 'tests' directory with 3 default testing suites:
 
 * acceptance
@@ -47,45 +48,45 @@ $ codecept bootstrap
 
 Let's start with sample acceptance test and place into 'tests/acceptance/FrontPageCept.php'.
 
-``` php
+{% highlight php %}
 <?php
 $I = new WebGuy($scenario);
 $I->wantToTest('front page of my site');
 $I->amOnPage('/');
 $I->see('A sample text on my site');
 ?>
-```
+{% endhighlight %}
 
 Replace 'A sample text on my site' to text that actually is on your site.
 To make it run we should start a local web server with application which is being tested. 
 A url of this application should be specified in suite configuration file 'tests/acceptance.suite.yml'.
 
-```
+{% highlight bash %}
     config:
         PhpBrowser:
             url: 'here goes url'
-```
+{% endhighlight %}
 
 Now a test can be executed with run command.
 
-```
+{% highlight bash %}
 $ codecept run acceptance
-```
+{% endhighlight %}
 
 A result should be seen:
 
-```
+{% highlight bash %}
 <source>Suite acceptance started
 Trying to see front page of my site (StartPageCept) - Ok
 
 Time: 1 second, Memory: 21.00Mb
 
 OK (1 test, 1 assertions)
-```
+{% endhighlight %}
 
 If it's ok now, a form testing can be demonstrated. Maybe the most often used forms are login forms.
 
-``` php
+{% highlight php %}
 <?php
 $I = new WebGuy($scenario);
 $I->wantTo('log in as regular user');
@@ -95,11 +96,11 @@ $I->fillField('Password','qwerty');
 $I->click('Login');
 $I->see('Hello, davert');
 ?>
-```
+{% endhighlight %}
 
 The 'fillField' and 'click' command take element name or CSS selector as paramater. Thus, if you don't use labels for fields, you can rewrite this scenario:
 
-``` php
+{% highlight php %}
 <?php
 $I = new WebGuy($scenario);
 $I->wantTo('log in as regular user');
@@ -109,11 +110,11 @@ $I->fillField('form#login input[name=password]','qwerty');
 $I->click('form#login input[type=submit]');
 $I->see('Hello, davert');
 ?>
-```
+{% endhighlight %}
 
 Or this can be shortened to just one command:
 
-``` php
+{% highlight php %}
 <?php
 $I = new WebGuy($scenario);
 $I->wantTo('log in as regular user');
@@ -121,7 +122,7 @@ $I->amOnPage('/login');
 $I->submitForm('form#login', array('login' => 'davert', 'password' => 'qwerty'));
 $I->see('Hello, davert');
 ?>
-```
+{% endhighlight %}
 
 As we seen tests in Codeception looks pretty simple and compact. Testing environment is prepared out of the box, no bootstrap code should be written. 
 You can compare Codeception to Behat, with PHP DSL, but Codeception can do much more then executing scenarios. As you've seen it's not limited to acceptance tests only.
