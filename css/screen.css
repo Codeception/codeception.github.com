@@ -73,6 +73,7 @@ body {
 
 .promo .col2 {
 	padding-top: 20px;
+	color: #ccc;
 }
 
 .sidebar h2 {
@@ -92,6 +93,6 @@ body {
     padding-left: 0.5em;
 }
 
-#disqus_thread li {
+#page #disqus_thread li {
 	list-style-type: none;
 }

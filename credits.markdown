@@ -5,7 +5,7 @@ title: Codeception Credits
 
 # Credits
 
-Project created and maintained by Michael Bodnarchuk "Davert".
+Project created and maintained by _Michael Bodnarchuk "Davert"_.
 
 ![Davert](https://si0.twimg.com/profile_images/781559256/lj_avatar_reasonably_small.jpg)
 
@@ -23,3 +23,9 @@ Or write me an email
 
 ![Email](/images/mail.png) Codеception@davert.mail.ua
 
+...and of cource I'm on [GitHub](https://github.com/DavertMik)
+
+
+Special thanks to my friend _Nick Palamarchuk "lividgreen"_ for consulting, brain-storming and additional beer for BDD. 
+
+He is on [GitHib](https://github.com/lividgreen)
