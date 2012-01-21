@@ -9,7 +9,7 @@ We build web sites with PHP, we build web services and web applications. But is 
 
 How often do you see PHP projects with no line of test written? From my experience this situation happens quite often. We should state the unpleasent fact: tests are not popular around the PHP world. Sure, advanced developers with 5+ years of experience in PHP and other programming languages know what the TDD means and know how to use a PHPUnit. But juniors and seniors are just skipping testing and produce unstable web applications.
 
-From my point of view the key issue is not in developers themselves. They are pretty good and skilled. But PHP lacks the tools for testing. If you write a site and you want to test it's behavior, what the natural way to do so? Selenium? PHPUnit + Selenium? This tools are powerful but they are rather complex. Their usage require more experience then writing site itself.
+From my point of view the key issue is not in developers themselves. They are pretty good and skilled. But PHP lacks the tools for testing. If you write a site and you want to test it's behavior, what the natural way to do so? Selenium? PHPUnit + Selenium? This tools are powerful, but complex. Using them is like cracking a nut with a sletch hammer. 
 
 For last two months I was developing a simple, yet powerful alternative testing framework: Codeception. The main point of it is making tests to be easy to read, easy to write and easy to debug. This code illustrates a common acceptance test in Codeception:
 
@@ -46,7 +46,7 @@ $ codecept bootstrap
 * functional
 * unit
 
-Let's start with sample acceptance test and place into 'tests/acceptance/FrontPageCept.php'.
+Let's start with sample acceptance test. We shell save it into 'tests/acceptance/StartPageCept.php'.
 
 {% highlight php %}
 <?php
@@ -58,8 +58,8 @@ $I->see('A sample text on my site');
 {% endhighlight %}
 
 Replace 'A sample text on my site' to text that actually is on your site.
-To make it run we should start a local web server with application which is being tested. 
-A url of this application should be specified in suite configuration file 'tests/acceptance.suite.yml'.
+To make it run we should start a local web server with a tested application. 
+A url of this application should be specified in suite configuration file: 'tests/acceptance.suite.yml'.
 
 {% highlight bash %}
     config:
@@ -84,7 +84,7 @@ Time: 1 second, Memory: 21.00Mb
 OK (1 test, 1 assertions)
 {% endhighlight %}
 
-If it's ok now, a form testing can be demonstrated. Maybe the most often used forms are login forms.
+Now let's see how a forms can be tested. Maybe the forms most often used are login forms.
 
 {% highlight php %}
 <?php
