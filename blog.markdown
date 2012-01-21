@@ -9,7 +9,7 @@ title: Codeception Blog
 
 ### [{{ post.title }}]({{ post.url }})
 
-#### {{ post.date }}
+#### {{ post.date |format_date }}
 
 {{ post.content | truncate: 450 }}
 

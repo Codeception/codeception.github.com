@@ -2,8 +2,9 @@
 layout: page
 ---
 
-<h1>{{ title }}</h1>
-<h4>{{ date }}</h4>
+<h1> {{ title }} </h1>
+
+<h4> {{ post.date |format_date }} </h4>
 
 {{ content }}
 
