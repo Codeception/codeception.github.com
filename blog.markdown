@@ -9,9 +9,9 @@ title: Codeception Blog
 
 ### [{{ post.title }}]({{ post.url }})
 
+#### {{ post.date }}
+
 {{ post.content | truncate: 450 }}
 
-
-[Read more]({{ post.url }})
 
 {% endfor %}
