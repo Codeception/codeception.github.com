@@ -3,15 +3,15 @@ layout: page
 title: Codeception Blog
 ---
 
-# Blog
+<h1>Blog</h1>
 
 {% for post in site.posts %}
 
-### [{{ post.title }}]({{ post.url }})
-
-{{ post.content | truncate: 450 }}
+<h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
 
 
-[Read more]({{ post.url }})
+<p>{{ post.content | truncate: 450 }}</p>
+
+<a href="{{ post.url }}">Read more</a>
 
 {% endfor %}
