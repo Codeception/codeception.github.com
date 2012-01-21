@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Introduction to acceptance testing
+title: Introduction to Codeception
 date: 2012-01-20 20:03:50
 ---
 
