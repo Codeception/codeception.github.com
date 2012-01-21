@@ -1,10 +1,7 @@
 ---
 layout: post
 title: Testing with Codeception
-date: 2012-01-20
-tags: 
-  - 1.0
-  - tutorial
+date: 2012-01-20 20:03:50
 ---
 
 We build web sites with PHP, we build web services and web applications. But is PHP good enough in testing them?
