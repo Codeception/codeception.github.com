@@ -1,9 +1,11 @@
 ---
-layout: page
+layout: post
 title: Testing with Codeception
+date: 2012-01-20
+tags: 
+  - 1.0
+  - tutorial
 ---
-
-# Testing with Codeception.
 
 We build web sites with PHP, we build web services and web applications. But is PHP good enough in testing them?
 
@@ -131,5 +133,3 @@ Codeception is fully documented, look into the guides for full reference.
 Codeception is beta, but it will evolve. Use it. Test your applications. Make them stable.
 
 Next time a functional tests will be covered.
-
-{% include comment.html %}
