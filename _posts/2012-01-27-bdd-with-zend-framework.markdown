@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Behavior Driven Testing with Zend Framework
+title: BTD with Zend Framework
 date: 2012-01-27 22:03:50
 ---
 
