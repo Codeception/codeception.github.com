@@ -11,7 +11,7 @@ title: Codeception Blog
 
 #### {{ post.date | date: "%B %d, %Y" }}
 
-{{ post.excerpt }}
+{{ post.content | strip_html |truncate: 450 }}
 
 
 {% endfor %}
