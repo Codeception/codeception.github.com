@@ -5,9 +5,9 @@ date: 2012-01-27 22:03:50
 ---
 
 Codeception is testing framework in which all tests are written in a single descriptive manner. 
-It's aim is to make tests easy to read, easy to write and easy to debug. Every single test you write can be run either in Selenium, in PHP Browser emulator, or as a functional test for Zend Framework. Today we will look how Codeception can be used for testing your Zend application.
+It's aim is to make tests easy to read, easy to write and easy to debug. Every single test you write can be run either in Selenium, in PHP Browser emulator, or as a functional test for *Zend Framework*. Today we will look how Codeception can be used for testing your Zend application.
 
-Most of CRUD applications use forms for creating or editing content. It's hard to test every form on site after each release manually. But we will automate this process. For testing Zend applications you probably used it's [Zend_Test_PHPUnit](http://framework.zend.com/manual/1.11/en/zend.test.phpunit.html) class, which is build on top of PHPUnit's TestCase. Codeception is built on top of PHPUnit too. And takes similar approaches from Zend_Test_PHPUnit_ControllerTestCase. But commands available in tests being made intuitively simple and much more human friendly then they are in Zend_Test_PHPUnit.
+Most of CRUD applications use forms for creating or editing content. It's hard to test every form on site after each release manually. But we will automate this process. For testing Zend applications you probably used it's [Zend_Test_PHPUnit](http://framework.zend.com/manual/1.11/en/zend.test.phpunit.html) class, which is build on top of PHPUnit's TestCase. Codeception is built on top of PHPUnit too. And takes similar approaches from *Zend_Test_PHPUnit_ControllerTestCase*. But commands available in tests being made intuitively simple and much more human friendly then they are in Zend_Test_PHPUnit.
 
 We take a code from Zend_Test_PHPUnit tutorial:
 
@@ -44,13 +44,13 @@ It's only 4 lines long, but it does the same as the test above. It tests logging
 
 Codeception won't perform asserts for application internals as module/controller/action, as this is not natural to bound functionality into one place. A small refactoring will completely break a test, even if application is running perfectly. For the same reasons Codeception doesn't provide analog for _assertQueryCount_ or _assertQuery_, because they test a markup probably unseen to user. If a element on page has changed a test will fail, still application can work perfectly. We are testing only elements user can interact with and user can see. This makes tests more stable and drives us to less false negative results.
 
-All the assertXXXX commands is replaced with natural 'see' commands.
+All the *assertXXXX* commands is replaced with natural 'see' commands.
 
-* see - checks if text or element with text is on page
-* seeInCurrentUrl - checks if a url contains specified value
-* seeLink - checks link exist on page
-* seeInField
-* seeCheckboxIsChecked
+* *see* - checks if text or element with text is on page
+* *seeInCurrentUrl* - checks if a url contains specified value
+* *seeLink* - checks link exist on page
+* *seeInField*
+* *seeCheckboxIsChecked*
 * etc...
 
 This commands can accept either CSS locators or element names. 
