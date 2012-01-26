@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Behavior Driven Testing with Zend Framework
-date: 2012-01-27 18:03:50
+date: 2012-01-26 18:03:50
 ---
 
 Codeception is testing framework in which all tests are written in a single descriptive manner. 
