@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Behavior Driven Testing with Zend Framework
-date: 2012-01-26 18:03:50
+date: 2012-01-27 22:03:50
 ---
 
 Codeception is testing framework in which all tests are written in a single descriptive manner. 
@@ -100,7 +100,7 @@ modules:
 
 We use default settings for ZF1 module to connect to ZFBlog application. We use _'testing'_ environment and _'application.ini'_ stored in it's standard place: 'application/configs/application.ini'. But Db module requires additional configuration. We need schema and default data was recreated for each test run. We have database dump, a file named _zf_blog.sql_ in root of project. We should point Codeception to use it for database repopulation. Now update a _codeption.yml_ config in project's root and set proper db credentials. 
 
-{% highlight yaml %}
+{% highlight bash %}
 paths:
 	tests: tests
 	log: tests/_log
