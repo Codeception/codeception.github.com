@@ -4,8 +4,6 @@ title: [BUGFIX RELEASE] Update to 1.0.1
 date: 2012-01-26 01:03:50
 ---
 
-# [BUGFIX RELEASE] Update to 1.0.1
-
 This relese fixes two reported bugs.
 
 * using __see__ commands on pages with <!DOCTYPE
