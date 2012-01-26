@@ -45,7 +45,7 @@ $I->see('User: foobar', 'h2');
 
 It's only 4 lines long, but it does the same as the test above. It tests logging in on site, nothing more, nothing less. We can expect user is logged in if he was moved from '/user' page, to '/user/view' and username is in Heading2 element of that page. 
 
-Codeception won't perform asserts for application internals as module/controller/action, as this is not natural to bound functionality into one place. A small refactoring will completely break a test, even if application is running perfectly. For the same reasons Codeception doesn't provide analog for _assertQueryCount_ or _assertQuery_, because they test a markup probably unseen to user. If a element on page has changed a test will fail, still application can work perfectly. We are testing only elements user can interact with and user can see. This makes tests more stable and drives us to less false negative results. 
+Codeception won't perform asserts for application internals as module/controller/action, as this is not natural to bound functionality into one place. A small refactoring will completely break a test, even if application is running perfectly. For the same reasons Codeception doesn't provide analog for _assertQueryCount_ or _assertQuery_, because they test a markup probably unseen to user. If a element on page has changed a test will fail, still application can work perfectly. We are testing only elements user can interact with and user can see. This makes tests more stable and drives us to less false negative results.
 
 All the assertXXXX commands is replaced with natural 'see' commands.
 
@@ -134,7 +134,6 @@ $I->amOnPage('/admin');
 $I->see('Blog Editing');
 $I->click('Add new blog');
 $I->see('Add new blog');
-....
 ?>
 
 {% endhighlight %}
