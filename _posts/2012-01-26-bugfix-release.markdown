@@ -1,6 +1,6 @@
 ---
 layout: post
-title: |BUGFIX RELEASE| Update to 1.0.1
+title: |1.0.1| Bugfix release
 date: 2012-01-26 01:03:50
 ---
 
