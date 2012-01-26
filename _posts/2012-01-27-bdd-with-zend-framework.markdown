@@ -154,7 +154,7 @@ Trying to  create new blog post (CreateBlogCept.php) - Ok
 Time: 2 seconds, Memory: 21.00Mb
 
 OK (1 test, 2 assertions)
-{% enhighlight %}
+{% endhighlight %}
 
 To get detailed information of what steps were taken in test, run this command with --steps option. And this is what will be printed:
 
