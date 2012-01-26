@@ -1,6 +1,6 @@
 ---
 layout: post
-title: |RELEASE 1.0.1| Please update
+title: Released 1.0.1. Please update
 date: 2012-01-26 01:03:50
 ---
 
