@@ -58,7 +58,7 @@ This commands can accept either CSS locators or element names.
 With Codeception you can write tests that will be executed inside a Zend Framework, but will simulate user actions with less technical code. 
 As every test should be readable and thus simple definitions in terms "I do that", "I see this" are better to understand. Especially, if a test is read by new developer. 
 
-Today we are going to write tests for open source blog application [Lilypad-Zend-Framework-Blog](https://github.com/frogprincess/Lilypad-Zend-Framework-Blog). It has a simple CRUD functionality for publishing and viewing blog posts.
+Today we are going to write tests for open source blog application [Lilypad-Zend-Framework-Blog](https://github.com/frogprincess/Lilypad-Zend-Framework-Blog). We assume you already have Zend Framework intalled.
 
 It can be taken from GitHub:
 
@@ -66,7 +66,7 @@ It can be taken from GitHub:
 git clone git://github.com/Codeception/ZFBlog.git
 {% endhighlight %}
 
-Set up database and configure _application.ini_ to access it. Default settings are:
+Set up database and configure _application/configs/application.ini_ to access it. Default settings are:
 
 {% highlight bash %}
 resources.db.adapter = "PDO_MYSQL"
@@ -84,6 +84,7 @@ Run bootstrap command from root of ZFBlog:
 
 {% highlight bash %}
 $ codecept bootstrap
+$ codecept build
 {% endhighlight %}
 
 This will create a default test suites. Now some steps for configuration should be done.
@@ -98,27 +99,27 @@ modules:
 	enabled: [ZF1, Db, TestHelper]
 {% endhighlight %}
 
-We use default settings for ZF1 module to connect to ZFBlog application. We use _'testing'_ environment and _'application.ini'_ stored in it's standard place: 'application/configs/application.ini'. But Db module requires additional configuration. We need schema and default data was recreated for each test run. We have database dump, a file named _zf_blog.sql_ in root of project. We should point Codeception to use it for database repopulation. Now update a _codeption.yml_ config in project's root and set proper db credentials. 
+We use default settings for ZF1 module to connect to ZFBlog application. We use _'testing'_ environment and _'application.ini'_ stored in it's standard place: 'application/configs/application.ini'. But Db module requires additional configuration. We need schema and default data was recreated for each test run. We have database dump, a file named _zend_blog.sql_ in root of project. We should point Codeception to use it for database repopulation. Now update a _codeption.yml_ config in project's root and set proper db credentials. 
 
 {% highlight bash %}
 paths:
-	tests: tests
-	log: tests/_log
-	data: tests/_data
-	helpers: tests/_helpers
+    tests: tests
+    log: tests/_log
+    data: tests/_data
+    helpers: tests/_helpers
 settings:
-	bootstrap: _bootstrap.php
-	suite_class: \PHPUnit_Framework_TestSuite
-	colors: true
-	memory_limit: 1024M
-	log: true
+    bootstrap: _bootstrap.php
+    suite_class: \PHPUnit_Framework_TestSuite
+    colors: true
+    memory_limit: 1024M
+    log: true
 modules:
-	config:
-		Db:
-			dsn: 'mysql:host=localhost;dbname=zfblog'
-			user: 'root'
-			password: ''
-			dump: zfblog.sql
+    config:
+        Db:
+            dsn: 'mysql:host=localhost;dbname=zfblog'
+            user: 'root'
+            password: ''
+            dump: zend_blog.sql
 {% endhighlight %}
 
 We configured Db credentials and database dump being used. Now let's write some tests. In _tests/functional_ let's create file _CreateBlogCept.php_:
