@@ -22,6 +22,15 @@ $ pear channel-discover codeception.com/pear
 $ pear install codeception/Codeception
 {% endhighlight %}
 
+If you got troubles running this command, please try full package name:
+
+{% highlight bash %}
+$ sudo pear install codeception.github.com/pear/Codeception
+{% endhighlight %}
+
+If this didn't help, try to update your PEAR.
+Also, please, check you use the same PHP for CLI and Web.
+
 ### Phar
 
 Download [codecept.phar](https://github.com/Codeception/Codeception/raw/master/package/codecept.phar)
