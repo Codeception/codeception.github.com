@@ -111,7 +111,7 @@ settings:
     bootstrap: _bootstrap.php
     suite_class: \PHPUnit_Framework_TestSuite
     colors: true
-     memory_limit: 1024M
+    memory_limit: 1024M
     log: true
 modules:
     config:
