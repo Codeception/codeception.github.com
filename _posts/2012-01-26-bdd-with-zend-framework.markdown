@@ -84,6 +84,7 @@ Run bootstrap command from root of ZFBlog:
 
 {% highlight bash %}
 $ codecept bootstrap
+$ codecept build
 {% endhighlight %}
 
 This will create a default test suites. Now some steps for configuration should be done.
@@ -98,7 +99,7 @@ modules:
 	enabled: [ZF1, Db, TestHelper]
 {% endhighlight %}
 
-We use default settings for ZF1 module to connect to ZFBlog application. We use _'testing'_ environment and _'application.ini'_ stored in it's standard place: 'application/configs/application.ini'. But Db module requires additional configuration. We need schema and default data was recreated for each test run. We have database dump, a file named _zf_blog.sql_ in root of project. We should point Codeception to use it for database repopulation. Now update a _codeption.yml_ config in project's root and set proper db credentials. 
+We use default settings for ZF1 module to connect to ZFBlog application. We use _'testing'_ environment and _'application.ini'_ stored in it's standard place: 'application/configs/application.ini'. But Db module requires additional configuration. We need schema and default data was recreated for each test run. We have database dump, a file named _zend_blog.sql_ in root of project. We should point Codeception to use it for database repopulation. Now update a _codeption.yml_ config in project's root and set proper db credentials. 
 
 {% highlight yaml %}
 paths:
