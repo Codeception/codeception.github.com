@@ -15,7 +15,7 @@ title: Codeception Installation
 Easiest way to start using Codeception is by installing it via PEAR.
 
 {% highlight bash %}
-$ pear channel-discover codeception.github.com/pear
+$ pear channel-discover codeception.com/pear
 {% endhighlight %}
 
 {% highlight bash %}
