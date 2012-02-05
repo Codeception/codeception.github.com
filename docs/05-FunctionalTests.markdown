@@ -32,7 +32,7 @@ Couldn't create new blog post (CreateBlogCept.php)
 
 {% endhighlight %}
 
-Good integration can allow you perform additional operations, like checking if the email was sent, or authenticating the users.
+Good integration can allow you perform additional operations, like checking if the email was sent or authenticating the users.
 
 Codeception can connect to different web frameworks which support functional testing. For example you can run a functional test for application build on top of Zend Framework, symfony or Symdony2 with just the modules prvided by Codeception! List of supported frameworks will be extended.
 
