@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Generators Release 1.0.3
-date: 2012-02-05 01:03:50
+date: 2012-02-14 01:03:50
 ---
 
 This *Codeception* release is all about minor but useful features. Starting from 1.0.3 you will be notified on every new Codeception release from console. 
