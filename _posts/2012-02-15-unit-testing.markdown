@@ -4,6 +4,7 @@ title: BDD Approach to Unit Testing with Codeception.
 date: 2012-02-15 22:03:50
 ---
 
+
 Codeception is new BDD-style testing framework for PHP. It makes testing easier than it was before. Yep, really. If you are not a fan of testing, that might as well be because you haven't used the proper tools. We've already showed you how simple it is to automate testing for any web application by writing [acceptance tests](http://codeception.com/01-20-2012/starting-acceptance.html). Today we will dig deeper into the code and show you how it can be tested.
 
 With BDD approach in Codeception, any test, even the unit test, is written as a scenario. By this scenario you declare what you are doing and what results you expect to see. In traditional xUnit scheme your test is just a piece of code that uses the method being tested. This piece of code becomes a mess when you test complex units depending on other classes or when you need to check data in a database, etc. Codeception always keeps your unit tests simple and readable.
@@ -21,11 +22,7 @@ class User extends AbstractModel {
 		if (!$this->isNew) throw new ModelException("User already created");
 		if (!$this->getRole()) $this->setRole('member');
 
-		try {			
-			$this->validate();
-		} catch (Exception $e) {
-			throw new ValidationException("Validation failed: ".$e->getMessage());
-		}
+		if (!$this->validate()) throw new ValidationException("Validation failed: ".$e->getMessage());
 
 		$this->save();
 	}
@@ -41,7 +38,7 @@ $user = new User;
 $user->setName('davert');
 $user->create();
 ?>
-{% endhighlight }
+{% endhighlight %}
 
 How is this method tested with Codeception? First of all, we won't be testing any inherited methods like _validate_ or _save_. They belong to AbstractModel class and are to be tested there. The 'create' method is to be tested in full isolation. For this we will not use the actual User class, but its Stub, i.e. a class with some methods replaced by their dummies.
 
@@ -77,7 +74,6 @@ However, the test doesn't cover exceptions that may be thrown. Thus let's improv
 
 {% highlight php %}
 <?php
-
 use Codeception\Util\Stub;
 
 class UserCest {
@@ -171,7 +167,7 @@ class UserCest {
 
 By this test we have 100% covered the 'create' method with test and isolated its environment. As a bonus, we can improve our documentation by the text of this scenario. If we use [DocBlox, we can set up Codeception plugin](http://codeception.com/02-14-2012/generators-release-1-0-3.html) and generate documentation for User class 'create' method.
 
-{% highlight bash %}
+{% highlight html %}
 With this method I can create new users by name.
 
 Declared Variables:
