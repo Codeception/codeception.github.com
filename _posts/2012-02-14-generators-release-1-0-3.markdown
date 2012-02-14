@@ -63,11 +63,13 @@ This method requires Id of user who creates group and group name. Here is test f
 
 This test is translated into documentation for Group::create method.
 
+{% highlight bash %}
 With this method I can create group
 
 If I execute \Service\Group::create("DemoGroup",1)
 I will see in repository "Model\Group",{"name":"DemoGroup","user_id": 1, "type": "group" }
 I will see result is "int"
+{% highlight bash %}
 
 Codeception scans for all Cest files and for all classes passed to DocBlox. When tests match the function in documentation the test is processed and appended into function description.
 
