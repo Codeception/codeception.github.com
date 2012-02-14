@@ -178,7 +178,7 @@ I will see exeception thrown 'ModelException', 'User already created'
 
 {% endhighlight %}
 
-The only uninformative piece is 'If I execute lambda-function... '. We can't fetch code from the function and demonstrate it. Apart from this fact, we can say that the 'create' method is fully described.
+We can say that the 'create' method is fully described by this text.
 
 ## Conclusion
 
