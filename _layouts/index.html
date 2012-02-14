@@ -6,7 +6,7 @@ layout: default
       <div>
           <div class="promo">
           <div class="col1">
-  {% for post in site.posts limit: 5 %}
+  {% for post in site.posts limit: 4 %}
     <div class="inner"><a href="{{ post.url }}">{{ post.title }}</a></div>
   {% endfor %}
 
@@ -17,9 +17,9 @@ layout: default
 <strong>Codeception</strong> is a new full-stack testing PHP framework.
 Inspired by BDD, it provides you absolutely new original way for writing acceptance, functional and even unit tests.
 
-<br/>
+<br/><br/>
 <!-- Розмістіть цей тег там, де необхідно розмістити кнопку +1 -->
-<g:plusone size="tall"></g:plusone>
+<g:plusone size="tall" annotation="none"></g:plusone>
 
 <!-- Розмістіть цю команду відображення в потрібному місці -->
 <script type="text/javascript">
