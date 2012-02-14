@@ -20,7 +20,7 @@ class User extends AbstractModel {
 	public function create()
 	{
 		if (!$this->isNew) throw new ModelException("User already created");
-		if (!$this->getRole()) $this->setRole('member');
+		if (!$this->role) $this->role = 'member';
 
 		if (!$this->validate()) throw new ValidationException("Validation failed: ".$e->getMessage());
 
@@ -114,18 +114,6 @@ The only thing we haven't cover in the test is user's default role assertion. In
 
 {% highlight php %}
 <?php
-		$I->executeTestedMethodOn($user);
-		$I->expect('user is validated and saved')		
-			->seePropertyEquals($user, 'role', 'member')
-			->seeMethodInvoked($user, 'validate')
-			->seeMethodInvoked($user, 'save');
-?>
-{% endhighlight %}
-
-We should probably access the user's role by getter; in this case, our test can be rewritten this way:
-
-{% highlight php %}
-<?php
 
 use Codeception\Util\Stub;
 
@@ -145,13 +133,11 @@ class UserCest {
 
 		$I->executeTestedMethodOn($user);
 
-		$I->expect('user is validated and saved')		
+		$I->expect('user is validated and saved')	
+			->seePropertyEquals($user, 'role', 'member')
 			->seeMethodInvoked($user, 'validate')
 			->seeMethodInvoked($user, 'save');
-
-		$I->execute(function () use ($user)) { return $user->getRole()})
-			->seeResultEquals('member');			 
-		
+	
 		$I->expect('exception is thrown for invalid user')
 			->executeTestedMethodOn($invalid_user)
 			->seeExceptionThrown('ValidationException','invalid');				
@@ -177,11 +163,9 @@ Declared Variables:
 If I execute $user1->create()
 
 I expect user is validated and saved
-I see method invoked $user1, 'validate'
-I see method invoked $user1, 'save'
-
-If I execute lambda-function
-I will see result equals 'member'
+I will see property equals $user1, 'role', 'member'
+I will see method invoked $user1, 'validate'
+I will see method invoked $user1, 'save'
 
 I expect exception is thrown for invalid user
 If I execute $user2->create()
