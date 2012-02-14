@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Generators Release 1.0.3
+title: Codeception "Generators" Release 1.0.3
 date: 2012-02-14 01:03:50
 ---
 
@@ -69,7 +69,7 @@ With this method I can create group
 If I execute \Service\Group::create("DemoGroup",1)
 I will see in repository "Model\Group",{"name":"DemoGroup","user_id": 1, "type": "group" }
 I will see result is "int"
-{% highlight bash %}
+{% endhighlight %}
 
 Codeception scans for all Cest files and for all classes passed to DocBlox. When tests match the function in documentation the test is processed and appended into function description.
 
