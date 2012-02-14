@@ -8,4 +8,21 @@ layout: page
 
 {{ content }}
 
+<p>
+
+<a href="http://www.reddit.com/submit" onclick="window.location = 'http://www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"> <img src="http://www.reddit.com/static/spreddit7.gif" alt="submit to reddit" border="0" /> </a>
+
+<!-- Розмістіть цей тег там, де необхідно розмістити кнопку +1 -->
+<g:plusone size="tall" annotation="inline"></g:plusone>
+
+<!-- Розмістіть цю команду відображення в потрібному місці -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>	
+</p>
+
 {% include comment.html %}
