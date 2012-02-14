@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Codeception "Generators" Release 1.0.3
+title: Codeception 1.0.3 Released. Generators and Agile Documentation.
 date: 2012-02-14 01:03:50
 ---
 
