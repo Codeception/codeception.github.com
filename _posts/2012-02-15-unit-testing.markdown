@@ -22,7 +22,7 @@ class User extends AbstractModel {
 		if (!$this->isNew) throw new ModelException("User already created");		
 		if (!$this->role) $this->role = 'member';
 
-		if (!$this->validate()) throw new ValidationException("Validation failed");
+		if (!$this->validate()) throw new ValidationException("User is invalid");
 
 		$this->save();
 	}
@@ -85,7 +85,7 @@ class UserCest {
 		$I->wantTo('create new user by name');
 		$I->haveStub($user = Stub::makeEmptyExcept('User', 'create'));
 		$I->haveStub($invalid_user = Stub::makeEmptyExcept('User', 'create', array(
-			'validate' => function () { throw new Exception("invalid"); }
+			'validate' => function () { return false; }
 		)));		
 
 		$user->setName('davert');
@@ -98,7 +98,7 @@ class UserCest {
 		
 		$I->expect('exception is thrown for invalid user')
 			->executeTestedMethodOn($invalid_user)
-			->seeExceptionThrown('ValidationException','invalid');				
+			->seeExceptionThrown('ValidationException','User is invalid');				
 			
 		$I->expect('exception is thrown while trying to create not new user')
 			->changeProperty($user,'isNew', false)
@@ -139,7 +139,7 @@ class UserCest {
 	
 		$I->expect('exception is thrown for invalid user')
 			->executeTestedMethodOn($invalid_user)
-			->seeExceptionThrown('ValidationException','invalid');				
+			->seeExceptionThrown('ValidationException','User is invalid');				
 			
 		$I->expect('exception is thrown while trying to create not new user')
 			->changeProperty($user,'isNew', false)
