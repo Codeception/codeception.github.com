@@ -11,7 +11,7 @@ Project created and maintained by *Michael Bodnarchuk "Davert"*.
 
 I'm PHP developer from Kiev, Ukraine.
 
-Right now I'm looking for a job as a PHP developer. You can see [my code](https://github.com/Codeception/Codeception) and [my articles](http://codeception.com/blog) on this site to evaluate my experience. I like working with PHP frameworks like symfony, Symfony2 and I also passionate about Ruby and Rails. I'm looking for remote job in a agile team, probably a startup. A long-term contract is prefferable. If your project is does not have any test system yet, I will help you integrate Codeception. 
+_Right now I'm looking for a job as a PHP developer. You can see [my code](https://github.com/Codeception/Codeception) and [my articles](http://codeception.com/blog) on this site to evaluate my experience. I like working with PHP frameworks like symfony, Symfony2 and I also passionate about Ruby and Rails. I'm looking for remote job in a agile team, probably a startup. A long-term contract is prefferable. If your project is does not have any test system yet, I will help you integrate Codeception_. 
 
 Follow me on Twitter:
 
