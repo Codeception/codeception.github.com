@@ -19,10 +19,10 @@ class User extends AbstractModel {
 	
 	public function create()
 	{
-		if (!$this->isNew) throw new ModelException("User already created");
+		if (!$this->isNew) throw new ModelException("User already created");		
 		if (!$this->role) $this->role = 'member';
 
-		if (!$this->validate()) throw new ValidationException("Validation failed: ".$e->getMessage());
+		if (!$this->validate()) throw new ValidationException("Validation failed");
 
 		$this->save();
 	}
@@ -95,7 +95,6 @@ class UserCest {
 		$I->expect('user is validated and saved')		
 			->seeMethodInvoked($user, 'validate')
 			->seeMethodInvoked($user, 'save');
-
 		
 		$I->expect('exception is thrown for invalid user')
 			->executeTestedMethodOn($invalid_user)
