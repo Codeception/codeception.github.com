@@ -20,9 +20,7 @@ class EventMachineCest {
 	function shouldHaveInitialState() {}	
 	function shouldMoveBetweenTransitions() {}
 	function shouldMoveBetweenTransitionsOnCondition() {}
-
 }
-
 ?>
 {% endhighlight %}
 
@@ -49,7 +47,7 @@ class EventMachineCest  {
 
 For full EventMachineCest example see my [Gist on Github](https://gist.github.com/1862951).
 
-Codeception generates a pretty good documentation based on your scenario. The @doc annotation marks that a getState method documentation will be updated by current test scenario.
+Codeception generates a pretty good documentation with [DocBlox](http://codeception.com/02-15-2012/unit-testing.html) based on your scenario. The @doc annotation marks that a getState method documentation will be updated by current test scenario.
 
 {% highlight bash %}
 I want to have initial state
@@ -83,6 +81,7 @@ Refer to this [Gist demonstrates](https://gist.github.com/1844158) for example.
 * seeLink and dontSeeLink for acceptance tests were fixed. Thanks to [
 Kanstantsin Kamkou](https://github.com/kkamkou).
 * comments are displayed in output as well as actions.
+* Selenium docs updated.
 
 Please update your version via PEAR:
 
