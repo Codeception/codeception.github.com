@@ -1,0 +1,94 @@
+---
+layout: post
+title: Codeception 1.0.4 Released. Behavior Driven Development.
+date: 2012-02-21 01:03:50
+---
+
+This release brings a real behavior driven development to Codeception. Before that we talked about testing in BDD-style, but nothing about real development by behavior. There were just few changes made in code. More changes are coming to documentation. 
+
+## Specifications
+
+With Behavior Driven Development you start development of class by writing it's specifications. Specifications are written as methods of Cest class and start with 'should' word.
+
+{% highlight php %}
+<?php
+
+class EventMachineCest {
+
+	$class = 'EventMachine';
+	
+	function shouldHaveInitialState() {}	
+	function shouldMoveBetweenTransitions() {}
+	function shouldMoveBetweenTransitionsOnCondition() {}
+
+}
+
+?>
+{% endhighlight %}
+
+The _EventMachine_ class in example above is not written, but we've already defined what to expect from it. After a basic requirements are specified we can take a deeper look into it and describe how it should be used. From this point your specifications become a valid Codeception tests.
+
+{% highlight php %}
+<?php
+class EventMachineCest  {
+
+	$class = 'EventMachine';
+
+   /**
+	* @doc getState
+	*/
+	function shouldHaveInitialState(CodeGuy $I)
+	{
+		$em = new EventMachine;
+		$I->executeMethod($em, 'getState')
+			->seeResultEquals('initial');
+	}
+}
+?>
+{% endhighlight %}
+
+For full EventMachineCest example see my [Gist on Github](https://gist.github.com/1862951).
+
+Codeception generates a pretty good documentation based on your scenario. The @doc annotation marks that a getState method documentation will be updated by current test scenario.
+
+{% highlight bash %}
+I want to have initial state
+
+I execute method $eventMachine, 'getState'
+I see result equals 'initial'
+{% endhighlight %}
+
+## Scenarios
+
+For making acceptnace tests usable for writing Stories we've added 2 new methods. It's _am_ and _lookForwardTo_ which represent 'As a ...' and 'So that' definitions from Story. 
+
+{% highlight php %}
+<?php
+$I = new WebGuy();
+$I->am('regular site user'); 		// As a regular user
+$I->wantTo('create my blog page');  // I want to create my blog page
+$I->lookForwardTo('get a cool blog here'); 	// So that I get a cool blog
+
+$I->expect("blog can't be created twice");
+$I->expect("blog has RSS feed");
+$I->expect("am administrator of this blog");
+?>
+{% endhighlight %}
+
+After that Cept can be extended in a valid Cept file. 
+Refer to this [Gist demonstrates](https://gist.github.com/1844158) for example.
+
+## Bugfixes
+
+* seeLink and dontSeeLink for acceptance tests were fixed. Thanks to [
+Kanstantsin Kamkou](https://github.com/kkamkou).
+* comments are displayed in output as well as actions.
+
+Please update your version via PEAR:
+
+{% highlight bash %}
+$ pear install codeception/Codeception
+{% endhighlight %}
+
+or download updated Phar package.
+
