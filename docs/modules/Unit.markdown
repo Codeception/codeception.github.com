@@ -12,7 +12,7 @@ By providing unique set of features Unit module makes your tests cleaner, readab
 
 ### Features
 * Descriptive - simply write what do you test and how do you test.
-* Method execution limit - you are allowed only to execute tested method inside the scenario. Don't test several methods inside one unit.
+* Execution limit - only execute* methods actually execute your code. It's easy to see where tested methods are invoked.
 * Simple stub definition - create stubbed class with one call. All properties and methods can be passed as callable functions.
 * Dynamic mocking - stubs can be automatically turned to mocks.
 
@@ -39,19 +39,6 @@ Can update even private and protected properties.
  * param $obj
  * param $property
  * param $value
-
-
-#### dontSeeMethodResultEquals
-
-
-Executes method and checks result is equal to passed value.
-
-Look for 'seeMethodResultEquals' for example.
-
- * param $object
- * param $method
- * param $value
- * param array $params
 
 
 #### dontSeeResultContains
@@ -111,6 +98,34 @@ $I->execute(function() use ($user) {
 {% endhighlight %}
 
  * param \Closure $code
+
+
+#### executeMethod
+
+
+Executes method of an object.
+Additional parameters can be provided.
+
+Example:
+
+{% highlight php %}
+
+<?php
+// to execute $user->getName()
+$I->executeMethod($user,'getName');
+
+// to execute $user->setName('davert');
+$I->executeMethod($user,'setName', 'davert');
+
+// or more parameters
+$I->executeMethod($user, 'setNameAndAge', 'davert', '30');
+
+?>
+
+{% endhighlight %}
+
+ * param $object
+ * param $method
 
 
 #### executeTestedMethod
@@ -280,10 +295,25 @@ Optionally pass an arguments which are expected for executed method.
  * param array $params
 
 
-#### seeMethodResultEquals
+#### seeMethodNotReturns
 
 
-Executes method and checks result is equal to passed value
+Executes method and checks result is equal to passed value.
+Good for testing values taken from getters.
+
+Look for 'seeMethodReturns' for example.
+
+ * param $object
+ * param $method
+ * param $value
+ * param array $params
+
+
+#### seeMethodReturns
+
+
+Executes method and checks result is equal to passed value.
+Good for testing values taken from getters.
 
 Example:
 
@@ -292,7 +322,7 @@ Example:
 $I->testMethod('User.setName');
 $user = new User();
 $I->executeTestedMethodOn($user, 'davert');
-$I->seeMethodResultEquals($user,'getName','davert');
+$I->seeMethodReturns($user,'getName','davert');
 
 
 {% endhighlight %}
@@ -300,32 +330,6 @@ $I->seeMethodResultEquals($user,'getName','davert');
  * param $object
  * param $method
  * param $value
- * param array $params
-
-
-#### seeMethodResultIs
-
-
-Executes method and checks result is of specified type.
-
-Either 'int', 'bool', 'string', 'array', 'float', 'null', 'resource', 'scalar' can be passed for simple types.
-Otherwise property will be checked to be an instance of type.
-
- * param $object
- * param $method
- * param $type
- * param array $params
-
-
-#### seeMethodResultIsNot
-
-
-Executes method and checks result is not of specified type.
-Either 'int', 'bool', 'string', 'array', 'float', 'null', 'resource', 'scalar' can be passed for simple types.
-
- * param $object
- * param $method
- * param $type
  * param array $params
 
 

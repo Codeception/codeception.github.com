@@ -103,21 +103,12 @@ Field is searched by its id|name|label|value or CSS selector.
 #### dontSeeLink
 
 
-Checks if page doesn't contain the link with text specified.
-Specify url to narrow the results.
+Checks if the document hasn't link that contains specified
+text (or text and url)
 
-Examples:
-
-{% highlight php %}
-
-<?php
-$I->dontSeeLink('Logout'); // I suppose user is not logged in
-
-
-{% endhighlight %}
-
- * param $text
- * param null $url
+ * param  string $text
+ * param  string $url (Default: null)
+ * return mixed
 
 
 #### fillField
@@ -198,22 +189,12 @@ Checks the value of field is equal to value passed.
 #### seeLink
 
 
-Checks if there is a link with text specified.
-Specify url to match link with exact this url.
+Checks if the document has link that contains specified
+text (or text and url)
 
-Examples:
-
-{% highlight php %}
-
-<?php
-$I->seeLink('Logout'); // matches <a href="#">Logout</a>
-$I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
-
-
-{% endhighlight %}
-
- * param $text
- * param null $url
+ * param  string $text
+ * param  string $url (Default: null)
+ * return mixed
 
 
 #### selectOption
