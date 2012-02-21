@@ -57,7 +57,10 @@ Field is searched by its id|name|label|value or CSS selector.
 
 #### blur
 
-__not documented__
+
+Removes focus from link or button or any node found by css
+
+ * param $el
 
 
 #### checkOption
@@ -80,7 +83,10 @@ Link text or css selector can be passed.
 
 #### clickWithRightButton
 
-__not documented__
+
+Clicks with right button on link or button or any node found by css
+
+ * param $link
 
 
 #### dontSee
@@ -109,12 +115,21 @@ Field is searched by its id|name|label|value or CSS selector.
 
 #### dontSeeLink
 
-__not documented__
+
+Checks if the document hasn't link that contains specified
+text (or text and url)
+
+ * param  string $text
+ * param  string $url (Default: null)
+ * return mixed
 
 
 #### doubleClick
 
-__not documented__
+
+Double clicks on link or button or any node found by css
+
+ * param $link
 
 
 #### dragAndDrop
@@ -128,7 +143,10 @@ Drag first element to second
 
 #### executeJs
 
-__not documented__
+
+Executes any JS code.
+
+ * param $jsCode
 
 
 #### fillField
@@ -143,7 +161,10 @@ Field is searched by its id|name|label|value or CSS selector.
 
 #### focus
 
-__not documented__
+
+Moves focus to link or button or any node found by css
+
+ * param $el
 
 
 #### moveBack
@@ -160,22 +181,55 @@ Moves forward in history
 
 #### moveMouseOver
 
-__not documented__
+
+Moves mouse over link or button or any node found by css
+
+ * param $link
 
 
 #### pressKey
 
-__not documented__
+
+Presses key on element found by css is focused
+A char and modifier (ctrl, alt, shift, meta) can be provided.
+
+Example:
+
+{% highlight php %}
+
+<?php
+$I->pressKey('#page','u','ctrl');
+?>
+
+{% endhighlight %}
+
+ * param $element
+ * param $char char can be either char ('b') or char-code (98)
+ * param null $modifier keyboard modifier (could be 'ctrl', 'alt', 'shift' or 'meta')
 
 
 #### pressKeyDown
 
-__not documented__
+
+Presses key down on element found by CSS.
+
+For example see 'pressKey'.
+
+ * param $element
+ * param $char char can be either char ('b') or char-code (98)
+ * param null $modifier keyboard modifier (could be 'ctrl', 'alt', 'shift' or 'meta')
 
 
 #### pressKeyUp
 
-__not documented__
+
+Presses key up on element found by CSS.
+
+For example see 'pressKey'.
+
+ * param $element
+ * param $char char can be either char ('b') or char-code (98)
+ * param null $modifier keyboard modifier (could be 'ctrl', 'alt', 'shift' or 'meta')
 
 
 #### reloadPage
@@ -226,7 +280,13 @@ Checks the value of field is equal to value passed.
 
 #### seeLink
 
-__not documented__
+
+Checks if the document has link that contains specified
+text (or text and url)
+
+ * param  string $text
+ * param  string $url (Default: null)
+ * return mixed
 
 
 #### selectOption
@@ -251,9 +311,16 @@ Field is searched by its id|name|label|value or CSS selector.
 
 #### wait
 
-__not documented__
+
+Wait for x miliseconds
+
+ * param $miliseconds
 
 
 #### waitForJS
 
-__not documented__
+
+Waits for x miliseconds or until JS condition turns true.
+
+ * param $miliseconds
+ * param $jsCondition
