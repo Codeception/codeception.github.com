@@ -250,7 +250,10 @@ There are plenty of options you can use.
 * colors - turn on colors (if disabled)
 * silent - don't show the progress output.
 * report - format results in report mode.
-* html - generate html file with results. It will be stored in log dir.
+* html - generate html file with results. It will be stored as 'report.html' in tests/_log.
+* xml - generate report in JUnit format for CI services. It will be stored as 'report.xml' in tests/_log.
+* tap - generate report in TAP format. It will be stored as 'report.tap.log' in tests/_log.
+* json - generate report in Json format. It will be stored as 'report.json' in tests/_log.
 
 ### Generators
 
