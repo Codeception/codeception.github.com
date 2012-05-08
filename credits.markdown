@@ -13,7 +13,7 @@ I'm PHP and ROR developer from Kiev, Ukraine. I like web development, tourism, k
 
 ![Codegyre](http://dl.dropbox.com/u/930833/codeggyre_logo.png)
 
-I'm a member of a [Codegyre](http://codegyre.com/) developers team. If you require professional web developers for your startup **we are ready for hire**!
+I'm a member of a [Codegyre](http://codegyre.com/) developers team. If you need professional web developers for startup **we are ready for hire**!
 We are ready for remote work on long term contracts. As well we can provide services and consulting for Codeception.
 
 Follow me on Twitter:
