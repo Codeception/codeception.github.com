@@ -29,7 +29,7 @@ php vendor/bin/codecept
 
 If you are new to composer but you are troubled with PEAR, the [installation guide](http://codeception.com/install) is updated for you.
 
-Except this sugnificant (but simple change) this release is all about bugfixing. 
+Except this significant (but simple change) this release is all about bugfixing. 
 
 With the help of GitHub users [ilex](https://github.com/ilex) and [nike-17](https://github.com/nike-17) Kohana module was improved. 
 Do you want to have a module for other frameworks? Maybe Yii, Fuel, CodeIgniter or Zend Framework 2? It's really simple. You just need to write a proper _connector_ and you can go with performing functional tests inside your application. Check the [Modules](http://codeception.com/docs/03-Modules) section of documentation.
