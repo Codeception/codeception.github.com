@@ -9,9 +9,12 @@ Project created and maintained by *Michael Bodnarchuk "Davert"*.
 
 ![Davert](https://si0.twimg.com/profile_images/781559256/lj_avatar_reasonably_small.jpg)
 
-I'm PHP developer from Kiev, Ukraine.
+I'm PHP and ROR developer from Kiev, Ukraine. I like web development, tourism, kayaking, etc. But most of time I spend developing products. I hope Codeception is one of them. 
 
-Right now **I'm looking for a job as a PHP developer**. You can see [my code](https://github.com/Codeception/Codeception) and [my articles](http://codeception.com/blog) on this site to evaluate my experience. I like working with PHP frameworks like symfony, Symfony2 and I also passionate about Ruby and Rails. I'm looking for remote job in a agile team, probably a startup. A long-term contract is prefferable. If your project is does not have any test system yet, I will help you integrate Codeception. 
+![Codegyre](http://dl.dropbox.com/u/930833/codeggyre_logo.png)
+
+I'm a member of a [Codegyre](http://codegyre.com/) developers team. If you require professional web developers hire us!
+We are ready for remote work on long term contracts. As well we can provide services and consulting for Codeception.
 
 Follow me on Twitter:
 
@@ -23,9 +26,9 @@ Contact me in Skype:
 
 Or write me an email
 
-![Email](/images/mail.png) Codеception@davert.mail.ua
+![Email](/images/mail.png) codecept ![http://files.softicons.com/download/toolbar-icons/fugue-16px-additional-icons-by-yusuke-kamiyamane/png/16x16/mail-at-sign.png] davert.mail.ua
 
-...and of cource I'm on [GitHub](https://github.com/DavertMik)
+...and of course I'm on [GitHub](https://github.com/DavertMik)
 
 #### Special thanks
 *Nick Palamarchuk "lividgreen"* for consulting, brain-storming and additional beer for BDD. 
