@@ -1,0 +1,16 @@
+---
+layout: post
+title: Codeception 1.0.8 Released.
+date: 2012-05-08 01:03:50
+---
+
+This release is all about bugfixing. 
+
+With the help of GitHub users [ilex](https://github.com/ilex) and [nike-17](https://github.com/nike-17) Kohana module was improved. 
+Do you want to have a module for other frameworks? Maybe Yii, Fuel, CodeIgniter or Zend Framework 2? It's really simple. You just need to write a proper _connector_ and you can go with performing functional tests inside your application. Check the [Modules](http://codeception.com/docs/03-Modules) section of documentation.
+
+And some good news about documentation! [Jon Phipps](https://github.com/jonphipps) has done a great job on editing the docs. Soon it will be published here. I know my English is not perfect. So I really appreciate any help in editing and reviewing documentation or blog posts.
+
+Thanks to [Sergii Grebeniuk](https://github.com/delmot) for a small patch on autoloading.
+
+There was not too much unique features in this release. Maybe you have some ideas on what should be improved?
