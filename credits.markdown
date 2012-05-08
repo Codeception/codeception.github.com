@@ -26,7 +26,7 @@ Contact me in Skype:
 
 Or write me an email
 
-![Email](/images/mail.png) codecept ![a](http://files.softicons.com/download/toolbar-icons/fugue-16px-additional-icons-by-yusuke-kamiyamane/png/16x16/mail-at-sign.png) davert.mail.ua
+![Email](/images/mail.png) codecept ![a](/images/at-sign.png) davert.mail.ua
 
 ...and of course I'm on [GitHub](https://github.com/DavertMik)
 
