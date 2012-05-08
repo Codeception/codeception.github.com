@@ -32,7 +32,7 @@ If you are new to composer but you are troubled with PEAR, the [installation gui
 Except this significant (but simple change) this release is all about bugfixing. 
 
 With the help of GitHub users [ilex](https://github.com/ilex) and [nike-17](https://github.com/nike-17) Kohana module was improved. 
-Do you want to have a module for other frameworks? Maybe Yii, Fuel, CodeIgniter or Zend Framework 2? It's really simple. You just need to write a proper _connector_ and you can go with performing functional tests inside your application. Check the [Modules](http://codeception.com/docs/03-Modules) section of documentation.
+Do you want to have a module for other frameworks? Maybe Yii, Fuel, CodeIgniter or Zend Framework 2? It's really simple. You just need to write a proper _connector_ and you can go with performing functional tests inside your application. Check the [Functional Testing]http://codeception.com/docs/05-FunctionalTests) section of documentation.
 
 And some good news about documentation! [Jon Phipps](https://github.com/jonphipps) has done a great job on editing the docs. Soon it will be published here. I know my English is not perfect. So I really appreciate any help in editing and reviewing documentation or blog posts.
 
