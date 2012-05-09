@@ -43,7 +43,7 @@ curl -s http://getcomposer.org/installer | php
 
 Create file __composer.json__:
 
-{% highlight json %}
+{% highlight bash %}
 {
     "require": {
         "codeception/codeception":  "*"
