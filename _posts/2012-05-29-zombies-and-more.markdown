@@ -1,6 +1,6 @@
 ---
 layout: post
-title: New Codeception: Zombies and More.
+title: New Codeception Zombies and More.
 date: 2012-05-29 01:03:50
 ---
 
