@@ -72,9 +72,9 @@
   padding-left: 10px;
 }
 
-code {
-	color: #666;
-	background: #ddd;
+p code {
+	color: #333;
+	background: #aaa;
   font-family: "Bitstream Vera Sans Mono",monospace;  
   padding: 3px;
 }	
