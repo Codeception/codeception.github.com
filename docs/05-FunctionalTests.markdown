@@ -108,14 +108,7 @@ Codeception uses [BrowserKit](https://github.com/symfony/BrowserKit) from the Sy
 
 We will start with writing a helper class for framework integration.
 
-{% highlight yaml %}
-php
-<?php
-namespace Codeception\Module;
-class SomeFrameworkHelper extends \Codeception\Util\Framework {
-     
-}
-?>
+{% highlight php %}
 
 {% endhighlight %}
 
@@ -128,21 +121,7 @@ If the framework doesn't provide its own tools for functional testing you can tr
 
 Whether you decide to use the Universal connector or write your own, you can include it into your module.
 
-{% highlight yaml %}
-php
-<?php
-namespace Codeception\Module;
-class SomeFrameworkHelper extends \Codeception\Util\Framework {
-     
-    public function _initialize() {
-        $this->client = new \Codeception\Util\Connector\Universal();
-        // or any other connector you implement
-        
-        // we need specify path to index file
-        $this->client->setIndex('public_html/index.php');
-    }     
-}
-?>
+{% highlight php %}
 
 {% endhighlight %}
 

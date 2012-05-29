@@ -197,11 +197,7 @@ A char and modifier (ctrl, alt, shift, meta) can be provided.
 Example:
 
 {% highlight php %}
-
-<?php
-$I->pressKey('#page','u','ctrl');
-?>
-
+ 
 {% endhighlight %}
 
  * param $element

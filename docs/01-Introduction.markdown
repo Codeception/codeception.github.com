@@ -30,15 +30,7 @@ Please, note that **any site** can be covered with acceptance tests. Even if you
 #### Sample acceptance test
 
 {% highlight php %}
-
-<?php
-$I = new WebGuy($scenario);
-$I->amOnPage('/');
-$I->click('Sign Up');
-$I->submitForm('#signup', array('username' => 'MilesDavis', 'email' => 'miles@davis.com'));
-$I->see('Thank you for Signing Up!');
-?>
-
+ 
 {% endhighlight %}
 
 #### Pros
@@ -67,17 +59,7 @@ Codeception provides connectors to several popular PHP frameworks, but you can w
 #### Sample functional test
 
 {% highlight php %}
-
-<?php
-$I = new TestGuy($scenario);
-$I->amOnPage('/');
-$I->click('Sign Up');
-$I->submitForm('#signup', array('username' => 'MilesDavis', 'email' => 'miles@davis.com'));
-$I->see('Thank you for Signing Up!');
-$I->seeEmailSent('miles@davis.com', 'Thank you for registration');
-$I->seeInDatabase('users', array('email' => 'miles@davis.com'));
-?>
-
+ 
 {% endhighlight %}
 
 #### Pros
@@ -106,20 +88,7 @@ But Codeception provides some good tools to make your unit tests simpler and cle
 #### Sample integration test
 
 {% highlight php %}
-
-<?php
-// we are testing the public method of User class.
-// It requires the user_id and array of parameters.
-
-$I = new CodeGuy($scenario);
-$I->testMethod('User.update');
-$I->haveStubClass($unit = Stub::make('User'));
-$I->dontSeeInDatabase('users', array('id' => 1, 'username' => 'miles'));
-$I->executeTestedMethodOn($unit, 1, array('username' => 'miles'));
-$I->seeMethodInvoked($unit, 'save');
-$I->seeInDatabase('users', array('id' => 1, 'username' => 'miles'));
-?>
-
+ 
 {% endhighlight %}
 
 #### Pros

@@ -13,17 +13,7 @@ It makes no difference what CMS or Framework is used on the site. You can event 
 
 Probably the first test you would want to run would be signing in. In order to write such a test, we still require basic knowledge of PHP and HTML.
 
-{% highlight yaml %}
-php
-<?php
-$I = new WebGuy($scenario);
-$I->wantTo('sign in');
-$I->amOnPage('/login');
-$I->fillField('signin[username]', 'davert');
-$I->fillField('signin[password]','qwerty');
-$I->click('LOGIN');
-$I->see('Welcome, Davert!');
-?>
+{% highlight php %}
 
 {% endhighlight %}
 
@@ -74,12 +64,7 @@ modules:
 
 We should start by creating a 'Cept' file in the __tests/acceptance__ dir. Let's call it __SigninCept.php__. We will write the first lines into it.
 
-{% highlight yaml %}
-php
-<?php
-$I = new WebGuy($scenario);
-$I->wantTo('sign in with valid account');
-?>
+{% highlight php %}
 
 {% endhighlight %}
 
@@ -96,14 +81,7 @@ So that I can get money when the bank is closed
 
 Becomes:
 
-{% highlight yaml %}
-php
-<?php
-$I = new WebGuy($scenario);
-$I->am('Account Holder'); 
-$I->wantTo('withdraw cash from an ATM');
-$I->lookForwardTo('get money when the bank is closed');
-?>
+{% highlight php %}
 
 {% endhighlight %}
 
@@ -111,11 +89,7 @@ After we have described the story background, let's start writing a scenario.
 
 The `$I` object is used to write all interactions. The methods of the `$I` object are taken from the `PHPBrowser` and `Db` modules. We will briefly describe them here, but for the full reference look into the modules reference, here on (Codeception.com)[http://codeception.com]. 
 
-{% highlight yaml %}
-php
-<?php
-$I->amOnPage('/login');
-?>
+{% highlight php %}
 
 {% endhighlight %}
 
@@ -128,17 +102,7 @@ With the `PhpBrowser` you can click the links and fill the forms. Probably that 
 Emulates a click on valid anchors. The page from the "href" parameter will be opened.
 As a parameter you can specify the link name or a valid CSS selector. Before clicking the link you can perform a check if the link really exists on a page. This can be done by the `seeLink` action.
 
-{% highlight yaml %}
-php
-<?php
-$I->click('Log in'); 
-// CSS selector applied
-$I->click('#login a');
-// checking that link actually exists
-$I->seeLink('Login');
-$I->seeLink('Login','/login');
-$I->seeLink('#login a','/login');
-?>
+{% highlight php %}
 
 {% endhighlight %}
 
@@ -149,35 +113,13 @@ The most routine waste of time goes into the testing of forms. Codeception provi
 
 Let's submit this sample form inside the Codeception test.
 
-{% highlight yaml %}
-html
-<form method="post" action="/update" id="update_form">
-     <label for="user_name">Name</label>
-     <input type="text" name="user[name]" id="user_name" />
-     <label for="user_email">Email</label>
-     <input type="text" name="user[email]" id="user_email" />     
-     <label for="user_gender">Gender</label>
-     <select id="user_gender" name="user[gender]">
-          <option value="m">Male</option>
-          <option value="f">Female</option>
-     </select>     
-     <input type="submit" value="Update" />
-</form>
+{% highlight php %}
 
 {% endhighlight %}
 
 From a user's perspective, a form consists of fields which should be filled, and then an Update button clicked. 
 
-{% highlight yaml %}
-php
-<?php
-// we are using label to match user_name field
-$I->fillField('Name', 'Miles');
-// we can use input name, or id
-$I->fillField('user[email]','miles@davis.com');
-$I->selectOption('Gender','Male');
-$I->press('Update');
-?>
+{% highlight php %}
 
 {% endhighlight %}
 
@@ -187,15 +129,7 @@ From the developer's perspective, submitting a form is just sending a valid post
 Sometimes it's easier to fill all of the fields at once and send the form without clicking a 'Submit' button.
 Similar scenario can be rewritten with only one command.
 
-{% highlight yaml %}
-php
-<?php
-$I->submitForm('#update_form', array('user' => array(
-     'name' => 'Miles',
-     'email' => 'Davis',
-     'gender' => 'm'
-)));
-?>
+{% highlight php %}
 
 {% endhighlight %}
 
@@ -210,12 +144,7 @@ Also you should note that `submitForm` can't be run in Selenium.
 As we know, PHP browser can't process javascript. Still, all the ajax calls can be easily emulated, by sending the proper GET or POST request to the server.
 Consider using these methods for ajax interactions.
 
-{% highlight yaml %}
-php
-<?php
-$I->sendAjaxGetRequest('/refresh');
-$I->sendAjaxPostRequest('/update',array('name' => 'Miles', 'email' => 'Davis'));
-?>
+{% highlight php %}
 
 {% endhighlight %}
 
@@ -224,29 +153,13 @@ $I->sendAjaxPostRequest('/update',array('name' => 'Miles', 'email' => 'Davis'));
 In the PHP browser you can test the page contents. In most cases you just need to check that the required text or element is on the page.
 The most useful command for this is `see`.
 
-{% highlight yaml %}
-php
-<?php
-// We check that 'Thank you, Miles' is on page.
-$I->see('Thank you, Miles');
-// We check that 'Thank you Miles' is inside 
-// the element with 'notice' class.
-$I->see('Thank you, Miles','.notice');
-// We check this message is not on page.
-$I->dontSee('Form is filled incorrectly');
-?>
+{% highlight php %}
 
 {% endhighlight %}
 
 We also have other useful commands to perform checks. Please note that they all start with the `see` prefix.
 
-{% highlight yaml %}
-php
-<?php
-$I->seeInCurrentUrl('/user/miles');
-$I->seeCheckboxIsChecked('#agree');
-$I->seeInField('user[name]','Miles');
-?>
+{% highlight php %}
 
 {% endhighlight %}
 
@@ -255,15 +168,7 @@ $I->seeInField('user[name]','Miles');
 Within a long scenario you should describe what actions you are going to perform and what results to achieve.
 Commands like amGoingTo, expect, expectTo helps you in making tests more descriptive.
 
-{% highlight yaml %}
-php
-<?php
-$I->amGoingTo('submit user form with invalid values');
-$I->fillField('user[email]','miles');
-$I->click('Update');
-$I->expect('the for is not submitted');
-$I->see('Form is filled incorrectly');
-?>
+{% highlight php %}
 
 {% endhighlight %}
 
@@ -296,13 +201,7 @@ All of the actions performed on a page will trigger javascript events, which mig
 
 By the way, the `see` command with element set, won't just check that the text exists inside the element, but it will also check that this element is actually visible to the user. 
 
-{% highlight yaml %}
-php
-<?php 
-// will check the element #modal 
-// is visible and contains 'Confirm' text.
-$I->see('Confirm','#modal'); 
-?>
+{% highlight php %}
 
 {% endhighlight %}
 

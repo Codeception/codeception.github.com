@@ -70,16 +70,7 @@ Parameter should be a valid Closure. The returned value can be checked with seeR
 Example:
 
 {% highlight php %}
-
-<?php
-$user = new User();
-$I->execute(function() use ($user) {
-     $user->setName('Davert');
-     return $user->getName();
-});
-$I->seeResultEquals('Davert');
-?>
-
+ 
 {% endhighlight %}
 
 You can use native PHPUnit asserts in the executed code. 
@@ -90,16 +81,7 @@ You should manually include this file, as these functions may conflict with func
 Example:
 
 {% highlight php %}
-
-<?php
-require_once 'PHPUnit/Framework/Assert/Functions.php';
-
-$user = new User();
-$I->execute(function() use ($user) {
-     $user->setName('Davert');
-     assertEquals('Davert', $user->getName());
-});
-
+ 
 {% endhighlight %}
 
  * param \Closure $code
@@ -114,19 +96,7 @@ Additional parameters can be provided.
 Example:
 
 {% highlight php %}
-
-<?php
-// to execute $user->getName()
-$I->executeMethod($user,'getName');
-
-// to execute $user->setName('davert');
-$I->executeMethod($user,'setName', 'davert');
-
-// or more parameters
-$I->executeMethod($user, 'setNameAndAge', 'davert', '30');
-
-?>
-
+ 
 {% endhighlight %}
 
  * param $object
@@ -155,16 +125,7 @@ First argument is an object, the rest are supposed to be parameters passed to me
 Example:
 
 {% highlight php %}
-
-<?php
-$I->wantTo('authenticate user');
-$I->testMethod('User.authenticate');
-$user = new User();
-$I->executeTestedMethodOn($user, 'Davert','qwerty');
-// This line $user->authenticate('Davert','qwerty') was called.
-$I->seeResultEquals(true);
-?>
-
+ 
 {% endhighlight %}
 
 For static methods use 'executeTestedMethodWith'.
@@ -232,16 +193,7 @@ Optionally pass the arguments which are expected by the executed method.
 Example:
 
 {% highlight php %}
-
-<?php
-$I->testMethod('UserService.create');
-$I->haveStub($user = Stub::make('Model\User'));*
-$service = new UserService($user);
-$I->executeTestedMethodOn($service);
-// we expect $user->save was invoked.
-$I->seeMethodInvoked($user, 'save');
-?>
-
+ 
 {% endhighlight %}
 
 This method dynamically creates a mock from a stub.
@@ -323,13 +275,7 @@ Good for testing values taken from getters.
 Example:
 
 {% highlight php %}
-
-$I->testMethod('User.setName');
-$user = new User();
-$I->executeTestedMethodOn($user, 'davert');
-$I->seeMethodReturns($user,'getName','davert');
-
-
+ 
 {% endhighlight %}
     *
  * param $object
@@ -390,12 +336,7 @@ Otherwise the parameter must be a class and the result must be an instance of th
 Example:
 
 {% highlight php %}
-
-<?php
-$I->execute(function() { return new User });
-$I->seeResultIs('User');
-?>
-
+ 
 {% endhighlight %}
 
  * param $type
@@ -411,19 +352,13 @@ Please, note that it also updates the feature section of the scenario.
 For non-static methods:
 
 {% highlight php %}
-
-<?php
-$I->testMethod('ClassName.MethodName'); // I will need ClassName instance for this
-
+ 
 {% endhighlight %}
 
 For static methods:
 
 {% highlight php %}
-
-<?php
-$I->testMethod('ClassName::MethodName');
-
+ 
 {% endhighlight %}
 
  * param $signature

@@ -14,11 +14,7 @@ Pass PDO instance to this module from within your bootstrap file.
 In _bootstrap.php:
 
 {% highlight php %}
-
-<?php
-\Codeception\Module\Dbh::$dbh = $dbh;
-?>
-
+ 
 {% endhighlight %}
 
 This will make all queries in this connection run withing transaction and rolled back afterwards.
@@ -45,11 +41,7 @@ Provide table name and column values.
 Example:
 
 {% highlight php %}
-
-<?php
-$I->seeInDatabase('users', array('name' => 'Davert', 'email' => 'davert * mail.com'));
-
-
+ 
 {% endhighlight %}
 Will generate:
 
@@ -73,11 +65,7 @@ Provide table name and column values.
 Example:
 
 {% highlight php %}
-
-<?php
-$I->seeInDatabase('users', array('name' => 'Davert', 'email' => 'davert * mail.com'));
-
-
+ 
 {% endhighlight %}
 Will generate:
 

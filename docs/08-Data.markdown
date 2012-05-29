@@ -110,26 +110,13 @@ Fixtures are sample data that we can use in tests. This data can be either gener
 Fixtures for acceptance and functional tests fixtures can be simply defined and used.
 
 Fixture definition in __bootstrap.php_
-{% highlight yaml %}
-php
-<?php
-// let's take user from sample database. 
-// we can populate it with Db module
-$davert = Doctrine::getTable('User')->findOneBy('name', 'davert');
-
-?>
+{% highlight php %}
 
 {% endhighlight %}
 
 Fixture usage in a sample accetpance or functional test.
 
-{% highlight yaml %}
-php
-<?php
-$I = new TestGuy($scenario);
-$I->amLoggedAs($davert);
-$I->see('Welcome, Davert');
-?>
+{% highlight php %}
 
 {% endhighlight %}
 
@@ -143,26 +130,13 @@ Passing fixtures to _Cest_ files is a bit harder, since you can't pass a variabl
 
 Fixture definition in __bootstrap.php_ for a unit test suite.
 
-{% highlight yaml %}
-php
-<?php
-use \Codeception\Util\Fixtures as Fixtures;
-Fixtures::add('davert', Doctrine::getTable('User')->findOneBy('name', 'davert'));
-?>
+{% highlight php %}
 
 {% endhighlight %}
 
 In a sample unit test:
 
-{% highlight yaml %}
-php
-<?php
-$I->execute(function () {
-    $user = Fixtures::get('davert');
-    return $user->getName();        
-});
-$I->seeResultEquals('davert');
-?>
+{% highlight php %}
 
 {% endhighlight %}
 
@@ -170,45 +144,14 @@ The Fixtures class stores and retrieves any variable by key. You can extend it b
 
 In __bootstrap.yml_
 
-{% highlight yaml %}
-php
-<?php
-use \Codeception\Util\Fixtures as Fixtures;
-
-class MyFixtures extends Fixtures {
-    public static function add($namespace, $key, $value) {
-        parent::add("$namespace.$key", $value);
-    }    
-    public static function get($namespace, $key) {
-        return parent::get("$namespace.$key");
-    }
-
-    public static function getUser($key)
-    {
-        return parent::get("user.$key");
-    }
-};
-
-MyFixtures::add('user', 'davert', Doctrine::getTable('User')->findOneBy('name', 'davert'));
-
-?>
+{% highlight php %}
 
 {% endhighlight %}
 
 
 In a test:
 
-{% highlight yaml %}
-php
-<?php
-$I->execute(function () {
-    $user = Fixtures::get('user','davert');
-    // or
-    $user = Fixtures::getUser('davert');
-    return $user->getName();        
-});
-$I->seeResultEquals('davert');
-?>
+{% highlight php %}
 
 {% endhighlight %}
 

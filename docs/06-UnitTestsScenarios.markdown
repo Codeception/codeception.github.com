@@ -13,28 +13,13 @@ Unit tests are required to be as readable as possible. They should be clean and 
 
 With Codeception you should describe your test in a scenario, as we did that for acceptance tests.
 
-{% highlight yaml %}
-php
-<?php
-
-$I = new CodeGuy($scenario);
-$I->execute(function () {
-   return Validator::validateEmail('davert@mail.ua');
-});
-$I->seeResultEquals(true);
-?>
+{% highlight php %}
 
 {% endhighlight %}
 
 The similar test in PHPUnit would look like this:
 
-{% highlight yaml %}
-php
-<?php
-public function testValidateEmail()
-    $this->assertTrue(Validator::validateEmail('davert@mail.ua'));
-}
-?>
+{% highlight php %}
 
 {% endhighlight %}
 
@@ -50,20 +35,7 @@ Let's show how Codeception simplifies unit testing for controller classes.
 
 We have a controller class of an imaginary MVC framework:
 
-{% highlight yaml %}
-php
-<?php
-class UserController extends AbtractController {
-
-    public function show($id)
-    {
-        $user = $this->db->find('users',$id);
-        if (!$user) return $this->render404('User not found');
-        $this->render('show.html.php', array('user' => $user));
-        return true;
-    }
-}
-?>
+{% highlight php %}
 
 {% endhighlight %}
 
@@ -80,36 +52,7 @@ For unit tests Codeception provides a different test file format. It's called Ce
 
 Here is the Codeception test for the 'show' action:
 
-{% highlight yaml %}
-php
-<?php
-use Codeception\Util\Stub as Stub;
-
-const VALID_USER_ID = 1;
-const INVALID_USER_ID = 0;
-
-class UserControllerCest {
-    public $class = 'UserController';
-
-
-    public function show(CodeGuy $I) {
-        // prepare environment
-        $I->haveFakeClass($controller = Stub::makeEmptyExcept($this->class, 'show'));
-        $I->haveFakeClass($db = Stub::make('DbConnector', array('find' => function($id) { return $id == VALID_USER_ID ? new User() : null )));
-        $I->setProperty($controller, 'db', $db);
-
-        $I->executeTestedMethodOn($controller, VALID_USER_ID)
-            ->seeResultEquals(true)
-            ->seeMethodInvoked($controller, 'render');
-
-        $I->expect('it will render 404 page for non existent user')
-            ->executeTestedMethodOn($controller, INVALID_USER_ID)
-            ->seeResultNotEquals(true)
-            ->seeMethodInvoked($controller, 'render404','User not found')
-            ->seeMethodNotInvoked($controller, 'render');
-    }
-}
-?>
+{% highlight php %}
 
 {% endhighlight %}
 
@@ -125,11 +68,7 @@ For the `$db` property, which is supposed to be a DbConnector (Database class) i
 
 Next we connect both stubbed classes. We'd normally use:
 
-{% highlight yaml %}
-php
-<?php
-    $controller->db = $db;
-?>
+{% highlight php %}
 
 {% endhighlight %}
 
@@ -152,43 +91,7 @@ That's why we use 'expect' to describe the function description.
 To prove Codeception was useful for testing the controller, we will write the same test in PHPUnit. 
 Remember, it can be run with Codeception too.
 
-{% highlight yaml %}
-php
-<?php
-
-class UserControllerTest extends PHPUnit_Framework_TestCase
-{
-    protected function prepareController()
-    {
-        $controller = $this->getMock('UserController', array('render', 'render404'), null, false, false);
-        $db = $this->getMock('DbConnector');
-        $db->expects($this->any())
-            ->method('find')
-            ->will($this->returnCallback(function ($id) { return $id ? new User() : null; }));
-
-        // connecting stubs together
-        $r = new ReflectionObject($controller);
-        $dbProperty = $r->getProperty('db');
-        $dbProperty->setAccessible(true);
-        $dbProperty->setValue($controller, $db);
-    }
-
-    public function testShowForExistingUser()
-    {
-        $controller = $this->prepareController();
-        $controller->expects($this->once())->method('render')->with($this->anything());
-        $this->assertTrue($controller->show(1));
-    }
-
-    public function testShowForUnexistingUser()
-    {
-        $controller = $this->prepareController();
-        $controller->expects($this->never())->method('render')->with($this->anything());
-        $controller->expects($this->once())->method('404')->with($this->equalTo('User not found'));
-        $this->assertNotEquals(true, $controller->show(0));
-    }
-}
-?>
+{% highlight php %}
 
 {% endhighlight %}
 This test is 1.5 times longer. One test is split into two. Mocking requires strong knowledge of the PHPUnit API. It's hard to understand the behavior of the tested method `show` without looking into its code.
