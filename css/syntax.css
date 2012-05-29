@@ -73,6 +73,8 @@
 }
 
 code {
-	color: white;
-	background: #222;
+	color: #666;
+	background: #ddd;
+  font-family: "Bitstream Vera Sans Mono",monospace;  
+  padding: 3px;
 }	
