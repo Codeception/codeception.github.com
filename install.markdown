@@ -47,16 +47,11 @@ Create file __composer.json__:
 {
     "require": {
         "codeception/codeception":  "*"
-    },
-
-    "repositories": {
-        "behat/mink-deps": {
-            "type": "composer",
-            "url":  "behat.org"
-        }
     }
 }    
 {% endhighlight %}
+
+(you may specify explicit version of Codeception, instead of "*")
 
 Run 
 
