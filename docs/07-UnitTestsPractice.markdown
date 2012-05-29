@@ -14,11 +14,37 @@ The tested code is not mixed with testing double definitions and assertions. By 
 
 {% highlight php %}
 
+<?php
+class UserCest {
+	function getAndSet(CodeGuy $I)
+	{
+		$I->haveStub($user = Stub::make('Model\User'));
+		$I->execute(function () use ($user) {
+			$user->setName('davert');
+			return $user->getName();
+		});
+		$I->seeResultEquals('davert');
+	}
+}
+?>
+
 {% endhighlight %}
 
 In most cases, we will probably test exactly one method. As we discovered, it's quite easy to define the class and method you are going to test. We take the `$class` parameter of the Cest class, and the method's name as a target method.
 
 {% highlight php %}
+
+<?php
+class PostCest {
+	$class = 'Post';
+
+	function save(CodeGuy $I) {
+		// will test Post::save()
+		// or Post->save()
+	}
+
+}
+?>
 
 {% endhighlight %}
 
@@ -28,16 +54,51 @@ To redefine the target of the test, consider using the `testMethod` action. Note
 
 {% highlight php %}
 
+<?php
+class PostCase {
+    $class = 'Post';
+
+    function saveWithParameters(CodeGuy $I)
+    {
+        $I->testMethod('Post::save');
+    }
+}
+?>
+
 {% endhighlight %}
 Also we recommend that you improve your test by adding a short test definition with the `wantTo` command, just as we did before for acceptance tests.
 
 {% highlight php %}
+
+<?php
+class PostCase {
+	$class = 'Post';
+
+	function saveWithParameters(CodeGuy $I)
+	{
+		$I->wantTo('save post with different parameters');
+		$I->testMethod('Post::save');
+	}
+}
+?>
 
 {% endhighlight %}
 
 You can bypass specifying the test method at all. This might be useful if you are writing specifications instead of a test, and you haven't yet developed the methods to test. For such cases, write your specifications as method names.
 
 {% highlight php %}
+
+<?php
+class PostCase {
+	$class = 'Post';
+
+	function shouldSave(CodeGuy $I)
+	{
+		$post = new Post;
+		$I->executeMethod($post, 'save');
+	}
+}
+?>
 
 {% endhighlight %}
 
@@ -57,6 +118,19 @@ Example bootstrap file (`tests/unit/_bootstrap.php`)
 
 {% highlight php %}
 
+<?php
+require_once 'PHPUnit/Framework/Assert/Functions.php';
+
+require_once __DIR__.'/../../config.xml';
+
+MyApplication::autoload();
+MyApplication::cleanCaches();
+
+// setting the database connection
+\Codeception\Module\Dbh::$dbh = MyApplication::getDatabaseConnection();
+
+?>
+
 {% endhighlight %}
 
 ### setUp and tearDown
@@ -65,6 +139,29 @@ Cest files have analogs for PHPUnit's setUp and tearDown methods.
 You can use `_before` and `_after` methods of the Cest class to prepare and then clean the environment.
 
 {% highlight php %}
+
+<?php
+
+use \Codeception\Util\Stub as Stub;
+
+class ControllerCest {
+	$class = 'Controller';
+
+	public function _before() {
+		$this->db = Stub::makeEmpty('DbConnector');
+	}
+
+	public function show(CodeGuy $I)
+	{
+		$controller = Stub::makeEmptyExcept('Controller', 'save');
+		$I->setProperty($controller, 'db', $this->db);
+		// ...
+	}
+
+	public function _after() {		
+	}
+}
+?>
 
 {% endhighlight %}
 
@@ -75,6 +172,15 @@ By default, `assert*` functions from the `PHPUnit/Framework/Assert/Functions.php
 If you have any conflicts with your own code, use the PHPUnit\_Framework\_Assert class for writing assertions.
 
 {% highlight php %}
+
+<?php
+$I->haveStub($user = Stub::make('User', array(function ('setName' => function ($name) { assertEquals('davert', $name); }))));
+$I->execute(function() use($user) {
+	$user->name = 'davert'; // we assume updating property will execute setter.
+	$user->email = 'davert@mail.ua'
+	assertEquals('davert@mail.ua', $user->getEmail());
+});
+?>
 
 {% endhighlight %}
 
@@ -90,6 +196,13 @@ All of the code you write besides the `$I` object will be executed _before_ the 
 
 {% highlight php %}
 
+<?php
+$I->testMethod('Comment::save');
+$I->executeTestedMethod(array('post_id' => 5);
+DB::updateCounters();
+$I->seeInDatabase('posts',array('id' => 5, 'comments_count' => 1));
+?>
+
 {% endhighlight %}
 
 This scenario will fail, because the developer expects the comment counter will be incremented by the `DB::updateCounters` call at a specific point in the test. But this method will be executed before the comment is saved, so the last assertion will fail. 
@@ -99,6 +212,13 @@ _To perform actions inside the scenario add your code as an action into the Code
 This leads to another thing: No method of the Guy class is allowed to return values. It will return the current CodeGuy instance only. Reconsider your testing scenario every time you want to write something like this:
 
 {% highlight php %}
+
+<?php
+$I->testMethod('Post::insert');
+$I->executeTestedMethod(array('title' => 'Top 10 kitties');
+$post_id = $I->takeLastResult(); // this won't work
+$I->seeInDatabase('posts', array('id' => $post_id));
+?>
 
 {% endhighlight %}
 
@@ -113,6 +233,42 @@ Let's see how we can create stubs for a User class:
 
 {% highlight php %}
 
+<?php
+use \Codeception\Util\Stub as Stub;
+
+// create class instance with name set method 'save' redefined.
+$user = Stub::make('User', array('name' => 'davert', 'save' => function () { return true; }));
+$user->save(); // returns true
+
+// create class instance with all empty methods (will return NULL)
+$user = Stub::makeEmpty('User', array('getName' => function () { return 'davert'; }));
+$user->save(); // is empty and returns NULL
+$user->getName(); // return 'davert'
+
+// create class with empty methods except one
+$user = Stub::makeEmptyExcept('User', 'getName', array('name' => 'davert'));
+$user->save(); // is empty and returns NULL
+$user->getName(); // returns 'davert'
+
+// create class instance through constructor
+// second parameter is array, it's values will be passed to constructor.
+
+// similar to $user = new User($con, $is_new);
+$user = Stub::construct('User', array($con, $is_new), array('name' => 'davert'));
+
+// similar is constructEmpty 
+$user = Stub::constructEmpty('User', array($con, $is_new), array('getName' => function () { return 'davert'; }));
+
+// and constructEmptyExcept
+$user = Stub::constructEmptyExcept('User', 'getName', array($con, $is_new), array('name' => 'davert'));
+
+// copy and redefine class instance
+// can act with regular objects, not only stubs
+$user->getName(); // returns 'davert'
+$user2 = Stub::copy($user, array('name' => 'davert2'));
+$user->getName(); // returns 'davert2'
+?>
+
 {% endhighlight %} 
 
 Let's briefly summarize: if you want to create a stub using a constructor use `Stub::construct*`, if you want to bypass the constructor use `Stub::make*`.
@@ -122,6 +278,22 @@ Let's briefly summarize: if you want to create a stub using a constructor use `S
 Various manipulations on tested objects can be performed:
 
 {% highlight php %}
+
+<?php
+$post = new Post(array('title' => 'Top 10 kitties'));
+$I->testMethod('Post.save');
+
+$I->expect('post about kitties created')
+	->executeTestedMethodOn($post);
+	->seeInDatabase('posts', array('title' => 'Top 10 kitties'));
+
+$I->changeProperty($post, 'title', 'Top 10 doggies');
+
+$I->expect('the kitties post is updated')
+	->executeTestedMethodOn($post);
+	->seeInDatabase('posts', array('title' => 'Top 10 doggies'))
+	->dontSeeInDatabase('posts', array('title' => 'Top 10 kitties'));
+?>
 
 {% endhighlight %}
 
@@ -134,6 +306,12 @@ Let's go back to the controller test example.
 
 {% highlight php %}
 
+<?php
+        $I->executeTestedMethodOn($controller, 1)
+            ->seeResultEquals(true)
+            ->seeMethodInvoked($controller, 'render');
+?>
+
 {% endhighlight %}
 
 We are testing the invocation of the `render` method without the mock definition we did for PHPUnit. We just say: 'I see method invoked'. It's none of a tester's business how this method is mocked. Also, as we saw, the mock for this method can be changed on the next call.
@@ -145,6 +323,12 @@ You no longer have to think about creating mocks!
 Still, you have to use stub classes, in order to make dynamic mocking work.
 
 {% highlight php %}
+
+<?php
+    $I->haveFakeClass($controller = Stub::makeEmpty('Controller'));
+    // same as
+    $I->haveStub($controller = Stub::makeEmpty('Controller'));
+?>
 
 {% endhighlight %}
 
@@ -162,6 +346,13 @@ We could perform all of our database interactions within a transaction. If you a
 MySQL doesn't support nested transactions, so running this module can lead to unpredictable results. ORMs like Doctrine or Doctrine2 can emulate nested transactions. Thus, If you use such ORMs you should connect their modules to your suite.  In order to not conflict with the Db module, they have slightly different actions for looking into the database.
 
 {% highlight php %}
+
+<?php
+    // For Doctrine2
+    $I->seeInRepository('Entity',array('property' => 'value'));
+    // For Doctrine1
+    $I->seeInTable('Table',array('property' => 'value'));
+?>
 
 {% endhighlight %}
 

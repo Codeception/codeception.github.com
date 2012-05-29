@@ -13,7 +13,16 @@ All actions and assertions that can be performed by the Guy object in a class ar
 Let's look at this test.
 
 {% highlight php %}
- 
+
+<?php
+
+$I = new TestGuy($scenario);
+$I->amOnPage('/');
+$I->see('Hello');
+$I->seeInDatabase('users', array('id' => 1));
+$I->seeFileFound('running.lock');
+?>
+
 {% endhighlight %}
 
 It can operate with different entities: the web page can be loaded with the Symfony1 module, the database assertion uses the Db module, and file state can be checked with the Filesystem module. 
@@ -56,7 +65,18 @@ It's a good idea to define missing actions or assertion commands in helpers.
 Let's say we are going to extend the TestHelper class. By default it's linked with a TestGuy class and a functional test suite.
 
 {% highlight php %}
- 
+
+<?php
+namespace Codeception\Module;
+// here you can define custom functions for TestGuy
+
+require_once 'PHPUnit/Framework/Assert/Functions.php';
+
+class TestHelper extends \Codeception\Module
+{
+}
+?>
+
 {% endhighlight %}
 
 As for actions, everything is quite simple. Every action you define is a public function. Write any public method, run the `build` command, and you will see the new function added into the TestGuy class. Note: Public methods prefixed by `_` are treated as hidden and won't be added to your Guy class. 
@@ -67,10 +87,21 @@ Name your assertions like this:
 
 {% highlight php %}
 
+seePageReloaded();
+seeClassIsLoaded($classname);
+dontSeeUserExist($user);
+
 {% endhighlight %}
 And then use them in your tests:
 
 {% highlight php %}
+
+<?php
+$I = new TestGuy($scenario);
+$I->seePageReloaded();
+$I->seeClassIsLoaded('TestGuy');
+$I->dontSeeUserExist($user);
+?>
 
 {% endhighlight %}
 
@@ -82,16 +113,51 @@ In case your application conflicts with one of these functions, you can use PHPU
 
 {% highlight php %}
 
+<?php
+
+function seeClassExist($class)
+{
+    assertTrue(class_exists($class));
+    // or
+    \PHPUnit_Framework_Assert::assertTrue(class_exists($class));
+}
+?>
+
 {% endhighlight %}
 
 Each module has special `$this->assert` and `$this->assertNot` methods. They both take the same arguments and are useful if you need to define both positive and negative assertions in your module. These functions take an array as a parameter, where the first value of the array is the name of the PHPUnit assert function.
 
 {% highlight php %}
 
+<?php
+
+$this->assert(array('Equals',$int,3));
+$this->assertNot(array('internalType',$int,'bool'));
+$this->assert(array('Contains', array(3,5,9), 3));
+?>
+
 {% endhighlight %}
 Let's see how to define both `see` and `don't see` actions without code duplication.
 
 {% highlight php %}
+
+<?php
+
+public function seeClassExist($class)
+{
+    $this->assert($this->proceedSeeClassExist($class));
+}
+
+public function dontSeeClassExist($class)
+{
+    $this->assertNot($this->proceedSeeClassExist($class));
+}
+
+protected function proceedSeeClassExist($class)
+{
+    return array('True',get_class($class));
+}
+?>
 
 {% endhighlight %}
 For `dontSeeClassExist`, the `assertFalse` will be called.
@@ -113,6 +179,15 @@ Let's imagine that we are writing a module which reconnects to a database. It's 
 
 {% highlight php %}
 
+<?php
+
+function reconnectToDatabase() {
+    $dbh = $this->getModule('Db')->dbh;
+    $dbh->close();
+    $dbh->open();
+}
+?>
+
 {% endhighlight %}
 By using the `getModule` function you get access to all of the public methods and properties of the requested module.
 The dbh property was defined as public specificallty to be available to other modules.
@@ -122,6 +197,16 @@ That technique may be also useful if you need to perform a sequence of actions t
 For example:
 
 {% highlight php %}
+
+<?php
+function seeConfigFilesCreated()
+{
+    $filesystem = $this->getModule('Filesystem');
+    $filesystem->seeFileFound('codeception.yml');
+    $filesystem->openFile('codeception.yml');
+    $filesystem->seeInFile('paths');
+}
+?>
 
 {% endhighlight %}
 
@@ -134,6 +219,37 @@ For example, the PhpBrowser module saves the current webpage to the log director
 All hooks are defined in `\Codeception\Module` and are listed here. You are free to redefine them in your module.
 
 {% highlight php %}
+
+<?php
+
+    // HOOK: used after configuration is loaded
+    public function _initialize() {
+    }
+
+	// HOOK: on every Guy class initialization
+	public function _cleanup() {
+	}
+
+	// HOOK: before each step
+	public function _beforeStep(\Codeception\Step $step) {
+	}
+
+	// HOOK: after each  step
+	public function _afterStep(\Codeception\Step $step) {
+	}
+
+	// HOOK: before test
+	public function _before(\Codeception\TestCase $test) {
+	}
+
+	// HOOK: after test
+	public function _after(\Codeception\TestCase $test) {
+	}
+
+	// HOOK: on fail
+	public function _failed(\Codeception\TestCase $test, $fail) {
+	}
+?>
 
 {% endhighlight %}
 
@@ -151,6 +267,12 @@ To display additional information, use the `debug` and `debugSection` methods of
 Here is an example of how it works for PhpBrowser:
 
 {% highlight php %}
+
+<?php
+    $this->debug('Request ('.$method.'): '.$uri.' '. json_encode($params));
+    $browser->request($method, $uri, $params);
+    $this->debug('Response code: '.$this->session->getStatusCode());
+?>    
 
 {% endhighlight %}
 
@@ -171,12 +293,24 @@ Mandatory parameters should be defined in the `$requiredFields` property of the 
 
 {% highlight php %}
 
+<?php
+class Db extends \Codeception\Module {
+    protected $requiredFields = array('dsn', 'user', 'password');
+?>
+
 {% endhighlight %}
 The next time you start the suite without setting these values, an exception will be thrown. 
 
 For optional parameters, you should set default values. The `$config` property is used to define optional parameters as well as their values. In the Selenium module we use the default Selenium Server address and port. 
 
 {% highlight php %}
+
+<?php
+class Selenium extends \Codeception\Util\MinkJS
+{
+    protected $requiredFields = array('browser', 'url');    
+    protected $config = array('host' => '127.0.0.1', 'port' => '4444');
+?>    
 
 {% endhighlight %}
 

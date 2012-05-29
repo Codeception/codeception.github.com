@@ -28,7 +28,11 @@ By default tests are written as narrative scenarios. To make a php file a valid 
 Let's say, we created a file `tests/acceptance/SigninCept.php`
 
 {% highlight php %}
- 
+
+<?php
+$I = new WebGuy($scenario);
+?>
+
 {% endhighlight %}
 
 A Scenario always starts with Guy class initialization. After that, writing a scenario is just like typing `$I->` and choosing a proper action from the auto-completion list.
@@ -36,7 +40,17 @@ A Scenario always starts with Guy class initialization. After that, writing a sc
 Let's sign in to our site. We assume that we have a 'login' page where we are getting authorized by login and password. Then we are moved to a user page, where we see the text `Hello, %username%`. Let's look at how this scenario is written in Codeception.
 
 {% highlight php %}
- 
+
+<?php
+$I = new WebGuy($scenario);
+$I->wantTo('log in as regular user');
+$I->amOnPage('/login');
+$I->fillField('Username','davert');
+$I->fillField('Password','qwerty');
+$I->click('Login');
+$I->see('Hello, davert');
+?>
+
 {% endhighlight %}
 
 Before we execute this test, we should make sure that the site is running on a local web server. Open the `tests/acceptance.suite.yml` file and replace the url with the url of your web application:

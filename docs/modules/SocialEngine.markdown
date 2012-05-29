@@ -34,7 +34,14 @@ Requires relative uri as parameter
 Example:
 
 {% highlight php %}
- 
+
+<?php
+// opens front page
+$I->amOnPage('/');
+// opens /register page
+$I->amOnPage('/register');
+?>
+
 {% endhighlight %}
 
  * param $page
@@ -48,7 +55,12 @@ Attaches file from Codeception data directory to upload field.
 Example:
 
 {% highlight php %}
- 
+
+<?php
+// file is stored in 'tests/data/tests.xls'
+$I->attachFile('prices.xls');
+?>
+
 {% endhighlight %}
 
  * param $field
@@ -76,7 +88,14 @@ If button is image button is found by it's value
 Examples:
 
 {% highlight php %}
- 
+
+<?php
+// simple link
+$I->click('Logout');
+// button of form
+$I->click('Submit');
+?>
+
 {% endhighlight %}
  * param $link
 
@@ -90,6 +109,11 @@ Specify the css selector to match only specific region.
 Examples:
 
 {% highlight php %}
+
+<?php
+$I->dontSee('Login'); // I can suppose user is already logged in
+$I->dontSee('Sign Up','h1'); // I can suppose it's not a signup page
+
 
 {% endhighlight %}
 
@@ -106,7 +130,12 @@ Use css selector or xpath to match.
 Example:
 
 {% highlight php %}
- 
+
+<?php
+$I->dontSeeCheckboxIsChecked('#agree'); // I suppose user didn't agree to terms
+$I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user didn't check the first checkbox in form.
+
+
 {% endhighlight %}
 
  * param $checkbox
@@ -120,7 +149,13 @@ Checks that an input field or textarea doesn't contain value.
 Example:
 
 {% highlight php %}
- 
+
+<?php
+$I->dontSeeInField('form textarea[name=body]','Type your comment here');
+$I->dontSeeInField('form input[type=hidden]','hidden_value');
+$I->dontSeeInField('#searchform input','Search');
+?>
+
 {% endhighlight %}
 
  * param $field
@@ -136,7 +171,11 @@ Specify url to narrow the results.
 Examples:
 
 {% highlight php %}
- 
+
+<?php
+$I->dontSeeLink('Logout'); // I suppose user is not logged in
+
+
 {% endhighlight %}
 
  * param $text
@@ -166,7 +205,12 @@ Specify the css selector to match only specific region.
 Examples:
 
 {% highlight php %}
- 
+
+<?php
+$I->see('Logout'); // I can suppose user is logged in
+$I->see('Sign Up','h1'); // I can suppose it's a signup page
+
+
 {% endhighlight %}
 
  * param $text
@@ -182,7 +226,12 @@ Use css selector or xpath to match.
 Example:
 
 {% highlight php %}
- 
+
+<?php
+$I->seeCheckboxIsChecked('#agree'); // I suppose user agreed to terms
+$I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user agreed to terms, If there is only one checkbox in form.
+
+
 {% endhighlight %}
 
  * param $checkbox
@@ -204,7 +253,13 @@ Checks that an input field or textarea contains value.
 Example:
 
 {% highlight php %}
- 
+
+<?php
+$I->seeInField('form textarea[name=body]','Type your comment here');
+$I->seeInField('form input[type=hidden]','hidden_value');
+$I->seeInField('#searchform input','Search');
+?>
+
 {% endhighlight %}
 
  * param $field
@@ -220,7 +275,12 @@ Specify url to match link with exact this url.
 Examples:
 
 {% highlight php %}
- 
+
+<?php
+$I->seeLink('Logout'); // matches <a href="#">Logout</a>
+$I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
+
+
 {% endhighlight %}
 
  * param $text
@@ -235,7 +295,12 @@ Selects an option in select tag or in radio button group.
 Example:
 
 {% highlight php %}
- 
+
+<?php
+$I->selectOption('form select[name=account]', 'Premium');
+$I->selectOption('form input[name=payment]', 'Monthly');
+?>
+
 {% endhighlight %}
 
  * param $select
@@ -267,7 +332,12 @@ Imagine that by clicking checkbox you trigger ajax request which updates user se
 We emulate that click by running this ajax request manually.
 
 {% highlight php %}
- 
+
+<?php
+$I->sendAjaxPostRequest('/updateSettings', array('notifications' => true); // POST
+$I->sendAjaxGetRequest('/updateSettings', array('notifications' => true); // GET
+
+
 {% endhighlight %}
 
  * param $uri
@@ -288,18 +358,34 @@ This command itself triggers the request to form's action.
 Examples:
 
 {% highlight php %}
- 
+
+<?php
+$I->submitForm('#login', array('login' => 'davert', 'password' => '123456'));
+
+
 {% endhighlight %}
 
 For sample Sign Up form:
 
-{% highlight php %}
- 
+{% highlight html %}
+
+<form action="/sign_up">
+    Login: <input type="text" name="user[login]" /><br/>
+    Password: <input type="password" name="user[password]" /><br/>
+    Do you agree to out terms? <input type="checkbox" name="user[agree]" /><br/>
+    Select pricing plan <select name="plan"><option value="1">Free</option><option value="2" selected="selected">Paid</option></select>
+    <input type="submit" value="Submit" />
+</form>
+
 {% endhighlight %}
 I can write this:
 
 {% highlight php %}
- 
+
+<?php
+$I->submitForm('#userForm', array('user' => array('login' => 'Davert', 'password' => '123456', 'agree' => true)));
+
+
 {% endhighlight %}
 Note, that pricing plan will be set to Paid, as it's selected on page.
 

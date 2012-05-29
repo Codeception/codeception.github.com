@@ -112,11 +112,24 @@ Fixtures for acceptance and functional tests fixtures can be simply defined and 
 Fixture definition in __bootstrap.php_
 {% highlight php %}
 
+<?php
+// let's take user from sample database. 
+// we can populate it with Db module
+$davert = Doctrine::getTable('User')->findOneBy('name', 'davert');
+
+?>
+
 {% endhighlight %}
 
 Fixture usage in a sample accetpance or functional test.
 
 {% highlight php %}
+
+<?php
+$I = new TestGuy($scenario);
+$I->amLoggedAs($davert);
+$I->see('Welcome, Davert');
+?>
 
 {% endhighlight %}
 
@@ -132,11 +145,24 @@ Fixture definition in __bootstrap.php_ for a unit test suite.
 
 {% highlight php %}
 
+<?php
+use \Codeception\Util\Fixtures as Fixtures;
+Fixtures::add('davert', Doctrine::getTable('User')->findOneBy('name', 'davert'));
+?>
+
 {% endhighlight %}
 
 In a sample unit test:
 
 {% highlight php %}
+
+<?php
+$I->execute(function () {
+    $user = Fixtures::get('davert');
+    return $user->getName();        
+});
+$I->seeResultEquals('davert');
+?>
 
 {% endhighlight %}
 
@@ -146,12 +172,43 @@ In __bootstrap.yml_
 
 {% highlight php %}
 
+<?php
+use \Codeception\Util\Fixtures as Fixtures;
+
+class MyFixtures extends Fixtures {
+    public static function add($namespace, $key, $value) {
+        parent::add("$namespace.$key", $value);
+    }    
+    public static function get($namespace, $key) {
+        return parent::get("$namespace.$key");
+    }
+
+    public static function getUser($key)
+    {
+        return parent::get("user.$key");
+    }
+};
+
+MyFixtures::add('user', 'davert', Doctrine::getTable('User')->findOneBy('name', 'davert'));
+
+?>
+
 {% endhighlight %}
 
 
 In a test:
 
 {% highlight php %}
+
+<?php
+$I->execute(function () {
+    $user = Fixtures::get('user','davert');
+    // or
+    $user = Fixtures::getUser('davert');
+    return $user->getName();        
+});
+$I->seeResultEquals('davert');
+?>
 
 {% endhighlight %}
 

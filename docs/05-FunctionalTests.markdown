@@ -110,6 +110,13 @@ We will start with writing a helper class for framework integration.
 
 {% highlight php %}
 
+<?php
+namespace Codeception\Module;
+class SomeFrameworkHelper extends \Codeception\Util\Framework {
+     
+}
+?>
+
 {% endhighlight %}
 
 Let's investigate [Codeception source code](https://github.com/Codeception/Codeception).
@@ -122,6 +129,20 @@ If the framework doesn't provide its own tools for functional testing you can tr
 Whether you decide to use the Universal connector or write your own, you can include it into your module.
 
 {% highlight php %}
+
+<?php
+namespace Codeception\Module;
+class SomeFrameworkHelper extends \Codeception\Util\Framework {
+     
+    public function _initialize() {
+        $this->client = new \Codeception\Util\Connector\Universal();
+        // or any other connector you implement
+        
+        // we need specify path to index file
+        $this->client->setIndex('public_html/index.php');
+    }     
+}
+?>
 
 {% endhighlight %}
 

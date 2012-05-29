@@ -15,6 +15,16 @@ Probably the first test you would want to run would be signing in. In order to w
 
 {% highlight php %}
 
+<?php
+$I = new WebGuy($scenario);
+$I->wantTo('sign in');
+$I->amOnPage('/login');
+$I->fillField('signin[username]', 'davert');
+$I->fillField('signin[password]','qwerty');
+$I->click('LOGIN');
+$I->see('Welcome, Davert!');
+?>
+
 {% endhighlight %}
 
 This scenario can probably be read by non-technical people. Codeception can even 'naturalize' this scenario, converting it into plain English:
@@ -66,6 +76,11 @@ We should start by creating a 'Cept' file in the __tests/acceptance__ dir. Let's
 
 {% highlight php %}
 
+<?php
+$I = new WebGuy($scenario);
+$I->wantTo('sign in with valid account');
+?>
+
 {% endhighlight %}
 
 The `wantTo` section describes your scenario in brief. There are additional comment methods that are useful to make a Codeception scenario a BDD Story. If you have ever written a BDD scenario in Gherkin, you can translate a classic story into Codeception code.
@@ -83,6 +98,13 @@ Becomes:
 
 {% highlight php %}
 
+<?php
+$I = new WebGuy($scenario);
+$I->am('Account Holder'); 
+$I->wantTo('withdraw cash from an ATM');
+$I->lookForwardTo('get money when the bank is closed');
+?>
+
 {% endhighlight %}
 
 After we have described the story background, let's start writing a scenario. 
@@ -90,6 +112,10 @@ After we have described the story background, let's start writing a scenario.
 The `$I` object is used to write all interactions. The methods of the `$I` object are taken from the `PHPBrowser` and `Db` modules. We will briefly describe them here, but for the full reference look into the modules reference, here on (Codeception.com)[http://codeception.com]. 
 
 {% highlight php %}
+
+<?php
+$I->amOnPage('/login');
+?>
 
 {% endhighlight %}
 
@@ -104,6 +130,16 @@ As a parameter you can specify the link name or a valid CSS selector. Before cli
 
 {% highlight php %}
 
+<?php
+$I->click('Log in'); 
+// CSS selector applied
+$I->click('#login a');
+// checking that link actually exists
+$I->seeLink('Login');
+$I->seeLink('Login','/login');
+$I->seeLink('#login a','/login');
+?>
+
 {% endhighlight %}
 
 #### Forms
@@ -113,13 +149,35 @@ The most routine waste of time goes into the testing of forms. Codeception provi
 
 Let's submit this sample form inside the Codeception test.
 
-{% highlight php %}
+{% highlight html %}
+
+<form method="post" action="/update" id="update_form">
+     <label for="user_name">Name</label>
+     <input type="text" name="user[name]" id="user_name" />
+     <label for="user_email">Email</label>
+     <input type="text" name="user[email]" id="user_email" />     
+     <label for="user_gender">Gender</label>
+     <select id="user_gender" name="user[gender]">
+          <option value="m">Male</option>
+          <option value="f">Female</option>
+     </select>     
+     <input type="submit" value="Update" />
+</form>
 
 {% endhighlight %}
 
 From a user's perspective, a form consists of fields which should be filled, and then an Update button clicked. 
 
 {% highlight php %}
+
+<?php
+// we are using label to match user_name field
+$I->fillField('Name', 'Miles');
+// we can use input name, or id
+$I->fillField('user[email]','miles@davis.com');
+$I->selectOption('Gender','Male');
+$I->press('Update');
+?>
 
 {% endhighlight %}
 
@@ -130,6 +188,14 @@ Sometimes it's easier to fill all of the fields at once and send the form withou
 Similar scenario can be rewritten with only one command.
 
 {% highlight php %}
+
+<?php
+$I->submitForm('#update_form', array('user' => array(
+     'name' => 'Miles',
+     'email' => 'Davis',
+     'gender' => 'm'
+)));
+?>
 
 {% endhighlight %}
 
@@ -146,6 +212,11 @@ Consider using these methods for ajax interactions.
 
 {% highlight php %}
 
+<?php
+$I->sendAjaxGetRequest('/refresh');
+$I->sendAjaxPostRequest('/update',array('name' => 'Miles', 'email' => 'Davis'));
+?>
+
 {% endhighlight %}
 
 #### Assertions
@@ -155,11 +226,27 @@ The most useful command for this is `see`.
 
 {% highlight php %}
 
+<?php
+// We check that 'Thank you, Miles' is on page.
+$I->see('Thank you, Miles');
+// We check that 'Thank you Miles' is inside 
+// the element with 'notice' class.
+$I->see('Thank you, Miles','.notice');
+// We check this message is not on page.
+$I->dontSee('Form is filled incorrectly');
+?>
+
 {% endhighlight %}
 
 We also have other useful commands to perform checks. Please note that they all start with the `see` prefix.
 
 {% highlight php %}
+
+<?php
+$I->seeInCurrentUrl('/user/miles');
+$I->seeCheckboxIsChecked('#agree');
+$I->seeInField('user[name]','Miles');
+?>
 
 {% endhighlight %}
 
@@ -169,6 +256,14 @@ Within a long scenario you should describe what actions you are going to perform
 Commands like amGoingTo, expect, expectTo helps you in making tests more descriptive.
 
 {% highlight php %}
+
+<?php
+$I->amGoingTo('submit user form with invalid values');
+$I->fillField('user[email]','miles');
+$I->click('Update');
+$I->expect('the for is not submitted');
+$I->see('Form is filled incorrectly');
+?>
 
 {% endhighlight %}
 
@@ -202,6 +297,12 @@ All of the actions performed on a page will trigger javascript events, which mig
 By the way, the `see` command with element set, won't just check that the text exists inside the element, but it will also check that this element is actually visible to the user. 
 
 {% highlight php %}
+
+<?php 
+// will check the element #modal 
+// is visible and contains 'Confirm' text.
+$I->see('Confirm','#modal'); 
+?>
 
 {% endhighlight %}
 
