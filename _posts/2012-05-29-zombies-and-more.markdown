@@ -4,7 +4,7 @@ title: New Codeception: Zombies and More.
 date: 2012-05-08 01:03:50
 ---
 
-This evening I released new version of Codeception. The most important thing you may notice is documentation. It's just better. It was improved by [Jon Phipps](https://github.com/jonphipps). Let's move on to see the actual new features.
+This evening I released Codeception 1.0.9. The most important thing you may notice is documentation. It's just better. It was improved by [Jon Phipps](https://github.com/jonphipps). Better phrasing goes to better understanding, right? But let's move on to see the actual new features.
 
 ### Zombies are coming!
 
