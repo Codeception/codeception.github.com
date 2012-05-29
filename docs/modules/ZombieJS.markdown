@@ -3,33 +3,43 @@ layout: page
 title: Codeception - Documentation
 ---
 
-## Selenium Module
+## ZombieJS Module
 
-Uses Mink to launch and manipulate Selenium Server (formerly the Selenium RC Server).
+* Uses Mink to manipulate Zombie.js headless browser (http://zombie.labnotes.org/)
+*
+* Note, all methods take CSS selectors to fetch elements.
+* For links, buttons, fields you can use names/values/ids of elements.
+* For form fields you can use input[name=fieldname] notation.
+*
+* ### Installation
+*
+In order to talk with zombie.js server, you should install and configure zombie.js first:
 
-Note, all method takes CSS selectors to fetch elements.
-For links, buttons, fields you can use names/values/ids of elements.
-For form fields you can use name of matched label.
+* Install node.js by following instructions from the official site: http://nodejs.org/.
+* Install npm (node package manager) by following instructions from the http://npmjs.org/.
+* Install zombie.js with npm:
+{% highlight yaml %}
+ $ npm install -g zombie 
+{% endhighlight %}
+After installing npm and zombie.js, you’ll need to add npm libs to your **NODE_PATH**. The easiest way to do this is to add:
 
-Will save a screenshot of browser window to log directory on fail.
+{% highlight yaml %}
+ export NODE_PATH="/PATH/TO/NPM/node_modules" 
+{% endhighlight %}
+into your **.bashrc**.
 
-### Installation
-
-Take Selenium Server from http://seleniumhq.org/download
-
-Execute it: java -jar selenium-server-standalone-x.xx.xxx.jar
-
-Best used with Firefox browser.
+Also not that this module requires php5-http PECL extension to parse returned headers properly
 
 Don't forget to turn on Db repopulation if you are using database.
 
 ### Configuration
 
-* url *required* - start url for your app
-* browser *required* - browser that would be launched
-* host  - Selenium server host (localhost by default)
-* port - Selenium server port (4444 by default)
-* delay - set delay between actions in milliseconds (1/1000 of second) if they run too fast
+* host - simply defines the host on which zombie.js will be started. It’s **127.0.0.1** by default.
+* port - defines a zombie.js port. Default one is **8124**.
+* node_bin - defines full path to node.js binary. Default one is just **node**
+* script - defines a node.js script to start zombie.js server. If you pass a **null** the default script will be used. Use this option carefully!
+* threshold - amount of milliseconds (1/1000 of second) for the process to wait  (as of \Behat\Mink\Driver\Zombie\Server)
+* autostart - whether zombie.js should be started automatically. Defaults to **true**
 
 ### Public Properties
 
@@ -166,6 +176,13 @@ Field is searched by its id|name|label|value or CSS selector.
 Moves focus to link or button or any node found by css
 
  * param $el
+
+
+#### headRequest
+
+
+ * param string $url The URL to make HEAD request to
+ * return array Header-Name => Value array
 
 
 #### moveBack
