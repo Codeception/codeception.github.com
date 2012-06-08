@@ -19,13 +19,13 @@ Start working by downloading one single file and running it with PHP
 
 {% highlight bash %}
 php codecept
-{% highlight bash %}
+{% endhighlight %}
 
 Initialize your testing environment with 
 
 {% highlight bash %}
 php codecept bootstrap
-{% highlight bash %}
+{% endhighlight %}
 
 Windows user now may use generated 'codecept.bat' file.
 
@@ -33,7 +33,9 @@ Run test suite:
 
 {% highlight bash %}
 php codecept run
-{% highlight bash %}
+{% endhighlight %}
+
+## Alternatives
 
 ### PEAR
 For development and writing tests use PEAR version.
@@ -66,7 +68,7 @@ Initialize your testing environment with
 
 {% highlight bash %}
 codecept bootstrap
-{% highlight bash %}
+{% endhighlight %}
 
 Windows user now may use generated 'codecept.bat' file.
 
@@ -74,7 +76,7 @@ Run test suite:
 
 {% highlight bash %}
 codecept run
-{% highlight bash %}
+{% endhighlight %}
 
 
 ### Composer
@@ -115,7 +117,7 @@ Initialize your testing environment with
 
 {% highlight bash %}
 php vendor/bin/codecept bootstrap
-{% highlight bash %}
+{% endhighlight %}
 
 Windows user now may use generated 'codecept.bat' file.
 
@@ -123,5 +125,5 @@ Run test suite:
 
 {% highlight bash %}
 php vendor/bin/codecept run
-{% highlight bash %}
+{% endhighlight %}
 
