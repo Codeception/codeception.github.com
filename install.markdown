@@ -18,13 +18,13 @@ title: Codeception Installation
 Start working by downloading one single file and running it with PHP
 
 {% highlight bash %}
-php codecept
+php codecept.phar
 {% endhighlight %}
 
 Initialize your testing environment with 
 
 {% highlight bash %}
-php codecept bootstrap
+php codecept.phar bootstrap
 {% endhighlight %}
 
 Windows user now may use generated 'codecept.bat' file.
@@ -32,7 +32,7 @@ Windows user now may use generated 'codecept.bat' file.
 Run test suite:
 
 {% highlight bash %}
-php codecept run
+php codecept.phar run
 {% endhighlight %}
 
 ## Alternatives
