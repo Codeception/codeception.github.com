@@ -3,16 +3,41 @@ layout: page
 title: Codeception Installation
 ---
 
+
+
 # Installation
 
-## Requirements
+### Requirements
 
 * PHP >= 5.3
-* PEAR (latest) or [Composer](http://getcomposer.org/download/)
-* PHPUnit >= 3.6 (can be installed by Codeception)
+
+## PHP Executable
+
+[![Download](/images/download.png)](/thanks.html)
+
+Start working by downloading one single file and running it with PHP
+
+{% highlight bash %}
+php codecept
+{% highlight bash %}
+
+Initialize your testing environment with 
+
+{% highlight bash %}
+php codecept bootstrap
+{% highlight bash %}
+
+Windows user now may use generated 'codecept.bat' file.
+
+Run test suite:
+
+{% highlight bash %}
+php codecept run
+{% highlight bash %}
 
 ### PEAR
-Easiest way to start using Codeception is by installing it via PEAR.
+For development and writing tests use PEAR version.
+Use latest PEAR and PHPUnit >= 3.6 (Codeception may install it for you).
 
 {% highlight bash %}
 $ pear channel-discover codeception.com/pear
@@ -28,8 +53,29 @@ If you got troubles running this command, please try full package name:
 $ sudo pear install codeception.github.com/pear/Codeception
 {% endhighlight %}
 
-If this didn't help, try to update your PEAR.
+If this didn't help, try to update your PEAR or clear PEAR cache.
 Also, please, check you use the same PHP for CLI and Web.
+
+Install dependencies (PHPUnit, Mink and Symfony Components) via PEAR:
+
+{% highlight bash %}
+$ sudo codecept install
+{% endhighlight %}
+
+Initialize your testing environment with 
+
+{% highlight bash %}
+codecept bootstrap
+{% highlight bash %}
+
+Windows user now may use generated 'codecept.bat' file.
+
+Run test suite:
+
+{% highlight bash %}
+codecept run
+{% highlight bash %}
+
 
 ### Composer
 
@@ -65,47 +111,17 @@ From now on Codeception (with installed PHPUnit) can be run as:
 php vendor/bin/codecept
 {% endhighlight %}
 
-Please, keep in mind that you should always specify this command instead regular 'codecept' used later in documentation.
-
-### Phar
-
-Download [codecept.phar](https://github.com/Codeception/Codeception/raw/master/package/codecept.phar)
-
-Copy it into your project.
-
-From now on Codeception can be run as:
+Initialize your testing environment with 
 
 {% highlight bash %}
-$ php codecept.phar
-{% endhighlight %}
+php vendor/bin/codecept bootstrap
+{% highlight bash %}
 
-Please, keep in mind that you should always specify this command instead regular 'codecept' used later in documentation.
+Windows user now may use generated 'codecept.bat' file.
 
-## Setup
-
-Install required libraries PHPUnit and Mink, by running this command
-Bypass this step if you installed Codeception via Composer.
+Run test suite:
 
 {% highlight bash %}
-$ codecept install
-{% endhighlight %}
-
-Go to project you want to test and bootstrap the test environment:
-
+php vendor/bin/codecept run
 {% highlight bash %}
-$ codecept bootstrap
-{% endhighlight %}
 
-Next, run the build command.
-
-{% highlight bash %}
-$ codecept build
-{% endhighlight %}
-
-At last, Codeception is ready to run the tests.
-
-{% highlight bash %}
-$ codecept run
-{% endhighlight %}
-
-Refer to Codeception Guide to write your first tests.
