@@ -108,3 +108,7 @@ body {
 #page #disqus_thread li {
 	list-style-type: none;
 }
+
+body .nav ul li {
+	width: 140px;
+}
