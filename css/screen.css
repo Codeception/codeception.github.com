@@ -109,6 +109,6 @@ body {
 	list-style-type: none;
 }
 
-body .nav ul li {
-	width: 140px;
+body .nav ul li a {
+	width: 130px;
 }
