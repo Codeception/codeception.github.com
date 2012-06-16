@@ -13,17 +13,17 @@ Depending on version run Codeception console uitility in following way:
 
 The commands listed below use PEAR installation as an example.
 
-## Run
+### Run
 
 Executes Tests. 
 
-### Usage
+#### Usage
 
 * `codecept run` - executes all tests in all suites
 * `codecept run suitename` - executes all test from this suite
 * `codecept run suitename testnameTest.php` - executes one test of this suite (provide local path for suite directory). 
 
-### Options
+#### Options
 
 * `--debug` - additional debug output will be printed.
 * `--steps` - all performed actions will be printed to console.
@@ -36,56 +36,56 @@ Executes Tests.
 * `--tap` - generate report in TAP format. It will be stored as 'report.tap.log' in tests/_log.
 * `--json` - generate report in Json format. It will be stored as 'report.json' in tests/_log.
 
-## Boostrap
+### Boostrap
 
 Creates default config, tests directory and sample suites for current project.
 Use this command to start building a test suite.
 
-### Usage
+#### Usage
 
 * `codecept bootstrap`
 
-## Install
+### Install
 
 Tries to install Mink, PHPUnit, Symfony Components via PEAR. This command needs to successfully complete PEAR installation. This command may fail due to PEAR issues. We recommend to use phar executable or Composer, if you don't have time and enthusiasm to fight PEAR bugs.
 
-### Usage
+#### Usage
 
 * `codecept install`
 
-## Generate Suite
+### Generate Suite
 
 Generates a new empty suite. You may generate new suite for integration tests, for testing different part of appications, etc.
 
-### Usage
+#### Usage
 
 * `codecept genrate:suite suitename guyname` - provide name of suite and name a Guy who will be used in tests.
 
 Don't create two guys with the same name!
 
-## Generate Cept
+### Generate Cept
 
 Generates new empty test file for acceptance and functional tests. Scenario-based test is called Cept, though.
 
-### Usage
+#### Usage
 
 * `codcept generate:cept suitename testname` - generates testnameCept.php inside the suite.
 * `codecept generate:cept suitename subdir/subdir/testnameCept.php` - generates file in subdir/subdir of suite dir.
 
-## Generate Cest
+### Generate Cest
 
 Generates new empty test file for scenario-based unit tests. This file format is called Cest = Cept + Test.
 
-### Usage
+#### Usage
 
 * `codcept generate:cest suitename testname` - generates testnameCest.php inside the suite.
 * `codecept generate:cest suitename subdir/subdir/testnameCest.php` - generates file in subdir/subdir of suite dir.
 
-## Generate Scenarios
+### Generate Scenarios
 
 Generates text representation for all tests in suite. They are called scenarios and stored as a text files in the `log` dir.
 
-### Usage
+#### Usage
 
 * `codecept generate:scenarios suitename` - generates for this suite.
 
