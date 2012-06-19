@@ -14,7 +14,7 @@ So Installation is much simplier now:
 
 Now you can start generating a test suite with  `php codecept.phar bootstrap` or execute existing tests with `php codecept.phar run`.
 
-[Documentationn](http://codeception.com/doc) section was created. New section Reference was added. There you can review Codeception commands and configuration values.
+[Documentation](http://codeception.com/doc) section was created. New section Reference was added. There you can review Codeception commands and configuration values.
 
 But the most cool stuff is new module for *testing web services*!
 
