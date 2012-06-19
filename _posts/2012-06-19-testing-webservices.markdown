@@ -8,7 +8,7 @@ Codeception testing framework got sugninficant improvements during last week. Th
 
 So Installation is much simplier now:
 
-1. (Download)[http://codeception.com/thanks.html] archive.
+1. [Download](http://codeception.com/thanks.html) archive.
 
 2. Execute it with PHP.
 
@@ -60,7 +60,7 @@ Modules themselves are already documented and tested. Soon a complete guide on W
 
 The other thing worth to mention is new *finalizers* in test scenarios. If you need to execute code after test is finished and you don't want to put it in helper use the `$scenario->finilize` method. See it's usage example in new [Manual Cleanup](http://codeception.com/docs/08-Data#manual-cleanup) section of Guides.
 
-This is Codeception 1.0.11. Download [new version](http://codeception.com/thanks.html) to run tests or update from old. 
+This is Codeception 1.0.11. Download [new version](http://codeception.com/thanks.html) to run tests or update
 
 via PEAR
 
