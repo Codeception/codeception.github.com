@@ -10,7 +10,7 @@ title: Codeception Documentation
 Guides will walk you though the basic concepts of testing to the full understanding knowlegde of Codeception.
 Everything you want to know about Codeception can be found in Guides.
 
-* [Intruduction](/docs/01-Introduction) - all about testing: acceptance, unit, and functional tests explained.
+* [Introduction](/docs/01-Introduction) - all about testing: acceptance, unit, and functional tests explained.
 * [Getting Started](/docs/02-GettingStarted) - setting up and writing a first test with Codeception
 * [Modules](/docs/03-Modules) - understanding modules and helpers
 * [Acceptance Tests](/docs/04-AcceptanceTests) - writing Selenium and PhpBrowser accetance tests.
