@@ -18,7 +18,7 @@ Now you can start generating a test suite with  `php codecept.phar bootstrap` or
 
 But the most cool stuff is new module for *testing web services*!
 
-Modules for [SOAP](http://codeception.com/docs/modules/SOAP) and REST (http://codeception.com/docs/modules/REST) were added recently. You know it's always hard to test the API manually. So why not to automate it?
+Modules for [SOAP](http://codeception.com/docs/modules/SOAP) and [REST](http://codeception.com/docs/modules/REST) were added recently. You know it's always hard to test the API manually. So why not to automate it?
 
 This API modules keeps simple manner in describing tests. Take a look at sample REST test.
 
