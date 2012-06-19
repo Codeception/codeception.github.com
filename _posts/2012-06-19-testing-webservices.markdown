@@ -10,9 +10,7 @@ So Installation is much simplier now:
 
 1. [Download](http://codeception.com/thanks.html) archive.
 
-2. Execute it with PHP.
-
-`php codecept.phar`
+2. Execute it with PHP `php codecept.phar`
 
 Now you can start generating a test suite with  `php codecept.phar bootstrap` or execute existing tests with `php codecept.phar run`.
 
