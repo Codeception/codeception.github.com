@@ -4,7 +4,7 @@ title: Test WebServices With Codeception
 date: 2012-06-19 01:03:50
 ---
 
-Codeception testing framework got significant improvements during last week. The first and the major one is that you don't even need PEAR and Composer to execute scripts. Now you need only one file `codecept.phar` to execute your scripts. This might save your time and mind of your testers.
+Codeception testing framework got significant improvements during last week. The first and the major one is that you don't even need PEAR and Composer to execute tests. Only one file `codecept.phar` required. This might save your time and mind of your testers.
 
 So Installation is much simplier now:
 
