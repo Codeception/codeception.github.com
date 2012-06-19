@@ -5,7 +5,7 @@ title: Codeception Documentation
 
 # Documentation
 
-## Guides
+### Guides
 
 Guides will walk you though the basic concepts of testing to the full understanding knowlegde of Codeception.
 Everything you want to know about Codeception can be found in Guides.
@@ -19,31 +19,41 @@ Everything you want to know about Codeception can be found in Guides.
 * [Unit Tests Practice](/docs/07-UnitTestsPractice) - practical approach to unit testing in scenario manner.
 * [Data](/docs/08-Data) - repopulation of database, cleaning up data, using fixtures, etc.
 
-## References
+### Examples
+
+(coming soon)
+
+* Getting Started With Selenium
+* Testing Symfony2 Application
+* Working With Database
+* Testing SOAP Web Service
+
+### Reference
 
 References explains API of verious parts of Codeception. Look for them if you forgot something.
 
 * [Commands](/docs/reference/commands) - explains usage of Codecption console utility.
-* Configuration - explains basics of suites configuration.
+* [Configuration](/docs/reference/configuration) - explains basics of suites and modules configuration.
+* PhpDocummentor2 Integration
 * [Xml Builder](/docs/reference/xmlbuilder) - building XMLs pragmatically.
 * [Stubs](/docs/reference/stubs) - cool stub builder explained.
 
-## Modules
+### Modules
 
 Modules are used to test various parts of your application. There are plenty of those and many should arrive in a future. 
 Choose the best module for your needs and see it's reference.
 
-### Testing Web Applications with Javascript
+#### Testing Web Applications with Javascript
 
-* [Selenium](/docs/modules/Selenium) - use Selenium server to run tests in browser.
-* [Selenium2](/docs/modules/Selenium2)  - use Selenium server to run tests in browser.
-* [ZombieJS](/docs/modules/ZombieJS) - use Zombie.js backend to run tests without browser.
+* [Selenium](/docs/modules/Selenium) - use *Selenium* server to run tests in browser.
+* [Selenium2](/docs/modules/Selenium2)  - use *Selenium2* server to run tests in browser.
+* [ZombieJS](/docs/modules/ZombieJS) - use *Zombie.js* backend to run tests without browser.
 
-### Testing Web Applications without Javascript
+#### Testing Web Applications without Javascript
 
 * [PhpBrowser](/docs/modules/PhpBrowser) - emulates browser usage by fetching and parsing html pages.
 
-### Testing Inside PHP Frameworks
+#### Testing Inside PHP Frameworks
 
 * [Symfony2](/docs/modules/Symfony2) - wraper for [Symfony2](http://symfony.com) functional tests.
 * [Zend Framework](/docs/modules/Zend) - wraper for [ZF](http://framework.zend.com) functional test.
@@ -51,18 +61,18 @@ Choose the best module for your needs and see it's reference.
 * [Kohana](/docs/modules/Kohana) 
 * [Social Engine](/docs/module/SocialEngine) - ZF module adopted for SE
 
-### Unit Testing
+#### Unit Testing
 
 Basically you could use PHPUnit tests for unit testing. But Codeception scenario-driven unit tests are much powerful )
 
 * [Unit](/docs/modules/unit) - everything for unit testing.
 
-### API Testing
+#### API Testing
 
 * [REST](/docs/modules/REST) - testing REST Web services (can be tested inside framework)
 * [SOAP](/docs/modules/SOAP) - testing SOAP WSDL web-services (can be tested inside framework)
 
-### Database Testing
+#### Database Testing
 
 * [Db](/docs/modules/Db) - use to test changes in database
 * [Doctrine2](/docs/modules/doctrine2) - test database managed by [Doctrine2](http://www.doctrine-project.org/) ORM
