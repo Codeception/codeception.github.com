@@ -1,3 +1,8 @@
+---
+layout: page
+title: Codeception Commands
+---
+
 # Configuration
 
 ## Global Configuration
