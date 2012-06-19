@@ -19,15 +19,6 @@ Everything you want to know about Codeception can be found in Guides.
 * [Unit Tests Practice](/docs/07-UnitTestsPractice) - practical approach to unit testing in scenario manner.
 * [Data](/docs/08-Data) - repopulation of database, cleaning up data, using fixtures, etc.
 
-### Examples
-
-(coming soon)
-
-* Getting Started With Selenium
-* Testing Symfony2 Application
-* Working With Database
-* Testing SOAP Web Service
-
 ### Reference
 
 References explains API of verious parts of Codeception. Look for them if you forgot something.
