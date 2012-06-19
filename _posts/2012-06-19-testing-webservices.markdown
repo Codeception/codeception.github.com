@@ -50,8 +50,7 @@ $I->sendSoapRequest('CreateUser', Soap::request()
 		->Name->val('davert')->parent()
 		->Email->val('davert@codeception.com');
 );
-$I->seeSoapResponseEquals(Soap::response()->result->val(1));
-$I->dontSeeSoapResponsMatches('fail');
+$I->seeSoapResponseIncludes(Soap::response()->result->val(1));
 {% endhighlight %}
 
 Ok, the one thing you may have noticed. We are working with JSON in first case and XML in second. But there is no JSON or XML in code! Well, we could have used it, but we didn't. Just because we can use PHP to set data in this formats. Json is built from PHP arrays and for XML is used jQuery-like styled [XMLBuilder](http://codeception.com/docs/reference/xmlbuilder) class. But you could possibly add a raw json or XMl into your tests. No problems with that!
