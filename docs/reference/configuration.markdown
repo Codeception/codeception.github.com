@@ -102,8 +102,8 @@ Configuring [Selenium2](http://codeception.com/docs/modules/Selenium2) module:
 modules:
 	enabled: [Selenium2, WebHelper]
 	config:
-		Selenium2L:
+		Selenium2:
 			url: http://localhost/
-			browser: filrefox
+			browser: firefox
 			delay: 10
 {% endhighlight %}
