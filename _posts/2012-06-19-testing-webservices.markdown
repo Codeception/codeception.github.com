@@ -4,7 +4,7 @@ title: Test WebServices With Codeception
 date: 2012-06-19 01:03:50
 ---
 
-Codeception testing framework got sugninficant improvements during last week. The first and the major one is that you don't even need PEAR and Composer to execute scripts. Now you need only one file `codecept.phar` to execute your scripts. This might save your time and mind of your testsers.
+Codeception testing framework got significant improvements during last week. The first and the major one is that you don't even need PEAR and Composer to execute scripts. Now you need only one file `codecept.phar` to execute your scripts. This might save your time and mind of your testers.
 
 So Installation is much simplier now:
 
@@ -16,7 +16,7 @@ So Installation is much simplier now:
 
 Now you can start generating a test suite with  `php codecept.phar bootstrap` or execute existing tests with `php codecept.phar run`.
 
-[Documentation](http://codeception.com/doc) section was created. New section Reference was added. There you can review Codectpion commands and configuration values.
+[Documentationn](http://codeception.com/doc) section was created. New section Reference was added. There you can review Codeception commands and configuration values.
 
 But the most cool stuff is new module for *testing web services*!
 
