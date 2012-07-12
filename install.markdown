@@ -55,7 +55,7 @@ If you got troubles running this command, please try full package name:
 $ sudo pear install codeception.github.com/pear/Codeception
 {% endhighlight %}
 
-If this didn't help, try to update your PEAR or clear PEAR cache.
+If this didn't work either, please try to update your PEAR or **clear the PEAR cache**.
 Also, please, check you use the same PHP for CLI and Web.
 
 Install dependencies (PHPUnit, Mink and Symfony Components) via PEAR:
@@ -69,8 +69,6 @@ Initialize your testing environment with
 {% highlight bash %}
 codecept bootstrap
 {% endhighlight %}
-
-Windows user now may use generated 'codecept.bat' file.
 
 Run test suite:
 
@@ -94,9 +92,10 @@ Create file __composer.json__:
 {% highlight bash %}
 {
     "require": {
-        "codeception/codeception":  "*"
-    }
-}    
+        "codeception/codeception":  "1.*@dev"
+    },
+    "minimum-stability": "dev"
+}        
 {% endhighlight %}
 
 (you may specify explicit version of Codeception, instead of "*")
