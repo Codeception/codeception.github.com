@@ -172,8 +172,9 @@ By default, `assert*` functions from the `PHPUnit/Framework/Assert/Functions.php
 If you have any conflicts with your own code, use the PHPUnit\_Framework\_Assert class for writing assertions.
 
 {% highlight php %}
-
 <?php
+require_once 'PHPUnit/Framework/Assert/Functions.php';
+
 $I->haveStub($user = Stub::make('User', array(function ('setName' => function ($name) { assertEquals('davert', $name); }))));
 $I->execute(function() use($user) {
 	$user->name = 'davert'; // we assume updating property will execute setter.

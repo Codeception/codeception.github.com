@@ -70,8 +70,6 @@ Let's say we are going to extend the TestHelper class. By default it's linked wi
 namespace Codeception\Module;
 // here you can define custom functions for TestGuy
 
-require_once 'PHPUnit/Framework/Assert/Functions.php';
-
 class TestHelper extends \Codeception\Module
 {
 }
@@ -108,8 +106,8 @@ $I->dontSeeUserExist($user);
 Every `see` or `dontSee` function requires at least one assert. Codeception uses PHPUnit assertions.
 
 ### Assertions
-You can define asserts by using assertXXX functions, from the `PHPUnit/Framework/Assert/Functions.php` file.
-In case your application conflicts with one of these functions, you can use PHPUnit static methods from the PHPUnit_Framework_Assert class to define asserts.
+You can define asserts by using assertXXX methods of module.
+Codeception uses PHPUnit asserts. So in case you miss some of asserts you can use PHPUnit static methods from the `PHPUnit_Framework_Assert` class for more.
 
 {% highlight php %}
 
@@ -117,7 +115,7 @@ In case your application conflicts with one of these functions, you can use PHPU
 
 function seeClassExist($class)
 {
-    assertTrue(class_exists($class));
+    $this->assertTrue(class_exists($class));
     // or
     \PHPUnit_Framework_Assert::assertTrue(class_exists($class));
 }
@@ -125,7 +123,28 @@ function seeClassExist($class)
 
 {% endhighlight %}
 
-Each module has special `$this->assert` and `$this->assertNot` methods. They both take the same arguments and are useful if you need to define both positive and negative assertions in your module. These functions take an array as a parameter, where the first value of the array is the name of the PHPUnit assert function.
+In your helpers you can use this assertions:
+
+{% highlight php %}
+
+<?php
+
+function seeCanCheckEverything($thing)
+{
+    $this->assertTrue(isset($thing), "this thing is set");
+    $this->assertFalse(empty($any), "this thing is not empty");
+    $this->assertNotNull($thing, "this thing is not null");
+    $this->assertContains("world", $thing, "this thing contains 'world'");
+    $this->assertNotContains("bye", $thing, "this thing doesn`t contain 'bye'");
+    $this->assertEquals("hello world", $thing, "this thing is 'Hello world'!");
+    // ...
+}
+?>
+{% endhighlight %}
+
+Just type `$this->assert` to see all of them. 
+
+Also each module has special `$this->assert` and `$this->assertNot` methods. They both take the same arguments and are useful if you need to define both positive and negative assertions in your module. These functions take an array as a parameter, where the first value of the array is the name of the PHPUnit assert function.
 
 {% highlight php %}
 
