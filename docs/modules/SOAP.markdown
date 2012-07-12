@@ -84,6 +84,14 @@ Will produce header:
  * param array $params
 
 
+#### seeResponseCodeIs
+
+
+Checks response code from server.
+
+ * param $code
+
+
 #### seeSoapResponseContainsStructure
 
 

@@ -43,16 +43,7 @@ The TestGuy class has its methods defined in modules. Actually, it doesn't conta
 ## Standard Modules
 
 Codeception has many bundled modules which will help you run tests for different purposes and in different environments. The number of modules is not constant -- it's supposed to grow as more frameworks and ORMs are supported.
-
-Let's list all available modules
-
-* Db - refreshes your database after each run. Also can check that the data in the database exists.
-* PhpBrowser - emulates browser with [Goutte PHP Web Scraper](https://github.com/fabpot/Goutte), driven by [Mink](http://mink.behat.org). Commonly used for acceptance tests.
-* Filesystem - module to perform simple assertions in your filesystem. 
-* Doctrine1 - provides additional tools for projects powered with Doctrine ORM
-* Doctrine2 - similar to Doctrine1 ORM, but also has powerful tools to mock Doctrine internal objects.
-* Symfony1 - connector to the Symfony1 framework. Codeception scenarios are run in application's test environment.
-* Unit - module for unit testing. Contains powerful methods for mocking objects, running test methods, asserting, etc.
+See all of them listed in the right of the page at sidebar.
 
 All of these modules are documented. You can review their detailed references on [GitHub](https://github.com/DavertMik/Codeception/tree/master/docs/modules).
 
@@ -106,6 +97,7 @@ $I->dontSeeUserExist($user);
 Every `see` or `dontSee` function requires at least one assert. Codeception uses PHPUnit assertions.
 
 ### Assertions
+
 You can define asserts by using assertXXX methods of module.
 Codeception uses PHPUnit asserts. So in case you miss some of asserts you can use PHPUnit static methods from the `PHPUnit_Framework_Assert` class for more.
 

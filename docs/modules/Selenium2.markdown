@@ -13,10 +13,8 @@ On test failure the browser window screenshot will be saved to log directory
 
 ### Installation
 
-Download Selenium2 WebDriver from http://code.google.com/p/selenium/downloads/list?q=selenium-server-standalone-2
-Launch the daemon: {% highlight yaml %}
-java -jar selenium-server-standalone-2.xx.xxx.jar
-{% endhighlight %}
+Download Selenium2 [WebDriver](http://code.google.com/p/selenium/downloads/list?q=selenium-server-standalone-2)
+Launch the daemon: `java -jar selenium-server-standalone-2.xx.xxx.jar`
 
 Don't forget to turn on Db repopulation if you are using database.
 
