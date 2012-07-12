@@ -27,8 +27,6 @@ Initialize your testing environment with
 php codecept.phar bootstrap
 {% endhighlight %}
 
-Windows user now may use generated 'codecept.bat' file.
-
 Run test suite:
 
 {% highlight bash %}
