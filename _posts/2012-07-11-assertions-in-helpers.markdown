@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 1.0.14 - Custom Assertions In Helpers
-date: 2012-06-19 01:03:50
+date: 2012-07-12 01:03:50
 ---
 
 Hi, that's been a while from the last release. But still Codeception is evolving. And today's release notes I'm going to start with some thoughts on Codeception installation strategy.
