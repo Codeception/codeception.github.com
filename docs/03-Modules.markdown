@@ -96,8 +96,6 @@ $I->dontSeeUserExist($user);
 
 Every `see` or `dontSee` function requires at least one assert. Codeception uses PHPUnit assertions.
 
-### Assertions
-
 You can define asserts by using assertXXX methods of module.
 Codeception uses PHPUnit asserts. So in case you miss some of asserts you can use PHPUnit static methods from the `PHPUnit_Framework_Assert` class for more.
 
@@ -132,9 +130,10 @@ function seeCanCheckEverything($thing)
     // ...
 }
 ?>
+
 {% endhighlight %}
 
-Just type `$this->assert` to see all of them. 
+Just type `$this->assert` to see all of them.
 
 Also each module has special `$this->assert` and `$this->assertNot` methods. They both take the same arguments and are useful if you need to define both positive and negative assertions in your module. These functions take an array as a parameter, where the first value of the array is the name of the PHPUnit assert function.
 
