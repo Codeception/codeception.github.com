@@ -69,7 +69,8 @@ Field is searched by its id|name|label|value or CSS selector.
 #### blur
 
 
-Removes focus from link or button or any node found by css
+Removes focus from link or button or any node found by CSS or XPath
+XPath or CSS selectors are accepted.
 
  * param $el
 
@@ -95,7 +96,7 @@ Link text or css selector can be passed.
 #### clickWithRightButton
 
 
-Clicks with right button on link or button or any node found by css
+Clicks with right button on link or button or any node found by CSS or XPath
 
  * param $link
 
@@ -138,7 +139,7 @@ text (or text and url)
 #### doubleClick
 
 
-Double clicks on link or button or any node found by css
+Double clicks on link or button or any node found by CSS or XPath
 
  * param $link
 
@@ -147,6 +148,7 @@ Double clicks on link or button or any node found by css
 
 
 Drag first element to second
+XPath or CSS selectors are accepted.
 
  * param $el1
  * param $el2
@@ -173,9 +175,58 @@ Field is searched by its id|name|label|value or CSS selector.
 #### focus
 
 
-Moves focus to link or button or any node found by css
+Moves focus to link or button or any node found by CSS or XPath
 
  * param $el
+
+
+#### grabAttribute
+
+__not documented__
+
+
+#### grabTextFrom
+
+
+Finds and returns text contents of element.
+Element is searched by CSS selector, XPath or matcher by regex.
+
+Example:
+
+{% highlight php %}
+
+<?php
+$heading = $I->grabTextFrom('h1');
+$heading = $I->grabTextFrom('descendant-or-self::h1');
+$value = $I->grabTextFrom('~<input value=(.*?)]~sgi');
+?>
+
+{% endhighlight %}
+
+ * param $cssOrXPathOrRegex
+ * return mixed
+
+
+#### grabValueFrom
+
+
+Finds and returns field and returns it's value.
+Searches by field name, then by CSS, then by XPath
+
+Example:
+
+{% highlight php %}
+
+<?php
+$name = $I->grabValueFrom('Name');
+$name = $I->grabValueFrom('input[name=username]');
+$name = $I->grabValueFrom('descendant-or-self::form/descendant::input[ * name = 'username']');
+?>
+
+{% endhighlight %}
+
+ * param $field
+ * return mixed
 
 
 #### headRequest
@@ -200,7 +251,7 @@ Moves forward in history
 #### moveMouseOver
 
 
-Moves mouse over link or button or any node found by css
+Moves mouse over link or button or any node found by CSS or XPath
 
  * param $link
 
@@ -208,7 +259,7 @@ Moves mouse over link or button or any node found by css
 #### pressKey
 
 
-Presses key on element found by css is focused
+Presses key on element found by css, xpath is focused
 A char and modifier (ctrl, alt, shift, meta) can be provided.
 
 Example:
@@ -216,7 +267,9 @@ Example:
 {% highlight php %}
 
 <?php
+$I->pressKey('#page','u');
 $I->pressKey('#page','u','ctrl');
+$I->pressKey('descendant-or-self::*[ * id='page']','u');
 ?>
 
 {% endhighlight %}
@@ -229,7 +282,7 @@ $I->pressKey('#page','u','ctrl');
 #### pressKeyDown
 
 
-Presses key down on element found by CSS.
+Presses key down on element found by CSS or XPath.
 
 For example see 'pressKey'.
 
@@ -241,7 +294,7 @@ For example see 'pressKey'.
 #### pressKeyUp
 
 
-Presses key up on element found by CSS.
+Presses key up on element found by CSS or XPath.
 
 For example see 'pressKey'.
 
@@ -275,8 +328,9 @@ Field is searched by its id|name|label|value or CSS selector.
 
 Checks element visibility.
 Fails if element exists but is invisible to user.
+Eiter CSS or XPath can be used.
 
- * param $css
+ * param $selector
 
 
 #### seeInCurrentUrl

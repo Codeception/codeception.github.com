@@ -64,6 +64,29 @@ Fails if such user was found.
  * param array $criteria
 
 
+#### grabFromDatabase
+
+
+Fetches a single column value from a database.
+Provide table name, desired column and criteria.
+
+Example:
+
+{% highlight php %}
+
+<?php
+$mail = $I->grabFromDatabase('users', array('name' => 'Davert'));
+
+
+{% endhighlight %}
+
+ * version 1.1
+ * param $table
+ * param $column
+ * param array $criteria
+ * return mixed
+
+
 #### seeInDatabase
 
 

@@ -230,6 +230,50 @@ Fills a text field or textarea with value.
 __not documented__
 
 
+#### grabTextFrom
+
+
+Finds and returns text contents of element.
+Element is searched by CSS selector, XPath or matcher by regex.
+
+Example:
+
+{% highlight php %}
+
+<?php
+$heading = $I->grabTextFrom('h1');
+$heading = $I->grabTextFrom('descendant-or-self::h1');
+$value = $I->grabTextFrom('~<input value=(.*?)]~sgi');
+?>
+
+{% endhighlight %}
+
+ * param $cssOrXPathOrRegex
+ * return mixed
+
+
+#### grabValueFrom
+
+
+Finds and returns field and returns it's value.
+Searches by field name, then by CSS, then by XPath
+
+Example:
+
+{% highlight php %}
+
+<?php
+$name = $I->grabValueFrom('Name');
+$name = $I->grabValueFrom('input[name=username]');
+$name = $I->grabValueFrom('descendant-or-self::form/descendant::input[ * name = 'username']');
+?>
+
+{% endhighlight %}
+
+ * param $field
+ * return mixed
+
+
 #### see
 
 
