@@ -49,6 +49,7 @@ Also provides actions to perform checks in database.
 
 ### Public Properties
 * dbh - contains PDO connection.
+* driver - contains Connection Driver. See [list all available drivers](https://github.com/Codeception/Codeception/tree/master/src/Codeception/Util/Driver)
 
 
 ### Actions
@@ -82,6 +83,29 @@ Fails if such user was found.
 
  * param $table
  * param array $criteria
+
+
+#### grabFromDatabase
+
+
+Fetches a single column value from a database.
+Provide table name, desired column and criteria.
+
+Example:
+
+{% highlight php %}
+
+<?php
+$mail = $I->grabFromDatabase('users', array('name' => 'Davert'));
+
+
+{% endhighlight %}
+
+ * version 1.1
+ * param $table
+ * param $column
+ * param array $criteria
+ * return mixed
 
 
 #### seeInDatabase
