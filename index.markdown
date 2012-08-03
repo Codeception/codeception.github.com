@@ -31,7 +31,7 @@ Improve your unit tests with **better subbing, mocking and database access**. An
 
 ### Just the best thing to start!
 
-**No experience in testsing, right? That's ok!**
+**No experience in testing, right? That's ok!**
 Codeception is designed to be as simple as possible. 
 Even juniors can install it and write simple yet complete tests.
 
