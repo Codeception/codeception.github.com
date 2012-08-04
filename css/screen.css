@@ -108,3 +108,7 @@ body {
 #page #disqus_thread li {
 	list-style-type: none;
 }
+
+strong {
+	color: #5D5766;
+}
