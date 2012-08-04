@@ -1,6 +1,16 @@
 ---
 layout: default
 ---
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/uk_UA/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
   <div class="layout">
     <div class="content" id="page">           
       <div>
@@ -9,12 +19,11 @@ layout: default
   {% for post in site.posts limit: 4 %}
     <div class="inner"><a href="{{ post.url }}">{{ post.title }}</a></div>
   {% endfor %}
+  <div class="inner">
+    <br/>
+<div class="fb-like" data-href="http://codeception.com" data-send="true" data-layout="button_count" data-width="50" data-show-faces="false" data-colorscheme="dark"></div>    
+  </div>
 
-<br/>
-<a name="fb_share"></a> 
-<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" 
-        type="text/javascript">
-</script>
           </div>
             <div class="col2">
             <h2>In a Nutshell</h2>
