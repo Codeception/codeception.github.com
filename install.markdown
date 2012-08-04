@@ -27,6 +27,12 @@ Initialize your testing environment with
 php codecept.phar bootstrap
 {% endhighlight %}
 
+Build Guy-classes.
+
+{% highlight bash %}
+php codecept.phar build
+{% endhighlight %}
+
 Run test suite:
 
 {% highlight bash %}
@@ -66,6 +72,12 @@ Initialize your testing environment with
 
 {% highlight bash %}
 codecept bootstrap
+{% endhighlight %}
+
+Build Guy-classes
+
+{% highlight bash %}
+codecept build
 {% endhighlight %}
 
 Run test suite:
@@ -116,7 +128,11 @@ Initialize your testing environment with
 php vendor/bin/codecept bootstrap
 {% endhighlight %}
 
-Windows user now may use generated 'codecept.bat' file.
+Build Guy-classes
+
+{% highlight bash %}
+php vendor/bin/codecept build
+{% endhighlight %}
 
 Run test suite:
 
