@@ -20,9 +20,10 @@ Everything you want to know about Codeception can be found in Guides.
 * [Modules](/docs/03-Modules) - understanding modules and helpers
 * [Acceptance Tests](/docs/04-AcceptanceTests) - writing Selenium and PhpBrowser accetance tests.
 * [Functional Tests](/docs/05-FunctionalTests) - writing functional tests for popular PHP frameworks.
-* [Unit Tests in Scenarios](/docs/06-UnitTestsScenarios) - unit testing in scenarios proof of concept.
-* [Unit Tests Practice](/docs/07-UnitTestsPractice) - practical approach to unit testing in scenario manner.
-* [Data](/docs/08-Data) - repopulation of database, cleaning up data, using fixtures, etc.
+* [Unit Tests (Test)](/docs/06-UnitTests-TEST) - writing PHPUnit tests using Codeception helpers.
+* [Unit Tests in Scenarios](/docs/07-UnitTestsScenarios) - unit testing in scenarios proof of concept.
+* [Unit Tests Practice](/docs/08-UnitTests-CEST) - writing scenario-driven unit tests 
+* [Data](/docs/09-Data) - repopulation of database, cleaning up data, using fixtures, etc.
 
 ### Reference
 
