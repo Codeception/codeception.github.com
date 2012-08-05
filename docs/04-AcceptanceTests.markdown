@@ -44,7 +44,7 @@ Such transformations can be done by command:
 
 {% highlight yaml %}
 bash
-$ codecept generate:scenarios
+$ php codecept.phar generate:scenarios
 
 {% endhighlight %}
 
@@ -232,6 +232,8 @@ $I->see('Thank you, Miles');
 // We check that 'Thank you Miles' is inside 
 // the element with 'notice' class.
 $I->see('Thank you, Miles','.notice');
+// Or using XPath locators
+$I->see('Thank you, Miles',"descendant-or-self::*[contains(concat(' ', normalize-space(@class), ' '), ' notice ')]");
 // We check this message is not on page.
 $I->dontSee('Form is filled incorrectly');
 ?>
@@ -246,6 +248,37 @@ We also have other useful commands to perform checks. Please note that they all 
 $I->seeInCurrentUrl('/user/miles');
 $I->seeCheckboxIsChecked('#agree');
 $I->seeInField('user[name]','Miles');
+$I->seeLink('Login');
+?>
+
+{% endhighlight %}
+
+#### Grabbers
+
+This is are the commands are introduced in Codeception 1.1. They are quite useful when you need to retrieve the data from the test and use it in next steps. Imagine, your site generates a password for every user, and you want to check the user can log in into site using this password.
+
+{% highlight php %}
+
+<?php
+$I->fillField('email','miles@davis.com')
+$I->click('Generate Password');
+$password = $I->grabTextFrom('#password');
+$I->click('Login');
+$I->fillField('email','miles@davis.com');
+$I->fillField('password', $password);
+$I->click('Log in!');
+?>
+
+{% endhighlight %}
+
+Grabbers allows to get a single value from current page with commands.
+
+{% highlight php %}
+
+<?php
+$token = $I->grabTextFrom('.token');
+$password = $I->grabTextFrom("descendant::input/descendant::*[@id = 'password']");
+$api_key = $I->grabValueFrom('input[name=api]');
 ?>
 
 {% endhighlight %}
@@ -348,7 +381,7 @@ class WebHelper extends \Codeception\Module {
         $this->assertGreaterThen($size, strlen($content));
     }
 }
-
+?>
 
 {% endhighlight %}
 
