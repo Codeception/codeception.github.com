@@ -17,7 +17,9 @@ $I->amOnPage('/');
 $I->click('Pages');
 $I->click('New');
 $I->see('New Page');
-$I->submitForm('form#new', array('title' => 'Hobbit', 'body' => 'From Peter Jackson'));
+$I->fillField('title', 'Hobbit');
+$I->fillField('body', 'By Peter Jackson');
+$I->click('Save');
 $I->see('page created'); // notice generated
 $I->see('Hobbit','h1'); // head of page of is our title
 $I->seeInCurrentUrl('pages/hobbit'); // slug is generated
