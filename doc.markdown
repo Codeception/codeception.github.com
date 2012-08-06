@@ -8,6 +8,7 @@ title: Codeception Documentation
 This Documentation represents the last stable release of Codeception. 
 Docs for older versions are listed below:
 
+* [What's new in Codeception 1.1 and how to upgrade]()http://codeception.com/08-07-2012/major-codeception-update.html
 * [Codeception 1.0.14](https://github.com/Codeception/Codeception/tree/1.0.14/docs)
 
 ### Guides
@@ -57,6 +58,8 @@ Choose the best module for your needs and see it's reference.
 * [symfony](/docs/modules/symfony) - wraper for [symfony 1.x](http://symfony-project.org) functional test
 * [Kohana](/docs/modules/Kohana) 
 * [Social Engine](/docs/module/SocialEngine) - ZF module adopted for SE
+
+Quick guide for [Zend Framework integration](http://codeception.com/01-27-2012/bdd-with-zend-framework.html).
 
 #### Unit Testing
 
