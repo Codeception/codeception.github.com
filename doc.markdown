@@ -8,7 +8,7 @@ title: Codeception Documentation
 This Documentation represents the last stable release of Codeception. 
 Docs for older versions are listed below:
 
-* [What's new in Codeception 1.1 and how to upgrade]()http://codeception.com/08-07-2012/major-codeception-update.html
+* [What's new in Codeception 1.1 and HOW TO UPGRADE](http://codeception.com/08-07-2012/major-codeception-update.html)
 * [Codeception 1.0.14](https://github.com/Codeception/Codeception/tree/1.0.14/docs)
 
 ### Guides
