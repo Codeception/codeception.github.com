@@ -7,7 +7,6 @@ title: Codeception - BDD-style PHP testing.
 
 {% highlight php %}
 <?php
-
 $I = new TestGuy($scenario);
 $I->wantTo('create wiki page');
 $I->amOnPage('/');
@@ -56,4 +55,4 @@ class UserControllerCest {
     }
 }
 ?>
-{% endhighlight php %}
+{% endhighlight %}
