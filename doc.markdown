@@ -55,7 +55,7 @@ Choose the best module for your needs and see it's reference.
 
 * [Symfony2](/docs/modules/Symfony2) - wraper for [Symfony2](http://symfony.com) functional tests.
 * [Zend Framework](/docs/modules/Zend) - wraper for [ZF](http://framework.zend.com) functional test.
-* [symfony](/docs/modules/symfony) - wraper for [symfony 1.x](http://symfony-project.org) functional test
+* [symfony](/docs/modules/Symfony) - wraper for [symfony 1.x](http://symfony-project.org) functional test
 * [Kohana](/docs/modules/Kohana) 
 * [Social Engine](/docs/module/SocialEngine) - ZF module adopted for SE
 

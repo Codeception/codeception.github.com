@@ -112,3 +112,28 @@ body {
 strong {
 	color: #40403F;
 }
+
+.block1 .col1 {
+	padding: 20px;
+	padding-right: 0px;
+}
+
+.block1 .col2, .block2 .col1 {
+	text-align: center;
+}
+
+.block2 .col2 {
+	padding: 20px;
+	padding-left: 0px;
+}
+
+.block1 {
+	background: #f0f0ee;
+	border: 3px solid #fff;
+	border-bottom: none;
+}
+
+.block2 {
+	background: #babab7;
+	border: 3px solid #a0a0a0;
+}
