@@ -36,7 +36,7 @@ $I->seeResponseCodeIs(200);
 $I->seeResponseIsJson();
 $I->seeResponseContainsJson(array('result' => 'ok'));
 ?>
-{% endhighlight }
+{% endhighlight %}
 
 ## Unit Test
 
