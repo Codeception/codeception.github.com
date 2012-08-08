@@ -130,13 +130,13 @@ strong {
 .block1 {
 	background: #f0f0ee;
 	border: 3px solid #fff;
-	border-bottom: none;
 	margin-top: 15px;
 }
 
 .block2 {
 	background: #babab7;
 	border: 3px solid #a0a0a0;
+	margin-top: 15px;
 }
 
 #page .block1 h3, #page .block2 h3 {
