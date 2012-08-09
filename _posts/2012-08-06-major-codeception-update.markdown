@@ -4,7 +4,7 @@ title: Major Codeception Update
 date: 2012-08-07 01:03:50
 ---
 
-Hi, last week Codeception got it's first major update. Welcome the __Codeception 1.1__. Many core classes were refactored to solve the common issues and reduce the level of dark magic inside. Only white magic left. And that's really cool 'cause you don't need to study to source code to implement your custom hooks now. Codeception is rapidly evolving to be the professional testing tool, ready to use by testsers and developers through out the PHP world.
+Hi, last week Codeception got it's first major update. Welcome the __Codeception 1.1__. Many core classes were refactored to solve the common issues and reduce the level of dark magic inside. Only white magic left. And that's really cool 'cause you don't need to study to source code to implement your custom hooks now. Codeception is rapidly evolving to be the professional testing tool, ready to use by testers and developers through out the PHP world.
 
 ## Test Execution Remastered
 
