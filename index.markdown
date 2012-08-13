@@ -5,9 +5,11 @@ title: Codeception - BDD-style PHP testing.
 
 ### Acceptance Test
 
+This test can be executed in a browser or in it's PHP emulator.
+
 {% highlight php %}
 <?php
-$I = new TestGuy($scenario);
+$I = new WebGuy($scenario);
 $I->wantTo('create wiki page');
 $I->amOnPage('/');
 $I->click('Pages');
@@ -24,6 +26,8 @@ $I->seeInDatabase('pages', array('title' => 'Hobbit')); // data is stored in dat
 {% endhighlight %}
 
 ### API Test
+
+API can be tested by PHP browser emulator or using framework integrations.
 
 {% highlight php %}
 <?php

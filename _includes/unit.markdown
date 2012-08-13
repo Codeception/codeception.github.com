@@ -1,5 +1,7 @@
 ### Unit Test
 
+PHPUnit test format with some useful helpers. 
+
 {% highlight php %}
 class UserTest extends \Codeception\TestCase\Test
 {
@@ -14,6 +16,8 @@ class UserTest extends \Codeception\TestCase\Test
 {% endhighlight %}
 
 ### Scenario-Driven Unit Test
+
+Very descriptive and powerful format. Great for documenting, testing service classes, and for using mocks. 
 
 {% highlight php %}
 <?php
@@ -31,4 +35,3 @@ class UserControllerCest {
 }
 ?>
 {% endhighlight %}
-
