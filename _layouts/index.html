@@ -59,6 +59,8 @@ Inspired by BDD, it provides you absolutely new original way for writing accepta
             </div>
             <div class="clear"></div>                        
           </div>
+
+          {{ content }}
           <div class="block2">
             <div class="col1" style="width: auto;">
               <img src="http://codeception.com/images/codeguy.png" alt="CodetGuy" title="$I = new CodeGuy" style="padding-top: 20px; padding-left: 20px;" />
@@ -80,9 +82,9 @@ Inspired by BDD, it provides you absolutely new original way for writing accepta
             <div class="clear"></div>                        
           </div>
 
-          <div class="block1">
-            {{ content }}
-            </div>
+
+          {% include index.markdown %}
+
       </div>  
     </div>
     <div class="sidebar">
