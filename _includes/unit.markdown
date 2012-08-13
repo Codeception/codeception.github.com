@@ -1,4 +1,19 @@
-## Unit Test
+### Unit Test
+
+{% highlight php %}
+class UserTest extends \Codeception\TestCase\Test
+{
+    public function testUserSave() {
+        $user = Stub::make('User');
+        $user->setName('davert');
+        $this->assertEquals('davert', $user->getName());
+        $user->save();
+        $this->codeGuy->seeInDatabase('users', array('name' => 'davert'));
+    }
+}
+{% endhighlight %}
+
+### Scenario-Driven Unit Test
 
 {% highlight php %}
 <?php
@@ -16,3 +31,4 @@ class UserControllerCest {
 }
 ?>
 {% endhighlight %}
+

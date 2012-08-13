@@ -3,7 +3,7 @@ layout: index
 title: Codeception - BDD-style PHP testing.
 ---          
 
-## Acceptance Test
+### Acceptance Test
 
 {% highlight php %}
 <?php
@@ -23,7 +23,7 @@ $I->seeInDatabase('pages', array('title' => 'Hobbit')); // data is stored in dat
 ?>
 {% endhighlight %}
 
-## API Test
+### API Test
 
 {% highlight php %}
 <?php
