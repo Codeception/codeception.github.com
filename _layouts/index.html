@@ -83,7 +83,9 @@ Inspired by BDD, it provides you absolutely new original way for writing accepta
           </div>
 
 
-          {% include index.markdown %}
+{% capture unit %}{% include unit.markdown %}{% endcapture %}
+{{ unit | markdownify }}
+          
 
       </div>  
     </div>
