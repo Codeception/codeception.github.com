@@ -3,6 +3,7 @@
 PHPUnit test format with some useful helpers. 
 
 {% highlight php %}
+<?php
 class UserTest extends \Codeception\TestCase\Test
 {
     public function testUserSave() {
@@ -13,6 +14,7 @@ class UserTest extends \Codeception\TestCase\Test
         $this->codeGuy->seeInDatabase('users', array('name' => 'davert'));
     }
 }
+?>
 {% endhighlight %}
 
 ### Scenario-Driven Unit Test
