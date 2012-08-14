@@ -19,7 +19,7 @@ class UserTest extends \Codeception\TestCase\Test
 
 ### Scenario-Driven Unit Test
 
-Very descriptive and powerful format. Great for documenting, testing service classes, and for using mocks. 
+Very descriptive and powerful format. Great for documenting and testing service classes.
 
 {% highlight php %}
 <?php
