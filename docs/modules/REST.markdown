@@ -53,6 +53,31 @@ Opposite to seeResponseContainsJson
  * param array $json
 
 
+#### grabDataFromJsonResponse
+
+
+Returns data from the current JSON response using specified path
+so that it can be used in next scenario steps
+
+Example:
+
+{% highlight php %}
+
+<?php
+$user_id = $I->grabDataFromJsonResponse('user.user_id');
+$I->sendPUT('/user', array('id' => $user_id, 'name' => 'davert'));
+?>
+
+{% endhighlight %}
+
+ * param string $path
+
+ * available since version 1.1.2
+ * return string
+
+ * author tiger.seo@gmail.com
+
+
 #### grabResponse
 
 
@@ -111,11 +136,11 @@ Examples:
 {% highlight php %}
 
 <?php
-// response: {name: john, email: john * gmail.com}
+// response: {name: john, email: john@gmail.com}
 $I->seeResponseContainsJson(array('name' => 'john'));
 
-// response {user: john, profile: { email: john * gmail.com }}
-$I->seeResponseContainsJson(array('email' => 'john * gmail.com'));
+// response {user: john, profile: { email: john@gmail.com }}
+$I->seeResponseContainsJson(array('email' => 'john@gmail.com'));
 
 ?>
 

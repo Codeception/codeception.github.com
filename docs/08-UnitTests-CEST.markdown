@@ -3,7 +3,7 @@ layout: doc
 title: Codeception - Documentation
 ---
 
-# Unit Tests in CEST
+# 
 
 In this chapter we will lift up the curtains and show you a bit of the magic that Codeception does to simplify unit testing.
 Earlier we tested the Controller layer of the MVC pattern. In this chapter we will concentrate on testing the Models.
