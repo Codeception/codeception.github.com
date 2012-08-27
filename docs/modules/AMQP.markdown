@@ -7,6 +7,7 @@ title: Codeception - Documentation
 
 This module interacts with message broker software that implements
 the Advanced Message Queuing Protocol (AMQP) standard. For example, RabbitMQ.
+Use it to cleanup the queue between tests.
 
 ### Config
 
@@ -19,3 +20,8 @@ the Advanced Message Queuing Protocol (AMQP) standard. For example, RabbitMQ.
 
 ### Actions
 
+
+#### cleanupAMQP
+
+
+Cleans up queue.
