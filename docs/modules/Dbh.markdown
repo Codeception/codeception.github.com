@@ -47,7 +47,7 @@ Example:
 {% highlight php %}
 
 <?php
-$I->seeInDatabase('users', array('name' => 'Davert', 'email' => 'davert * mail.com'));
+$I->seeInDatabase('users', array('name' => 'Davert', 'email' => 'davert@mail.com'));
 
 
 {% endhighlight %}
@@ -55,7 +55,7 @@ Will generate:
 
 {% highlight yaml %}
  sql
-SELECT COUNT(*) FROM `users` WHERE `name` = 'Davert' AND `email` = 'davert * mail.com'
+SELECT COUNT(*) FROM `users` WHERE `name` = 'Davert' AND `email` = 'davert@mail.com'
 
 {% endhighlight %}
 Fails if such user was found.
@@ -98,7 +98,7 @@ Example:
 {% highlight php %}
 
 <?php
-$I->seeInDatabase('users', array('name' => 'Davert', 'email' => 'davert * mail.com'));
+$I->seeInDatabase('users', array('name' => 'Davert', 'email' => 'davert@mail.com'));
 
 
 {% endhighlight %}
@@ -106,7 +106,7 @@ Will generate:
 
 {% highlight yaml %}
  sql
-SELECT COUNT(*) FROM `users` WHERE `name` = 'Davert' AND `email` = 'davert * mail.com'
+SELECT COUNT(*) FROM `users` WHERE `name` = 'Davert' AND `email` = 'davert@mail.com'
 
 {% endhighlight %}
 Fails if no such user found.

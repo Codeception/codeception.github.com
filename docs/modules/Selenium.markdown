@@ -210,7 +210,7 @@ Example:
 <?php
 $name = $I->grabValueFrom('Name');
 $name = $I->grabValueFrom('input[name=username]');
-$name = $I->grabValueFrom('descendant-or-self::form/descendant::input[ * name = 'username']');
+$name = $I->grabValueFrom('descendant-or-self::form/descendant::input[@name = 'username']');
 ?>
 
 {% endhighlight %}
@@ -252,7 +252,7 @@ Example:
 <?php
 $I->pressKey('#page','u');
 $I->pressKey('#page','u','ctrl');
-$I->pressKey('descendant-or-self::*[ * id='page']','u');
+$I->pressKey('descendant-or-self::*[@id='page']','u');
 ?>
 
 {% endhighlight %}
