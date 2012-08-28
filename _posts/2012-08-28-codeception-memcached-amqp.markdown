@@ -5,7 +5,7 @@ date: 2012-08-07 01:03:50
 ---
 
 Good news, everyone! Codeception 1.1.2 released. And it's hard to list everything that were improved and fixed, but i will try.
-With the help of [tiger.seo](https://github.com/tiger-seo) Codeception got an [AMQP](http://codeception.com/docs/modules/AMQP) module wich allows to manipulate queue engines, like **RabbitMQ**. You can use this module if you need to clear queues between tests. Also, new [Memcached](http://codeception.com/docs/modules/Memcache) module was introduced. You can perform simple checks and use data from your Memcache storage in tests. Guys, it's very simple to contribute to Codeception. All new modules are welcome, they can grow from your local helpers and become part of this library. Just fork Codeception, add a module and send me a pull request!
+With the help of [tiger.seo](https://github.com/tiger-seo) Codeception got an [AMQP](http://codeception.com/docs/modules/AMQP) module wich allows to manipulate queue engines, like **RabbitMQ**. You can use this module if you need to clear queues between tests. Also, new [Memcache](http://codeception.com/docs/modules/Memcache) module was introduced. You can perform simple checks and use data from your Memcache storage in tests. Guys, it's very simple to contribute to Codeception. All new modules are welcome, they can grow from your local helpers and become part of this library. Just fork Codeception, add a module and send me a pull request!
 
 ### UX Improvements
 
@@ -13,11 +13,11 @@ You should regenerate your guy-classes after this update with the `build` comman
 
 ### Save Scenarios as HTML
 
-You know that there is `--html` option which saves results of running tests in HTML. But now you can save the test scenarios in HTML without running them. That's quite useful if you want to save test scenarios into your company's wiki. The HTML format can inserted into Confluence, for example. And now testers, managers, and developers will heve the test scenarios up to date. Yep, thanks again to *tiger.seo*.
+You know that there is `--html` option which saves results of running tests in HTML. But now you can save the test scenarios in HTML without running them. That's quite useful if you want to save test scenarios into your company's wiki. The HTML format can inserted into Confluence, for example. And now testers, managers, and developers will have the test scenarios up to date. Yep, thanks again to *tiger.seo*.
 
 ## PEAR Updates
 
-PEAR package was completely redesigned. Codeception is not using PEAR as a dependency manager anymore, Composer is ok. But PEAR is quite useful if you want a system-wide install, and simple call to Codeception with `codecept` command. PEAR package now contains all dependent modules and doesn't require PHPUnit or Mink installed anymore. That will prevent possible conflicts and reduce level of PEAR-releated wtfs.
+PEAR package was completely redesigned. Codeception is not using PEAR as a dependency manager anymore, Composer is ok. But PEAR is quite useful if you want a system-wide install, and simple call to Codeception with `codecept` command. PEAR package now contains all dependent modules and doesn't require PHPUnit or Mink installed anymore. That will prevent possible conflicts and reduce level of PEAR-related wtfs.
 
 ## Bugs Fixed
 
