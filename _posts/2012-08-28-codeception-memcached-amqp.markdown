@@ -5,7 +5,7 @@ date: 2012-08-28 01:03:50
 ---
 
 Good news, everyone! Codeception 1.1.2 released. And it's hard to list everything that were improved and fixed, but i will try.
-With the help of [tiger.seo](https://github.com/tiger-seo) Codeception got an [AMQP](http://codeception.com/docs/modules/AMQP) module wich allows to manipulate queue engines, like **RabbitMQ**. You can use this module if you need to clear queues between tests. Also, new [Memcache](http://codeception.com/docs/modules/Memcache) module was introduced. You can perform simple checks and use data from your Memcache storage in tests. Guys, it's very simple to contribute to Codeception. All new modules are welcome, they can grow from your local helpers and become part of this library. Just fork Codeception, add a module and send me a pull request!
+With the help of our active contributor **[tiger.seo](https://github.com/tiger-seo)** Codeception got an [AMQP](http://codeception.com/docs/modules/AMQP) module wich allows to manipulate queue engines, like **RabbitMQ**. You can use this module if you need to clear queues between tests. Also, new [Memcache](http://codeception.com/docs/modules/Memcache) module was introduced. You can perform simple checks and use data from your Memcache storage in tests. Guys, it's very simple to contribute to Codeception. All new modules are welcome, they can grow from your local helpers and become part of this library. Just fork Codeception, add a module and send me a pull request!
 
 ### UX Improvements
 
