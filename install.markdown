@@ -62,12 +62,6 @@ $ sudo pear install codeception.github.com/pear/Codeception
 If this didn't work either, please try to update your PEAR or **clear the PEAR cache**.
 Also, please, check you use the same PHP for CLI and Web.
 
-Install dependencies (PHPUnit, Mink and Symfony Components) via PEAR:
-
-{% highlight bash %}
-$ sudo codecept install
-{% endhighlight %}
-
 Initialize your testing environment with 
 
 {% highlight bash %}

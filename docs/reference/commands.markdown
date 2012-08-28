@@ -45,14 +45,6 @@ Use this command to start building a test suite.
 
 * `codecept bootstrap`
 
-### Install
-
-Tries to install Mink, PHPUnit, Symfony Components via PEAR. This command needs to successfully complete PEAR installation. This command may fail due to PEAR issues. We recommend to use phar executable or Composer, if you don't have time and enthusiasm to fight PEAR bugs.
-
-#### Usage
-
-* `codecept install`
-
 ### Generate Suite
 
 Generates a new empty suite. You may generate new suite for integration tests, for testing different part of appications, etc.
@@ -80,6 +72,15 @@ Generates new empty test file for scenario-based unit tests. This file format is
 
 * `codcept generate:cest suitename testname` - generates testnameCest.php inside the suite.
 * `codecept generate:cest suitename subdir/subdir/testnameCest.php` - generates file in subdir/subdir of suite dir.
+
+### Generate Test
+
+Generates new empty test file for PHPUnit unit test.
+
+#### Usage
+
+* `codcept generate:cest suitename testname` - generates testnameTest.php inside the suite.
+* `codecept generate:cest suitename subdir/subdir/testnameTest.php` - generates file in subdir/subdir of suite dir.
 
 ### Generate Scenarios
 
