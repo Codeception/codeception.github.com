@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Codeception with AMQP and Memcached
-date: 2012-08-07 01:03:50
+date: 2012-08-28 01:03:50
 ---
 
 Good news, everyone! Codeception 1.1.2 released. And it's hard to list everything that were improved and fixed, but i will try.
