@@ -90,5 +90,11 @@ Generates text representation for all tests in suite. They are called scenarios 
 
 * `codecept generate:scenarios suitename` - generates for this suite.
 
+### Analyze
 
+Searches for all actions used in tests but not defined yet in modules. Asks to generate stub methods in helpers for corresponding steps.
+
+#### Usage
+
+* `codecept analyze suitename` - analyzes actions for suite.
 
