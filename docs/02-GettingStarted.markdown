@@ -31,7 +31,7 @@ We can do that by running command:
 
 {% highlight yaml %}
 
-$ php codecept.phar generate:cept Signin.
+$ php codecept.phar generate:cept Signin
 
 {% endhighlight %}
 

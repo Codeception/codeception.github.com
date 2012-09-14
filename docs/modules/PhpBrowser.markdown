@@ -73,7 +73,7 @@ Examples:
 <?php
 $I->dontSee('Login'); // I can suppose user is already logged in
 $I->dontSee('Sign Up','h1'); // I can suppose it's not a signup page
-
+$I->dontSee('Sign Up','//body/h1'); // with XPath
 
 {% endhighlight %}
 
@@ -201,6 +201,7 @@ Examples:
 <?php
 $I->see('Logout'); // I can suppose user is logged in
 $I->see('Sign Up','h1'); // I can suppose it's a signup page
+$I->see('Sign Up','//body/h1'); // with XPath
 
 
 {% endhighlight %}

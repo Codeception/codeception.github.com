@@ -30,6 +30,22 @@ If you use PHP SoapServer with framework, try to block call to this method in te
 ### Actions
 
 
+#### dontSeeSoapResponseContainsXPath
+
+
+Checks XML response doesn't contain XPath locator
+
+{% highlight php %}
+
+<?php
+$I->dontSeeSoapResponseContainsXPath('//root/user[@id=1]');
+?>
+
+{% endhighlight %}
+
+ * param $xpath
+
+
 #### dontSeeSoapResponseEquals
 
 
@@ -139,6 +155,22 @@ This method does not use schema for validation.
 This method does not require path from root to match the structure.
 
  * param $xml
+
+
+#### seeSoapResponseContainsXPath
+
+
+Checks XML response with XPath locator
+
+{% highlight php %}
+
+<?php
+$I->seeSoapResponseContainsXPath('//root/user[@id=1]');
+?>
+
+{% endhighlight %}
+
+ * param $xpath
 
 
 #### seeSoapResponseEquals
