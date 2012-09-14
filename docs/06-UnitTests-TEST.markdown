@@ -180,7 +180,7 @@ class SimpleTest extends \Codeception\TestCase\Test
     protected function setUp()
     {
         if ($this->bootstrap) require $this->bootstrap;
-        $this->user = $demoUser;
+        $this->user = new DemoUser;
         $this->dispatcher->dispatch('test.before', new \Codeception\Event\Test($this));
         $this->codeGuy = new CodeGuy($scenario = new \Codeception\Scenario($this));
         $scenario->run();

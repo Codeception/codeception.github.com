@@ -43,7 +43,7 @@ I see 'Welcome, Davert!'
 Such transformations can be done by command: 
 
 {% highlight yaml %}
-bash
+ bash
 $ php codecept.phar generate:scenarios
 
 {% endhighlight %}
@@ -59,7 +59,7 @@ This is the fastest way to run acceptance tests, since it doesn't require runnin
 Before we start we need a local copy of the site running on your host. We need to specify the url parameter in the acceptance suite config (tests/acceptance.suite.yml).
 
 {% highlight yaml %}
-yaml
+ yaml
 class_name: WebGuy
 modules:
     enabled:
@@ -86,7 +86,7 @@ $I->wantTo('sign in with valid account');
 The `wantTo` section describes your scenario in brief. There are additional comment methods that are useful to make a Codeception scenario a BDD Story. If you have ever written a BDD scenario in Gherkin, you can translate a classic story into Codeception code.
 
 {% highlight yaml %}
-bash
+ bash
 As an Account Holder
 I want to withdraw cash from an ATM
 So that I can get money when the bank is closed

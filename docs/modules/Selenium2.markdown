@@ -418,6 +418,61 @@ Either values or text of options can be used to fetch option.
  * param $option
 
 
+#### switchToIFrame
+
+
+Switch to another frame
+
+Example:
+{% highlight html %}
+
+<iframe name="another_frame" src="http://example.com">
+
+
+{% endhighlight %}
+
+{% highlight php %}
+
+<?php
+## switch to iframe
+$I->switchToIFrame("another_frame");
+## switch to parent page
+$I->switchToIFrame();
+
+
+{% endhighlight %}
+
+ * param string|null $name
+
+
+#### switchToWindow
+
+
+Switch to another window
+
+Example:
+{% highlight html %}
+
+<input type="button" value="Open window" onclick="window.open('http://example.com', 'another_window')">
+
+
+{% endhighlight %}
+
+{% highlight php %}
+
+<?php
+$I->click("Open window");
+## switch to another window
+$I->switchToWindow("another_window");
+## switch to parent window
+$I->switchToWindow();
+
+
+{% endhighlight %}
+
+ * param string|null $name
+
+
 #### uncheckOption
 
 
