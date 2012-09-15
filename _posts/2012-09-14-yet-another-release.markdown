@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Codeception with AMQP and Memcached
+title: Selenium2, Memcached, Locator improvements.
 date: 2012-08-28 01:03:50
 ---
 
