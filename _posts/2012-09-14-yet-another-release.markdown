@@ -16,8 +16,8 @@ For example:
 
 {% highlight php %}
 <?php
-$I->click("Test Link");
-$I->click("Test");
+$I->click('Test Link');
+$I->click('Test');
 {% endhighlight %}
 
 Both steps open the first link.
@@ -26,7 +26,9 @@ Actually we can discuss if it's a bug or a feature. But, it's more bug then a fe
 
 That's all about 1.1.3
 
-And now what about 1.1.4? There are pretty much fixes from other contributors. Thanks for anyone sending me pull requests and patches. Here are the changes done by this awesome guys!
+### And now what about 1.1.4? 
+
+There are pretty much fixes from other contributors. Thanks for anyone sending me pull requests and patches. Here are the changes done by this awesome guys!
 
 * [ZombieJS fix](https://github.com/Codeception/Codeception/pull/69) for newer Mink version compatibility by **synchrone**.
 * [Codeception\Module\Unit.seeExceptionThrown doesn't fail](https://github.com/Codeception/Codeception/pull/66) when no exception is thrown by **lostintime**.
