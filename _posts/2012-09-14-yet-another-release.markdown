@@ -38,7 +38,7 @@ And now what about 1.1.4? There are pretty much fixes from other contributors. T
 
 ### Selenium2 module improvements
 
-* Dealing with [confirm and alert popups](https://github.com/Codeception/Codeception/pull/60) by **fjshadows**.
+* Dealing with [confirm and alert popups](https://github.com/Codeception/Codeception/pull/60) by **f0rm4t**.
 * [Methods SwitchToWindow and SwitchToIFrame added to Selenium2 module](https://github.com/Codeception/Codeception/pull/64) by **f0rm4t**.
 
 ## Define Actions Beforehand
