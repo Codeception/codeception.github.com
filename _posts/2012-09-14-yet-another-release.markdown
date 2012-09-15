@@ -45,7 +45,13 @@ There are pretty much fixes from other contributors. Thanks for anyone sending m
 
 ## Define Actions Beforehand
 
-From now on it's much easier to define actions in helpers. You can write a method that is not defined yet, and then run new `analyze` command to append new commands to helper classes. It's quite useful when tester writes a test and needs some new actions to define. When you run `php codecept.phar analyze suitename` you will be notified on all methods which do not exist in modules, and you will be asked to create them in helpers. Just try!
+From now on it's much easier to define actions in helpers. You can write a method that is not defined yet, and then run new `analyze` command to append new commands to helper classes. It's quite useful when tester writes a test and needs some new actions to define. When you run 
+
+{% highlight bash %}
+php codecept.phar analyze suitename`
+{% endhighlight %}
+
+you will be notified on all methods which do not exist in modules, and you will be asked to create them in helpers. Just try!
 
 ## New Locator class
 
