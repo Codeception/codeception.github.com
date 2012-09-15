@@ -2,8 +2,8 @@
 layout: post
 title: Codeception with AMQP and Memcached
 date: 2012-08-28 01:03:50
---
--
+---
+
 Codeception 1.1.3 and then 1.1.4 was released during last month. In this post I will summarize the changes happened in this minor updates. The 1.1.3 version fixed one bug pointed by __Nastya Ahramenko__. Yep, only one bug. But it was pretty cool for me to mention it and make a release for it.
 
 Nastya wrote:
