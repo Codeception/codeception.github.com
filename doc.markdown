@@ -32,7 +32,6 @@ References explains API of verious parts of Codeception. Look for them if you fo
 
 * [Commands](/docs/reference/commands) - explains usage of Codecption console utility.
 * [Configuration](/docs/reference/configuration) - explains basics of suites and modules configuration.
-* PhpDocummentor2 Integration
 * [Xml Builder](/docs/reference/xmlbuilder) - building XMLs pragmatically.
 * [Stubs](/docs/reference/stubs) - cool stub builder explained.
 
@@ -65,16 +64,18 @@ Quick guide for [Zend Framework integration](http://codeception.com/01-27-2012/b
 
 Basically you could use PHPUnit tests for unit testing. But Codeception scenario-driven unit tests are much powerful )
 
-* [Unit](/docs/modules/unit) - everything for unit testing.
+* [Unit](/docs/modules/Unit) - everything for unit testing.
 
 #### API Testing
 
-* [REST](/docs/modules/REST) - testing REST Web services (can be tested inside framework)
-* [SOAP](/docs/modules/SOAP) - testing SOAP WSDL web-services (can be tested inside framework)
+* [REST](/docs/modules/REST) - testing REST Web services (can be tested inside framework).
+* [SOAP](/docs/modules/SOAP) - testing SOAP WSDL web-services (can be tested inside framework).
 
-#### Database Testing
+#### Storage Testing
 
 * [Db](/docs/modules/Db) - use to test changes in database
-* [Doctrine2](/docs/modules/doctrine2) - test database managed by [Doctrine2](http://www.doctrine-project.org/) ORM
-* [Doctrine](docs/modules/doctrine) - test database managed by [Doctrine](http://www.doctrine-project.org/) 1.x ORM
+* [Doctrine2](/docs/modules/Doctrine2) - test database managed by [Doctrine2](http://www.doctrine-project.org/) ORM.
+* [Doctrine](docs/modules/Doctrine) - test database managed by [Doctrine](http://www.doctrine-project.org/) 1.x ORM.
+* [Memcache](docs/modules/Memcache) - Memcache test via one of PECL extensions.
+* [AMQP](docs/modules/AMQP) -  interacts with message broker software implementing Advanced Message Queuing Protocol, like **RabbitMQ**.
 
