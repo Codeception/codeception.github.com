@@ -32,6 +32,7 @@ References explains API of verious parts of Codeception. Look for them if you fo
 
 * [Commands](/docs/reference/commands) - explains usage of Codecption console utility.
 * [Configuration](/docs/reference/configuration) - explains basics of suites and modules configuration.
+* [Locator](/09-24-2012/locator.html) - locator class which simplifies building of complex XPath or CSS locators.
 * [Xml Builder](/docs/reference/xmlbuilder) - building XMLs pragmatically.
 * [Stubs](/docs/reference/stubs) - cool stub builder explained.
 
