@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Selenium2, Memcached, Locator improvements.
+title: YetAnotherRelease.
 date: 2012-09-14 01:03:50
 ---
 

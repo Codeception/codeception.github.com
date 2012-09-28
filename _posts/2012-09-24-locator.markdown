@@ -1,0 +1,60 @@
+---
+layout: post
+title: The Locator Class
+date: 2012-09-24 01:03:50
+---
+
+In the latest Codeception 1.1.4 new `Locator` class was introduced. Basically it should simplify your life in writing complex XPath or CSS locators. Right now it has minimal, yet useful functionality. 
+
+#### Combine
+
+Locator can combine two locators using `OR` operand:
+
+{% highlight php %}
+<?php
+use \Codeception\Util\Locator;
+
+$I->see('Title', Locator::combine('h1','h2','h3'));
+?>
+{% endhighlight %}
+
+This will search for `Title` text in either `h1`, `h2`, or `h3` tag. You can also combine CSS selector with XPath locator:
+
+{% highlight php %}
+<?php
+use \Codeception\Util\Locator;
+
+$I->fillField(Locator::combine('form input[type=text]','//form/textarea[2]'), 'qwerty');
+?>
+{% endhighlight %}
+
+As a result the Locator will produce a mixed XPath value that will be used in fillField action.
+
+#### tabIndex
+
+Do you often use the `TAB` key to navigate through the web page? How do your site respond to this navigation? 
+You could try to match elements by their tab position using `tabIndex` method of `Locator` class.
+
+{% highlight php %}
+<?php
+use \Codeception\Util\Locator;
+
+$I->fillField(Locator::tabIndex(1), 'davert');
+$I->fillField(Locator::tabIndex(2) , 'qwerty');
+$I->click('Login');
+?>
+{% endhighlight %}
+
+#### href
+
+Does the page contain link wo specified URL? Check that easily with `href` method of `Locator` class.
+
+{% highlight php %}
+<?php
+use \Codeception\Util\Locator;
+
+$I->see('Log In', Locator::href('/login.php'));
+?>
+{% endhighlight %}
+
+And that's all folks for today. We are sure the locator class will evolve to simplify writing complex locators. If you have ideas what methods should be added, post them here. Or, which is better, patch this class and send Pull Request to Github.
