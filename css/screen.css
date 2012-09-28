@@ -115,10 +115,12 @@ strong {
 
 .block1 {	
 	padding: 20px;
+	border: 3px solid #fff;
 }
 
 .block2 {
 	padding: 20px;	
+	border: 3px solid #fff;	
 }
 
 .block1 .col1 {
