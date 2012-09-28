@@ -80,3 +80,8 @@ Basically you could use PHPUnit tests for unit testing. But Codeception scenario
 * [Memcache](docs/modules/Memcache) - Memcache test via one of PECL extensions.
 * [AMQP](docs/modules/AMQP) -  interacts with message broker software implementing Advanced Message Queuing Protocol, like **RabbitMQ**.
 
+## Russian Docs
+
+All russian posts was published on habrahabr website. It's more like announcements, then documentation, but anyway it's pretty useful to start with.
+
+[Codeception Posts Listed](http://habrahabr.ru/tag/codeception)
