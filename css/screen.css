@@ -64,7 +64,6 @@ body {
 .promo {
 	margin-bottom: 0px;
 	padding-top: 20px;
-	padding: 20px;
 }
 
 .promo h2 {
@@ -114,8 +113,15 @@ strong {
 	color: #40403F;
 }
 
-.block1 .col1 {
+.block1 {	
 	padding: 20px;
+}
+
+.block2 {
+	padding: 20px;	
+}
+
+.block1 .col1 {
 	padding-right: 0px;
 }
 
