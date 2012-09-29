@@ -152,3 +152,7 @@ strong {
 	color: #504d56;
 	text-shadow: none;
 }
+
+.prepend-top {
+	margin-top: 1em;
+}
