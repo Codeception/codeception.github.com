@@ -25,6 +25,7 @@ Everything you want to know about Codeception can be found in Guides.
 * [Unit Tests in Scenarios](/docs/07-UnitTestsScenarios) - unit testing in scenarios proof of concept.
 * [Unit Tests Practice](/docs/08-UnitTests-CEST) - writing scenario-driven unit tests 
 * [Data](/docs/09-Data) - repopulation of database, cleaning up data, using fixtures, etc.
+* [Web Services](/docs/10-WebServices) - testing REST and SOAP WSDL webservices.
 
 ### Reference
 
@@ -80,3 +81,10 @@ Basically you could use PHPUnit tests for unit testing. But Codeception scenario
 * [Memcache](docs/modules/Memcache) - Memcache test via one of PECL extensions.
 * [AMQP](docs/modules/AMQP) -  interacts with message broker software implementing Advanced Message Queuing Protocol, like **RabbitMQ**.
 
+## Russian Docs
+
+All russian posts was published on habrahabr website. It's more like announcements, then documentation, but anyway it's pretty useful to start with.
+
+[Codeception Articles at Habrahabr](http://habrahabr.ru/tag/codeception)
+
+Следите за новыми постами на Хабре!
