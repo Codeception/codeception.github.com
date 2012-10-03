@@ -11,9 +11,21 @@ Codeception is PHP framework for testing web applications in BDD-style. It was s
 Yes, the first reason is PHP. If you are PHP developer it's natural you would like to write tests in PHP. Codeception provides you the best way to do so. 
 Any IDE with code completion and syntax highlighting will help you write tests faster and without stupid syntax mistakes. Usage of PHP inside of tests unleashes the true power and control over the test flow. You can use your application classes or create testing helpers. Also you can get values (with grabbers) from results and use them in your tests. You just control everything. And yep, use everything you like from PHPUnit. 
 
+{% highlight php %}
+<?php
+$I = new TestGuy($scenario);
+$I->wantTo('launch missiles from my website');
+$I->amOnPage('/launch');
+$I->click('Launch Missiles!')
+$I->see('Missiles launched');
+?>
+{% endhighlight %}
+
 ## 2. Simplicity
 
-You know, KISS is our first principle. Even Codeception requires basic knowledge of PHP it narrows testing to using PHP DSL where all actions are defined with user's perspective. Just enter the `$I->` and select action from a list and put parameters. That's how a test is written. Also add minimal configuration in YAML format, and installation by downloading a **single phar archive**. It's really that simple. 
+You know, KISS is our first principle. Even Codeception requires basic knowledge of PHP it narrows testing to using PHP DSL where all actions are defined with user's perspective. Just enter the `$I->` and select action from a list and put parameters. That's how a test is written. Also add minimal configuration in YAML format, and installation by downloading a **single phar archive**. It's really that simple.
+
+![codecept](https://dl.dropbox.com/u/930833/codecept.png)
 
 ## 3. Multi-Framework and Multi-Backend
 
@@ -22,6 +34,17 @@ You decided to migrate your application from **symfony1** to **Symfony2**, from 
 ## 4. Complex Tests
 
 Here comes a QA and says: I need **XPath**, I need complex selectors, I need to test UI elements strictly. No problems! You can use CSS selectors, XPath locators and even combine them with `Locator` class. You can also test your **SOAP** and **REST** webservices, pragmatical use XMLs (defined in jQuery-like style) and JSONs (as PHP arrays). Despite Codeception tend to be simple, it can be used by QAs creating solid tests automation platform. 
+
+{% highlight php %}
+<?php
+$I->click('New User');
+$I->click('#user_1 .user_new');
+$I->click('//*[@id = 'user_1']/descendant::a');
+$I->see('Title', Locator::combine('h1','h2','h3'));
+$I->fillField(Locator::tabIndex(1), 'davert');
+$I->see('Log In', Locator::href('/login.php'));
+?>
+{% endhighlight %}
 
 ## 5. Data
 
