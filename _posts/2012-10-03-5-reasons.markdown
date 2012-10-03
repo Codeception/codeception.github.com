@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 5 reasons to try Codeception
+title: 5 Reasons to Try Codeception
 date: 2012-10-03 01:03:50
 ---
 
@@ -11,7 +11,7 @@ Codeception is PHP framework for testing web applications in BDD-style. It was s
 Yes, the first reason is PHP. If you are PHP developer it's natural you would like to write tests in PHP. Codeception provides you the best way to do so. 
 Any IDE with code completion and syntax highlighting will help you write tests faster and without stupid syntax mistakes. Usage of PHP inside of tests unleashes the true power and control over the test flow. You can use your application classes or create testing helpers. Also you can get values (with grabbers) from results and use them in your tests. You just control everything. Because it's PHP. 
 
-## 2. Simpleness
+## 2. Simplicity
 
 You know, KISS is our first principle. Even Codeception requires basic knowledge of PHP it narrows testing to using PHP DSL where all actions are defined with user`s perspective. Just enter the `$I->` and select action from a list and put parameters. That's how a test is written. Also add minimal configuration in YAML format, and installation by downloading a **single phar archive**. It's really that simple. 
 
@@ -19,7 +19,7 @@ You know, KISS is our first principle. Even Codeception requires basic knowledge
 
 You decided to migrate your application from **symfony1** to **Symfony2**, from **Kohana** to **Zend**? You decided to test with **Selenium** inside a real browser? Your tests will run inside chosen the engine, no matters what happen. Codeception using one common syntax for all the backends. Frameworks support allows you to create more complex assertion and check the internals of your application, not only the visible part. 
 
-## 4. Complex tests
+## 4. Complex Tests
 
 Here comes a QA and says: I need **XPath**, I need complex selectors, I need to test UI elements strictly. No problems! You can use CSS selectors, XPath locators and even combine them with `Locator` class. You can also test your **SOAP** and **REST** webservices, pragmatical use XMLs (defined in jQuery-like style) and JSONs (as PHP arrays). Despite Codeception tend to be simple, it can be used by QAs creating solid tests automation platform. 
 
