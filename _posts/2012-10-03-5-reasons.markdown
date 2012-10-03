@@ -4,7 +4,7 @@ title: 5 reasons to try Codeception
 date: 2012-10-03 01:03:50
 ---
 
-Codeception was started about a year ago, as a plugin for symfony1, to speed up and simplify functional testing inside the framework. But as time passed, Codeception evolved to standalone product, with support of various frameworks and engines. In this post we will remind why you may like Codeception and why we feel it's awesome. 
+Codeception is PHP framework for testing web applications in BDD-style. It was started about a year ago, as a plugin for symfony1, to speed up and simplify functional testing inside the framework. But as time passed, Codeception evolved to standalone project, with support of various frameworks and engines. In this post we will remind why you may like Codeception and why we feel it's awesome. 
 
 ## 1. PHP!
 
@@ -21,7 +21,7 @@ You decided to migrate your application from **symfony1** to **Symfony2**, from 
 
 ## 4. Complex tests
 
-Here comes a QA and says: I need XPath, I need complex selectors, I need to test UI elements strictly. No problems! You can use CSS selectors, XPath locators and even combine them with `Locator` class. You can also test your **SOAP** and **REST** webservices, pragmatical use XMLs (defined in jQuery-like style) and JSONs (as PHP arrays). Despite Codeception tend to be simple, it can be used by QAs creating solid tests automation platform. 
+Here comes a QA and says: I need **XPath**, I need complex selectors, I need to test UI elements strictly. No problems! You can use CSS selectors, XPath locators and even combine them with `Locator` class. You can also test your **SOAP** and **REST** webservices, pragmatical use XMLs (defined in jQuery-like style) and JSONs (as PHP arrays). Despite Codeception tend to be simple, it can be used by QAs creating solid tests automation platform. 
 
 ## 5. Data
 
@@ -31,4 +31,4 @@ Tests isolation is a problem. Most of testing frameworks puts it's solving to yo
 
 And just to mention, the results of tests are readable to non-technical guys. When you export result in HTML you will see the cool colored page with all passed steps described in pure English. Also test results are readable to robots: export result as XML and the CI-server (Jenkins, Bamboo) will use them. 
 
-If you are still deciding weather or not to test your application, start doing it now. And Codeception is the right tool for this. 
+If you are still deciding weather or not to test your application, start doing it now. And Codeception is the right tool for this.
