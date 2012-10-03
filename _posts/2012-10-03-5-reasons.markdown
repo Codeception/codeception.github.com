@@ -13,7 +13,7 @@ Any IDE with code completion and syntax highlighting will help you write tests f
 
 ## 2. Simplicity
 
-You know, KISS is our first principle. Even Codeception requires basic knowledge of PHP it narrows testing to using PHP DSL where all actions are defined with user`s perspective. Just enter the `$I->` and select action from a list and put parameters. That's how a test is written. Also add minimal configuration in YAML format, and installation by downloading a **single phar archive**. It's really that simple. 
+You know, KISS is our first principle. Even Codeception requires basic knowledge of PHP it narrows testing to using PHP DSL where all actions are defined with user's perspective. Just enter the `$I->` and select action from a list and put parameters. That's how a test is written. Also add minimal configuration in YAML format, and installation by downloading a **single phar archive**. It's really that simple. 
 
 ## 3. Multi-Framework and Multi-Backend
 
