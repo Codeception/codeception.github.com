@@ -4,12 +4,12 @@ title: 5 Reasons to Try Codeception
 date: 2012-10-03 01:03:50
 ---
 
-Codeception is PHP framework for testing web applications in BDD-style. It was started about a year ago, as a plugin for symfony1, to speed up and simplify functional testing inside the framework. But as time passed, Codeception evolved to standalone project, with support of various frameworks and engines. In this post we will remind why you may like Codeception and why we feel it's awesome. 
+Codeception is PHP framework for testing web applications in BDD-style. It was started about a year ago, as a plugin for symfony1, to speed up and simplify functional testing inside the framework. But as time passed, Codeception evolved to standalone project, with support of various frameworks and engines. It's built on top of  wonderful **PHPUnit**, but with aim for acceptance, and functional scenario driven tests. In this post we will remind why you may like Codeception and why we feel it's awesome. 
 
 ## 1. PHP!
 
 Yes, the first reason is PHP. If you are PHP developer it's natural you would like to write tests in PHP. Codeception provides you the best way to do so. 
-Any IDE with code completion and syntax highlighting will help you write tests faster and without stupid syntax mistakes. Usage of PHP inside of tests unleashes the true power and control over the test flow. You can use your application classes or create testing helpers. Also you can get values (with grabbers) from results and use them in your tests. You just control everything. Because it's PHP. 
+Any IDE with code completion and syntax highlighting will help you write tests faster and without stupid syntax mistakes. Usage of PHP inside of tests unleashes the true power and control over the test flow. You can use your application classes or create testing helpers. Also you can get values (with grabbers) from results and use them in your tests. You just control everything. And yep, use everything you like from PHPUnit. 
 
 ## 2. Simplicity
 
