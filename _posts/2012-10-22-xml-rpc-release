@@ -36,6 +36,7 @@ Also, we did some changes for 2-steps tests loading, intrudoced in 1.1. At the f
 
 ### Minor Features and Bugfixes
 
+* Composer package fixed
 * `grabServiceFromContainer` method added to Symfony2 module
 * REST [fixes](https://github.com/Codeception/Codeception/pull/75) and [improvements](https://github.com/Codeception/Codeception/pull/71) by **tiger-seo**
 * Fix for using `seeInDatabase` command with PostgreSQL 
