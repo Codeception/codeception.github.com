@@ -27,12 +27,6 @@ Initialize your testing environment with
 php codecept.phar bootstrap
 {% endhighlight %}
 
-Build Guy-classes.
-
-{% highlight bash %}
-php codecept.phar build
-{% endhighlight %}
-
 Run test suite:
 
 {% highlight bash %}
@@ -68,12 +62,6 @@ Initialize your testing environment with
 codecept bootstrap
 {% endhighlight %}
 
-Build Guy-classes
-
-{% highlight bash %}
-codecept build
-{% endhighlight %}
-
 Run test suite:
 
 {% highlight bash %}
@@ -97,8 +85,7 @@ Create file __composer.json__:
 {
     "require": {
         "codeception/codeception":  "1.*@dev"
-    },
-    "minimum-stability": "dev"
+    }
 }        
 {% endhighlight %}
 
@@ -120,12 +107,6 @@ Initialize your testing environment with
 
 {% highlight bash %}
 php vendor/bin/codecept bootstrap
-{% endhighlight %}
-
-Build Guy-classes
-
-{% highlight bash %}
-php vendor/bin/codecept build
 {% endhighlight %}
 
 Run test suite:
