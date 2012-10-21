@@ -10,6 +10,7 @@ title: Codeception Installation
 ### Requirements
 
 * PHP >= 5.3
+* PHP CURL extension enabled
 
 ## PHP Executable
 
@@ -85,7 +86,8 @@ Create file __composer.json__:
 {
     "require": {
         "codeception/codeception":  "1.*@dev"
-    }
+    },
+    "minimum-stability": "dev"
 }        
 {% endhighlight %}
 

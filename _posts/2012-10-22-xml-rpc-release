@@ -40,7 +40,6 @@ Also, we did some changes for 2-steps tests loading, intrudoced in 1.1. At the f
 * REST [fixes](https://github.com/Codeception/Codeception/pull/75) and [improvements](https://github.com/Codeception/Codeception/pull/71) by **tiger-seo**
 * Fix for using `seeInDatabase` command with PostgreSQL 
 * `build` command is not generating methods with the same names anymore
-* no need for `min-stability` option for Composer installation
 * no need to run `build` command just after `bootstrap`
 
 As usual, Codeception 1.1.5 can be [downloaded from site](http://codeception.com/thanks.html),
