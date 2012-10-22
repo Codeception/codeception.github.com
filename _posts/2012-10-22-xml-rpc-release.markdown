@@ -25,12 +25,12 @@ You can review the code at [GitHub](https://github.com/Codeception/Codeception/b
 There could be some BC breaks, you should know about.
 Before 1.1.5 you could start writing tests without defining a page. Codeception opened the root url "/" by default. So all actions were performed on home page. But opening the page before each test is not the best idea, especially if we test REST/SOAP web service. We just spend time for useless action. So whenever you write acceptance test, please start it with `amOnPage` action. This change didn't affect the functional tests (for now). 
 
-``` php
+{% highlight php %}
 <?php 
 $I = new WebGuy($scenario);
 $I->amOnPage('/'); // required!
 ?>
-```
+{% endhighlight %}
 
 Also, we did some changes for 2-steps tests loading, intrudoced in 1.1. At the first stage we read the test contents, in the next we execute it. From now on this stages are isolated, variables from preload will not pass to run. This will require loading of bootstrap file two times. Be prepared for that and optimize your bootstrap file.
 
