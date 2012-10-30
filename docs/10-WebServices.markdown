@@ -33,7 +33,7 @@ modules:
 		PhpBrowser: 
 			url: http://serviceapp/
 		REST:
-		    url: api/v1/ # optional
+		    url: http://serviceapp/api/v1/
 
 {% endhighlight %}
 
@@ -100,7 +100,7 @@ modules:
 		PhpBrowser: 
 			url: http://serviceapp/
 		SOAP:
-		    endpoint: api/v1/		    		   
+		    endpoint: http://serviceapp/api/v1/		    		   
 
 {% endhighlight %}
 
