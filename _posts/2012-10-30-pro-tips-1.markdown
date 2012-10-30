@@ -26,7 +26,7 @@ $I->see('Update a blog', '#tasks');
 What if we change the name of buttons and the DOM position of the element where "Update a blog" text should appear?
 Let's move this elements to a `_bootstrap` file and push them into variables. 
 
-In `tests/acceptance/_bootstrap`:
+In `tests/acceptance/_bootstrap.php`:
 
 {% highlight php %}
 <?php
@@ -55,17 +55,28 @@ We can also recommend to store user names, passwords, etc in bootstrap too. It w
 ### Tip 2: Use PageObject
 
 The PageObject is a pattern very popular among QA automation professionals. PageObject allows us to organize variables from a previous tip in more structured way.
-Instead of using raw variables we will group them into a class and use them in test and helpers. We will demonstrate that improving our previous bootstrap.
+Instead of using raw variables we will group them into a class and use them in test and helpers. But classes and constants can't be added to `_bootstrap`, because bootstrap will be loaded before each test, so it will trigger an error: **"Fatal: Cannot redeclare class"**. Let's deal with that by creating a new PHP file for TodoTask page class:
+
+In `tests/acceptance/_todoTaskPage.php`:
+
 
 {% highlight php %}
 <?php
 class TodoTaskPage {
-	const url = '/tasks';
+	const URL = '/tasks';
 
-	const add_button = 'Add';
-	const new_field = 'New Task';
-	const list = '#tasks';	
+	static $add_button = 'Add';
+	static $new_field = 'New Task';
+	static $list = '#tasks';	
 }
+?>
+{% endhighlight %}
+
+Let's add it to `tests/acceptance/_bootstrap.php`:
+
+{% highlight php %}
+<?php
+require_once '_todoTaskPage.php';
 ?>
 {% endhighlight %}
 
@@ -75,14 +86,16 @@ In this case you won't get lost in where which UI element is located. Because in
 <?php
 $I = new WebGuy($scenario);
 $I->wantTo('create todo task');
-$I->amOnPage(TodoTaskPage::url);
-$I->fillField(TodoTaskPage::new_field,'Update a blog');
-$I->click(TodoTaskPage::add_button);
-$I->see('Update a blog', TodoTaskPage::list);
+$I->amOnPage(TodoTaskPage::URL);
+$I->fillField(TodoTaskPage::$new_field,'Update a blog');
+$I->click(TodoTaskPage::$add_button);
+$I->see('Update a blog', TodoTaskPage::$list);
 ?>
 {% endhighlight %}
 
-After this update we have all the UI elements for todo task page kept in one place. Using and IDE you can easily find the right element and insert it into any test of your suite. Despite the raw variables **classes and constants are accessible in helpers and unit tests**. Also you can improve the page object classes with PHP's OOP power. If you are using PHP 5.4 you can include global UI elements (menus, breadcrumbs) with traits. Pretty sweat, right?
+After this update we have all the UI elements for todo task page kept in one place. Using and IDE you can easily find the right element and insert it into any test of your suite. Despite the raw variables **classes and constants are accessible in helpers and unit tests**. Also you can improve the page object classes with PHP's OOP power. If you are using PHP 5.4 you can include global UI elements (menus, breadcrumbs) with traits. 
+
+Lets create a trait for menu component in `tests/acceptance/_menu.php`:
 
 {% highlight php %}
 <?php
@@ -94,16 +107,31 @@ trait GlobalMenu {
 		return self::$global_menu.'/ul/['.$index.']';
 	}
 }
+?>
+{% endhighlight %}
 
+We add it to `tests/acceptance/_bootstrap.php`:
+
+{% highlight php %}
+<?php
+require_once '_menu.php';
+require_once '_todoTaskPage.php';
+?>
+{% endhighlight %}
+
+And we are using it in previously declared TodoTaskPage:
+
+{% highlight php %}
+<?php
 class TodoTaskPage {
 
 	use GlobalMenu;
 
-	const url = '/tasks';
+	const URL = '/tasks';
 
-	const add_button = 'Add';
-	const new_field = 'New Task';
-	const list = '#tasks';	
+	static $add_button = 'Add';
+	static $new_field = 'New Task';
+	static $list = '#tasks';	
 }
 ?>
 {% endhighlight %}
@@ -115,7 +143,7 @@ Let's write a new test for checking that menu contains a button to create a task
 <?php
 $I = new WebGuy($scenario);
 $I->wantTo('check task creation link is in a menu');
-$I->amOnPage(TodoTaskPage::url);
+$I->amOnPage(TodoTaskPage::URL);
 $I->see('Create Task', TodoTaskPage::menuItem(3));
 ?>
 {% endhighlight %}
