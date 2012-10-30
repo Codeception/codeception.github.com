@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Pro Tips #1
-date: 2012-10-22 01:03:50
+title: Pro Tips #1: UI
+date: 2012-10-30 01:03:50
 ---
 
 Hi, We've decided to start a pro tips series of posts on Codeception. We hadn't too much time recently, because of the work on our startup [Bugira](http://bugira.com), and the release of community-driven catalog oj Javascript libraries - [Jster](http://jster.net). You should definetely visit Jster (and add it to bookmarks), as it contains more then **800 javascript libraries** for any needs in frontend development. But finally, We can get back to Codeception and tell about it's best usage practices.
