@@ -1,0 +1,127 @@
+---
+layout: post
+title: Pro Tips #1
+date: 2012-10-22 01:03:50
+---
+
+Hi, We've decided to start a pro tips series of posts on Codeception. We hadn't too much time recently, because of the work on our startup [Bugira](http://bugira.com), and the release of community-driven catalog oj Javascript libraries - [Jster](http://jster.net). You should definetely visit Jster (and add it to bookmarks), as it contains more then **800 javascript libraries** for any needs in frontend development. But finally, We can get back to Codeception and tell about it's best usage practices.
+
+## Tip #1: Variables for UI elements
+
+You can write pretty complex tests using Codeception. When you have lots of them you may find that changing page UI elements can lead to refactoring all the tests. If you plan to develop a solid automation platform for your web application, consider putting all UI elements into the variables. In this case you can modfy your tests pretty easy. If you see like you are creating too much tests, you should think on reorganizing them in a way that can act stable despit of changes in project. It's really hard, features, designs, can constantly change and affect tests. But it's possible to keep your tests stable if you use variables instead of raw values in tests.
+
+Let's say we have an acceptance test `tests/acceptance/CreateTaskCept.php`:
+
+{% highlight php %}
+<?php
+$I = new WebGuy($scenario);
+$I->wantTo('create todo task');
+$I->amOnPage('/tasks');
+$I->fillField('New Task','Update a blog');
+$I->click('Add');
+$I->see('Update a blog', '#tasks');
+?>
+{% endhighlight %}
+
+What if we change the name of buttons and the DOM position of the element where "Update a blog" text should appear?
+Let's move this elements to a `_bootstrap` file and push them into variables. 
+
+In `tests/acceptance/_bootstrap`:
+
+{% highlight php %}
+<?php
+$task_add_button = 'Add';
+$task_new_field = 'New Task';
+$tasks_list = '#tasks';
+?>
+{% endhighlight %}
+
+And in `tests/acceptance/CreateTaskCept.php`: 
+
+{% highlight php %}
+<?php
+$I = new WebGuy($scenario);
+$I->wantTo('create todo task');
+$I->amOnPage('/tasks');
+$I->fillField($task_fill_field,'Update a blog');
+$I->click($task_add_button);
+$I->see('Update a blog', $tasks_list);
+?>
+{% endhighlight %}
+
+As you see replacing values with variables shouldn't affect the test readibility while you choose proper names for UI elements.
+We can also recommend to store user names, passwords, etc in bootstrap too. It will be automaticly included on each test run. Use it.
+
+## Tip 2: Use PageObject
+
+The PageObject is a pattern very popular among QA automation professionals. PageObject allows us to organaize variables from a previous tip in more structured way.
+Instead of using raw variables we will group them into a class and use them in test and helpers. We will demonstrate that improving our previous bootstrap.
+
+{% highlight php %}
+<?php
+class TodoTaskPage {
+	const url = '/tasks';
+
+	const add_button = 'Add';
+	const new_field = 'New Task';
+	const list = '#tasks';	
+}
+?>
+{% endhighlight %}
+
+In this case you won't get lost in where which UI element is located. Because in PageObject patterm the UI element is bound to a page, which we defined by the URL property. And here is the updated test:
+
+{% highlight php %}
+<?php
+$I = new WebGuy($scenario);
+$I->wantTo('create todo task');
+$I->amOnPage(TodoTaskPage::url);
+$I->fillField(TodoTaskPage::new_field,'Update a blog');
+$I->click(TodoTaskPage::add_button);
+$I->see('Update a blog', TodoTaskPage::list);
+?>
+{% endhighlight %}
+
+After this update we have all the UI elements for todo task page kept in one place. Using and IDE you can easily find the right element and insert it into any test of your suite. Despite the raw variables **classes and constants are accessible in helpers and unit tests**. Also you can improve the page object classes with PHP's OOP power. If you are using PHP 5.4 you can include global UI elements (menus, breadcrumbs) with traits. Pretty sweat, right?
+
+{% highlight php %}
+<?php
+trait GlobalMenu {
+	public static $global_menu = "//div[@id=menu]";
+
+	public static function menuItem($index)
+	{
+		return self::$global_menu.'/ul/['.$index.']';
+	}
+}
+
+class TodoTaskPage {
+
+	use GlobalMenu;
+
+	const url = '/tasks';
+
+	const add_button = 'Add';
+	const new_field = 'New Task';
+	const list = '#tasks';	
+}
+?>
+{% endhighlight %}
+
+And now we can use properties and methods of a trait included in class. Thus, TodoTaskPage, as any class that uses GlobalMenu trait can access a menu.
+Let's write a new test for checking that menu contains a button to create a task.
+
+{% highlight php %}
+<?php
+$I = new WebGuy($scenario);
+$I->wantTo('check task creation link is in a menu');
+$I->amOnPage(TodoTaskPage::url);
+$I->see('Create Task', TodoTaskPage::menuItem(3));
+?>
+{% endhighlight %}
+
+If you think on layout components as a traits and pages as classes, you can reorganize your UI elements in a very flexible way. Changes in markup or texts won't affect a tests, as you can easily update all the tests that rely on that element. You can even teach your template developer to update the corresponding PageObject each time she changes template. 
+
+### Conclusion
+
+Codeception is simple, yet powerful tool for test automation. If you plan to use test automation for the enterprise level projects, it's better to start with proper organization. As we think on architecture before writing the first line of code, we should think on scalable architecture of tests platform. Using PageObject and variables can dramaticly improve the reusability (and keep KISS and DRY principles) of your tests.
