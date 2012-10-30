@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Pro Tips #1: UI
+title: Pro Tips: Managing UI
 date: 2012-10-30 01:03:50
 ---
 
