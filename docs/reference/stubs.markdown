@@ -18,6 +18,7 @@ Class for easily create stubs in your unit tests. You can use this class even in
 ### Example 
 
 {% highlight php %}
+<?php
 use \Codeception\Util\Stub as Stub;
 
 // create class instance with name set method 'save' redefined.
@@ -50,5 +51,6 @@ $user = Stub::constructEmptyExcept('User', 'getName', array($con, $is_new), arra
 $user->getName(); // returns 'davert'
 $user2 = Stub::copy($user, array('name' => 'davert2'));
 $user->getName(); // returns 'davert2'
+?>
 {% endhighlight %}
 

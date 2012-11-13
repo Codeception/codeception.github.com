@@ -72,6 +72,7 @@ Basically you could use PHPUnit tests for unit testing. But Codeception scenario
 
 * [REST](/docs/modules/REST) - testing REST Web services (can be tested inside framework).
 * [SOAP](/docs/modules/SOAP) - testing SOAP WSDL web-services (can be tested inside framework).
+* [XML-RPC](/docs/modules/XMLRPC) - testing XML-RPC web-services (can be tested inside framework).
 
 #### Storage Testing
 

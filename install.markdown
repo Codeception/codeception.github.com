@@ -10,6 +10,7 @@ title: Codeception Installation
 ### Requirements
 
 * PHP >= 5.3
+* PHP CURL extension enabled
 
 ## PHP Executable
 
@@ -25,12 +26,6 @@ Initialize your testing environment with
 
 {% highlight bash %}
 php codecept.phar bootstrap
-{% endhighlight %}
-
-Build Guy-classes.
-
-{% highlight bash %}
-php codecept.phar build
 {% endhighlight %}
 
 Run test suite:
@@ -66,12 +61,6 @@ Initialize your testing environment with
 
 {% highlight bash %}
 codecept bootstrap
-{% endhighlight %}
-
-Build Guy-classes
-
-{% highlight bash %}
-codecept build
 {% endhighlight %}
 
 Run test suite:
@@ -120,12 +109,6 @@ Initialize your testing environment with
 
 {% highlight bash %}
 php vendor/bin/codecept bootstrap
-{% endhighlight %}
-
-Build Guy-classes
-
-{% highlight bash %}
-php vendor/bin/codecept build
 {% endhighlight %}
 
 Run test suite:
