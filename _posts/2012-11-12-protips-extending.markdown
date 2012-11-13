@@ -1,5 +1,5 @@
 ---
-title: Protips 2: Extending modules
+title: Protips 2 - Extending Modules
 layout: post
 date: 2012-11-13 01:03:50
 ---
