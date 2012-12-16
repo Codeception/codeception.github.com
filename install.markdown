@@ -28,12 +28,6 @@ Initialize your testing environment with
 php codecept.phar bootstrap
 {% endhighlight %}
 
-Run test suite:
-
-{% highlight bash %}
-php codecept.phar run
-{% endhighlight %}
-
 ## Alternatives
 
 ### PEAR
@@ -62,13 +56,6 @@ Initialize your testing environment with
 {% highlight bash %}
 codecept bootstrap
 {% endhighlight %}
-
-Run test suite:
-
-{% highlight bash %}
-codecept run
-{% endhighlight %}
-
 
 ### Composer
 
@@ -110,10 +97,3 @@ Initialize your testing environment with
 {% highlight bash %}
 php vendor/bin/codecept bootstrap
 {% endhighlight %}
-
-Run test suite:
-
-{% highlight bash %}
-php vendor/bin/codecept run
-{% endhighlight %}
-
