@@ -40,12 +40,12 @@ Why Codeception is better testing tool? Well, just because it is a testing tool 
 {% highlight php %}
 <?php
 $I = new WebGuy($scenario);
-$I->amOnPage("/product/1");
-$I->click("Purchase");
-$I->fillField("name", "Michael");
-$I->fillField("credit", "321123123");
-$I->click("Order");
-$I->see("The product was purchased!");
+$I->amOnPage('/product/1');
+$I->click('Purchase');
+$I->fillField('name', 'Michael');
+$I->fillField('credit', '321123123');
+$I->click('Order');
+$I->see('The product was purchased!');
 {% endhighlight %}
 
 Just the same scenario, just as easy to read (especially when you generate a plain text scenarios), but much more fluent. It can be easily refactored and improved without writing any custom method to helper. 
@@ -54,6 +54,6 @@ Don't fall into marketing trap. You will find yourself writing tests two times: 
 
 It's better to have one person who can take a full control over test automation then, delegate some tasks to developers, some tasks to managers. If you are developer and you work on your own project. Why PHP is not suitable for you? Why do you want to write code 2 times: once in feature with Gherkin and second time in Context. Is it KISS? Is it DRY? Ok, it's up to you.
 
-Will Codeception support plain text test scenarios. I [thought on that](https://gist.github.com/3796226). But I don't want to put the limits. Using plain text makes impossible to use variables, loops, grabbers, and thus use PageObject pattern. Which is very important for solid and concrete test automation platform.
+Will Codeception support plain text test scenarios. I [thought on that](https://gist.github.com/3796226). But I don't want to put the limits. Using plain text makes impossible to use variables, loops, grabbers, and thus use [PageObject pattern](http://codeception.com/10-30-2012/pro-tips-1.html). Which is very important for solid and concrete test automation platform.
 
 **Disclaimer**: I'm not very good in theory, I'm very practical guy. I won't refer you to any published books or methodologies. But If you want an authority... Well, **David Heinemeier Hansson** (the creator of Rails) wrote in [his blogpost](http://37signals.com/svn/posts/3159-testing-like-the-tsa): *1"Don’t use Cucumber unless you live in the magic kingdom of non-programmers-writing-tests"*. Replace "Cucumber" with "Behat", but the magic kingdom is the same. 
