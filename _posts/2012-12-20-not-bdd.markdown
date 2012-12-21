@@ -1,12 +1,12 @@
 ---
-title: Stop simulating BDD, write tests.
+title: Stop Simulating BDD, Write Tests!
 layout: post
 date: 2012-12-20 01:03:50
 ---
 
-Multiple times I received a question. Well, actually two. What makes Codeception different comparing to Behat. And the next one: why can't I frite tests in human language like Behat does. I think the time has come to answer this questions. 
+I keep receiving one question. Well, actually two: **"What makes Codeception different comparing to Behat"**. And the next one: **"Why can't I write Codeception tests in human language like Behat does"**. I think the time has come to answer this questions.
 
-As you know, the Behat project is not only a tool but a methodology. The Behavior Driven Development concept requires that the agile user stories to be written, and then executed as a test. Behat is a right tool for teams who strictly follow the BDD methodology. But what if you don't? For what in the world you need tests written in plain English?
+As you know, the Behat project is not only a tool but a methodology. The Behavior Driven Development concept requires that the agile user stories to be written, and then executed as a test. **Behat is a right tool for teams who strictly follow the BDD** methodology. But what if you don't? For what in the world you need tests written in plain English?
 
 If you write a story like this, using Behat and MinkContext for example,
 
@@ -19,7 +19,7 @@ And I click "Order"
 Then I should see "The product was purchased!"
 {% endhighlight %}
 
-you actually write test, and not a story. Because the feature you describe won't change If you rename field "credit" to "credit card", but the test will fail. You may change the text "The product was purchased" to "iPhone5 was purchased. Thank you!" and that will make test fail too. So you will rewrite the user story every time you change every detail that may affect passing test. In this case the manager who wrote this spec will debug and update user story to make the test pass. 
+you actually write test, and not a story. Because the feature you describe won't change If you rename field "credit" to "credit card", but the test will fail. You may change the text *"The product was purchased"* to *"iPhone5 was purchased. Thank you!"* and that will make test fail too. So you will rewrite the user story every time you change every detail that may affect passing test. In this case the manager who wrote this spec will debug and update user story to make the test pass. 
 
 And so your manager becomes tester. His role is now not only to deliver specifications to team but also to make this specifications written as tests and make them pass.
 
@@ -31,13 +31,15 @@ When I click "Purchase"
 Then I should see "1 product" in the bin
 {% endhighlight %}
 
-For this step 'see "1 product" in the bin' you should write a custom step. If only your manager knew PHP for it! Ideally to become manager + tester + PHP guru. But no, manager needs to ask your developer to write the necessary step. Thus, already two people are writing the test. And one of them knows PHP. And when you will hire a QA will you require a knowledge of PHP? Well, yep. Thus because you don't want to disturb your PHP devs and assign them additional tasks.
+For this step `see "1 product" in the bin` you should write a custom step. If only your manager knew PHP for it! Ideally to become manager + tester + PHP guru. But no, manager needs to ask your developer to write the necessary step. Thus, already two people are writing the test. And one of them knows PHP. And when you will hire a QA will you require a knowledge of PHP? Well, yep. Thus because you don't want to disturb your PHP devs and assign them additional tasks.
 
-When your product growths your tests becomes more and more complex. And you need to keep them updated for each change. When you use the plain English text, you don't have a control over tests.  When your form don't have a label you need to write custom step instead of "I fill in", because it's actually wrong to use CSS or XPath selectors inside a Behat feature. It's not plain English text anymore with CSS. You need PHP developers to create additional steps.
+When your product growths your tests becomes more and more complex. And you need to keep them updated for each change. When you use the plain English text, you don't have a control over tests.  When your form don't have a label you need to write custom step instead of `I fill in`, because it's actually wrong to use CSS or XPath selectors inside a Behat feature. It's not plain English text anymore with CSS. You need PHP developers to create additional steps.
 
-Why Codeception is better testing tool? Well, just because it is a testing tool at first. Spend a day, to teach your manager/tester/qa PHP DSL, install a Netbeans or PHPStorm (or any other IDE), and start writing tests. Even when tests looks similarly to Behat features they give more power and control over process. You can use CSS anx XPath everywhere, so when you change the "Order" button with an image, you can use it's CSS and quickly update a test to make it pass.
+Why Codeception is better testing tool? Well, just because it is a testing tool at first. Spend a day, to teach your manager/tester/qa PHP DSL, install a Netbeans or PHPStorm (or any other IDE), and start writing tests. Even when tests looks similarly to Behat features they give more power and control over the process. You can use CSS anx XPath everywhere, so when you change the "Order" button with an image, you can use it's CSS and quickly update a test to make it pass.
 
-{% highlight gherkin %}
+{% highlight php %}
+<?php
+$I = new WebGuy($scenario);
 $I->amOnPage("/product/1");
 $I->click("Purchase");
 $I->fillField("name", "Michael");
@@ -54,4 +56,4 @@ It's better to have one person who can take a full control over test automation 
 
 Will Codeception support plain text test scenarios. I [thought on that](https://gist.github.com/3796226). But I don't want to put the limits. Using plain text makes impossible to use variables, loops, grabbers, and thus use PageObject pattern. Which is very important for solid and concrete test automation platform.
 
-Disclaimer: I'm not very good in theory, I'm very practical guy. I won't refer you to any published books or methodologies. But If you want an authority... Well, David Heinemeier Hansson (the creator of Rails) wrote in [his blogpost](http://37signals.com/svn/posts/3159-testing-like-the-tsa): "Don’t use Cucumber unless you live in the magic kingdom of non-programmers-writing-tests". Replace "Cucumber" with "Behat", but the magic kingdom is is the same. 
+**Disclaimer**: I'm not very good in theory, I'm very practical guy. I won't refer you to any published books or methodologies. But If you want an authority... Well, **David Heinemeier Hansson** (the creator of Rails) wrote in [his blogpost](http://37signals.com/svn/posts/3159-testing-like-the-tsa): "Don’t use Cucumber unless you live in the magic kingdom of non-programmers-writing-tests". Replace "Cucumber" with "Behat", but the magic kingdom is the same. 
