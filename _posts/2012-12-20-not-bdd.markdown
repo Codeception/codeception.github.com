@@ -1,10 +1,10 @@
 ---
-title: Stop Simulating BDD, Write Tests!
+title: Stop Simulating BDD, Write Tests
 layout: post
 date: 2012-12-20 01:03:50
 ---
 
-I keep receiving one question. Well, actually two: **"What makes Codeception different comparing to Behat"**. And the next one: **"Why can't I write Codeception tests in human language like Behat does"**. I think the time has come to answer this questions.
+I keep receiving one question. Well, actually two: **"What makes [Codeception](http://codeception.com) different comparing to [Behat](http://behat.org)"**. And the next one: **"Why can't I write Codeception tests in human language like Behat does"**. I think the time has come to answer this questions.
 
 As you know, the Behat project is not only a tool but a methodology. The Behavior Driven Development concept requires that the agile user stories to be written, and then executed as a test. **Behat is a right tool for teams who strictly follow the BDD** methodology. But what if you don't? For what in the world you need tests written in plain English?
 
@@ -56,4 +56,4 @@ It's better to have one person who can take a full control over test automation 
 
 Will Codeception support plain text test scenarios. I [thought on that](https://gist.github.com/3796226). But I don't want to put the limits. Using plain text makes impossible to use variables, loops, grabbers, and thus use PageObject pattern. Which is very important for solid and concrete test automation platform.
 
-**Disclaimer**: I'm not very good in theory, I'm very practical guy. I won't refer you to any published books or methodologies. But If you want an authority... Well, **David Heinemeier Hansson** (the creator of Rails) wrote in [his blogpost](http://37signals.com/svn/posts/3159-testing-like-the-tsa): "Don’t use Cucumber unless you live in the magic kingdom of non-programmers-writing-tests". Replace "Cucumber" with "Behat", but the magic kingdom is the same. 
+**Disclaimer**: I'm not very good in theory, I'm very practical guy. I won't refer you to any published books or methodologies. But If you want an authority... Well, **David Heinemeier Hansson** (the creator of Rails) wrote in [his blogpost](http://37signals.com/svn/posts/3159-testing-like-the-tsa): *1"Don’t use Cucumber unless you live in the magic kingdom of non-programmers-writing-tests"*. Replace "Cucumber" with "Behat", but the magic kingdom is the same. 
