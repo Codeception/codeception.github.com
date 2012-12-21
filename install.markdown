@@ -89,11 +89,11 @@ php composer.phar install
 From now on Codeception (with installed PHPUnit) can be run as:
 
 {% highlight bash %}
-php vendor/bin/codecept
+vendor/bin/codecept
 {% endhighlight %}
 
 Initialize your testing environment with 
 
 {% highlight bash %}
-php vendor/bin/codecept bootstrap
+vendor/bin/codecept bootstrap
 {% endhighlight %}
