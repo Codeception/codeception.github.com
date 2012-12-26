@@ -6,7 +6,7 @@ date: 2012-12-20 01:03:50
 
 I keep receiving one question. Well, actually two: **"What makes [Codeception](http://codeception.com) different comparing to [Behat](http://behat.org)"**. And the next one: **"Why can't I write Codeception tests in human language like Behat does"**. I think the time has come to answer this questions.
 
-As you know, the Behat project is not only a tool but a methodology. The Behavior Driven Development concept requires that the agile user stories to be written, and then executed as a test. **Behat is a right tool for teams who strictly follow the BDD** methodology. But what if you don't? For what in the world you need tests written in plain English?
+As you know, the Behat project is not only a tool but a methodology. The Behavior Driven Development concept requires that the User Stories to be written, and then executed as a test. **Behat is a right tool for teams who strictly follow the BDD** methodology. But what if you don't? For what in the world you need tests written in plain English?
 
 If you write a story like this, using Behat and MinkContext for example,
 
@@ -35,7 +35,7 @@ For this step `see "1 product" in the bin` you should write a custom step. If on
 
 When your product growths your tests becomes more and more complex. And you need to keep them updated for each change. When you use the plain English text, you don't have a control over tests.  When your form don't have a label you need to write custom step instead of `I fill in`, because it's actually wrong to use CSS or XPath selectors inside a Behat feature. It's not plain English text anymore with CSS. You need PHP developers to create additional steps.
 
-Why Codeception is better testing tool? Well, just because it is a testing tool at first. Spend a day, to teach your manager/tester/qa PHP DSL, install a Netbeans or PHPStorm (or any other IDE), and start writing tests. Even when tests looks similarly to Behat features they give more power and control over the process. You can use CSS anx XPath everywhere, so when you change the "Order" button with an image, you can use it's CSS and quickly update a test to make it pass.
+Why Codeception is better testing tool? Well, just because it is a testing tool at first. Spend a day, to teach your manager/tester/qa PHP DSL, install a Netbeans or PHPStorm (or any other IDE), and start writing tests. Even when tests looks similarly to Behat features they give more power and control over the process. 
 
 {% highlight php %}
 <?php
@@ -48,12 +48,28 @@ $I->click('Order');
 $I->see('The product was purchased!');
 {% endhighlight %}
 
-Just the same scenario, just as easy to read (especially when you generate a plain text scenarios), but much more fluent. It can be easily refactored and improved without writing any custom method to helper. 
+This test in the process of evolution can be transformed into something more complex. You can use CSS and XPath everywhere, so when you change the "Order" button with an image, you can use it's CSS and quickly update a test to make it pass. Also, you can move repeatable elements into variables and classes and make a test that looks like this:
 
-Don't fall into marketing trap. You will find yourself writing tests two times: as a feature in plain English and in code with PHP. 
+{% highlight php %}
+<?php
+$I = new WebGuy($scenario);
+$I->amOnPage(ProductPage::URL);
+$I->click('#purchase');
+$I->fillField('name', $user_name);
+$I->fillField('credit', $user_credit);
+$I->click('img a#order');
+$I->see(ProductPage::$successMessage);
+{% endhighlight %}
 
-It's better to have one person who can take a full control over test automation then, delegate some tasks to developers, some tasks to managers. If you are developer and you work on your own project. Why PHP is not suitable for you? Why do you want to write code 2 times: once in feature with Gherkin and second time in Context. Is it KISS? Is it DRY? Ok, it's up to you.
+Just the same scenario. Well it's a bit harder to read, as we added CSS selectors, but as you see this test pretty much more flexible. It can be easily refactored and improved without writing any custom method to helper. 
 
-Will Codeception support plain text test scenarios. I [thought on that](https://gist.github.com/3796226). But I don't want to put the limits. Using plain text makes impossible to use variables, loops, grabbers, and thus use [PageObject pattern](http://codeception.com/10-30-2012/pro-tips-1.html). Which is very important for solid and concrete test automation platform.
+**Don't fall into a marketing trap**. You will find yourself writing tests two times: as a feature in plain English and in code with PHP. 
 
-**Disclaimer**: I'm not very good in theory, I'm very practical guy. I won't refer you to any published books or methodologies. But If you want an authority... Well, **David Heinemeier Hansson** (the creator of Rails) wrote in [his blogpost](http://37signals.com/svn/posts/3159-testing-like-the-tsa): *1"Don’t use Cucumber unless you live in the magic kingdom of non-programmers-writing-tests"*. Replace "Cucumber" with "Behat", but the magic kingdom is the same. 
+It's better to have one person who can take a full control over test automation then, delegate some tasks to developers, some tasks to managers. If you are developer and you work on your own project. Why PHP is not suitable for you? Why do you want to write code 2 times: once in feature with Gherkin and second time in Context. Is it KISS? Is it DRY? I don't think so.
+
+Will Codeception support plain text test scenarios? Really, I [thought on that](https://gist.github.com/3796226). But I don't want to put the limits. Using plain text makes impossible to use variables, loops, grabbers, and thus use [PageObject pattern](http://codeception.com/10-30-2012/pro-tips-1.html). Which is very important for solid and concrete test automation platform.
+
+Behat is great BDD tool and it's author @everzet also states: [don't use it for functional testing](https://twitter.com/everzet/status/169745591654555648).
+Choose the right tool for job.
+
+**Disclaimer**: I'm not very good in theory, I'm very practical guy. I won't refer you to any published books or methodologies. But If you want an authority... Well, **David Heinemeier Hansson** (the creator of Rails) wrote in [his blog](http://37signals.com/svn/posts/3159-testing-like-the-tsa): *1"Don’t use Cucumber unless you live in the magic kingdom of non-programmers-writing-tests"*. And Behat is Cucumber for PHP. DHH is known for his dislike to popular BDD tools like RSpec or Cucumber. But he is very pragmatic and very scrupulous in testing.
