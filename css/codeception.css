@@ -7,3 +7,7 @@ body {
 body .navbar .navbar-inner {
   background: url("/images/head_bg.png") repeat-x #656270 !important;
 }    
+
+body .hero-unit {
+	background: none;
+}
