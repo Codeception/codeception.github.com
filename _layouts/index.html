@@ -1,103 +1,155 @@
 ---
-layout: default
+layout: bootstrap
 ---
 
-  <div class="layout">
-    <div class="content" id="page">           
-      <div>
-          <div class="promo">
-          <div class="col1">
-  {% for post in site.posts limit: 3 %}
-    <div class="inner"><a href="{{ post.url }}">{{ post.title }}</a></div>
-  {% endfor %}
-
-          <div style="margin: 30px 15px;"><a href="/thanks.html"><img src="/images/download.png" alt="Download Now"></a></div>
-
-          </div>
-            <div class="col2">
-            <h2>In a Nutshell</h2>
-
-Codeception is a new full-stack testing PHP framework.
-Inspired by BDD, it provides you absolutely new original way for writing acceptance, functional and even unit tests.
-
-<br/><br/>
-<!-- Розмістіть цей тег там, де необхідно розмістити кнопку +1 -->
-
-<div class="inner">
-<!-- AddThis Button BEGIN -->
-<div class="addthis_toolbox addthis_default_style ">
-<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-<a class="addthis_button_tweet"></a>
-<a class="addthis_button_google_plusone" g:plusone:size="medium"></a> 
-</div>
-<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-501c6975683af72f"></script>
-<!-- AddThis Button END -->
-</div>
-
-            </div>
-          </div>
-
-
-          <script async class="speakerdeck-embed" data-id="501ee1457ce61400020063f7" data-ratio="1.3333333333333333" src="//speakerdeck.com/assets/embed.js"></script>
-          
-
-          <div class="block1">
-              <h3>Acceptance and Functional Tests</h3>
-              <ul>
-                <li>Execute with Selenium RC, WebDriver, PhpBrowser, ZombieJS</li>
-                <li>Locate elements by name, CSS, XPath</li>
-                <li>Easily change running backend</li>
-                <li>Cleanup database after each run</li>
-                <li>Integrate with Symfony2, Zend Framework, Kohana, etc.</li>
-                <li>Use with Continious Integration systems like Jenkins or Bamboo</li>         
-              </ul>
-            </div>
-            <div class="clear"></div>                        
-
-          {{ content }}
-          <div class="block2">
-              <h3>Unit and Integration Tests</h3>
-              <ul>
-                <li>Two unit test formats</li>
-                <li>Nativley run PHPUnit tests</li>
-                <li>BDD-style scenario-driven tests</li>
-                <li>Smart mocking and stubbing</li>
-                <li>Documentation Generation</li>
-                <li>Generate HTML, XML, TAP, JSON reports</li>
-                <li>Fixtures</li>
-                <li>Database, Doctrine ORM helpers</li>
-              </ul>
-            </div>
-            <div class="clear"></div>                        
-
-
-{% capture unit %}{% include unit.markdown %}{% endcapture %}
-{{ unit | markdownify }}
-          
-
+<div class="row">
+  <div class="span9">
+    <div class="hero-unit">
+      <div class="pull-right sample-code">
+            <?php <br/>
+            $I->am('Testing Framework');<br/>
+            $I->wantToTest('your Application');<br/>
+            $I->see('it works!');<br/>
       </div>  
+
+      <h1>Codeception</h1>      
+      <p>Modern PHP Testing Framework</p>
+      <p>
+
+
+        <div class="addthis_toolbox addthis_default_style ">
+          <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+          <a class="addthis_button_tweet"></a>
+          <a class="addthis_button_google_plusone" g:plusone:size="medium"></a> 
+        </div>
+        <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+        <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-501c6975683af72f"></script>
+        <!-- AddThis Button END -->
+      </p>
     </div>
-    <div class="sidebar">
-      <div class="inner">  
-              
-      	{% include toc.html %}
-
-<h2 class="prepend-top"><small>You may also like</small></h2>
-
-  <a href="http://bugira.com">
-    <img src="/images/projects/bugira_small_banner.png" alt="Bugira - the smartest bugtracker" style="margin-left: -5px;" />
-</a>          
-
-
-  
-
+    <div class="row">
+      <div class="span3">
+        <div class="well">
+          <span class="badge badge-important pull-right">WebGuy</span>
+          <h4>Acceptance Testing</h4>
+          <p>
+            <b>Selenium2</b>, PhpBrowser. Data cleanup. Continuous Integration. Remote CodeCoverage.
+          </p> 
+        </div>
       </div>
-
-<div class="fb-like-box" data-href="http://www.facebook.com/pages/Codeception/288959711204412?ref=hl" data-width="264" data-show-faces="false" data-border-color="#fff" data-stream="true" data-header="true" style="background: #fff"></div>
-
-
-    </div>
-    </div>
-    <div id="root_footer"></div>
+      <div class="span3">
+        <div class="well">
+          <span class="badge badge-success pull-right">TestGuy</span>
+          <h4>Functional Testing</h4>
+          <p>
+            <b>Symfony2</b>, Doctrine, Zend Framework, Kohana, MySQL, PostgreSQL, REST,
+            SOAP, CodeCoverage.</p>
+          </div>
+        </div>
+        <div class="span3">
+          <div class="well">
+           <span class="badge badge-info pull-right">CodeGuy</span>
+           <h4>Unit Testing</h4>
+           <p>
+            <b>PHPUnit</b>tests, with better stubs, and database interactions.&nbsp;Readable
+            scenario-driven tests. CodeCoverage.
+          </p>
+        </div>
+      </div>
+    </div>    
   </div>
+  <div class="span3">
+    <div class="well">
+      <a class="btn btn-large btn-primary btn-block" href="#"><span class="btn-label">Quick Start&nbsp;</span></a>
+      <p>Write and execute a test for an existing app
+        <b>in less then a minute!</b>&nbsp;Selenium is not required.&nbsp;
+      </p>
+    </div>
+    <p>Codeception was started in November 2011, and released the 1.0 stable
+      version in January 2012. It's a mature and stable project, well-tested
+      and ready to use. It's open-source and MIT licensed.
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span6">
+
+    <script async class="speakerdeck-embed" data-id="501ee1457ce61400020063f7" data-ratio="1.3333333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+
+
+    <div class="well">
+      <h3>Popular Questions</h3>
+      <span class="badge badge-info pull-right">Q</span>
+      <h4>Do I really need this?</h4>
+      <p>If you develop a complex web applications with forms, links, and many
+        pages, apis, and you want to
+        <b>check all forms and links in a minutes</b>, you need to use testing framework.
+        Codeception suites the best such tasks.
+      </p>
+      <span class="badge badge-info pull-right">Q</span>
+      <h4>Why should I use this instead of PHPUnit?</h4>
+      <p>Being the most popular unit testing framework PHPUnit has very limited
+        features for functional testing with
+        <b>Selenium</b>or other backends. Codeception is
+        <b>PHPUnit on steroids</b>. Everything you need for testing is built-in and
+        works just out of the box. No more pain in configuring data cleanup, paths,
+        Selenium connections, and fixtures.&nbsp;
+      </p>
+      <span class="badge badge-info pull-right">Q</span>
+
+      <h4>No need for this. It looks just like Behat</h4>
+      <p>Hold on! Even it uses the same style in test description and Mink as a
+        driver, Codeception is completely different. As you know,
+        <b>Behat is not a testing framework</b>, but Codeception is. Codeception
+        tests are written in PHP they are written much faster, especially if you
+        use IDE . You can use
+        <b>variables and operators in your tests</b>. You can use
+        <b>CSS and XPath</b>selectors in your tests. This features allows you to
+        build a solid test automation platform for testing your web application.
+        Even though Codeception test are very readable for your developers, managers,
+        and QA team.
+      </p>
+      <h4>We are planning to use Selenium. Why Codeception?</h4>
+      <p>Codeception works great with Selenium. But Codeception provides much more
+        flexible and powerful language then Selenium IDE does. And well, you don't
+        need to learn Java or Python for complex Selenium tests, PHP is ok. And
+        the main reason is: Selenium tests are tightly bound to XPath locators.
+        If you ever change anything in layout tests will fall. Codeception locators
+        are more stable. You can use names, labels, button names and CSS to match
+        elements on page. It's much easier to support the Codeception test then
+        Selenium's one.
+      </p>
+      <h4>Why do all tests starts with 'Guy'?</h4>
+      <p>I'm not a sexist in any form, but we call the test worker a Guy. Think
+          of it as a imaginable person that describers his actions in PHP DSL. I
+          am new guy, he says. I want to test your application, he says. I click
+          "Log In", fill fields, and I see "Hello" in page, he says. In our team
+          we just thought it is more natural to write tests from a person's perspective,
+          then just commands.
+      </p>
+    </div>
+  </div>
+  <div class="span6">
+    <h5>Codeception Blog</h5>
+
+        {% for post in site.posts limit: 3 %}
+        <div class="alert alert-info">
+          <span>
+            <a href="{{ post.url }}">{{ post.title }}</a>
+          </span>
+        </div>
+        {% endfor %}
+
+        <h2>Examples</h2>
+        <span class="badge pull-right">Db</span>
+        <span class="badge pull-right">PhpBrowser</span>
+        <p class="muted">This test can be executed inside Mozilla Firefox using Selenium Webdriver,
+          or any browser. Nevertheless, you can execute this test without any browser
+          but with PHP browser emulator. It's much faster and don't require Selenium
+          and Frame Buffer installed. The downsides are: you can't test Javascript
+          in it.</p>
+          <a class="btn" href="#"><span class="btn-label">Read more about Acceptance Tests</span></a> 
+    </div>
+</div>
+

@@ -1,0 +1,9 @@
+.main-features {
+  margin-top: 10px;      
+}
+body {
+  background:  url("/images/bg.png") transparent !important;
+}  
+body .navbar .navbar-inner {
+  background: url("/images/head_bg.png") repeat-x #656270 !important;
+}    
