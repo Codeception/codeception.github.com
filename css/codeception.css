@@ -10,4 +10,6 @@ body .navbar .navbar-inner {
 
 body .hero-unit {
 	background: none;
+	border-bottom: 3px solid #656270;
+	border-radius: none;
 }

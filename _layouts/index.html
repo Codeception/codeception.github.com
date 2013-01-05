@@ -5,11 +5,11 @@ layout: bootstrap
 <div class="row">
   <div class="span9">
     <div class="hero-unit">
-      <div class="pull-right sample-code">
+      <div class="pull-right sample-code php">
             &lt;?php <br/>
-            $I->am('Testing Framework');<br/>
-            $I->wantToTest('your Application');<br/>
-            $I->see('it works!');<br/>
+            <span class="nv">$I</span>->am(<span class="sl">'testing framework'</span>);<br/>
+            <span class="nv">$I</span>->wantToTest(<span class="sl">'your PHP application'</span>);<br/>
+            <span class="nv">$I</span>->see(<span class="sl">'it works!'</span>);<br/>
       </div>  
 
       <h1>Codeception</h1>      
@@ -141,9 +141,29 @@ layout: bootstrap
         </div>
         {% endfor %}
 
-        <h2>Examples</h2>
+        <h2>Examples</h2>        
         <span class="badge pull-right">Db</span>
         <span class="badge pull-right">PhpBrowser</span>
+        <h3>Acceptance Test</h3>
+        <p>
+{% highlight php %}
+<?php
+$I = new WebGuy($scenario);
+$I->wantTo('create wiki page');
+$I->amOnPage('/');
+$I->click('Pages');
+$I->click('New');
+$I->see('New Page');
+$I->fillField('title', 'Hobbit');
+$I->fillField('body', 'By Peter Jackson');
+$I->click('Save');
+$I->see('page created'); // notice generated
+$I->see('Hobbit','h1'); // head of page of is our title
+$I->seeInCurrentUrl('pages/hobbit'); // slug is generated
+$I->seeInDatabase('pages', array('title' => 'Hobbit')); // data is stored in database
+?>
+{% endhighlight %}
+        </p>
         <p class="muted">This test can be executed inside Mozilla Firefox using Selenium Webdriver,
           or any browser. Nevertheless, you can execute this test without any browser
           but with PHP browser emulator. It's much faster and don't require Selenium
