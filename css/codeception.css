@@ -88,11 +88,19 @@ body b {
 }
 
 #footer {
+	margin-top: 10px;
 	padding-top: 10px;
-	border-top: 1px solid #504C5A;
-	background: url("/images/footer_c.png") repeat-x #C1BFC9;
-	background-position: 0 200px;
-	padding-bottom: 35px
+	border-top: 1px solid #807A84;
+	background: #CAC7D6;
+}
+#copyright {
+	height: 25px;
+	color: #fff;
+	font-weight: bold;
+	font-size: 0.9em;
+	text-align: center;
+	padding-top: 10px;
+	background: url("/images/footer_c.png") repeat-x;	
 }
 
 body .dropdown-modules {
@@ -116,4 +124,8 @@ body .dropdown-modules li a {
 .gsc-control-cse {
 	background: transparent !important;
 	border: none !important;
+}
+
+.links a {
+	color: #666;
 }
