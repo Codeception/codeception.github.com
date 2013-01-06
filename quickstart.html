@@ -20,7 +20,7 @@ title: Quick Start Codeception
               <b>phar</b>archive to the root of your web application.&nbsp;</p>
             <a class="btn btn-large btn-success"
             href="#"><span class="btn-label">Download Codeception</span></a>
-            <p class="muted">alternatively download it from terminal</p>
+            <p class="muted">alternatively download it from console</p>
             <div>
               <p>
                 <code>wget http://codeception.com/codecept.phar</code>
@@ -70,10 +70,10 @@ title: Quick Start Codeception
               <div>
                 <p></p>
                 <pre>
-                  $I = new WebGuy($scenario);
-                  $I->wantTo('ensure that frontpage works');                  
-                  $I->amOnPage('/'); 
-                  $I->see('Home');</pre>
+$I = new WebGuy($scenario);
+$I->wantTo('ensure that frontpage works');                  
+$I->amOnPage('/'); 
+$I->see('Home');</pre>
                 <p></p>
               </div>
               <p class="muted">It will check that your frontpage contains the word
@@ -120,7 +120,7 @@ modules:
       </div>
       <div class="row">
         <div class="span6">
-          <p>If you did everything right and your app has Home text on frontpage you
+          <p>If you did everything right and your app has "Home" text on frontpage you
             will see this in output</p>
           <div>
             <pre>
