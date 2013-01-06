@@ -80,13 +80,6 @@ body b {
 
 }
 
-#toc .toc-active a {
-	padding: 0 5px;
-	background-color: #0088CC;
-	color: #fff;
-	border-radius: 5px;
-}
-
 #toc a {
 	padding: 5px;
 	width: 100%;
