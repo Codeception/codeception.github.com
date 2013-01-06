@@ -1,10 +1,10 @@
 $(document).ready(function () {
-    $.get('https://api.github.com/repos/Codeception/Codeception/contributors', '',function(data) {
+    $.get('https://api.github.com/repos/Codeception/Codeception/contributors', '',function(data,jqXHR) {
 
 if (data === undefined) {
   data = $.parseJSON(jqXHR.responseText);
 }
-      
+
       $.each(data, function (key, contributor) {      
         var image = "<img src=\"" + contributor.avatar_url + "\" width=\"48\" height=\"48\">";
         var link = $(document.createElement('a'));
