@@ -7,13 +7,13 @@ layout: bootstrap
     <div class="hero-unit">
       <div class="pull-right sample-code php">
             &lt;?php <br/>
-            <span class="nv">$I</span>->am(<span class="sl">'testing framework'</span>);<br/>
-            <span class="nv">$I</span>->wantToTest(<span class="sl">'your PHP application'</span>);<br/>
-            <span class="nv">$I</span>->see(<span class="sl">'it works!'</span>);<br/>
+            <span class="nv">$I</span><span class="o">-></span><span class="method">am</span>(<span class="string">'testing framework'</span>);<br/>
+            <span class="nv">$I</span><span class="o">-></span><span class="method">wantToTest</span>(<span class="string">'your web application'</span>);<br/>
+            <span class="nv">$I</span><span class="o">-></span><span class="method">see</span>(<span class="string">'it works!'</span>);<br/>
       </div>  
 
       <h1>Codeception</h1>      
-      <p>Modern PHP Testing Framework</p>
+      <p>Modern Testing in PHP</p>
       <p>
 
 
@@ -30,7 +30,7 @@ layout: bootstrap
     <div class="row">
       <div class="span3">
         <div class="well">
-          <span class="badge badge-important pull-right">WebGuy</span>
+          <span class="badge pull-right">WebGuy</span>
           <h4>Acceptance Testing</h4>
           <p>
             <b>Selenium2</b>, PhpBrowser. Data cleanup. Continuous Integration. Remote CodeCoverage.
@@ -39,16 +39,16 @@ layout: bootstrap
       </div>
       <div class="span3">
         <div class="well">
-          <span class="badge badge-success pull-right">TestGuy</span>
+          <span class="badge pull-right">TestGuy</span>
           <h4>Functional Testing</h4>
           <p>
-            <b>Symfony2</b>, Doctrine, Zend Framework, Kohana, MySQL, PostgreSQL, REST,
+            <b>Symfony2</b>, Doctrine, Zend Framework, Kohana, Databases, REST,
             SOAP, CodeCoverage.</p>
           </div>
         </div>
         <div class="span3">
           <div class="well">
-           <span class="badge badge-info pull-right">CodeGuy</span>
+           <span class="badge pull-right">CodeGuy</span>
            <h4>Unit Testing</h4>
            <p>
             <b>PHPUnit</b>tests, with better stubs, and database interactions.&nbsp;Readable
@@ -60,32 +60,70 @@ layout: bootstrap
   </div>
   <div class="span3">
     <div class="well">
-      <a class="btn btn-large btn-primary btn-block" href="#"><span class="btn-label">Quick Start&nbsp;</span></a>
+
+    <a class="btn btn-large btn-success btn-block" href="#"><span class="btn-label">Install &rarr;</span></a>
+  </div>
+
+    <div class="well">
+      <a class="btn btn-large btn-primary btn-block" href="#"><span class="btn-label">Quick Start &rarr;</span></a>
       <p>Write and execute a test for an existing app
-        <b>in less then a minute!</b>&nbsp;Selenium is not required.&nbsp;
+        <b>in less then a minute!</b>&nbsp;No additional tools required.&nbsp;
       </p>
     </div>
-    <p>Codeception was started in November 2011, and released the 1.0 stable
-      version in January 2012. It's a mature and stable project, well-tested
-      and ready to use. It's open-source and MIT licensed.
+    <p>Codeception was started in November 2011, and released the <strong>first stable
+      version 1.0 in January 2012</strong>. Based on Symfony2 Components, PHPUnit, Mink. 
+      Codeception is a mature and stable project, well-tested and documented.             
+      It's open-source and <strong>MIT licensed</strong>. 
     </p>
   </div>
 </div>
 
 <div class="row">
   <div class="span6">
-
+<p>
     <script async class="speakerdeck-embed" data-id="501ee1457ce61400020063f7" data-ratio="1.3333333333333333" src="//speakerdeck.com/assets/embed.js"></script>
 
 
+</p>
+
+    
+
+    <p class="alert page well alert-success">
+      Codeception is kept as simple as possible for any kind of users.
+      PHP developers, QAs, Managers can use Codeception. The only requirements are basic konwledge of PHP and theory of automated testing.
+      It's configuration is kept short, all common issues are already solved.      
+    </p>
+
+    <h4>Features</h4>
     <div class="well">
-      <h3>Popular Questions</h3>
+    <p class="page">
+              <ul>
+                <li>Multiple backends, easily changed <strong>Selenium, PhpBrowser, ZombieJS</strong></li>
+                <li>Elements matched by <strong>name, CSS, XPath</strong></li>
+                <li><strong>Data Cleanup</strong> after each run</li>
+                <li>Integrate with <strong>Symfony2, Zend Framework, Kohana</strong>, etc.</li>
+                <li>Continious Integration systems like <strong>Jenkins or Bamboo</strong></li>         
+                <li>Natively <strong>executes PHPUnit tests</strong></li>
+                <li><strong>BDD</strong>-style scenario-driven tests</li>
+                <li>WebServices testing via <strong>REST</strong>,<strong>SOAP</strong>,<strong>XML-RPC</strong> </li>
+                <li>Generates HTML, XML, TAP, JSON reports</li>
+                <li>Simple Fixtures</li>
+                <li>Database and Doctrine ORM helpers</li>                
+                <li>CodeCoverage and Remote CodeCoverage</li>
+              </ul>
+
+    </p>
+    </div>
+
+
+    <div class="well page">
+      <h3>Questions you wanted to ask</h3>
       <span class="badge badge-info pull-right">Q</span>
       <h4>Do I really need this?</h4>
       <p>If you develop a complex web applications with forms, links, and many
-        pages, apis, and you want to
+        pages (or maybe APIs), and you want to
         <b>check all forms and links in a minutes</b>, you need to use testing framework.
-        Codeception suites the best such tasks.
+        Codeception just suites the best for that.
       </p>
       <span class="badge badge-info pull-right">Q</span>
       <h4>Why should I use this instead of PHPUnit?</h4>
@@ -93,8 +131,8 @@ layout: bootstrap
         features for functional testing with
         <b>Selenium</b>or other backends. Codeception is
         <b>PHPUnit on steroids</b>. Everything you need for testing is built-in and
-        works just out of the box. No more pain in configuring data cleanup, paths,
-        Selenium connections, and fixtures.&nbsp;
+        works just out of the box. No more pain in configuring Selenium, data cleanup, writing XPaths,      
+         and fixtures.&nbsp;
       </p>
       <span class="badge badge-info pull-right">Q</span>
 
@@ -110,16 +148,19 @@ layout: bootstrap
         Even though Codeception test are very readable for your developers, managers,
         and QA team.
       </p>
+
+      <span class="badge badge-info pull-right">Q</span>
       <h4>We are planning to use Selenium. Why Codeception?</h4>
-      <p>Codeception works great with Selenium. But Codeception provides much more
-        flexible and powerful language then Selenium IDE does. And well, you don't
-        need to learn Java or Python for complex Selenium tests, PHP is ok. And
-        the main reason is: Selenium tests are tightly bound to XPath locators.
+      <p>Codeception works great with Selenium. But with Codeception you can write your tests in PHP. And
+        the main reason is: <strong>Selenium tests are tightly bound to XPath locators</strong>.
         If you ever change anything in layout tests will fall. Codeception locators
         are more stable. You can use names, labels, button names and CSS to match
         elements on page. It's much easier to support the Codeception test then
-        Selenium's one.
+        Selenium's one. 
+        Selenium just can't clean data between tests, can't check database values, or generate code coverage reports.
       </p>
+
+      <span class="badge badge-info pull-right">Q</span>
       <h4>Why do all tests starts with 'Guy'?</h4>
       <p>I'm not a sexist in any form, but we call the test worker a Guy. Think
           of it as a imaginable person that describers his actions in PHP DSL. I
@@ -128,14 +169,20 @@ layout: bootstrap
           we just thought it is more natural to write tests from a person's perspective,
           then just commands.
       </p>
+
+
+
     </div>
+
+
   </div>
   <div class="span6">
     <h5>Codeception Blog</h5>
 
         {% for post in site.posts limit: 3 %}
-        <div class="alert alert-info">
-          <span>
+        <div class="alert alert-warning">
+          <div class="pull-right">{{ post.date | date: "%B %d, %Y" }}</div>
+          <span>            
             <a href="{{ post.url }}">{{ post.title }}</a>
           </span>
         </div>
@@ -159,17 +206,109 @@ $I->fillField('body', 'By Peter Jackson');
 $I->click('Save');
 $I->see('page created'); // notice generated
 $I->see('Hobbit','h1'); // head of page of is our title
-$I->seeInCurrentUrl('pages/hobbit'); // slug is generated
-$I->seeInDatabase('pages', array('title' => 'Hobbit')); // data is stored in database
+$I->seeInCurrentUrl('pages/hobbit'); 
+$I->seeInDatabase('pages', array('title' => 'Hobbit'));
 ?>
 {% endhighlight %}
         </p>
-        <p class="muted">This test can be executed inside Mozilla Firefox using Selenium Webdriver,
+        <p>This test can be executed inside Mozilla Firefox using Selenium Webdriver,
           or any browser. Nevertheless, you can execute this test without any browser
-          but with PHP browser emulator. It's much faster and don't require Selenium
-          and Frame Buffer installed. The downsides are: you can't test Javascript
+          but with PHP browser emulator based on CURL. 
           in it.</p>
-          <a class="btn" href="#"><span class="btn-label">Read more about Acceptance Tests</span></a> 
-    </div>
+          <p>
+          <a class="btn" href="/docs/04-AcceptanceTests"><span class="btn-label">Read more about Acceptance Tests &rarr;</span></a> 
+          </p>
+
+          <p>
+            This test can be also executed as a functional test in one of popular PHP frameworks.
+            Codeception has modules that support <strong>Symfony2</strong>, Zend Framework, Kohana.
+          </p>
+
+          <p>
+          <a class="btn" href="/docs/05-FunctionalTests"><span class="btn-label">Read more about Functional Tests &rarr;</span></a> 
+          </p>
+
+
+
+        <span class="badge pull-right">PhpBrowser</span>
+            <span class="badge pull-right">REST</span>
+<h3>API Test</h3>
+  <p>
+
+{% highlight php %}
+<?php
+$I = new ApiGuy($scenario);
+$I->wantTo('create a new user by API');
+$I->amHttpAuthenticated('davert','123456');
+$I->haveHttpHeader('Content-Type','application/x-www-form-urlencoded');
+$I->sendPOST('/users', array('name' => 'davert' ));
+$I->seeResponseCodeIs(200);
+$I->seeResponseIsJson();
+$I->seeResponseContainsJson(array('result' => 'ok'));
+?>
+{% endhighlight %}
+  </p>
+  <p>
+This test can be executed inside PhpBrowser or as a functional test of one of the most popular PHP frameworks.
+  </p>
+
+  <p>
+        <a class="btn" href="/docs/10-WebServices"><span class="btn-label">Read more about API Tests &rarr;</span></a> 
+  </p>
+
+
+<span class="badge pull-right">Unit</span>
+<span class="badge pull-right">Db</span>
+<h3>Unit Test</h3>
+
+{% highlight php %}
+<?php
+class UserTest extends \Codeception\TestCase\Test
+{
+    public function testUserSave() {
+        $user = Stub::make('User');
+        $user->setName('davert');
+        $this->assertEquals('davert', $user->getName());
+        $user->save();
+        $this->codeGuy->seeInDatabase('users', array('name' => 'davert'));
+    }
+}
+?>
+{% endhighlight %}
+
+<p>
+  PHPUnit test format with some useful helpers. 
+  In this test we check that value was saved to database with one simple command 'seeInDatabase'.
+</p>
+<a class="btn" href="/docs/06-UnitTests-TEST"><span class="btn-label">Read more about Unit Tests &rarr;</span></a> 
+
+      <h4>Scenario-Driven Unit Test</h4>
+
+{% highlight php %}
+<?php
+class UserControllerCest {
+    public $class = 'UserController';
+
+    public function createAction(CodeGuy $I)
+    {
+        $I->haveFakeClass($userController = Stub::makeEmptyExcept('UserController'));
+        $I->executeTestedMethodOn($userController, array('username' => 'MilesDavis', 'email' => 'miles@davis.com'))
+        $I->seeResultEquals(true)
+        $I->seeMethodInvoked($userController, 'renderHtml')
+        $I->seeInDabatase('users', array('username' => 'MilesDavis'));
+    }
+}
+?>
+{% endhighlight %}
+
+<p>
+In this test we describe what classes are used, what methods are executed and what results we expect to see.
+Just the same as we did in acceptance tests! 
+This test documents underlying code and creates mocks in a realtime.
+</p>
+
+<a class="btn" href="/docs/07-UnitTestsScenarios"><span class="btn-label">Read more about Scenario-Driven Unit Tests &rarr;</span></a> 
+
+    </div>  
 </div>
 

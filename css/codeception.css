@@ -10,6 +10,97 @@ body .navbar .navbar-inner {
 
 body .hero-unit {
 	background: none;
-	border-bottom: 3px solid #656270;
-	border-radius: none;
+	padding: 60px 0;
+	border-radius: 0px;
+}
+
+body h1, body h2, body h3, body h3 {
+	font-family: "Philosopher", "Open Sans","Lucida Grande","Helvetica Neue",Helvetica,Arial,sans-serif
+}
+
+body .hero-unit h1 {
+	color: #656270;
+}
+
+#page h4 {
+	border-bottom: 1px solid #656270;	
+}
+
+.sample-code {
+	font-family: monospace;
+	font-size: 17px;
+	line-height: 150%;
+}
+.sample-code .string {
+	color: #468847;
+}
+
+.sample-code .method {
+	color: #488BA8;
+}
+
+body code {
+	font-size: 17px;
+}
+
+body .highlight pre {
+	background: #333;
+	white-space: pre;
+}
+
+body .page {
+	font-size: 1.2em;
+	line-height: 150%;
+}
+body b {
+	color: #666;
+}
+
+#contributors a {
+	margin-right: 5px;
+	margin-bottom: 5px;
+	float: left;	
+}
+#contributors a img {
+	border-radius: 5px;
+}
+
+.fixed {
+	position: fixed;
+    width: 370px;
+}	
+
+#toc ul {
+	margin: 0;
+	list-style: none;
+	border-radius: 5px;
+	background: #eee;
+	padding: 10px;
+}
+#toc ul li {
+	margin-bottom: 3px;
+}
+
+#toc .toc-active a {
+	padding: 0 5px;
+	background-color: #0088CC;
+	color: #fff;
+	border-radius: 5px;
+}
+
+#toc a {
+	padding: 5px;
+	width: 100%;
+   font-size: 1.2em;   
+}
+
+}
+.footer {
+	margin-top: 50px;
+	background: url("/images/footer_bg.png") repeat-x scroll left top #504C5A;
+}
+
+.footer .container {
+	padding: 100px 0px;
+	background: url("/images/footer_c.png") no-repeat scroll left top transparent
 }
