@@ -6,7 +6,7 @@ $.ajax({
     dataType: 'jsonp',
     success: function(data,status) {
 
-      $.each(data, function (key, contributor) {      
+      $.each(data.data, function (key, contributor) {      
         var image = "<img src=\"" + contributor.avatar_url + "\" width=\"48\" height=\"48\">";
         var link = $(document.createElement('a'));
         link.attr('href','https://github.com/'+contributor.login);
