@@ -23,7 +23,7 @@ title: Quick Start Codeception
             <p class="muted">alternatively download it from terminal</p>
             <div>
               <p>
-                <code>wget http://codeception.com/codecept.phar .</code>
+                <code>wget http://codeception.com/codecept.phar</code>
               </p>
             </div>
           </div>
@@ -39,8 +39,8 @@ title: Quick Start Codeception
               </p>
             </div>
             <p class="muted">This creates
-              <b>codeception.yml</b>file and &nbsp;
-              <b>tests</b>directory.&nbsp;</p>
+              <b>codeception.yml</b> file and &nbsp;
+              <b>tests</b> directory.</p>
           </div>
         </div>
         <div class="span4">
@@ -51,7 +51,7 @@ title: Quick Start Codeception
               of a real user visiting your site.</p>
             <div>
               <p>
-                <code>php codecept.phar generate:cept Welcome</code>
+                <code>php codecept.phar generate:cept acceptance Welcome</code>
               </p>
             </div>
             <p class="muted">Codeception scenario tests are called Cepts.</p>
@@ -64,17 +64,20 @@ title: Quick Start Codeception
             <div class="well">
               <span class="badge badge-warning pull-right">Step 4</span>
               <h4>4. Write Basic Test</h4>
-              <p>It's not time to write your first test. Edit the file we've just created&nbsp;
-                <b>tests/acceptance/WelcomeCept.php&nbsp;</b>
+              <p>It's now time to write your first test. Edit the file we've just created
+                <b>tests/acceptance/WelcomeCept.php</b>
               </p>
               <div>
                 <p></p>
-                <pre>$I = new WebGuy($scenario); $I-&gt;wantTo('ensure that frontpage works');
-                  $I-&gt;amOnPage('/'); $I-&gt;see('Home');</pre>
+                <pre>
+                  $I = new WebGuy($scenario);
+                  $I->wantTo('ensure that frontpage works');                  
+                  $I->amOnPage('/'); 
+                  $I->see('Home');</pre>
                 <p></p>
               </div>
               <p class="muted">It will check that your frontpage contains the word
-                <b>Home</b>in it.</p>
+                <b>Home</b> in it.</p>
             </div>
           </div>
           <div class="span4">
@@ -85,11 +88,14 @@ title: Quick Start Codeception
                 <b>dev server</b>is running. &nbsp;Put application URL into:&nbsp;
                 <b>tests/acceptance.suite.yml</b>&nbsp;</p>
               <div>
-                <p></p>
-                <pre>class_name: WebGuy modules: enabled: [PhpBrowser, WebHelper] config: PhpBrowser:
-                  url: '
-                  <b>{YOUR APP'S URL}</b>'</pre>
-                <p></p>
+                <pre>
+class_name: WebGuy 
+modules: 
+    enabled: [PhpBrowser, WebHelper]
+    config: 
+        PhpBrowser:
+        url: '<b>{YOUR APP'S URL}</b>'
+                </pre>
               </div>
             </div>
           </div>
@@ -107,7 +113,7 @@ title: Quick Start Codeception
                 <b>PhpBrowser</b>. It's PHP script that can check HTML page contents, click
                 links, fill forms, and submit POST and GET requests. For more complex tests
                 that require a browser use Selenium with
-                <b>Selenium2</b>module.</p>
+                <b>Selenium2</b> module.</p>
             </div>
           </div>
         </div>
@@ -117,10 +123,14 @@ title: Quick Start Codeception
           <p>If you did everything right and your app has Home text on frontpage you
             will see this in output</p>
           <div>
-            <pre>Suite acceptance started Trying
-              <b>ensure that frontpage works</b>(WelcomeCept.php) - Ok Suite functional
-              started Suite unit started Time: 1 second, Memory: 21.00Mb
-              <b>OK (1 test, 1 assertions)</b>
+            <pre>
+Suite acceptance started 
+Trying to <b>ensure that frontpage works</b> (WelcomeCept.php) - Ok
+Suite functional started
+Suite unit started
+
+Time: 1 second, Memory: 21.00Mb
+<b>OK (1 test, 1 assertions)</b>
             </pre>
           </div>
         </div>
