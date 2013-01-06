@@ -65,11 +65,6 @@ body b {
 	border-radius: 5px;
 }
 
-.fixed {
-	position: fixed;
-    width: 370px;
-}	
-
 #toc ul {
 	margin: 0;
 	list-style: none;
@@ -79,6 +74,10 @@ body b {
 }
 #toc ul li {
 	margin-bottom: 3px;
+}
+
+#toc .toc {
+
 }
 
 #toc .toc-active a {
