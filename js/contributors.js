@@ -1,9 +1,10 @@
 $(document).ready(function () {
-    $.get('https://api.github.com/repos/Codeception/Codeception/contributors', '',function(data,status, jqXHR) {
 
-    if (data === undefined) {
-      data = $.parseJSON(jqXHR.responseText);
-    }
+$.ajax({
+    type: 'GET',
+    url: 'https://api.github.com/repos/Codeception/Codeception/contributors',
+    dataType: 'jsonp',
+    success: function(data,status) {
 
       $.each(data, function (key, contributor) {      
         var image = "<img src=\"" + contributor.avatar_url + "\" width=\"48\" height=\"48\">";
@@ -16,6 +17,6 @@ $(document).ready(function () {
         $('#contributors').append(link);
       });
       $('#contributors').append('<p style="clear: both">Join us, fork Codeception and submit your pull requests!</p>');
-    } , 'json');
-
+    }  
+  });
 });
