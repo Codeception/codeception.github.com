@@ -46,6 +46,7 @@ body code {
 body .highlight pre {
 	background: #333;
 	white-space: pre;
+	overflow-x: scroll;
 }
 
 body .page {
@@ -95,4 +96,27 @@ body b {
 .footer .container {
 	padding: 100px 0px;
 	background: url("/images/footer_c.png") no-repeat scroll left top transparent
+}
+
+body .dropdown-modules {
+	min-width: 300px;	
+}
+
+body .dropdown-modules li a {
+	float: left;
+	clear: none;
+	width: 110px;
+}
+
+.follow {
+	padding: 13px 0;
+}
+
+#gs_tti0 {
+	padding: 0px !important;
+}
+
+.gsc-control-cse {
+	background: transparent !important;
+	border: none !important;
 }
