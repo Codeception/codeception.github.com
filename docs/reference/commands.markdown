@@ -9,7 +9,7 @@ Depending on version run Codeception console uitility in following way:
 
 * `php codecept.phar run` - for downloaded phar executable.
 * `codecept run` - for PEAR installation
-* `php vendor/bin/codecept` -  for composer installation.
+* `vendor/bin/codecept` -  for composer installation.
 
 The commands listed below use PEAR installation as an example.
 
