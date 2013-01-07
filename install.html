@@ -38,13 +38,14 @@ title: Codeception Installation
             <p>Grab Codeception phar executable</p>
             <div>
               <p>
-                <code>php codecept.phar bootstrap</code>
+                <code>wget http://codeception.com/codecept.phar .</code>
               </p>
             </div>
+
             <p>Prepare tests directory and configs</p>
             <div>
               <p>
-                <code>wget http://codeception.com/codecept.phar .</code>
+                <code>php codecept.phar bootstrap</code>
               </p>
             </div>
           </div>
@@ -73,7 +74,7 @@ title: Codeception Installation
 <p>Run</p>
 
 <p>
-  <pre>php composer.phar install</pre>
+  <code>php composer.phar install</code>
 
 </p>
 
@@ -81,13 +82,13 @@ title: Codeception Installation
 <p>From now on Codeception (with installed PHPUnit) can be run as:</p>
 
 <p>
-<pre>vendor/bin/codecept</pre>
+<code>vendor/bin/codecept</code>
 </p>
 
 <p>Initialize your testing environment with</p>
 
 <p>
-  <pre>vendor/bin/codecept bootstrap</pre>
+  <code>vendor/bin/codecept bootstrap</code>
 </p>
 
 
@@ -98,17 +99,17 @@ title: Codeception Installation
 
 <p>Old-school style</p>
 <p>
-<pre>$ pear channel-discover codeception.com/pear</pre>
+<code>$ pear channel-discover codeception.com/pear</code>
 </p>
 
 <p>
-  <pre>$ pear install codeception/Codeception</pre>
+  <code>$ pear install codeception/Codeception</code>
 </p>
 
 <p>If you got troubles running this command, please try full package name:</p>
 
 <p>
-<pre>$ pear install codeception.github.com/pear/Codeception</pre>
+<code>$ pear install codeception.github.com/pear/Codeception</code>
 </p>
 
 <p>
@@ -119,7 +120,7 @@ Initialize your testing environment with
 </p>
 
 <p>
-<pre>$ codecept bootstrap</pre>
+<code>$ codecept bootstrap</code>
 </p>
 
         </div>
