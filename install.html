@@ -8,6 +8,7 @@ title: Codeception Installation
 
       <div class="page-header">
         <div class="pull-right well">
+          <h4>Requirements</h4>
           <strong>
             <div>PHP 5.3</div>
             <div>CURL enabled</div>
@@ -32,7 +33,7 @@ title: Codeception Installation
       <div class="row">
         <div class="span4">
           <div class="well">
-            <h3>Phar Recommended</h3>
+            <h3>Phar (Recommended)</h3>
             <a class="btn btn-large btn-success" href="#"><span class="btn-label">Download Codeception</span></a>
             <p>Grab Codeception phar executable</p>
             <div>
@@ -49,12 +50,10 @@ title: Codeception Installation
           </div>
         </div>
         <div class="span4">
-          <div class="well">
-            <h3>Composer</h3>
+          <div>
+            <h4>Composer</h4>
 
-<p>Get a <a href="http://getcomposer.org">Composer</a> to your project's root</p>
-
-<pre>curl -s http://getcomposer.org/installer | php</pre>
+<p>Install a <a href="http://getcomposer.org">Composer</a> to your project's root</p>
 
 <p>Create file <strong>composer.json</strong>:</p>
 
@@ -62,7 +61,7 @@ title: Codeception Installation
 <pre>
 {
     "require": {
-        "codeception/codeception":  "1.*@dev"
+        "codeception/codeception":  "*"
     },
     "minimum-stability": "dev"
 }        
