@@ -4,6 +4,8 @@ title: Codeception Installation
 ---
 
 
+
+
       <div class="page-header">
         <div class="pull-right well">
           <strong>
@@ -50,10 +52,79 @@ title: Codeception Installation
           <div class="well">
             <h3>Composer</h3>
 
-            
+<p>Get a <a href="http://getcomposer.org">Composer</a> to your project's root</p>
+
+<pre>curl -s http://getcomposer.org/installer | php</pre>
+
+<p>Create file <strong>composer.json</strong>:</p>
+
+<p>
+<pre>
+{
+    "require": {
+        "codeception/codeception":  "1.*@dev"
+    },
+    "minimum-stability": "dev"
+}        
+</pre>
+</p>
+
+<p>(you may specify explicit version of Codeception, instead of "*")</p>
+
+<p>Run</p>
+
+<p>
+php composer.phar install
+</p>
+
+
+<p>From now on Codeception (with installed PHPUnit) can be run as:</p>
+
+<p>
+<pre>
+vendor/bin/codecept
+</pre>
+</p>
+
+<p>Initialize your testing environment with</p>
+
+<p>
+  <pre>
+    vendor/bin/codecept bootstrap
+  </pre>
+</p>
+
+
           </div>
         </div>
         <div class="span4">
           <h4>PEAR</h4>
+
+<p>Old-school style</p>
+<p>
+<pre>$ pear channel-discover codeception.com/pear</pre>
+</p>
+
+<p>
+  <pre>$ pear install codeception/Codeception</pre>
+</p>
+
+<p>If you got troubles running this command, please try full package name:</p>
+
+<p>
+<pre>$ pear install codeception.github.com/pear/Codeception</pre>
+</p>
+
+<p>
+If this didn't work either, please try to update your PEAR or clear the PEAR cache. Also, please, check you use the same PHP for CLI and Web</p>
+
+<p>
+Initialize your testing environment with
+</p>
+
+<p>
+<pre>$ codecept bootstrap</pre>
+</p>
+
         </div>
       </div>
