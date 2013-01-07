@@ -20,6 +20,7 @@ Executes Tests.
 #### Usage
 
 * `codecept run` - executes all tests in all suites
+* `codecept run tests/suitename/testnameCept.php` - executes test by it's path.
 * `codecept run suitename` - executes all test from this suite
 * `codecept run suitename testnameTest.php` - executes one test of this suite (provide local path for suite directory). 
 
