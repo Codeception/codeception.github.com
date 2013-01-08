@@ -57,10 +57,11 @@ body .highlight pre {
 }
 
 body .page {
-	font-size: 1.2em;
-	line-height: 200%;
-	margin: 1em 0;
+	font-size: 1.3em;
+	line-height: 150%;
+	margin: 1.5em 0;
 }
+
 body b {
 	color: #666;
 }
