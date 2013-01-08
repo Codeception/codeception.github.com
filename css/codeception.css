@@ -45,6 +45,11 @@ pre code {
 	word-wrap: normal !important;
 }
 
+body #page code {
+	font-size: 15px;
+	white-space: pre;
+}
+
 body .highlight pre {
 	background: #333;
 	white-space: pre;
@@ -52,8 +57,9 @@ body .highlight pre {
 }
 
 body .page {
-	font-size: 1.2em;
-	line-height: 150%;
+	font-size: 1.1em;
+	line-height: 200%;
+	margin: 1em 0;
 }
 body b {
 	color: #666;
