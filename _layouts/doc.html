@@ -6,6 +6,15 @@ layout: bootstrap
     <div class="content page" id="page">           
       <div>
         {{ content }}
+
+
+        <div class="alert alert-warning">
+          <p class="lead">
+      Docs are incomplete? Outdated? Maybe it even misled you? Or you just found a typo? 
+      <a href="https://github.com/Codeception/Codeception/tree/master/docs">Help us improve documentation. Fork it and edit.</a>
+  </p>
+  </div>
+
       </div>  
     </div>
   </div>
@@ -42,11 +51,7 @@ layout: bootstrap
 
   </div>
 </div>
-<div class="row">
-	<p class="lead">
-			Docs are note complete? Outdated? Maybe it even mislead you? Or you just found a typo? 
-			<a href="https://github.com/codeception/codeception/docs">Help us improve documentation. Fork it and edit.</a>
-	</p>
+<div class="container">
 
 	{% include comment.html %}
 
