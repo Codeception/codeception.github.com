@@ -5,49 +5,146 @@ title: Codeception - Documentation
 
 ## Filesystem Module
 
+Module for testing local filesystem.
+Fork it to extend the module for FTP, Amazon S3, others.
+
+Module was developed to test Codeception itself.
+
 ### Actions
 
 
 #### amInPath
 
-__not documented__
+
+Enters a directory In local filesystem.
+Project root directory is used by default
+
+ * param $path
 
 
 #### copyDir
 
-__not documented__
+
+Copies directory with all contents
+
+{% highlight php %}
+
+<?php
+$I->copyDir('vendor','old_vendor');
+?>
+
+{% endhighlight %}
+
+ * param $src
+ * param $dst
 
 
 #### deleteDir
 
-__not documented__
+
+Deletes directory with all subdirectories
+
+{% highlight php %}
+
+<?php
+$I->deleteDir('vendor');
+?>
+
+{% endhighlight %}
+
+ * param $dirname
 
 
 #### deleteFile
 
-__not documented__
+
+Deletes a file
+
+{% highlight php %}
+
+<?php
+$I->deleteFile('composer.lock');
+?>
+
+{% endhighlight %}
+
+ * param $filename
 
 
 #### deleteThisFile
 
-__not documented__
+
+Deletes a file
 
 
 #### dontSeeInThisFile
 
-__not documented__
+
+Checks If opened file doesn't contain `text` in it
+
+{% highlight php %}
+
+<?php
+$I->openFile('composer.json');
+$I->seeInThisFile('codeception/codeception');
+?>
+
+{% endhighlight %}
+
+ * param $text
 
 
 #### openFile
 
-__not documented__
+
+Opens a file and stores it's content.
+
+Usage:
+
+{% highlight php %}
+
+<?php
+$I->openFile('composer.json');
+$I->seeInThisFile('codeception/codeception');
+?>
+
+{% endhighlight %}
+
+ * param $filename
 
 
 #### seeFileFound
 
-__not documented__
+
+Checks if file exists in path.
+Opens a file when it's exists
+
+{% highlight php %}
+
+<?php
+$I->seeFileFound('UserModel.php','app/models');
+?>
+
+{% endhighlight %}
+
+ * param $filename
+ * param string $path
 
 
 #### seeInThisFile
 
-__not documented__
+
+Checks If opened file has `text` in it.
+
+Usage:
+
+{% highlight php %}
+
+<?php
+$I->openFile('composer.json');
+$I->seeInThisFile('codeception/codeception');
+?>
+
+{% endhighlight %}
+
+ * param $text

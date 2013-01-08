@@ -104,6 +104,16 @@ $I->attachFile('prices.xls');
 Ticks a checkbox.
 For radio buttons use `selectOption` method.
 
+Example:
+
+{% highlight php %}
+
+<?php
+$I->checkOption('#agree');
+?>
+
+{% endhighlight %}
+
  * param $option
 
 
@@ -483,6 +493,15 @@ Note, that pricing plan will be set to Paid, as it's selected on page.
 
 
 Unticks a checkbox.
-For radio buttons use `selectOption` method.
+
+Example:
+
+{% highlight php %}
+
+<?php
+$I->uncheckOption('#notify');
+?>
+
+{% endhighlight %}
 
  * param $option
