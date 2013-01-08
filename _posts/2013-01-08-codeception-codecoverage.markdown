@@ -12,7 +12,7 @@ There is no magic in local codecoverage. XDebug and PHP_CodeCoverage libraries d
 
 ![code coverage](http://codeception.com/images/coverage.png)
 
-Thanks to **tiger-seo** for codecoverage feature. He did a great job developing a remote script `c3.php` which is a unique in it's way.
+Thanks to **[tiger-seo](https://github.com/tiger-seo)** for codecoverage feature. He did a great job developing a remote script `c3.php` which is a unique in it's way.
 
 But back to Codeception. As you may've noticed our website is updated too. Documentation was improved, search was added, and nice [Quickstart](http://codeception.com/quickstart) page added too. So if you didn't try Codeception yet, it's very easy to start now. In only 6 steps.
 
@@ -24,17 +24,17 @@ Two useful modules were introduced by [judgedim](https://github.com/judgedim). W
 
 Now you can execute a test by providing relative path to test, like.
 
-```
+{% highlight bash %}
 php codecept.phar tests/acceptance/SignInCept.php
-```
+{% endhighlight %}
 
 This small tweak imprioves user experience for *nix users as they can use autocompletion when running a test.
 
  Also you can run test from one specific directory, i.e. match a group of tests:
 
- ```
- php codecept.phar tests/acceptance/admin
- ```
+{% highlight bash %}
+php codecept.phar tests/acceptance/admin
+{% endhighlight %}
 
 ### Bugfixes
 
