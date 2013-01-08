@@ -38,7 +38,7 @@ php codecept.phar tests/acceptance/admin
 
 ### Bugfixes
 
-Composer package is now working again =) It's really hard to follow the stability in the world of constant changes, so we recommend use of `phar` for testing, just because it's prepackaged and always runs as expected. But if you use Composer it's easy to add Codeception to your vendors and receive all new updates with new release. Don't forget to mark `@stable` Codeception version.
+Composer package is works again. It's really hard to follow the stability in the world of constant changes, so we recommend use of `phar` for testing, just because it's prepackaged and always runs as expected. But if you use Composer it's easy to add Codeception to your vendors and receive all new updates with new release. Don't forget to mark `@stable` Codeception version.
 
 ### Install
 
