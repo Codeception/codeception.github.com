@@ -42,7 +42,7 @@ Composer package is now working again =) It's really hard to follow the stabilit
 
 ### Install
 
-As usual, Codeception 1.1.5 can be [downloaded from site](http://codeception.com/thanks.html),
+As usual, Codeception 1.5.0 can be [downloaded from site](http://codeception.com/thanks.html),
 
 installed via PEAR
 
