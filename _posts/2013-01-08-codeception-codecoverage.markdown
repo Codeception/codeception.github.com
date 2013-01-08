@@ -4,11 +4,11 @@ layout: post
 date: 2013-01-08 01:03:50
 ---
 
-We'd like to announce new Codeception major release. This time our major improvements are CodeCoverage and Remote CodeCoverage added. These features allows you to collect code coverage reports for all your tests: unit, functional, and acceptance and merge them together. So now you can review what parts of your applications are tested and which are not even for Selenium and PhpBrowser tests which are executed on a webserver.
+We'd like to announce new Codeception 1.5 major release. This time our improvements are CodeCoverage and Remote CodeCoverage added. These features allows you to collect code coverage reports for all your tests: unit, functional, and acceptance and merge them together. So now you can review what parts of your applications are tested and which are not even for Selenium and PhpBrowser tests which are executed on a webserver.
 
 [Read more](http://codeception.com/docs/11-CodeCoverage) in the new Guides chapter.
 
-There is no magic in local codecoverage. XDebug and PHP_CodeCoverage libraries do their job. The tricky thing is remote codecoverage. We attach small script into application's front controller. When a special header is sent this script starts to collect coverage information. And in the end of tests, this data is merged, serialized and sent back to Codeception. So you can test and collect coverage report even on staging servers in real environment.
+There is no magic in local codecoverage. **XDebug** and **PHP_CodeCoverage** libraries do their job. The tricky thing is remote codecoverage. We attach small script into application's front controller. When a special header is sent this script starts to collect coverage information. And in the end of tests, this data is merged, serialized and sent back to Codeception. So you can test and collect coverage report even on staging servers in real environment.
 
 ![code coverage](http://codeception.com/images/coverage.png)
 
