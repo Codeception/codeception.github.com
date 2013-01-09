@@ -75,7 +75,7 @@ Example:
 {% highlight php %}
 
 <?php
-$mail = $I->grabFromDatabase('users', array('name' => 'Davert'));
+$mail = $I->grabFromDatabase('users', 'email', array('name' => 'Davert'));
 
 
 {% endhighlight %}
