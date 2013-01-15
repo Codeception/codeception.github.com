@@ -3,7 +3,7 @@ layout: doc
 title: Codeception - Documentation
 ---
 
-## MongoDb Module
+# MongoDb Module
 
 Works with MongoDb database.
 

@@ -3,7 +3,7 @@ layout: doc
 title: Codeception - Documentation
 ---
 
-## Doctrine2 Module
+# Doctrine2 Module
 
 Allows integration and testing for projects with Doctrine2 ORM.
 

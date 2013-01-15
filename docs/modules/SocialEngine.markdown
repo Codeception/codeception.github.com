@@ -3,7 +3,7 @@ layout: doc
 title: Codeception - Documentation
 ---
 
-## SocialEngine Module
+# SocialEngine Module
 
 This module provides integration with [Social Engine](http://www.socialengine.net/) v4.
 

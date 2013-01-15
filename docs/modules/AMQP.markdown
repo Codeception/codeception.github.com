@@ -3,7 +3,7 @@ layout: doc
 title: Codeception - Documentation
 ---
 
-## AMQP Module
+# AMQP Module
 
 This module interacts with message broker software that implements
 the Advanced Message Queuing Protocol (AMQP) standard. For example, RabbitMQ.

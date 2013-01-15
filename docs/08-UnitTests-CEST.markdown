@@ -323,3 +323,7 @@ If you don't use ORMs and MySQL, consider using SQLite for testing instead.
 ## Conclusion
 
 Codeception has it's powers and it's limits. We believe Codeception's limitations keep your tests clean and narrative. Codeception makes writing bad code for tests more difficult. Codeception has simple but powerful tools to create stubs and mocks. Different modules can be attached to unit tests which, just for an example, will simplify database interactions. 
+
+
+* Previous Chapter: [UnitTestsScenarios](/docs/07-UnitTestsScenarios)
+* Next Chapter: [Data](/docs/09-Data)

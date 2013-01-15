@@ -3,7 +3,7 @@ layout: doc
 title: Codeception - Documentation
 ---
 
-## SOAP Module
+# SOAP Module
 
 Module for testing SOAP WSDL web services.
 Send requests and check if response matches the pattern.

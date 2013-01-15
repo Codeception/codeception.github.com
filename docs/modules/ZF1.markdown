@@ -3,7 +3,7 @@ layout: doc
 title: Codeception - Documentation
 ---
 
-## ZF1 Module
+# ZF1 Module
 
 This module allows you to run tests inside Zend Framework.
 It acts just like ControllerTestCase, but with usage of Codeception syntax.

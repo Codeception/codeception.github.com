@@ -3,7 +3,7 @@ layout: doc
 title: Codeception - Documentation
 ---
 
-## Unit Module
+# Unit Module
 
 Unit testing module
 

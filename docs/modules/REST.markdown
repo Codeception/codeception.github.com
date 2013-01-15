@@ -3,7 +3,7 @@ layout: doc
 title: Codeception - Documentation
 ---
 
-## REST Module
+# REST Module
 
 Module for testing REST WebService.
 
