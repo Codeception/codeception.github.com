@@ -169,6 +169,6 @@ This makes your tests shorter and faster. In other cases, if you don't use frame
 If you are using a framework other than the ones listed here, create a module for it and share it with community.
 
 
-*continue reading...*
+
 * **Previous Chapter**: [AcceptanceTests](/docs/04-AcceptanceTests)
 * **Next Chapter**: [UnitTests-TEST](/docs/06-UnitTests-TEST)
