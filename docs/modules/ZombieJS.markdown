@@ -3,7 +3,7 @@ layout: doc
 title: Codeception - Documentation
 ---
 
-## ZombieJS Module
+# ZombieJS Module
 
 * Uses Mink to manipulate Zombie.js headless browser (http://zombie.labnotes.org/)
 *

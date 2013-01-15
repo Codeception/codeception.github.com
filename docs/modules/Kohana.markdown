@@ -3,7 +3,7 @@ layout: doc
 title: Codeception - Documentation
 ---
 
-## Kohana Module
+# Kohana Module
 
 This module provides integration with [Kohana](http://kohanaframework.org/) v3.
 Current status is PRE ALFA=)

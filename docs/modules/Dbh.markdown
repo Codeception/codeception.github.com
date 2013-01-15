@@ -3,7 +3,7 @@ layout: doc
 title: Codeception - Documentation
 ---
 
-## Dbh Module
+# Dbh Module
 
 This module replaces Db module for functional and unit testing, and requires PDO instance to be set.
 Be default it will cover all database queries into transaction and rollback it afterwards.

@@ -3,7 +3,7 @@ layout: doc
 title: Codeception - Documentation
 ---
 
-## Db Module
+# Db Module
 
 Works with SQL dabatase.
 
