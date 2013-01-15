@@ -42,7 +42,7 @@ The REST module will automatically connect to PhpBrowser. In case you provide it
 Let's create the first sample test:
 
 {% highlight php %}
- codecept.phar api CreateUser
+ codecept.phar generate:cept api CreateUser
 
 {% endhighlight %}
 
