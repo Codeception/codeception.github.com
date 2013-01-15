@@ -396,5 +396,5 @@ Writing acceptance tests with Codeception and PhpBrowser is a good start. You ca
 
 
 
-* **Previous Chapter**: [Modules](/docs/03-Modules)
-* **Next Chapter**: [FunctionalTests](/docs/05-FunctionalTests)
+* **Next Chapter: [FunctionalTests >](/docs/05-FunctionalTests)**
+* **Previous Chapter: [< Modules](/docs/03-Modules)**

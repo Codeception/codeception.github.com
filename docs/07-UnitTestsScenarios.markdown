@@ -209,5 +209,5 @@ Codeception provides you with a cool DSL to simplify your unit tests. You are wr
 
 
 
-* **Previous Chapter**: [UnitTests-TEST](/docs/06-UnitTests-TEST)
-* **Next Chapter**: [UnitTests-CEST](/docs/08-UnitTests-CEST)
+* **Next Chapter: [UnitTests-CEST >](/docs/08-UnitTests-CEST)**
+* **Previous Chapter: [< UnitTests-TEST](/docs/06-UnitTests-TEST)**

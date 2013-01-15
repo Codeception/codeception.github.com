@@ -142,4 +142,4 @@ It could be called a BDD framework. All Codeception tests are written in a descr
 
 
 
-* **Next Chapter**: [GettingStarted](/docs/02-GettingStarted)
+* **Next Chapter: [GettingStarted >](/docs/02-GettingStarted)**

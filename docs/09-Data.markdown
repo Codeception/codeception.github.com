@@ -249,5 +249,5 @@ To manipulate sample data in a test, use fixtures that can be defined within the
 
 
 
-* **Previous Chapter**: [UnitTests-CEST](/docs/08-UnitTests-CEST)
-* **Next Chapter**: [WebServices](/docs/10-WebServices)
+* **Next Chapter: [WebServices >](/docs/10-WebServices)**
+* **Previous Chapter: [< UnitTests-CEST](/docs/08-UnitTests-CEST)**

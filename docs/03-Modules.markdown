@@ -373,5 +373,5 @@ Fork the Codeception repository, put the module into the `src/Codeception/Module
 
 
 
-* **Previous Chapter**: [GettingStarted](/docs/02-GettingStarted)
-* **Next Chapter**: [AcceptanceTests](/docs/04-AcceptanceTests)
+* **Next Chapter: [AcceptanceTests >](/docs/04-AcceptanceTests)**
+* **Previous Chapter: [< GettingStarted](/docs/02-GettingStarted)**

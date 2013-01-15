@@ -213,5 +213,5 @@ PHPUnit tests is a first-class citizen in test suites. Whenever you need to writ
 
 
 
-* **Previous Chapter**: [FunctionalTests](/docs/05-FunctionalTests)
-* **Next Chapter**: [UnitTestsScenarios](/docs/07-UnitTestsScenarios)
+* **Next Chapter: [UnitTestsScenarios >](/docs/07-UnitTestsScenarios)**
+* **Previous Chapter: [< FunctionalTests](/docs/05-FunctionalTests)**
