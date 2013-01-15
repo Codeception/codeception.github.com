@@ -205,5 +205,7 @@ class ApiHelper extends \Codeception\Module {
 ## Conclusion
 
 Codeception has two modules that will help you to test various web services. They need a new `api` suite to be created. Remember, you are not limited to test only response body. By including Db module you may check if a user was created after the `CreateUser` call. You can improve testing scenarios by using REST or SOAP responses in your helper methods.
-Previous Chapter: [Data](/docs/09-Data)
-Next Chapter: [Codecoverage](/docs/11-Codecoverage)
+
+
+* Previous Chapter: [Data](/docs/09-Data)
+* Next Chapter: [Codecoverage](/docs/11-Codecoverage)
