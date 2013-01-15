@@ -167,3 +167,5 @@ But you can demonstrate a sample application with your framework which uses Code
 Functional tests are great if you are using powerful frameworks. By using functional tests you can access and manipulate their internal state. 
 This makes your tests shorter and faster. In other cases, if you don't use frameworks, there is no practical reason to write functional tests.
 If you are using a framework other than the ones listed here, create a module for it and share it with community.
+Previous Chapter: [AcceptanceTests](/docs/04-AcceptanceTests)
+Next Chapter: [UnitTests-TEST](/docs/06-UnitTests-TEST)

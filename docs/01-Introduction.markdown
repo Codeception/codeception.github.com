@@ -139,3 +139,4 @@ $I->seeInDatabase('users', array('id' => 1, 'username' => 'miles'));
 Despite the wide popularity of TDD, few PHP developers ever write automatic tests for their applications. The Codeception framework was developed to make the testing actually fun. It allows writing unit, functional, integration, and acceptance tests in one style.
 
 It could be called a BDD framework. All Codeception tests are written in a descriptive manner. Just by looking in the test body you can get a clear understanding of what is being tested and how it is performed. Even complex tests with many assertions are written in a simple PHP DSL.
+Next Chapter: [GettingStarted](/docs/02-GettingStarted)
