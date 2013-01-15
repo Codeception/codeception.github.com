@@ -212,5 +212,6 @@ PHPUnit tests are very cool, but for complex tests you want to have more strict 
 PHPUnit tests is a first-class citizen in test suites. Whenever you need to write and execute unit tests, you don't need to install PHPUnit manually, but use a Codeception to execute them. Some nice features are added to common unit tests by integrating Codeception modules. For most of unit and integration testing PHPUnit tests are just enough. They are fast and easy to maintain. But when you need some advanced features like mocking, use the special Cest format, described in next chapters.
 
 
-* Previous Chapter: [FunctionalTests](/docs/05-FunctionalTests)
-* Next Chapter: [UnitTestsScenarios](/docs/07-UnitTestsScenarios)
+*continue reading...*
+* **Previous Chapter**: [FunctionalTests](/docs/05-FunctionalTests)
+* **Next Chapter**: [UnitTestsScenarios](/docs/07-UnitTestsScenarios)
