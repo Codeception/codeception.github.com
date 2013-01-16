@@ -3,7 +3,7 @@ layout: doc
 title: Codeception - Documentation
 ---
 
-## WebDebug Module
+# WebDebug Module
 
 This is a mini-module with helper actions to debug acceptance tests.
 Use it with Selenium, Selenium2, ZombieJS, or PhpBrowser module.
@@ -28,7 +28,7 @@ class_name: WebGuy
 modules:
      enabled:
          - Selenium
-         - WebDebug ## <-- this module
+         - WebDebug # <-- this module
          - WebHelper
          - Db 
      config:

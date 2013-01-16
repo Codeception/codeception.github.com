@@ -3,7 +3,7 @@ layout: doc
 title: Codeception - Documentation
 ---
 
-## Filesystem Module
+# Filesystem Module
 
 Module for testing local filesystem.
 Fork it to extend the module for FTP, Amazon S3, others.

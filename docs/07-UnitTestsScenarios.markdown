@@ -206,3 +206,8 @@ That's because you can't test the method `render` invoked once and not invoked i
 
 You are free to decide the testing framework you will use for unit tests. Codeception and PHPUnit run the same engine.
 Codeception provides you with a cool DSL to simplify your unit tests. You are writing the scenario definitions, not the actual executed code. Behind the scenes all the dirty work is done by Codeception. You write only the testing logic.
+
+
+
+* **Next Chapter: [UnitTests-CEST >](/docs/08-UnitTests-CEST)**
+* **Previous Chapter: [< UnitTests-TEST](/docs/06-UnitTests-TEST)**

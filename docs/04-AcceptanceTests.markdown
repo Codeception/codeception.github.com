@@ -377,7 +377,7 @@ class WebHelper extends \Codeception\Module {
 
     function seeResponseIsPrettyLong($size = 3000) {
         $session = $this->getModule('PhpBrowser')->session;
-        $content = $session->getPage()->getConetent();
+        $content = $session->getPage()->getContent();
         $this->assertGreaterThen($size, strlen($content));
     }
 }
@@ -392,3 +392,9 @@ And in the end we performed assertion on current content.
 ## Conclusion
 
 Writing acceptance tests with Codeception and PhpBrowser is a good start. You can easily test your Joomla, Drupal, Wordpress sites, as well as those made with frameworks. Writing acceptance tests is like describing a tester's actions in PHP. They are quite readable and very easy to write. Don't forget to repopulate the database on each test run.
+
+
+
+
+* **Next Chapter: [FunctionalTests >](/docs/05-FunctionalTests)**
+* **Previous Chapter: [< Modules](/docs/03-Modules)**

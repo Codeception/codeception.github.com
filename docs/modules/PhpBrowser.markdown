@@ -3,7 +3,7 @@ layout: doc
 title: Codeception - Documentation
 ---
 
-## PhpBrowser Module
+# PhpBrowser Module
 
 Uses [Mink](http://mink.behat.org) with [Goutte](https://github.com/fabpot/Goutte) and [Guzzle](http://guzzlephp.org/) to interact with your application over CURL.
 

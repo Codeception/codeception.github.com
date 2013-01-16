@@ -3,7 +3,7 @@ layout: doc
 title: Codeception - Documentation
 ---
 
-## XMLRPC Module
+# XMLRPC Module
 
 Module for testing XMLRPC WebService.
 

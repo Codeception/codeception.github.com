@@ -245,3 +245,9 @@ Using fixtures simplifies your testing code. Name your fixtures wisely and your 
 
 Codeception is not abandoning the developer when dealing with data. Tools for database population and cleanups are bundled within the Db module.
 To manipulate sample data in a test, use fixtures that can be defined within the bootstrap file.
+
+
+
+
+* **Next Chapter: [WebServices >](/docs/10-WebServices)**
+* **Previous Chapter: [< UnitTests-CEST](/docs/08-UnitTests-CEST)**

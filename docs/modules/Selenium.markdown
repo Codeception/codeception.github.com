@@ -3,7 +3,7 @@ layout: doc
 title: Codeception - Documentation
 ---
 
-## Selenium Module
+# Selenium Module
 
 
 Uses Mink to launch and manipulate Selenium Server (formerly the Selenium RC Server).

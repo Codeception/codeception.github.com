@@ -3,7 +3,7 @@ layout: doc
 title: Codeception - Documentation
 ---
 
-## Redis Module
+# Redis Module
 
 Works with Redis database.
 

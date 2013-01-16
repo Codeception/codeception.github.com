@@ -3,7 +3,7 @@ layout: doc
 title: Codeception - Documentation
 ---
 
-## Selenium2 Module
+# Selenium2 Module
 
 Uses Mink to manipulate Selenium2 WebDriver
 
@@ -584,9 +584,9 @@ Example:
 {% highlight php %}
 
 <?php
-## switch to iframe
+# switch to iframe
 $I->switchToIFrame("another_frame");
-## switch to parent page
+# switch to parent page
 $I->switchToIFrame();
 
 
@@ -612,9 +612,9 @@ Example:
 
 <?php
 $I->click("Open window");
-## switch to another window
+# switch to another window
 $I->switchToWindow("another_window");
-## switch to parent window
+# switch to parent window
 $I->switchToWindow();
 
 

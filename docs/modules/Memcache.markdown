@@ -3,7 +3,7 @@ layout: doc
 title: Codeception - Documentation
 ---
 
-## Memcache Module
+# Memcache Module
 
 Connects to [memcached](http://www.memcached.org/) using either _Memcache_ or _Memcached_ exitnsion.
 
