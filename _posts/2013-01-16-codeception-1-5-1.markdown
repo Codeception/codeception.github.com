@@ -11,9 +11,9 @@ This bug was fixed and last version 1.5.1, ready for download.
 
 A simple improvement was introduced by [DevMan](https://github.com/Dev-Man). It allows you to execute Codeception from any directory if you set a path to config file with a `-c` parameter.
 
-```
+{% highlight bash %}
 php codecept.phar run -c /var/myproject/codeception.yml
-```
+{% endhighlight %}
 
 And finally we are back green on Travis. We had some issues with Travis infrastructure (not the tests), but we managed to solve them. Did you know that it takes **8 minutes** to run all internal tests of Codeception? Yeah, we've got lots of tests )
 
@@ -23,6 +23,6 @@ And finally we are back green on Travis. We had some issues with Travis infrastr
 
 Please [redownload](http://codeception.com/thanks.html) your `codeception.phar` for update:
 
-```
+{% highlight bash %}
 wget http://codeception.com/codecept.phar -O codecept.phar
-```
+{% endhighlight %}
