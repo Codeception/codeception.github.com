@@ -30,7 +30,35 @@ class UserCest {
 
 {% endhighlight %}
 
-In most cases, we will probably test exactly one method. As we discovered, it's quite easy to define the class and method you are going to test. We take the `$class` parameter of the Cest class, and the method's name as a target method.
+Let's create first test with `generate:cest` command:
+
+{% highlight yaml %}
+bash
+$ php codecept.phar generate:cest unit Post
+
+{% endhighlight %}
+
+At first we need to define with `$class` preoperty the class which is being actually tested.
+
+{% highlight php %}
+
+<?php
+class PostCest {
+	$class = 'Post';
+
+	function shouldBe(CodeGuy $I)
+	{
+
+	}
+}
+?>
+
+{% endhighlight %}
+
+
+This will create an empty Cest file for us.
+
+There are many cases whre we test only one method of a class. As we discovered, it's quite easy to define the class and method you are going to test. We take the `$class` parameter of the Cest class, and the method's name as a target method.
 
 {% highlight php %}
 
@@ -119,8 +147,6 @@ Example bootstrap file (`tests/unit/_bootstrap.php`)
 {% highlight php %}
 
 <?php
-require_once 'PHPUnit/Framework/Assert/Functions.php';
-
 require_once __DIR__.'/../../config.xml';
 
 MyApplication::autoload();
