@@ -141,5 +141,5 @@ Despite the wide popularity of TDD, few PHP developers ever write automatic test
 It could be called a BDD framework. All Codeception tests are written in a descriptive manner. Just by looking in the test body you can get a clear understanding of what is being tested and how it is performed. Even complex tests with many assertions are written in a simple PHP DSL.
 
 
-*continue reading...*
-* **Next Chapter**: [GettingStarted](/docs/02-GettingStarted)
+
+* **Next Chapter: [GettingStarted >](/docs/02-GettingStarted)**

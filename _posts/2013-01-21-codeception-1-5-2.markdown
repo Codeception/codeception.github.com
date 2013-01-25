@@ -1,0 +1,83 @@
+---
+title: Codecepion 1.5.2
+layout: post
+date: 2013-01-21 01:03:50
+---
+
+Yet another minor release. It introduces more compact form for unit tests.
+
+{% highlight php %}
+<?php
+use Codeception\Util\Stub;
+
+class UserRepositoryTest extends Codeception\TestCase\Test
+{
+    protected function _before()
+    {
+        $this->user = new User();
+    }
+
+    public function testUserIsNotAdmin()
+    {
+        $this->assertFalse($user->isAdmin());
+    }
+
+}
+?>
+{% endhighlight%}
+
+We moved all Codeception's setUp and tearDown routine into parrent class and left you more clean `_before` and `_after` methods for your preperations.
+They act just the same as `setUp` and `tearDown` for PHPUnit. So `_before` is executed before each test and `_after` after it.
+Tests should look more clean now. If your tests already have setUp and tearDown methods nothing is changed for them.
+
+### Accessing Modules in Unit Tests
+
+Another nice feature for Symfony2 users and not only them. Form now on you can access a module from your unit test.
+This is done to access public properties of your module. For example, here is how you can retrieve a **Symfony Dependency Injection Container**:
+
+{% highlight php %}
+<?php
+protected function _before() 
+{
+	/**
+	* @var $container Symfony\Component\DependencyInjection\Container
+	*/
+	$container = $this->getModule('Symfony2')->container;
+	$this->em = $container->get('doctrine');
+}
+?>
+{% endhighlight%}
+
+Also we'd like to announce the upcoming modules for **Yii** and **Laravel** frameworks.
+
+In the meantime we will release more complete guides on How to integrate framework to Codeception.
+
+### Bugfixes
+
+* Composer build is finally is stable and doesn't require `minimal-stability: dev`. Thanks to: [jacobkiers](https://github.com/jacobkiers).
+* Adding support of `pecl_http` by [phpcodemonkey](https://github.com/phpcodemonkey).
+* Methods of Guy received documentation and examples (phar bug).
+* `generate:cest` command requires a tested class name no more.
+* [PostgreSQL](https://github.com/Codeception/Codeception/issues/117) driver improved .
+
+### Update
+
+ [redownload](http://codeception.com/thanks.html) your `codeception.phar` for update:
+
+{% highlight bash %}
+wget http://codeception.com/codecept.phar -O codecept.phar
+{% endhighlight %}
+
+for composer version
+
+{% highlight bash %}
+$ php composer.phar update
+{% endhighlight %}
+
+or via PEAR:
+
+{% highlight bash %}
+$ pear install codeception/Codeception
+{% endhighlight %}
+
+

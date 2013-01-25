@@ -208,6 +208,6 @@ You are free to decide the testing framework you will use for unit tests. Codece
 Codeception provides you with a cool DSL to simplify your unit tests. You are writing the scenario definitions, not the actual executed code. Behind the scenes all the dirty work is done by Codeception. You write only the testing logic.
 
 
-*continue reading...*
-* **Previous Chapter**: [UnitTests-TEST](/docs/06-UnitTests-TEST)
-* **Next Chapter**: [UnitTests-CEST](/docs/08-UnitTests-CEST)
+
+* **Next Chapter: [UnitTests-CEST >](/docs/08-UnitTests-CEST)**
+* **Previous Chapter: [< UnitTests-TEST](/docs/06-UnitTests-TEST)**
