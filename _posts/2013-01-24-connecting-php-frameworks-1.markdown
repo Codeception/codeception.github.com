@@ -66,11 +66,9 @@ class MyFrameworkModule extends \Codeception\Util\Framework {
 	}
 }
 ?>
-{% endhighlight }
+{% endhighlight %}
 
 And basically that's all you need for integration. The Client class has everything to simulate requests and parse responses. Every module that extends `Codeception\Util\Framework` class will have actions: `click`, `see`, `fillField`, defined and documented in `Codeception\Util\FrameworkInterface`. This actions will work in just the same manner as for other frameworks. And it's really cool, that testing client is not aware of framework it is testing. All methods and their behavior are just the same. So tests for Symfony2, Zend, or your newly integrated frameworks will look just the same.
-
-## Extending Module's Features
 
 Still you may want to add something special for your framework. Maybe some additional initialization steps, or new actions. Let's say a framework you integrate have methods to authenticate a user by name. Why not to use this ability and to make a short cut for logging in?
 
@@ -103,7 +101,7 @@ class MyFrameworkModule extends \Codeception\Util\Framework {
 	}
 }
 ?>
-{% endhighlight }
+{% endhighlight %}
 
 So now we can write a test like this:
 
@@ -114,7 +112,7 @@ $I->amLoggedAs('davert');
 $I->amOnPage('/user/profile');
 $I->see('Davert');
 ?>
-{% endhighlight }
+{% endhighlight %}
 
 As you see, framework integration allows us to access it's internals. Services, classes, configurations, etc. Please add methods that you think may be useful for other developers that will write functional tests.
 Also you can display some technical details with `debug` and `debugSection` methods.
@@ -127,7 +125,9 @@ class MyFrameworkModule extends \Codeception\Util\Framework {
 	public $kernel;
 }	
 ?>
-{% endhighlight }
+{% endhighlight %}
+
+In helper:
 
 {% highlight php %}
 <?php 
@@ -140,7 +140,7 @@ class TestHelper extends Codeception\Module {
 	}
 }
 ?>
-{% endhighlight }
+{% endhighlight %}
 
 In case you want to provide flexibility you can add configurable parameters to your module.
 Let's update our example to use additional parameters.
