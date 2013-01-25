@@ -70,6 +70,8 @@ class MyFrameworkModule extends \Codeception\Util\Framework {
 
 And basically that's all you need for integration. The Client class has everything to simulate requests and parse responses. Every module that extends `Codeception\Util\Framework` class will have actions: `click`, `see`, `fillField`, defined and documented in `Codeception\Util\FrameworkInterface`. This actions will work in just the same manner as for other frameworks. And it's really cool, that testing client is not aware of framework it is testing. All methods and their behavior are just the same. So tests for Symfony2, Zend, or your newly integrated frameworks will look just the same.
 
+## Extending Module's Features
+
 Still you may want to add something special for your framework. Maybe some additional initialization steps, or new actions. Let's say a framework you integrate have methods to authenticate a user by name. Why not to use this ability and to make a short cut for logging in?
 
 {% highlight php %}
