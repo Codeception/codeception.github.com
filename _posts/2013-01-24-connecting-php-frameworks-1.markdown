@@ -41,7 +41,6 @@ Let's narrow it to example.
 {% highlight php %}
 <?php
 namespace Codeception\Module;
-use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\HttpKernel\Client;
 
 class MyFrameworkModule extends \Codeception\Util\Framework {
@@ -49,7 +48,7 @@ class MyFrameworkModule extends \Codeception\Util\Framework {
 	public function _initialize()
 	{
 		// $app implements HttpKernelInterface
-		$app = require_once Codeception\Configuration::projectDir().'/app.php';
+		$app = require_once \Codeception\Configuration::projectDir().'/app.php';
 		$app->setEnvironment('test');
 		$this->kernel = $app;
 	}
