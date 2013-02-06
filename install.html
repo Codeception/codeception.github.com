@@ -55,29 +55,18 @@ title: Codeception Installation
             <h4>Composer</h4>
 
 <p>Install a <a href="http://getcomposer.org">Composer</a> to your project's root</p>
-<p>Create file <strong>composer.json</strong>:</p>
-<p>
-<pre>
-{
-    "require": {
-        "codeception/codeception":  "@stable"
-    }
-}        
-</pre>
-</p>
 
 <p>Run</p>
 
 <p>
-  <code>php composer.phar install</code>
-
+  <code>php composer.phar require "codeception/codeception:@stable"</code>
 </p>
 
 
 <p>From now on Codeception (with installed PHPUnit) can be run as:</p>
 
 <p>
-<code>vendor/bin/codecept</code>
+  <code>vendor/bin/codecept</code>
 </p>
 
 <p>Initialize your testing environment with</p>
