@@ -1,10 +1,10 @@
 ---
-title: Codecepion 1.5.3
+title: Codeception 1.5.3
 layout: post
 date: 2013-02-08 01:03:50
 ---
 
-**Urgent fix for Selenium2 module**. It appeared that [Selenium sessions were not restarting](https://github.com/Codeception/Codeception/issues/112). The Travis-CI didn't revealed this problem. Selenium tests were passing as usual, just because there were no session related tasks. Main purpose for 1.5.3 was to release this fix. Some other fixes are also included, but it's the most important one. 
+**Urgent fix for Selenium2 module**. It appeared that [Selenium sessions were not restarting](https://github.com/Codeception/Codeception/issues/112). The Travis-CI didn't reveal this problem. Selenium tests were passing as usual, just because there were no session related tasks. Main purpose for 1.5.3 was to release this fix. Some other fixes are also included, but it's the most important one. 
 
 ### Modules
 
