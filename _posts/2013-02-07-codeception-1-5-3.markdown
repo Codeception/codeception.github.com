@@ -1,0 +1,49 @@
+---
+title: Codecepion 1.5.3
+layout: post
+date: 2013-02-08 01:03:50
+---
+
+**Urgent fix for Selenium2 module**. It appeared that [Selenium sessions were not restarting](https://github.com/Codeception/Codeception/issues/112). The Travis-CI didn't revealed this problem. Selenium tests were passing as usual, just because there were no session related tasks. Main purpose for 1.5.3 was to release this fix. Some other fixes are also included, but it's the most important one. 
+
+### Modules
+
+In this release we also introduce very basic implementation of Yii module by [Ragazzo](https://github.com/Ragazzo). If you use **Yii**, please try it and help us improve Yii integration. 
+
+Also we've got some improvements for [AMQP](/docs/modules/AMQP) module. Not only queues are cleaned up between tests, but also you can check if messages came to queue, grab them from queues, or publish new messages. This module was tested with RabbitMQ, but it should work with other AMQP providers too. This module is based on [php-amqplib](https://github.com/videlalvaro/php-amqplib).
+
+### Generators
+
+From now on you can generate classical PHPUnit tests, with no Codeception stuff in it. Just the plain old PHPUnit tests that you can run natively with PHPUnit itself.
+For this we have new command `generate:phpunit`
+
+Use it as regular:
+
+{% highlight bash %}
+php codecept.phar generate:phpunit NewTest
+{% endhighlight %}
+
+Also generators now support namespaces. So when you type class name with namespaced, Codeception will generate directories (according to PSR-0) and will put `namespace` into your newly generated file. 
+
+Check out sample usages.
+
+{% highlight bash %}
+php codecept.phar generate:cest \\Entity\\User
+php codecept.phar generate:test \\Entity\\User
+php codecept.phar generate:phpunit unit \Entity\\User
+php codecept.phar generate:phpunit unit "\Entity\User"
+{% endhighlight %}
+
+### Update
+
+ [redownload](http://codeception.com/thanks.html) your `codeception.phar` for update:
+
+{% highlight bash %}
+wget http://codeception.com/codecept.phar -O codecept.phar
+{% endhighlight %}
+
+for composer version
+
+{% highlight bash %}
+$ php composer.phar update
+{% endhighlight %}
