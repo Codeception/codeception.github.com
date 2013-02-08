@@ -16,7 +16,7 @@ Otherwise sends raw HTTP requests to url via PHPBrowser.
 ### Status
 
 * Maintainer: **tiger-seo**, **davert**
-* stability: stable
+* Stability: **stable**
 * Contact: codecept@davert.mail.ua
 * Contact: tiger.seo@gmail.com
 

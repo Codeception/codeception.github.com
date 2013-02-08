@@ -14,7 +14,7 @@ This module cleans all cached data after each test.
 ### Status
 
 * Maintainer: **davert**
-* stability: stable
+* Stability: **stable**
 * Contact: codecept@davert.mail.ua
 
 ### Config
