@@ -4,7 +4,7 @@ title: Codeception - Documentation
 ---
 
 # Doctrine2 Module
-
+**For additional reference,, please review the [source](https://github.com/Codeception/Codeception/tree/master/src/Codeception/Module/Doctrine2)**
 Allows integration and testing for projects with Doctrine2 ORM.
 
 Doctrine2 uses EntityManager to perform all database operations.
@@ -20,6 +20,11 @@ It can be done in bootstrap file, by setting static $em property:
 
 
 {% endhighlight %}
+### Status
+
+* Maintainer: **davert**
+* Stability: **stable**
+* Contact: codecept@davert.mail.ua
 
 ### Config
 
@@ -42,6 +47,30 @@ Flushes changes to database and performs ->findOneBy() call for current reposito
 
 
 Performs $em->flush();
+
+
+#### grabFromRepository
+
+
+Selects field value from repository.
+It builds query based on array of parameters.
+You can use entity associations to build complex queries.
+
+Example:
+
+{% highlight php %}
+
+<?php
+$email = $I->grabFromRepository('User', 'email', array('name' => 'davert'));
+?>
+
+{% endhighlight %}
+
+ * version 1.1
+ * param $entity
+ * param $field
+ * param array $params
+ * return array
 
 
 #### haveFakeRepository

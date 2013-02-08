@@ -4,22 +4,30 @@ title: Codeception - Documentation
 ---
 
 # ZombieJS Module
+**For additional reference,, please review the [source](https://github.com/Codeception/Codeception/tree/master/src/Codeception/Module/ZombieJS)**
+Uses Mink to manipulate Zombie.js headless browser (http://zombie.labnotes.org/)
 
-* Uses Mink to manipulate Zombie.js headless browser (http://zombie.labnotes.org/)
-*
-* Note, all methods take CSS selectors to fetch elements.
-* For links, buttons, fields you can use names/values/ids of elements.
-* For form fields you can use input[name=fieldname] notation.
-*
-* ### Installation
-*
+Note, all methods take CSS selectors to fetch elements.
+For links, buttons, fields you can use names/values/ids of elements.
+For form fields you can use input[name=fieldname] notation.
+
+### Status
+
+* Maintainer: **synchrone**
+* Stability: **stable**
+* Contact: https://github.com/synchrone
+* relies on [Mink](http://mink.behat.org)
+
+
+### Installation
+
 In order to talk with zombie.js server, you should install and configure zombie.js first:
 
 * Install node.js by following instructions from the official site: http://nodejs.org/.
 * Install npm (node package manager) by following instructions from the http://npmjs.org/.
 * Install zombie.js with npm:
 {% highlight yaml %}
- $ npm install -g zombie@0.13.0 
+ $ npm install -g zombie@0.13.0  * 
 {% endhighlight %}
 Note: Behat/Mink states that there are compatibility issues with zombie > 0.13, and their manual
 says to install version 0.12.15, BUT it has some bugs, so you'd rather install 0.13

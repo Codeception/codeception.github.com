@@ -45,7 +45,7 @@ modules:
 
 #### Settings
 
-* bootstrap - the bootstrap file always loaded before each step. Can be useful for loading fixtures. But probably you want manual control, then remove this line and use `require_once '_bootsrtap.php'` inside tests.
+* bootstrap - the bootstrap file always loaded before each step. Can be useful for loading fixtures. But probably you want manual control, then remove this line and use `require_once '_bootstrap.php'` inside tests.
 * suite_class - suite is used as a tests container. 
 * colors - colored ooutput, by default is `false` on Windows and `true` on other systems. Install [ANSICon](http://adoxa.110mb.com/ansicon/) on Windows and set to true.
 * memory_limit - PHP memory consuming parameter. Increase this value if you run out of memory.

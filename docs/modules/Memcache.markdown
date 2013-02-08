@@ -4,10 +4,16 @@ title: Codeception - Documentation
 ---
 
 # Memcache Module
-
+**For additional reference,, please review the [source](https://github.com/Codeception/Codeception/tree/master/src/Codeception/Module/Memcache)**
 Connects to [memcached](http://www.memcached.org/) using either _Memcache_ or _Memcached_ exitnsion.
 
 Performs a cleanup by flushing all values after each test run.
+
+### Status
+
+* Maintainer: **davert**
+* Stability: **beta**
+* Contact: codecept@davert.mail.ua
 
 ### Configuration
 
