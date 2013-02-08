@@ -72,16 +72,26 @@ Generates new empty test file for scenario-based unit tests. This file format is
 #### Usage
 
 * `codcept generate:cest suitename testname` - generates testnameCest.php inside the suite.
-* `codecept generate:cest suitename subdir/subdir/testnameCest.php` - generates file in subdir/subdir of suite dir.
+* `codecept generate:cest suitename "\Namespace\Subnamespace\testnameCest.php"` - generates file in `Namespace/Subnamepace` of suite dir (according to PSR-0). Generated file will have a namespace defined.
 
 ### Generate Test
 
-Generates new empty test file for PHPUnit unit test.
+Generates new empty test file for Codeception powered unit test.
 
 #### Usage
 
-* `codcept generate:cest suitename testname` - generates testnameTest.php inside the suite.
-* `codecept generate:cest suitename subdir/subdir/testnameTest.php` - generates file in subdir/subdir of suite dir.
+* `codcept generate:test suitename testname` - generates testnameTest.php inside the suite.
+* `codecept generate:test suitename "\Namespace\Subnamespace\testnameTest.php"` - generates file in `Namespace/Subnamepace` of suite dir (according to PSR-0). Generated file will have a namespace defined.
+
+### Generate Classical PHPUnit Test
+
+Generates new empty test file for Codeception powered unit test.
+
+#### Usage
+
+* `codcept generate:phpunit suitename testname` - generates testnameTest.php inside the suite.
+* `codecept generate:phpunit suitename "\Namespace\Subnamespace\testnameTest.php"` - generates file in `Namespace/Subnamepace` of suite dir (according to PSR-0). Generated file will have a namespace defined.
+
 
 ### Generate Scenarios
 
