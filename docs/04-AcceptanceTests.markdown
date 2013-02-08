@@ -397,4 +397,4 @@ Writing acceptance tests with Codeception and PhpBrowser is a good start. You ca
 
 
 * **Next Chapter: [FunctionalTests >](/docs/05-FunctionalTests)**
-* **Previous Chapter: [< Modules-and-Helpers](/docs/03-Modules-and-Helpers)**
+* **Previous Chapter: [< ModulesAndHelpers](/docs/03-ModulesAndHelpers)**
