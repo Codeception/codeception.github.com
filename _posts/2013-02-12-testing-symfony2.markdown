@@ -84,6 +84,6 @@ Then you can put this test into bundle.
 
 ## Conclusion
 
-Ok, you will probably ask: why is it better then Behat. We have a [wide answer for that](http://codeception.com/12-20-2012/not-bdd.html). A short is: Codeception is for testing, Behat is for Behavior Driven Development. If you need a professional testing tool that supports [PageObject](http://codeception.com/10-30-2012/pro-tips-1.html) pattern, complex [Locators](http://codeception.com/09-24-2012/locator.html), better refactoring capabilities and [CodeCoverage](http://codeception.com/docs/11-Codecoverage) - Codeception is a good choice. 
+Ok, you will probably ask: why is it better then Behat. We have a [wide answer for that](http://codeception.com/12-20-2012/not-bdd.html). A short is: Codeception is for testing, Behat is for Behavior Driven Development. If you need a professional testing tool that supports [PageObject](http://codeception.com/10-30-2012/pro-tips-1.html) pattern, complex [Locators](http://codeception.com/09-24-2012/locator.html), refactoring capabilities and [CodeCoverage](http://codeception.com/docs/11-Codecoverage) - Codeception is a good choice for that. 
 
 We say thanks to @everzet for wonderful Mink (that is used for acceptance tests) and to Sebastian Bergmann for it's PHPUnit. Codeception uses their powers, but makes them a bit simpler in use.
