@@ -1,5 +1,5 @@
 ---
-title: Testing Symnfony2 with Codeception
+title: Testing Symfony2 Apps with Codeception
 layout: post
 date: 2013-02-12 01:03:50
 ---
