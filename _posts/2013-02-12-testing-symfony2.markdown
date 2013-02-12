@@ -4,7 +4,7 @@ layout: post
 date: 2013-02-12 01:03:50
 ---
 
-From the beginning of it's existence Codeception was in good relations with Symfony2 framework. Codeception was built on Symfony Components and uses BrowserKit and HttpKernel components for launching funcational tests. It's a shame we didn't have a complete Symfony2 integration tutorial before. But we will try to fill this gap today. 
+From the beginning of it's existence Codeception was in good relations with Symfony2 framework. Codeception was built on Symfony Components and uses BrowserKit and HttpKernel components for launching functional tests. It's a shame we didn't have a complete Symfony2 integration tutorial before. But we will try to fill this gap today. 
 
 What benefits you get by using Codeception with Symfony2?
 Let's list all of them:
@@ -24,7 +24,7 @@ modules:
     enabled: [Symfony2, Doctrine2, TestHelper]
 {% endhighlight %}
 
-And nothing more. You just need to declare that you will be using Symfony2 and Doctrine2. The Symfony2 module will search for `AppKrenel` on initialization (in `app`) and use it for functional tests. Doctrine2 module will find that Symfony2 module is declared and will try to receive default database connection from container. Of cource, If you use non-standard setup this behavior can be reconfigured.
+And nothing more. You just need to declare that you will be using Symfony2 and Doctrine2. The Symfony2 module will search for `AppKrenel` on initialization (in `app`) and use it for functional tests. Doctrine2 module will find that Symfony2 module is declared and will try to receive default database connection from container. Of course, If you use non-standard setup this behavior can be reconfigured.
 
 ## Functional Testing
 
@@ -41,9 +41,9 @@ $I->fillField('username', 'admin');
 ?>
 {% endhighlight %}
 
-And so on. Unlike standard Symfony2 tests you don't need to deal with filters, CSS, and XPaths. Well, you can use CSS or XPath in any selector, if you need to. But on start you can kepp your test simple and compact. 
+And so on. Unlike standard Symfony2 tests you don't need to deal with filters, CSS, and XPaths. Well, you can use CSS or XPath in any selector, if you need to. But on start you can keep your test simple and compact. 
 
-The commands we use here are common for most modules that perform testing of web application. That means, that once you discover a need for Selenium, this test can be executed inside a web browser useing Selenium2 module. But some commands are unique to Symfony2 module. For example, you can use `seeEmailIsSent` command that checks if application has submitted an email during the last request. Check [Symfony2](http://codeception.com/docs/modules/Symfony2) module reference for all commands we provide.
+The commands we use here are common for most modules that perform testing of web application. That means, that once you discover a need for Selenium, this test can be executed inside a web browser using Selenium2 module. But some commands are unique to Symfony2 module. For example, you can use `seeEmailIsSent` command that checks if application has submitted an email during the last request. Check [Symfony2](http://codeception.com/docs/modules/Symfony2) module reference for all commands we provide.
 
 ## Unit Testing
 
