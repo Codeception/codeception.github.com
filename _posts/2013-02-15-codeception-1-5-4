@@ -1,0 +1,67 @@
+---
+title: Codeception 1.5.4. Skip Tests, UTF fixes, etc.
+layout: post
+date: 2013-02-15 01:03:50
+---
+
+Today we are releasing Codeception 1.5.4. This is minor bugfixing release consisting of GitHub issues. 
+And a small yet awaitied feature introduced: ability to skip and mark Cepts as incomplete.
+
+It's pretty simple, though.
+
+{% highlight php %}
+<?php
+$scenario->skip();
+
+$I = new WebGuy($scenario);
+$I->wanTo('do something, but I would rather not');
+$I->amOnPage('/');
+//.....
+?>
+{% endhighlight %}
+
+This makes this test to be skipped.
+Similarly it can be marked as incomplete.
+
+{% highlight php %}
+<?php
+$scenario->incomplete();
+
+$I = new WebGuy($scenario);
+$I->wanTo('do something, but I would rather not');
+$I->amOnPage('/');
+//.....
+?>
+{% endhighlight %}
+
+The `skip` and `incomplete` methods can take one argument, that descrines a reason why this tests were marked this way.
+
+{% highlight php %}
+<?php
+$scenario->skip('waiting for new markup');
+$scenario->incomplete('welcome page appearence not tested');
+?>
+{% endhighlight %}
+
+## Bugfixes
+
+* Symfony2 kernel is rebooted on each run. That make Symfony2 tests less dependent on each other. 
+* `seeFillField` method now [accepts label as parameter](https://github.com/Codeception/Codeception/issues/162).
+* [Encoding issues](https://github.com/Codeception/Codeception/issues/120) for non-latin chars in output fixed. Unfortunately this fix will work only in PHP 5.4.
+* `seeLink` now doesn't [return false positive results](https://github.com/Codeception/Codeception/issues/90) 
+
+### Update
+
+ [redownload](http://codeception.com/thanks.html) your `codeception.phar` for update:
+
+{% highlight bash %}
+wget http://codeception.com/codecept.phar -O codecept.phar
+{% endhighlight %}
+
+for composer version
+
+{% highlight bash %}
+$ php composer.phar update
+{% endhighlight %}
+
+
