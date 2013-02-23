@@ -4,7 +4,9 @@ title: Codeception - Documentation
 ---
 
 # Kohana Module
-**For additional reference,, please review the [source](https://github.com/Codeception/Codeception/tree/master/src/Codeception/Module/Kohana)**
+**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/master/src/Codeception/Module/Kohana.php)**
+
+
 This module provides integration with [Kohana](http://kohanaframework.org/) v3.
 Functional tests can be run inside Kohana. All commands of this module are just the same as in other modules that share Framework interface.
 

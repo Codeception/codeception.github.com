@@ -4,7 +4,9 @@ title: Codeception - Documentation
 ---
 
 # Selenium Module
-**For additional reference,, please review the [source](https://github.com/Codeception/Codeception/tree/master/src/Codeception/Module/Selenium)**
+**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/master/src/Codeception/Module/Selenium.php)**
+
+
 
 Uses Mink to launch and manipulate Selenium Server (formerly the Selenium RC Server).
 
@@ -42,14 +44,14 @@ Don't forget to turn on Db repopulation if you are using database.
 * port - Selenium server port (4444 by default)
 * delay - set delay between actions in milliseconds (1/1000 of second) if they run too fast
 
-Example:
+#### Example (`acceptance.suite.yml`)
 
-  modules: 
-     enabled: [Selenium]
-     config:
-        Selenium:
-           url: 'http://localhost/' 
-           browser: firefox 
+    modules: 
+       enabled: [Selenium]
+       config:
+          Selenium:
+             url: 'http://localhost/' 
+             browser: firefox 
 
 ### Public Properties
 
