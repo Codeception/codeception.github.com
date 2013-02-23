@@ -156,20 +156,20 @@ modules:
 
 [See the full reference](http://codeception.com/docs/modules/Symfony1)
 
-## Integrating Unsupported Frameworks
+## Integrating Other Frameworks
 
 Codeception doesn't provide any generic functional testing module because there are a lot of details we can't implement in general.
 We already discussed the common pitfalls for functional testing. And there is no one single recipe how to solve them for all PHP applications.
 So if you don't use any of the frameworks listed above, you might want to integrate your framework into Codeception. That task requires some knowledge of Codeception internals and some time. Probably, you are ok with just acceptance tests, but any help in extending Codeception functionality will be appreciated. We will review what should be done to have your framework integrated.
 
-### HttpKernel Framework
+#### With HttpKernel
 
 If you have a framework that uses Symfony's `HttpKernel`, using it with Codeception will be like a piece of cake.
 You will need to create a module for it and test it on your application.
 We already have a [guide for such integration](http://codeception.com/01-24-2013/connecting-php-frameworks-1.html).
 Develop a module, try it and share with community.
 
-### Other Frameworks
+#### Any Other
 
 Integration is a bit harder if your framework is not using HttpKernel component.
 The hardest part of it is resolving commong pitfalls: memory management, and usage of `headers` function.
