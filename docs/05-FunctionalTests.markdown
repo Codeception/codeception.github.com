@@ -35,8 +35,7 @@ We recommend writing tests on unstable parts of your application as functional t
 
 ## Pitfalls
 
-Acceptance tests are usually much slower then functional tests, since they require database repopulation on each run. For sites that are using the Doctrine ORM, all operations are performed inside a transaction, which will be rolled back at the end. This will work much faster then rebuilding the database from a dump on each test.
-The other side of it, the functional tests may be less stable, as they run testing framework and application itself in one environment.
+Acceptance tests are usually much slower then functional tests, since they require database repopulation on each run. The other side of it, the functional tests may be less stable, as they run testing framework and application itself in one environment.
 
 #### Headers, Cookies, Sessions
 
