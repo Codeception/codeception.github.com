@@ -15,7 +15,7 @@ Codeception can connect to different web frameworks which support functional tes
 
 Modules for all of these frameworks share the same interface, and thus your tests are not bound to any one of them! This is a sample functional test.
 
-{% highlight yaml %}
+{% highlight php %}
 
 <?php
 $I = new TestGuy($scenatio);
