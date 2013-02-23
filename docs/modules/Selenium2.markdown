@@ -33,6 +33,15 @@ Don't forget to turn on Db repopulation if you are using database.
 * port - Selenium server port (4444 by default)
 * delay - set delay between actions in milliseconds (1/1000 of second) if they run too fast
 
+Example:
+
+  modules: 
+     enabled: [Selenium2]
+     config:
+        Selenium2:
+           url: 'http://localhost/' 
+           browser: firefox
+
 ### Public Properties
 
 * session - contains Mink Session
@@ -211,12 +220,13 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
 
 
 Checks that an input field or textarea doesn't contain value.
-
+Field is matched either by label or CSS or Xpath
 Example:
 
 {% highlight php %}
 
 <?php
+$I->dontSeeInField('Body','Type your comment here');
 $I->dontSeeInField('form textarea[name=body]','Type your comment here');
 $I->dontSeeInField('form input[type=hidden]','hidden_value');
 $I->dontSeeInField('#searchform input','Search');
@@ -497,12 +507,14 @@ Checks that current uri contains value
 
 
 Checks that an input field or textarea contains value.
+Field is matched either by label or CSS or Xpath
 
 Example:
 
 {% highlight php %}
 
 <?php
+$I->seeInField('Body','Type your comment here');
 $I->seeInField('form textarea[name=body]','Type your comment here');
 $I->seeInField('form input[type=hidden]','hidden_value');
 $I->seeInField('#searchform input','Search');

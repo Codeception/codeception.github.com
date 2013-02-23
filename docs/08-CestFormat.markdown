@@ -30,6 +30,13 @@ class UserCest {
 
 {% endhighlight %}
 
+Before proceeding, please make sure you executed `build` command that creats a `CodeGuy` class with methods from [Unit](http://codeception.com/docs/modules/Unit) module.
+
+{% highlight php %}
+ codecept.phar build
+
+{% endhighlight %}
+
 Let's create first test with `generate:cest` command:
 
 {% highlight yaml %}
@@ -193,7 +200,7 @@ class ControllerCest {
 
 #### Is The Test Running?
 
-Scenario-based test is run in 2 phases: analisys and execution. Whenever you want to add any custom PHP code (which doesn't use the $I object) you probably want it to be xecuted in the runtime. Thus, you should always perform the check if the test is running:
+Scenario-based test is run in 2 phases: analysis and execution. Whenever you want to add any custom PHP code (which doesn't use the $I object) you probably want it to be xecuted in the runtime. Thus, you should always perform the check if the test is running:
 
 {% highlight php %}
 
@@ -208,7 +215,7 @@ function save(\CodeGuy $I, \Codeception\Scenario $scenario)
 
 {% endhighlight %}
 
-In case you want to execute line on analisys step (to preload bootstrap values), you can use the `$scenario->preload()` method.
+In case you want to execute line on analysis step (to preload bootstrap values), you can use the `$scenario->preload()` method.
 
 #### Stubs
 
@@ -349,6 +356,7 @@ If you don't use ORMs and MySQL, consider using SQLite for testing instead.
 ## Conclusion
 
 Codeception has it's powers and it's limits. We believe Codeception's limitations keep your tests clean and narrative. Codeception makes writing bad code for tests more difficult. Codeception has simple but powerful tools to create stubs and mocks. Different modules can be attached to unit tests which, just for an example, will simplify database interactions.
+
 
 
 

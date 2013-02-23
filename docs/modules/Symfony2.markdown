@@ -19,6 +19,14 @@ It implements common Framework interface.
 
 * app_path: 'app' - specify custom path to your app dir, where bootstrap cache and kernel interface is located.
 
+Example:
+
+  modules: 
+     enabled: [Symfony2]
+     config:
+        Symfony2:
+           app_path: 'app/front' 
+
 ### Public Properties
 
 * kernel - HttpKernel instance
@@ -173,12 +181,13 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
 
 
 Checks that an input field or textarea doesn't contain value.
-
+Field is matched either by label or CSS or Xpath
 Example:
 
 {% highlight php %}
 
 <?php
+$I->dontSeeInField('Body','Type your comment here');
 $I->dontSeeInField('form textarea[name=body]','Type your comment here');
 $I->dontSeeInField('form input[type=hidden]','hidden_value');
 $I->dontSeeInField('#searchform input','Search');
@@ -350,12 +359,14 @@ Checks that current uri contains value
 
 
 Checks that an input field or textarea contains value.
+Field is matched either by label or CSS or Xpath
 
 Example:
 
 {% highlight php %}
 
 <?php
+$I->seeInField('Body','Type your comment here');
 $I->seeInField('form textarea[name=body]','Type your comment here');
 $I->seeInField('form input[type=hidden]','hidden_value');
 $I->seeInField('#searchform input','Search');
