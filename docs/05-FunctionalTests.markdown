@@ -72,7 +72,7 @@ To generate a test you can use standard `generate:cept` command:
 And execute them with `run`:
 
 {% highlight php %}
- codecept.phar generate:cept run functional
+ codecept.phar run functional
 
 {% endhighlight %}
 
