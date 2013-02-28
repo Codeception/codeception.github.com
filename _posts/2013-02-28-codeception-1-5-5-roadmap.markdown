@@ -31,7 +31,6 @@ Thus, you don't need to keep your `codecept.phar` in the root of your project an
 
 Skipping and marking tests of incomplete was improved. We did a new solid implementation for it (it was very basic in `1.5.4`).
 Now If a test is marked to skip, no modules will be touched.
-This feature required to rework some core classes (like Step and TestCase and Scenario) but hopefully we got smaller and simpler code.
 
 {% highlight php %}
 <?php
@@ -44,10 +43,12 @@ $I->amOnPage('/');
 ?>
 {% endhighlight %}
 
+This feature required to rework some core classes (like Step and TestCase and Scenario) but hopefully we simplified our code.
+
 ### Bugfixes
 
 * `acceptPopup` with Selenium 2 does not trigger Exception any more
-* error handling was improved to skip blocked alerts, `@` yet to throw `ErrorException` for notices, warnings, errors.
+* error handling was improved to skip blocked with `@` alerts, yet to throw `ErrorException` for notices, warnings, errors.
 * ZombieJS configuration was fixed. Now the `url` parameter is required to specify app's local url.
 * REST `seeStatusCodeIs` method works correctly with Symfony2 now.
 
@@ -72,6 +73,6 @@ For the first time we will announce the roadmap for Codeception. Actually we nee
 * Make a PageObject pattern first-class citizen in Codeception. Add generators and guides to use PageObjects (for acceptance tests).
 * Multiple sessions for tests execution ([see discission on GitHub](https://github.com/Codeception/Codeception/issues/154))
 * **Silex**, **Laravel 4**, **Zend Framework 2**, **Drupal 8**, **Phalcon** integrations. The key problem here: we can't do this on our own. We need a real users of these frameworks, to create integration and test it on their projects. We have reworked [functional testing guide](http://codeception.com/docs/05-FunctionalTests) to help you with this. Also use GitHub or personal contacts if you want to make a module.
-* **Scenario Unit Tests to be rethinked**. We have 2 options here: dump scenario driven unit tests (or mark them as deprecated) or rework them. Actually we need your real opinion. [Here is an example of what new Cests may look like](https://gist.github.com/DavertMik/5042537). They will dramatically improve the way you work with mocks and stubs in PHP. But will you use it? Please, let us know your opinion.
+* **Scenario Unit Tests to be rethinked**. We have 2 options here: dump scenario driven unit tests (or mark them as deprecated) or rework them. Actually we need your real opinion. [Here is an example of what new Cests may look like](https://gist.github.com/DavertMik/5042537). They will dramatically improve the way you work with mocks and stubs in PHP. But will you use it? Please, let us know what you think.
 
 To summarize: we'd appreciate contributions, feedbacks and ideas for next releases.
