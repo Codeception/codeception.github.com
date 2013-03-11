@@ -79,6 +79,21 @@ $cursor = $I->grabFromCollection('users', array('name' => 'miles'));
  * return \MongoCursor
 
 
+#### haveInCollection
+
+
+Inserts data into collection
+
+{% highlight php %}
+
+$I->haveInCollection('users', array('name' => 'John', 'email' => 'john@coltrane.com'));
+
+{% endhighlight %}
+
+ * param $collection
+ * param array $data
+
+
 #### seeInCollection
 
 

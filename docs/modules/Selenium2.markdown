@@ -34,6 +34,7 @@ Don't forget to turn on Db repopulation if you are using database.
 * host  - Selenium server host (localhost by default)
 * port - Selenium server port (4444 by default)
 * delay - set delay between actions in milliseconds (1/1000 of second) if they run too fast
+* capabilities - sets Selenium2 [desired capabilities](http://code.google.com/p/selenium/wiki/DesiredCapabilities). Should be a key-value array.
 
 #### Example (`acceptance.suite.yml`)
 
@@ -43,10 +44,13 @@ Don't forget to turn on Db repopulation if you are using database.
           Selenium2:
              url: 'http://localhost/' 
              browser: firefox
+             capabilities:
+                 unexpectedAlertBehaviour: 'accept'
 
 ### Public Properties
 
 * session - contains Mink Session
+* webDriverSession - contains webDriverSession object, i.e. $session from [php-webdriver](https://github.com/facebook/php-webdriver)
 
 ### Actions
 
@@ -644,15 +648,15 @@ $I->uncheckOption('#notify');
 #### wait
 
 
-Wait for x miliseconds
+Wait for x milliseconds
 
- * param $miliseconds
+ * param $milliseconds
 
 
 #### waitForJS
 
 
-Waits for x miliseconds or until JS condition turns true.
+Waits for x milliseconds or until JS condition turns true.
 
- * param $miliseconds
+ * param $milliseconds
  * param $jsCondition

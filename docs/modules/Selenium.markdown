@@ -551,15 +551,15 @@ $I->uncheckOption('#notify');
 #### wait
 
 
-Wait for x miliseconds
+Wait for x milliseconds
 
- * param $miliseconds
+ * param $milliseconds
 
 
 #### waitForJS
 
 
-Waits for x miliseconds or until JS condition turns true.
+Waits for x milliseconds or until JS condition turns true.
 
- * param $miliseconds
+ * param $milliseconds
  * param $jsCondition

@@ -7,7 +7,7 @@ title: Codeception - Documentation
 **For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/master/src/Codeception/Module/Db.php)**
 
 
-Works with SQL dabatase.
+Works with SQL database.
 
 The most important function of this module is cleaning database before each test.
 That's why this module was added into global configuration file: codeception.yml.
@@ -129,6 +129,23 @@ $mail = $I->grabFromDatabase('users', 'email', array('name' => 'Davert'));
  * param $column
  * param array $criteria
  * return mixed
+
+
+#### haveInDatabase
+
+
+Inserts SQL record into database
+
+{% highlight php %}
+
+<?php
+$I->haveInDatabase('users', array('name' => 'miles', 'email' => 'miles@davis.com'));
+?>
+
+{% endhighlight %}
+
+ * param $table
+ * param array $data
 
 
 #### seeInDatabase
