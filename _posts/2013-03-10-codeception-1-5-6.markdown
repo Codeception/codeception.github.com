@@ -8,26 +8,6 @@ Codeption 1.5.6 released with varous fixes to Selenium2 module (popups, screensh
 We added a bunch of tests for Selenium2 and they are runnng on TravisCI. 
 Also, Codeception is now compatble with Symony 2.2. And few features were intrduced. 
 
-Very basic implementation of fixtures was added to Db and Mongo modules.
-Now you can write something like:
-
-{% highlight php %}
-<?php
-// for Db
-$I->haveInDatabase('users', array('name' => 'davert'));
-// for Mongo
-$I->haveInCollection('users', array('name' => 'davert'));
-?>
-{% endhighlight %}
-
-to add data for a test. For Db module, the inserted record will be cleaned up on text test, even If `cleanup` option is set to false. So `haveInDatabase` method cleans data after itself.
-Something similar exists for Doctrine2 module. Yet, it looks not like for Db and Mongo implementation:
-
-{% highlight php %}
-<?php
-$I->persistEntity(new \Entity\User, array('name' => 'Miles'));
-{% endhighlight %}
-
 ### Basic Fixtures
 
 Very basic implementation of fixtures was added to Db and Mongo modules.
