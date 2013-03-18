@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Scenario Unit Tests Deprecation Announcement
-date: 2012-03-18 22:03:50
+date: 2013-03-18 22:03:50
 ---
 
 We decided to get rid of the scenario unit tests. The main reason is: the concept was interesting, but current realization is a bit outdated. 
