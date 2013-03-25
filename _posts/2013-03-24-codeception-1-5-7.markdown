@@ -58,7 +58,7 @@ More about [PageObjects and Controllers you can read on PHPMaster](http://phpmas
 
 ### Help from Community 
 
-And we'd like to ask you for help (once again). **Please [pass this survey](surveymonkey.com/s/982RCG9)**. 
+And we'd like to ask you for help (once again). **Please [pass this survey](http://surveymonkey.com/s/982RCG9)**. 
 We develop a bugtracker [Bugira](http://bugira.com) specially for web developments. And to get it running we need your feedback. 
 
 ### Update
@@ -75,4 +75,4 @@ for composer version
 $ php composer.phar update
 {% endhighlight %}
 
-P.S. It's only 3 minutes of your time: [pass this survey](surveymonkey.com/s/982RCG9). Thanks
+P.S. It's only 3 minutes of your time: [pass this survey](http://surveymonkey.com/s/982RCG9). Thanks
