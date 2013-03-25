@@ -45,7 +45,7 @@ Also you can now try to use Cest classes for acceptance and functional testing. 
 
 ### Announcing: The Platform
 
-Next major release will be called **The Plarform**. In Platform we will introduce lots of a new concepts designed to build a real test automation platform.
+Next major release will be called **The Platform**. In Platform we will introduce lots of a new concepts designed to build a real test automation platform.
 
 * Extensions - classes that can hook into any events and produce their own. Extend anything.
 * Tags - unite tests into groups and provide a similar hooks for them.
