@@ -139,6 +139,8 @@ If link is an image it's found by alt attribute value of image.
 If button is image button is found by it's value
 If link or button can't be found by name they are searched by CSS selector.
 
+The second parameter is a context: CSS or XPath locator to narrow the search.
+
 Examples:
 
 {% highlight php %}
@@ -152,10 +154,13 @@ $I->click('Submit');
 $I->click('#form input[type=submit]');
 // XPath
 $I->click('//form/*[@type=submit]')
+// link in context
+$I->click('Logout', '#nav');
 ?>
 
 {% endhighlight %}
  * param $link
+ * param $context
 
 
 #### clickWithRightButton
@@ -205,6 +210,65 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
 {% endhighlight %}
 
  * param $checkbox
+
+
+#### dontSeeCurrentUrlEquals
+
+
+Checks that current url is not equal to value.
+Unlike `dontSeeInCurrentUrl` performs a strict check.
+
+<?php
+// current url is not root
+$I->dontSeeCurrentUrlEquals('/');
+?>
+
+ * param $uri
+
+
+#### dontSeeCurrentUrlMatches
+
+
+Checks that current url does not match a RegEx value
+
+<?php
+// to match root url
+$I->dontSeeCurrentUrlMatches('~$/users/(\d+)~');
+?>
+
+ * param $uri
+
+
+#### dontSeeElement
+
+
+Checks if element does not exist (or is visible) on a page, matching it by CSS or XPath
+
+{% highlight php %}
+
+<?php
+$I->dontSeeElement('.error');
+$I->dontSeeElement(//form/input[1]);
+?>
+
+{% endhighlight %}
+ * param $selector
+
+
+#### dontSeeInCurrentUrl
+
+
+Checks that current uri does not contain a value
+
+{% highlight php %}
+
+<?php
+$I->dontSeeInCurrentUrl('/users/');
+?>
+
+{% endhighlight %}
+
+ * param $uri
 
 
 #### dontSeeInField
@@ -296,6 +360,26 @@ Moves focus to link or button or any node found by CSS or XPath
 #### grabAttribute
 
 __not documented__
+
+
+#### grabFromCurrentUrl
+
+
+Takes a parameters from current URI by RegEx.
+If no url provided returns full URI.
+
+{% highlight php %}
+
+ <?php
+$user_id = $I->grabFromCurrentUrl('~$/user/(\d+)/~');
+$uri = $I->grabFromCurrentUrl();
+?>
+
+{% endhighlight %}
+
+ * param null $uri
+ * internal param $url
+ * return mixed
 
 
 #### grabTextFrom
@@ -465,6 +549,33 @@ $I->seeCheckboxIsChecked('//form/input[@type=checkbox and  * name=agree]');
  * param $checkbox
 
 
+#### seeCurrentUrlEquals
+
+
+Checks that current url is equal to value.
+Unlike `seeInCurrentUrl` performs a strict check.
+
+<?php
+// to match root url
+$I->seeCurrentUrlEquals('/');
+?>
+
+ * param $uri
+
+
+#### seeCurrentUrlMatches
+
+
+Checks that current url is matches a RegEx value
+
+<?php
+// to match root url
+$I->seeCurrentUrlMatches('~$/users/(\d+)~');
+?>
+
+ * param $uri
+
+
 #### seeElement
 
 
@@ -478,7 +589,18 @@ Eiter CSS or XPath can be used.
 #### seeInCurrentUrl
 
 
-Checks that current uri contains value
+Checks that current uri contains a value
+
+{% highlight php %}
+
+<?php
+// to match: /home/dashboard
+$I->seeInCurrentUrl('home');
+// to match: /users/1
+$I->seeInCurrentUrl('/users/');
+?>
+
+{% endhighlight %}
 
  * param $uri
 
