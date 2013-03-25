@@ -14,8 +14,8 @@ As were pointed, the `seeInCurrentUrl` method is not enough to test urls. So we 
 {% highlight php %}
 <?php
 // to match root url
-$I->seeInCurrentUrlEquals('/');
-$I->seeInCurrentUrlMatches('~$/user/.*?~')
+$I->seeCurrentUrlEquals('/');
+$I->seeCurrentUrlMatches('~$/user/.*?~')
 $url = $I->grabFromCurrentUrl();
 $user_id = $I->grabFromCurrentUrl('~/user/(\d+)~');
 ?>
