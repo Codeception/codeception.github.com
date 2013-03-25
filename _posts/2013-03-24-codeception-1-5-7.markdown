@@ -4,7 +4,7 @@ title: Update! Codeception 1.5.7 is out.
 date: 2013-03-24 22:03:50
 ---
 
-Great news. Codeception got attention from Nettuts users and we are happy to welcome you in the family ) 
+Great news. Codeception got attention from Nettuts community and we are happy to welcome you in the family ) 
 What you should know about Codeception release cycle is that releases are not breaking the BCs and they appear quite often. Even minor releases introduces lots of new features. And today we'd like to announce some of them.
 
 ### More Current Url Methods
@@ -34,14 +34,14 @@ $I->click('Login', '//html/body/div/a');
 ?>
 {% endhighlight %}
 
-We have fixes for Yii, Kohana modules, and `$scenario->preload()` construction is working back.
-
 Also you can now try to use Cest classes for acceptance and functional testing. As scenario-driven unit tests are going to be deprecated, Cests will be used as Cepts, but in a format of a class. The Cest generator was updated accrodingly.
 
 ### Bugfixes
 
 * Yii module should work as expected as all reauired files are included in package.
 * Fix to Kohana module.
+* `$scenario->preload()` is back
+
 
 ### Announcing: The Platform
 
@@ -58,7 +58,7 @@ More about [PageObjects and Controllers you can read on PHPMaster](http://phpmas
 
 ### Help from Community 
 
-And we'd like to ask you for help (once again). Please [pass this survey](surveymonkey.com/s/982RCG9). 
+And we'd like to ask you for help (once again). **Please [pass this survey](surveymonkey.com/s/982RCG9)**. 
 We develop a bugtracker [Bugira](http://bugira.com) specially for web developments. And to get it running we need your feedback. 
 
 ### Update
