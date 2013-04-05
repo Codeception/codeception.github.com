@@ -44,7 +44,6 @@ Use it to cleanup the queue between tests.
 ### Public Properties
 
 * connection - AMQPConnection - current connection
-* channel - AMQPChannel - current channel
 
  * available since version 1.1.2
  * author tiger.seo@gmail.com

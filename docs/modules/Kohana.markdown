@@ -31,6 +31,15 @@ Module is created by [Nikita Groshin](nike-17@ya.ru)
 ### Actions
 
 
+#### amHttpAuthenticated
+
+
+Adds HTTP authentication via username/password.
+
+ * param $username
+ * param $password
+
+
 #### amOnPage
 
 
