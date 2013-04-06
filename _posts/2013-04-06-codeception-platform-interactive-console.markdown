@@ -53,7 +53,7 @@ Thanks to [**bladeofsteel**](https://github.com/bladeofsteel) you can try to use
 * do not use steps option by default if it's not a one test executed by **tigerseo**
 * fixes to AMQP module. Still it is in beta.
 * you can use `Cest` files for writing functional and acceptance tests.
-* CURL parameters can be set for PHPBrowser.
+* CURL parameters can be set for PHPBrowser (SSL checks turned off by default).
 
 Sorry if some bugs were not fixed. Any help and pull requests are highly appreciated. 
 
