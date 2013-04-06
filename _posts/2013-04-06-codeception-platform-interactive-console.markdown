@@ -4,12 +4,12 @@ title: "The Platform (1.6.0): Interactive Console"
 date: 2013-03-24 22:03:50
 ---
 
-Today we start new **The Platform** iteration. After 1.6 Codeception would become much more friendly and flexible in testing. Yet, no of announced features are introduced today. It's really hard to keep promises especially if you come to idea of feature that would be useful in a first place.
+Today we start new **The Platform** iteration. After 1.6 Codeception would become much more friendly and flexible in testing. Yet, no of announced features are introduced today. It's really hard to keep promises especially if you come to idea of feature that would be really really helpful for acceptance testing.
 
 ## Meet Interactive Console
 
 Within the interactive console you can try various commands without running a test.
-It is quite useful when you deal with Selenium sessions for example. It always takes a long time to start and shutdown Selenium session. So it's unpleasent to see that your test fails and it should be, double checked, saved and restarted.
+It is quite useful when you deal with Selenium sessions for example. It always takes a long time to start and shutdown Selenium session. So it's unpleasent to see that your test fails and it should checked saved and executed once again and once again.
 
 ![Interactive console](http://img267.imageshack.us/img267/204/003nk.png)
 
