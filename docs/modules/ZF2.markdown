@@ -3,67 +3,62 @@ layout: doc
 title: Codeception - Documentation
 ---
 
-# Selenium Module
-**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/master/src/Codeception/Module/Selenium.php)**
+# ZF2 Module
+**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/master/src/Codeception/Module/ZF2.php)**
 
 
+This module allows you to run tests inside Zend Framework 2.
 
-Uses Mink to launch and manipulate Selenium Server (formerly the Selenium RC Server).
-
-But we recommend you to use **Selenium 2 WebDriver** as it is an evolution of SeleniumRC and grants you more stable results.
-For manipulation with Selenium WebDriver use [Selenium2](/docs/modules/Selenium2) module
-
-Note, all method takes CSS selectors to fetch elements.
-For links, buttons, fields you can use names/values/ids of elements.
-For form fields you can use name of matched label.
-
-Will save a screenshot of browser window to log directory on fail.
-
-### Installation
-
-[Download Selenium RC Server](http://seleniumhq.org/download)
-
-Execute it: `java -jar selenium-server-standalone-x.xx.xxx.jar`
-
-Best used with Firefox browser.
-
-Don't forget to turn on Db repopulation if you are using database.
+File `init_autoloader` in project's root is required.
+Uses `tests/application.config.php` config file by default.
 
 ### Status
 
-* Maintainer: **davert**
-* Stability: **stable**
-* Contact: codecept@davert.mail.ua
-* relies on [Mink](http://mink.behat.org)
+* Maintainer: **bladeofsteel**
+* Stability: **alpha**
+* Contact: https://github.com/bladeofsteel
 
-### Configuration
+### Config
 
-* url *required* - start url for your app
-* browser *required* - browser that would be launched
-* host  - Selenium server host (localhost by default)
-* port - Selenium server port (4444 by default)
-* delay - set delay between actions in milliseconds (1/1000 of second) if they run too fast
+* config: relative path to config file (default: `tests/application.config.php`)
 
-#### Example (`acceptance.suite.yml`)
+### API
 
-    modules: 
-       enabled: [Selenium]
-       config:
-          Selenium:
-             url: 'http://localhost/' 
-             browser: firefox 
+* application -  instance of `\Zend\Mvc\ApplicationInterface`
+* db - instance of `\Zend\Db\Adapter\AdapterInterface`
+* client - BrowserKit client
 
-### Public Properties
-
-* session - contains Mink Session
 
 ### Actions
+
+
+#### amHttpAuthenticated
+
+
+Adds HTTP authentication via username/password.
+
+ * param $username
+ * param $password
 
 
 #### amOnPage
 
 
 Opens the page.
+Requires relative uri as parameter
+
+Example:
+
+{% highlight php %}
+
+<?php
+// opens front page
+$I->amOnPage('/');
+// opens /register page
+$I->amOnPage('/register');
+?>
+
+{% endhighlight %}
 
  * param $page
 
@@ -86,15 +81,6 @@ $I->attachFile('prices.xls');
 
  * param $field
  * param $filename
-
-
-#### blur
-
-
-Removes focus from link or button or any node found by CSS or XPath
-XPath or CSS selectors are accepted.
-
- * param $el
 
 
 #### checkOption
@@ -149,14 +135,6 @@ $I->click('Logout', '#nav');
 {% endhighlight %}
  * param $link
  * param $context
-
-
-#### clickWithRightButton
-
-
-Clicks with right button on link or button or any node found by CSS or XPath
-
- * param $link
 
 
 #### dontSee
@@ -302,53 +280,6 @@ $I->dontSeeLink('Logout'); // I suppose user is not logged in
  * param null $url
 
 
-#### doubleClick
-
-
-Double clicks on link or button or any node found by CSS or XPath
-
- * param $link
-
-
-#### dragAndDrop
-
-
-Drag first element to second
-XPath or CSS selectors are accepted.
-
- * param $el1
- * param $el2
-
-
-#### executeInSelenium
-
-
-Low-level API method.
-If Codeception commands are not enough, use Selenium RC methods directly
-
-{% highlight php %}
-
-$I->executeInSelenium(function(\Selenium\Browser $browser) {
-  $browser->open('/');
-});
-
-{% endhighlight %}
-
-Use [Browser Selenium API](https://github.com/alexandresalome/PHP-Selenium)
-Not recommended this command too be used on regular basis.
-If Codeception lacks important Selenium methods implement then and submit patches.
-
- * param callable $function
-
-
-#### executeJs
-
-
-Executes any JS code.
-
- * param $jsCode
-
-
 #### fillField
 
 
@@ -358,15 +289,7 @@ Fills a text field or textarea with value.
  * param $value
 
 
-#### focus
-
-
-Moves focus to link or button or any node found by CSS or XPath
-
- * param $el
-
-
-#### grabAttribute
+#### formatResponse
 
 __not documented__
 
@@ -433,79 +356,6 @@ $name = $I->grabValueFrom('descendant-or-self::form/descendant::input[@name = 'u
 
  * param $field
  * return mixed
-
-
-#### moveBack
-
-
-Moves back in history
-
-
-#### moveForward
-
-
-Moves forward in history
-
-
-#### moveMouseOver
-
-
-Moves mouse over link or button or any node found by CSS or XPath
-
- * param $link
-
-
-#### pressKey
-
-
-Presses key on element found by css, xpath is focused
-A char and modifier (ctrl, alt, shift, meta) can be provided.
-
-Example:
-
-{% highlight php %}
-
-<?php
-$I->pressKey('#page','u');
-$I->pressKey('#page','u','ctrl');
-$I->pressKey('descendant-or-self::*[@id='page']','u');
-?>
-
-{% endhighlight %}
-
- * param $element
- * param $char char can be either char ('b') or char-code (98)
- * param null $modifier keyboard modifier (could be 'ctrl', 'alt', 'shift' or 'meta')
-
-
-#### pressKeyDown
-
-
-Presses key down on element found by CSS or XPath.
-
-For example see 'pressKey'.
-
- * param $element
- * param $char char can be either char ('b') or char-code (98)
- * param null $modifier keyboard modifier (could be 'ctrl', 'alt', 'shift' or 'meta')
-
-
-#### pressKeyUp
-
-
-Presses key up on element found by CSS or XPath.
-
-For example see 'pressKey'.
-
- * param $element
- * param $char char can be either char ('b') or char-code (98)
- * param null $modifier keyboard modifier (could be 'ctrl', 'alt', 'shift' or 'meta')
-
-
-#### reloadPage
-
-
-Reloads current page
 
 
 #### see
@@ -581,10 +431,16 @@ $I->seeCurrentUrlMatches('~$/users/(\d+)~');
 #### seeElement
 
 
-Checks element visibility.
-Fails if element exists but is invisible to user.
-Eiter CSS or XPath can be used.
+Checks if element exists on a page, matching it by CSS or XPath
 
+{% highlight php %}
+
+<?php
+$I->seeElement('.error');
+$I->seeElement(//form/input[1]);
+?>
+
+{% endhighlight %}
  * param $selector
 
 
@@ -652,6 +508,21 @@ $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
  * param null $url
 
 
+#### seePageNotFound
+
+
+Asserts that current page has 404 response status code.
+
+
+#### seeResponseCodeIs
+
+
+Checks that response code is equal to value provided.
+
+ * param $code
+ * return mixed
+
+
 #### selectOption
 
 
@@ -673,6 +544,92 @@ $I->selectOption('//form/select[@name=account]', 'Monthly');
  * param $option
 
 
+#### sendAjaxGetRequest
+
+
+If your page triggers an ajax request, you can perform it manually.
+This action sends a GET ajax request with specified params.
+
+See ->sendAjaxPostRequest for examples.
+
+ * param $uri
+ * param $params
+
+
+#### sendAjaxPostRequest
+
+
+If your page triggers an ajax request, you can perform it manually.
+This action sends a POST ajax request with specified params.
+Additional params can be passed as array.
+
+Example:
+
+Imagine that by clicking checkbox you trigger ajax request which updates user settings.
+We emulate that click by running this ajax request manually.
+
+{% highlight php %}
+
+<?php
+$I->sendAjaxPostRequest('/updateSettings', array('notifications' => true); // POST
+$I->sendAjaxGetRequest('/updateSettings', array('notifications' => true); // GET
+
+
+{% endhighlight %}
+
+ * param $uri
+ * param $params
+
+
+#### submitForm
+
+
+Submits a form located on page.
+Specify the form by it's css or xpath selector.
+Fill the form fields values as array.
+
+Skipped fields will be filled by their values from page.
+You don't need to click the 'Submit' button afterwards.
+This command itself triggers the request to form's action.
+
+Examples:
+
+{% highlight php %}
+
+<?php
+$I->submitForm('#login', array('login' => 'davert', 'password' => '123456'));
+
+
+{% endhighlight %}
+
+For sample Sign Up form:
+
+{% highlight html %}
+
+<form action="/sign_up">
+    Login: <input type="text" name="user[login]" /><br/>
+    Password: <input type="password" name="user[password]" /><br/>
+    Do you agree to out terms? <input type="checkbox" name="user[agree]" /><br/>
+    Select pricing plan <select name="plan"><option value="1">Free</option><option value="2" selected="selected">Paid</option></select>
+    <input type="submit" value="Submit" />
+</form>
+
+{% endhighlight %}
+I can write this:
+
+{% highlight php %}
+
+<?php
+$I->submitForm('#userForm', array('user' => array('login' => 'Davert', 'password' => '123456', 'agree' => true)));
+
+
+{% endhighlight %}
+Note, that pricing plan will be set to Paid, as it's selected on page.
+
+ * param $selector
+ * param $params
+
+
 #### uncheckOption
 
 
@@ -689,20 +646,3 @@ $I->uncheckOption('#notify');
 {% endhighlight %}
 
  * param $option
-
-
-#### wait
-
-
-Wait for x milliseconds
-
- * param $milliseconds
-
-
-#### waitForJS
-
-
-Waits for x milliseconds or until JS condition turns true.
-
- * param $milliseconds
- * param $jsCondition

@@ -78,6 +78,15 @@ Do not forget that after adding module in your functional.suite.yml you must run
 ### Actions
 
 
+#### amHttpAuthenticated
+
+
+Adds HTTP authentication via username/password.
+
+ * param $username
+ * param $password
+
+
 #### amOnPage
 
 
