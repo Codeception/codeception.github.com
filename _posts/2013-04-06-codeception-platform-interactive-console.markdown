@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The Platform (1.6.0): Interactive Console
+title: "The Platform (1.6.0): Interactive Console"
 date: 2013-03-24 22:03:50
 ---
 
