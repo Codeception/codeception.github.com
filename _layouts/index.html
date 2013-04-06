@@ -126,7 +126,7 @@ layout: bootstrap
       <h4>Why should I use this instead of PHPUnit?</h4>
       <p>Being the most popular unit testing framework PHPUnit has very limited
         features for functional testing with
-        <b>Selenium</b>or other backends. Codeception is
+        <b>Selenium</b> or other backends. Codeception is
         <b>PHPUnit on steroids</b>. Everything you need for testing is built-in and
         works just out of the box. No more pain in configuring Selenium, data cleanup, writing XPaths,      
          and fixtures.
@@ -260,6 +260,7 @@ This test can be executed inside PhpBrowser or as a functional test of one of th
 
 {% highlight php %}
 <?php
+use \Codeception\Util\Stub;
 class UserTest extends \Codeception\TestCase\Test
 {
     public function testUserSave() {
@@ -279,33 +280,9 @@ class UserTest extends \Codeception\TestCase\Test
 </p>
 <a class="btn" href="/docs/06-UnitTests-TEST"><span class="btn-label">Read more about Unit Tests &rarr;</span></a> 
 
-      <h4>Scenario-Driven Unit Test</h4>
-
-{% highlight php %}
-<?php
-class UserControllerCest {
-    public $class = 'UserController';
-
-    public function createAction(CodeGuy $I)
-    {
-        $I->haveFakeClass($userController = Stub::makeEmptyExcept('UserController'));
-        $I->executeTestedMethodOn($userController, array('username' => 'MilesDavis', 'email' => 'miles@davis.com'))
-        $I->seeResultEquals(true)
-        $I->seeMethodInvoked($userController, 'renderHtml')
-        $I->seeInDabatase('users', array('username' => 'MilesDavis'));
-    }
-}
-?>
-{% endhighlight %}
-
-<p>
-In this test we describe what classes are used, what methods are executed and what results we expect to see.
-Just the same as we did in acceptance tests! 
-This test documents underlying code and creates mocks in a realtime.
-</p>
-
-<a class="btn" href="/docs/07-UnitTestsScenarios"><span class="btn-label">Read more about Scenario-Driven Unit Tests &rarr;</span></a> 
-
     </div>  
 </div>
+
+
+
 
