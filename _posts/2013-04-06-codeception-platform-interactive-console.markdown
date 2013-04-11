@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Platform (1.6.0): Interactive Console"
-date: 2013-03-24 22:03:50
+date: 2013-04-05 22:03:50
 ---
 
 Today we start new **The Platform** iteration. After 1.6 Codeception would become much more friendly and flexible in testing. Yet, no of announced features are introduced today. It's really hard to keep promises especially if you come to idea of feature that would be really really helpful for acceptance testing.
