@@ -52,7 +52,7 @@ Generates a new empty suite. You may generate new suite for integration tests, f
 
 #### Usage
 
-* `codecept genrate:suite suitename guyname` - provide name of suite and name a Guy who will be used in tests.
+* `codecept generate:suite suitename guyname` - provide name of suite and name a Guy who will be used in tests.
 
 Don't create two guys with the same name!
 
@@ -62,7 +62,7 @@ Generates new empty test file for acceptance and functional tests. Scenario-base
 
 #### Usage
 
-* `codcept generate:cept suitename testname` - generates testnameCept.php inside the suite.
+* `codecept generate:cept suitename testname` - generates testnameCept.php inside the suite.
 * `codecept generate:cept suitename subdir/subdir/testnameCept.php` - generates file in subdir/subdir of suite dir.
 
 ### Generate Cest
@@ -71,7 +71,7 @@ Generates new empty test file for scenario-based unit tests. This file format is
 
 #### Usage
 
-* `codcept generate:cest suitename testname` - generates testnameCest.php inside the suite.
+* `codecept generate:cest suitename testname` - generates testnameCest.php inside the suite.
 * `codecept generate:cest suitename "\Namespace\Subnamespace\testnameCest.php"` - generates file in `Namespace/Subnamepace` of suite dir (according to PSR-0). Generated file will have a namespace defined.
 
 ### Generate Test
@@ -80,7 +80,7 @@ Generates new empty test file for Codeception powered unit test.
 
 #### Usage
 
-* `codcept generate:test suitename testname` - generates testnameTest.php inside the suite.
+* `codecept generate:test suitename testname` - generates testnameTest.php inside the suite.
 * `codecept generate:test suitename "\Namespace\Subnamespace\testnameTest.php"` - generates file in `Namespace/Subnamepace` of suite dir (according to PSR-0). Generated file will have a namespace defined.
 
 ### Generate Classical PHPUnit Test
@@ -89,7 +89,7 @@ Generates new empty test file for Codeception powered unit test.
 
 #### Usage
 
-* `codcept generate:phpunit suitename testname` - generates testnameTest.php inside the suite.
+* `codecept generate:phpunit suitename testname` - generates testnameTest.php inside the suite.
 * `codecept generate:phpunit suitename "\Namespace\Subnamespace\testnameTest.php"` - generates file in `Namespace/Subnamepace` of suite dir (according to PSR-0). Generated file will have a namespace defined.
 
 
