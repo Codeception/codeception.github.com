@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Specification and Testing: Comparison of Behat and Codeception"
+title: "Specification or Testing: The Comparison of Behat and Codeception"
 date: 2013-05-06 22:03:50
 ---
 
