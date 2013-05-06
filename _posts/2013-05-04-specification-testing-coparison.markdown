@@ -97,7 +97,7 @@ Now lets talk about functional and acceptance tests for web. Now we know differe
 * Behat + Mink
 * Codeception
  
-I do prefer **Codeception** over Behat+Mink for web acceptance and functional tests for these reasons:
+**I do prefer Codeception over Behat+Mink for web acceptance and functional tests** for these reasons:
 
 * In web it is not very important to develop pages from how they need to behave. So there all power of Gherkin could not be applied. In this case Gherkin works just as simple translator and nothing more. My decision is to use right things for right purposes.
 * As I've pointed out above you also need to know Mink "internals" (API) to proceed some your custom methods.
