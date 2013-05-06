@@ -17,16 +17,14 @@ In nowadays almost everyone knows how it is important to have stable and tested 
 
 Main difference between usual functional and acceptance tests is that in acceptance tests you can not manipulate directly with some "underground" application code. All you can do is just interact with things that was given to you by application. In functional tests you can interact with some "underground" application code, proceed some checks and conditions that can involve application parts not available for end-user. 
 
-If we are talking about "classical" functional tests also known as "end-to-end" or "integration" tests then simple example can be when you have to test some behavior of 2-3 components together, like logging, writing configs and etc. For "classical" (but not web) functional tests **I prefer to use Behat** by itself. And I have some reasons for that. 
+If we are talking about "classical" functional tests also known as "end-to-end" or "integration" tests then simple example can be when you have to test some behavior of 2-3 components together, like logging, writing configs, etc. **For functional tests (but not web) I prefer to use Behat** by itself. And I have some reasons for that.
 
-In ideal, all development process must be the sequence of this: **DDD->BDD->TDD**. 
+**Behavior Driven Development**  helps you to start developing project from "how it must behave" and not from "what concrete components it must include in particular".
 
-Of course it is a matter of time, thats why DDD is not applied on every project, but BDD is a thing that can be easily applied to projects and won't waste your time.  Main reason is that you start to develop your project from "how it must behave" and not from "what concrete components it must include in particular".
+It can be said that you write your thoughts about behavior of your application. And this helps you to build not simply a couple of classes powered by unit-tests, but an application with good design based on specific behavior. **Behat** is very powerful tool, but it has some common pitfalls that maybe looks weird to the user:
 
-It can be said that you write your thoughts about how your application must behave and this help you to build not simply a couple of classes powered by unit-tests, but just a application with good design based on application behavior. **Behat** is very powerful tool, but it has some "common pitfalls" that maybe looks weird to the user:
-
-* It could be said that it is a "feature driven development". Thats why it is not so easy to use *subcontexts* in Behat. For example, if you have 30-40 tests it could be hard to maintain them, because of the same PhpDoc definitions for matching methods.
-* If you use Behat+Mink for functional and acceptance tests, it also requires from you a good knowledge of  Mink's internals to make your specific methods to interact with a page.
+* It could be said that it is a **feature driven development**. Thats why it is not so easy to use *subcontexts* in Behat. For example, if you have 30-40 tests it could be hard to maintain them, because of the same PhpDoc definitions for matching methods.
+* If you use Behat+Mink for functional and acceptance tests, it also requires from you a good knowledge of  Mink's internals to create your own methods to interact with a page.
 
 Lets see the example on how you can determine what components you need in your application in a "BDD" way.
 Here we are creating dummy application for managing football clubs. Lets write some 2-3 scenarios in **Gherkin**:
@@ -135,8 +133,10 @@ As you can see it is easy to read, and one really great thing is it is easy to w
 
 Codeception bundled with modules for functional and acceptance tests: PhpBrowser (functional tests over curl), Selenium (1,2) for acceptance tests, etc. There are also some nice modules for REST, SOAP and XML-RPC that can help you to test your API.
 
-It is need to be noticed that there are two types of web tests in ```Codeception```: ones requires server(nginx, apache, etc) and others not - all requests are processed directly by your applcation using Symfony's BrowserKit Component.
+It is need to be noticed that there are two types of web tests in Codeception: some require webserver and others not - all requests are processed directly by your applcation using Symfony's BrowserKit Component.
  
 Overall, my choice in Codeception is to use "PhpBrowser" module (requires a web-server) for headless web functional tests, and "Selenium2" module for complete web acceptance tests. Codeception also can generate BDD-style scenarios for you based on your Cepts.
 
 Also need to notice that maybe Codeception is not a "true" BDD, unlike Behat. Behat+Gherkin helps you to use and design your application. Codeception helps you to test it nicely.
+
+**This post was intended to be a start to series. In next posts you will learn how to use newcoming Cest format for testing and integrate Codeception with Continious integration tools. Stay tuned!**
