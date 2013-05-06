@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Specification and Testing (by @Ragazzo)"
+title: "Specification and Testing: Comparison of Behat and Codeception"
 date: 2013-05-06 22:03:50
 ---
 
-*This is guest post by [@Ragazzo](https://github.com/Ragazzo). He uses Behat as well as Codeception for making his project better. He was often asked to do a **comparison between Codeception, Behat, and PhpUnit**. In this post he explains the commons and different parts of this products.*
+*This is guest post by [Ragazzo](https://github.com/Ragazzo). He uses Behat as well as Codeception for making his project better. He was often asked to do a **comparison between Codeception, Behat, and PhpUnit**. In this post he explains the commons and different parts of this products.*
 
 In nowadays almost everyone knows how it is important to have stable and tested application. It is very difficult to create good application without involving different specific tools in your project. It is very important to develop your application through testing, according to TDD principle. There are different ways to write tests in PHP: 
 
