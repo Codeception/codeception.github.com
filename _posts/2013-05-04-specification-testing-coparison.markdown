@@ -137,6 +137,6 @@ It is need to be noticed that there are two types of web tests in Codeception: s
  
 Overall, my choice in Codeception is to use "PhpBrowser" module (requires a web-server) for headless web functional tests, and "Selenium2" module for complete web acceptance tests. Codeception also can generate BDD-style scenarios for you based on your Cepts.
 
-Also need to notice that maybe Codeception is not a "true" BDD, unlike Behat. Behat+Gherkin helps you to use and design your application. Codeception helps you to test it nicely.
+**Also need to notice that maybe Codeception is not a "true" BDD, unlike Behat. Behat+Gherkin helps you to use and design your application. Codeception helps you to test it nicely.**
 
 *This post was intended to be a start to series. In next posts you will learn how to use newcoming Cest format for testing and integrate Codeception with Continious integration tools. Stay tuned!*
