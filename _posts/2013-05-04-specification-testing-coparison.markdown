@@ -15,7 +15,7 @@ In nowadays almost everyone knows how it is important to have stable and tested 
 
 ### My vision of BDD.
 
-Main difference between usual functional and acceptance tests is that in acceptance tests you can not manipulate directly with some "underground" application code. All you can do is just interact with things that was given to you by application. In functional tests you can interact with some "underground" application code, proceed some checks and conditions that can involve application parts not available for end-user. 
+Main difference between usual functional and acceptance tests is that in acceptance tests you can not manipulate directly with some "underground" application code. All you can do is just interact with things that was given to you by application. In functional tests you can interact with application internals, proceed some checks and conditions that can involve application parts not available for end-user. 
 
 If we are talking about "classical" functional tests also known as "end-to-end" or "integration" tests then simple example can be when you have to test some behavior of 2-3 components together, like logging, writing configs, etc. **For functional tests (but not web) I prefer to use Behat** by itself. And I have some reasons for that.
 
