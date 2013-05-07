@@ -139,11 +139,13 @@ Overall, my choice in Codeception is to use "PhpBrowser" module (requires a web-
 
 **Also need to notice that maybe Codeception is not a "true" BDD, unlike Behat. Behat+Gherkin helps you to use and design your application. Codeception helps you to test it nicely.**
 
-*This post was intended to be a start to series. In next posts you will learn how to use newcoming Cest format for testing and integrate Codeception with Continious integration tools. Stay tuned!*
-
 ### Links to read and get more info
 
-* <http://behat.org]/>
+* <http://codeception.com>
+* <http://behat.org>
 * <http://mink.behat.org/>
-* <http://codeception.com/12-20-2012/not-bdd.html>
-* <http://phpmaster.com/ruling-the-swarm-of-tests-with-codeception/>
+* [Stop simulating BDD](http://codeception.com/12-20-2012/not-bdd.html)
+* [Ruling the swarm of tests with Codeception](http://phpmaster.com/ruling-the-swarm-of-tests-with-codeception/)
+
+
+*This post was intended to be a start to series. In next posts you will learn how to use newcoming Cest format for testing and integrate Codeception with Continious integration tools. Stay tuned!*
