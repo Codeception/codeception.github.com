@@ -143,7 +143,7 @@ Overall, my choice in Codeception is to use "PhpBrowser" module (requires a web-
 
 ### Links to read and get more info
 
-* http://behat.org/
-* http://mink.behat.org/
-* http://codeception.com/12-20-2012/not-bdd.html
-* http://phpmaster.com/ruling-the-swarm-of-tests-with-codeception/
+* <http://behat.org]/>
+* <http://mink.behat.org/>
+* <http://codeception.com/12-20-2012/not-bdd.html>
+* <http://phpmaster.com/ruling-the-swarm-of-tests-with-codeception/>
