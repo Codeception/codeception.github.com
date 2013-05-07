@@ -141,6 +141,9 @@ Overall, my choice in Codeception is to use "PhpBrowser" module (requires a web-
 
 *This post was intended to be a start to series. In next posts you will learn how to use newcoming Cest format for testing and integrate Codeception with Continious integration tools. Stay tuned!*
 
-**Links to read and get more info**: 
-* http://codeception.com/
+### Links to read and get more info
+
+* http://behat.org/
+* http://mink.behat.org/
+* http://codeception.com/12-20-2012/not-bdd.html
 * http://phpmaster.com/ruling-the-swarm-of-tests-with-codeception/
