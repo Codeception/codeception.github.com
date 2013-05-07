@@ -101,7 +101,7 @@ Now lets talk about functional and acceptance tests for web. Now we know differe
 
 * In web it is not very important to develop pages from how they need to behave. So there all power of Gherkin could not be applied. In this case Gherkin works just as simple translator and nothing more. My decision is to use right things for right purposes.
 * As I've pointed out above you also need to know Mink "internals" (API) to proceed some your custom methods.
-* Testing web-pages can lead to many ambiguous or redundant Gherkin steps.
+* Testing web-pages can lead to many *"Ambiguous"* or *"Redundant"* Behat feature steps.
 
 Of course there are some things to avoid this, but i prefer "easy-to-learn things" in this situation.
  
@@ -129,7 +129,7 @@ $I->seeLink('Login');
 ?>
 {% endhighlight %}
  
-As you can see it is easy to read, and one really great thing is it is easy to write, because of auto-completion. In Behat when using Gherkin you can get some *"Undefined steps"* errors, just because you mistyped something. And it happens to be annoying. 
+As you can see it is easy to read, and one really great thing is it is easy to write, because of auto-completion. In Behat when using Gherkin you can get some *"Undefined"* steps errors, just because you mistyped something. And it happens to be annoying. 
 
 Codeception bundled with modules for functional and acceptance tests: PhpBrowser (functional tests over curl), Selenium (1,2) for acceptance tests, etc. There are also some nice modules for REST, SOAP and XML-RPC that can help you to test your API.
 
