@@ -20,7 +20,7 @@ This can be done by this command:
 
 {% highlight yaml %}
 bash
-$ php codecept.phar generate:phpunit unit Simple
+$ php codecept.phar generate:phpunit unit Example
 
 {% endhighlight %}
 
@@ -29,11 +29,11 @@ We need another command to create Codeception-powered unit tests.
 
 {% highlight yaml %}
 bash
-$ php codecept.phar generate:test unit Simple
+$ php codecept.phar generate:test unit Example
 
 {% endhighlight %}
 
-Both tests will create a new `SimpleTest` file located in `tests/unit` directory.
+Both tests will create a new `ExampleTest` file located in `tests/unit` directory.
 
 A test created by `generate:test` command will look like this:
 
@@ -42,7 +42,7 @@ A test created by `generate:test` command will look like this:
 <?php
 use Codeception\Util\Stub;
 
-class SimpleTest extends \Codeception\TestCase\Test
+class ExampleTest extends \Codeception\TestCase\Test
 {
    /**
     * @var CodeGuy
@@ -163,7 +163,7 @@ Less words, more code for better understanding.
 <?php
 use Codeception\Util\Stub;
 
-class SimpleTest extends \Codeception\TestCase\Test
+class ExampleTest extends \Codeception\TestCase\Test
 {
    /**
     * @var CodeGuy
@@ -190,6 +190,7 @@ class SimpleTest extends \Codeception\TestCase\Test
 ## Conclusion
 
 PHPUnit tests is a first-class citizen in test suites. Whenever you need to write and execute unit tests, you don't need to install PHPUnit manually, but use a Codeception to execute them. Some nice features are added to common unit tests by integrating Codeception modules. For most of unit and integration testing PHPUnit tests are just enough. They are fast and easy to maintain.
+
 
 
 

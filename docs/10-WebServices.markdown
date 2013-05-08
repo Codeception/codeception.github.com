@@ -7,7 +7,7 @@ title: Codeception - Documentation
 
 The same way we tested a web site Codeception allows you to test web services. They are very hard to test manually, so it's really good idea to automate web service testing. As a standards we have SOAP and REST which are represented in corresponding modules. We will cover them in this chapter.
 
-You should start with creating a new test suite, which was not provided by the `bootstrap` command. We recommend to call it **api** and use the ApiGuy class for it. 
+You should start with creating a new test suite, which was not provided by the `bootstrap` command. We recommend to call it **api** and use the ApiGuy class for it.
 
 {% highlight yaml %}
 
@@ -30,7 +30,7 @@ class_name: ApiGuy
 modules:
     enabled: [PhpBrowser, REST, ApiHelper]
     config:
-		PhpBrowser: 
+		PhpBrowser:
 			url: http://serviceapp/
 		REST:
 		    url: http://serviceapp/api/v1/
@@ -63,7 +63,7 @@ $I->seeResponseContains('{ result: ok}');
 
 {% endhighlight %}
 
-REST module is designed to be used with services that serve responses in JSON format. For example, method `seeResponseContainsJson` will convert provided array to json and check if response contains it. 
+REST module is designed to be used with services that serve responses in JSON format. For example, method `seeResponseContainsJson` will convert provided array to json and check if response contains it.
 
 You may want to perform more complex assertions of response. This can be done with writing your own methods in [Helper](http://codeception.com/docs/03-Modules#helpers) classes. To access the latest JSON response you will need to get `response` property of REST module. Let's demonstrate it with `seeResponseIsHtml` method:
 
@@ -97,10 +97,10 @@ class_name: ApiGuy
 modules:
     enabled: [PhpBrowser, SOAP, ApiHelper]
     config:
-		PhpBrowser: 
+		PhpBrowser:
 			url: http://serviceapp/
 		SOAP:
-		    endpoint: http://serviceapp/api/v1/		    		   
+		    endpoint: http://serviceapp/api/v1/
 
 {% endhighlight %}
 
@@ -126,7 +126,7 @@ will produce this XML header
 
 {% endhighlight %}
 
-Use `sendSoapRequest` method to define the body of your request. 
+Use `sendSoapRequest` method to define the body of your request.
 
 {% highlight php %}
 
@@ -148,8 +148,6 @@ This call will be translated to XML:
 </soap:Body>
 
 {% endhighlight %}
-?>
-```
 
 And here is the list of sample assertions that can be used with SOAP.
 
@@ -164,7 +162,7 @@ $I->seeSoapResponseContainsXPath('//result/user/name[@id=1]');
 
 {% endhighlight %}
 
-In case you don't want to write long XML strings, consider using [XmlBuilder](http://codeception.com/docs/reference/xmlbuilder) class. It will help you to build complex XMLs in jQuery-like style. 
+In case you don't want to write long XML strings, consider using [XmlBuilder](http://codeception.com/docs/reference/xmlbuilder) class. It will help you to build complex XMLs in jQuery-like style.
 In next example we will use `XmlBuilder` (created from SoapUtils factory) instead of regular XMLs.
 
 {% highlight php %}

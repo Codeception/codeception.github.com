@@ -38,11 +38,11 @@ Don't forget to turn on Db repopulation if you are using database.
 
 #### Example (`acceptance.suite.yml`)
 
-    modules: 
+    modules:
        enabled: [Selenium2]
        config:
           Selenium2:
-             url: 'http://localhost/' 
+             url: 'http://localhost/'
              browser: firefox
              capabilities:
                  unexpectedAlertBehaviour: 'accept'
@@ -347,6 +347,24 @@ $I->dontSeeLink('Logout'); // I suppose user is not logged in
  * param null $url
 
 
+#### dontSeeOptionIsSelected
+
+
+Checks if option is not selected in select field.
+
+{% highlight php %}
+
+<?php
+$I->dontSeeOptionIsSelected('#form input[name=payment]', 'Visa');
+?>
+
+{% endhighlight %}
+
+ * param $selector
+ * param $optionText
+ * return mixed
+
+
 #### doubleClick
 
 
@@ -553,6 +571,25 @@ For example see 'pressKey'.
 Reloads current page
 
 
+#### resizeWindow
+
+
+Resize current window
+
+Example:
+{% highlight php %}
+
+<?php
+$I->resizeWindow(800, 600);
+
+
+{% endhighlight %}
+
+ * param int    $width
+ * param int    $height
+ * author Jaik Dean <jaik@jaikdean.com>
+
+
 #### see
 
 
@@ -713,6 +750,24 @@ $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
 
  * param $text
  * param null $url
+
+
+#### seeOptionIsSelected
+
+
+Checks if option is selected in select field.
+
+{% highlight php %}
+
+<?php
+$I->seeOptionIsSelected('#form input[name=payment]', 'Visa');
+?>
+
+{% endhighlight %}
+
+ * param $selector
+ * param $optionText
+ * return mixed
 
 
 #### selectOption
