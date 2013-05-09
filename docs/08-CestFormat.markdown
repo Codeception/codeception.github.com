@@ -365,4 +365,4 @@ Codeception has it's powers and it's limits. We believe Codeception's limitation
 
 
 * **Next Chapter: [Data >](/docs/09-Data)**
-* **Previous Chapter: [< UnitTestsInScenarios](/docs/07-UnitTestsInScenarios)**
+* **Previous Chapter: [< AdvancedUsage](/docs/07-AdvancedUsage)**
