@@ -16,8 +16,9 @@ This feature was introduced in 1.6.0 version.
 
 You can execute console with 
 
-{% highlight php %}
- codecept.phar console suitename
+{% highlight yaml %}
+ bash
+php codecept.phar console suitename
 
 {% endhighlight %}
 
@@ -30,17 +31,21 @@ And a special hint: show your boss how you can nicely manipulate web pages with 
 If you have several project with Codeception tests in it you can use one `codecept.phar` file to run their tests.
 You can pass a `-c` option to any Codeception command, excluding `bootstrap` to execute codeception in other directory.
 
-{% highlight php %}
- codecept.phar run -c ~/projects/ecommerce/
+{% highlight yaml %}
+
+
+php codecept.phar run -c ~/projects/ecommerce/
 php codecept.phar run -c ~/projects/drupal/
 php codecept.phar generate:cept acceptance CreateArticle -c ~/projects/drupal/
 
-{% endhighlight %}
 
+{% endhighlight %} bash
 To create a project in directory other then current just provide it's path as a parameter.
 
-{% highlight php %}
- codecept.phar bootstrap ~/projects/drupal/
+{% highlight yaml %}
+ bash
+php codecept.phar bootstrap ~/projects/drupal/
+
 
 {% endhighlight %}
 
@@ -50,15 +55,18 @@ Basically `-c` option allows you specify not only the path but a config file to 
 
 There are several ways to execute bunch of tests. You can run tests from specific directory:
 
-{% highlight php %}
- codecept.phar run tests/acceptance/admin
+{% highlight yaml %}
+ bash
+php codecept.phar run tests/acceptance/admin
+
 
 {% endhighlight %}
 
 Or execute one (or several) specific groups of tests:
 
-{% highlight php %}
- codecept.phar run -g admin -g editor
+{% highlight yaml %}
+ bash
+php codecept.phar run -g admin -g editor
 
 {% endhighlight %}
 
@@ -135,7 +143,7 @@ class BasicCest
 
 **Each public method of Cest (except, those starting from `_`) will be executed as a test** and will receive Guy class as the first parameter and `$scenario` variable as a second. 
 
-In `_before` and `_after` method you can use common setups, teardowns for the tests in the class. That actually makes Cest tests more flexible, then Cepts that rely only on similar methdods in Helper classes.
+In `_before` and `_after` method you can use common setups, teardowns for the tests in the class. That actually makes Cest tests more flexible, then Cepts that rely only on similar methods in Helper classes.
 
 As you see we are passing Guy class into `tryToTest` stub. That allows us to write a scenarios the way we did before.
 
@@ -197,7 +205,7 @@ It's pretty obvious that for such cases you can use your own PHP classes to defi
 
 This file can be required in `_bootstrap.php` file
 
-{% highlight yaml %}
+{% highlight php %}
 
 <?php
 // bootstrap
@@ -208,7 +216,7 @@ require_once '/path/to/test/commons/TestCommons.php';
 
 and used in your scenarios:
 
-{% highlight yaml %}
+{% highlight php %}
 
 <?php
 $I = new WebGuy($scenario);
