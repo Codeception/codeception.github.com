@@ -314,6 +314,24 @@ $I->dontSeeLink('Logout'); // I suppose user is not logged in
  * param null $url
 
 
+#### dontSeeOptionIsSelected
+
+
+Checks if option is not selected in select field.
+
+{% highlight php %}
+
+<?php
+$I->dontSeeOptionIsSelected('#form input[name=payment]', 'Visa');
+?>
+
+{% endhighlight %}
+
+ * param $selector
+ * param $optionText
+ * return mixed
+
+
 #### doubleClick
 
 
@@ -370,7 +388,7 @@ If no url provided returns full URI.
 
 {% highlight php %}
 
- <?php
+<?php
 $user_id = $I->grabFromCurrentUrl('~$/user/(\d+)/~');
 $uri = $I->grabFromCurrentUrl();
 ?>
@@ -648,6 +666,24 @@ $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
 
  * param $text
  * param null $url
+
+
+#### seeOptionIsSelected
+
+
+Checks if option is selected in select field.
+
+{% highlight php %}
+
+<?php
+$I->seeOptionIsSelected('#form input[name=payment]', 'Visa');
+?>
+
+{% endhighlight %}
+
+ * param $selector
+ * param $optionText
+ * return mixed
 
 
 #### selectOption

@@ -101,7 +101,7 @@ Now lets talk about functional and acceptance tests for web. Now we know differe
 
 * In web it is not very important to develop pages from how they need to behave. So there all power of Gherkin could not be applied. In this case Gherkin works just as simple translator and nothing more. My decision is to use right things for right purposes.
 * As I've pointed out above you also need to know Mink "internals" (API) to proceed some your custom methods.
-* Testing web-pages can lead to many ambiguous or redundant Gherkin steps.
+* Testing web-pages can lead to many *"Ambiguous"* or *"Redundant"* Behat feature steps.
 
 Of course there are some things to avoid this, but i prefer "easy-to-learn things" in this situation.
  
@@ -129,7 +129,7 @@ $I->seeLink('Login');
 ?>
 {% endhighlight %}
  
-As you can see it is easy to read, and one really great thing is it is easy to write, because of auto-completion. In Behat when using Gherkin you can get some *"Undefined steps"* errors, just because you mistyped something. And it happens to be annoying. 
+As you can see it is easy to read, and one really great thing is it is easy to write, because of auto-completion. In Behat when using Gherkin you can get some *"Undefined"* steps errors, just because you mistyped something. And it happens to be annoying. 
 
 Codeception bundled with modules for functional and acceptance tests: PhpBrowser (functional tests over curl), Selenium (1,2) for acceptance tests, etc. There are also some nice modules for REST, SOAP and XML-RPC that can help you to test your API.
 
@@ -138,5 +138,14 @@ It is need to be noticed that there are two types of web tests in Codeception: s
 Overall, my choice in Codeception is to use "PhpBrowser" module (requires a web-server) for headless web functional tests, and "Selenium2" module for complete web acceptance tests. Codeception also can generate BDD-style scenarios for you based on your Cepts.
 
 **Also need to notice that maybe Codeception is not a "true" BDD, unlike Behat. Behat+Gherkin helps you to use and design your application. Codeception helps you to test it nicely.**
+
+### Links to read and get more info
+
+* <http://codeception.com>
+* <http://behat.org>
+* <http://mink.behat.org/>
+* [Stop simulating BDD](http://codeception.com/12-20-2012/not-bdd.html)
+* [Ruling the swarm of tests with Codeception](http://phpmaster.com/ruling-the-swarm-of-tests-with-codeception/)
+
 
 *This post was intended to be a start to series. In next posts you will learn how to use newcoming Cest format for testing and integrate Codeception with Continious integration tools. Stay tuned!*
