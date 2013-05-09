@@ -7,13 +7,16 @@ title: Codeception - Documentation
 **For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/master/src/Codeception/Module/Laravel4.php)**
 
 
-Class Laravel4
 
 This module allows you to run functional tests for Laravel 4.
 Module is very fresh and should be improved with Laravel testing capabilities.
 Please try it and leave your feedbacks. If you want to maintin it - connect Codeception team.
 
 Uses 'bootstrap/start.php' to launch.
+
+### Demo Project
+
+<https://github.com/Codeception/sample-l4-app>
 
 ### Status
 
