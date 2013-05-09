@@ -39,12 +39,16 @@ php codecept.phar run -c ~/projects/drupal/
 php codecept.phar generate:cept acceptance CreateArticle -c ~/projects/drupal/
 
 
-{% endhighlight %} bash
+{% endhighlight %}
+
 To create a project in directory other then current just provide it's path as a parameter.
 
+
 {% highlight yaml %}
- bash
+
+
 php codecept.phar bootstrap ~/projects/drupal/
+
 
 
 {% endhighlight %}
@@ -56,8 +60,10 @@ Basically `-c` option allows you specify not only the path but a config file to 
 There are several ways to execute bunch of tests. You can run tests from specific directory:
 
 {% highlight yaml %}
- bash
+
+
 php codecept.phar run tests/acceptance/admin
+
 
 
 {% endhighlight %}
@@ -65,8 +71,10 @@ php codecept.phar run tests/acceptance/admin
 Or execute one (or several) specific groups of tests:
 
 {% highlight yaml %}
- bash
+
+
 php codecept.phar run -g admin -g editor
+
 
 {% endhighlight %}
 
