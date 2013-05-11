@@ -203,4 +203,4 @@ When you write tests with Codeception it is good to be verbose and use different
 
 Use this commands instead of comments in your tests. They will be displayed in scenario output and will provide you with additional information on steps taken.
 
-*We can say to Ragazzo for sharing his experience in using the bleeding edge feature of Cest classes. Stil it might be a point of discussion, should a CRUD be tested in one test or in four. Still in both cases Cest classes are a good places to keep everything you need to test dealing with one entity. A user, in this case.
+*We can say to Ragazzo for sharing his experience in using the bleeding edge feature of Cest classes. Stil it might be a point of discussion, should a CRUD be tested in one test or in four. Still in both cases Cest classes are a good places to keep everything you need to test dealing with one entity. A user, in this case.*
