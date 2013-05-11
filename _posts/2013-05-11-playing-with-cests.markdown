@@ -4,7 +4,7 @@ title: "Playng with Cests"
 date: 2013-05-11 22:03:50
 ---
 
-*This is the second blogpost from Ragazzo on using Cest format in functional tests.*
+*This is the second guestpost from **Ragazzo**. He writes about using Cest format in functional tests.*
 
 As you already saw it is easy to use flat Cept files in Codeception for your tests. But what if you want to test CRUD operations so a Cept can take 50-70 rows long. In this case it would not be so "easy-to-read". 
 
@@ -14,7 +14,7 @@ The other issue we want to solve with Cest files is **UI mapping**. It's ok to s
 
 Lets see example of testing simple Yii 1.1 application page in Cest-way with ```PhpBrowser``` module:
 
-```php
+{% highlight php %}
 <?php
 
 class IndexCest
@@ -60,13 +60,13 @@ class IndexCest
 
 }
 ?>
-```
+{%endhighlight%}
 
   As you see, it was easy to add move out selectors into UI properties if we are inside a calss.
 
   Example of how to test CRUD operations with Selenium2 module is below. Please notice that all support methods are `protected`. They are called from test methods and won't be executed as test themeselves.
 
-```php
+{% highlight php %}
 <?php
 /**
  * "Users" module CrudCest class file
@@ -192,7 +192,7 @@ class CrudCest
 
 }
 ?>
-```
+{%endhighlight%}
 In this way you can use Cests classes for some tasks where it is difficult to use flat Cepts. You also can use Cests classes as PageObjects. 
 
 When you write tests with Codeception it is good to be verbose and use different methdos for that, so use them:
