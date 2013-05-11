@@ -17,15 +17,6 @@ Lets see example of testing simple Yii 1.1 application page in Cest-way with ```
 ```php
 <?php
 
-/**
- * IndexCest class file.
- * @author Ragazzo
- */
-
-namespace basic;
-
-use Codeception\CestCase;
-
 class IndexCest
 {
 
