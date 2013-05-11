@@ -196,6 +196,7 @@ class CrudCest
 In this way you can use Cests classes for some tasks where it is difficult to use flat Cepts. You also can use Cests classes as PageObjects. 
 
 When you write tests with Codeception it is good to be verbose and use different methdos for that, so use them:
+
   - `$I->am` to say who you are and define your role;
   - `$I->wantTo` to say what feature you want to test;
   - `$I->amGoingTo` to say what you gonna do next;
