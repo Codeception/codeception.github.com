@@ -3,48 +3,30 @@ layout: doc
 title: Codeception - Documentation
 ---
 
-# PhpBrowser Module
-**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/master/src/Codeception/Module/PhpBrowser.php)**
+# ZF2 Module
+**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/master/src/Codeception/Module/ZF2.php)**
 
 
-Uses [Mink](http://mink.behat.org) with [Goutte](https://github.com/fabpot/Goutte) and [Guzzle](http://guzzlephp.org/) to interact with your application over CURL.
-Module works over CURL and requires **PHP CURL extension** to be enabled.
+This module allows you to run tests inside Zend Framework 2.
 
-Use to perform web acceptance tests with non-javascript browser.
-
-If test fails stores last shown page in 'output' dir.
+File `init_autoloader` in project's root is required.
+Uses `tests/application.config.php` config file by default.
 
 ### Status
 
-* Maintainer: **davert**
-* Stability: **stable**
-* Contact: davert.codecept@mailican.com
-* relies on [Mink](http://mink.behat.org) and [Guzzle](http://guzzlephp.org/)
+* Maintainer: **bladeofsteel**
+* Stability: **alpha**
+* Contact: https://github.com/bladeofsteel
 
-*Please review the code of non-stable modules and provide patches if you have issues.*
+### Config
 
-### Configuration
+* config: relative path to config file (default: `tests/application.config.php`)
 
-* url *required* - start url of your app
-* curl - curl options
+### API
 
-#### Example (`acceptance.suite.yml`)
-
-    modules:
-       enabled: [PhpBrowser]
-       config:
-          PhpBrowser:
-             url: 'http://localhost'
-             curl:
-                 CURLOPT_RETURNTRANSFER: true
-
-### Public Properties
-
-* session - contains Mink Session
-* guzzle - contains [Guzzle](http://guzzlephp.org/) client instance: `\Guzzle\Http\Client`
-
-All SSL certification checks are disabled by default.
-To configure CURL options use `curl` config parameter.
+* application -  instance of `\Zend\Mvc\ApplicationInterface`
+* db - instance of `\Zend\Db\Adapter\AdapterInterface`
+* client - BrowserKit client
 
 
 ### Actions
@@ -63,6 +45,20 @@ Adds HTTP authentication via username/password.
 
 
 Opens the page.
+Requires relative uri as parameter
+
+Example:
+
+{% highlight php %}
+
+<?php
+// opens front page
+$I->amOnPage('/');
+// opens /register page
+$I->amOnPage('/register');
+?>
+
+{% endhighlight %}
 
  * param $page
 
@@ -302,37 +298,6 @@ $I->dontSeeOptionIsSelected('#form input[name=payment]', 'Visa');
  * return mixed
 
 
-#### executeInGuzzle
-
-
-Low-level API method.
-If Codeception commands are not enough, use [Guzzle HTTP Client](http://guzzlephp.org/) methods directly
-
-Example:
-
-{% highlight php %}
-
-<?php
-// from the official Guzzle manual
-$I->amGoingTo('Sign all requests with OAuth');
-$I->executeInGuzzle(function (\Guzzle\Http\Client $client) {
-     $client->addSubscriber(new Guzzle\Plugin\Oauth\OauthPlugin(array(
-                 'consumer_key'    => '***',
-                 'consumer_secret' => '***',
-                 'token'           => '***',
-                 'token_secret'    => '***'
-     )));
-});
-?>
-
-{% endhighlight %}
-
-Not recommended this command too be used on regular basis.
-If Codeception lacks important Guzzle Client methods implement then and submit patches.
-
- * param callable $function
-
-
 #### fillField
 
 
@@ -342,7 +307,7 @@ Fills a text field or textarea with value.
  * param $value
 
 
-#### grabAttribute
+#### formatResponse
 
 __not documented__
 
@@ -409,24 +374,6 @@ $name = $I->grabValueFrom('descendant-or-self::form/descendant::input[@name = 'u
 
  * param $field
  * return mixed
-
-
-#### moveBack
-
-
-Moves back in history
-
-
-#### moveForward
-
-
-Moves forward in history
-
-
-#### reloadPage
-
-
-Reloads current page
 
 
 #### see

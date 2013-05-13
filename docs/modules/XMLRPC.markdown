@@ -4,7 +4,9 @@ title: Codeception - Documentation
 ---
 
 # XMLRPC Module
-**For additional reference,, please review the [source](https://github.com/Codeception/Codeception/tree/master/src/Codeception/Module/XMLRPC)**
+**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/master/src/Codeception/Module/XMLRPC.php)**
+
+
 Module for testing XMLRPC WebService.
 
 This module can be used either with frameworks or PHPBrowser.

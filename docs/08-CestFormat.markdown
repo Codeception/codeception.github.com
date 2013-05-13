@@ -5,6 +5,10 @@ title: Codeception - Documentation
 
 # Cest Unit Testing Format
 
+
+<div class="alert alert-error">This chapter is <strong>deprecated</strong>. Don't read it and forget everything I might have read.
+Use classical <a href="http://codeception.com/docs/06-UnitTests">Unit Tests</a> with some Codeception powers.</div>
+
 In this chapter we will lift up the curtains and show you a bit of the magic that Codeception does to simplify unit testing.
 Earlier we tested the Controller layer of the MVC pattern. In this chapter we will concentrate on testing the Models.
 
@@ -30,6 +34,13 @@ class UserCest {
 
 {% endhighlight %}
 
+Before proceeding, please make sure you executed `build` command that creates a `CodeGuy` class with methods from [Unit](http://codeception.com/docs/modules/Unit) module.
+
+{% highlight php %}
+ codecept.phar build
+
+{% endhighlight %}
+
 Let's create first test with `generate:cest` command:
 
 {% highlight yaml %}
@@ -38,7 +49,7 @@ $ php codecept.phar generate:cest unit Post
 
 {% endhighlight %}
 
-At first we need to define with `$class` preoperty the class which is being actually tested.
+At first we need to define with `$class` property the class which is being actually tested.
 
 {% highlight php %}
 
@@ -58,7 +69,7 @@ class PostCest {
 
 This will create an empty Cest file for us.
 
-There are many cases whre we test only one method of a class. As we discovered, it's quite easy to define the class and method you are going to test. We take the `$class` parameter of the Cest class, and the method's name as a target method.
+There are many cases where we test only one method of a class. As we discovered, it's quite easy to define the class and method you are going to test. We take the `$class` parameter of the Cest class, and the method's name as a target method.
 
 {% highlight php %}
 
@@ -193,7 +204,7 @@ class ControllerCest {
 
 #### Is The Test Running?
 
-Scenario-based test is run in 2 phases: analisys and execution. Whenever you want to add any custom PHP code (which doesn't use the $I object) you probably want it to be xecuted in the runtime. Thus, you should always perform the check if the test is running:
+Scenario-based test is run in 2 phases: analysis and execution. Whenever you want to add any custom PHP code (which doesn't use the $I object) you probably want it to be executed in the runtime. Thus, you should always perform the check if the test is running:
 
 {% highlight php %}
 
@@ -208,7 +219,7 @@ function save(\CodeGuy $I, \Codeception\Scenario $scenario)
 
 {% endhighlight %}
 
-In case you want to execute line on analisys step (to preload bootstrap values), you can use the `$scenario->preload()` method.
+In case you want to execute line on analysis step (to preload bootstrap values), you can use the `$scenario->preload()` method.
 
 #### Stubs
 
@@ -352,5 +363,6 @@ Codeception has it's powers and it's limits. We believe Codeception's limitation
 
 
 
+
 * **Next Chapter: [Data >](/docs/09-Data)**
-* **Previous Chapter: [< UnitTestsInScenarios](/docs/07-UnitTestsInScenarios)**
+* **Previous Chapter: [< AdvancedUsage](/docs/07-AdvancedUsage)**

@@ -4,7 +4,9 @@ title: Codeception - Documentation
 ---
 
 # Selenium2 Module
-**For additional reference,, please review the [source](https://github.com/Codeception/Codeception/tree/master/src/Codeception/Module/Selenium2)**
+**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/master/src/Codeception/Module/Selenium2.php)**
+
+
 Uses Mink to manipulate Selenium2 WebDriver
 
 Note that all method take CSS selectors to fetch elements.
@@ -32,10 +34,23 @@ Don't forget to turn on Db repopulation if you are using database.
 * host  - Selenium server host (localhost by default)
 * port - Selenium server port (4444 by default)
 * delay - set delay between actions in milliseconds (1/1000 of second) if they run too fast
+* capabilities - sets Selenium2 [desired capabilities](http://code.google.com/p/selenium/wiki/DesiredCapabilities). Should be a key-value array.
+
+#### Example (`acceptance.suite.yml`)
+
+    modules:
+       enabled: [Selenium2]
+       config:
+          Selenium2:
+             url: 'http://localhost/'
+             browser: firefox
+             capabilities:
+                 unexpectedAlertBehaviour: 'accept'
 
 ### Public Properties
 
 * session - contains Mink Session
+* webDriverSession - contains webDriverSession object, i.e. $session from [php-webdriver](https://github.com/facebook/php-webdriver)
 
 ### Actions
 
@@ -139,6 +154,8 @@ If link is an image it's found by alt attribute value of image.
 If button is image button is found by it's value
 If link or button can't be found by name they are searched by CSS selector.
 
+The second parameter is a context: CSS or XPath locator to narrow the search.
+
 Examples:
 
 {% highlight php %}
@@ -152,10 +169,13 @@ $I->click('Submit');
 $I->click('#form input[type=submit]');
 // XPath
 $I->click('//form/*[@type=submit]')
+// link in context
+$I->click('Logout', '#nav');
 ?>
 
 {% endhighlight %}
  * param $link
+ * param $context
 
 
 #### clickWithRightButton
@@ -207,16 +227,76 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
  * param $checkbox
 
 
+#### dontSeeCurrentUrlEquals
+
+
+Checks that current url is not equal to value.
+Unlike `dontSeeInCurrentUrl` performs a strict check.
+
+<?php
+// current url is not root
+$I->dontSeeCurrentUrlEquals('/');
+?>
+
+ * param $uri
+
+
+#### dontSeeCurrentUrlMatches
+
+
+Checks that current url does not match a RegEx value
+
+<?php
+// to match root url
+$I->dontSeeCurrentUrlMatches('~$/users/(\d+)~');
+?>
+
+ * param $uri
+
+
+#### dontSeeElement
+
+
+Checks if element does not exist (or is visible) on a page, matching it by CSS or XPath
+
+{% highlight php %}
+
+<?php
+$I->dontSeeElement('.error');
+$I->dontSeeElement(//form/input[1]);
+?>
+
+{% endhighlight %}
+ * param $selector
+
+
+#### dontSeeInCurrentUrl
+
+
+Checks that current uri does not contain a value
+
+{% highlight php %}
+
+<?php
+$I->dontSeeInCurrentUrl('/users/');
+?>
+
+{% endhighlight %}
+
+ * param $uri
+
+
 #### dontSeeInField
 
 
 Checks that an input field or textarea doesn't contain value.
-
+Field is matched either by label or CSS or Xpath
 Example:
 
 {% highlight php %}
 
 <?php
+$I->dontSeeInField('Body','Type your comment here');
 $I->dontSeeInField('form textarea[name=body]','Type your comment here');
 $I->dontSeeInField('form input[type=hidden]','hidden_value');
 $I->dontSeeInField('#searchform input','Search');
@@ -267,6 +347,24 @@ $I->dontSeeLink('Logout'); // I suppose user is not logged in
  * param null $url
 
 
+#### dontSeeOptionIsSelected
+
+
+Checks if option is not selected in select field.
+
+{% highlight php %}
+
+<?php
+$I->dontSeeOptionIsSelected('#form input[name=payment]', 'Visa');
+?>
+
+{% endhighlight %}
+
+ * param $selector
+ * param $optionText
+ * return mixed
+
+
 #### doubleClick
 
 
@@ -283,6 +381,27 @@ XPath or CSS selectors are accepted.
 
  * param $el1
  * param $el2
+
+
+#### executeInSelenium
+
+
+Low-level API method.
+If Codeception commands are not enough, use Selenium WebDriver methods directly
+
+{% highlight php %}
+
+$I->executeInSelenium(function(\WebDriver\Session $webdriver) {
+  $webdriver->back();
+});
+
+{% endhighlight %}
+
+Use [WebDriver Session API](https://github.com/facebook/php-webdriver)
+Not recommended this command too be used on regular basis.
+If Codeception lacks important Selenium methods implement then and submit patches.
+
+ * param callable $function
 
 
 #### executeJs
@@ -313,6 +432,26 @@ Moves focus to link or button or any node found by CSS or XPath
 #### grabAttribute
 
 __not documented__
+
+
+#### grabFromCurrentUrl
+
+
+Takes a parameters from current URI by RegEx.
+If no url provided returns full URI.
+
+{% highlight php %}
+
+<?php
+$user_id = $I->grabFromCurrentUrl('~$/user/(\d+)/~');
+$uri = $I->grabFromCurrentUrl();
+?>
+
+{% endhighlight %}
+
+ * param null $uri
+ * internal param $url
+ * return mixed
 
 
 #### grabTextFrom
@@ -432,6 +571,25 @@ For example see 'pressKey'.
 Reloads current page
 
 
+#### resizeWindow
+
+
+Resize current window
+
+Example:
+{% highlight php %}
+
+<?php
+$I->resizeWindow(800, 600);
+
+
+{% endhighlight %}
+
+ * param int    $width
+ * param int    $height
+ * author Jaik Dean <jaik@jaikdean.com>
+
+
 #### see
 
 
@@ -475,6 +633,33 @@ $I->seeCheckboxIsChecked('//form/input[@type=checkbox and  * name=agree]');
  * param $checkbox
 
 
+#### seeCurrentUrlEquals
+
+
+Checks that current url is equal to value.
+Unlike `seeInCurrentUrl` performs a strict check.
+
+<?php
+// to match root url
+$I->seeCurrentUrlEquals('/');
+?>
+
+ * param $uri
+
+
+#### seeCurrentUrlMatches
+
+
+Checks that current url is matches a RegEx value
+
+<?php
+// to match root url
+$I->seeCurrentUrlMatches('~$/users/(\d+)~');
+?>
+
+ * param $uri
+
+
 #### seeElement
 
 
@@ -488,7 +673,18 @@ Eiter CSS or XPath can be used.
 #### seeInCurrentUrl
 
 
-Checks that current uri contains value
+Checks that current uri contains a value
+
+{% highlight php %}
+
+<?php
+// to match: /home/dashboard
+$I->seeInCurrentUrl('home');
+// to match: /users/1
+$I->seeInCurrentUrl('/users/');
+?>
+
+{% endhighlight %}
 
  * param $uri
 
@@ -497,12 +693,14 @@ Checks that current uri contains value
 
 
 Checks that an input field or textarea contains value.
+Field is matched either by label or CSS or Xpath
 
 Example:
 
 {% highlight php %}
 
 <?php
+$I->seeInField('Body','Type your comment here');
 $I->seeInField('form textarea[name=body]','Type your comment here');
 $I->seeInField('form input[type=hidden]','hidden_value');
 $I->seeInField('#searchform input','Search');
@@ -552,6 +750,24 @@ $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
 
  * param $text
  * param null $url
+
+
+#### seeOptionIsSelected
+
+
+Checks if option is selected in select field.
+
+{% highlight php %}
+
+<?php
+$I->seeOptionIsSelected('#form input[name=payment]', 'Visa');
+?>
+
+{% endhighlight %}
+
+ * param $selector
+ * param $optionText
+ * return mixed
 
 
 #### selectOption
@@ -651,15 +867,15 @@ $I->uncheckOption('#notify');
 #### wait
 
 
-Wait for x miliseconds
+Wait for x milliseconds
 
- * param $miliseconds
+ * param $milliseconds
 
 
 #### waitForJS
 
 
-Waits for x miliseconds or until JS condition turns true.
+Waits for x milliseconds or until JS condition turns true.
 
- * param $miliseconds
+ * param $milliseconds
  * param $jsCondition

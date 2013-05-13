@@ -4,7 +4,9 @@ title: Codeception - Documentation
 ---
 
 # Kohana Module
-**For additional reference,, please review the [source](https://github.com/Codeception/Codeception/tree/master/src/Codeception/Module/Kohana)**
+**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/master/src/Codeception/Module/Kohana.php)**
+
+
 This module provides integration with [Kohana](http://kohanaframework.org/) v3.
 Functional tests can be run inside Kohana. All commands of this module are just the same as in other modules that share Framework interface.
 
@@ -27,6 +29,15 @@ Module is created by [Nikita Groshin](nike-17@ya.ru)
 
 
 ### Actions
+
+
+#### amHttpAuthenticated
+
+
+Adds HTTP authentication via username/password.
+
+ * param $username
+ * param $password
 
 
 #### amOnPage
@@ -101,6 +112,8 @@ If link is an image it's found by alt attribute value of image.
 If button is image button is found by it's value
 If link or button can't be found by name they are searched by CSS selector.
 
+The second parameter is a context: CSS or XPath locator to narrow the search.
+
 Examples:
 
 {% highlight php %}
@@ -114,10 +127,13 @@ $I->click('Submit');
 $I->click('#form input[type=submit]');
 // XPath
 $I->click('//form/*[@type=submit]')
+// link in context
+$I->click('Logout', '#nav');
 ?>
 
 {% endhighlight %}
  * param $link
+ * param $context
 
 
 #### dontSee
@@ -161,16 +177,76 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
  * param $checkbox
 
 
+#### dontSeeCurrentUrlEquals
+
+
+Checks that current url is not equal to value.
+Unlike `dontSeeInCurrentUrl` performs a strict check.
+
+<?php
+// current url is not root
+$I->dontSeeCurrentUrlEquals('/');
+?>
+
+ * param $uri
+
+
+#### dontSeeCurrentUrlMatches
+
+
+Checks that current url does not match a RegEx value
+
+<?php
+// to match root url
+$I->dontSeeCurrentUrlMatches('~$/users/(\d+)~');
+?>
+
+ * param $uri
+
+
+#### dontSeeElement
+
+
+Checks if element does not exist (or is visible) on a page, matching it by CSS or XPath
+
+{% highlight php %}
+
+<?php
+$I->dontSeeElement('.error');
+$I->dontSeeElement(//form/input[1]);
+?>
+
+{% endhighlight %}
+ * param $selector
+
+
+#### dontSeeInCurrentUrl
+
+
+Checks that current uri does not contain a value
+
+{% highlight php %}
+
+<?php
+$I->dontSeeInCurrentUrl('/users/');
+?>
+
+{% endhighlight %}
+
+ * param $uri
+
+
 #### dontSeeInField
 
 
 Checks that an input field or textarea doesn't contain value.
-
+Field is matched either by label or CSS or Xpath
 Example:
 
 {% highlight php %}
 
 <?php
+$I->dontSeeInField('Body','Type your comment here');
 $I->dontSeeInField('form textarea[name=body]','Type your comment here');
 $I->dontSeeInField('form input[type=hidden]','hidden_value');
 $I->dontSeeInField('#searchform input','Search');
@@ -203,6 +279,24 @@ $I->dontSeeLink('Logout'); // I suppose user is not logged in
  * param null $url
 
 
+#### dontSeeOptionIsSelected
+
+
+Checks if option is not selected in select field.
+
+{% highlight php %}
+
+<?php
+$I->dontSeeOptionIsSelected('#form input[name=payment]', 'Visa');
+?>
+
+{% endhighlight %}
+
+ * param $selector
+ * param $optionText
+ * return mixed
+
+
 #### fillField
 
 
@@ -215,6 +309,26 @@ Fills a text field or textarea with value.
 #### formatResponse
 
 __not documented__
+
+
+#### grabFromCurrentUrl
+
+
+Takes a parameters from current URI by RegEx.
+If no url provided returns full URI.
+
+{% highlight php %}
+
+<?php
+$user_id = $I->grabFromCurrentUrl('~$/user/(\d+)/~');
+$uri = $I->grabFromCurrentUrl();
+?>
+
+{% endhighlight %}
+
+ * param null $uri
+ * internal param $url
+ * return mixed
 
 
 #### grabTextFrom
@@ -304,10 +418,64 @@ $I->seeCheckboxIsChecked('//form/input[@type=checkbox and  * name=agree]');
  * param $checkbox
 
 
+#### seeCurrentUrlEquals
+
+
+Checks that current url is equal to value.
+Unlike `seeInCurrentUrl` performs a strict check.
+
+<?php
+// to match root url
+$I->seeCurrentUrlEquals('/');
+?>
+
+ * param $uri
+
+
+#### seeCurrentUrlMatches
+
+
+Checks that current url is matches a RegEx value
+
+<?php
+// to match root url
+$I->seeCurrentUrlMatches('~$/users/(\d+)~');
+?>
+
+ * param $uri
+
+
+#### seeElement
+
+
+Checks if element exists on a page, matching it by CSS or XPath
+
+{% highlight php %}
+
+<?php
+$I->seeElement('.error');
+$I->seeElement(//form/input[1]);
+?>
+
+{% endhighlight %}
+ * param $selector
+
+
 #### seeInCurrentUrl
 
 
-Checks that current uri contains value
+Checks that current uri contains a value
+
+{% highlight php %}
+
+<?php
+// to match: /home/dashboard
+$I->seeInCurrentUrl('home');
+// to match: /users/1
+$I->seeInCurrentUrl('/users/');
+?>
+
+{% endhighlight %}
 
  * param $uri
 
@@ -316,12 +484,14 @@ Checks that current uri contains value
 
 
 Checks that an input field or textarea contains value.
+Field is matched either by label or CSS or Xpath
 
 Example:
 
 {% highlight php %}
 
 <?php
+$I->seeInField('Body','Type your comment here');
 $I->seeInField('form textarea[name=body]','Type your comment here');
 $I->seeInField('form input[type=hidden]','hidden_value');
 $I->seeInField('#searchform input','Search');
@@ -353,6 +523,39 @@ $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
 
  * param $text
  * param null $url
+
+
+#### seeOptionIsSelected
+
+
+Checks if option is selected in select field.
+
+{% highlight php %}
+
+<?php
+$I->seeOptionIsSelected('#form input[name=payment]', 'Visa');
+?>
+
+{% endhighlight %}
+
+ * param $selector
+ * param $optionText
+ * return mixed
+
+
+#### seePageNotFound
+
+
+Asserts that current page has 404 response status code.
+
+
+#### seeResponseCodeIs
+
+
+Checks that response code is equal to value provided.
+
+ * param $code
+ * return mixed
 
 
 #### selectOption

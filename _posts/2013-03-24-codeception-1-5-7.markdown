@@ -1,0 +1,78 @@
+---
+layout: post
+title: Update! Codeception 1.5.7 is out.
+date: 2013-03-24 22:03:50
+---
+
+Great news. Codeception got attention from Nettuts community and we are happy to welcome you in the family ) 
+What you should know about Codeception release cycle is that releases are not breaking the BCs and they appear quite often. Even minor releases introduces lots of new features. And today we'd like to announce some of them.
+
+### More Current Url Methods
+
+As were pointed, the `seeInCurrentUrl` method is not enough to test urls. So we got much more "currentUrl" methods:
+
+{% highlight php %}
+<?php
+// to match root url
+$I->seeCurrentUrlEquals('/');
+$I->seeCurrentUrlMatches('~$/user/.*?~')
+$url = $I->grabFromCurrentUrl();
+$user_id = $I->grabFromCurrentUrl('~/user/(\d+)~');
+?>
+{% endhighlight %}
+
+And yes, we have correspoinding `dontSee` methods too.
+
+### Click on context
+
+Now you can perform clicks in context elements:
+
+{% highlight php %}
+<?php
+$I->click('Login', '#nav');
+$I->click('Login', '//html/body/div/a');
+?>
+{% endhighlight %}
+
+Also you can now try to use Cest classes for acceptance and functional testing. As scenario-driven unit tests are going to be deprecated, Cests will be used as Cepts, but in a format of a class. The Cest generator was updated accrodingly.
+
+### Bugfixes
+
+* Yii module should work as expected as all reauired files are included in package.
+* Fix to Kohana module.
+* `$scenario->preload()` is back
+
+
+### Announcing: The Platform
+
+Next major release will be called **The Platform**. In Platform we will introduce lots of a new concepts designed to build a real test automation platform.
+
+* Extensions - classes that can hook into any events and produce their own. Extend anything.
+* Tags - unite tests into groups and provide a similar hooks for them.
+* Conditional Asserts - don't stop a test if assert fails.
+* PageObjects - new classes for defining UI maps.
+* Controllers - classes to define similar scenario logic.
+* Multiple Sessions - ability to execute same tests with different config (i.e. inside chrome then firefox)
+
+More about [PageObjects and Controllers you can read on PHPMaster](http://phpmaster.com/ruling-the-swarm-of-tests-with-codeception/).
+
+### Help from Community 
+
+And we'd like to ask you for help (once again). **Please [pass this survey](http://surveymonkey.com/s/982RCG9)**. 
+We develop a bugtracker [Bugira](http://bugira.com) specially for web developments. And to get it running we need your feedback. 
+
+### Update
+
+ [redownload](http://codeception.com/thanks.html) your `codeception.phar` for update:
+
+{% highlight bash %}
+wget http://codeception.com/codecept.phar -O codecept.phar
+{% endhighlight %}
+
+for composer version
+
+{% highlight bash %}
+$ php composer.phar update
+{% endhighlight %}
+
+P.S. It's only 3 minutes of your time: [pass this survey](http://surveymonkey.com/s/982RCG9). Thanks

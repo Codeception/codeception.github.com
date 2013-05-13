@@ -109,7 +109,7 @@ $I->lookForwardTo('get money when the bank is closed');
 
 After we have described the story background, let's start writing a scenario. 
 
-The `$I` object is used to write all interactions. The methods of the `$I` object are taken from the `PHPBrowser` and `Db` modules. We will briefly describe them here, but for the full reference look into the modules reference, here on (Codeception.com)[http://codeception.com]. 
+The `$I` object is used to write all interactions. The methods of the `$I` object are taken from the `PHPBrowser` and `Db` modules. We will briefly describe them here, but for the full reference look into the modules reference, here on [Codeception.com](http://codeception.com). 
 
 {% highlight php %}
 
@@ -385,8 +385,8 @@ class WebHelper extends \Codeception\Module {
 
 {% endhighlight %}
 
-We [connected a module](http://codeception.com/docs/03-Modules#connecting-modules), then we retrieved content from Mink session class.
-You should definetely learn Mink to dig deeper.
+We [connected a module](http://codeception.com/docs/03-ModulesAndHelpers#Connecting-Modules), then we retrieved content from Mink session class.
+You should definitely learn Mink to dig deeper.
 And in the end we performed assertion on current content.
 
 ## Conclusion
