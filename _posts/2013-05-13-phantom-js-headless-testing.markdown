@@ -4,7 +4,7 @@ layout: post
 date: 2013-05-13 01:03:50
 ---
 
-*This is a guest blogpost was brought to you by [Jon Phipps](http://jonstuff.blogspot.ca/). Jon explains how to use PhantomJS -- the most anticipated testing backend in Codeception.*
+*This is a guest blogpost by [Jon Phipps](http://jonstuff.blogspot.ca/). Jon explains how to use PhantomJS -- the most anticipated testing backend in Codeception.*
 
 If you're running acceptance tests in [Codeception](http://codeception.com/) that require interaction with JavaScript, or have scripts that manipulate the DOM, the speedy [Php Browser](http://codeception.com/docs/modules/PhpBrowser) driver won't help you since it doesn't support JavaScript. The best options for running tests using JavaScript are the [Selenium2](http://codeception.com/docs/modules/Selenium2) and [ZombieJS](http://codeception.com/docs/modules/ZombieJS) drivers. 
 
