@@ -1,5 +1,5 @@
 ---
-title: 'Headless' browser testing with Selenium2 and PhantomJS
+title: Headless browser testing with Selenium2 and PhantomJS
 layout: post
 date: 2013-02-15 01:03:50
 ---
