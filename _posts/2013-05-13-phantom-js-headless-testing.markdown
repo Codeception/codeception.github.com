@@ -10,7 +10,7 @@ If you're running acceptance tests in [Codeception](http://codeception.com/) tha
 
 The **Selenium2** driver actually loads and runs an active browser session, manipulating the browser just as a human would. **ZombieJS** is a 'headless' browser that provides all of the features of a regular browser, but without a display interface. Without the extra time spent waiting for the display to actually render, a headless browser like ZombieJS can run far faster than a normal browser, so you're tests will execute in as little as half the time. But ZombieJS requires installing Node.js and can be a little buggy, plus it has its own API (which has both pros and cons). The Selenium2 driver is well tested and implements a standard API -- the WebDriver Wire Protocol -- across all of the browsers it has drivers for. 
 
-Now there's a headless browser that _includes_ a WebDriver Wire Protocol implementation -- [PhantomJS](http://phantomjs.org/index.html). The latest version of PhantomJS is an easy to install, stand-alone binary that doesn't require installing Node.js or any other dependencies, and ships with its own 'Ghost Driver' for implementing the WebDriver Wire Protocol. Which means you can drive it using the Selenium2 driver in Codeception, and anything that you can test in Chrome, Firefox, Safari, or IE using Selenium2, you can now test in half the time using PhantomJS
+Now there's a headless browser that includes a **WebDriver Wire Protocol** implementation -- [PhantomJS](http://phantomjs.org/index.html). The latest version of PhantomJS is an easy to install, stand-alone binary that doesn't require installing Node.js or any other dependencies, and ships with its own **'Ghost Driver'** for implementing the WebDriver Wire Protocol. Which means you can drive it using the Selenium2 driver in Codeception, and anything that you can test in Chrome, Firefox, Safari, or IE using Selenium2, you can now test in half the time using PhantomJS
 
 To get started, if you haven't installed Selenium2, you just need to follow the [instructions](http://codeception.com/docs/modules/Selenium2) on the Codeception web site for installing and running the Selenium2 driver. 
 
@@ -129,7 +129,7 @@ modules:
              webStorageEnabled: true
 {% endhighlight %}
 
-I have no idea if capabilities from the larger list of Selenium [DesiredCapabilitie](http://code.google.com/p/selenium/wiki/DesiredCapabilities) that are not on the list you see reported from the driver are enabled for PhantomJS. 
+I have no idea if capabilities from the larger list of Selenium [DesiredCapabilities](http://code.google.com/p/selenium/wiki/DesiredCapabilities) that are not on the list you see reported from the driver are enabled for PhantomJS. 
 
 Headless testing can be a bit of a challenge, since it's impossible to 'see' what failed. But in this case, Codeceptions default logging and screenshot capture on failure can be extremely helpful, since you can then actually see the state of the browser at the point of failure.
 
