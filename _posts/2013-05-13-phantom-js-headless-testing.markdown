@@ -1,7 +1,7 @@
 ---
-title: Headless browser testing with Selenium2 and PhantomJS
+title: Headless Browser Testing with Selenium2 and PhantomJS
 layout: post
-date: 2013-02-15 01:03:50
+date: 2013-05-13 01:03:50
 ---
 
 *This is a guest blogpost by [Jon Phipps](http://jonstuff.blogspot.ca/). In this post Jon explains how to use PhantomJS - the most anticipated testing backend.*
