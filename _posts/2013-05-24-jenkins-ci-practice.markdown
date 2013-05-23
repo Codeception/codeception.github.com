@@ -4,9 +4,8 @@ title: "Continuous Integration In Practice: Codeception, Jenkins, Xvfb"
 date: 2013-05-24 22:03:50
 ---
 
-*Another blogpost from Ragazzo containing some practical information. If you ever wanted to ask how to set up a Continuous Integration with Codeception, you can read it here. He shares some useful tips you should be aware of.*
-
 <img src="http://jenkins-ci.org/sites/default/files/images/headshot.png" style="float: left;" />
+*Another guest post from **Ragazzo** containing some practical tips on configuring CI server. If you ever wanted to ask how you could use Codeception with Jenkins, you are in a right place.*
 
 It is very good to automate maximum of the things you can. Once we automated testing process, build should be automated too. I use [Jenkins](http://jenkins-ci.org/) as my primary continuous integration server. It can be installed and executed on all popular operating systems with Java enabled. 
 
@@ -25,7 +24,7 @@ And of course one job for bulding packages for demo and for developer:
 
  I scheduled jobs to run one by one so the first goes `Unit`, then it triggers `Func`, then `Func` triggers `Func_Web` and so on. `Build` is not triggered automatically, I start it by myself.
 
-#### Configuring Builds 
+### Configuring Builds 
 
 Lets pay attention on two of them that include Codeception. I'm using **Ant** build tool to execute them.
 Bascially for JUnit output you need nothing more then running codeception with `--xml` option. Like this:
