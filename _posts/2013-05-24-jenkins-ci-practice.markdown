@@ -9,7 +9,7 @@ date: 2013-05-24 22:03:50
 
 It is very good to automate maximum of the things you can. Once we automated testing process, build should be automated too. I use [Jenkins](http://jenkins-ci.org/) as my primary continuous integration server. It can be installed and executed on all popular operating systems with Java enabled. 
 
-As for PHPUnit I use JUnit format for error reports and some **Jenkins** plugins to make it work with Code Coverage. For **Behat** and **Codeception** I also use JUnit output log format and [Jenkins PHPUnit Plugin](http://jenkins-php.org/). 
+As for PHPUnit I use **JUnit** format for error reports and some **Jenkins** plugins to make it work with Code Coverage. For **Behat** and **Codeception** I also use JUnit output log format and [Jenkins PHPUnit Plugin](http://jenkins-php.org/). 
 
 Thus, my application have 4 jobs in Jenkins they named in that way:
 
@@ -63,6 +63,6 @@ export DISPLAY=":1" && java -jar selenium-server-standalone.jar
 
 Then start your Codeception acceptance tests as usual. By the way, I suggest you to use [this Xvfb init script](https://gist.github.com/jterrace/2911875) in Ubuntu.
 
-*There is nothing hard in setting up Jenkins. You can use Codeception with it or in any other CI server. If you already did that, please share your experience with community. We really need more personal experiences and blogposts from the community. Documentation can't cover all use cases, that's why your thought are much appreciated. If you don't have a blog we can publish your blogpost here.
+*There is nothing hard in setting up Jenkins. You can use Codeception with it or in any other CI server. If you already did that, please share your experience with community. We really need more personal experiences and blogposts from the community. Documentation can't cover all use cases, that's why your thought are much appreciated. If you don't have a blog we can publish your blogpost here.*
 
-P.S. Just to mention, If you are using **Bamboo** CI server, pls enable the `--no-exit` option to run tests correctly.*
+P.S. Just to mention, If you are using **Bamboo** CI server, pls enable the `--no-exit` option to run tests correctly.
