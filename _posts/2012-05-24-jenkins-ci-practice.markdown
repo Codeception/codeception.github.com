@@ -16,16 +16,16 @@ As for PHPUnit I use JUnit format for error reports and some **Jenkins** plugins
 
 Thus, my application have 4 jobs in Jenkins they named in that way:
 
-* MyProject_Testing_Unit # via phpunit
-* MyProject_Testing_Func # via behat
-* MyProject_Testing_Func_Web  # codeception functional
-* MyProject_Testing_Accep_Web # codeception acceptance
+* `MyProject_Testing_Unit` # via phpunit
+* `MyProject_Testing_Func` # via behat
+* `MyProject_Testing_Func_Web`  # codeception functional
+* `MyProject_Testing_Accep_Web` # codeception acceptance
 
 And of course one job for bulding packages for demo and for developer:
 
 * MyProject_Build_Dist
 
- I scheduled jobs to run one by one so the first goes "Unit", then it triggers "Func", then "Func" triggers "Func_Web" and so on. "Build" is not triggered automatically, I start it by myself.
+ I scheduled jobs to run one by one so the first goes `Unit`, then it triggers `Func`, then `Func` triggers `Func_Web` and so on. `Build` is not triggered automatically, I start it by myself.
 
 #### COnfiguring Builds 
 
