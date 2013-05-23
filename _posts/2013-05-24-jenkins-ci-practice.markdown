@@ -6,11 +6,9 @@ date: 2013-05-24 22:03:50
 
 *Another blogpost from Ragazzo containing some practical information. If you ever wanted to ask how to set up a Continuous Integration with Codeception, you can read it here. He shares some useful tips you should be aware of.*
 
+<img src="http://jenkins-ci.org/sites/default/files/images/headshot.png" style="float: left;" />
+
 It is very good to automate maximum of the things you can. Once we automated testing process, build should be automated too. I use [Jenkins](http://jenkins-ci.org/) as my primary continuous integration server. It can be installed and executed on all popular operating systems with Java enabled. 
-
-
-<img src="http://jenkins-ci.org/sites/default/files/images/headshot.png" style="float: right;" />
-
 
 As for PHPUnit I use JUnit format for error reports and some **Jenkins** plugins to make it work with Code Coverage. For **Behat** and **Codeception** I also use JUnit output log format and [Jenkins PHPUnit Plugin](http://jenkins-php.org/). 
 
@@ -27,7 +25,7 @@ And of course one job for bulding packages for demo and for developer:
 
  I scheduled jobs to run one by one so the first goes `Unit`, then it triggers `Func`, then `Func` triggers `Func_Web` and so on. `Build` is not triggered automatically, I start it by myself.
 
-#### COnfiguring Builds 
+#### Configuring Builds 
 
 Lets pay attention on two of them that include Codeception. I'm using **Ant** build tool to execute them.
 Bascially for JUnit output you need nothing more then running codeception with `--xml` option. Like this:
@@ -39,16 +37,16 @@ codecept.phar --xml run functional
 This will produce the `report.xml` file in `tests/_log` directory, which will be analyzed by Jenkins. In my Ant task I'm also clearing a _log directory before running tests.
 
 {% highlight xml %}
-<project name="{SomeMyProject}_Testing_Func_Web" default="build" basedir=".">
+<project name="MyProject_Testing_Func_Web" default="build" basedir=".">
 <target name="clean">
-    <delete dir="${basedir}/build/src/protected/tests/codeception/tests/_log" includes="**/*" />
+  <delete dir="${basedir}/build/src/protected/tests/codeception/tests/_log" includes="**/*" />
 </target>
-    <target name="codeception">
-      <exec dir="${basedir}/build/src/protected/tests/codeception" executable="php" failonerror="true">
-        <arg line="codecept.phar --xml run functional" />
-      </exec>
-    </target>
-  <target name="build" depends="clean, codeception"/>
+<target name="codeception">
+  <exec dir="${basedir}/build/src/protected/tests/codeception" executable="php" failonerror="true">
+    <arg line="codecept.phar --xml run functional" />
+  </exec>
+</target>
+<target name="build" depends="clean, codeception"/>
 </project>
 {% endhighlight %}
 
