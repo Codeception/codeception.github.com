@@ -80,6 +80,29 @@ Opens the page.
  * param $page
 
 
+#### amOnSubdomain
+
+
+Sets 'url' configuration parameter to hosts subdomain.
+It does not open a page on subdomain. Use `amOnPage` for that
+
+{% highlight php %}
+
+<?php
+// If config is: 'http://mysite.com'
+// or config is: 'http://www.mysite.com'
+// or config is: 'http://company.mysite.com'
+
+$I->amOnSubdomain('user');
+$I->amOnPage('/');
+// moves to http://user.mysite.com/
+?>
+
+{% endhighlight %}
+ * param $subdomain
+ * return mixed
+
+
 #### attachFile
 
 
@@ -210,6 +233,11 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
 {% endhighlight %}
 
  * param $checkbox
+
+
+#### dontSeeCookie
+
+__not documented__
 
 
 #### dontSeeCurrentUrlEquals
@@ -380,6 +408,11 @@ Moves focus to link or button or any node found by CSS or XPath
 __not documented__
 
 
+#### grabCookie
+
+__not documented__
+
+
 #### grabFromCurrentUrl
 
 
@@ -524,6 +557,11 @@ For example see 'pressKey'.
 Reloads current page
 
 
+#### resetCookie
+
+__not documented__
+
+
 #### see
 
 
@@ -565,6 +603,11 @@ $I->seeCheckboxIsChecked('//form/input[@type=checkbox and  * name=agree]');
 {% endhighlight %}
 
  * param $checkbox
+
+
+#### seeCookie
+
+__not documented__
 
 
 #### seeCurrentUrlEquals
@@ -705,6 +748,11 @@ $I->selectOption('//form/select[@name=account]', 'Monthly');
 
  * param $select
  * param $option
+
+
+#### setCookie
+
+__not documented__
 
 
 #### uncheckOption
