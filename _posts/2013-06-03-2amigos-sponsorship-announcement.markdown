@@ -1,3 +1,10 @@
+---
+layout: post
+title: "Sponsorship Announcement"
+date: 2013-06-03 22:03:50
+---
+
+
 <img src="http://2amigos.us/img/logo.png" style="float: right" />
 
 We are pleased to make a special announcement, today. From now on **the development of Codeception will be sponsored by [2amigOS!](http://2amigos.us/)**, a web development and consultancy company from Miami. They are widely known in the **Yii** community by [their open source works](https://github.com/2amigos). They use Codeception in their daily development, as well as recommend it to their clients. They decided give back to provide a sponsorship to our testing framework. 
