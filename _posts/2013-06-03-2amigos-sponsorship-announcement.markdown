@@ -29,9 +29,9 @@ $I = new ApiAmigo($scenario);
 ?>
 {% endhighlight %}
 
-Just kidding :) On second thought, instead of renaming Guy classes, we decided to thank [2amigOS!](http://2amigos.us/) by putting their logo on the site to show their support and dedication.
+Just kidding :) Instead of renaming Guy classes, we decided to thank [2amigOS!](http://2amigos.us/) by putting their logo on the site to show their support and dedication.
 
 *We are looking forward to some great new things and a good future, so... 
 Please spread the word about Codeception. Encourage your friends to try it, and add your company to [this list](https://github.com/Codeception/Codeception/wiki/Who-is-using-it%3F). Thanks for those who are already using it, and special thanks for those of you who contribute.*
 
-P.S. Btw, don't miss Nettuts+ course on Codeception which started today. [Take your seats](https://tutsplus.com/course/modern-testing-in-php-with-codeception/) and say thanks to **Jeffrey Way** for it.
+P.S. Btw, don't miss **Nettuts+ course on Codeception** which started today. [Take your seats](https://tutsplus.com/course/modern-testing-in-php-with-codeception/) and say thanks to Jeffrey Way for it.
