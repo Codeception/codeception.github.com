@@ -11,7 +11,7 @@ Let's say we already have a project and we didn't practice TDD/BDD developing it
 
 There is a very basic schema for proper the testing suite. It is called the **Pyramid of Testing**.
 
-[!Testing Pyramid](https://dl.dropboxusercontent.com/u/930833/CodeceptionHotcodePresentation/pictures/pyramid.png)
+![Testing Pyramid](https://dl.dropboxusercontent.com/u/930833/CodeceptionHotcodePresentation/pictures/pyramid.png)
 
 This concept was originally proposed by [by Mike Cohn, his book "Succeeding with Agile"](http://www.amazon.com/gp/product/0321579364) and became the one of the fundamentals in testing. In this schema all tests are divided into 3 or 4 layers and states the dependencies for those layers. You won't build a pyramid having only top and bottom of it. That means that your acceptance tests depend on your integration (functional) tests, and they depend on unit tests. Also pyramid shows you the proportion for tests that should be written. You should have lots of unit tests, some functional, and few of acceptance. 
 
