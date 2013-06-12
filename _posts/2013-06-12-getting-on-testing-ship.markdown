@@ -15,16 +15,16 @@ There is a very basic schema for proper the testing suite. It is called the **Py
 
 This concept was originally proposed by [by Mike Cohn, his book "Succeeding with Agile"](http://www.amazon.com/gp/product/0321579364) and became the one of the fundamentals in testing. In this schema all tests are divided into 3 or 4 layers and states the dependencies for those layers. You won't build a pyramid having only top and bottom of it. That means that your acceptance tests depend on your integration (functional) tests, and they depend on unit tests. Also pyramid shows you the proportion for tests that should be written. You should have lots of unit tests, some functional, and few of acceptance. 
 
-### Skipping unit tests.
+### When to skip unit tests.
 
 In web development with PHP we are not building the software from scratch. 
 We use frameworks and content management systems and to create web sites and applications on top of them.
 
-**For platforms like Drupal or Wordpress we can't unit test our application at all.**
+For platforms like Drupal or Wordpress we can't unit test our application at all. And even modern PHP frameworks may not help you with unit testing. Tracking and mocking dependencies, especially in controllers can become a pain. If you feel that it takes for you too long for writing unit tests, skip them for now.
 
-And even modern PHP frameworks may not help you with unit testing. Tracking and mocking dependencies, especially in controllers can become a pain. If you feel that it takes for you too long for writing unit tests, skip them for now.
+**There is nothing wrong to start testing with no unit test actually written.** Inability to write unit tests, should not be excuse for not testing at all. If you develop web application with CMS or framework, you can rely on its internals, thus you can assume that you are already using its unit tests in your pyramid's basement.
 
-**There is nothing wrong to start testing with no unit test actually written.** As it was said, if you do WordPress development, inability to write unit tests, should not be excuse for not testing at all. If you develop with framework you can rely on its internals and its unit tests, thus you can start building a new level to your pyramid. With integration or functional tests.
+If you can't figure out how to test the most important application parts on the unit level, try to cover it with functional tests.
 
 ### Getting it tested with Codeception
 
