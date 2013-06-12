@@ -7,7 +7,7 @@ date: 2013-06-12 22:03:50
 In this blogpost we will try to figure out how to get faster into the testing. What tests to write at first?
 Let's say we already have a project and we didn't practice TDD/BDD developing it. Should we ignore testing at all? Definitely no. So where should we start then?
 
-#### Meet the Pyramid
+### Meet the Pyramid
 
 There is a very basic schema for proper the testing suite. It is called the **Pyramid of Testing**.
 
@@ -15,7 +15,7 @@ There is a very basic schema for proper the testing suite. It is called the **Py
 
 This concept was originally proposed by [by Mike Cohn, his book "Succeeding with Agile"](http://www.amazon.com/gp/product/0321579364) and became the one of the fundamentals in testing. In this schema all tests are divided into 3 or 4 layers and states the dependencies for those layers. You won't build a pyramid having only top and bottom of it. That means that your acceptance tests depend on your integration (functional) tests, and they depend on unit tests. Also pyramid shows you the proportion for tests that should be written. You should have lots of unit tests, some functional, and few of acceptance. 
 
-#### Skip the unit tests.
+### Skipping unit tests.
 
 In web development with PHP we are not building the software from scratch. 
 We use frameworks and content management systems and to create web sites and applications on top of them.
@@ -26,7 +26,7 @@ And even modern PHP frameworks may not help you with unit testing. Tracking and 
 
 **There is nothing wrong to start testing with no unit test actually written.** As it was said, if you do WordPress development, inability to write unit tests, should not be excuse for not testing at all. If you develop with framework you can rely on its internals and its unit tests, thus you can start building a new level to your pyramid. With integration or functional tests.
 
-#### Getting it tested with Codeception
+### Getting it tested with Codeception
 
 *If you are new to Codeception, [check our guides](http://codeception.com/docs/02-GettingStarted).*
 
