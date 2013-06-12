@@ -37,3 +37,5 @@ When your most important functionality is covered with functional tests, you sho
 At first try to keep tested the most important parts of your application. If you can do that with units, you are the hero! If not, try to do it on functional testing level, if still no, PhpBrowser is your choice. But please do not start testing with Selenium tests!
 
 Then you should extend your testing suite to cover more and more parts. Please remember the pyramid, and use code coverage reports to track which code parts are still terra incognita.
+
+Happy testing.
