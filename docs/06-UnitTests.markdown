@@ -80,6 +80,25 @@ modules:
 
 {% endhighlight %}
 
+### Basic Testing
+
+Unit tests in Codeception written in absolutely the same way as you do it in PHPUnit:
+
+{% highlight php %}
+
+<?php
+
+public function testMarkdown()
+{
+    $markdown = new MarkdownParser();
+    $html = $markdown->parse("**Hello world**");
+    $this->assertEquals('<strong>Hello World</strong>', $html);
+}
+
+?>
+
+{% endhighlight %}
+
 ### Testing Database
 
 Probably, there is no very useful modules set up by default for CodeGuy class. That's because the CodeGuy class is mostly used for scenario-driven unit tests, described in next chapters. But that's ok, we can get a use of it by adding modules we need. For example, we can add a Db module to test updates in database.
@@ -112,8 +131,10 @@ function testSavingUser()
 {
 	$user = new User();
 	$user->setName('Miles');
+    $user->setSurname('Davis');
 	$user->save();
-	$this->codeGuy->seeInDatabase('users',array('name' => 'Miles'));
+    $this->assertEquals('Miles Davis', $user->getFullName());
+	$this->codeGuy->seeInDatabase('users',array('name' => 'Miles', 'surname' => 'Davis'));
 }
 ?>
 
@@ -137,6 +158,7 @@ For example, if you use `Symfony2` module here is the way you can access Symfony
  * @var Symfony\Component\DependencyInjection\Container
  */
 $container = $this->getModule('Symfony2')->container;
+?>
 
 {% endhighlight %}
 
@@ -144,7 +166,7 @@ All public variables are listed in references for corresponding modules.
 
 ### Bootstrap
 
-The bootstrap file is located in suite directory and is named `_bootstrap` and is **included before each test** (with `setUp` method in parent class). It's widely used in acceptance and functional tests to initialize the predefined variables. In unit tests it can be used for sharing share same data among the different tests. But the main purpose of is to set up an autoloader for your project inside this class. Otherwise Codeception will not find the testing classes and fail.
+The bootstrap file is located in suite directory and is named `_bootstrap` and is **included before each test** (with `setUp` method in parent class). It's widely used in acceptance and functional tests to initialize the predefined variables. In unit tests it can be used for sharing the same data among the different tests. But the main purpose of is to set up an autoloader for your project inside this class. Otherwise Codeception will not find the testing classes and fail.
 
 ### Stubs
 

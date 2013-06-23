@@ -30,6 +30,22 @@ Project root directory is used by default
  * param $path
 
 
+#### cleanDir
+
+
+Erases directory contents
+
+{% highlight php %}
+
+<?php
+$I->cleanDir('logs');
+?>
+
+{% endhighlight %}
+
+ * param $dirname
+
+
 #### copyDir
 
 
@@ -119,6 +135,26 @@ $I->seeInThisFile('codeception/codeception');
 {% endhighlight %}
 
  * param $filename
+
+
+#### seeFileContentsEqual
+
+
+Checks the strict matching of file contents.
+Unlike `seeInThisFile` will fail if file has something more then expected lines.
+Better to use with HEREDOC strings.
+Matching is done after removing "\r" chars from file content.
+
+{% highlight php %}
+
+<?php
+$I->openFile('process.pid');
+$I->seeFileContentsEqual('3192');
+?>
+
+{% endhighlight %}
+
+ * param $text
 
 
 #### seeFileFound
