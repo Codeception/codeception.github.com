@@ -1,0 +1,147 @@
+---
+layout: post
+title: "Codeception 1.6.3 is out"
+date: 2013-06-12 22:03:50
+---
+
+It was a one-month release sprint and probably this release took much longer then we expected.
+1.6.3 release introduces lots of features, internal unit tests, and internal refactorings. Please take a cup of coffee because we prepared a long story of features you can try in 1.6.3.
+
+The major internal change you should be aware of is upgrade to **Symfony Components 2.3**. This may introduce some instability, or conflicts (if you use previous Symfony version), but the good news are that: Symfony 2.3 is LTS, so we are going to stay on this version for a long time.
+
+## One-Runner
+
+This feature was expected by **Symfony2** users, as well as other developers who uses several independent applications in a project (as Symfony bundles are). From now on you are not limited to execute tests from only one directory. In Codeception 1.6.3 you can create a meta-config and make it to point to other codeception test configs:
+
+{% highlight yaml %}
+include:
+  - frontend
+  - admin
+  - api/rest
+paths:
+  log: log
+{% endhighlight %}
+
+In this `codeception.yml` we include tests configs from `frontend`, `admin`, and `app/rest` directories. By executing tests from it, we will launch all test suites from this applications.
+
+[More about it...](http://codeception.com/docs/08-Customization)
+
+Symfony2 users now can create a test suite for each bundle they have and then execute all tests in meta config.
+
+## Namespaces
+
+If you decided to use a multiple-config option, the first issue you get is conflict of Helper classes and Guy classes. It's natural to use namespaces to separate those classes of multiple applications. From now on, you can [assign a namespace](http://codeception.com/docs/08-Customization#Namespaces) for your test classes.
+
+## Facebook Module
+
+Thanks to **Tiger-seo** we got a module that might be very handy for all developers that work with Facebook API.
+
+{% highlight php %}
+<?php
+$I = new ApiGuy($scenario);
+$I->am('Guest');
+$I->wantToTest('check-in to a place be published on the Facebook using API');
+$I->haveFacebookTestUserAccount();
+$accessToken = $I->grabFacebookTestUserAccessToken();
+$I->haveHttpHeader('Auth', 'FacebookToken ' . $accessToken);
+$I->amGoingTo('send request to the backend, so that it will publish on user\'s wall on Facebook');
+$I->sendPOST('/api/v1/some-api-endpoint');
+$I->seePostOnFacebookWithAttachedPlace('167724369950862');
+?>
+{% endhighlight %}
+
+Don't leave your Facebook applications untested! With this module you can log in as test user and perform interactions using REST API or HTTP calls.
+
+[Facebook Module Referenace](http://codeception.com/docs/modules/Facebook)
+
+## Helper Customizations
+
+Before 1.6.3 Helpers was loaded with simple `include_once` call. I.e., there was no other option then to load them from `tests/_helpers` directory. In 1.6.3 we replaced this call with autoloader, and also we added a global `_bootstrap.php` file in which you can prepend any code before helpers are loaded.
+
+[More about autoloading Helpers](http://codeception.com/docs/08-Customization).
+
+Also in 1.6.3 you can customiza which methods of module or helper should be imported into Guy class. In other words, you can enable or disable module methods. If your helper is extended from one of standard modules, you can disable usage of inherited methods and implement them on your own. It is especially useful if you want to rename parent class methods:
+
+{% highlight php %}
+<?php
+class SecondDbHelper extends Db {
+    public static $includeInheritedActions = false;
+
+    public function seeInSecondDb($table, $data = array())
+    {
+        $this->seeInDatabase($table, $data);
+    }
+}    
+?>
+{% endhighlight %}
+
+More on [helper customization](http://codeception.com/docs/03-ModulesAndHelpers#Extension-options).
+
+## Stubs with Mock matchers.
+
+Codeception's utility Stub class got lots of improvements by **svsool**. Mock matching was also added into it, thus you may use shorter mock syntax in your unit tests:
+
+{% highlight php %}
+<?php
+use \Codeception\Util\Stub;
+// example 1
+$mock = Stub::makeEmpty('SomeClass', array(
+    'trackInvocationCount' => 
+     Stub::once(function() {return true})),
+     $this);
+
+$mock->trackInvocationCount();
+
+// example 2
+$mock = Stub::makeEmpty('SomeClass', array('methodNeverCalled',  Stub::never(), $this);
+?>
+{% endhighlight %}
+
+Complete reference is coming soon.
+
+## Execute Call
+
+In case you need to execute custom code in a test, you can now use the `execute` method for that:
+
+{% highlight php %}
+<?php 
+$I->execute(function() {
+  DB::updateCounters();
+});
+?>
+{% endhighlight %}
+
+`execute` method is declared in Guy class itself, thus it can be used anywhere without attaching a module. 
+As you know, Codeception tests files are included 2 times: one for parsing and for execution. Calls inside `execute` method will be triggered only on test execution. 
+
+Thanks **korotovsky** for implementation.
+
+## Various Ehancements and Fixes.
+
+* `--no-colors` runner option by **igorsantos07**.
+* fix to double text in `generate:scenarios`.
+* ZF1 sessions and auth helpers fixed by **brutuscat**
+* `seeInDatabase` can check that table is empty with: `seeInDatabase('empty_table')` by **igorsantos07**.
+* `ZombieJS` updates by **synchrone**.
+
+additionally we had lots of fixes to Db module and its drivers. Sorry, we can't list all of them here.
+
+As it was said we had internal refactorings, to make code stable and clearer.
+Soon we plan to publish a complete blog on Codeception internals.
+
+### Update
+
+[redownload](http://codeception.com/thanks.html) your `codeception.phar` for update:
+
+{% highlight bash %}
+wget http://codeception.com/codecept.phar -O codecept.phar
+{% endhighlight %}
+
+for composer version
+
+{% highlight bash %}
+$ php composer.phar update
+{% endhighlight %}
+ 
+**Release sponsored by 2AmigOS**
+[!http://2amigos.us/img/logo.png](http://2amigos.us/)
