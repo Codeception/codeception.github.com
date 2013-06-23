@@ -144,4 +144,5 @@ $ php composer.phar update
 {% endhighlight %}
  
 **Release sponsored by 2AmigOS**
-[![http://2amigos.us/img/logo.png](http://2amigos.us/)
+
+![2AmigOS](http://2amigos.us/img/logo.png)
