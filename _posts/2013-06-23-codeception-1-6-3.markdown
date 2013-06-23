@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Codeception 1.6.3 is out"
-date: 2013-06-12 22:03:50
+date: 2013-06-23 22:03:50
 ---
 
 It was a one-month release sprint and probably this release took much longer then we expected.
