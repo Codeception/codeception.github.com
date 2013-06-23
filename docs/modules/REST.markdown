@@ -47,6 +47,15 @@ Otherwise sends raw HTTP requests to url via PHPBrowser.
 ### Actions
 
 
+#### amDigestAuthenticated
+
+
+s Digest authentication via username/password.
+
+ram $username
+ram $password
+
+
 #### amHttpAuthenticated
 
 
