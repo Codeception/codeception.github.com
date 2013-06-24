@@ -43,7 +43,7 @@ php codecept.phar bootstrap --namespace frontend
 {% endhighlight %}
 
 This will bootstrap a new project with `namespace: frontend` parameter in `codeception.yml` file. 
-Helpers will use `frontent\Codeception\Module` namespace and Guy classes will use `frontend` namespace.
+Helpers will use `frontend\Codeception\Module` namespace and Guy classes will use `frontend` namespace.
 Thus, newly generated tests will have this look:
 
 {% highlight php %}
@@ -64,9 +64,9 @@ php codecept.phar refactor:add-namespace frontend
 
 {% endhighlight %}
 
-You will get your guy classes, helpers and cept tests upgraded to use namespace `frontend`. Please, note that Cest files should be upgraded manually. This running this command won't change the namespace of Test or Cest classes. It is used only for Guys and Helpers.
+You will get your guy classes, helpers and cept tests upgraded to use namespaces. Please, note that Cest files should be upgraded manually. Also `namespace` option does not change the namespace of Test or Cest classes. It is used only for Guys and Helpers.
 
-Once each your application (bundle) has its own namespace and different helper or guy classes, you can execute all tests in one runner. Use meta-config we created above and run Codeception tests as usual.
+Once each your application (bundle) has its own namespace and different helper or guy classes, you can execute all tests in one runner. Use meta-config we created above and run codeception tests as usual.
 
 {% highlight php %}
  codecept.phar run
@@ -74,13 +74,13 @@ Once each your application (bundle) has its own namespace and different helper o
 
 {% endhighlight %}
 
-This will launch test suites for all 3 applications and merge the reports from all of them. Basically that would be very useful when you run your tests on continuous integration server and you want to get one report in JUnit and HTML format. CodeCoverage report will be merged too. 
+This will launch test suites for all 3 applications and merge the reports from all of them. Basically that would be very useful when you run your tests on conitinous integration server and you want to get one report in JUnit and HTML format. Codecoverage report will be merged too. 
 
-If multiple applications should use the same helpers, see the next section of this chapter.
+If your application should use the same helpers follow the next section of this chapter.
 
 ## Autoload Helper classes
 
-In Codeception 1.6.3 a global `_bootstrap.php` file was introduced. By default you can place it into `tests` directory. If file is there it will be included at the very beginning of execution routine. We recommend to use it to initialize autoloaders and constants. It is especially useful if you want to include Modules or Helper classes that are not stored in `tests/_helpers` directory.
+In Codeception 1.6.3 a global `_bootstrap.php` file was introduced. By default you can place it into `tests` directory. If file is there it will be included at the very begining of execution routine. We recommend to use it to initialize autoloaders and constants. It is epecially useful if you want to include Modules or Helper classes that are not stored in `tests/_helpers` direactory.
 
 {% highlight php %}
 
@@ -135,7 +135,6 @@ Codeception\Util\Autoload::register('MyApp\\Test','Controller', __DIR__.'/contro
 ## Group Classes
 
 *coming soon*
-
 
 
 
