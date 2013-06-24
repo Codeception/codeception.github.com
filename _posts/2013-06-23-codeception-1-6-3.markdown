@@ -4,6 +4,8 @@ title: "Codeception 1.6.3 is out"
 date: 2013-06-23 22:03:50
 ---
 
+** Update: Yii2 module was included in release. See details below.**
+
 It was a one-month release sprint and probably this release took much longer then we expected.
 1.6.3 release introduces lots of features, internal unit tests, and internal refactorings. Please take a cup of coffee because we prepared a long story of features you can try in 1.6.3.
 
@@ -116,6 +118,16 @@ As you know, Codeception tests files are included 2 times: one for parsing and f
 
 Thanks **korotovsky** for implementation.
 
+## Yii2 module
+
+<img src="http://static.yiiframework.com/css/img/logo.png" alt="Yii Framework" style="float: right" />
+
+Yii framework hits its second major version. Yii 2.0 was developed with testing in mind. 
+Despite the fact that Yii 2.0 is still in its early days, we got [a working Yii2 module](http://codeception.com/docs/modules/Yii2) for it.
+Unlike most of framework modules of Codepception, this one was created by Yii core developer **qiangxue**. 
+
+We are excited of collaboration with Yii Framework core team. And we wish them Yii 2.0 project to hit stable release soon.
+
 ## Various Ehancements and Fixes.
 
 * `--no-colors` runner option by **igorsantos07**.
@@ -146,3 +158,6 @@ $ php composer.phar update
 **Release sponsored by 2AmigOS**
 
 ![2AmigOS](http://2amigos.us/img/logo.png)
+
+
+
