@@ -3,101 +3,70 @@ layout: doc
 title: Codeception - Documentation
 ---
 
-# ZombieJS Module
-**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/master/src/Codeception/Module/ZombieJS.php)**
+# Yii2 Module
+
+**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/master/src/Codeception/Module/Yii2.php)**
 
 
-Uses Mink to manipulate Zombie.js headless browser (http://zombie.labnotes.org/)
+This module provides integration with Yii framework (http://www.yiiframework.com/) (2.0).
 
-Note, all methods take CSS selectors to fetch elements.
-For links, buttons, fields you can use names/values/ids of elements.
-For form fields you can use input[name=fieldname] notation.
+The following configurations are available for this module:
 
-### Status
+ * `entryScript` - the path of the entry script
+ * `url` - the URL of the entry script
 
-* Maintainer: **synchrone**
-* Stability: **stable**
-* Contact: https://github.com/synchrone
-* relies on [Mink](http://mink.behat.org)
+The entry script must return the application configuration array.
+You can use this module by setting params in your functional.suite.yml:
 
-
-### Installation
-
-In order to talk with zombie.js server, you should install and configure zombie.js first:
-
-* Install node.js by following instructions from the official site: [NodeJS](http://nodejs.org/)
-(Node Package Manager npm is installed automatically. If not - follow instructions at [npm.org](https://npmjs.org).
-* Install zombie.js with npm:
 {% highlight yaml %}
- npm install -g zombie@1.4.0 
-{% endhighlight %}
-Note: Behat/Mink currently doesn't support zombie >= 1.4.1
 
-After installing npm and zombie.js, you’ll need to add npm libs to your **NODE_PATH**. The easiest way to do this is to run:
-{% highlight yaml %}
- echo 'export NODE_PATH="'$(npm root -g)'"' >> ~/.bash_profile && . ~/.bash_profile 
+class_name: TestGuy
+modules:
+    enabled: [FileSystem, TestHelper, Yii2]
+    config:
+        Yii2:
+            entryScript: '/path/to/index.php'
+            url: 'http://localhost/path/to/index.php'
+
 {% endhighlight %}
 
-Also note that this module requires php5-http PECL extension to parse returned headers properly
+If you are using an existing application template provided by Yii 2, it already contains
+the entry script file named `index-test.php` which is located under the `www` folder.
+And the application template should already contain some functional tests located under the `tests` folder.
 
-Don't forget to turn on Db repopulation if you are using database.
-
-### Configuration
-
-* url  *required*- url of your site
-* host - simply defines the host on which zombie.js will be started. It’s **127.0.0.1** by default.
-* port - defines a zombie.js port. Default one is **8124**.
-* node_bin - defines full path to node.js binary. Default one is just **node**
-* script - defines a node.js script to start zombie.js server. If you pass a **null** the default script will be used. Use this option carefully!
-* threshold - amount of milliseconds (1/1000 of second) for the process to wait  (as of \Behat\Mink\Driver\Zombie\Server)
-* autostart - whether zombie.js should be started automatically. Defaults to **true**
-
-#### Example (`acceptance.suite.yml`)
-
-    modules:
-       enabled: [ZombieJS]
-       config:
-          ZombieJS:
-             url: 'http://localhost/'
-             host: '127.0.0.1'
-             port: 8124
-
-### Public Properties
-
-* session - contains Mink Session
 
 ### Actions
+
+
+#### amHttpAuthenticated
+
+
+Adds HTTP authentication via username/password.
+
+ * param $username
+ * param $password
 
 
 #### amOnPage
 
 
 Opens the page.
+Requires relative uri as parameter
 
- * param $page
-
-
-#### amOnSubdomain
-
-
-Sets 'url' configuration parameter to hosts subdomain.
-It does not open a page on subdomain. Use `amOnPage` for that
+Example:
 
 {% highlight php %}
 
 <?php
-// If config is: 'http://mysite.com'
-// or config is: 'http://www.mysite.com'
-// or config is: 'http://company.mysite.com'
-
-$I->amOnSubdomain('user');
+// opens front page
 $I->amOnPage('/');
-// moves to http://user.mysite.com/
+// opens /register page
+$I->amOnPage('/register');
 ?>
 
 {% endhighlight %}
- * param $subdomain
- * return mixed
+
+ * param $page
 
 
 #### attachFile
@@ -118,15 +87,6 @@ $I->attachFile('prices.xls');
 
  * param $field
  * param $filename
-
-
-#### blur
-
-
-Removes focus from link or button or any node found by CSS or XPath
-XPath or CSS selectors are accepted.
-
- * param $el
 
 
 #### checkOption
@@ -183,14 +143,6 @@ $I->click('Logout', '#nav');
  * param $context
 
 
-#### clickWithRightButton
-
-
-Clicks with right button on link or button or any node found by CSS or XPath
-
- * param $link
-
-
 #### dontSee
 
 
@@ -230,11 +182,6 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
 {% endhighlight %}
 
  * param $checkbox
-
-
-#### dontSeeCookie
-
-__not documented__
 
 
 #### dontSeeCurrentUrlEquals
@@ -357,32 +304,6 @@ $I->dontSeeOptionIsSelected('#form input[name=payment]', 'Visa');
  * return mixed
 
 
-#### doubleClick
-
-
-Double clicks on link or button or any node found by CSS or XPath
-
- * param $link
-
-
-#### dragAndDrop
-
-
-Drag first element to second
-XPath or CSS selectors are accepted.
-
- * param $el1
- * param $el2
-
-
-#### executeJs
-
-
-Executes any JS code.
-
- * param $jsCode
-
-
 #### fillField
 
 
@@ -392,20 +313,7 @@ Fills a text field or textarea with value.
  * param $value
 
 
-#### focus
-
-
-Moves focus to link or button or any node found by CSS or XPath
-
- * param $el
-
-
-#### grabAttribute
-
-__not documented__
-
-
-#### grabCookie
+#### formatResponse
 
 __not documented__
 
@@ -474,91 +382,6 @@ $name = $I->grabValueFrom('descendant-or-self::form/descendant::input[@name = 'u
  * return mixed
 
 
-#### headRequest
-
-
- * param string $url The URL to make HEAD request to
- * return array Header-Name => Value array
-
-
-#### moveBack
-
-
-Moves back in history
-
-
-#### moveForward
-
-
-Moves forward in history
-
-
-#### moveMouseOver
-
-
-Moves mouse over link or button or any node found by CSS or XPath
-
- * param $link
-
-
-#### pressKey
-
-
-Presses key on element found by css, xpath is focused
-A char and modifier (ctrl, alt, shift, meta) can be provided.
-
-Example:
-
-{% highlight php %}
-
-<?php
-$I->pressKey('#page','u');
-$I->pressKey('#page','u','ctrl');
-$I->pressKey('descendant-or-self::*[@id='page']','u');
-?>
-
-{% endhighlight %}
-
- * param $element
- * param $char char can be either char ('b') or char-code (98)
- * param null $modifier keyboard modifier (could be 'ctrl', 'alt', 'shift' or 'meta')
-
-
-#### pressKeyDown
-
-
-Presses key down on element found by CSS or XPath.
-
-For example see 'pressKey'.
-
- * param $element
- * param $char char can be either char ('b') or char-code (98)
- * param null $modifier keyboard modifier (could be 'ctrl', 'alt', 'shift' or 'meta')
-
-
-#### pressKeyUp
-
-
-Presses key up on element found by CSS or XPath.
-
-For example see 'pressKey'.
-
- * param $element
- * param $char char can be either char ('b') or char-code (98)
- * param null $modifier keyboard modifier (could be 'ctrl', 'alt', 'shift' or 'meta')
-
-
-#### reloadPage
-
-
-Reloads current page
-
-
-#### resetCookie
-
-__not documented__
-
-
 #### see
 
 
@@ -602,11 +425,6 @@ $I->seeCheckboxIsChecked('//form/input[@type=checkbox and  * name=agree]');
  * param $checkbox
 
 
-#### seeCookie
-
-__not documented__
-
-
 #### seeCurrentUrlEquals
 
 
@@ -637,10 +455,16 @@ $I->seeCurrentUrlMatches('~$/users/(\d+)~');
 #### seeElement
 
 
-Checks element visibility.
-Fails if element exists but is invisible to user.
-Eiter CSS or XPath can be used.
+Checks if element exists on a page, matching it by CSS or XPath
 
+{% highlight php %}
+
+<?php
+$I->seeElement('.error');
+$I->seeElement(//form/input[1]);
+?>
+
+{% endhighlight %}
  * param $selector
 
 
@@ -726,6 +550,21 @@ $I->seeOptionIsSelected('#form input[name=payment]', 'Visa');
  * return mixed
 
 
+#### seePageNotFound
+
+
+Asserts that current page has 404 response status code.
+
+
+#### seeResponseCodeIs
+
+
+Checks that response code is equal to value provided.
+
+ * param $code
+ * return mixed
+
+
 #### selectOption
 
 
@@ -747,9 +586,90 @@ $I->selectOption('//form/select[@name=account]', 'Monthly');
  * param $option
 
 
-#### setCookie
+#### sendAjaxGetRequest
 
-__not documented__
+
+If your page triggers an ajax request, you can perform it manually.
+This action sends a GET ajax request with specified params.
+
+See ->sendAjaxPostRequest for examples.
+
+ * param $uri
+ * param $params
+
+
+#### sendAjaxPostRequest
+
+
+If your page triggers an ajax request, you can perform it manually.
+This action sends a POST ajax request with specified params.
+Additional params can be passed as array.
+
+Example:
+
+Imagine that by clicking checkbox you trigger ajax request which updates user settings.
+We emulate that click by running this ajax request manually.
+
+{% highlight php %}
+
+<?php
+$I->sendAjaxPostRequest('/updateSettings', array('notifications' => true); // POST
+$I->sendAjaxGetRequest('/updateSettings', array('notifications' => true); // GET
+
+
+{% endhighlight %}
+
+ * param $uri
+ * param $params
+
+
+#### submitForm
+
+
+Submits a form located on page.
+Specify the form by it's css or xpath selector.
+Fill the form fields values as array.
+
+Skipped fields will be filled by their values from page.
+You don't need to click the 'Submit' button afterwards.
+This command itself triggers the request to form's action.
+
+Examples:
+
+{% highlight php %}
+
+<?php
+$I->submitForm('#login', array('login' => 'davert', 'password' => '123456'));
+
+
+{% endhighlight %}
+
+For sample Sign Up form:
+
+{% highlight html %}
+
+<form action="/sign_up">
+    Login: <input type="text" name="user[login]" /><br/>
+    Password: <input type="password" name="user[password]" /><br/>
+    Do you agree to out terms? <input type="checkbox" name="user[agree]" /><br/>
+    Select pricing plan <select name="plan"><option value="1">Free</option><option value="2" selected="selected">Paid</option></select>
+    <input type="submit" value="Submit" />
+</form>
+
+{% endhighlight %}
+I can write this:
+
+{% highlight php %}
+
+<?php
+$I->submitForm('#userForm', array('user' => array('login' => 'Davert', 'password' => '123456', 'agree' => true)));
+
+
+{% endhighlight %}
+Note, that pricing plan will be set to Paid, as it's selected on page.
+
+ * param $selector
+ * param $params
 
 
 #### uncheckOption
@@ -768,20 +688,3 @@ $I->uncheckOption('#notify');
 {% endhighlight %}
 
  * param $option
-
-
-#### wait
-
-
-Wait for x milliseconds
-
- * param $milliseconds
-
-
-#### waitForJS
-
-
-Waits for x milliseconds or until JS condition turns true.
-
- * param $milliseconds
- * param $jsCondition
