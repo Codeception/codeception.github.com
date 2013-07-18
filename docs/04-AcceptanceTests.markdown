@@ -253,6 +253,24 @@ $I->seeLink('Login');
 
 {% endhighlight %}
 
+#### Conditional Assertions
+
+* new in 1.6.4 *
+
+Sometimes you don't want the test to be stopped when assertion fails. Maybe you have a long-running test and you want it to run to the end. In this case you can use conditional assertions. Each `see` method has corresponding `canSee` method, and `dontSee` has `cantSee` analog. 
+
+{% highlight php %}
+
+<?php
+$I->canSeeInCurrentUrl('/user/miles');
+$I->canSeeCheckboxIsChecked('#agree');
+$I->cantSeeInField('user[name]','Miles');
+?>
+
+{% endhighlight %}
+
+Each failed assertion will be shown in test results. Still failed assertion won't stop the test execution.
+
 #### Grabbers
 
 This is are the commands are introduced in Codeception 1.1. They are quite useful when you need to retrieve the data from the test and use it in next steps. Imagine, your site generates a password for every user, and you want to check the user can log in into site using this password.
@@ -303,25 +321,33 @@ $I->see('Form is filled incorrectly');
 ## Selenium
 
 A nice feature of Codeception is that most scenarios can be easily ported between the testing backends.
-Your PhpBrowser tests we wrote previously can be performed by Selenium. The only thing we need to change is to reconfigure and rebuild the WebGuy class, to use Selenium instead of PhpBrowser.
+Your PhpBrowser tests we wrote previously can be performed by Selenium. The only thing we need to change is to reconfigure and rebuild the WebGuy class, to use Selenium2 instead of PhpBrowser.
+
+Modify your {% highlight yaml %}
+acceptance.suite.yml
+{% endhighlight %} file...
 
 {% highlight yaml %}
 yaml
 class_name: WebGuy
 modules:
     enabled:
-        - Selenium
+        - Selenium2
         - WebHelper
     config:
-        Selenium:
+        Selenium2:
             url: 'http://localhost/myapp/'
             browser: firefox            
 
 {% endhighlight %}
 
+After making changes to this file, you will often need to 'rebuild' the Codeception base classes.  You do this by running `codecept build` on the command line.
+
 Remember, running tests with PhpBrowser and Selenium is quite different. There are some actions which do not exist in both modules, like the `submitForm` action we reviewed before. 
 
 In order to run Selenium tests you need to [download Selenium Server](http://seleniumhq.org/download/) and get it running. 
+
+_Note: Selenium Server 2.33 is NOT compatible with Firefox 22.  You will need to remain with Firefox 21 until Selenium Server 2.34 is released._
 
 If you run acceptance tests with Selenium, Firefox will be started and all actions will be performed step by step. 
 The commands we use for Selenium are mostly like those we have for PHPBrowser. Nevertheless, their behavior may be slightly different.
@@ -339,7 +365,7 @@ $I->see('Confirm','#modal');
 
 {% endhighlight %}
 
-See the Selenium module documentation for the full reference.
+See Codeception's Selenium module documentation for the full reference.
 
 ### Cleaning things up
 
