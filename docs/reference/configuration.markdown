@@ -55,6 +55,21 @@ modules:
 
 This section is used to configure a module for all suites. If you got module shared through all suites, put their configuration here.
 
+#### Extensions
+
+Extensions can subscribe to events and extend Codeception functionality.
+They can be installed from 3rd party sources and enabled in global configuration `codeception.yml`.
+
+{% highlight yaml %}
+extensions:
+    enabled: [MyExtension] # class name
+    config:
+        MyExtension:
+            param: value
+{% endhighlight %}
+
+Extensions should included in global bootstrap file in `tests/_bootstrap.php`
+
 ## Suite Configuration
 
 Each suite has it's configuration file in `tests` directory. It's used for configuring modules used in test scenarios.
@@ -106,18 +121,3 @@ modules:
 			browser: firefox
 			delay: 10
 {% endhighlight %}
-
-### Extensions
-
-Extensions can subscribe to events and extend Codeception functionality.
-They can be installed from 3rd party sources and enabled in global configuration `codeception.yml`.
-
-{% highlight yaml %}
-extensions:
-    enabled: [MyExtension] # class name
-    config:
-        MyExtension:
-            param: value
-{% endhighlight %}
-
-Extensions should included in global bootstrap file in `tests/_bootstrap.php`
