@@ -101,8 +101,8 @@ Example:
 {% highlight php %}
 
 <?php
-// file is stored in 'tests/data/tests.xls'
-$I->attachFile('prices.xls');
+// file is stored in 'tests/_data/prices.xls'
+$I->attachFile('input[@type="file"]', 'prices.xls');
 ?>
 
 {% endhighlight %}
@@ -196,6 +196,7 @@ Examples:
 $I->dontSee('Login'); // I can suppose user is already logged in
 $I->dontSee('Sign Up','h1'); // I can suppose it's not a signup page
 $I->dontSee('Sign Up','//body/h1'); // with XPath
+?>
 
 {% endhighlight %}
 
@@ -216,7 +217,7 @@ Example:
 <?php
 $I->dontSeeCheckboxIsChecked('#agree'); // I suppose user didn't agree to terms
 $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user didn't check the first checkbox in form.
-
+?>
 
 {% endhighlight %}
 
@@ -234,10 +235,14 @@ __not documented__
 Checks that current url is not equal to value.
 Unlike `dontSeeInCurrentUrl` performs a strict check.
 
+{% highlight php %}
+
 <?php
 // current url is not root
 $I->dontSeeCurrentUrlEquals('/');
 ?>
+
+{% endhighlight %}
 
  * param $uri
 
@@ -247,10 +252,14 @@ $I->dontSeeCurrentUrlEquals('/');
 
 Checks that current url does not match a RegEx value
 
+{% highlight php %}
+
 <?php
 // to match root url
 $I->dontSeeCurrentUrlMatches('~$/users/(\d+)~');
 ?>
+
+{% endhighlight %}
 
  * param $uri
 
@@ -260,11 +269,13 @@ $I->dontSeeCurrentUrlMatches('~$/users/(\d+)~');
 
 Checks if element does not exist (or is visible) on a page, matching it by CSS or XPath
 
+Example:
+
 {% highlight php %}
 
 <?php
 $I->dontSeeElement('.error');
-$I->dontSeeElement(//form/input[1]);
+$I->dontSeeElement('//form/input[1]');
 ?>
 
 {% endhighlight %}
@@ -322,7 +333,7 @@ Examples:
 
 <?php
 $I->dontSeeLink('Logout'); // I suppose user is not logged in
-
+?>
 
 {% endhighlight %}
 
@@ -400,6 +411,16 @@ Executes any JS code.
 
 Fills a text field or textarea with value.
 
+Example:
+
+{% highlight php %}
+
+<?php
+$I->fillField("//input[@type='text']", "Hello World!");
+?>
+
+{% endhighlight %}
+
  * param $field
  * param $value
 
@@ -410,11 +431,6 @@ Fills a text field or textarea with value.
 Moves focus to link or button or any node found by CSS or XPath
 
  * param $el
-
-
-#### grabAttribute
-
-__not documented__
 
 
 #### grabCookie
@@ -578,7 +594,7 @@ Examples:
 $I->see('Logout'); // I can suppose user is logged in
 $I->see('Sign Up','h1'); // I can suppose it's a signup page
 $I->see('Sign Up','//body/h1'); // with XPath
-
+?>
 
 {% endhighlight %}
 
@@ -600,7 +616,7 @@ Example:
 $I->seeCheckboxIsChecked('#agree'); // I suppose user agreed to terms
 $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user agreed to terms, If there is only one checkbox in form.
 $I->seeCheckboxIsChecked('//form/input[@type=checkbox and  * name=agree]');
-
+?>
 
 {% endhighlight %}
 
@@ -618,10 +634,14 @@ __not documented__
 Checks that current url is equal to value.
 Unlike `seeInCurrentUrl` performs a strict check.
 
+{% highlight php %}
+
 <?php
 // to match root url
 $I->seeCurrentUrlEquals('/');
 ?>
+
+{% endhighlight %}
 
  * param $uri
 
@@ -631,10 +651,14 @@ $I->seeCurrentUrlEquals('/');
 
 Checks that current url is matches a RegEx value
 
+{% highlight php %}
+
 <?php
 // to match root url
 $I->seeCurrentUrlMatches('~$/users/(\d+)~');
 ?>
+
+{% endhighlight %}
 
  * param $uri
 
@@ -645,6 +669,16 @@ $I->seeCurrentUrlMatches('~$/users/(\d+)~');
 Checks element visibility.
 Fails if element exists but is invisible to user.
 Eiter CSS or XPath can be used.
+
+Example:
+
+{% highlight php %}
+
+<?php
+$I->seeElement("//input[@type='button']");
+?>
+
+{% endhighlight %} 
 
  * param $selector
 
@@ -705,7 +739,7 @@ Examples:
 <?php
 $I->seeLink('Logout'); // matches <a href="#">Logout</a>
 $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
-
+?>
 
 {% endhighlight %}
 
@@ -748,6 +782,16 @@ $I->selectOption('//form/select[@name=account]', 'Monthly');
 
 {% endhighlight %}
 
+Can select multiple options if second argument is array:
+
+{% highlight php %}
+
+<?php
+$I->selectOption('Which OS do you use?', array('Windows','Linux'));
+?>
+
+{% endhighlight %}
+
  * param $select
  * param $option
 
@@ -780,13 +824,46 @@ $I->uncheckOption('#notify');
 
 Wait for x milliseconds
 
+Example:
+
+{% highlight php %}
+
+<?php
+$I->wait(1000);	// waits 1000 milliseconds (one second)
+?>
+
+{% endhighlight %}
+
  * param $milliseconds
 
 
 #### waitForJS
 
 
-Waits for x milliseconds or until JS condition turns true.
+Waits for x milliseconds or until a given JS condition turns true.
+The function will keep asserting the javascript condition, but will
+continue regardless of its validity once the x milliseconds time has
+been passed.
+
+See the example below on how to embed javascript functions as the
+condition.
+
+Example:
+
+{% highlight php %}
+
+<?php
+$I->waitForJS(1000, "(function myJavascriptFunction() {
+		// Javascript function code
+		if (some statement) {
+		return true;	// waitForJS() function will finish
+	} else {
+		return false;	// keep asserting (some statement)
+	}
+})()");
+?>
+
+{% endhighlight %}
 
  * param $milliseconds
  * param $jsCondition

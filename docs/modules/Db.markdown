@@ -134,7 +134,7 @@ $mail = $I->grabFromDatabase('users', 'email', array('name' => 'Davert'));
 #### haveInDatabase
 
 
-Inserts SQL record into database
+Inserts SQL record into database. This record will be erased after the test.
 
 {% highlight php %}
 
