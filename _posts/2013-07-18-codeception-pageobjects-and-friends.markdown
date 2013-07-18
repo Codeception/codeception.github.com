@@ -69,12 +69,12 @@ Alternatively, interaction logic can be kept in StepObject classes. In which we 
 <?php
 $I = new WebGuy\AdminSteps($scenario);
 $I->am('admin');
-$I->wantTo('create a new admin check his account');
+$I->wantTo('create a new admin and check his account');
 $I->logIntoAdminArea();
 $I->createUser('davert','123456', 'admin');
 $I->logout();
-$I->login();
-$I->see('Admin Actions', '#toolbar');
+$I->login('davert','123456');
+$I->seeInCurrentUrl('/admin');
 ?>
 {% endhighlight %}
 
