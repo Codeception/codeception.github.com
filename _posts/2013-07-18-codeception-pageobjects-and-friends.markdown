@@ -12,7 +12,7 @@ Long awaited feature of adding PageObjects into the core.
 Codeception looks pretty different from other testing frameworks in Java or Ruby.
 So it was hard to understand in which way the PageObject should be implemented.
 
-Actually you can choose is pageobject will be just a storage of your UI locators (UI Map).
+Actually you can think of a PageObject that is just a storage of UI locators (UI Map).
 
 {% highlight php %}
 <?php
@@ -31,7 +31,7 @@ class ArticlesPage {
 ?>
 {% endhighlight %}
 
-In a test you can use a pageobject this way:
+In a test you can use such PageObject this way:
 
 {% highlight php %}
 <?php
@@ -44,9 +44,8 @@ $I->see('Editing Article #1');
 ?>
 {% endhighlight %}
 
-As you see, such page objects are easy to use. But they do not store any page logic inside.
-Can we improve that? Sure! A PageObject class can also contain methods for page interaction.
-In a test they may look like:
+But how to make PageObjects actually to define page interaction too?
+Can we improve that? Sure! In a test they may look like:
 
 {% highlight php %}
 <?php
