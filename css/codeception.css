@@ -5,21 +5,25 @@ body {
   background:  url("/images/bg.png") transparent !important;
 }  
 body .navbar .navbar-inner {
-  background: url("/images/head_bg.png") repeat-x #656270 !important;
+  background: #008391 !important;
 }    
 
 body .hero-unit {
-	background: none;
-	padding: 60px 0;
+	/*background: none;*/
+	text-align: center;
+	padding: 4em 12em;
 	border-radius: 0px;
+	margin-top: 1em;
+	border-bottom: 5px solid #008391;
 }
 
 body h1, body h2, body h3, body h3 {
-	font-family: "Philosopher", "Open Sans","Lucida Grande","Helvetica Neue",Helvetica,Arial,sans-serif
+	font-family: "Philosopher", "Open Sans","Lucida Grande","Helvetica Neue",Helvetica,Arial,sans-serif;
+	color: #45414B;
 }
 
 body .hero-unit h1 {
-	color: #656270;
+	color: #008391;
 }
 
 #page h4 {
@@ -57,9 +61,17 @@ body .highlight pre {
 }
 
 body .page {
-	font-size: 1.3em;
+	font-size: 1.2em;
 	line-height: 150%;
+	padding: 2em;
+	background: #fff;
 	margin: 1.5em 0;
+	border-radius: 5px;
+}
+
+body .page p {
+	margin-top: 0.75em;
+	margin-bottom: 0.75em;
 }
 
 body b {
@@ -109,7 +121,7 @@ body b {
 	font-size: 0.9em;
 	text-align: center;
 	padding-top: 10px;
-	background: url("/images/footer_c.png") repeat-x;	
+	background: #008391;	
 }
 
 body .dropdown-modules {

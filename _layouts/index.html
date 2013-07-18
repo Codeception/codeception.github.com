@@ -5,15 +5,11 @@ layout: bootstrap
 <div class="row">
   <div class="span9">
     <div class="hero-unit">
-      <div class="pull-right sample-code php">
-            &lt;?php <br/>
-            <span class="nv">$I</span><span class="o">-></span><span class="method">am</span>(<span class="string">'testing framework'</span>);<br/>
-            <span class="nv">$I</span><span class="o">-></span><span class="method">wantToTest</span>(<span class="string">'your web application'</span>);<br/>
-            <span class="nv">$I</span><span class="o">-></span><span class="method">see</span>(<span class="string">'it works!'</span>);<br/>
-      </div>  
 
+      <img src="/images/logo.png" class="pull-left" alt="Codeception Logo" />
       <h1>Codeception</h1>      
-      <p>Modern Testing in PHP</p>
+      <p>Modern PHP testing for everyone.</p>
+      <p>&nbsp;</p>
       <p>
 
 
@@ -85,32 +81,21 @@ layout: bootstrap
 </p>
 
     
-
-    <p class="alert page well alert-success">
-      Codeception is kept as simple as possible for any kind of users.
-      PHP developers, QAs, Managers can use Codeception. The only requirements are basic knowledge of PHP and theory of automated testing.
-      Its configuration is kept short, all common issues are already solved.
-    </p>
-
     <h4>Features</h4>
-    <div class="well">
-    <p class="page">
+    <div class="well page">
               <ul>
-                <li>Multiple backends, easily changed <strong>Selenium, PhpBrowser, ZombieJS</strong></li>
+                <li><strong>Selenium WebDriver</strong> integration</li>
                 <li>Elements matched by <strong>name, CSS, XPath</strong></li>
+                <li><strong>Symfony2, Yii2, Zend Framework</strong> integration</li>
+                <li><strong>PageObjects</strong> and StepObjects included</li>
+                <li><strong>BDD</strong>-style readable tests</li>
+                <li>Powered by <strong>PHPUnit</strong></li>
                 <li><strong>Data Cleanup</strong> after each run</li>
-                <li>Integrate with <strong>Symfony2, Zend Framework, Kohana</strong>, etc.</li>
-                <li>Continious Integration systems like <strong>Jenkins or Bamboo</strong></li>         
-                <li>Natively <strong>executes PHPUnit tests</strong></li>
-                <li><strong>BDD</strong>-style scenario-driven tests</li>
-                <li>WebServices testing via <strong>REST</strong>,<strong>SOAP</strong>,<strong>XML-RPC</strong> </li>
-                <li>Generates HTML, XML, TAP, JSON reports</li>
-                <li>Simple Fixtures</li>
-                <li>Database and Doctrine ORM helpers</li>                
+                <li>API testing: <strong>REST</strong>,<strong>SOAP</strong>,<strong>XML-RPC</strong></li>
+                <li>HTML, XML, TAP, JSON reports</li>
                 <li>CodeCoverage and Remote CodeCoverage</li>
               </ul>
 
-    </p>
     </div>
 
 
@@ -135,8 +120,7 @@ layout: bootstrap
 
       <h4>No need for this. It looks just like Behat</h4>
       <p>Hold on! Even though it uses the same style in test descriptions and Mink as a
-        driver, Codeception is completely different. As you know,
-        <b>Behat is not a testing framework</b>, but Codeception is. Codeception
+        driver, Codeception is completely different. Codeception
         tests are written in PHP they are written much faster, especially if you
         use an IDE. You can use
         <b>variables and operators in your tests</b>. You can use
