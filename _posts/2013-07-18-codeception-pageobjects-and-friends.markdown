@@ -153,8 +153,8 @@ $I['describe everything in comments and then automate them'];
 
 **It is very important to execute "build" after the update**.
 Also this update has lots of changes, if you have an issues with them, please report them to Github.
-Lots of changes are introduced, and sure that you can get an issues while updating. Sorry for that.
-We know of it and we are planning to introduce more humane stability politics soon. Wait for announcements.
+If you have issues updating, fall back to previous version.
+We are planning to introduce more humane stability politics soon. Wait for announcements.
 
 [redownload](http://codeception.com/thanks.html) your `codeception.phar` for update:
 
