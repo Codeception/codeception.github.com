@@ -25,7 +25,7 @@ class ArticlesPage {
 
 	static function row($id)
 	{
-		return $articleList ." .article-#id".
+		return $articleList ." .article-$id";
 	}
 }
 ?>
