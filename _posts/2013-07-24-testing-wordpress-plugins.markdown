@@ -176,13 +176,13 @@ And ups...
 
 Looks like everything were ok, before we tried to select option `Post Category`. We saw in previous screen, there was such field in a list, but why WebGuy couldn't find it on a page? It was there.
 
-Well, here is the answer. WebGuy tries to fetch a form element by its label, whenever a label tag in its attribute for points to the right `id` of a field , we can select this field by label. 
+Well, here is the answer. WebGuy tries to fetch a form element by its label, whenever a label tag has attribute `for` that points to the `id` of a field , we can select this field by label. 
 
 ![SelectField](/images/wordpress/SelectField.png)
 
-As you see, unlike the previous Post Tags field, the Post Category select tag doesn't have an `id`. Thus, its label do not point to it as we would expect. 
+But as you see, unlike the previous *Post Tags* field, the *Post Category* select tag doesn't have an `id`. Thus, the label do not point to it, as we would expect. 
 
-How do we resolve this situation? If we can't match the field by its label, we can probably match it by CSS, pretty similar to what we do in jQuery:
+How do we resolve this situation? If we can't match the field by its label, we can probably match it by CSS, pretty similar to how we would do that in jQuery:
 
 {% highlight php %} 
 <?php
