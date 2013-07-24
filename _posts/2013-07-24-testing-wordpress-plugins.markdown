@@ -71,7 +71,7 @@ $I->wantTo('perform actions and see result');
 ?>
 {% endhighlight %}
 
-This PHP code is written in the way you would describe your actions while you are testing a plugin. So how would you test it? Let's define a scenario:
+This PHP code is written in the way you would describe your actions while you are testing a plugin. What we will actually try to check? Let's define a scenario:
 
 * enter a site
 * go to "submit posts" page
@@ -93,7 +93,7 @@ $I->amOnPage('/');
 ?>
 {% endhighlight %}
 
-We moved to the front page of a site. 
+We moved to the front page of a site:
 
 ![WordPress](/images/wordpress/WordPress.png)
 
@@ -109,18 +109,7 @@ $I->click('Submit a Post');
 ?>
 {% endhighlight %}
 
-That's right everything is as simple as you have told you to your mate. 
-
-{% highlight php %} 
-<?php
-$I = new WebGuy($scenario);
-$I->wantTo('submitted a post by user and publish it as admin');
-$I->amOnPage('/');
-$I->click('Submit a Post');
-
-?>
-{% endhighlight %}
-
+That's right, everything is as simple as you would tell it to a mate. 
 As we are on page submission page we got a form and a few fields to fill in.
 
 ![Submit](/images/wordpress/Submit.png)
