@@ -18,7 +18,7 @@ We assume a plugin is already installed and activated.
 
 ![Plugins Activated](/images/wordpress/Plugins.png)
 
-And we created a sample page with a form for posts to be submitted:
+And we created *"Submit a Post"* page with a user submitted stories template snippet included. Through this page we expect stories to be submitted.
 
 ![Submit Post](/images/wordpress/SubmitPost.png)
 
@@ -30,9 +30,9 @@ Automation testing allows us to write a script one time and replay it whenever a
 
 Codeception can be easily installed. It requires **PHP 5.3** and higher. You can [download it here](http://codeception.com/thanks) or grab from site with `wget`:
 
-```
+{% highlight bash %}
 wget http://codeception.com/codecept.phar
-```
+{% endhighlight %}
 
 Downloaded `codecept.phar` file should be placed into your WordPress directory.
 This file should be executed with PHP from console
@@ -41,9 +41,9 @@ This file should be executed with PHP from console
 
 To install it run the `bootstrap` command: 
 
-```
+{% highlight bash %}
 php codecept.phar bootstrap
-```
+{% endhighlight %}
 
 This creates a new directory `tests` with different folders in it. 
 
@@ -57,9 +57,9 @@ To speed up the tests we are not using real browser here, but we use its emulato
 
 Let's create a test named "SubmitPost". We will need `generate:cept` command for that. 
 
-```
+{% highlight bash %}
 php codecept.phar generate:cept acceptance SubmitPost
-```
+{% endhighlight %}
 
 A newly generated test will look like this:
 
@@ -177,9 +177,9 @@ We should point it to the right URL to access our site. For such parameters a co
 We need to start a web server and specify proper local url of wordpress site with a plugin we are testing.
 We are ready to execute this test with `run` command.
 
-```
+{% highlight bash %}
 php codecept.phar run
-```
+{% endhighlight %}
 
 And ups...
 
@@ -235,3 +235,4 @@ As you see it is pretty straight forward. And there is nothing hard in writing s
 * We will learn how to deal with data in Codeception.
 
 Before we proceed, try to reproduce the following steps locally and prepare the testing environment. You can [download this demo project](https://github.com/Codeception/WordPress-plugin-testing/archive/master.zip) or [clone it from GitHub](https://github.com/Codeception/WordPress-plugin-testing). And try to write and run some tests on your own.
+
