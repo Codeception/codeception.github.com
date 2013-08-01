@@ -40,7 +40,7 @@ Dependency Injection pattern can be used as a workaround for this limitation and
 AspectMock breakes the limitation. The same can probably be achived with Runkit extension. But AspectMock doesn't require you to install additional extenions, and uses only PHP methods to do its job.
 
 "Testability" should not be used as argument deciding what design pattern is right to use and what is not.
-When you develop with PHP you should always rely on common sense only. Production code should be efficient, fast, readable, and maintanable. The test should not affect the way the production code is written.
+When you develop with PHP you should always rely on common sense only. Production code should be efficient, fast, readable, and maintanable. The tests should not introduce redundant abstractions to the production code.
 
 ### Real World Experience With Yii2
 
