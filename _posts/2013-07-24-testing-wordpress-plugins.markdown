@@ -225,3 +225,4 @@ As you see it is pretty straight forward. And there is nothing hard in writing s
 
 Before we proceed, try to reproduce the following steps locally and prepare the testing environment. You can [download this demo project](https://github.com/Codeception/WordPress-plugin-testing/archive/master.zip) or [clone it from GitHub](https://github.com/Codeception/WordPress-plugin-testing). And try to write and run some tests on your own.
 
+[**Continue to Part2 >**](http://codeception.com/07-24-2013/testing-wordpress-plugins-2.html)

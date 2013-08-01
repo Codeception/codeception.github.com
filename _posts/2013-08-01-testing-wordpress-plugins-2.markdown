@@ -30,7 +30,7 @@ Thus, we will require few more steps to make a test complete. We will need to lo
 
 ![Dashboard](/images/wordpress/wp2_dashboard.png)
 
-Test commands which allow us to do that are pretty obvious. To keep the code shorter we won't show the code from previous lesson. But you should understand that we just append new commands to the previous steps.
+Test commands which allow us to do that are pretty obvious. To keep the code listing shorter we won't show the code from previous lesson. But you should understand that we just append new commands to the previous steps.
 
 {% highlight php %}
 <?php
@@ -104,9 +104,9 @@ This file, named after our test name, stores the HTML that was on page, before t
 
 ![Publish](/images/wordpress/wp2_publish.png)
 
-It looks like we are still on the **Edit Post** page we were before. And the post status is still `Pending Review`, it looks like `click('Publish')` didn't do what we expected. As we can see, the **Publish** text occur in a few other places on a page. Probably, we are just trying to click the wrong one? What should we do in this case? Yes, we should narrow the result to click only that blue button `Publish`. How will we specify that? That's right, with CSS.
+It looks like we are still on the **Edit Post** page we were before. And the post status is still `Pending Review`. It looks like `click('Publish')` command didn't do what we expected. Take a look on screenshot, as you can see, word *Publish* occur several times on a page. We can assume that we were clicking wrong one. What should we do in this case? We can specify the exact that blue *Publish* button with CSS.
 
-Codeception can use CSS instead of names for clicking the elements. It would be much easier to find the `Publish` button not by its name, but by its CSS. The button have `id` attribute, thus, it can be found by `#publish` CSS selector. That what we probably would do if we were using jQuery.
+Codeception can use CSS instead of names for clicking the elements. The button have `id=publish` attribute, thus, it can be found by `#publish` selector. That what we would probably do if we were using jQuery.
 
 {% highlight php %}
 <?php
