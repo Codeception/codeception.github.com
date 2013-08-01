@@ -5,7 +5,6 @@ date: 2013-07-31 22:03:50
 ---
 
 > “Nothing is True, Everything is Permitted” 
-
 *William S. Burroughs*
 
 
