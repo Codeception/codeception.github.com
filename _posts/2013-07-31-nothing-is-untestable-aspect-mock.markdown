@@ -29,7 +29,7 @@ function testSingleton()
 ?>
 {% endhighlight %}
 
-And with AspectMock we really do and this test passes.
+And with AspectMock we really do it - the test is passing.
 Then should we still consider a singleton to be a bad practice?
 
 ## Beyond Good and Evil
