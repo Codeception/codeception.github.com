@@ -8,6 +8,7 @@ date: 2013-07-31 22:03:50
 
 *William S. Burroughs*
 
+
 We already announced [AspectMock](https://github.com/Codeception/AspectMock), the mocking framework that may dramatically change the way you do testing in PHP. [In this video this Jeffrey Way](http://jeffrey-way.com/blog/2013/07/24/aspectmock-is-pretty-neat/) shows how AspectMock is different from others. In this post we will demonstrate its powers too, and we will try to break some stereotypes about PHP testing.
 
 To get the code tested, you should always keep in mind how you would write a test for it. 
