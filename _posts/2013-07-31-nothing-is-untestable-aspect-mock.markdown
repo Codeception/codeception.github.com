@@ -7,7 +7,7 @@ date: 2013-07-31 22:03:50
 > “Nothing is True, Everything is Permitted” 
 *William S. Burroughs*
 
-We already announced [AspectMock](https://github.com/Codeception/AspectMock), the tiny mocking framework that may dramatically change the way you do testing in PHP. in [this video this Jeffrey Way](http://jeffrey-way.com/blog/2013/07/24/aspectmock-is-pretty-neat/) shows how this mocking framework is different from others. 
+We already announced [AspectMock](https://github.com/Codeception/AspectMock), the mocking framework that may dramatically change the way you do testing in PHP. [In this video this Jeffrey Way](http://jeffrey-way.com/blog/2013/07/24/aspectmock-is-pretty-neat/) shows how AspectMock is different from others. In this post we will demonstrate its powers too, and we will try to break some stereotypes about PHP testing.
 
 To get the code tested, you should always keep in mind how you would write a test for it. 
 We know unit testing requires some good practices to follow and bad practices to avoid.
@@ -119,7 +119,7 @@ We will create a mock with `test::double` call. In a second argument we are pass
 {% endhighlight %}
 
 With this `User::findByUsername()` will always return an empty `User` instance.
-And user id will always be 1. For user to log in we need that `$user->validatePassword($this->password)` returned true.
+And user id will always be 1. For user to log in we need that `$user->validatePassword()` returned true.
 We will mock that call in a test.
 
 {% highlight php %}
@@ -192,21 +192,21 @@ That is important to point AspectMock to a custom autoloader if you do not rely 
 
 ## How it Works
 
-There are no magical meadows and mighty unicorns in a hat. But AspectMock uses something really powerful to break the rules.
-You may have heard of Aspect Oriented Programming. The Go AOP framework, developed by **@lisachenko** does awesome job to bring the AOP to PHP world. It intercepts all method calls and allows to put your own advices for them. The AspectMock is just an advice on top of Go Aop.
+There are no magical meadows and mighty unicorns in a hat. Still AspectMock uses something really powerful to break the rules.
+You may have heard of [Aspect Oriented Programming](https://en.wikipedia.org/wiki/Aspect-oriented_programming). [Go AOP framework](https://github.com/lisachenko/go-aop-php), developed by **@lisachenko** does awesome job to bring the AOP to PHP world. It intercepts all method calls and allows to put your own advices for them. The AspectMock is just an advice on top of Go Aop.
 
 Go Aop scnans all libraries and enhances `include` and `require` statements with PHP filters. 
 Go adds a parent proxy class to any loaded PHP class on the fly. So If we get back to Yii2 example, `User::findByUsername` call will invoke that method on a proxy class.
 
 ## Conclusions
 
-AspectMock still considered to be an experimental project. 
+**AspectMock still considered to be an experimental project.**
 But it has a wide potential. It is very simple and easy to use. It has very tiny api easy to remember and understand. 
 That's why tests developed with AspectMock are very clean and readable.
 
-AspectMock is not a testing tool for the bad code. The good code is efficient code. WordPress is much popular then any PHP framework, because of its efficiency. Magento does not have unit tests (only integration), but is the most popular ecommerce platform. We can't say how many there are unit tests in Facebook, but we can bet, it started without unit tests. Overusing dependency injection does not make the code more efficient nor readable.
+**AspectMock is not a testing tool for the bad code.** The good code is efficient code. WordPress is much popular then any PHP framework, because of its efficiency. Magento does not have unit tests (only integration), but is the most popular ecommerce platform. We can't say how many there are unit tests in Facebook, but we can bet, it started without unit tests. Code should do its job. Code should be readale and maintanable. Overusing dependency injection does not make the code more efficient in any sense. By the way, [in Ruby dependency injection is not widely used](http://david.heinemeierhansson.com/2012/dependency-injection-is-not-a-virtue.html), but as you may know ruby developers are very passionate about testing.
 
-AspectMock is not a tool for newbies who didn't learn good developing practices.
-It is advanced tool, that require you to explicitly set dependencies in test. That may require deep knowledge on internals of framework you use.
+**AspectMock is not a tool for newbies** who just didn't manage to learn the good practices.
+It is advanced tool, that require you to set dependencies explicitly in a test. That may require deep knowledge on internals of framework you use.
 
 You can try it on your own project. If you have code parts that can't be unit tested in classical manner, then AspectMock can do a job for you.
