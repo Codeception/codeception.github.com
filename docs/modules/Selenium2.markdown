@@ -913,13 +913,14 @@ $I->switchToIFrame();
 #### switchToWindow
 
 
-Switch to another window
+Switch to another window identified by its name.
+
+The window can only be identified by its name. If the $name parameter is blank it will switch to the parent window.
 
 Example:
 {% highlight html %}
 
 <input type="button" value="Open window" onclick="window.open('http://example.com', 'another_window')">
-
 
 {% endhighlight %}
 
@@ -931,7 +932,21 @@ $I->click("Open window");
 $I->switchToWindow("another_window");
 # switch to parent window
 $I->switchToWindow();
+?>
 
+{% endhighlight %}
+
+If the window has no name, the only way to access it is via the `executeInSelenium()` method like so:
+
+{% highlight yaml %}
+
+<?php
+$I->executeInSelenium(function (\Webdriver\Session $webdriver) {
+$handles=$webdriver->window_handles();
+$last_window = end($handles);
+$webdriver->focusWindow($last_window);
+});
+?>
 
 {% endhighlight %}
 
