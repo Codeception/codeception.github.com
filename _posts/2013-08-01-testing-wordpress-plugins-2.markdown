@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Testing WordPress Plugins with Codeception. Part 2"
-date: 2013-07-24 22:03:50
+date: 2013-08-01 22:03:50
 ---
 
 In [previous part of this tutorial](http://codeception.com/07-24-2013/testing-wordpress-plugins.html) we installed Codeception and got a simple test for [User Submitted Posts](http://wordpress.org/plugins/user-submitted-posts/) plugin. We tested that user can send a post and see a message that the post was successfully sent. Nothing more. 
