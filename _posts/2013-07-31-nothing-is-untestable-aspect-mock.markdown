@@ -13,9 +13,9 @@ We already announced [AspectMock](https://github.com/Codeception/AspectMock), th
 To get the code tested, you should always keep in mind how you would write a test for it. 
 We know unit testing requires some good practices to follow and bad practices to avoid.
 
-For example, you should not use singletones. They are bad. Why? Singletones can't be tested.
+For example, you should not use singletons. They are bad. Why? Code that use singletons can't be tested.
 
-But what if we could test singletones:
+But what if we could mock singletons:
 
 {% highlight php %}
 <?php
@@ -37,14 +37,14 @@ Then should we still consider a singleton to be a bad practice?
 Classes and methods in PHP are declared statically and can't be changed in runtime.
 This can be treated as language limitation. 
 Dependency Injection pattern can be used as a workaround for this limitation and widely used for testing.
-AspectMock breakes the limitation. The same can probably be achived with Runkit extension. But AspectMock doesn't require you to install additional extenions, and uses only PHP methods to do its job.
+AspectMock breaks the limitation. The same can probably be achieved with Runkit extension. But AspectMock doesn't require you to install additional extensions, and uses only PHP methods to do its job.
 
 "Testability" should not be used as argument deciding what design pattern is right to use and what is not.
-When you develop with PHP you should always rely on common sense only. Production code should be efficient, fast, readable, and maintanable. The tests should not introduce redundant abstractions to the production code.
+When you develop with PHP you should always rely on common sense only. Production code should be efficient, fast, readable, and maintainable. The tests should not introduce redundant abstractions to the production code.
 
 ### Real World Experience With Yii2
 
-Let's get hands on AspectMock. We will use a demo appication from the upcoming [Yii2 framework](https://github.com/yiisoft/yii2).
+Let's get hands on AspectMock. We will use a demo application from the upcoming [Yii2 framework](https://github.com/yiisoft/yii2).
 Despite having dependency injection container, Yii2 does not use it for models. It relies on static calls to global `Yii` class.
 
 Take a look into `LoginForm` model of `advanced` application from the Yii2 repo.
@@ -101,7 +101,7 @@ class LoginForm extends Model
 As you see, it can't be tested in classical unit testing. The only option we have here is to write an integration test for this class. 
 But with AspectMock we can easily get this class tested with 100% code coverage.
 
-Let's test successful and unseccessful login scenarios in `LoginForm`.
+Let's test successful and unsuccessful login scenarios in `LoginForm`.
 
 LoginForm relies on User class. That's why to write a test, we will mock some of its methods.
 We will create a mock with `test::double` call. In a second argument we are passing the methods that are goint to be replaced and the values they should return.
@@ -143,7 +143,7 @@ public function testCanLoginWhenValid()
 Additionally we did a check that `validatePassword` method was called, and user was found by `findByUsername` call.
 In production environment, this methods would use the database. 
 
-The same way we can check that user can't log in with invalid pasword:
+The same way we can check that user can't log in with invalid password:
 
 {% highlight php %}
 <?php
@@ -178,7 +178,7 @@ public function testCantLoginWithoutPassword()
 ?>
 {% endhighlight %}
 
-If we execute this tests with Codeception we will see all them pass sucessfully:
+If we execute this tests with Codeception we will see all them pass successfully:
 
 ![passed](/images/aspect_mock_ok.png)
 
@@ -205,7 +205,7 @@ Go adds a parent proxy class to any loaded PHP class on the fly. So If we get ba
 But it has a wide potential. It is very simple and easy to use. It has very tiny api easy to remember and understand. 
 That's why tests developed with AspectMock are very clean and readable.
 
-**AspectMock is not a testing tool for the bad code.** The good code is efficient code. WordPress is much popular then any PHP framework, because of its efficiency. Magento does not have unit tests (only integration), but is the most popular ecommerce platform. We can't say how many there are unit tests in Facebook, but we can bet, it started without unit tests. Code should do its job. Code should be readale and maintanable. Overusing dependency injection does not make the code more efficient in any sense. By the way, [in Ruby dependency injection is not widely used](http://david.heinemeierhansson.com/2012/dependency-injection-is-not-a-virtue.html), but as you may know ruby developers are very passionate about testing.
+**AspectMock is not a testing tool for the bad code.** The good code is efficient code. WordPress is much popular then any PHP framework, because of its efficiency. Magento does not have unit tests (only integration), but is the most popular ecommerce platform. We can't say how many there are unit tests in Facebook, but we can bet, it started without unit tests. Code should do its job. Code should be readable and maintanable. Overusing dependency injection does not make the code more efficient in any sense. By the way, [in Ruby dependency injection is not widely used](http://david.heinemeierhansson.com/2012/dependency-injection-is-not-a-virtue.html), but as you may know ruby developers are very passionate about testing.
 
 **AspectMock is not a tool for newbies** who just didn't manage to learn the good practices.
 It is advanced tool, that require you to set dependencies explicitly in a test. That may require deep knowledge on internals of framework you use.
