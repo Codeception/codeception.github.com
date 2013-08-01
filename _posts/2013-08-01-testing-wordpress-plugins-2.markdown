@@ -132,6 +132,7 @@ What we will check that there is site motto on a page (thus we know, we see the 
 and that post title is shown in `.entry-title` class. And yep, we see this story is "epic and amazing".
 Let's face the final and complete code of our test:
 
+{% highlight php %}
 <?php
 $I = new WebGuy($scenario);
 $I->wantTo('submitted a post by user and publish it as admin');
@@ -160,12 +161,14 @@ $I->see('Post published');
 $I->click('View Post');
 $I->see('Just another WordPress site');
 $I->see('Game of Drones Review','.entry-title');
-$I->see('This story is epic and characters are amazing.');?>
+$I->see('This story is epic and characters are amazing.');
+?>
 {% endhighlight %}
 
 Well, we did a good job. But the test is like too long. And we can't understand what was going on here.
 We can add comments to the code, and Codeception has some valuable helpers to add extra text informations with `expect` and `amGoingTo` commands.
 
+{% highlight php %}
 <?php
 $I = new WebGuy($scenario);
 $I->wantTo('submitted a post by user and publish it as admin');
