@@ -96,7 +96,7 @@ What we are seeing now? Oh no. Just another fail.
 
 ![Fail](/images/wordpress/wp2_fail.png)
 
-What could go wrong? Hopefully Codeception gives us a suggestion to look for the complete HTML code in `_log` directory. This directory, actually  `tests/_log`, was meant to store all data re.lated to test execution. We can see there two log files, and the file which we actually need: `SubmitPostCept.php.page.fail.html`.
+What could go wrong? Hopefully Codeception gives us a suggestion to look for the complete HTML code in `_log` directory. This directory, actually  `tests/_log`, was meant to store all data related to test execution. We can see there two log files, and the file which we actually need: `SubmitPostCept.php.page.fail.html`.
 
 ![Log](/images/wordpress/wp2_log.png)
 
