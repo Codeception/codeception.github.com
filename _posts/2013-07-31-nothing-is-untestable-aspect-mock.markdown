@@ -36,7 +36,7 @@ Then should we still consider a singleton to be a bad practice?
 
 Classes and methods in PHP are declared statically and can't be changed in runtime.
 This can be treated as language limitation. 
-Dependency Injection pattern can treated as a workaround for this limitation and widely used for testing.
+Dependency Injection pattern can be used as a workaround for this limitation and widely used for testing.
 AspectMock breakes the limitation. The same can probably be achived with Runkit extension. But AspectMock doesn't require you to install additional extenions, and uses only PHP methods to do its job.
 
 "Testability" should not be used as argument deciding what design pattern is right to use and what is not.
