@@ -100,11 +100,13 @@ What could go wrong? Hopefully Codeception gives us a suggestion to look for the
 
 ![Log](/images/wordpress/wp2_log.png)
 
-This file, named after our test name, stores the HTML that was on page, before the fail. Let's open it in a browser to get a clue might go wrong here.
+This file, named after our test name, stores the HTML that was on page, before the fail. Let's open it in a browser to get a clue what might go wrong here.
 
 ![Publish](/images/wordpress/wp2_publish.png)
 
-It looks like we are still on the **Edit Post** page we were before. And the post status is still `Pending Review`. It looks like `click('Publish')` command didn't do what we expected. Take a look on screenshot, as you can see, word *Publish* occur several times on a page. We can assume that we were clicking wrong one. What should we do in this case? We can specify the exact that blue *Publish* button with CSS.
+It looks like we are still on the **Edit Post** page we were before. And the post status is still `Pending Review`. It looks like `click('Publish')` command didn't do its job. 
+
+Take a look on screenshot. as you can see, word *Publish* occur several times on a page. We can assume that we were clicking wrong one. What should we do in this case? We can specify the exact that blue *Publish* button with CSS.
 
 Codeception can use CSS instead of names for clicking the elements. The button have `id=publish` attribute, thus, it can be found by `#publish` selector. That what we would probably do if we were using jQuery.
 
@@ -225,8 +227,12 @@ But the only thing left. After we executed tests several times, we got this pict
 
 ![Previous Posts](/images/wordpress/wp2_trash.png)
 
-We have Attack of Clones here. Yep, each test created its own post and published it. Probably, it is not a good idea to pollute the blog with dozens of similar names. We use post title and content in a test, so probably we can't be sure, what post we are working with: current, or it is the post left from a previous test execution. 
+We have attack of clones here. Yep, each test created its own post and published it. Probably, it is not a good idea to pollute the blog with dozens of posts with similar names. We use post title and content in a test, so probably we can't be sure, what post we are dealing with: current one or the post from a previous test.
 
-That will lead us to the idea of data cleanup. Probably we should delete post after it was published, to revert all our changes. Alternatively we can install [WordPress Rest Plugin](http://wordpress.org/plugins/wordpress-reset/) to reset WordPress to its initial state. In both cases we will need to append some steps to our test to get data cleaned before the next test.
+That will lead us to the idea of **data cleanup**. Probably we should delete post after it was published, to revert all our changes. Alternatively we can install [WordPress Reset Plugin](http://wordpress.org/plugins/wordpress-reset/) to reset WordPress to its initial state. In both cases we will need to append some steps to our test to get data cleaned before the next test.
 
-Let's make this your home task. In next lesson we will try to refactor this test and get a few more of them. Don't worry, they will be much shorter than this one. See you soon!
+---
+
+Let's make this your home task. To not start with a scratch, you can [download a code of this tutorial](https://github.com/Codeception/WordPress-plugin-testing/archive/lesson-2.zip) or clone it on [Github](https://github.com/Codeception/WordPress-plugin-testing/tree/lesson-2).
+
+In next lesson we will try to refactor this test and get a few more of them. Don't worry, they will be much shorter than this one. See you soon!
