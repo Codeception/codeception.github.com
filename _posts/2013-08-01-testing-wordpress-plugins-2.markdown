@@ -233,6 +233,6 @@ That will lead us to the idea of **data cleanup**. Probably we should delete pos
 
 ---
 
-Let's make this your home task. To not start with a scratch, you can [download a code of this tutorial](https://github.com/Codeception/WordPress-plugin-testing/archive/lesson-2.zip) or clone it on [Github](https://github.com/Codeception/WordPress-plugin-testing/tree/lesson-2).
+Let's make this your home task. To not start with scratch, you can [**download code of this tutorial**](https://github.com/Codeception/WordPress-plugin-testing/archive/lesson-2.zip) or clone it on [Github](https://github.com/Codeception/WordPress-plugin-testing/tree/lesson-2).
 
 In next lesson we will try to refactor this test and get a few more of them. Don't worry, they will be much shorter than this one. See you soon!
