@@ -24,9 +24,15 @@ And we created *"Submit a Post"* page with a plugin snippet `[user-submitted-pos
 
 This plugin has lots of settings that include post fields, available categories, security issues, etc. What we want to do is try to switch different options and try to submit a post. Depending on option switched we will see some changes in the form, moderation or publishing process. 
 
-For our test we will also need a category **Game of Drones** to be created. We suppose to verify that user can submit a post to this category. Lets enable it in plugin options: 
+To begin write a test we will need to do some preperations. 
+Our test won't pass, if we page contains captcha: dummy web crawler has no idea how to solve it.
+Thus, we will disable captcha field in Submit Post form by editing plugin's options.
+
+We will use category **Game of Drones** in our tests. Our goal is to verify that user is can to submit a post to into it. Lets enable it in plugin options:
 
 ![Settings](/images/wordpress/WP_Settings.png)
+
+If you are lazy to do all the setup by hands, you can [execute this setup script](https://raw.github.com/Codeception/WordPress-plugin-testing/master/setup.sh) on a freshly installed WordPress.
 
 Automation of testing allows us to write a script one time and replay it whenever a change is introduced. Will the plugin work when WordPress hits new release? Will the plugin work when we introduce a new option? Without automated testing we would spend hours to check the same stuff over and over. Lets spend a few hours writing a proper tests, and save days on manual testing.
 
