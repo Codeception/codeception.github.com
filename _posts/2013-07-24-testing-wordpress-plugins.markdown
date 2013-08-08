@@ -18,11 +18,15 @@ We assume a plugin is already installed and activated.
 
 ![Plugins Activated](/images/wordpress/Plugins.png)
 
-And we created *"Submit a Post"* page with a plugin snippet included on it. Through this page we expect user stories to be submitted.
+And we created *"Submit a Post"* page with a plugin snippet `[user-submitted-posts]` included. Through this page we expect user stories to be submitted. 
 
 ![Submit Post](/images/wordpress/SubmitPost.png)
 
 This plugin has lots of settings that include post fields, available categories, security issues, etc. What we want to do is try to switch different options and try to submit a post. Depending on option switched we will see some changes in the form, moderation or publishing process. 
+
+For our test we will also need a category **Game of Drones** to be created. In our test we will do a check that user can submit a post to this category. Lets enable this category in plugin options: 
+
+![Settings](/images/wordpress/WP_Settings.png)
 
 Automation of testing allows us to write a script one time and replay it whenever a change is introduced. Will the plugin work when WordPress hits new release? Will the plugin work when we introduce a new option? Without automated testing we would spend hours to check the same stuff over and over. Lets spend a few hours writing a proper tests, and save days on manual testing.
 
