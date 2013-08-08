@@ -24,7 +24,7 @@ And we created *"Submit a Post"* page with a plugin snippet `[user-submitted-pos
 
 This plugin has lots of settings that include post fields, available categories, security issues, etc. What we want to do is try to switch different options and try to submit a post. Depending on option switched we will see some changes in the form, moderation or publishing process. 
 
-For our test we will also need a category **Game of Drones** to be created. In our test we will do a check that user can submit a post to this category. Lets enable this category in plugin options: 
+For our test we will also need a category **Game of Drones** to be created. We suppose to verify that user can submit a post to this category. Lets enable it in plugin options: 
 
 ![Settings](/images/wordpress/WP_Settings.png)
 
