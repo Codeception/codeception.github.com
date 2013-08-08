@@ -24,8 +24,10 @@ And we created *"Submit a Post"* page with a plugin snippet `[user-submitted-pos
 
 This plugin has lots of settings that include post fields, available categories, security issues, etc. What we want to do is try to switch different options and try to submit a post. Depending on option switched we will see some changes in the form, moderation or publishing process. 
 
-To begin write a test we will need to do some preperations. 
-Our test won't pass, if we page contains captcha: dummy web crawler has no idea how to solve it.
+### WordPress Setup
+
+To begin write a test we will need to do some preperations.
+Our test won't pass, if the page contains captcha: dummy web crawler has no idea how to solve it.
 Thus, we will disable captcha field in Submit Post form by editing plugin's options.
 
 We will use category **Game of Drones** in our tests. Our goal is to verify that user is can to submit a post to into it. Lets enable it in plugin options:
