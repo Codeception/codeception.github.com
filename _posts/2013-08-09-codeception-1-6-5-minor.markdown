@@ -14,7 +14,7 @@ If you use phar version, you should replace your old `codecept.phar` with new on
 
 ## Debug Levels
 
-At least one useful feature we prepared for you. Debug output in `PhpBrowser`, `Selenium2` and `REST` modules was extended with additional information that will be printed in `debug` mode:
+At least one useful feature we prepared for you. Debug output in `PhpBrowser` and `REST` modules was extended with additional information that will be printed in `debug` mode:
 
 ![debug](/images/debug.png)
 
