@@ -366,6 +366,15 @@ $I->dontSeeInPopup('Error message');
  * param string $text
 
 
+#### dontSeeInTitle
+
+
+Checks that page title does not contain text.
+
+ * param $title
+ * return mixed
+
+
 #### dontSeeLink
 
 
@@ -806,6 +815,23 @@ $I->seeInPopup('Error message');
 {% endhighlight %}
 
  * param string $text
+
+
+#### seeInTitle
+
+
+Checks that page title contains text.
+
+{% highlight php %}
+
+<?php
+$I->seeInTitle('Blog - Post #1');
+?>
+
+{% endhighlight %}
+
+ * param $title
+ * return mixed
 
 
 #### seeLink

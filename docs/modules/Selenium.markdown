@@ -321,6 +321,15 @@ $I->dontSeeInField('//form/*[@name=search]','Search');
  * param $value
 
 
+#### dontSeeInTitle
+
+
+Checks that page title does not contain text.
+
+ * param $title
+ * return mixed
+
+
 #### dontSeeLink
 
 
@@ -724,6 +733,23 @@ $I->seeInField('//form/*[@name=search]','Search');
 
  * param $field
  * param $value
+
+
+#### seeInTitle
+
+
+Checks that page title contains text.
+
+{% highlight php %}
+
+<?php
+$I->seeInTitle('Blog - Post #1');
+?>
+
+{% endhighlight %}
+
+ * param $title
+ * return mixed
 
 
 #### seeLink

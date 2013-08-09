@@ -310,19 +310,19 @@ class UserLoginPage
      */
     protected $webGuy;
 
-    public function __construct(TestGuy $I)
+    public function __construct(WebGuy $I)
     {
         $this->webGuy = $I;
     }
 
-    public static function of(TestGuy $I)
+    public static function of(WebGuy $I)
     {
         return new static($I);
     }
 
     public function login($name, $password)
     {
-        $I = $this->testGuy;
+        $I = $this->webGuy;
 
         $I->amOnPage(self::URL);
         $I->fillField(LoginPage::$usernameField, $name);
@@ -424,6 +424,7 @@ thus it's better to use Helpers should be used to implement new actions, and Ste
 Codeception is a framework which may look simple at first sight. But it allows you to build powerful test with one  APIs, refactor them, and write them faster using interactive console. Codeception tests can easily be organized with groups or Cest classes, store locators in PageObjects and combine common steps in StepObjects.
 
 Probably too much features for the one framework. But nevertheless Codeception follows the KISS pricinple: it's easy to start, easy to learn, easy to extend.
+
 
 
 
