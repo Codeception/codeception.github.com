@@ -288,6 +288,15 @@ $I->dontSeeInField('//form/*[@name=search]','Search');
  * param $value
 
 
+#### dontSeeInTitle
+
+
+Checks that page title does not contain text.
+
+ * param $title
+ * return mixed
+
+
 #### dontSeeLink
 
 
@@ -363,6 +372,32 @@ $uri = $I->grabFromCurrentUrl();
  * param null $uri
  * internal param $url
  * return mixed
+
+
+#### grabService
+
+
+urn an instance of a class from the IoC Container.
+tp://laravel.com/docs/ioc)
+
+mple
+ php
+<?php
+In Laravel
+::bind('foo', function($app)
+
+ return new FooBar;
+
+
+Then in test
+rvice = $I->grabService('foo');
+
+Will return an instance of FooBar, also works for singletons.
+?>
+
+
+ram  string  $class
+turn mixed
 
 
 #### grabTextFrom
@@ -554,6 +589,23 @@ ert that the session has a given list of values.
 ram  string|array  $key
 ram  mixed  $value
 turn void
+
+
+#### seeInTitle
+
+
+Checks that page title contains text.
+
+{% highlight php %}
+
+<?php
+$I->seeInTitle('Blog - Post #1');
+?>
+
+{% endhighlight %}
+
+ * param $title
+ * return mixed
 
 
 #### seeLink
