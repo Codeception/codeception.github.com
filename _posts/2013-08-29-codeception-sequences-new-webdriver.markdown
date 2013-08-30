@@ -24,7 +24,7 @@ No matter how much times you execute this test, each time you see a new post is 
 
 ## Bugfixes
 
-* Remote codecoverage now works with Selenium2 module.
+* Remote codecoverage now works with Selenium2 module. **Please [update c3.php file](https://github.com/Codeception/c3/raw/master/c3.php) to use it**.
 * IoC container access in **Laravel4** module by **@allmyitjason**.
 * PostgreSQL driver fixes by **@mohangk** and **@korotovsky **.
 * don't rollback for inactive transaction in Dbh module by **@sillylogger**
