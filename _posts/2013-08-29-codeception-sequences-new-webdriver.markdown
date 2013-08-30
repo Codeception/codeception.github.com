@@ -8,7 +8,7 @@ A minor release with one major announcement. In `1.6.6` most bugfixes were inclu
 
 ## Sequence
 
-Also a very tiny new module was included. It's [Sequence](/docs/modules/Selenium2) which was created to generate unique data for your tests. Sequnces become pretty handy if you don't do database cleanup before each tests. They guarantee you can get unique names and values for each test.
+Also a very tiny new module was included. It's [Sequence](/docs/modules/Sequence) which was created to generate unique data for your tests. Sequnces become pretty handy if you don't do database cleanup before each tests. They guarantee you can get unique names and values for each test.
 
 {% highlight php %}
 <?php
