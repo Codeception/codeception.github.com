@@ -50,7 +50,7 @@ $ php composer.phar update
 ## Living on the Edge: WebDriver
 
 In July a group of Facebook developers set the goal to write the complete new Selenium Webdriver bindings. 
-They decided to do it finally the right way, with the same WebDriver interface it is used in other languages like Java and C#. Ironacally, Selenium2 module of Codeception uses also webdriver bindings from Facebook. But they were very raw and ugly. To use them, [Element34](https://github.com/Element-34/php-webdriver) made a fork, which was then forked by [Instaclick](https://github.com/instaclick/php-webdriver) to add namespaces and PSR-0, which was then [used in Mink's Selenium2Driver](https://github.com/Behat/MinkSelenium2Driver), and Mink was used in Codeception. 
+They decided to do it finally the right way, with the same WebDriver interface it is used in other languages like Java and C#. Ironically, Selenium2 module of Codeception uses the old webdriver bindings from Facebook.They were very hard in use, and had lots of issues. Most common issues were solved in [Element34](https://github.com/Element-34/php-webdriver) fork, which was then forked by [Instaclick](https://github.com/instaclick/php-webdriver) to bring namespaces and PSR-0, which was then [used in Mink's Selenium2Driver](https://github.com/Behat/MinkSelenium2Driver), and Mink was used in Codeception. 
 
 Pretty tricky, right?
 
