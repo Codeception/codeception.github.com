@@ -58,12 +58,12 @@ Currently there are 3 WebDriver bindings in PHP.
 
 * [Selenium2TestCase of PHPUnit](http://phpunit.de/manual/current/en/selenium.html#selenium.selenium2testcase) which is the most old, the most complete and the most OOP webdriver implementation. But if you have worked with its api, you understand how robust it is to learn and use.
 * [Element34 fork](https://github.com/Element-34/php-webdriver) based on initial facebook/webdriver bindings, but with hooks to solve common pitfalls.
-* [Selenium2Driver](https://github.com/Behat/MinkSelenium2Driver) of Mink which incorporates _Syn.js_ library and performs most of its interactions with JavaScript and not by using WebDriver API.
+* [Selenium2Driver](https://github.com/Behat/MinkSelenium2Driver) of Mink which incorporates Element34 bindings and _Syn.js_ library to perform most of interactions via JavaScript bypassing WebDriver API.
 
-Ok. Now we have new [facebook webdriver bindings](https://github.com/facebook/php-webdriver). They are in havey development and they lack documentation. But the good part of it, that even without documentation you will easily learn how to work with them. Any question on StackOverflow with examples in Java or C# will work in PHP just the same way. 
+Ok. Now we have new [facebook webdriver bindings](https://github.com/facebook/php-webdriver). They are in active development and they lack proper documentation. But the good part of it, that even without documentation you will easily learn how to work with them. Any question on StackOverflow with examples in Java or C# will work in PHP just the same way. 
 
 In Codeception `master` we created a new [**WebDriver**](https://github.com/Codeception/Codeception/blob/master/docs/modules/WebDriver.md) module which uses new webdriver bindings.
-This module will be included into first 1.7 release, but it won't be recommended for usage before the stable version of php-webdriver is released.
+This module will be included into first 1.7 release, but it won't be recommended for regular use before the stable version of php-webdriver is released.
 
 To try the new WebDriver you should switch to `dev-master` in `composer.json` or use the pre-prelease [phar package](https://github.com/Codeception/Codeception/blob/master/package/codecept.phar).
 
