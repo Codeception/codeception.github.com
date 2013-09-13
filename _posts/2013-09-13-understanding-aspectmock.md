@@ -4,12 +4,12 @@ title: "Understanding AspectMock"
 date: 2013-09-13 22:03:50
 ---
 
-As you may know, [AspectMock]() is unordinary mocking framework that can override any method of any class in your application. This is practally usefull If you want to unit test code, which was not aimed to be testable from start. Also AspectMock gives you power to write efficient code at first, and not affect production code with testing design.
+As you may know, [AspectMock]() is ordinary mocking framework that can override any method of any class in your application. This is practically useful If you want to unit test code, which was not aimed to be testable from start. Also AspectMock gives you power to write efficient code at first, and not affect production code with testing design.
 
 ## Test Design
 
 Even AspectMock proposes a flexibility in testing, it doesn't drive you into bad application design.
-If you use classes globally (without injecting them) or you use static properties, methods, or singletones, it's allright while they are defined as your internal API. Such API methods should be well documented, especially for cases, where they should be used, and where not.
+If you use classes globally (without injecting them) or you use static properties, methods, or singletones, it's all right while they are defined as your internal API. Such API methods should be well documented, especially for cases, where they should be used, and where not.
 
 If we use ActiveRecord pattern, we can assume that all models are inherited from `ActiveRecord` class.
 The only point in which our models is accessing database is `save` method of that class.
@@ -25,19 +25,19 @@ $user->save(); // false
 
 Sure, integration testing using database gives us more reliable results. And no one ignores that fact. But unit tests allows to cover more cases, without implementing and loading fixtures. They are much faster too.
 
-Critics could say, that ActiveRecord example is pretty bad, because test of `User` model, should not be bound to ActiveRecord class. Application should be designed with flexibility in mind. No matter how flexible our design is, there is no way we could switch one ORM with another, without complete refactoring of database code. It's because different ORMs have different apis. We can't replace `Eloquent` with `php.activerecord` even though both are inplement the same pattern. We need to realize that some external dependencies (like frameworks and ORMs) are hard, and they can't be easily replaced in a project. Thus, we can rely on their apis in testing.
+Critics could say, that ActiveRecord example is pretty bad, because test of `User` model, should not be bound to ActiveRecord class. Application should be designed with flexibility in mind. No matter how flexible our design is, there is no way we could switch one ORM with another, without complete refactoring of database code. It's because different ORMs have different apis. We can't replace `Eloquent` with `php.activerecord` even though both are implement the same pattern. We need to realize that some external dependencies (like frameworks and ORMs) are hard, and they can't be easily replaced in a project. Thus, we can rely on their apis in testing.
 
 ## Features and Drawbacks
 
 AspectMock may sounds cool for you, but you feel that there should be pitfalls. 
 Let's be honest, and list all of them here. 
 
-* The most common issue is to get AspectMock installed. We won't list different configuration options here, they are well docummented in Github readme. But the idea is pretty simple: you should include directories with files expected to be mocked. If you don't rely completely on autoloader from composer, you should include your autoloaders too.
+* The most common issue is to get AspectMock installed. We won't list different configuration options here, they are well documented in Github readme. But the idea is pretty simple: you should include directories with files expected to be mocked. If you don't rely completely on autoloader from composer, you should include your autoloaders too.
 * AspectMock will slow down execution in about 20%. That's because all methods of all classes are intercepted.
 
-You may be curious **If AspectMock affect the stack traces?** The answer is **no**. AspectMock (starting from 0.4) does not change the line order in mocked classes, thus you get truthworthy information in stack trace. Sure, AspectMock changes those files, a bit, but more about that in next section.
+You may be curious **If AspectMock affect the stack traces?** The answer is **no**. AspectMock (starting from 0.4) does not change the line order in mocked classes, thus you get truth worthy information in stack trace. Sure, AspectMock changes those files, a bit, but more about that in next section.
 
-**Can I debug my tests when using AspectMock?** And here are the good news: **Sure, you can!** In Debug mode you will see your classes, with no mock includings in them.
+**Can I debug my tests when using AspectMock?** And here are the good news: **Sure, you can!** In Debug mode you will see your classes, with no mock including in them.
 
 To summarize: AspectMock has no side effects on unit testing process. Its magic is properly hidden to not affect the development.
 

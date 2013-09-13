@@ -28,7 +28,7 @@ body .nav-custom .navbar-brand {
 
 body .hero-unit {
 	/*background: url('/images/geometry.png');*/
-	background: rgba(255,255,255,0.9);
+	background: rgba(255,255,255,0.7);
 	text-align: center;
 	padding: 3.5em;
 	border-radius: 0px;
