@@ -4,7 +4,7 @@ title: "Understanding AspectMock"
 date: 2013-09-13 22:03:50
 ---
 
-As you may know, [AspectMock]() is ordinary mocking framework that can override any method of any class in your application. This is practically useful If you want to unit test code, which was not aimed to be testable from start. Also AspectMock gives you power to write efficient code at first, and not affect production code with testing design.
+As you may know, [AspectMock]() is non-ordinary mocking framework that can override any method of any class in your application. This is practically useful If you want to unit test code, which was not aimed to be testable from start. Also AspectMock gives you power to write efficient code at first, and not affect production code with testing design.
 
 ## Test Design
 
@@ -24,8 +24,6 @@ $user->save(); // false
 {% endhighlight %}
 
 Sure, integration testing using database gives us more reliable results. And no one ignores that fact. But unit tests allows to cover more cases, without implementing and loading fixtures. They are much faster too.
-
-Critics could say, that ActiveRecord example is pretty bad, because test of `User` model, should not be bound to ActiveRecord class. Application should be designed with flexibility in mind. No matter how flexible our design is, there is no way we could switch one ORM with another, without complete refactoring of database code. It's because different ORMs have different apis. We can't replace `Eloquent` with `php.activerecord` even though both are implement the same pattern. We need to realize that some external dependencies (like frameworks and ORMs) are hard, and they can't be easily replaced in a project. Thus, we can rely on their apis in testing.
 
 ## Features and Drawbacks
 
