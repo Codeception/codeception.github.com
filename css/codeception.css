@@ -2,7 +2,7 @@
   margin-top: 10px;      
 }
 body {
-  background:  url("/images/geometry.png") transparent !important;
+  background:  url("/images/bg.png") transparent !important;
 }  
 body .navbar.nav-custom {
   background: #008391;
@@ -27,7 +27,8 @@ body .nav-custom .navbar-brand {
 }
 
 body .hero-unit {
-	background: rgba(90,90,255,0.1);
+	/*background: url('/images/geometry.png');*/
+	background: rgba(255,255,255,0.9);
 	text-align: center;
 	padding: 3.5em;
 	border-radius: 0px;
