@@ -4,79 +4,123 @@ title: Codeception Installation
 ---
 
 
+<div class="page-header">
+  <div class="pull-right well">
+    <h4>Requirements</h4>
+    <strong>
+      <div>PHP 5.3</div>
+      <div>CURL enabled</div>
+    </strong>
+  </div>
 
-
-      <div class="page-header">
-        <div class="pull-right well">
-          <h4>Requirements</h4>
-          <strong>
-            <div>PHP 5.3</div>
-            <div>CURL enabled</div>
-          </strong>
-        </div>
-
-        <h1>Installation</h1>
+  <h1>Installation</h1>
+</div>
+<div class="row">
+  <div class="col-sm-8 col-lg-8">
+    <div class="page-header">
+      <div class="pull-right">
+        &nbsp;
+        <a class="btn btn-lg btn-warning" href="/quickstart">QuickStart Guide &rarr;</a> 
       </div>
-      <div class="row">
-        <div class="span8">
-          <div class="page-header">
-          <a class="pull-right btn btn-large btn-primary" href="/quickstart"><span class="btn-label">QuickStart Guide</span></a> 
 
 
-            <h4>Follow QuickStart Guide to Install and execute your first test in 6 easy
-              steps.
-              Alternatively you can choose one of the packages to install Codeception
-            </h4>
-          </div>
-        </div>
+      <h4>Follow QuickStart Guide to Install and execute your first test in 6 easy
+        steps.
+        Alternatively you can choose one of the packages to install Codeception
+      </h4>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-6 col-lg-6">
+    <div class="well">
+      <h3>Phar</h3>
+      <a class="btn btn-lg btn-success" href="/thanks"><span class="btn-label">Download Codeception</span></a>
+      <p>Grab Codeception phar executable</p>
+      <div>
+        <p>
+          <pre><code>wget http://codeception.com/codecept.phar .</code></pre>
+        </p>
       </div>
-      <div class="row">
-        <div class="span6">
-          <div class="well">
-            <h3>Phar (Recommended)</h3>
-            <a class="btn btn-large btn-success" href="/thanks"><span class="btn-label">Download Codeception</span></a>
-            <p>Grab Codeception phar executable</p>
-            <div>
-              <p>
-                <code>wget http://codeception.com/codecept.phar .</code>
-              </p>
-            </div>
 
-            <p>Prepare tests directory and configs</p>
-            <div>
-              <p>
-                <code>php codecept.phar bootstrap</code>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="span6">
-          <div>
-            <h4>Composer</h4>
+      <p>Prepare tests directory and configs</p>
+      <div>
+        <p>
+          <pre><code>php codecept.phar bootstrap</code></pre>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-lg-6">
+    <div>
+      <h3>Composer</h3>
 
 <p>Install a <a href="http://getcomposer.org">Composer</a> to your project's root</p>
 
 <p>Run</p>
 
 <p>
-  <code>php composer.phar require "codeception/codeception:@stable"</code>
+<pre><code>php composer.phar require "codeception/codeception:*"</code></pre>
 </p>
 
 
 <p>From now on Codeception (with installed PHPUnit) can be run as:</p>
 
 <p>
-  <code>vendor/bin/codecept</code>
+<pre><code>vendor/bin/codecept</code></pre>
 </p>
 
 <p>Initialize your testing environment with</p>
 
 <p>
-  <code>vendor/bin/codecept bootstrap</code>
+<pre><code>vendor/bin/codecept bootstrap</code></pre>
 </p>
 
 
-          </div>
-        </div>
+    </div>
+  </div>
+  </div>
 
-      </div>
+<hr>
+
+  <div class="row page">
+  <h3>Git</h3>
+
+  <p>Alternative installation method for bugfixing, contributions and hacking</p>
+  <p>
+  Clone from GitHub:
+  </p>
+<pre><code>git clone git@github.com:Codeception/Codeception.git</code></pre>
+
+<p>
+Install dependencies with Composer
+</p>
+
+<p>
+<pre><code>cd Codeception
+curl -s http://getcomposer.org/installer | php
+php composer.phar install</code></pre>
+</p>
+
+<p>
+  Execute bootstrap, specifying path to your directory.
+</p>
+
+<pre><code>php codecept bootstrap /path/to/my/project</code></pre>
+
+<p>
+  To <strong>run tests</strong> use <code>-c</code> option for specifing path.  
+</p>
+
+<pre><code>php codecept run -c /path/to/my/project</code></pre>
+
+<p>If you want to build phar package run
+<code>php bin/build_phar.php</code>
+
+</p>
+
+
+  </p>
+  <p>Don't forget to send Pull Requests!</p>
+  </div>
+

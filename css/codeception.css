@@ -2,9 +2,9 @@
   margin-top: 10px;      
 }
 body {
-  background:  url("/images/bg.png") transparent !important;
+  background:  url("/images/geometry.png") transparent !important;
 }  
-body .navbar .navbar-inner {
+body .navbar.nav-custom {
   background: #008391;
 background-image: -moz-linear-gradient(top, #008391, #006e7a);
 background-image: -ms-linear-gradient(top, #008391, #006e7a);
@@ -14,13 +14,24 @@ background-image: -webkit-linear-gradient(top, #008391, #006e7a);
 background-image: linear-gradient(top, #008391, #006e7a);
 }    
 
+body .nav-custom .navbar-nav {
+	padding-top: 5px;
+}
+
+body .nav-custom .navbar-nav>li>a {
+		color: #eee;
+}
+
+body .nav-custom .navbar-brand {
+	padding: 0;
+}
+
 body .hero-unit {
-	/*background: none;*/
+	background: rgba(90,90,255,0.1);
 	text-align: center;
-	padding: 4em;
+	padding: 3.5em;
 	border-radius: 0px;
-	margin-top: 1em;
-	border-bottom: 5px solid #008391;
+	margin-bottom: 20px;
 }
 
 body h1, body h2, body h3, body h3 {
@@ -28,8 +39,19 @@ body h1, body h2, body h3, body h3 {
 	color: #45414B;
 }
 
+h1, h2, h3, h4, h5, h6 {
+	font-weight: bold;
+}
+
 body .hero-unit h1 {
 	color: #008391;
+	font-size: 48px;
+	font-weight: bold;
+}
+
+.hero-unit p.lead {
+	font-weight: bold;
+	font-style: italic;
 }
 
 #page h4 {
@@ -70,8 +92,9 @@ body .page {
 	font-size: 1.2em;
 	line-height: 150%;
 	padding: 2em;
+	padding-top: 1em;
 	background: #fff;
-	margin: 1.5em 0;
+	margin-bottom: 1.5em;
 	border-radius: 5px;
 }
 
@@ -138,10 +161,6 @@ body .dropdown-modules li a {
 	float: left;
 	clear: none;
 	width: 110px;
-}
-
-.follow {
-	padding: 13px 0;
 }
 
 #gs_tti0 {

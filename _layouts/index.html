@@ -3,28 +3,14 @@ layout: bootstrap
 ---
 
 <div class="row">
-  <div class="span9">
+  <div class="col-sm-9 col-lg-9">
     <div class="hero-unit">
 
-      
-      <h1><img src="/images/logo.png" alt="Codeception Logo" />Codeception</h1>      
-      <p>Modern PHP testing for everyone.</p>
-      <p>&nbsp;</p>
-      <p>
-
-
-        <div class="addthis_toolbox addthis_default_style ">
-          <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-          <a class="addthis_button_tweet"></a>
-          <a class="addthis_button_google_plusone" g:plusone:size="medium"></a> 
-        </div>
-        <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-        <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-501c6975683af72f"></script>
-        <!-- AddThis Button END -->
-      </p>
+      <h1 class="lead"><img src="/images/logo.png" alt="Codeception Logo">Codeception</h1>      
+      <p class="lead">Modern PHP testing for everyone.</p>
     </div>
     <div class="row">
-      <div class="span3">
+      <div class="col-sm-4 col-lg-4">
         <div class="well">
           <span class="badge pull-right">WebGuy</span>
           <h4>Acceptance Testing</h4>
@@ -33,16 +19,16 @@ layout: bootstrap
           </p> 
         </div>
       </div>
-      <div class="span3">
+      <div class="col-sm-4 col-lg-4">
         <div class="well">
           <span class="badge pull-right">TestGuy</span>
           <h4>Functional Testing</h4>
           <p>
-            <b>Symfony2</b>, Doctrine, Zend Framework, Kohana, Databases, REST,
+            <b>Symfony2</b>, <b>Laravel</b>, <b>Yii</b> Doctrine, Zend Framework, Kohana, Databases, REST,
             SOAP, CodeCoverage.</p>
           </div>
         </div>
-        <div class="span3">
+        <div class="col-sm-4 col-lg-4">
           <div class="well">
            <span class="badge pull-right">CodeGuy</span>
            <h4>Unit Testing</h4>
@@ -54,18 +40,31 @@ layout: bootstrap
       </div>
     </div>    
   </div>
-  <div class="span3">
+  <div class="col-sm-3 col-lg-3">
     <div class="well">
 
-    <a class="btn btn-large btn-success btn-block" href="/install"><span class="btn-label">Install &rarr;</span></a>
+    <a class="btn btn-primary btn-lg btn-block" href="/install"><span class="btn-label">Install →</span></a>
   </div>
 
     <div class="well">
-      <a class="btn btn-large btn-primary btn-block" href="/quickstart"><span class="btn-label">Quick Start &rarr;</span></a>
+      <a class="btn btn-lg btn-warning btn-block" href="/quickstart"><span class="btn-label">Quick Start →</span></a>
       <p>Write and execute a test for an existing app
         <b>in less then 5 mins!</b>&nbsp;No additional tools required.&nbsp;
       </p>
     </div>
+    <p>
+              <div class="addthis_toolbox addthis_default_style ">
+          <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+          <a class="addthis_button_tweet"></a>
+          <a class="addthis_button_google_plusone" g:plusone:size="medium"></a> 
+        </div>
+        <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+        <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-501c6975683af72f"></script>
+        <!-- AddThis Button END -->
+
+
+    </p>
+
     <p>Codeception was started in November 2011, and released the <strong>first stable
       version 1.0 in January 2012</strong>. Based on <a href="http://symfony.com/components" target="_blank">Symfony2 Components</a>, <a href="http://phpunit.de" target="_blank">PHPUnit</a>, <a href="http://mink.behat.org" target="_blank">Mink</a>. Codeception is a mature and stable project, well-tested and documented. It's open-source and <strong>MIT licensed</strong>. 
     </p>
@@ -73,9 +72,9 @@ layout: bootstrap
 </div>
 
 <div class="row">
-  <div class="span6">
+  <div class="col-sm-6 col-lg-6">
 <p>
-    <script async class="speakerdeck-embed" data-id="501ee1457ce61400020063f7" data-ratio="1.3333333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+    <script async="" class="speakerdeck-embed" data-id="501ee1457ce61400020063f7" data-ratio="1.3333333333333333" src="//speakerdeck.com/assets/embed.js"></script>
 
 
 </p>
@@ -86,7 +85,7 @@ layout: bootstrap
               <ul>
                 <li><strong>Selenium WebDriver</strong> integration</li>
                 <li>Elements matched by <strong>name, CSS, XPath</strong></li>
-                <li><strong>Symfony2, Yii2, Zend Framework</strong> integration</li>
+                <li><strong>Symfony2, Laravel4, Yii, Zend Framework</strong> integration</li>
                 <li><strong>PageObjects</strong> and StepObjects included</li>
                 <li><strong>BDD</strong>-style readable tests</li>
                 <li>Powered by <strong>PHPUnit</strong></li>
@@ -158,17 +157,19 @@ layout: bootstrap
 
 
   </div>
-  <div class="span6">
-    <h5>Codeception Blog</h5>
+  <div class="col-sm-6 col-lg-6">
+    <h5>Blog</h5>
 
+        <ul class="list-group">
         {% for post in site.posts limit: 3 %}
-        <div class="alert alert-warning">
+        <li class="list-group-item">
           <div class="pull-right">{{ post.date | date: "%B %d, %Y" }}</div>
           <span>            
             <a href="{{ post.url }}">{{ post.title }}</a>
           </span>
-        </div>
+        </li>
         {% endfor %}
+        </ul>
 
         <h2>Examples</h2>        
         <span class="badge pull-right">Db</span>
@@ -198,7 +199,7 @@ $I->seeInDatabase('pages', array('title' => 'Hobbit'));
           by using a PHP browser emulator based on CURL. 
         </p>
           <p>
-          <a class="btn" href="/docs/04-AcceptanceTests"><span class="btn-label">Read more about Acceptance Tests &rarr;</span></a> 
+          <a class="btn btn-default" href="/docs/04-AcceptanceTests"><span class="btn-label">Read more about Acceptance Tests →</span></a> 
           </p>
 
           <p>
@@ -207,7 +208,7 @@ $I->seeInDatabase('pages', array('title' => 'Hobbit'));
           </p>
 
           <p>
-          <a class="btn" href="/docs/05-FunctionalTests"><span class="btn-label">Read more about Functional Tests &rarr;</span></a> 
+          <a class="btn btn-default" href="/docs/05-FunctionalTests"><span class="btn-label">Read more about Functional Tests →</span></a> 
           </p>
 
 
@@ -235,7 +236,7 @@ This test can be executed inside PhpBrowser or as a functional test of one of th
   </p>
 
   <p>
-        <a class="btn" href="/docs/10-WebServices"><span class="btn-label">Read more about API Tests &rarr;</span></a> 
+        <a class="btn btn-default" href="/docs/10-WebServices"><span class="btn-label">Read more about API Tests →</span></a> 
   </p>
 
 
@@ -263,17 +264,34 @@ class UserTest extends \Codeception\TestCase\Test
   PHPUnit test format with some useful helpers. 
   In this test we check that value was saved to database with one simple command 'seeInDatabase'.
 </p>
-<a class="btn" href="/docs/06-UnitTests-TEST"><span class="btn-label">Read more about Unit Tests &rarr;</span></a> 
+<a class="btn btn-default" href="/docs/06-UnitTests-TEST"><span class="btn-label">Read more about Unit Tests →</span></a> 
 
-<h2>Books and Articles</h2>
+<h2>AspectMock</h2>
 
-<ul>
-  <li>Book <strong><a href="https://leanpub.com/laravel-testing-decoded">Laravel Testing Decoded</a></strong> by Jeffrey Way</li>
-  <li><strong>Testing Drupal projects</strong> <a href="http://mikebell.io/blog/12-04-2013/testing-codeception-and-drupal-projects">Part1</a> by Mike Bell <a href="http://paul.leafish.co.uk/articles/code/more_testing_with_codeception_and_drupal_projects">Part2</a> by Paul Leafish</li>
+<p>
+  A side-project of Codeception for unit testing any PHP code.
+  <a href="https://github.com/Codeception/AspectMock">AspectMock</a>
+  most powerful mocking framework that can stub and mock practically anything. Even static methods, 
+  can be tested now. Use it for legacy or untestable code.
+</p>
 
-  <li><strong>Advanced testing with PageObjects and Controllers</strong> on <a href="http://phpmaster.com/ruling-the-swarm-of-tests-with-codeception/">PHPMaster</a> by Michael Bodnarchuk</li>
+{% highlight php %}
+<?php; 
+// mocking static method calls
+$this->assertEquals('users', User::tableName());
+test::double('User', ['tableName' => 'fake_users']);
+$this->assertEquals('fake_users', User::tableName());
 
-</ul>
+// mocking class method calls
+test::double('User', ['getEmail' => 'davert@mail.ua']);
+$user = new User;
+$this->assertEquals('davert@mail.ua', $user->getEmail());
+?>
+{% endhighlight %}
+
+<a class="btn btn-primary" href="https://github.com/Codeception/AspectMock">
+  Install AspectMock →
+</a>
     
 </div>
-</div>  
+</div>

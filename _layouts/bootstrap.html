@@ -1,6 +1,5 @@
 <!doctype html>
-<html>
-<head>
+<html><head>
   <title>
     {% if page.title %}
     {{ page.title }}
@@ -10,107 +9,106 @@
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-  <link rel="stylesheet" href="https://app.divshot.com/css/divshot-util.css">
-  <link href='http://fonts.googleapis.com/css?family=Philosopher&subset=latin' rel='stylesheet' type='text/css'>
-
-  <link rel="stylesheet" href="/css/inspiritas.css">
-  <link rel="stylesheet" href="/css/bootstrap-responsive.css">
+  <link href="http://fonts.googleapis.com/css?family=Philosopher&amp;subset=latin" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/codeception.css">
   <link rel="stylesheet" href="/css/contributors.css">
-  <link rel="stylesheet" type="text/css" media="screen" href="/css/syntax.css" />  
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/syntax.css">  
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js" type="text/javascript"></script>
   <script src="/js/jquery.toc.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="/js/contributors.js" type="text/javascript" charset="utf-8"></script>
 
-  <link title="Codeception Blog" type="application/rss+xml" rel="alternate" href="/rss.xml"/>  
-  <link rel="shortcut icon" href="/images/favicon.png" />
+  <link title="Codeception Blog" type="application/rss+xml" rel="alternate" href="/rss.xml">  
+  <link rel="shortcut icon" href="/images/favicon.png">
 </head>
 
-{% capture guides %}{% include guides.html %}{% endcapture %}
+<body>{% capture guides %}{% include guides.html %}{% endcapture %}
 {% capture modules %}{% include modules.html %}{% endcapture %}
 {% capture reference %}{% include reference.html %}{% endcapture %}
 
-<body>
-  <div class="navbar navbar-inverse navbar-static-top">
-  <a href="/">    
-  </a>
-    <div class="navbar-inner">    
-      <div class="container">        
-      <a href="/">        
-      <img src="/images/toplogo.png" class="pull-left" alt="codeception small logo" />
-      </a>
-        <div class="navbar-content">
-          <div class="nav pull-right">
-    <div class="follow">
-        <a href="https://twitter.com/codeception" class="twitter-follow-button"
-           data-show-count="false" data-lang="en" data-size="large">Follow @Codeception</a>
-        <script>!function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (!d.getElementById(id)) {
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "//platform.twitter.com/widgets.js";
-                fjs.parentNode.insertBefore(js, fjs);
-            }
-        }(document, "script", "twitter-wjs");</script>
-    </div>
+
+<nav class="navbar nav-custom navbar-inverse">
 
 
-          </div>
-          <ul class="nav">
-            <li>
-              <a href="/quickstart">Quickstart</a> 
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a href="/" class="navbar-brand"><img src="/images/toplogo.png" alt="codeception" /></a>
+  </div>    
+
+  <div class="navbar-inner">    
+
+  <div class="follow nav pull-right navbar-text">
+      <a href="https://twitter.com/codeception" class="twitter-follow-button" data-show-count="false" data-lang="en" data-size="large">Follow @Codeception</a>
+      <script>!function (d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (!d.getElementById(id)) {
+              js = d.createElement(s);
+              js.id = id;
+              js.src = "//platform.twitter.com/widgets.js";
+              fjs.parentNode.insertBefore(js, fjs);
+          }
+      }(document, "script", "twitter-wjs");</script>
+  </div>
+
+
+        <ul class="nav navbar-nav navbar-collapse">
+          <li>
+            <a href="/quickstart">Quickstart</a> 
+          </li>
+          <li>
+            </li><li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="/docs">        Guides
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                {{ guides }}
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="/docs">        Modules
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu dropdown-modules">
+                {{ modules }}
+              </ul>
+            </li>     
+
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="/docs">        Reference
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                {{ reference }}
+              </ul>
+
+
             </li>
             <li>
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="/docs">        Guides
-                  <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  {{ guides }}
-                </ul>
-              </li>
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="/docs">        Modules
-                  <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu dropdown-modules">
-                  {{ modules }}
-                </ul>
-              </li>     
+              <a href="/video">Video</a> 
+            </li>
+            <li class="pull-right">
+              <a href="/blog">Blog</a> 
+            </li>
 
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="/docs">        Reference
-                  <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  {{ reference }}
-                </ul>
+            <li>
+              <a href="/qa">Q&amp;A</a> 
+            </li>
 
-
-              </li>
-              <li>
-                <a href="/video">Video</a> 
-              </li>
-              <li class="pull-right">
-                <a href="/blog">Blog</a> 
-              </li>
-
-              <li>
-                <a href="/qa">Q&A</a> 
-              </li>
-
-              <li>
-                <a href="/credits">Credits</a> 
-              </li>
-              <li>
-                <a href="/install">Install</a> 
-              </li>
-            </ul>
-          </div>
+            <li>
+              <a href="/credits">Credits</a> 
+            </li>
+            <li>
+              <a href="/install">Install</a> 
+            </li>
+          </ul>
         </div>
       </div>
-    </div>
+</nav>
     <div class="container">
       {{ content }}      
     </div>
@@ -119,7 +117,7 @@
     <div id="footer">
       <div class="container">
         <div class="row">
-        <div class="span4">
+        <div class="col-sm-4 col-lg-4">
             <h3>Credits</h3>
             <p>
             Codeception is a BDD-styled PHP testing framework, created by <a href="https://twitter.com/davert" target="_blank">Michael Bodnarchuk @davert</a>.     
@@ -129,19 +127,19 @@
             <div>
 
               <a href="https://github.com/codeception/codeception" class="pull-left">
-                <img src="/images/github.png" />
+                <img src="/images/github.png">
               </a>
 
               <a href="https://twitter.com/codeception" class="pull-left">
-                <img src="/images/twitter.png" />
+                <img src="/images/twitter.png">
               </a>
 
               <a href="http://www.facebook.com/pages/Codeception/288959711204412" class="pull-left">
-                <img src="/images/facebook.png" />
+                <img src="/images/facebook.png">
               </a>              
 
               <a href="https://plus.google.com/b/108429499160233541695/108429499160233541695/posts" class="pull-left">
-                <img src="/images/gplus.png" />
+                <img src="/images/gplus.png">
               </a>              
 
             </div>
@@ -149,7 +147,7 @@
             <div style="clear: both;">
               <h4>Sponsored by</h4>
               <a href="http://2amigos.us/">
-                <img src="http://2amigos.us/img/logo.png" alt="Sponsored by 2AmigOS web development and consultancy in Miami" title="Sponsored by 2AmigOS web development and consultancy in Miami" />
+                <img src="http://2amigos.us/img/logo.png" alt="Sponsored by 2AmigOS web development and consultancy in Miami" title="Sponsored by 2AmigOS web development and consultancy in Miami">
               </a>
             </div>
             
@@ -158,7 +156,7 @@
 
         </div>
 
-        <div class="span8">
+        <div class="col-sm-8 col-lg-8">
 <h3>Thanks to all our contributors</h3>
 <div id="contributors"></div>
 
@@ -167,13 +165,12 @@
       </div>
     </div>
 <div id="copyright">
-  &copy; 2011 - <span  data-toggle="tooltip" title="PHP code in footer was a nice idea, right? ;)">&lt;?php date('Y') ?></span>
+  © 2011 - <span data-toggle="tooltip" title="YOU BROKE MY PHP! FIX IT ASAP!">&lt;?php date('Y') ?&gt;</span>
   <!-- You broke my PHP, man! -->
 </div>  
 
 
-    <script src="/js/bootstrap.min.js"></script>  
-
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <script type="text/javascript">
 
     var _gaq = _gaq || [];
@@ -192,6 +189,6 @@
     <script type="text/javascript">var __bugira_config = {"api_key":"dste248173q7"};
     (function() {var w = document.createElement('script'); w.type = 'text/javascript'; w.async = true; w.src = 'http://bugiracdn.appspot.com/bugira-widget.js';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(w);})();</script>
 
-  </body>
+  
 
-  </html>
+  </body></html>

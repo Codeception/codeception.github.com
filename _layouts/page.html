@@ -2,41 +2,28 @@
 layout: bootstrap
 ---
 <div class="row">
-  <div class="span8">
+  <div class="col-sm-8 col-lg-8">
     <div class="content page" id="page">           
       <div>
         {{ content }}
       </div>  
     </div>
   </div>
-  <div class="span4">
-<div class="well">
-<script>
-  (function() {
-    var cx = '009959493015473517972:mxjflnekt-y';
-    var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
-    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-        '//www.google.com/cse/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
-  })();
-</script>
-<gcse:search></gcse:search>
-      </div>
-
+  <div class="col-sm-4 col-lg-4">
 
     <div class="well">
-      <a class="btn btn-large btn-primary btn-block" href="/quickstart"><span class="btn-label">Quick Start &rarr;</span></a>
+      <a class="btn btn-lg btn-warning btn-block" href="/quickstart">Quick Start →</a>
       <p>Write and execute a test for an existing app
         <b>in less then a 5 mins!</b>&nbsp;No additional tools required.&nbsp;
       </p>
     </div>
     <p>
-          <div>
+          </p><div>
       <a href="http://codeception.com/thanks.html">
-      <img src="https://poser.pugx.org/Codeception/Codeception/version.png" alt="Latest stable version" />
+      <img src="https://poser.pugx.org/Codeception/Codeception/version.png" alt="Latest stable version">
       </a>
     </div>
-    </p>
+    <p></p>
 
     <p>Codeception was started in November 2011, and released the <strong>first stable
       version 1.0 in January 2012</strong>. Based on <a href="http://symfony.com/components" target="_blank">Symfony2 Components</a>, <a href="http://phpunit.de" target="_blank">PHPUnit</a>, <a href="http://mink.behat.org" target="_blank">Mink</a>. Codeception is a mature and stable project, well-tested and documented. It's open-source and <strong>MIT licensed</strong>. 
@@ -45,7 +32,7 @@ layout: bootstrap
           <div class="links">
 
               <a href="https://github.com/codeception/codeception">
-                <img src="/images/github.png" /> Fork on GitHub
+                <img src="/images/github.png"> Fork on GitHub
               </a>
             </div>
     </div>
