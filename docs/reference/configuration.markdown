@@ -87,6 +87,32 @@ modules:
             url: 'http://localhost/myapp/'
 {% endhighlight %}
 
+You can also set the suites in the main configuration file to control the order they are included (or ignore certain suites).
+
+Example:
+
+{% highlight yaml %}
+paths:
+    tests: tests
+    log: tests/_log
+    data: tests/_data
+    helpers: tests/_helpers
+settings:
+    bootstrap: _bootstrap.php
+    suite_class: \PHPUnit_Framework_TestSuite
+    colors: false
+    memory_limit: 1024M
+    log: true
+modules:
+    config:
+        Db:
+            dsn: ''
+            user: ''
+            password: ''
+            dump: tests/_data/dump.sql
+suites: [api,web]
+{% endhighlight %}
+
 ### Parameters
 
 * class_name - a [Guy class](http://codeception.com/docs/02-GettingStarted#guys) used in this suite.
