@@ -7,7 +7,7 @@ title: Extensions
 
 Codeception extensions are developed by third-party contributors and can enhance test execution flow, by listening to internal events. [Read more about extensions](http://codeception.com/docs/08-Customization#Extension-classes).
 
-Extensions should be installed via **Composer** or alternatively can be cloned from GitHub and included in `tests/_bootstrap.php` file.
+Extensions should be installed via **Composer**.
 
 #### [PhpBuiltinServer](https://github.com/tiger-seo/PhpBuiltinServer)
 
@@ -26,4 +26,5 @@ Flexible notifications with [notificator](https://github.com/namshi/notificator)
 Starts remote debug session during test execution.
 
 
-<div class="alert alert-warning">To publish your own extension <a href="https://github.com/Codeception/codeception.github.com/edit/master/extensions.markdown">edit this page</a> on GitHub and submit a Pull Request.</div>
+<div class="alert alert-warning">To publish your own extension <a href="https://github.com/Codeception/codeception.github.com/edit/master/extensions.markdown">edit this page</a> on GitHub and submit a Pull Request. Please make sure you have installation guide and green light from Travis CI.</div>
+
