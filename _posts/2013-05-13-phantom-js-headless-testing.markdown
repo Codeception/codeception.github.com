@@ -12,46 +12,13 @@ The **Selenium2** driver actually loads and runs an active browser session, mani
 
 Now there's a headless browser that includes a WebDriver Wire Protocol implementation -- **[PhantomJS](http://phantomjs.org/index.html)**. The latest version of PhantomJS is an easy to install, stand-alone binary that doesn't require installing Node.js or any other dependencies, and ships with its own **'Ghost Driver'** for implementing the WebDriver Wire Protocol. Which means you can drive it using the Selenium2 driver in Codeception, and anything that you can test in Chrome, Firefox, Safari, or IE using Selenium2, you can now test in half the time using PhantomJS
 
-To get started, if you haven't installed Selenium2, you just need to follow the [instructions](http://codeception.com/docs/modules/Selenium2) on the Codeception web site for installing and running the Selenium2 driver. 
+Even though it's not needed to run the most recent PhantomJS, it's a good idea to have Selenium2 installed so you can test in other browsers. If you haven't installed Selenium2, you just need to follow the [instructions](http://codeception.com/docs/modules/Selenium2) on the Codeception web site for installing and running the Selenium2 driver. It's pretty simple, but totally optional.
 
-Next [download PhantomJS](http://phantomjs.org/download.html). The binary is setup and ready to use for Linux, Mac OSX, and Windows. Put it, or a symlink to it, somewhere in your path so you can launch it from anywhere. 
+To get started with PhantomJS, just [download PhantomJS](http://phantomjs.org/download.html). The binary is setup and ready to use for Linux, Mac OSX, and Windows. Put it, or a symlink to it, somewhere in your path so you can launch it from anywhere. 
 
 You're done with installation!
 
-Now open up a new terminal window and fire up an instance of Selenium Server, leaving the terminal window open:
-
-{% highlight bash %}
-$ java -jar selenium-server-standalone-2.0b2.jar
-{% endhighlight %}
-
-This will launch the server listening on the default port of 4444. You should see something like this in the terminal:
-
-{% highlight bash %}
-May 10, 2013 9:41:38 AM org.openqa.grid.selenium.GridLauncher main
-INFO: Launching a standalone server
-09:41:46.852 INFO - Java: Apple Inc. 20.45-b01-451
-09:41:46.857 INFO - OS: Mac OS X 10.7.5 x86_64
-09:41:46.941 INFO - v2.32.0, with Core v2.32.0. Built from revision 6c40c18
-09:41:47.774 INFO - RemoteWebDriver instances should connect to: http://127.0.0.1:4444/wd/hub
-09:41:47.775 INFO - Version Jetty/5.1.x
-09:41:47.775 INFO - Started HttpContext[/selenium-server/driver,/selenium-server/driver]
-09:41:47.776 INFO - Started HttpContext[/selenium-server,/selenium-server]
-09:41:47.777 INFO - Started HttpContext[/,/]
-09:41:47.983 INFO - Started org.openqa.jetty.jetty.servlet.ServletHandler@1f25fefa
-09:41:47.983 INFO - Started HttpContext[/wd,/wd]
-09:41:48.011 INFO - Started SocketListener on 0.0.0.0:4444
-09:41:48.011 INFO - Started org.openqa.jetty.jetty.Server@16a4e743
-{% endhighlight %}
-
-If you already have a listener on that port, you'll see a handy error message:
-
-{% highlight bash %}
-09:50:34.172 WARN - Failed to start: SocketListener0@0.0.0.0:4444
-Exception in thread "main" java.net.BindException: 
-Selenium is already running on port 4444. Or some other service is.
-{% endhighlight %}
-
-Next, open up a new terminal window and launch PhantomJS, telling it to use the its built-in WebDriver extension to talk to Selenium on the port Selenium is listening to, and leave that window open too:
+Next, open up a new terminal window and launch PhantomJS, telling it to use the its built-in WebDriver extension to use the port Codeception is listening to (4444 is the default), and leave the window open:
 
 {% highlight bash %}
 $ phantomjs --webdriver=4444
@@ -64,7 +31,7 @@ PhantomJS is launching GhostDriver...
 [INFO  - 2013-05-10T14:11:05.076Z] GhostDriver - Main - running on port 4444
 {% endhighlight %}
 
-Now just change the `browser` setting in your `acceptance.suite.yml` file (an example file is on the [Selenium2 driver page](http://codeception.com/docs/modules/Selenium2)) to `browser: phantomjs`. If you're changing _modules_ then you should also run `php codecept.phar build`. 
+Now just enable the Selenium2 driver in your `acceptance.suite.yml` file and use the browser setting `browser: phantomjs` (an example file is on the [Selenium2 driver page](http://codeception.com/docs/modules/Selenium2)). If you're changing _modules_ then you should also run `php codecept.phar build`. 
 
 Check it out by doing a fresh Codeception run:
 
