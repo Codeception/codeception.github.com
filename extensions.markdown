@@ -25,6 +25,15 @@ Flexible notifications with [notificator](https://github.com/namshi/notificator)
 
 Starts remote debug session during test execution.
 
+---
+
+## IDE Plugins
+
+#### [PHPStorm Command Line Tool](https://github.com/tiger-seo/codeception-phpstorm-commandlinetool)
+
+Codeception CLI tool description for PhpStorm.
+
+
 
 <div class="alert alert-warning">To publish your own extension <a href="https://github.com/Codeception/codeception.github.com/edit/master/extensions.markdown">edit this page</a> on GitHub and submit a Pull Request. Please make sure you have installation guide and green light from Travis CI.</div>
 
