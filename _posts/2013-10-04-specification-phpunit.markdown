@@ -34,7 +34,7 @@ class PostTest extends PHPUnit_Framework_TestCase {
 	// just a regular test declaration
 	public function testPublication()
 	{
-		$this->specify('post can be published by author');
+		$this->specify('post can be published');
 		$this->specify('post should contain a title');
 		$this->specify('post should contain a body');
 		$this->specify('author of post should not be banned');		
@@ -61,7 +61,7 @@ class PostTest extends PHPUnit_Framework_TestCase {
 		$this->post = new Post;
 		$this->post->setAuthor(new User());
 
-		$this->specify('post can be published by author', function() {
+		$this->specify('post can be published', function() {
 			$this->post->setTitle('Testing is Fun!');
 			$this->post->setBody('Thats for sure');
 			$this->assertTrue($this->post->publish());
@@ -114,7 +114,7 @@ class PostTest extends PHPUnit_Framework_TestCase {
 		$this->post = new Post;
 		$this->post->setAuthor(new User());
 
-		$this->specify('post can be published by author', function() {
+		$this->specify('post can be published', function() {
 			$this->post->setTitle('Testing is Fun!');
 			$this->post->setBody('Thats for sure');
 			expect_that($this->post->publish());
