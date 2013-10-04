@@ -148,7 +148,9 @@ Basically it's a deal of habit. The `expect(XX)->toBe(YY)` style is more natural
 
 ---
 
-With just a few tiny libraries we converted a classical flat PHPUnit test into separate code blocks, designed by specification. If you invent a rule in a team "no assertion without specification" your tests will get much cleaner and be much easier to maintain.
+With just a few tiny libraries we converted a classical flat PHPUnit test into separate code blocks driven by specification. Test looks very similar to what we saw in Jasmine, just as we intended.
+
+And the piece of advice to your team: introduce a rule "no assertion without specification" to make tests readable and easy to maintain.
 
 You can install Specify and Verify via Composer:
 
