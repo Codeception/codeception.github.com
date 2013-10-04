@@ -10,7 +10,7 @@ The tests can live in a project for a months or even years. One day it may happe
 Does this test checks something important? Maybe specification has changed and the test should be rewritten?
 The team who worked on tests that early days wrote them only to make them pass. Team is not sure what was the purpose of test.
 
-In such situations it would have been nice if a developer who wrote the test at least has left some comments. But not. Usually no one documents tests. They pass and developer feel complete satisfaction just by seeng the green light.
+In such situations it would have been nice if a developer who wrote the test at least has left some comments. But not. Usually no one documents tests. The test passes and developer is completely satisfied with that.
 
 Proper test structure and readability is the only way to maintainable tests. **Tests must not turn to a legacy code.** Is there a way to write better tests?
 
