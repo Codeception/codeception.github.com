@@ -121,7 +121,7 @@ class ModeratorCest {
 
 Just by using annotations you can control the invokations of methods of the Cest class. Sure, you should define your support methods with `protected`, so they won't be executed as tests themselves. Another thing worth to mention, that callbacks defined in `after` annotation will be called even the main test has failed, thus it makes them useful for clean ups.
 
-We still maintain and bugfix 1.6 branch and there will be 1.6 bugfix releases.
+We still maintain and bugfix 1.6 branch and there will be 1.6 bugfix releases. The old release `1.6.9` (yep, 1.6.9 was released to with minor bugfixes) can be downloaded from [http://codeception.com/releases/1.6.9/codecept.phar](http://codeception.com/releases/1.6.9/codecept.phar).
 
 ### Update
 
