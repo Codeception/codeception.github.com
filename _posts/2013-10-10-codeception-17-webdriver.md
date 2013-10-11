@@ -4,7 +4,7 @@ title: "Codeception 1.7: WebDriver"
 date: 2013-10-11 22:03:50
 ---
 
-This is new Codeception with awaited **WebDriver** module in id. WebDriver module is new incarnation of Selenium implementation. As it was mentioned in [previous post](http://codeception.com/08-29-2013/codeception-sequences-new-webdriver.html) this WebDriver module is based on [facebook/php-webdriver](https://github.com/facebook/php-webdriver) bindings. The most valuable thing in new Selenium bindings that they can be used just the same way Selenium is used in Java. It's very important project for PHP community, and we say "thank you" to all the Facebook behind it. One day PHP will be used in acceptance testing as widely as Java or Ruby is used. 
+This is new Codeception with awaited **WebDriver** module in it. WebDriver module is new incarnation of Selenium implementation. As it was mentioned in [previous post](http://codeception.com/08-29-2013/codeception-sequences-new-webdriver.html) this WebDriver module is based on [facebook/php-webdriver](https://github.com/facebook/php-webdriver) bindings. The most valuable thing in new Selenium bindings that they can be used just the same way Selenium is used in Java. It's very important project for PHP community, and we say "thank you" to all the Facebook behind it. One day PHP will be used in acceptance testing as widely as Java or Ruby is used. 
 
 ## WebDriver
 
@@ -46,7 +46,7 @@ $I->submitForm('#login', array('login' => 'davert', 'password' => '123456'));
 {% endhighlight %}
 
 
-### StackOverflow is your help
+### Common Selenium API
 
 Thus If you got any Selenium questions any answers on StackOverflow will help you.
 PHP implementation is so close to Java that you can use any answer in PHP.
