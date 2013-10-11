@@ -27,10 +27,11 @@ $I->waitForJS("return $.active == 0;", 60);
 
 {% highlight php %}
 <?php
+// <input id="page" value="old" />
 $I->pressKey('#page','a'); // => olda
 $I->pressKey('#page',array('ctrl','a'),'new'); //=> new
 $I->pressKey('#page',array('shift','111'),'1','x'); //=> old!!!1x
-$I->pressKey('descendant-or-self::*[@id='page']','u'); //=> oldu
+$I->pressKey('descendant-or-self::*[@id='page']','u'); //=> old!!!1xu
 $I->pressKey('#name', array('ctrl', 'a'), WebDriverKeys::DELETE); //=>''
 ?>
 {% endhighlight %}
