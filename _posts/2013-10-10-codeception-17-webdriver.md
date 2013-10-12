@@ -128,10 +128,12 @@ We still maintain and bugfix 1.6 branch and there will be 1.6 bugfix releases. T
 
 Optional dependencies were removed from the core, so if you use Composer version and one of the following packages:
 
-        "behat/mink-selenium-driver": "1.1.*",
-        "facebook/php-sdk": "3.*",
-        "behat/mink-zombie-driver": "1.1.*",
-        "videlalvaro/php-amqplib": "*"
+{% highlight json %}
+    "behat/mink-selenium-driver": "1.1.*",
+    "facebook/php-sdk": "3.*",
+    "behat/mink-zombie-driver": "1.1.*",
+    "videlalvaro/php-amqplib": "*"
+{% endhighlight %}
 
 you should include them manually in your `composer.json`. 
 If you use phar version - nothing is changed for you.
