@@ -110,7 +110,7 @@ Checks If opened file doesn't contain `text` in it
 
 <?php
 $I->openFile('composer.json');
-$I->dontSeeInThisFile('codeception/codeception');
+$I->seeInThisFile('codeception/codeception');
 ?>
 
 {% endhighlight %}
