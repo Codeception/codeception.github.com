@@ -28,7 +28,7 @@ But If you want to get more features with some instabilities - connect to 1.7
 wget http://codeception.com/codecept.phar -O codecept.phar
 {% endhighlight %}
 
-### 1.6.10
+#### 1.6.10
 
 {% highlight bash %}
 wget http://codeception.com/releases/1.6.10/codecept.phar -O codecept.phar
