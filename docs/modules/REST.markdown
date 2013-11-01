@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Codeception - Documentation
+title: REST Module - Codeception - Documentation
 ---
 
 # REST Module

@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Codeception - Documentation
+title: ZombieJS Module - Codeception - Documentation
 ---
 
 # ZombieJS Module

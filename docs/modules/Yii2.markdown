@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Codeception - Documentation
+title: Yii2 Module - Codeception - Documentation
 ---
 
 # Yii2 Module

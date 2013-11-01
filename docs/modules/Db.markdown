@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Codeception - Documentation
+title: Db Module - Codeception - Documentation
 ---
 
 # Db Module
@@ -91,7 +91,7 @@ Example:
 {% highlight php %}
 
 <?php
-$I->seeInDatabase('users', array('name' => 'Davert', 'email' => 'davert@mail.com'));
+$I->dontSeeInDatabase('users', array('name' => 'Davert', 'email' => 'davert@mail.com'));
 
 
 {% endhighlight %}

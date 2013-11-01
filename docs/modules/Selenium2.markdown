@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Codeception - Documentation
+title: Selenium2 Module - Codeception - Documentation
 ---
 
 # Selenium2 Module

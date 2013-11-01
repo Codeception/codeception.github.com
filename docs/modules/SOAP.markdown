@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Codeception - Documentation
+title: SOAP Module - Codeception - Documentation
 ---
 
 # SOAP Module

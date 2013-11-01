@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Codeception - Documentation
+title: SocialEngine Module - Codeception - Documentation
 ---
 
 # SocialEngine Module

@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Codeception - Documentation
+title: Functional Tests - Codeception - Documentation
 ---
 
 # Functional Tests

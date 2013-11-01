@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Codeception - Documentation
+title: WebDebug Module - Codeception - Documentation
 ---
 
 # WebDebug Module

@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Codeception - Documentation
+title: Kohana Module - Codeception - Documentation
 ---
 
 # Kohana Module

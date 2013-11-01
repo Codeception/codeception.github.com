@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Codeception - Documentation
+title: Modules and Helpers - Codeception - Documentation
 ---
 
 # Modules and Helpers
