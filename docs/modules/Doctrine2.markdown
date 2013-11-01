@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Codeception - Documentation
+title: Doctrine2 Module - Codeception - Documentation
 ---
 
 # Doctrine2 Module

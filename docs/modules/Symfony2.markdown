@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Codeception - Documentation
+title: Symfony2 Module - Codeception - Documentation
 ---
 
 # Symfony2 Module

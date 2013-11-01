@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Codeception - Documentation
+title: ZF1 Module - Codeception - Documentation
 ---
 
 # ZF1 Module

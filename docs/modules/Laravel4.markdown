@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Codeception - Documentation
+title: Laravel4 Module - Codeception - Documentation
 ---
 
 # Laravel4 Module

@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Codeception - Documentation
+title: AMQP Module - Codeception - Documentation
 ---
 
 # AMQP Module

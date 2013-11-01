@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Codeception - Documentation
+title: Customization - Codeception - Documentation
 ---
 
 # Customization

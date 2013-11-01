@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Codeception - Documentation
+title: Redis Module - Codeception - Documentation
 ---
 
 # Redis Module

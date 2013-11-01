@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Codeception - Documentation
+title: PhpBrowser Module - Codeception - Documentation
 ---
 
 # PhpBrowser Module

@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Codeception - Documentation
+title: WebDriver Module - Codeception - Documentation
 ---
 
 # WebDriver Module
@@ -89,7 +89,44 @@ $I->amOnPage('/register');
 
 #### amOnSubdomain
 
-__not documented__
+
+Sets 'url' configuration parameter to hosts subdomain.
+It does not open a page on subdomain. Use `amOnPage` for that
+
+{% highlight php %}
+
+<?php
+// If config is: 'http://mysite.com'
+// or config is: 'http://www.mysite.com'
+// or config is: 'http://company.mysite.com'
+
+$I->amOnSubdomain('user');
+$I->amOnPage('/');
+// moves to http://user.mysite.com/
+?>
+
+{% endhighlight %}
+ * param $subdomain
+ * return mixed
+
+
+#### appendField
+
+
+Append text to an element
+Can add another selection to a select box
+
+{% highlight php %}
+
+<?php
+$I->appendField('#mySelectbox', 'SelectValue');
+$I->appendField('#myTextField', 'appended');
+?>
+
+{% endhighlight %}
+
+ * param string $field
+ * param string $value
 
 
 #### attachFile
@@ -225,7 +262,11 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
 
 #### dontSeeCookie
 
-__not documented__
+
+Checks that cookie doesn't exist
+
+ * param $cookie
+ * return mixed
 
 
 #### dontSeeCurrentUrlEquals
@@ -451,7 +492,11 @@ $I->fillField("//input[@type='text']", "Hello World!");
 
 #### grabCookie
 
-__not documented__
+
+Grabs a cookie value.
+
+ * param $cookie
+ * return mixed
 
 
 #### grabFromCurrentUrl
@@ -604,7 +649,11 @@ Reloads current page
 
 #### resetCookie
 
-__not documented__
+
+Unsets cookie
+
+ * param $cookie
+ * return mixed
 
 
 #### resizeWindow
@@ -670,7 +719,11 @@ $I->seeCheckboxIsChecked('//form/input[@type=checkbox and  * name=agree]');
 
 #### seeCookie
 
-__not documented__
+
+Checks that cookie is set.
+
+ * param $cookie
+ * return mixed
 
 
 #### seeCurrentUrlEquals
@@ -880,7 +933,12 @@ $I->selectOption('Which OS do you use?', array('Windows','Linux'));
 
 #### setCookie
 
-__not documented__
+
+Sets a cookie.
+
+ * param $cookie
+ * param $value
+ * return mixed
 
 
 #### submitForm
