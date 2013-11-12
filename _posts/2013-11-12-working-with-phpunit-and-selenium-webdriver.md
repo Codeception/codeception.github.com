@@ -201,7 +201,7 @@ class GitHubTest extends PHPUnit_Framework_TestCase {
 ?>
 {% endhighlight %}
 
-![Using WebDriver with PHPUnit to test GitHub](/images/webdriver/WebDriverSelector.png)
+![Locating Web Element in Firefox](/images/webdriver/WebDriverSearch.png)
 
 We are clicking the GitHub global search field, located in top menu bar, matched by its id. By the way, how did we get the element's id? That's a good question. Searching for element locators is the most important task in acceptance testing. For every test we need to get the elements that are involved in it. Let's show some simple tricks that will definitely help you in writing complex acceptance tests.
 
@@ -232,7 +232,7 @@ If we use it somewhere in our tests, PHPUnit will wait for `Enter` key pressed i
 
 Now when the browser window is opened we are free to search for required element with no hurry. We are using Firfox Developer Tools for that. With the Element Inspector within we can point to element and get its unique CSS locator. 
 
-![Locating Web Element in Firefox](/images/webdriver/WebDriverSearch.png)
+![Using WebDriver with PHPUnit to test GitHub](/images/webdriver/WebDriverSelector.png)
 
 That is how we got search field id: `#js-command-bar-field`. Doing the sample steps, let's continue writing our test and find `php-webdriver` repository on GitHub.
 
