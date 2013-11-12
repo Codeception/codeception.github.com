@@ -111,7 +111,7 @@ and in a few seconds we should see a Firefox window with Github Page in it
 
 *please notice the WebDriver text in the status bar, this tells you that this browser window is controlled by WebDriver*.
 
-In a console we will see similar output:
+In a console we will see this output:
 
 {% highlight bash %}
 PHPUnit 3.7.28 by Sebastian Bergmann.
