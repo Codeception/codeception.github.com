@@ -109,7 +109,7 @@ and in a few seconds we should see a Firefox window with Github Page in it
 
 ![Opening web page with PHPUnit and Selenium](/images/webdriver/WebDriverStart.png)
 
-*please notice the WebDriver text in the status bar, this tells you that this browser window is manipulated by WebDriver*.
+*please notice the WebDriver text in the status bar, this tells you that this browser window is controlled by WebDriver*.
 
 In a console we will see similar output:
 
@@ -419,7 +419,7 @@ The complete demo project, after this basic refactoring, you can [find on GitHub
 
 ## And what about Codeception?
 
-So you did notice that this is Codeception blog. But we didn't use Codeception framework at all in this tutorial. Sure, we need to mention, that Codeception includes php-webdriver library and [WebDriver](http://codeception.com/docs/modules/WebDriver) module out of the box starting from version 1.7. In Codeception you can perform all the web manipulations in a [much simpler manner using the WebGuy APIs](http://codeception.com/docs/04-AcceptanceTests). If you use Codeception you don't need to implement your own WebDriver assertions nor write boilerplate code.
+So you did notice that this is Codeception blog. But we didn't use [Codeception framework](http://codeception.com) at all in this tutorial. Sure, we need to mention, that Codeception includes php-webdriver library and [WebDriver](http://codeception.com/docs/modules/WebDriver) module out of the box starting from version 1.7. In Codeception you can perform all the web manipulations in a [much simpler manner using the WebGuy APIs](http://codeception.com/docs/04-AcceptanceTests). If you use Codeception you don't need to implement your own WebDriver assertions nor write boilerplate code.
 
 ## Conclusions
 
