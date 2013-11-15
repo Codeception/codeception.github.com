@@ -118,6 +118,11 @@ $I->dontSeeInThisFile('codeception/codeception');
  * param $text
 
 
+#### getName
+
+__not documented__
+
+
 #### openFile
 
 

@@ -490,6 +490,11 @@ $I->fillField("//input[@type='text']", "Hello World!");
  * param $value
 
 
+#### getName
+
+__not documented__
+
+
 #### grabCookie
 
 
@@ -612,6 +617,15 @@ https://code.google.com/p/selenium/wiki/JsonWireProtocol#/session/:sessionId/mov
 
  * throws \Codeception\Exception\ElementNotFound
  * return null
+
+
+#### pauseExecution
+
+
+Pauses test execution in debug mode.
+To proceed test press "ENTER" in console.
+
+This method is recommended to use in test development, for additional page analysis, locator searing, etc.
 
 
 #### pressKey
@@ -1120,8 +1134,7 @@ $I->click('#agree_button');
 #### waitForElementChange
 
 
-Waits for element to change or for $timeout seconds to pass. Element "change" is determined
-by a callback function which is called repeatedly until the return value evaluates to true.
+Waits until element has changed according to callback function or for $time seconds to pass.
 
 {% highlight php %}
 
@@ -1137,6 +1150,45 @@ $I->waitForElementChange('#menu', function(\WebDriverElement $el) {
  * param \Closure $callback
  * param int $timeout seconds
  * throws \Codeception\Exception\ElementNotFound
+
+
+#### waitForElementNotVisible
+
+
+Waits for element to not be visible on the page for $timeout seconds to pass.
+If element stays visible, timeout exception is thrown.
+
+{% highlight php %}
+
+<?php
+$I->waitForElementNotVisible('#agree_button', 30); // secs
+?>
+
+{% endhighlight %}
+
+ * param $element
+ * param int $timeout seconds
+ * throws \Exception
+
+
+#### waitForElementVisible
+
+
+Waits for element to be visible on the page for $timeout seconds to pass.
+If element doesn't appear, timeout exception is thrown.
+
+{% highlight php %}
+
+<?php
+$I->waitForElementVisible('#agree_button', 30); // secs
+$I->click('#agree_button');
+?>
+
+{% endhighlight %}
+
+ * param $element
+ * param int $timeout seconds
+ * throws \Exception
 
 
 #### waitForJS

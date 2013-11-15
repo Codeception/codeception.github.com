@@ -482,6 +482,11 @@ Moves focus to link or button or any node found by CSS or XPath
  * param $el
 
 
+#### getName
+
+__not documented__
+
+
 #### grabCookie
 
 

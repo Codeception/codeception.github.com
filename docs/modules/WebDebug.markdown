@@ -50,6 +50,11 @@ modules:
 ### Actions
 
 
+#### getName
+
+__not documented__
+
+
 #### makeAResponseDump
 
 

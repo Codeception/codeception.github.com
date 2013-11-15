@@ -40,3 +40,8 @@ Report an issue if this module doesn't work for you.
 
 
 Cleans up Redis database.
+
+
+#### getName
+
+__not documented__

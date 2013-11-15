@@ -76,6 +76,11 @@ Parameter can be passed either as XmlBuilder, DOMDocument, DOMNode, XML string, 
  * param $xml
 
 
+#### getName
+
+__not documented__
+
+
 #### grabAttributeFrom
 
 

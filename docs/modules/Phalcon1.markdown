@@ -1,33 +1,60 @@
 ---
 layout: doc
-title: SocialEngine Module - Codeception - Documentation
+title: Phalcon1 Module - Codeception - Documentation
 ---
 
-# SocialEngine Module
-**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/master/src/Codeception/Module/SocialEngine.php)**
+# Phalcon1 Module
+**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/master/src/Codeception/Module/Phalcon1.php)**
 
 
-This module provides integration with [Social Engine](http://www.socialengine.net/) v4.
+This module provides integration with [Phalcon framework](http://www.phalconphp.com/) (1.x).
 
-Functional tests can be run inside Social Engine. All commands of this module are just the same as in other modules that share Framework interface.
+### Demo Project
+
+<https://github.com/phalcon/forum>
+
+The following configurations are required for this module:
+<ul>
+<li>boostrap - the path of the application bootstrap file</li>
+<li>cleanup - cleanup database (using transactions)</li>
+<li>savepoints - use savepoints to emulate nested transactions</li>
+</ul>
+
+The application bootstrap file must return Application object but not call its handle() method.
+
+Sample bootstrap (`app/config/bootstrap.php`):
+
+{% highlight php %}
+
+<?php
+$config = include __DIR__ . "/config.php";
+include __DIR__ . "/loader.php";
+$di = new \Phalcon\DI\FactoryDefault();
+include __DIR__ . "/services.php";
+return new \Phalcon\Mvc\Application($di);
+?>
+
+{% endhighlight %}
+
+You can use this module by setting params in your functional.suite.yml:
+<pre>
+class_name: TestGuy
+modules:
+    enabled: [FileSystem, TestHelper, Phalcon1]
+    config:
+        Phalcon1
+            bootstrap: 'app/config/bootstrap.php'
+            cleanup: true
+            savepoints: true
+</pre>
+
 
 ### Status
 
-* Maintainer: **Artem Kovradin**
-* Stability: **beta**
-* Contact: https://github.com/horechek
-* URL: http://tvorzasp.com
+Maintainer: **cujo**
+Stability: **alfa**
 
-### Config
 
-* host *required* - a host in which your application is registered, according to your license.
-
-### API
-
-* client - BrowserKit client
-* bootstrap - current bootstrap file.
-
-Module is created by [Artem Kovradin](http://tvorzasp.com)
 
 ### Actions
 
@@ -318,6 +345,21 @@ $I->dontSeeOptionIsSelected('#form input[name=payment]', 'Visa');
  * return mixed
 
 
+#### dontSeeRecord
+
+
+Checks that record does not exist in database.
+
+{% highlight php %}
+
+$I->dontSeeRecord('Phosphorum\Models\Categories', array('name' => 'Testing'));
+
+{% endhighlight %}
+
+ * param $model
+ * param array $attributes
+
+
 #### fillField
 
 
@@ -362,6 +404,22 @@ $uri = $I->grabFromCurrentUrl();
  * return mixed
 
 
+#### grabRecord
+
+
+Retrieves record from database
+
+{% highlight php %}
+
+$category = $I->grabFromDatabase('Phosphorum\Models\Categories', array('name' => 'Testing'));
+
+{% endhighlight %}
+
+ * param $model
+ * param array $attributes
+ * return mixed
+
+
 #### grabTextFrom
 
 
@@ -403,6 +461,34 @@ $name = $I->grabValueFrom('descendant-or-self::form/descendant::input[@name = 'u
 {% endhighlight %}
 
  * param $field
+ * return mixed
+
+
+#### haveInSession
+
+
+Sets value to session. Use for authorization.
+
+ * param $key
+ * param $val
+
+
+#### haveRecord
+
+
+Inserts record into the database.
+
+{% highlight php %}
+
+<?php
+$user_id = $I->haveRecord('Phosphorum\Models\Users', array('name' => 'Phalcon'));
+$I->haveRecord('Phosphorum\Models\Categories', array('name' => 'Testing')');
+?>
+
+{% endhighlight %}
+
+ * param $model
+ * param array $attributes
  * return mixed
 
 
@@ -543,6 +629,16 @@ $I->seeInField('//form/*[@name=search]','Search');
  * param $value
 
 
+#### seeInSession
+
+
+Checks that session contains value.
+If value is `null` checks that session has key.
+
+ * param $key
+ * param null $value
+
+
 #### seeInTitle
 
 
@@ -603,6 +699,21 @@ $I->seeOptionIsSelected('#form input[name=payment]', 'Visa');
 
 
 Asserts that current page has 404 response status code.
+
+
+#### seeRecord
+
+
+Checks that record exists in database.
+
+{% highlight php %}
+
+$I->seeRecord('Phosphorum\Models\Categories', array('name' => 'Testing'));
+
+{% endhighlight %}
+
+ * param $model
+ * param array $attributes
 
 
 #### seeResponseCodeIs
