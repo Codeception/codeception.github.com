@@ -92,8 +92,8 @@ This change dramatically improves debug output. You can also pause execution wit
 * `waitForElementChange()` callback return value was not being used by **wheelsandcogs** | also in 1.7
 * bugfix for making screenshots with WebDriver by **Michael Wang**. | also in 1.7
 * Doctrine2: handle NULL value in seeInRepository param array by **imanzuk** | also in 1.7
-* REST: fix adding parameters to url to non-GET HTTP methods 
-* REST: Added `sendOPTIONS()` and `sendHEAD()` requests for CORS testing
+* REST: fix adding parameters to url to non-GET HTTP methods by **sheershoff**
+* REST: Added `sendOPTIONS()` and `sendHEAD()` requests for CORS testing by **elazar**
 * Symfony2: fixed usage of profiler
 * Strict declaratin error fixes for framework constraints | also in 1.6, 1.7
 
