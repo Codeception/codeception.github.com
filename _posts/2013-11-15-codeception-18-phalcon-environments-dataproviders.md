@@ -99,9 +99,9 @@ This change dramatically improves debug output. You can also pause execution wit
 
 ## Update
 
-**Deprecation Warning**. Module `Unit` was deprecated in 1.6 and was removed in 1.8. Please disable it in `unit.suite.yml` if you were using it. If you see this error:
+**Warning**. Module `Unit` was deprecated in 1.6 and was removed in 1.8. Please disable it in `unit.suite.yml` if you were using it. If you see this error:
 
-{% highlight basg %}
+{% highlight bash %}
 Codeception PHP Testing Framework v1.8.0
 Powered by PHPUnit 3.7.28 by Sebastian Bergmann.
 
