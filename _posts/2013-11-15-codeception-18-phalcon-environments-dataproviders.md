@@ -12,7 +12,7 @@ This release brings lots of changes. Finally we got working DataProviders (the i
 <img src="https://lh3.googleusercontent.com/-wjtJgs6HLwc/AAAAAAAAAAI/AAAAAAAAAD4/IvimRkefmI4/s120-c/photo.jpg" alt="Phalcon" style="float: right">
 
 
-[Phalcon](http://phalconphp.com/) is the fastest PHP framework in the world. And that's not just a marketing trap. It was developed as C extension, so it is already precompiled and loads into memory only once. Phalcon is modern framework with DI container, ORM (inspired by Doctrine), and templating engine (inspired by Twig). It is one of the most innivative projects in PHP world, so you should at least check it out. 
+[Phalcon](http://phalconphp.com/) is the fastest PHP framework in the world. And that's not just a marketing trap. It was developed as C extension, so it is already precompiled and loads into memory only once. Phalcon is modern framework with DI container, ORM (inspired by Doctrine), and templating engine (inspired by Twig). It is one of the most innovative projects in PHP world, so you should at least check it out. 
 
 If you already work with Phalcon, here is a good news for you. Codeception got [Phalcon1](http://codeception.com/docs/modules/Phalcon1) module, that allows you to write functional tests with minimum setup. Besides standard framework interface this module provides actions for session and database access. It also wraps all tests into nested transactions, and rollbacks them in the end. Thus, all your database tests run superfast.
 
@@ -57,7 +57,7 @@ You can use PHPUnit dataproviders in `Codeception\TestCase\Test` files. Yep. Fin
 
 Probably DataProviders are not really readable, as you need always to refer into data sets, which may be defined in the different part of a testcase. You can consider using [examples of Codeception\Specify](https://github.com/Codeception/Specify#examples) library, as for alternative for dataproviders.
 
-Is there a way you can use data providers in scrnario driven test? Not exatcly, but you can emulate them with loops and conditional asserts:
+Is there a way you can use data providers in scenario driven test? Not exactly, but you can emulate them with loops and conditional asserts:
 
 {% highlight php %}
 <?php
@@ -70,11 +70,11 @@ foreach ($posts as $post) {
 ## Depends
 
 Declare depending tests in Cest and Test files. Works just as the original `@depends` of PHPUnit.
-In Cests you can combine this with `@before` annotation. More information in [Advanced Usage]([Advanced Usage](http://codeception.com/docs/07-AdvancedUsage) chapter was updated.)
+In Cests you can combine this with `@before` annotation. More information in [Advanced Usage](http://codeception.com/docs/07-AdvancedUsage).
 
 ## Debug
 
-Debug output was refactored, and moved out to `Codeception\Util\Debug` class. This class can be used globally, i.e in tests, helpers, - wherewer you want. To print debug information you should call:
+Debug output was refactored, and moved out to `Codeception\Util\Debug` class. This class can be used globally, i.e in tests, helpers, - wherever you want. To print debug information you should call:
 
 {% highlight php %}
 <?php
