@@ -99,6 +99,11 @@ Opposite to seeResponseContainsJson
  * param array $json
 
 
+#### getName
+
+__not documented__
+
+
 #### grabDataFromJsonResponse
 
 
@@ -261,6 +266,15 @@ Sends a GET request to given uri.
  * param array $params
 
 
+#### sendHEAD
+
+
+Sends a HEAD request to given uri.
+
+ * param $url
+ * param array $params
+
+
 #### sendLINK
 
 
@@ -272,6 +286,15 @@ Sends LINK request to given uri.
  * link http://tools.ietf.org/html/rfc2068#section-19.6.2.4
 
  * author samva.ua@gmail.com
+
+
+#### sendOPTIONS
+
+
+Sends an OPTIONS request to given uri.
+
+ * param $url
+ * param array $params
 
 
 #### sendPATCH

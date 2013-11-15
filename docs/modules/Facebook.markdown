@@ -83,6 +83,11 @@ $I->see('Welcome, ' . $fbUserFirstName);
 ### Actions
 
 
+#### getName
+
+__not documented__
+
+
 #### grabFacebookTestUserAccessToken
 
 

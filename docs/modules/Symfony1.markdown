@@ -131,6 +131,11 @@ $I->dontSeeLink('Logout'); // I suppose user is not logged in
  * param null $url
 
 
+#### getName
+
+__not documented__
+
+
 #### see
 
 

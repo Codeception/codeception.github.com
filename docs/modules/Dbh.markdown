@@ -84,6 +84,11 @@ Fails if such user was found.
  * param array $criteria
 
 
+#### getName
+
+__not documented__
+
+
 #### grabFromDatabase
 
 

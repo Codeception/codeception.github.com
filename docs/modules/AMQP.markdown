@@ -56,6 +56,11 @@ To use this module with Composer you need <em>"videlalvaro/php-amqplib": "*"</em
 ### Actions
 
 
+#### getName
+
+__not documented__
+
+
 #### grabMessageFromQueue
 
 
