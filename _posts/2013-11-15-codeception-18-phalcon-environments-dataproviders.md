@@ -48,7 +48,7 @@ env:
 
 {% endhighlight %}
 
-[Advanced Usage](http://codeception.com/docs/07-AdvancedUsage) chapter was updated.
+[Advanced Usage](http://codeception.com/docs/07-AdvancedUsage#Environments) chapter was updated.
 
 
 ## DataProviders
