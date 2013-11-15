@@ -130,7 +130,7 @@ $ php composer.phar update
 
 It is almost 2 years of Codeception, and we are planning to release 2.0 version as a next major to celebrate that. It is a major change, thus we can add few BC breaks. We are planning to:
 
-* move to PHP 5.4. Not really necessary, yet it starts being hard to support 5.3.
+* move to PHP 5.4. Not really necessary, yet it is getting hard to support 5.3.
 * remove Mink entirely in favor of WebDriver for browser-testing and Goutte for headless testing.
 * remove 2-times test execution (finally!).
 * ??? (proposed by you)
