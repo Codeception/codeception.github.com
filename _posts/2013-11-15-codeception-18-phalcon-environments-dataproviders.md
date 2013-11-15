@@ -117,7 +117,7 @@ wget http://codeception.com/releases/1.7.3/codecept.phar -O codecept.phar
 #### 1.6.12
 
 {% highlight bash %}
-wget http://codeception.com/releases/1.6.10/codecept.phar -O codecept.phar
+wget http://codeception.com/releases/1.6.12/codecept.phar -O codecept.phar
 {% endhighlight %}
 
 for composer version
