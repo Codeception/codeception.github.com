@@ -102,7 +102,7 @@ class GitHubTest extends PHPUnit_Framework_TestCase {
 Now we execute our first test with phpunit
 
 {% highlight bash %}
-php vendor/bin/phpunit GitHubTest.php
+vendor/bin/phpunit GitHubTest.php
 {% endhighlight %}
 
 and in a few seconds we should see a Firefox window with Github Page in it
@@ -313,17 +313,12 @@ Probably we will also want to check if element is located on a page. If we were 
 <?php
     protected function assertElementNotFound($by)
     {
-        try {
-            $this->webDriver->findElement($by);
-            // element not found
-        } catch (\NoSuchElementWebDriverError $e) {
-        	// just increment the assertions counter
-            $this->assertTrue(true);
-            // element not found, as we expected
-            return;
+        $els = $this->webDriver->findElements($by);
+        if (count($els)) {
+            $this->fail("Unexpectedly element was found");
         }
-        $this->fail("Element not found");
-        
+        // increment assertion counter
+        $this->assertTrue(true);        
     }
 
 ?>
@@ -398,13 +393,12 @@ class GitHubTest extends PHPUnit_Framework_TestCase {
 
     protected function assertElementNotFound($by)
     {
-        try {
-            $this->webDriver->findElement($by);
-        } catch (\NoSuchElementWebDriverError $e) {
-            $this->assertTrue(true);
-            return;
+        $els = $this->webDriver->findElements($by);
+        if (count($els)) {
+            $this->fail("Unexpectedly element was found");
         }
-        $this->fail("Unexpectedly element was found");
+        // increment assertion counter
+        $this->assertTrue(true);
         
     }
 }
