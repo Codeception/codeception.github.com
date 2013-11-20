@@ -18,7 +18,7 @@ Let's install all the required tools using [Composer](http://packagist.org). For
 {
     "require-dev": {
         "phpunit/phpunit": "*",
-        "facebook/webdriver": "*"
+        "facebook/webdriver": "dev-master"
     }
 }
 {% endhighlight %}
