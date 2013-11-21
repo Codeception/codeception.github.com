@@ -4,9 +4,12 @@ title: "Selenium WebDriver tests with Codeception"
 date: 2013-11-20 22:03:50
 ---
 
+
 [Last time](http://codeception.com/11-12-2013/working-with-phpunit-and-selenium-webdriver.html) we discovered API of new [WebDriver PHP](https://github.com/facebook/php-webdriver) bindings. We wrote a basic test in PHPUnit that uses Selenium and Firefox browser to find `php-webdriver` library on Github. Today we will reimplement the same test with Codeception.
 
+
 ### Installation
+
 
 Depending on your preferences you can install Codeception either by downloading [`codecept.phar`](http://codeception.com/thanks.html) archive from the site, or alternatively by using composer.
 
@@ -34,7 +37,9 @@ java -jar selenium-server-standalone-2.37.0.jar
 
 When all installation steps are done, we can continue with creating Codeception bootstrap.
 
+
 ### Bootstrap
+
 
 Unlike the phpunit Codeception requires a small bootstrap step. Codeception helps you to organize tests into 3 categories: acceptance, functional, and unit tests. To create all tests and support directories, you will need to run the `bootstrap` command.
 
@@ -68,6 +73,7 @@ Each time you change configuration in Codeception you should run the `build` com
 vendor/bin/codecept build
 {% endhighlight %}
 
+
 ### Writing a Test
 
 Let's start with something very basic. We will open the Github page and we will make sure that `GitHub` word is within the page title.
@@ -83,7 +89,7 @@ $I->seeInTitle('GitHub');
 
 We are using the `wantTo` command just to give a test clean description. `amOnPage` command opens browser on the github home page, and all the commands that start with `see` are assertions you can use. There are lots of commands in WebGuy class you can use writing the test. All them are taking from corresponging [modules](http://codeception.com/docs/03-ModulesAndHelpers), in our case it is [WebDriver](http://codeception.com/docs/modules/WebDriver) module. If you use IDE you can check them all with autocompletion.
 
-[!Codeception Autocomplete](/images/webdriver/codecept-wb.png)
+![Codeception Autocomplete](/images/webdriver/codecept-wb.png)
 
 But let's execute a test with `run` command:
 
