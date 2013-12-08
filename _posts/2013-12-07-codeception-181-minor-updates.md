@@ -28,6 +28,10 @@ Small yet important change in WebDriver module. **Default `wait` parameter is se
 
 *Dependencies were updated, thus Symfony components were updated to 2.4. No changes to composer.json was made, so this release is compatible with Symfony 2.3 as well.*
 
+### Update
+
+[redownload](http://codeception.com/thanks.html) your `codeception.phar` for update:
+
 #### 1.8.1
 {% highlight bash %}
 wget http://codeception.com/codecept.phar -O codecept.phar
@@ -37,4 +41,10 @@ wget http://codeception.com/codecept.phar -O codecept.phar
 
 {% highlight bash %}
 wget http://codeception.com/releases/1.7.4/codecept.phar -O codecept.phar
+{% endhighlight %}
+
+for composer version
+
+{% highlight bash %}
+$ php composer.phar update
 {% endhighlight %}
