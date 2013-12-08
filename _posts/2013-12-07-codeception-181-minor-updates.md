@@ -6,7 +6,7 @@ date: 2013-12-07 22:03:50
 
 Codeception 1.8.1 is out. Bugfixes and small useful features in it. The most interesting improvement was done by **frqnck**. Phar version now has `self-update` command which acts the same way as it is in composer. From now on you can easily upgrade `codeception.phar` file.
 
-Small yet important change in WebDriver module. **Default `wait` parameter is set to 0**. This was done because Selenium [implicit waits](http://www.seleniumhq.org/docs/04_webdriver_advanced.jsp#implicit-waits) didn't work as expected - this parameter slowed down the execution, and waits 5 secs for change even when desired elements on page already exist. Please notice this on upgrading.
+Small yet important change in WebDriver module. **Default `wait` parameter is set to 0**. This was done because Selenium [implicit waits](http://www.seleniumhq.org/docs/04_webdriver_advanced.jsp#implicit-waits) didn't work as expected - this parameter slowed down test execution. Browser waited for element even if it was already on a page. Please notice this on upgrading.
 
 
 ### Changes
