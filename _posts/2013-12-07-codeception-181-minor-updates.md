@@ -13,10 +13,10 @@ Small yet important change in WebDriver module. **Default `wait` parameter is se
 
 * upgraded to php-webdriver 0.3
 * added general `sendAjaxRequest()` method to all framework/phpbrowser modules to send ajax requests of any types by **gchaincl**.
-* fixed [URI construction in Yii1](Wrong URI construction in Yii1 module) module (also in 1.7)
+* fixed [URI construction in Yii1](Wrong URI construction in Yii1 module) module by **kop**(also in 1.7)
 * `Fixed Yii2 statusCode` by **cebe**
-* `Placeholder\Registry::unsetRegistry()` should only be used with < 2.2.0
-* `waitForElementChange()` fixed in WebDriver module
+* fixed: `Placeholder\Registry::unsetRegistry()` should only be used with < 2.2.0 by **Bittarman**
+* `waitForElementChange()` was fixed in WebDriver module
 * fixed `seeLink` and `dontSeeLink` methods in framework modules by **enumag**.
 * added `seeHttpHeaderOnce` to REST module for checking if headers appear only once.
 * setUpBeforeClass/tearDownAfterClass method will work as they are expected in PHPUnit
