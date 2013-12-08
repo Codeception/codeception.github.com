@@ -179,6 +179,24 @@ its value, asserting that are there
  * param $value
 
 
+#### seeHttpHeaderOnce
+
+
+Checks that http response header is received only once.
+HTTP RFC2616 allows multiple response headers with the same name.
+You can check that you didn't accidentally sent the same header twice.
+
+{% highlight php %}
+
+<?php
+$I->seeHttpHeaderOnce('Cache-Control');
+?>>
+
+{% endhighlight %}
+
+ * param $name
+
+
 #### seeResponseCodeIs
 
 

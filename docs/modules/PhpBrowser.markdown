@@ -771,12 +771,35 @@ We emulate that click by running this ajax request manually.
 {% highlight php %}
 
 <?php
-$I->sendAjaxPostRequest('/updateSettings', array('notifications' => true); // POST
-$I->sendAjaxGetRequest('/updateSettings', array('notifications' => true); // GET
+$I->sendAjaxPostRequest('/updateSettings', array('notifications' => true)); // POST
+$I->sendAjaxGetRequest('/updateSettings', array('notifications' => true)); // GET
 
 
 {% endhighlight %}
 
+ * param $uri
+ * param $params
+
+
+#### sendAjaxRequest
+
+
+If your page triggers an ajax request, you can perform it manually.
+This action sends an ajax request with specified method and params.
+
+Example:
+
+You need to perform an ajax request specifying the HTTP method.
+
+{% highlight php %}
+
+<?php
+$I->sendAjaxRequest('PUT', /posts/7', array('title' => 'new title');
+
+
+{% endhighlight %}
+
+ * param $method
  * param $uri
  * param $params
 
