@@ -8,6 +8,8 @@ So how do you check that your applications sends email correctly? It looks like 
 
 For both questions we have an answer. There are two awesome services that is developed to help developers in dealing with email hell. It is [Mailtrap](http://mailtrap.io) and [Mailcatcher](http://mailcatcher.me/). Both services run SMTP server that does not deliver emails, but store them locally. They both have a web interface in which you can review all the outgoing emails. The difference between this services are: mailtrap runs as a web service, and mailcatcher is a ruby gem that can be installed locally. 
 
+![mailcatcher](http://f.cl.ly/items/3w2T1p0F3g003b2i1F2z/Screen%20shot%202011-06-23%20at%2011.39.03%20PM.png)
+
 Its up to you which one to use. Definitely they will simplify your life while developing a web application. Do they have something to offer for testing? Sure! We can access all handled emails via REST API and verify our assertions.
 
 In this post we will marry Mailcatcher with PHPUnit testing frameworks. We've chosen Mailcatcher for not to rely on 3rd-party web service and have all the tests run locally. We will write methods for both PHPUnit and Codeception in order to provide different solutions and compare them.
