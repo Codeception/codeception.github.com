@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Testing Emails in PHP"
+title: "Testing Emails in PHP. Part 1: PHPUnit"
 date: 2013-12-15 22:03:50
 ---
 
