@@ -1,0 +1,399 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Codeception</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=792, user-scalable=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen.css">
+	<!--
+		To apply styles to the certain slides
+		set slide ID to get needed elements
+		-->
+	<style>
+	.slide {
+		background: url(pictures/cream_pixels.png) #fff;
+	}
+		.slide h2 {
+			color: #755e8e;			
+		}
+		#Cover h2 {			
+			margin:30px 0 0;
+			color:#FFF;
+			text-align:center;
+			font-size:70px;
+			}
+		#Cover p {
+			margin:10px 0 0;
+			text-align:center;
+			color:#FFF;
+			font-style:italic;
+			font-size:20px;
+			}
+			#Cover p a {
+				color:#FFF;
+				}
+		#Picture h2 {
+			color:#FFF;
+			}
+		#SeeMore h2 {
+			font-size:100px
+			}
+		#SeeMore img {
+			width:0.72em;
+			height:0.72em;
+			}
+	</style>
+</head>
+<body class="list">
+	<header class="caption">
+		<h1>Codeception - современное тестирование в РНР</h1>
+		<p>Михаил Боднарчук</p>
+	</header>
+	<section class="slide cover" id="Cover"><div>
+		<h2>Codeception - современное тестирование в РНР</h2>
+		<p>Михаил Боднарчук</p>
+		<img src="pictures/cover-abs.jpg" alt="">
+		<!-- photo by John Carey, fiftyfootshadows.net -->
+	</div></section>
+	<section class="slide">
+		<div>
+		<h2>O Codeception</h2>
+		<ol>
+			<li>Современный фреймворк для тестирования в PHP</li>
+			<li>Поддерживает приемочные, функциональные и юнит тесты</li>
+			<li>Более 20 модулей, включая <strong>Selenium, Symfony, ZF, Yii...</strong></li>
+			<li>Основан на <strong>PHPUnit, Symfony Components</strong></li>
+			<li>Разрабатывается с 2011 года</li>
+			<li><em><a href="http://codeception.com">http://codeception.com</a></em></li>
+		</ol>
+		</div>
+	</section>
+	<section class="slide">
+		<div>
+			<h2>Пирамида тестирования</h2>
+			<p>
+				<img src="pictures/pyramid.png" alt="pyramid" />
+			</p>			
+		</div>
+	</section>
+
+	<section class="slide">
+		<div>			
+		<h2><strong>&#10003; Приемочные тесты (WebGuy)</strong></h2>
+		<h2>Функциональные тесты (TestGuy)</h2>
+		<h2>Юнит тесты (CodeGuy)</h2>
+		</div>
+	</section>
+
+	<section class="slide">
+		<div>
+			
+		<h2>Простой тест</h2>
+		<pre>
+					<code>$I = new WebGuy($scenario);</code>
+					<code>$I->amOnPage('/login');</code>
+					<code>$I->fillField('email','myemail@test.com');</code>
+					<code>$I->fillField('password','mysecurepassword');</code>
+					<code>$I->click('#loginForm input[type=submit]');</code>
+					<code>$I->seeCurrentUrlIs('/dashboard');</code>
+					<code>$I->see('Welcome back','.notice');</code>
+			
+		</pre>
+		</div>
+	</section>
+
+	<section class="slide">
+		<div>			
+		<h2>Читабельные тесты</h2>
+		<div><small>мысленно уберем все спецсимволы...</small></div>
+		<pre>			
+				<code>I = new WebGuy</code>
+				<code>I amOnPage '/login'</code>
+				<code>I fillField 'email','myemail@test.com'</code>
+				<code>I fillField 'password','mysecurepassword'</code>
+				<code>I click '#loginForm input[type=submit]'</code>
+				<code>I seeCurrentUrlIs '/dashboard'</code>
+				<code>I see 'Welcome back', '.notice'</code>		
+		</pre>
+		</div>
+	</section>
+
+	<section class="slide">
+		<div>
+			<h2>Автодополнение</h2>
+			<img src="pictures/autocomplete.png" alt="" />
+		</div>
+	</section>
+
+	<section class="slide">
+		<div>
+			
+		<h2>Умная работа с локаторами</h2>
+		<pre>
+
+					<code>$I->click(<mark>'Login'</mark>);</code>
+					<code>$I->click(<mark>'#loginForm input[type=submit]'</mark>);</code>
+					<code>$I->click(<mark>'./*[@id='loginForm']/input[@type='submit']'</mark>);</code>
+			
+		</pre>
+		</div>
+	</section>
+
+	<section class="slide">
+		<div>
+			
+		<h2>PageObjects</h2>
+		<pre>
+			<code>$I->click(<mark>LoginPage::$submitButton</mark>);</code>			
+			<code>LoginPage::of($I)</code>			
+			<code>&nbsp;&nbsp;->login('myemail@test.com','mysecurepassword');</code>
+		</pre>
+		</div>
+	</section>
+
+
+	<section class="slide">
+		<div>
+			<h2>StepObjects</h2>
+			<pre>
+				<code>$I = new WebGuy\<mark>UserSteps</mark>($scenario);</code>
+				<code><mark>$I->logIn</mark>('myemail', 'mysecurepassword');</code>
+				<code>$I->see('Welcome back', '.notice');</code>
+			</pre>
+		</div>
+	</section>
+
+	<section class="slide">
+		<div>
+			<h2>Единое API</h2>
+			<ul>
+				<li>Selenium WebDriver</li>
+				<li>PhpBrowser</li>
+				<li>Функциональные тесты РНР фреймворков</li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="slide">
+		<div>
+			<h2>Selenium WebDriver</h2>
+			<ul>
+				<li>Современный клиент WebDriver для РНР</li>
+				<li>Разрабатывается в Facebook</li>
+				<li>Максимально близко к официальным биндингам Java</li>
+				<li><a href="http://github.com/facebook/php-webdriver">github.com/<mark>facebook</mark>/php-webdriver</a></li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="slide">
+		<div>
+			<h2>Расширяем возможности Codeception</h2>
+			<pre>
+				<code>function clickGreenButton() {</code>
+				<code>&nbsp;&nbsp;$this->webDriver->findElement(</code>
+        <code>&nbsp;&nbsp;&nbsp;&nbsp;WebDriverBy::cssSelector('#green button')</code>
+        <code>&nbsp;&nbsp;)->click();;</code>
+        <code>}</code>
+        <code>// в тесте:</code>
+        <code>$I->clickGreenButton();</code>
+			</pre>
+		</div>
+	</section>	
+
+	<section class="slide">
+		<div>
+			<h2>Environments</h2>
+			<ul>
+				<li>Последовательный запуск тестов с различной конфигурацией</li>
+				<li>Например, <mark>тестирование в различных браузерах</mark></li>
+				<li>Например, тестирование на разных СУБД</li>
+			</ul>
+		</div>
+	</section>
+
+
+	<section class="slide">
+		<div>			
+		<h2><strong> Приемочные тесты (WebGuy)</strong></h2>
+		<h2>&#10003; Функциональные тесты (TestGuy)</h2>
+		<h2>Юнит тесты (CodeGuy)</h2>
+		</div>
+	</section>
+
+	<section class="slide">
+		<div>
+		<h2>Простой тест</h2>
+		<pre>
+					<code>$I = new WebGuy($scenario);</code>
+					<code>$I->amOnPage('/login');</code>
+					<code>$I->fillField('email','myemail@test.com');</code>
+					<code>$I->fillField('password','mysecurepassword');</code>
+					<code>$I->click('#loginForm input[type=submit]');</code>
+					<code>$I->seeCurrentUrlIs('/dashboard');</code>
+					<code>$I->see('Welcome back','.notice');</code>			
+					<code>$I-><mark>seeInSession</mark>('user_name','me');</code>
+		</pre>
+		</div>
+	</section>
+
+	<section  class="slide">
+		<div>
+		<h2>Поддерживаемые фреймворки</h2>
+		<ul>
+			<li>Symfony 2 + Doctrine 2</li>
+			<li>Yii, Yii2</li>
+			<li>Zend Framework 1,2</li>
+			<li>Laravel</li>
+			<li>Phalcon</li>
+		</ul>
+		</div>
+	</section>
+
+
+	<section class="slide">
+		<div>
+			<h2>Веб сервисы</h2>
+			<pre>
+				<code>$I->wantTo('get pending articles via REST API');</code>
+				<code>$I->amHttpAuthenticated('service_user','123456');</code>
+				<code>$I->sendGET('articles', ['type' => 'pending']);</code>
+				<code>$I->seeResponseCodeIs(200);</code>
+				<code>$I->seeResponseIsJson();</code>
+				<code>$I->seeResponseContains('article: { title: "Article 1"}');</code>
+			</pre>
+		</div>
+	</section>
+
+	<section class="slide">
+		<div>			
+		<h2><strong> Приемочные тесты (WebGuy)</strong></h2>
+		<h2>Функциональные тесты (TestGuy)</h2>
+		<h2>&#10003; Юнит тесты (CodeGuy)</h2>
+		</div>
+	</section>
+
+
+	<section class="slide">
+		<div>
+			<h2>Юнит тесты</h2>
+			<ul>
+				<li>Нативная поддержка тестов PHPUnit</li>
+				<li>Дополнительные хэлперы для работы с БД</li>				
+				<li>Запуск вместе с функциональными и приемочными</li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="slide">
+		<div>
+			<h2>Юнит (интеграционный) тест</h2>
+			<pre>
+				<code>function testSavingUser() {</code>
+				<code>    $user = new User();</code>
+				<code>    $user->setName('Miles');</code>
+				<code>    $user->save();</code>
+				<code>    $this->assertEquals('Miles', $user->getFullName());</code>
+				<code>    $this->codeGuy-><mark>seeInDatabase</mark>('users',['name' => 'Miles']);</code>
+				<code>}</code>			
+			</pre>
+		</div>		
+
+	</section>
+
+	<section class="slide">
+		<div>
+			<h2>Codeception\AspectMock</h2>
+			<pre>				
+				<code>$this->assertEquals('users', User::tableName());</code>
+				<code>test::double('User', ['tableName' => 'fake_users']);</code>
+				<code>$this->assertEquals('fake_users', User::tableName());</code>
+			</pre>
+			<div><a href="https://github.com/Codeception/AspectMock">github.com/Codeception/AspectMock</a></div>
+		</div>
+	</section>
+
+
+	  <section class="slide">
+	    <div>
+	      <h2>Code Coverage</h2>
+	      <p>
+	      	<img src="pictures/coverage.png" alt="">
+	      </p>
+	    </div>
+	  </section>    
+
+	  <section class="slide">
+	    <div>
+	      <h2>Отладочная информация</h2>
+	      <div><img src="pictures/debug.png" alt=""></div>
+	      <ul>
+	      	<li>логирование</li>
+	      	<li>скриншот страницы перед фейлом</li>	      	
+	      </ul>
+	    </div>
+	  </section>    	  
+
+	  <section class="slide">
+	    <div>
+	      <h2>Continuous Integration</h2>
+	      <ul>
+	      	<li>JUnit (XML) репорт</li>
+	      	<li>HTML Report</li>	      	
+	      	<hr>
+	      	<li>Jenkins</li>
+	      	<li>Bamboo</li>
+	      	<li>Travis CI</li>
+	      	<li>...</li>
+	      </ul>
+	    </div>
+	  </section>   
+
+	  <section class="slide">
+	  <div>
+	  	<h2>Документация</h2>
+	  	<ul>
+	  		<li>Обучающие материалы на официальном сайте</li>
+	  		<li>Полная информация по API модулей</li>
+	  		<li><a href="https://tutsplus.com/course/modern-testing-in-php-with-codeception/">И даже видеокурс</a></li>
+	  	</ul>
+	  </div>
+	  	
+	  </section> 	  	  
+
+	    <section class="slide">
+	      <div>
+	        <h2>Ну и вкратце. Codeception это...</h2>
+	        <ul>
+	        	<li class="next">универсальный современный фреймворк</li>
+	        	<li class="next">надстройка над РНРUnit</li>
+	        	<li class="next">набор модулей для тестирования веб приложений</li>
+	        	<li class="next">open-source проект с лицензией MIT</li>
+	        </ul>
+	      </div>
+	    </section>    
+
+	        <section class="slide">
+	          <div>
+	            <h2>Спасибо за внимание</h2>
+	            <ol>
+	            	<li>Михаил Боднарчук, автор</li>
+	            	<li>Мой скайп: davert.ua</li>
+	            	<li>Cайт проекта: <a href="http://codeception.com">codeception.com</a></li>
+	            	<li>И его twitter: @codeception</li>
+	            	<li>&COPY; &lt;?php date('Y') ?></li>
+	            </ol>
+	            
+	          </div>
+	        </section>    
+	
+	<!--
+		To hide progress bar from entire presentation
+		just remove “progress” element.
+		-->
+	<div class="progress"><div></div></div>
+	<script src="shower/shower.min.js"></script>
+	<!-- Copyright © 2013 Yours Truly, Famous Inc. -->
+</body>
+</html>
