@@ -23,6 +23,8 @@ Changes:
 * [Framework] Form data on page was not cleaned after form submit. So when sending the same form twice, cached data was submitted. This is now fixed.
 * and others...
 
+Also we've got a [**Mockery** module](https://github.com/Codeception/MockeryModule) for using powerful Mockery framework with Codeception. It is not included in Codeception itself but can be installed via Composer. (Thanks to **Jáchym Toušek**)
+
 Thanks to all contributors, thanks for getting bug fixed and reported. We are trying to be better with each release. 
 
 
