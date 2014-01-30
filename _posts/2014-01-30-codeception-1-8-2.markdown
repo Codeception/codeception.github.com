@@ -1,0 +1,52 @@
+---
+layout: post
+title: "Codeception 1.8.2: Bugfixes"
+date: 2013-01-30 22:03:50
+---
+
+Time passed since the previous release. Since 1.8.1 we got a nice list of significant bugfixes and we are ready to publish new stable release. No new features added, actually, but they are coming in new 2.0 branch which is actively developed in this days. 
+
+Changes:
+
+* [REST] match similar elements in JSON arrays fixed in [#837](https://github.com/Codeception/Codeception/pull/837) by **blacknoir**.
+* `generate:pageobject` now takes -c option correctly [#809](https://github.com/Codeception/Codeception/issues/809)
+* [REST] Fixed setting Content-Type header [#827](https://github.com/Codeception/Codeception/issues/827)
+* [REST] Headers are uppercased according to BrowserKit standard.
+* [Db] records inserted with `haveInDatabase` now are cleaned in `_after` event by **dirk-helbert** [#761](https://github.com/Codeception/Codeception/issues/761).
+* [Laravel] Fixed usage of `Redirect::back` in tests 
+* Fixed collecting CodeCoverage using WebDriver/Selenium2 modules.
+* [REST] Fixed "Call to undefined method Symfony\Component\HttpFoundation\Request::getCookies() in codeception/codeception/src/Codeception/Module/REST.php line 352" by **casconed** [#814](https://github.com/Codeception/Codeception/pull/814)
+* Fixed: tests run twice if you use `.dist.yml` config by **tomtomsen** [#582](https://github.com/Codeception/Codeception/issues/582)
+* Environments: Test classes was loaded only once in multi-environment mode. Fixed by **ayastreb** and his nice tokenizer solition [#812](https://github.com/Codeception/Codeception/pull/812)
+* Excluding running abstract classes in `addCest` by **filipgorny** [#792](https://github.com/Codeception/Codeception/pull/792)
+* [PhpBrowser] Fixed setting cookies from headers
+* [Framework] Form data on page was not cleaned after form submit. So when sending the same form twice, cached data was submitted. This is now fixed.
+* and others...
+
+Thanks to all contributors, thanks for getting bug fixed and reported. We are trying to be better with each release. 
+
+
+### Update
+
+[redownload](http://codeception.com/thanks.html) your `codeception.phar` for update:
+
+#### 1.8.2
+{% highlight bash %}
+php codecept.phar self-update
+{% endhighlight %}
+
+for composer version
+
+{% highlight bash %}
+$ php composer.phar update
+{% endhighlight %}
+
+### What's Next
+
+We are moving to Codeception 2.0. It's first alpha is expected on next week. Stay tuned and get ready for new features! 
+
+While developing Codeception 2.0 we released a lightweight task runner [Robo](https://github.com/CodeGyre/Robo). We needed it to run routine tasks for Codeception - building phar archives, merging releases, etc. You may use it as lightweight alternative for Phing or PHP alternative for shell scripts. It's not very documented, it doesn't include list of all required tasks, but it will evolve. If you have ideas on improvement, or you want to add more tasks into it - please send Pull Requests. 
+
+
+<blockquote class="twitter-tweet" lang="uk"><p>I&#39;ve been playing w/ <a href="https://twitter.com/davert">@davert</a>&#39;s Robo this evening, converting a rickety shell script for building <a href="https://twitter.com/search?q=%23Drupal&amp;src=hash">#Drupal</a>. Very nice. <a href="http://t.co/gGtJu0EWSC">pic.twitter.com/gGtJu0EWSC</a></p>&mdash; Paul Byrne (@pfaocle) <a href="https://twitter.com/pfaocle/statuses/428671971124342784">January 29, 2014</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
