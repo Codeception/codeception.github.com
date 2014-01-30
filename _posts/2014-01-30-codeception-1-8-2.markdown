@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Codeception 1.8.2: Bugfixes"
-date: 2013-01-30 22:03:50
+date: 2014-01-30 22:03:50
 ---
 
 Time passed since the previous release. Since 1.8.1 we got a nice list of significant bugfixes and we are ready to publish new stable release. No new features added, actually, but they are coming in new 2.0 branch which is actively developed in this days. 
