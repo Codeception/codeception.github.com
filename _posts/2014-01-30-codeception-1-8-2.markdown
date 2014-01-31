@@ -49,6 +49,7 @@ We are moving to Codeception 2.0. It's first alpha is expected on next week. Sta
 
 While developing Codeception 2.0 we released a lightweight task runner [Robo](https://github.com/CodeGyre/Robo). We needed it to run routine tasks for Codeception - building phar archives, merging releases, etc. You may use it as lightweight alternative for Phing or PHP alternative for shell scripts. It's not very documented, it doesn't include list of all required tasks, but it will evolve. If you have ideas on improvement, or you want to add more tasks into it - please send Pull Requests. 
 
+And thanks to **@pfaocle*** for the feedback on using Robo!
 
 <blockquote class="twitter-tweet" lang="uk"><p>I&#39;ve been playing w/ <a href="https://twitter.com/davert">@davert</a>&#39;s Robo this evening, converting a rickety shell script for building <a href="https://twitter.com/search?q=%23Drupal&amp;src=hash">#Drupal</a>. Very nice. <a href="http://t.co/gGtJu0EWSC">pic.twitter.com/gGtJu0EWSC</a></p>&mdash; Paul Byrne (@pfaocle) <a href="https://twitter.com/pfaocle/statuses/428671971124342784">January 29, 2014</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
