@@ -40,7 +40,7 @@ php codecept.phar self-update
 for composer version
 
 {% highlight bash %}
-$ php composer.phar update
+$ php composer.phar update codeception/codeception
 {% endhighlight %}
 
 ### What's Next
