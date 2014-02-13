@@ -23,7 +23,8 @@ class Robofile
  	{
  		$this->taskGit()
  			->add('-A')
- 			->commit('updated post')
+ 			->commit('updated')
+ 			->pull()
  			->push()
  			->run();
  	}
