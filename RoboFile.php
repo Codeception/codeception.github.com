@@ -13,7 +13,7 @@ class Robofile
  		$this->taskWriteToFile("_posts/$date-$file.markdown")
  			->line('---')
  			->line('layout: post')
- 			->line("title: $title")
+ 			->line("title: \"$title\"")
  			->line("date: $date 01:03:50")
  			->line("---\n")
  			->run();
