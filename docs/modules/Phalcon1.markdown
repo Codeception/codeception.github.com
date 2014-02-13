@@ -411,7 +411,7 @@ Retrieves record from database
 
 {% highlight php %}
 
-$category = $I->grabFromDatabase('Phosphorum\Models\Categories', array('name' => 'Testing'));
+$category = $I->grabRecord('Phosphorum\Models\Categories', array('name' => 'Testing'));
 
 {% endhighlight %}
 

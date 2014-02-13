@@ -24,6 +24,9 @@ Uses 'bootstrap/start.php' to launch.
 * Stability: **alpha**
 * Contact: davert.codeception@mailican.com
 
+### Config
+* cleanup: true - all db queries will be run in transaction, which will be rolled back at the end of test.
+
 
 ### API
 
@@ -335,6 +338,21 @@ $I->dontSeeOptionIsSelected('#form input[name=payment]', 'Visa');
  * return mixed
 
 
+#### dontSeeRecord
+
+
+Checks that record does not exist in database.
+
+{% highlight php %}
+
+$I->dontSeeRecord('users', array('name' => 'davert'));
+
+{% endhighlight %}
+
+ * param $model
+ * param array $attributes
+
+
 #### fillField
 
 
@@ -376,6 +394,22 @@ $uri = $I->grabFromCurrentUrl();
 
  * param null $uri
  * internal param $url
+ * return mixed
+
+
+#### grabRecord
+
+
+Retrieves record from database
+
+{% highlight php %}
+
+$category = $I->grabRecord('users', array('name' => 'davert'));
+
+{% endhighlight %}
+
+ * param $model
+ * param array $attributes
  * return mixed
 
 
@@ -448,6 +482,24 @@ $name = $I->grabValueFrom('descendant-or-self::form/descendant::input[@name = 'u
 {% endhighlight %}
 
  * param $field
+ * return mixed
+
+
+#### haveRecord
+
+
+Inserts record into the database.
+
+{% highlight php %}
+
+<?php
+$user_id = $I->haveRecord('users', array('name' => 'Davert'));
+?>
+
+{% endhighlight %}
+
+ * param $model
+ * param array $attributes
  * return mixed
 
 
@@ -660,6 +712,21 @@ $I->seeOptionIsSelected('#form input[name=payment]', 'Visa');
 Asserts that current page has 404 response status code.
 
 
+#### seeRecord
+
+
+Checks that record exists in database.
+
+{% highlight php %}
+
+$I->seeRecord('users', array('name' => 'davert'));
+
+{% endhighlight %}
+
+ * param $model
+ * param array $attributes
+
+
 #### seeResponseCodeIs
 
 
@@ -667,6 +734,28 @@ Checks that response code is equal to value provided.
 
  * param $code
  * return mixed
+
+
+#### seeSessionErrorMessage
+
+
+Assert that Session has error messages
+The seeSessionHasValues cannot be used, as Message bag Object is returned by Laravel4
+
+Useful for validation messages and generally messages array
+ e.g.
+ return `Redirect::to('register')->withErrors($validator);`
+
+Example of Usage
+
+{% highlight php %}
+
+<?php
+$I->seeSessionErrorMessage(array('username'=>'Invalid Username'));
+?>
+
+{% endhighlight %}
+ * param array $bindings
 
 
 #### seeSessionHasErrors
