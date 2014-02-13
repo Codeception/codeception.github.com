@@ -19,7 +19,7 @@ $user = $I->grabRecord('users', array('name' => 'davert'));
 ?>
 {% endhighlight %}
 
-This methods will work for Laravel 4 and Laravel 4.1, but Laravel 4.1 supports **nested transactions** and allows us to wrap functional test into one database transaction. This is really useful, as we can rollback any database changes we do in functional tests. Tests also run really fast, as nothing is written in database. A new `cleanup` config option was introduced to Laravel4 module, and by default it is turned on. 
+This methods will work for Laravel 4 as well, but Laravel 4.1 supports **nested transactions** and allows us to wrap functional test into one database transaction. This is really useful, as we can rollback any database changes we do in functional tests. Tests also run really fast, as nothing is written in database. A new `cleanup` config option was introduced to Laravel4 module, and by default it is turned on. 
 
 Now it is really simple to use database in your functional tests. Don't hesitate and try `*Record` methods in action!
 
