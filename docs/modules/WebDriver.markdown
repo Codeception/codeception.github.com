@@ -1057,13 +1057,13 @@ $I->switchToWindow();
 
 If the window has no name, the only way to access it is via the `executeInSelenium()` method like so:
 
-{% highlight yaml %}
+{% highlight php %}
 
 <?php
 $I->executeInSelenium(function (\Webdriver $webdriver) {
-     $handles=$webDriver->getWindowHandles();
+     $handles=$webdriver->getWindowHandles();
      $last_window = end($handles);
-     $webDriver->switchTo()->window($name);
+     $webdriver->switchTo()->window($last_window);
 });
 ?>
 

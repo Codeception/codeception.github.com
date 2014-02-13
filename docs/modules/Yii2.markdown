@@ -9,11 +9,10 @@ title: Yii2 Module - Codeception - Documentation
 
 This module provides integration with [Yii framework](http://www.yiiframework.com/) (2.0).
 
-The following configurations are required for this module:
-<ul>
-<li>entryScript - the path of the entry script</li>
-<li>url - the URL of the entry script</li>
-</ul>
+
+### Config
+
+* configFile *required* - the path to the application config file
 
 The entry script must return the application configuration array.
 
@@ -21,11 +20,10 @@ You can use this module by setting params in your functional.suite.yml:
 <pre>
 class_name: TestGuy
 modules:
-    enabled: [FileSystem, TestHelper, Yii2]
+    enabled: [Yii2, TestHelper]
     config:
         Yii2:
-            entryScript: '/path/to/index.php'
-            url: 'http://localhost/path/to/index.php'
+            configFile: '/path/to/config.php'
 </pre>
 
 ### Status
@@ -323,6 +321,21 @@ $I->dontSeeOptionIsSelected('#form input[name=payment]', 'Visa');
  * return mixed
 
 
+#### dontSeeRecord
+
+
+Checks that record does not exist in database.
+
+{% highlight php %}
+
+$I->dontSeeRecord('app\models\User', array('name' => 'davert'));
+
+{% endhighlight %}
+
+ * param $model
+ * param array $attributes
+
+
 #### fillField
 
 
@@ -367,6 +380,22 @@ $uri = $I->grabFromCurrentUrl();
  * return mixed
 
 
+#### grabRecord
+
+
+Retrieves record from database
+
+{% highlight php %}
+
+$category = $I->grabRecord('app\models\User', array('name' => 'davert'));
+
+{% endhighlight %}
+
+ * param $model
+ * param array $attributes
+ * return mixed
+
+
 #### grabTextFrom
 
 
@@ -408,6 +437,24 @@ $name = $I->grabValueFrom('descendant-or-self::form/descendant::input[@name = 'u
 {% endhighlight %}
 
  * param $field
+ * return mixed
+
+
+#### haveRecord
+
+
+Inserts record into the database.
+
+{% highlight php %}
+
+<?php
+$user_id = $I->haveRecord('app\models\User', array('name' => 'Davert'));
+?>
+
+{% endhighlight %}
+
+ * param $model
+ * param array $attributes
  * return mixed
 
 
@@ -608,6 +655,21 @@ $I->seeOptionIsSelected('#form input[name=payment]', 'Visa');
 
 
 Asserts that current page has 404 response status code.
+
+
+#### seeRecord
+
+
+Checks that record exists in database.
+
+{% highlight php %}
+
+$I->seeRecord('app\models\User', array('name' => 'davert'));
+
+{% endhighlight %}
+
+ * param $model
+ * param array $attributes
 
 
 #### seeResponseCodeIs
