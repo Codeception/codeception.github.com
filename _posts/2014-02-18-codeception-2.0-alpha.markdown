@@ -15,7 +15,7 @@ That's why you can now choose the desired actor from a list during the `bootstra
 ```
 Before proceed you can choose default actor:
 
-$I = new {{ACTOR}}
+$I = new [ACTOR]
   Select an actor. Default: Guy  
   [0] Guy
   [1] Girl
