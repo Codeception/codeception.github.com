@@ -85,7 +85,7 @@ var_dump($card); // was showing `Maybe` instead of real value
 {% endhighlight %}
 
 * Codeception 2.0 require PHP 5.4 and higher. Time changes, PHP 5.3 is getting harder and harder to support, thus we decided to move to 5.4 and keep our code base up to date. And yes, we wanted to use short array syntax. We are tired to keeping write all those nasty `array()` stuff.
-* Actor classes (initial **Guy classes) are now **rebuilt automatically**. Thus, you want get exception when change suite configuration, or add methods to helper. Rebuilds are not required anymore.  
+* Actor classes (initial **Guy classes) are now rebuilt automatically**. Thus, you want get exception when change suite configuration, or add methods to helper. Rebuilds are not required anymore.  
 * Added **Assert*** module that can be used to write common asserts in your tests. You can now use `seeEquals`, `seeContains` and other actions inside your Cepts or Cests.
 * Experimental: added **Silex** module. We need your Feedback on using it.
 
