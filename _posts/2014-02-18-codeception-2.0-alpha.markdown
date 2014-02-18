@@ -32,17 +32,17 @@ so you all your test actors (that's how we call guy classes now) will be in form
 
 The second BUG of Codeception was that the complete loneliness of guys (or should we say actors now). You know, it is so sad to see that there is only `$I` in the test, forever alone, like on a desert island, or in space... But in 2.0 you can invite some friends into your tests. Let's say...
 
-```php
+{% highlight php %}
 <?php
 $I = new WebGuy($scenario);
 $nick = $I->haveFriend('nick');
 ?>
-```
+{% endhighlight %}
 
 So we can write **multi-session tests** that can be executed in two browser windows. 
 You may try to run this test on `github.com` to see how it works:
 
-```php
+{% highlight php %}
 <?php
 $I = new WebGuy($scenario);
 $I->wantTo('surf Github with Nick');
@@ -64,7 +64,7 @@ $I->seeCurrentUrlEquals('/facebook/php-webdriver');
 $I->click('Issues');
 $I->canSeeInTitle('Issues');
 ?>
-```
+{% endhighlight %}
 
 As you see, everything in in `does` closure is executed in separate session. This way you can test user-to-user interactions on your site. For example Alice writes a private message to Bob and Bob responds back. Similarly you can have multiple REST sessions in a test. 
 
