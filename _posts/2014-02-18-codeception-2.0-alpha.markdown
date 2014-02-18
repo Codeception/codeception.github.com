@@ -30,7 +30,7 @@ so you all your test actors (that's how we call guy classes now) will be in form
 
 ## Codeception: Not Alone
 
-The second BUG of Codeception was that the complete lonliness of guys (or we should say actors from now). You know, it is so sad to see that there is only `$I` in the test, forever alone, like on a desert island, or in space... But in 2.0 you can invite some friends into your tests. Let's say...
+The second BUG of Codeception was that the complete loneliness of guys (or should we say actors now). You know, it is so sad to see that there is only `$I` in the test, forever alone, like on a desert island, or in space... But in 2.0 you can invite some friends into your tests. Let's say...
 
 ```php
 <?php
@@ -74,7 +74,7 @@ Such scenario cases can be implemented. That's what are friends for.
 
 As it was announced earlier, the main goals for Codeception 2.0 was internal refactoring.
 
-* **Mink (and its dirvers) was removed completely**. Instead you can use WebDriver module to do Selenium testing, and PhpBrowser (which uses Goutte) for browser-emulation. PhpBrowser module is now more compatible with frameworks modules, they use the same methods and acts in the same manner. If you were using `Selenium` or `Selenium2` module you should switch to **WebDriver**.
+* **Mink (and its drivers) was removed completely**. Instead you can use WebDriver module to do Selenium testing, and PhpBrowser (which uses Goutte) for browser-emulation. PhpBrowser module is now more compatible with frameworks modules, they use the same methods and acts in the same manner. If you were using `Selenium` or `Selenium2` module you should switch to **WebDriver**, for PHPBrowser everything should *(crossing fingers)* work smoothly.
 * **2-phases test execution with tricky magic including usage of `Maybe` class was removed**. Tests are now executed one time, like any regular PHP file. So you can use any PHP code in your tests, and appearance of Maybe object would not confuse you anymore.
 
 {% highlight php %}
@@ -103,6 +103,12 @@ Download:
 wget http://codeception.com/releases/2.0.0-alpha/codecept.phar
 {% endhighlight %}
 
+Via Composer:
+
+{% highlight bash %}
+composer require --dev "codeception/codeception:2.0.0-alpha" 
+{% endhighlight %}
+
 ## Some Upgrading Notes
 
 * Run `build` command
@@ -110,4 +116,6 @@ wget http://codeception.com/releases/2.0.0-alpha/codecept.phar
 * Check you don't use `PHPBrowser->session` property anywhere (it was Mink part)
 * CodeCoverage with c3 will require [new version of c3](https://github.com/Codeception/c3/tree/2.0).
 
+## What's next?
 
+We need your feedback, and meanwhile we will work on updating documentation parts. 1.8.x will be maintained, but new features will be added to 2.x branch. 
