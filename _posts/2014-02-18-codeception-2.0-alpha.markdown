@@ -8,7 +8,7 @@ Finally we are ready to show you Codeception 2.0. We tried not to break everythi
 
 ## Codeception: Not Just For Guys
 
-Codeception is awesome testing tool, but before 2.0 there were only Guys in it. That is not fair! We wanted to make Codeception a tool for everyone: for guys, girls, developers, test engineers, ninjas and even wookiees... *(nope, wookiees should wait for 3.0)*. 
+Before 2.0 there were only Guys in it. That is not fair! We wanted to make Codeception a tool for everyone: for guys, girls, developers, test engineers, ninjas and even wookiees... *(nope, wookiees should wait for 3.0)*. 
 
 That's why you can now choose the desired actor from a list during the `bootstrap` process.
 
