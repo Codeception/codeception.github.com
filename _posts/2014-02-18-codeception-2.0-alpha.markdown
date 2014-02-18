@@ -109,6 +109,8 @@ Via Composer:
 composer require --dev "codeception/codeception:2.0.0-alpha" 
 {% endhighlight %}
 
+Development of 2.0 now happens in `master` branch, so keep track on changes and send your pull requests.
+
 ## Some Upgrading Notes
 
 * Run `build` command
@@ -116,6 +118,6 @@ composer require --dev "codeception/codeception:2.0.0-alpha"
 * Check you don't use `PHPBrowser->session` property anywhere (it was Mink part)
 * CodeCoverage with c3 will require [new version of c3](https://github.com/Codeception/c3/tree/2.0).
 
-## What's next?
 
+## What's next?
 We need your feedback, and meanwhile we will work on updating documentation parts. 1.8.x will be maintained, but new features will be added to 2.x branch. 
