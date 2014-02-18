@@ -26,7 +26,7 @@ $I = new [ACTOR]
 
 ```
 
-so you all your test actors (that's how we call guy classes now) will be in form like `TestGirl`, `WebNinja`, `CodeDev`, etc. Pretty flexible. That should fit everyone.
+so you all your test actors (that's how we call guy classes now) will be in form like `TestGirl`, `WebNinja`, `CodeDev`, etc. Pretty flexible. 
 
 ## Codeception: Not Alone
 
@@ -68,7 +68,7 @@ $I->canSeeInTitle('Issues');
 
 As you see, everything in in `does` closure is executed in separate session. This way you can test user-to-user interactions on your site. For example Alice writes a private message to Bob and Bob responds back. Similarly you can have multiple REST sessions in a test. 
 
-Such scenario cases can be implemented. That's what are friends for. 
+Such scenario cases can be implemented. That's what friends are for. 
 
 ## Notable Changes
 
