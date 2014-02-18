@@ -87,15 +87,15 @@ var_dump($card); // was showing `Maybe` instead of real value
 * Codeception 2.0 require PHP 5.4 and higher. Time changes, PHP 5.3 is getting harder and harder to support, thus we decided to move to 5.4 and keep our code base up to date. And yes, we wanted to use short array syntax. We are tired to keeping write all those nasty `array()` stuff.
 * Actor classes (initial **Guy classes) are now **rebuilt automatically**. Thus, you want get exception when change suite configuration, or add methods to helper. Rebuilds are not required anymore.  
 * Added **Assert*** module that can be used to write common asserts in your tests. You can now use `seeEquals`, `seeContains` and other actions inside your Cepts or Cests.
-* Experimental: added **Silex** module. We need your Feedback on unsing it.
+* Experimental: added **Silex** module. We need your Feedback on using it.
 
 ## Minor Internal Changes
 
-Refactoring, Refactoring, Refactoring. We use PSR-2 now. We rewrote CodeCoverage. We have better directory structure... More new files. What else? Oh, lets admit, probably those are not changes you would notice. But internals are now more clen and easy to understand *(Except the parts which heavily rely on PHPUnit internals)*.
+Refactoring, Refactoring, Refactoring. We use PSR-2 now. We rewrote CodeCoverage. We have better directory structure... More new files. What else? Oh, lets admit, probably those are not changes you would notice. But internals are now more clean and easy to understand *(Except the parts which heavily rely on PHPUnit internals)*.
 
 ## Upgrading
 
-We'd like to ask you to try Codeception 2.0 on your projects. Before the release is ready we need to collect feedback and fix all encjountered issues. You know where [GitHub issues](https://github.com/Codeception/Codeception/issues?state=open) are. 
+We'd like to ask you to try Codeception 2.0 on your projects. Before the release is ready we need to collect feedback and fix all encountered issues. You know where [GitHub issues](https://github.com/Codeception/Codeception/issues?state=open) are. 
 
 Download:
 
