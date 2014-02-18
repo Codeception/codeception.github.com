@@ -30,7 +30,7 @@ so you all your test actors (that's how we call guy classes now) will be in form
 
 ## Codeception: Not Alone
 
-The second BUG of Codeception was that the complete loneliness of guys (or should we say actors now). You know, it is so sad to see that there is only `$I` in the test, forever alone, like on a desert island, or in space... But in 2.0 you can invite some friends into your tests. Let's say...
+Before Codeception 2.0 guys (or should we say actors now) were left to themselves. You know, it is so sad to see that there is only `$I` in the test, forever alone, like on a desert island, or in space... But in 2.0 you can invite some friends into your tests. Let's say...
 
 {% highlight php %}
 <?php
