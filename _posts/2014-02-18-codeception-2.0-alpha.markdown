@@ -66,7 +66,7 @@ $I->canSeeInTitle('Issues');
 ?>
 {% endhighlight %}
 
-As you see, everything in in `does` closure is executed in separate session. This way you can test user-to-user interactions on your site. For example Alice writes a private message to Bob and Bob responds back. Similarly you can have multiple REST sessions in a test. 
+As you see, everything in `does` closure is executed in separate session. This way you can test user-to-user interactions on your site. For example Alice writes a private message to Bob and Bob responds back. Similarly you can have multiple REST sessions in a test. 
 
 Such scenario cases can be implemented. That's what friends are for. 
 
@@ -91,7 +91,7 @@ var_dump($card); // was showing `Maybe` instead of real value
 
 ## Minor Internal Changes
 
-Refactoring, Refactoring, Refactoring. We use PSR-2 now. We rewrote CodeCoverage. We have better directory structure... More new files. What else? Oh, lets admit, probably those are not changes you would notice. But internals are now more clean and easy to understand *(Except the parts which heavily rely on PHPUnit internals)*.
+Refactoring, Refactoring, Refactoring. We use PSR-2 now. We rewrote CodeCoverage. We have better directory structure... More new files. What else? Oh, lets admit it, these are not the changes you would actually notice. But internals are now more clean and easy to understand *(Except the parts which heavily rely on PHPUnit)*.
 
 ## Upgrading
 
@@ -117,7 +117,6 @@ Development of 2.0 now happens in `master` branch, so keep track on changes and 
 * Replace Selenium2 to WebDriver module
 * Check you don't use `PHPBrowser->session` property anywhere (it was Mink part)
 * CodeCoverage with c3 will require [new version of c3](https://github.com/Codeception/c3/tree/2.0).
-
 
 ## What's next?
 We need your feedback, and meanwhile we will work on updating documentation parts. 1.8.x will be maintained, but new features will be added to 2.x branch. 
