@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>State of Selenium Webdriver in PHP</title>
+    <!-- build:css styles/styles.css-->
+    <link rel="stylesheet" type="text/css" href="bower_components/prism/themes/prism-tomorrow.css">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/prism/prism-tomorrow.css">
+    <link href="http://fonts.googleapis.com/css?family=Underdog&amp;subset=latin,cyrillic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Scada&amp;subset=latin,cyrillic" rel="stylesheet" type="text/css">
+    <!-- endbuild-->
+  </head>
+  <body>
+    <article>
+      <section>
+        <h1>State of Selenium Webdriver in PHP</h1>
+      </section>
+      <section data-bespoke-state="emphatic">
+        <h2>Кто это такой</h2>
+        <ul>
+          <li>Боднарчук Михаил, веб разработчик</li>
+          <li>Компания Codegyre. Киев.</li>
+          <li>Автор фреймворка Codeception</li>
+          <li>php-webdriver contributor</li>
+        </ul>
+      </section>
+      <section>
+        <h2>О чем пойдет речь</h2>
+        <ul>
+          <li>Что делать если вам достался проект на PHP</li>
+          <li>Какие есть клиенты Selenium WebDriver в PHP</li>
+          <li>Фреймворки для приемочного тестирования на PHP</li>
+        </ul>
+      </section>
+      <section>
+        <h1>PHP Сейчас</h1>
+        <p><img src="images/php.jpg" style="width: 90%"></p>
+      </section>
+      <section>
+        <h2>Почему PHP</h2>
+        <ul>
+          <li>PHP is used by <b>81.7% of</b> all the websites whose server-side programming language we know.</li>
+          <li>PHP считается простым языком для начинающих.</li>
+          <li>PHP разработчиков много, их сравнительно легко найти.</li>
+          <li>WordPress, Drupal, Joomla, Magento, OSCommerce...</li>
+          <li>Facebook, VK, WikiPedia...</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Особенности работы PHP</h2>
+        <ul>
+          <li>Обьектно-ориентированый язык</li>
+          <li>Для серверной веб-разработки </li>
+          <li>Создан чтобы умирать</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Типичный PHP</h2>
+        <pre><code class="language-php">if (isset($_GET['code'])) {
+  if (strval($_SESSION['state']) !== strval($_GET['state'])) {
+    die('The session state did not match.');
+  }
+  
+  $client->authenticate($_GET['code']);
+  $_SESSION['token'] = $client->getAccessToken();
+  header('Location: ' . $redirect);
+}
+</code></pre>
+      </section>
+      <section>
+        <div><img src="images/horror.jpg" style="width: 90%"></div>
+        <p>php программист после чтения чужого кода</p>
+      </section>
+      <section>
+        <h2>Темное прошлое</h2>
+        <ul>
+          <li>$ - для каждой переменной</li>
+          <li>C-функции для работы со строками и массивыми (str_replace, preg_match,...)</li>
+          <li>Ошибки не являются исключениями и выводятся на экран </li>
+          <li>Абсолютная обратная совместимость</li>
+          <li>Процедурный стиль программирования</li>
+          <li>HTML + PHP в одном файле</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Современный PHP </h2>
+        <pre><code class="language-php">namespace Acme\HelloBundle\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+class HelloController extends Controller
+{
+   /*
+    * @Route("/{id}", requirements={"name" = "\w+"})
+    */
+    public function indexAction($name)
+    {
+        return $this->render(
+            'Hello:index.html.twig', ['name' => $name]
+        );
+    }
+}            </code></pre>
+      </section>
+      <section>
+        <div><img src="images/solid.jpg" style="width: 60%"></div>
+        <p>Современный php программист не боится читать код</p>
+      </section>
+      <section>
+        <h2>Светлое настоящее</h2>
+        <ul>
+          <li>Namespaces</li>
+          <li>Java-style OOP</li>
+          <li>Аннотации (не поддерживаются языком)</li>
+          <li>Автолоадинг</li>
+          <li>Единый стандарт кодирования <b>PSR</b></li>
+          <li>Единый Package Manager - <b>Composer</b></li>
+        </ul>
+      </section>
+      <section>
+        <h2>И очень светлое будущее</h2>
+        <ul>
+          <li>ReactPHP - аналог NodeJS</li>
+          <li>HipHop VM - виртуальная машина</li>
+          <li>Zephir - компилятор в C-код</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Фреймворки</h2>
+        <ul>
+          <li><b>Symfony</b></li>
+          <li>Zend</li>
+          <li><b>Yii</b></li>
+          <li>Laravel</li>
+          <li>Phalcon</li>
+          <li>Silex</li>
+          <li>...тысячи их</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Тренды</h2>
+        <ul>
+          <li>Унификация экосистемы</li>
+          <li>Переход количества в качество</li>
+          <li>Улучшение платформы при сохранении обратной совместимости</li>
+          <li>Дорога в enterprise</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Selenium Webdriver</h2>
+        <p><img src="images/selenium.jpg" style="width: 80%"></p>
+      </section>
+      <section>
+        <h2>WebDriver</h2>
+        <ul>
+          <li>Нет официального клиента</li>
+          <li>PHPUnit_Extensions_Selenium2TestCase</li>
+          <li>element34/php-webdriver</li>
+          <li>instaclick/php-webdriver</li>
+          <li>facebook/php-webdriver</li>
+          <li>...webdriver клиентов чуть менее чем фреймворков</li>
+        </ul>
+      </section>
+      <section>
+        <h2>PHPUnit_Extensions_Selenium2TestCase</h2>
+        <ul>
+          <li>Часть фреймворка PHPUnit</li>
+          <li><strike>Самый старый</strike> и популярный клиент</li>
+          <li><strike>OOP</strike> интерфейс</li>
+          <li>встроенные assert </li>
+        </ul>
+      </section>
+      <section>
+        <h2>Демо</h2>
+        <pre><code class="language-php">$this->url('index.php');
+
+$form = $this->byCssSelector('form');
+
+$action = $form->attribute('action');
+$this->assertContains('admin.php', $action);
+
+$this->byName('username')->value('davert');
+$this->byName('password')->value('1234');
+$form->submit();
+
+$welcome = $this->byCssSelector('h1')->text();
+
+$this->assertRegExp('/davert/i', $welcome);
+</code></pre>
+      </section>
+      <section>
+        <h2>Минусы</h2>
+        <ul>
+          <li>WebDriver API (<b>partially</b> implemented)</li>
+          <li>Свой особый API</li>
+          <li>Не документирован</li>
+          <li>Нет wait until expected condition</li>
+          <li>Нельзя отвязать от PHPUnit</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Плюсы</h2>
+        <ul>
+          <li>Стабильный</li>
+          <li>Самый популярный фреймворк</li>
+          <li>Гибкий <strike>OOP</strike> интерфейс</li>
+          <li>Экспорт из Selenium IDE</li>
+        </ul>
+      </section>
+      <section>
+        <h2>instaclick/php-webdriver <br> element34/php-webdriver        </h2>
+        <ul>
+          <li>Легковесная реализация </li>
+          <li>Поддерживает wait, touch, chanied actions</li>
+          <li>Ранее разрабатывался в facebook</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Демо</h2>
+        <pre><code class="language-php">$wd->open("http://api.jquery.com/dblclick/");
+$iframe = $wd->element(PHPWebDriver_WebDriverBy::CSS_SELECTOR, "iframe");
+$wd->moveto(array("element" => $iframe->getID()));
+$wd->switch_to_frame($iframe);
+$e = $wd->element(PHPWebDriver_WebDriverBy::CSS_SELECTOR, "div");
+$clazz = $e->attribute('class');
+$this->assertEquals(null, $clazz);
+$ac = new PHPWebDriver_WebDriverActionChains($wd);
+$ac->doubleClick($wd->element(PHPWebDriver_WebDriverBy::CSS_SELECTOR, "div"));
+$ac->perform();            
+</code></pre>
+      </section>
+      <section>
+        <h2>Минусы</h2>
+        <ul>
+          <li>Facebook отказался от этой версии</li>
+          <li>Очень странный API</li>
+          <li>Поддержка IDE хромает</li>
+          <li>Ужасная реализация explicit wait</li>
+          <li>Требует напильника</li>
+          <li>Документации мало</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Плюсы</h2>
+        <ul>
+          <li>instaclick/php-webdriver используется в Mink / Behat</li>
+          <li>Upload файлов с клиента</li>
+          <li>Поддерживается в актуальном состоянии</li>
+        </ul>
+      </section>
+      <section>
+        <h2>facebook/php-webdriver</h2>
+        <ul>
+          <li>Новая версия webdriver биндингов</li>
+          <li>Готова стать стандартом в PHP</li>
+          <li>Реализация близка к Java клиенту</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Демо</h2>
+        <pre><code class="language-php">$search = $wd->findElement(WebDriverBy::id('js-command-bar-field'));
+$search->click();
+// typing into field
+$wd->getKeyboard()->sendKeys('php-webdriver');
+// pressing "Enter"
+$wd->getKeyboard()->pressKey(WebDriverKeys::ENTER);
+$firstResult = $wd->findElement(WebDriverBy::cssSelector('ul#list li'));
+$firstResult->click();
+</code></pre>
+      </section>
+      <section>
+        <h2>Минусы</h2>
+        <ul>
+          <li><strike>Нестабилен</strike> (версия 0.4), API меняется</li>
+          <li>Нет документации</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Плюсы</h2>
+        <ul>
+          <li>Наиболее полная реализация WebDriver</li>
+          <li>В активной разработке командой Facebook</li>
+          <li>Большинство решений можно легко портировать с Java</li>
+          <li>Стандартный API с Java</li>
+          <li>LocalFileDetector - upload файлов с клиента</li>
+          <li>explicit wait, touch events, ...</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Сравним их!</h2>
+        <p><img src="images/train.jpg" style="width: 80%"></p>
+        <p>Закажем билеты на сайте <a href="http://booking.uz.gov.ua/">http://booking.uz.gov.ua/</a></p>
+      </section>
+      <section>
+        <h2>Мы написали тесты для всех клиентов</h2>
+        <p><a href="https://github.com/DavertMik/WebDriverDemos">github.com/DavertMik/WebDriverDemos</a></p>
+      </section>
+      <section>
+        <h2>Заметки</h2>
+        <ul>
+          <li>Facebook/php-webdriver самый высокоуровневый</li>
+          <li>Для PHPUnitSelenium/element34/instaclick пришлось писать свой explicit wait</li>
+          <li>element34/instaclick очень похожи, но есть принципиальные различия</li>
+          <li>Для работы с клавиатурой element34/instaclick нужно знать сам протокол</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Выводы</h2>
+        <ul>
+          <li>Facebook/php-webdriver понравился больше всего</li>
+          <li>PHPUnitSelenium - хорошая поддержка ide</li>
+          <li>element34/php-webdriver - ужасно</li>
+          <li>instaclick/php-webdriver - ещё хуже </li>
+        </ul>
+      </section>
+      <section>
+        <h2>Бенчмарки на коленке</h2>
+        <ul>
+          <li>PHPUnitSelenium - Time: 12.3 seconds, Memory: 4.50Mb</li>
+          <li>FacebookWebdriver - Time: 5.17 seconds, Memory: 3.50Mb</li>
+          <li>InstaclickWebdriver - Time: 11.66 seconds, Memory: 3.00Mb</li>
+          <li>Element34Webdriver - Time: 5.74 seconds, Memory: 3.50Mb</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Testing Frameworks</h2>
+        <ul>
+          <li>PHPUnit</li>
+          <li>Behat</li>
+          <li>Codeception</li>
+        </ul>
+      </section>
+      <section>
+        <p><img src="images/phpunit.jpg" style="width: 80%"></p>
+        <ul>
+          <li>классический юнит-тест фреймворк</li>
+          <li>стандарт де факто для юнит тестирования</li>
+          <li>работает со вcеми реализациями WebDriver</li>
+          <li>не оптимизирован для приемочного тестирования</li>
+        </ul>
+      </section>
+      <section>
+        <p><img src="images/behat.png" style="width: 80%"></p>
+        <ul>
+          <li>Релизация Cucumber на PHP</li>
+          <li>Есть PageObject extension</li>
+          <li>Использует высокоуровневый фреймворк Mink (аналог Capybra)</li>
+          <li>Mink использует element34/webdriver</li>
+          <li>Эмулирует события через javascript</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Feature</h2>
+        <pre><code class="language-ruby">Feature: Search
+  In order to see a word definition
+  As a website user
+  I need to be able to search for a word
+  
+  Scenario: Searching for a page that does exist
+    Given I am on "/wiki/Main_Page"
+    When I fill in "search" with "Behavior Driven Development"
+    And I press "searchButton"
+    Then I should see "agile software development"
+    </code></pre>
+      </section>
+      <section>
+        <h2>Step c PageObject</h2>
+        <pre><code class="language-php">/**
+ * @Given /^(?:|I )change my password$/
+ */
+public function iChangeMyPassword()
+{
+    // $page = get page...
+    $page->login('kuba', '123123')
+       ->changePassword('abcabc')
+       ->logout();
+}            
+</code></pre>
+      </section>
+      <section>       
+        <p><img src="images/codeception.png" style="width: 80%"></p>
+        <h2>Codeception</h2>
+        <ul>
+          <li>Тестирования от лица пользователя</li>
+          <li>Высокоуровневый API</li>
+          <li>PageObject/StepObject из коробки</li>
+          <li>Легок в освоении и использовании</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Тест</h2>
+        <pre><code class="language-php">$I = new WebGuy($scenario);
+$I->wantTo('create wiki page');
+$I->amOnPage('/');
+$I->click('Pages');
+$I->click('New', '.nav');
+$I->see('New Page');
+$I->fillField('title', 'Hobbit');
+$I->fillField('body', 'By Peter Jackson');
+$I->click('#save');
+$I->see('page created');
+</code></pre>
+      </section>
+      <section>
+        <h2>Тест с PageObject / StepObject</h2>
+        <pre><code class="language-php">function createPage($title, $body)
+{
+  $this->amOnPage('/pages/new');
+  $this->fillField(NewPage::$titleField, $title);
+  $this->fillField(NewPage::$bodyField, $body);
+  $this->click(NewPage::$saveButton);
+}
+
+$I = new WebGuy($scenario);
+$I->wantTo('create wiki page');
+$I->createPage('Hobbit', 'By Peter Jackson');
+$I->see('page created'); // notice generated            
+
+</code></pre>
+      </section>
+      <section>
+        <h2>Что где используется</h2>
+        <ul>
+          <li>PHPUnit ← PHPUnit_Extensions_Selenium2TestCase</li>
+          <li>Behat ← Mink ← instaclick/php-webdriver ← facebook/php-webdriver (old)</li>
+          <li>Codeception ← facebook/php-webdriver</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Выводы</h2>
+        <ul>
+          <li>facebook/php-webdriver ближе всего к полной поддержке протокола</li>
+          <li>PHPUnit_Extensions_Selenium2TestCase - самый популярный для legacy apps</li>
+          <li>element-34/php-webdriver или instaclick/php-webdriver - активно использовался до появляния второй версии facebook/php-webdriver</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Что использовать</h2>
+        <ul>
+          <li>То что дают</li>
+          <li>То что предоставляет фреймворк</li>
+          <li>Тщательно подходить к выбору фреймворка</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Спасибо за внимание. Боднарчук Михаил @davert</h2>
+        <ul>
+          <li>Сравнение клиентов <a href="https://github.com/DavertMik/WebDriverDemos">github.com/DavertMik/WebDriverDemos          </a></li>
+          <li>PHPUnit Selenium <a href="http://phpunit.de/manual/3.7/en/selenium.html">phpunit.de/manual/3.7/en/selenium.html</a></li>
+          <li>Instaclick <a href="https://github.com/instaclick/php-webdriver">github.com/instaclick/php-webdriver</a></li>
+          <li>Facebook php-webdriver<a href="https://github.com/facebook/php-webdriver">github.com/facebook/php-webdriver</a></li>
+          <li>Behat <a href="behat.org">behat.org</a></li>
+          <li>Codeception <a href="http://codeception.com">codeception.com</a></li>
+          <li>спасибо <b>Сереже Акулинину</b> и <b>Диме Жарию</b> за помощь в подготовке демок</li>
+        </ul>
+      </section>
+    </article>
+    <!-- build:js scripts/scripts.js-->
+    <script src="bower_components/bespoke.js/dist/bespoke.min.js"></script>
+    <script src="bower_components/bespoke-keys/dist/bespoke-keys.min.js"></script>
+    <script src="bower_components/bespoke-touch/dist/bespoke-touch.min.js"></script>
+    <script src="bower_components/bespoke-bullets/dist/bespoke-bullets.min.js"></script>
+    <script src="bower_components/bespoke-scale/dist/bespoke-scale.min.js"></script>
+    <script src="bower_components/bespoke-hash/dist/bespoke-hash.min.js"></script>
+    <script src="bower_components/bespoke-progress/dist/bespoke-progress.min.js"></script>
+    <script src="bower_components/bespoke-state/dist/bespoke-state.min.js"></script>
+    <script src="bower_components/prism/prism.js"></script>
+    <script src="scripts/main.js"></script>
+    <!-- endbuild          -->
+  </body>
+</html>
