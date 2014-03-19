@@ -10,7 +10,7 @@ It took about a month to get to the beta release. This release brings lots of ch
 
 * Upgraded to PHPUnit 4.0
 * Upgraded to facebook/webdriver 0.4
-* **RunFailed** extension added. It can be used to rerun failed tests. Include `Codeception\Platform\RunFailed` extension, use `codecept run -g failed` to rerun failed tests.
+* **RunFailed** extension added. To rerun tests on fail include `Codeception\Platform\RunFailed` extension, and call `codecept run -g failed`.
 * **Logger disabled** by default and moved to Extension. You will need to install Monolog by yourself, and enable `Codeception\Platform\Logger` as extension.
 * Methods `_before`/`_after` of Cest can use `$I` object.
 * Destination for xml/html/reports can be customized. For instance
@@ -42,7 +42,7 @@ The same way you can load bootstrap files into Cests. But we recommend to create
 
 ## Dynamic Groups
 
-One significant internal feature is dynamic groups. You can save test names into file and run them inside a group. That's how the [RunFailed](https://github.com/Codeception/Codeception/blob/master/src/Codeception/Platform/RunFailed.php) extension works: it saves names of failed tests into file `tests/_log/failed` and you need to execute `codecept run -g failed` to rerun failed tests.
+One significant internal feature is dynamic groups. You can save test names into file and run them inside a group. That's how the [RunFailed](https://github.com/Codeception/Codeception/blob/master/src/Codeception/Platform/RunFailed.php) extension works: it saves names of failed tests into file `tests/_log/failed`, then execute `codecept run -g failed` to run these tests.
 
 {% highlight yaml %}
 groups:
