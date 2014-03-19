@@ -10,7 +10,7 @@ It took about a month to get to the beta release. This release brings lots of ch
 
 * Upgraded to PHPUnit 4.0
 * Upgraded to facebook/webdriver 0.4
-* **RunFailed** extension was added. It can be used to rerun failed tests.
+* **RunFailed** extension added. It can be used to rerun failed tests. Include `Codeception\Platform\RunFailed` extension, use `codecept run -g failed` to rerun failed tests.
 * **Logger disabled** by default and moved to Extension. You will need to install Monolog by yourself, and enable `Codeception\Platform\Logger` as extension.
 * Methods `_before`/`_after` of Cest can use `$I` object.
 * Destination for xml/html/reports can be customized. For instance
