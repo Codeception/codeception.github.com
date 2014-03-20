@@ -24,6 +24,7 @@ codecept run -g database --xml database.xml
 
 * `--coverage` + `--xml` or `--html` won't produce xml or html codecoverage output. Use new options `coverage-xml` and `coverage-html` instead. They were added so you could specify custom destination for codecoverage reports as well.
 * you can get current environment in a test by accessing `$this->env` (even in Cept)
+* shortcut functions added: `codecept_debug` to print custom output in debug mode, `codecept_root_dir`, `codecept_log_dir`, `codecept_data_dir` for retrieving Codeception paths. 
 * extensions can change global config before processing.
 
 ## Breaking Changes
