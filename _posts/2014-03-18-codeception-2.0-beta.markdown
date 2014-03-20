@@ -4,7 +4,7 @@ title: "Codeception 2.0 beta"
 date: 2014-03-18 01:03:50
 ---
 
-It took about a month to get to the beta release. This release brings lots of changes even a few BC breaks and clearly shows what Codeception 2.0 is planning to be. Today we will annonce more tehcnical changes, and not conceptual ones. As it was stated previously: Codeception 2.0 will bring lots of small improvements, will be much easier to extend, and understand. Changes for beta release were not planned initially, but were added to help Codeception evolve during the 2.0 branch development. Let's list briefly all major changes and see how to deal with them. [Documentation for 2.0 branch](https://github.com/Codeception/Codeception/tree/master/docs) can be found on GitHub and will be published on RC release. 
+It took about a month to get to the beta release. This release brings lots of changes even a few BC breaks and clearly shows what Codeception 2.0 is planning to be. Today we will announce more technical changes, and not conceptual ones. As it was stated previously: Codeception 2.0 will bring lots of small improvements, will be much easier to extend, and understand. Changes for beta release were not planned initially, but were added to help Codeception evolve during the 2.0 branch development. Let's list briefly all major changes and see how to deal with them. [Documentation for 2.0 branch](https://github.com/Codeception/Codeception/tree/master/docs) can be found on GitHub and will be published on RC release. 
 
 ## Changes
 
