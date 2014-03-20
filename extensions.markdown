@@ -3,7 +3,17 @@ layout: page
 title: Extensions
 ---
 
-# Extensions
+## Additional Modules
+
+#### [MailCatcher](https://github.com/captbaritone/codeception-mailcatcher-module) 
+
+This module will let you test emails that are sent during your Codeception acceptance tests. It depends upon you having MailCatcher installed on your development server. I have it installed as part of my development virtual machine.
+
+#### [Mockery](https://github.com/Codeception/MockeryModule)
+
+Integrates Mockery into Codeception tests.
+
+## Extensions
 
 Codeception extensions are developed by third-party contributors and can enhance test execution flow, by listening to internal events. [Read more about extensions](http://codeception.com/docs/08-Customization#Extension-classes).
 
