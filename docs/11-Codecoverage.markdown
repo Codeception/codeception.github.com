@@ -136,4 +136,5 @@ you the most complete information on which parts of your applications are tested
 
 
 
+* **Next Chapter: [figuration >](/docs/configuration)**
 * **Previous Chapter: [< WebServices](/docs/10-WebServices)**
