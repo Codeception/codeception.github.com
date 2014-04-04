@@ -1,9 +1,21 @@
 ---
 layout: page
-title: Extensions
+title: Addons
 ---
 
-## Additional Modules
+# Addons
+
+## Applications 
+
+#### [WebCeption](https://github.com/jayhealey/Webception)
+
+![WebCeption](https://camo.githubusercontent.com/e39e74ae363de8c250837ed04c54f71935f96194/687474703a2f2f692e696d6775722e636f6d2f6e53734d4649532e676966)
+
+Webception is a deployable web-application that allows you to run all your Codeception tests in the browser.
+
+You can access multiple test suites and decide which tests to include in a run. It allows you start, stop and restart the process whilst watching the test results in the Console.
+
+## Modules
 
 #### [MailCatcher](https://github.com/captbaritone/codeception-mailcatcher-module) 
 
@@ -12,6 +24,13 @@ This module will let you test emails that are sent during your Codeception accep
 #### [Mockery](https://github.com/Codeception/MockeryModule)
 
 Integrates Mockery into Codeception tests.
+
+#### [Remote File Attachment](https://github.com/phmLabs/codeception-module-attachfileremote)
+This module helps to upload files when using webdriver via remote connection.
+
+#### [VisualCeption](https://github.com/DigitalProducts/codeception-module-visualception)
+
+Visual regression tests integrated in Codeception. This module can be used to compare the current representation of a website element with an expeted. It was written on the shoulders of codeception and integrates in a very easy way.
 
 ## Extensions
 
