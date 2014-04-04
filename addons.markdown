@@ -19,7 +19,7 @@ You can access multiple test suites and decide which tests to include in a run. 
 
 #### [MailCatcher](https://github.com/captbaritone/codeception-mailcatcher-module) 
 
-This module will let you test emails that are sent during your Codeception acceptance tests. It depends upon you having MailCatcher installed on your development server. I have it installed as part of my development virtual machine.
+This module will let you test emails that are sent during your Codeception acceptance tests. It depends upon you having MailCatcher installed on your development server.
 
 #### [Mockery](https://github.com/Codeception/MockeryModule)
 
