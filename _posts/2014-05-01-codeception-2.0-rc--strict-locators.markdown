@@ -36,9 +36,11 @@ You can use strict locators in your Page Object classes as well.
 To improve checking element with expected attributes `seeElement` now takes second parameter:
 
 {% highlight php %}
+<?php
 $I->amOnPage('/form/field');
 $I->seeElement('input[name=login]');
 $I->seeElement('input', ['name' => 'login']); // same as above
+?>
 {% endhighlight %}
 
 `dontSeeElement` works in corresponding manner.
@@ -48,9 +50,11 @@ $I->seeElement('input', ['name' => 'login']); // same as above
 To fetch value of attribute of element:
 
 {% highlight php %}
+<?php
 $I->amOnPage('/search');
 $attr = $I->grabAttributeFrom('form', 'method');
 $attr == 'GET'
+?>
 {% endhighlight %}
 
 ---
