@@ -21,7 +21,7 @@ class Robofile
 
  	function publish()
  	{
- 		$this->taskGit()
+ 		$this->taskGitStack()
  			->add('-A')
  			->commit('updated')
  			->pull()
