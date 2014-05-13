@@ -22,7 +22,7 @@ modules:
          url: 'http://localhost'
          auth: ['admin', '123345]
          headers:
-            User-Agent': 'Codeception'
+            'User-Agent': 'Codeception'
             Accept: 'application/json'
          curl:
              CURLOPT_RETURNTRANSFER: true
