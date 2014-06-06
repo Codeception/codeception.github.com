@@ -5,13 +5,7 @@ body {
   background:  url("/images/bg.png") transparent !important;
 }  
 body .navbar.nav-custom {
-  background: #008391;
-background-image: -moz-linear-gradient(top, #008391, #006e7a);
-background-image: -ms-linear-gradient(top, #008391, #006e7a);
-background-image: -o-linear-gradient(top, #008391, #006e7a);
-background-image: -webkit-gradient(linear, center top, center bottom, from(#008391), to(#006e7a));
-background-image: -webkit-linear-gradient(top, #008391, #006e7a);
-background-image: linear-gradient(top, #008391, #006e7a);
+  background: #2980b9;
 }    
 
 body .nav-custom .navbar-nav {

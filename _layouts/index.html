@@ -12,33 +12,30 @@ layout: bootstrap
     <div class="row">
       <div class="col-sm-4 col-lg-4">
         <div class="well">
-          <span class="badge pull-right">WebGuy</span>
           <h4>Acceptance Testing</h4>
           <p>
-            <b>Selenium2</b>, PhpBrowser. Data cleanup. Continuous Integration. Remote CodeCoverage.
+            <b>Selenium WebDriver</b>, PhpBrowser. Data cleanup. Continuous Integration. Remote CodeCoverage.
           </p> 
         </div>
       </div>
       <div class="col-sm-4 col-lg-4">
         <div class="well">
-          <span class="badge pull-right">TestGuy</span>
           <h4>Functional Testing</h4>
           <p>
-            <b>Symfony2</b>, <b>Laravel</b>, <b>Yii</b> Doctrine, Zend Framework, Kohana, Databases, REST,
+            <b>Symfony2</b>, <b>Laravel</b>, <b>Yii</b>, <b>Phalcon</b>, <b>Zend Framework</b>, Kohana, Databases, REST,
             SOAP, CodeCoverage.</p>
           </div>
         </div>
         <div class="col-sm-4 col-lg-4">
           <div class="well">
-           <span class="badge pull-right">CodeGuy</span>
-           <h4>Unit Testing</h4>
+           <h4>API Testing</h4>
            <p>
-            <b>PHPUnit</b> tests, with better stubs, and database interactions. Readable
-            scenario-driven tests. CodeCoverage.
+            <b>REST</b>, <b>SOAP</b>, <b>XML-RPC</b> via PHPBrowser or PHP Frameworks.
           </p>
         </div>
       </div>
-    </div>    
+    </div>
+    <div><em>...and unit testing powered by PHPUnit</em></div>    
   </div>
   <div class="col-sm-3 col-lg-3">
     <div class="well">
@@ -89,15 +86,16 @@ layout: bootstrap
               <ul>
                 <li><strong>Selenium WebDriver</strong> integration</li>
                 <li>Elements matched by <strong>name, CSS, XPath</strong></li>
-                <li><strong>Symfony2, Laravel4, Yii, Zend Framework</strong> integration</li>
+                <li><strong>Symfony2, Laravel4, Yii, Phalcon, Zend Framework</strong> integration</li>
                 <li><strong>PageObjects</strong> and StepObjects included</li>
                 <li><strong>BDD</strong>-style readable tests</li>
                 <li>Powered by <strong>PHPUnit</strong></li>
                 <li>API testing: <strong>REST</strong>,<strong>SOAP</strong>,<strong>XML-RPC</strong></li>
                 <li><strong>Facebook</strong> API testing</li>
-                <li><strong>Data Cleanup</strong> after each run</li>
+                <li><strong>Data Cleanup</strong></li>
                 <li>HTML, XML, TAP, JSON reports</li>
                 <li>CodeCoverage and Remote CodeCoverage</li>
+                <li>Parallel Execution</li>
               </ul>
 
     </div>
@@ -122,22 +120,18 @@ layout: bootstrap
       </p>
       <span class="badge badge-info pull-right">Q</span>
 
-      <h4>No need for this. It looks just like Behat</h4>
-      <p>Hold on! Even though it uses the same style in test descriptions and Mink as a
-        driver, Codeception is completely different. Codeception
-        tests are written in PHP they are written much faster, especially if you
-        use an IDE. You can use
-        <b>variables and operators in your tests</b>. You can use
-        <b>CSS and XPath</b>selectors in your tests. These features allow you to
+      <h4>It looks just like Behat</h4>
+      <p>Unlike Behat, Codeception tests are written in PHP. Thus, they are more flexible and easy in writing. Also you can use
+        <b>variables and operators</b>, <b>CSS and XPath</b> locators in your tests. These features allow you to
         build a solid test automation platform for testing your web application.
-        Codeception tests are very readable for your developers, managers,
+        Codeception tests are simple and readable for your developers, managers,
         and QA team.
       </p>
 
       <span class="badge badge-info pull-right">Q</span>
-      <h4>We are planning to use Selenium. Why Codeception?</h4>
+      <h4>We are planning to use Selenium IDE. Why Codeception?</h4>
       <p>Codeception works great with Selenium. But with Codeception you can write your tests in PHP.
-        The main reason is: <strong>Selenium tests are tightly bound to XPath locators</strong>.
+        The main reason is: <strong>Selenium IDE tests are tightly bound to XPath locators</strong>.
         If you ever change anything in layout tests will fall. Codeception locators
         are more stable. You can use names, labels, button names and CSS to match
         elements on page. It's much easier to support the Codeception test then
@@ -146,16 +140,11 @@ layout: bootstrap
       </p>
 
       <span class="badge badge-info pull-right">Q</span>
-      <h4>Why do all tests starts with 'Guy'?</h4>
-      <p>I'm not sexist in any form, but we call the test worker a Guy. Think
-          of it as an imaginable person that describers his actions in PHP DSL. "I
-          am new guy", he says. "I want to test your application", he says. "I click
-          'Log In', fill fields, and I see 'Hello' in page", he says. In our team
-          we just thought it is more natural to write tests from a person's perspective,
-          than just commands.
+      <h4>Is Codeception a tool for testing legacy projects?</h4>
+      <p>Sure you can use Codeception for black-box testing of your legacy application. 
+      But in the same manner you can start testing modern web application as well. 
+      With modules that integrates with <b>all popular PHP frameworks</b> you can start writing functional tests in seconds. Unit tests? Write them as you do in PHPUnit with some enhancement. Codeception keeps your tests in one place, makes them structured and readable.    
       </p>
-
-
 
     </div>
 
@@ -182,7 +171,7 @@ layout: bootstrap
         <p>
 {% highlight php %}
 <?php
-$I = new WebGuy($scenario);
+$I = new AcceptanceTester($scenario);
 $I->wantTo('create wiki page');
 $I->amOnPage('/');
 $I->click('Pages');
@@ -224,7 +213,7 @@ $I->seeInDatabase('pages', array('title' => 'Hobbit'));
 
 {% highlight php %}
 <?php
-$I = new ApiGuy($scenario);
+$I = new ApiTester($scenario);
 $I->wantTo('create a new user by API');
 $I->amHttpAuthenticated('davert','123456');
 $I->haveHttpHeader('Content-Type','application/x-www-form-urlencoded');
@@ -258,7 +247,7 @@ class UserTest extends \Codeception\TestCase\Test
         $user->setName('davert');
         $this->assertEquals('davert', $user->getName());
         $user->save();
-        $this->codeGuy->seeInDatabase('users', array('name' => 'davert'));
+        $this->tester->seeInDatabase('users', array('name' => 'davert'));
     }
 }
 ?>
@@ -268,7 +257,7 @@ class UserTest extends \Codeception\TestCase\Test
   PHPUnit test format with some useful helpers. 
   In this test we check that value was saved to database with one simple command 'seeInDatabase'.
 </p>
-<a class="btn btn-default" href="/docs/06-UnitTests-TEST"><span class="btn-label">Read more about Unit Tests →</span></a> 
+<a class="btn btn-default" href="/docs/06-UnitTests"><span class="btn-label">Read more about Unit Tests →</span></a> 
 
 <h2>AspectMock</h2>
 
