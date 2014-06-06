@@ -206,5 +206,5 @@ Codeception has two modules that will help you to test various web services. The
 
 
 
-* **Next Chapter: [Codecoverage >](/docs/11-Codecoverage.md)**
-* **Previous Chapter: [< Data](/docs/09-Data.md)**
+* **Next Chapter: [Codecoverage >](/docs/11-Codecoverage)**
+* **Previous Chapter: [< Data](/docs/09-Data)**

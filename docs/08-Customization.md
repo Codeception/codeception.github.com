@@ -309,5 +309,5 @@ Each of feature requires advanced knowledge of PHP. There is no "best practice" 
 
 
 
-* **Next Chapter: [Data >](/docs/09-Data.md)**
-* **Previous Chapter: [< AdvancedUsage](/docs/07-AdvancedUsage.md)**
+* **Next Chapter: [Data >](/docs/09-Data)**
+* **Previous Chapter: [< AdvancedUsage](/docs/07-AdvancedUsage)**

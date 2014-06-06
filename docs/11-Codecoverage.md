@@ -135,5 +135,5 @@ you the most complete information on which parts of your applications are tested
 
 
 
-* **Next Chapter: [ParallelExecution >](/docs/12-ParallelExecution.md)**
-* **Previous Chapter: [< WebServices](/docs/10-WebServices.md)**
+* **Next Chapter: [ParallelExecution >](/docs/12-ParallelExecution)**
+* **Previous Chapter: [< WebServices](/docs/10-WebServices)**

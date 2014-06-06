@@ -266,5 +266,5 @@ If you are using a framework other than the ones listed here, create a module fo
 
 
 
-* **Next Chapter: [UnitTests >](/docs/06-UnitTests.md)**
-* **Previous Chapter: [< AcceptanceTests](/docs/04-AcceptanceTests.md)**
+* **Next Chapter: [UnitTests >](/docs/06-UnitTests)**
+* **Previous Chapter: [< AcceptanceTests](/docs/04-AcceptanceTests)**

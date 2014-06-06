@@ -294,5 +294,5 @@ PHPUnit tests is a first-class citizen in test suites. Whenever you need to writ
 
 
 
-* **Next Chapter: [AdvancedUsage >](/docs/07-AdvancedUsage.md)**
-* **Previous Chapter: [< FunctionalTests](/docs/05-FunctionalTests.md)**
+* **Next Chapter: [AdvancedUsage >](/docs/07-AdvancedUsage)**
+* **Previous Chapter: [< FunctionalTests](/docs/05-FunctionalTests)**
