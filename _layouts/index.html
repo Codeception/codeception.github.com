@@ -247,7 +247,7 @@ class UserTest extends \Codeception\TestCase\Test
         $user->setName('davert');
         $this->assertEquals('davert', $user->getName());
         $user->save();
-        $this->->seeInDatabase('users', array('name' => 'davert'));
+        $this->tester->seeInDatabase('users', array('name' => 'davert'));
     }
 }
 ?>

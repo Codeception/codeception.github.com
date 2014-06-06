@@ -64,7 +64,7 @@ Let's briefly name some important changes added in Codeception 2.0
 
 ### Guides
 
-Guides were reviewed and updated for 2.0 release. Unit Testing guide was completely rewritten, and new chapter Parallel Execution was added. Please note that parallel running tests is advanced feature and will require some time for you for set everything up correctly. But If your tests run longer then 30 minutes, you will get a real benefit of it.
+Guides were reviewed and updated for 2.0 release. [Unit Testing](http://codeception.com/docs/06-UnitTests) guide was completely rewritten, and new chapter [Parallel Execution](http://codeception.com/docs/12-ParallelExecution) was added. Please note that parallel running tests is advanced feature and will require some time for you for set everything up correctly. But If your tests run longer then 30 minutes, you will get a real benefit out of it.
 
 ### The Most Important Bug Fixed
 
