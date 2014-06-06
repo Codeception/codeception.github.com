@@ -79,7 +79,7 @@ yaml
 # suite for unit (internal) tests.
 class_name: UnitTester
 modules:
-    enabled: [UnitHelper]
+    enabled: [UnitHelper, Asserts]
 
 {% endhighlight %}
 
