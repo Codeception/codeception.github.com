@@ -2,7 +2,7 @@
   margin-top: 10px;      
 }
 body {
-  background:  url("/images/bg.png") transparent !important;
+  background:  #ecf0f1; /** url("/images/bg.png") transparent !important; */
 }  
 body .navbar.nav-custom {
   background: #2980b9;
@@ -136,7 +136,7 @@ body b {
 	margin-top: 10px;
 	padding-top: 10px;
 	border-top: 1px solid #807A84;
-	background: #CAC7D6;
+	background: #bdc3c7;
 }
 #copyright {
 	height: 25px;
@@ -145,7 +145,7 @@ body b {
 	font-size: 0.9em;
 	text-align: center;
 	padding-top: 10px;
-	background: #008391;	
+	background: #2980b9;	
 }
 
 body .dropdown-modules {
