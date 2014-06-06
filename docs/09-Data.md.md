@@ -134,3 +134,9 @@ $I->see('Top 10 Testing Frameworks');
 ## Conclusion
 
 Codeception is not abandoning the developer when dealing with data. Tools for database population and cleanups are bundled within the Db module. To manipulate sample data in a test, use fixtures that can be defined within the bootstrap file.
+
+
+
+
+* **Next Chapter: [WebServices.md >](/docs/10-WebServices.md)**
+* **Previous Chapter: [< Customization.md](/docs/08-Customization.md)**
