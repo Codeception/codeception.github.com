@@ -569,5 +569,5 @@ Probably too much features for the one framework. But nevertheless Codeception f
 
 
 
-* **Next Chapter: [Customization.md >](/docs/08-Customization.md)**
-* **Previous Chapter: [< UnitTests.md](/docs/06-UnitTests.md)**
+* **Next Chapter: [Customization >](/docs/08-Customization.md)**
+* **Previous Chapter: [< UnitTests](/docs/06-UnitTests.md)**

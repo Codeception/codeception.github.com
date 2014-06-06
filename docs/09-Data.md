@@ -138,5 +138,5 @@ Codeception is not abandoning the developer when dealing with data. Tools for da
 
 
 
-* **Next Chapter: [WebServices.md >](/docs/10-WebServices.md)**
-* **Previous Chapter: [< Customization.md](/docs/08-Customization.md)**
+* **Next Chapter: [WebServices >](/docs/10-WebServices.md)**
+* **Previous Chapter: [< Customization](/docs/08-Customization.md)**

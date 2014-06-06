@@ -242,5 +242,5 @@ We took a look into the Codeception structure. Most of the things you need were 
 
 
 
-* **Next Chapter: [ModulesAndHelpers.md >](/docs/03-ModulesAndHelpers.md)**
-* **Previous Chapter: [< Introduction.md](/docs/01-Introduction.md)**
+* **Next Chapter: [ModulesAndHelpers >](/docs/03-ModulesAndHelpers.md)**
+* **Previous Chapter: [< Introduction](/docs/01-Introduction.md)**
