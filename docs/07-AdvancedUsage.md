@@ -566,3 +566,8 @@ This way you can easily control what tests will be executed for which browsers.
 Codeception is a framework which may look simple at first sight. But it allows you to build powerful test with one  APIs, refactor them, and write them faster using interactive console. Codeception tests can easily be organized with groups or Cest classes, store locators in PageObjects and combine common steps in StepObjects.
 
 Probably too much features for the one framework. But nevertheless Codeception follows the KISS pricinple: it's easy to start, easy to learn, easy to extend.
+
+
+
+* **Next Chapter: [Customization.md >](/docs/08-Customization.md)**
+* **Previous Chapter: [< UnitTests.md](/docs/06-UnitTests.md)**

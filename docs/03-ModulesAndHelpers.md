@@ -400,3 +400,8 @@ Codeception provides modules to emulate web requests, access data, interact with
 For your application you might need custom actions. These can be defined in helper classes.
 If you have written a module that may be useful to others, share it.
 Fork the Codeception repository, put the module into the __src/Codeception/Module__ directory, and send a pull request
+
+
+
+* **Next Chapter: [AcceptanceTests.md >](/docs/04-AcceptanceTests.md)**
+* **Previous Chapter: [< GettingStarted.md](/docs/02-GettingStarted.md)**

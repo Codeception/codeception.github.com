@@ -346,3 +346,7 @@ To create one command to rule them all we can define new public method `parallel
 ## Conclusion
 
 Codeception does not provide tools for parallel test execution. This is a complex task that can vary depending on a project. We use [Robo](http://robo.li) task runner as an external tool to perform all required steps. To prepare our tests to be executed in parallel we use Codeception features of dynamic groups and environments. To do even more we can create Extensions and Group classes to perform dynamic configuration depending on a test process.
+
+
+
+* **Previous Chapter: [< Codecoverage.md](/docs/11-Codecoverage.md)**

@@ -131,3 +131,9 @@ But in case of running tests on a remote server we are not sure of it.
 It's never been easier to setup local and remote code coverage. Just one config and one additional file to include!
 **With Codeception you can easily generate CodeCoverage reports for your Selenium tests** (or other acceptance or api tests). Mixing reports for `acceptance`, `functional`, and `unit` suites provides
 you the most complete information on which parts of your applications are tested and which are not.
+
+
+
+
+* **Next Chapter: [ParallelExecution.md >](/docs/12-ParallelExecution.md)**
+* **Previous Chapter: [< WebServices.md](/docs/10-WebServices.md)**

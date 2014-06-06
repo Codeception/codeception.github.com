@@ -305,3 +305,9 @@ Now Admin group class will listen to all events of tests that belong to the `adm
 
 Each mentioned feature above may dramaticly help when using Codeception to automate large projects. 
 Each of feature requires advanced knowledge of PHP. There is no "best practice" or "use cases" when we talk about groups, extensions, or other power features of Codeception. If you see you have a problem that can be solved using this extensions, then give them a try. 
+
+
+
+
+* **Next Chapter: [Data.md >](/docs/09-Data.md)**
+* **Previous Chapter: [< AdvancedUsage.md](/docs/07-AdvancedUsage.md)**
