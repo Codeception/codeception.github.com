@@ -79,7 +79,7 @@ title: Quick Start Codeception
         <div>
         {% highlight php %}
 <?php
-$I = new WebGuy($scenario);
+$I = new AcceptanceTester($scenario);
 $I->wantTo('ensure that frontpage works');
 $I->amOnPage('/'); 
 $I->see('Home');
@@ -97,9 +97,9 @@ $I->see('Home');
           <b>dev server</b>is running. &nbsp;Put application URL into:&nbsp;
           <b>tests/acceptance.suite.yml</b>&nbsp;</p>
         <div>
-          <pre>class_name: WebGuy 
+          <pre>class_name: AcceptanceGuy 
 modules: 
-enabled: [PhpBrowser, WebHelper]
+enabled: [PhpBrowser, AcceptanceHelper]
 config: 
   PhpBrowser:
       url: '<b>{YOUR APP'S URL}</b>'
@@ -120,7 +120,7 @@ config:
           <b>PhpBrowser</b>. It's PHP script that can check HTML page contents, click
           links, fill forms, and submit POST and GET requests. For more complex tests
           that require a browser use Selenium with
-          <b>Selenium2</b> module.</p>
+          <b>WebDriver</b> module.</p>
       </div>
 </div>
 </div>
