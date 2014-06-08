@@ -9,8 +9,6 @@ title: Addons
 
 #### [WebCeption](https://github.com/jayhealey/Webception)
 
-![WebCeption](https://camo.githubusercontent.com/e39e74ae363de8c250837ed04c54f71935f96194/687474703a2f2f692e696d6775722e636f6d2f6e53734d4649532e676966)
-
 Webception is a deployable web-application that allows you to run all your Codeception tests in the browser.
 
 You can access multiple test suites and decide which tests to include in a run. It allows you start, stop and restart the process whilst watching the test results in the Console.
@@ -35,6 +33,45 @@ Visual regression tests integrated in Codeception. This module can be used to co
 ## Extensions
 
 Codeception extensions are developed by third-party contributors and can enhance test execution flow, by listening to internal events. [Read more about extensions](http://codeception.com/docs/08-Customization#Extension-classes).
+
+
+### Official Extensions
+
+Official Extensions are installed with Codeception but you should enable them manually. Also they are a good point to learn about developing your own extensions.
+
+#### [Codeception\Platform\Logger](https://github.com/Codeception/Codeception/blob/2.0/src/Codeception/Platform/Logger.php)
+
+Logs suites/tests/steps using Monolog library *(formerly enabled by default)*.
+
+Enable it in `codeception.yml`:
+
+{% highlight yaml %}
+extensions:
+    enabled: [Codeception\Platform\Logger]
+{% endhighlight %}
+
+#### [Codeception\Platform\RunFailed](https://github.com/Codeception/Codeception/blob/2.0/src/Codeception/Platform/RunFailed.php)
+
+Saves failed tests into tests/_output/failed in order to rerun failed tests.
+
+Enable it in `codeception.yml`:
+
+{% highlight yaml %}
+extensions:
+    enabled: [Codeception\Platform\RunFailed]
+{% endhighlight %}
+
+Then you can run failed tests by running `failed` group:
+
+```
+codecept run -g failed
+```
+
+#### [Codeception\Platform\SimpleOutput](https://github.com/Codeception/Codeception/blob/2.0/src/Codeception/Platform/SimpleOutput.php)
+
+Changed output style. If you need to implement your own output format you should use this extension as a starting point.
+
+### 3rd Party Extensions
 
 Extensions should be installed via **Composer**.
 
