@@ -60,6 +60,7 @@ Let's briefly name some important changes added in Codeception 2.0
 * Strict Locators introduced
 * Fail fast option `-f` added to `run` command
 * Coverage options changed behavior in `run` command
+* Bootstrap test are loaded suite, not before each test 
 * Parallel Execution (!!!)
 
 ### Guides
@@ -93,6 +94,7 @@ Codeception 2.0 was publishing pre-releases since February. Lots of developers a
 * *optionally* remove `$scenario->running()` calls and `$I->execute` calls. They are not required anymore. 
 * take a look into PhpBrowser module which is uses Guzzle4 directly. You may have issues with using it (as it was completely rewritten). Please report those issues to GitHub.
 * Selenium2 module should be replaced with WebDriver (as you already didn't do so).
+* if you use variables in `_bootstrap.php`, rename it to `_fixtures.php` and load it manually into your tests.
 
 If you have issues during upgrade send issues to GitHub and we will make upgrade more smoother. 
 
