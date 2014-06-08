@@ -69,7 +69,7 @@ codecept run -g failed
 
 #### [Codeception\Platform\SimpleOutput](https://github.com/Codeception/Codeception/blob/2.0/src/Codeception/Platform/SimpleOutput.php)
 
-Changed output style. If you need to implement your own output format you should use this extension as a starting point.
+Changes output style. If you need to implement your own output format you should use this extension as a starting point.
 
 ### 3rd Party Extensions
 
