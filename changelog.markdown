@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Codeception Releases
+title: Codeception Changelog
 ---
 
 # Changelog
