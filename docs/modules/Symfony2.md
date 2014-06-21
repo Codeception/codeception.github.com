@@ -22,6 +22,7 @@ It implements common Framework interface.
 
 * app_path: 'app' - specify custom path to your app dir, where bootstrap cache and kernel interface is located.
 * environment: 'local' - environment used for load kernel
+* debug: true - switch debug mode
 
 #### Example (`functional.suite.yml`)
 
@@ -31,6 +32,7 @@ It implements common Framework interface.
           Symfony2:
              app_path: 'app/front'
              environment: 'local_test'
+             debug: true
 
 ### Public Properties
 

@@ -418,6 +418,13 @@ $I->seeInField(['name' => 'search'], 'Search');
  * `param`  $value
 
 
+#### dontSeeInPageSource
+ 
+Checks that page source does not contain text.
+
+ * `param`  $text
+
+
 #### dontSeeInTitle
  
 Checks that page title does not contain text.
@@ -542,6 +549,11 @@ $I->fillField(['name' => 'email'], 'jon * `mail.com');`
 
 
 
+#### getVisibleText
+ 
+ * `return`  string
+
+
 
 #### grabAttributeFrom
  
@@ -654,6 +666,7 @@ $I->makeScreenshot('edit_page');
 {% endhighlight %}
 
  * `param`  $name
+
 
 
 
@@ -909,6 +922,20 @@ $I->seeInField(['name' => 'search'], 'Search');
 
  * `param`  $field
  * `param`  $value
+
+
+#### seeInPageSource
+ 
+Checks that page source contains text.
+
+{% highlight php %}
+
+<?php
+$I->seeInPageSource('<link rel="apple-touch-icon"');
+
+{% endhighlight %}
+
+ * `param`  $text
 
 
 #### seeInPopup

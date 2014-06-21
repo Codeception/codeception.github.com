@@ -74,6 +74,13 @@ This module requires PHPBrowser or any of Framework modules enabled.
 
 
 
+#### amBearerAuthenticated
+ 
+Adds Bearer authentication via access token.
+
+ * `param`  $accessToken
+
+
 #### amDigestAuthenticated
  
 s Digest authentication via username/password.

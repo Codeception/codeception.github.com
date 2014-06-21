@@ -120,7 +120,7 @@ Example:
 
 <?php
 // file is stored in 'tests/_data/prices.xls'
-$I->attachFile('input[ * type="file"]', 'prices.xls');
+$I->attachFile('input[ * `type="file"]',`  'prices.xls');
 ?>
 
 {% endhighlight %}
@@ -171,11 +171,11 @@ $I->click('Submit');
 // CSS button
 $I->click('#form input[type=submit]');
 // XPath
-$I->click('//form/*[ * type=submit]'); 
+$I->click('//form/*[ * `type=submit]');` 
 // link in context
 $I->click('Logout', '#nav');
 // using strict locator
-$I->click(['link' => 'Login']);
+$I->click(['link' => 'Login'])'
 ?>
 
 {% endhighlight %}
@@ -319,7 +319,7 @@ $I->dontSeeInField('Body','Type your comment here');
 $I->dontSeeInField('form textarea[name=body]','Type your comment here');
 $I->dontSeeInField('form input[type=hidden]','hidden_value');
 $I->dontSeeInField('#searchform input','Search');
-$I->dontSeeInField('//form/*[ * name=search]','Search');
+$I->dontSeeInField('//form/*[ * `name=search]','Search');` 
 $I->seeInField(['name' => 'search'], 'Search');
 ?>
 
@@ -399,8 +399,8 @@ Example:
 {% highlight php %}
 
 <?php
-$I->fillField("//input[ * type='text']",  "Hello World!");
-$I->fillField(['name' => 'email'], 'jon * mail.com`);
+$I->fillField("//input[ * `type='text']",`  "Hello World!");
+$I->fillField(['name' => 'email'], 'jon * `mail.com');` 
 ?>
 
 {% endhighlight %}
@@ -593,7 +593,7 @@ Example:
 <?php
 $I->seeCheckboxIsChecked('#agree'); // I suppose user agreed to terms
 $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user agreed to terms, If there is only one checkbox in form.
-$I->seeCheckboxIsChecked('//form/input[ * `type=checkbox`  and  * name=agree]');
+$I->seeCheckboxIsChecked('//form/input[ * `type=checkbox`  and  * `name=agree]');` 
 ?>
 
 {% endhighlight %}
@@ -699,7 +699,7 @@ $I->seeInField('Body','Type your comment here');
 $I->seeInField('form textarea[name=body]','Type your comment here');
 $I->seeInField('form input[type=hidden]','hidden_value');
 $I->seeInField('#searchform input','Search');
-$I->seeInField('//form/*[ * name=search]','Search');
+$I->seeInField('//form/*[ * `name=search]','Search');` 
 $I->seeInField(['name' => 'search'], 'Search');
 ?>
 
@@ -803,7 +803,7 @@ Example:
 <?php
 $I->selectOption('form select[name=account]', 'Premium');
 $I->selectOption('form input[name=payment]', 'Monthly');
-$I->selectOption('//form/select[ * name=account]', 'Monthly');
+$I->selectOption('//form/select[ * `name=account]',`  'Monthly');
 ?>
 
 {% endhighlight %}
@@ -869,7 +869,7 @@ You need to perform an ajax request specifying the HTTP method.
 {% highlight php %}
 
 <?php
-$I->sendAjaxRequest('PUT', '/posts/7', array('title' => 'new title');
+$I->sendAjaxRequest('PUT', /posts/7', array('title' => 'new title');
 
 
 {% endhighlight %}
