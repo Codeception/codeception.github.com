@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Codeception 2.0.1 and Releases page"
+title: "Codeception 2.0.1 and Changelog page"
 date: 2014-06-21 01:03:50
 ---
 
@@ -23,7 +23,7 @@ $ php composer.phar update codeception/codeception
 {% endhighlight %}
 
 
-# Releases Page
+# Changelog Page
 
 From now on there will be no blogposts for minor releases. There is new [changelog](/changelog) page which displays changes in latest releases. You should refer to it in order to follow the updates. Important changes, features, bugfixes will be mentioned there.
 
