@@ -399,7 +399,7 @@ class UserLoginPage
         $this->AcceptanceTester = $I;
     }
 
-    public static function create(AcceptanceTester $I)
+    public static function of(AcceptanceTester $I)
     {
         return new static($I);
     }
@@ -426,7 +426,7 @@ And here is an example of how this PageObject can be used in a test.
 
 <?php
 $I = new AcceptanceTester($scenario);
-UserLoginPage::for($I)->login('bill evans', 'debby');
+UserLoginPage::of($I)->login('bill evans', 'debby');
 ?>
 
 {% endhighlight %}
@@ -442,6 +442,17 @@ Lets create a "Member" Steps class, a generator will prompt you for methods to i
 
 {% highlight php %}
  codecept.phar generate:stepobject acceptance Member
+
+{% endhighlight %}
+
+You will be asked to enter action names, but it's optional. Enter once a time, and press Enter. Press empty in a leave empty line to go on to StepObject creation.
+
+{% highlight yaml %}
+
+codecept.phar generate:stepobject acceptance Member
+Add action to StepObject class (ENTER to exit): login
+Add action to StepObject class (ENTER to exit):
+StepObject was created in <you path>\tests\acceptance\/_steps\MemberSteps.php
 
 {% endhighlight %}
 
@@ -607,6 +618,7 @@ This way you can easily control what tests will be executed for which browsers.
 Codeception is a framework which may look simple at first sight. But it allows you to build powerful test with one  APIs, refactor them, and write them faster using interactive console. Codeception tests can easily be organized with groups or Cest classes, store locators in PageObjects and combine common steps in StepObjects.
 
 Probably too much features for the one framework. But nevertheless Codeception follows the KISS pricinple: it's easy to start, easy to learn, easy to extend.
+
 
 
 

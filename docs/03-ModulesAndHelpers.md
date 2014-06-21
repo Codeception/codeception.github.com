@@ -95,7 +95,7 @@ $I->dontSeeUserExist($user);
 
 {% endhighlight %}
 
-You can define asserts by using assertXXX methods in modules. Not all PHPUnit assrt methods are included in modules. But you can use PHPUnit static methods from the `PHPUnit_Framework_Assert` class to leverage all of them.
+You can define asserts by using assertXXX methods in modules. Not all PHPUnit assert methods are included in modules. But you can use PHPUnit static methods from the `PHPUnit_Framework_Assert` class to leverage all of them.
 
 {% highlight php %}
 
@@ -400,6 +400,7 @@ Codeception provides modules to emulate web requests, access data, interact with
 For your application you might need custom actions. These can be defined in helper classes.
 If you have written a module that may be useful to others, share it.
 Fork the Codeception repository, put the module into the __src/Codeception/Module__ directory, and send a pull request
+
 
 
 
