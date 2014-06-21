@@ -25,5 +25,5 @@ $ php composer.phar update codeception/codeception
 
 # Releases Page
 
-From now on there will be no blogposts for minor releases. There is new [releases](/releases) page which displays changelog of latest release. You should refer to it in order to follow the updates. Important changes, features, bugfixes will be mentioned there.
+From now on there will be no blogposts for minor releases. There is new [changelog](/changelog) page which displays changes in latest releases. You should refer to it in order to follow the updates. Important changes, features, bugfixes will be mentioned there.
 
