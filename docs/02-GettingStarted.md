@@ -74,7 +74,7 @@ config:
 
 {% endhighlight %}
 
-After we configured utl we can run this test with `run` command:
+After we configured URL we can run this test with `run` command:
 
 {% highlight yaml %}
  bash

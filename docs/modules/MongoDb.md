@@ -101,8 +101,8 @@ $I->dontSeeInCollection('users', array('name' => 'miles'));
 
 {% endhighlight %}
 
- * `param`  $collection
- * `param`  array $criteria
+ * `param` $collection
+ * `param array` $criteria
 
 
 
@@ -119,9 +119,9 @@ $cursor = $I->grabFromCollection('users', array('name' => 'miles'));
 
 {% endhighlight %}
 
- * `param`  $collection
- * `param`  array $criteria
- * `return`  \MongoCursor
+ * `param` $collection
+ * `param array` $criteria
+@return \MongoCursor
 
 
 
@@ -131,13 +131,13 @@ Inserts data into collection
 
 {% highlight php %}
 
-$I->haveInCollection('users', array('name' => 'John', 'email' => 'john * `coltrane.com'));` 
-$user_id = $I->haveInCollection('users', array('email' => 'john * `coltrane.com'));` 
+$I->haveInCollection('users', array('name' => 'John', 'email' => 'john@coltrane.com'));
+$user_id = $I->haveInCollection('users', array('email' => 'john@coltrane.com'));
 
 {% endhighlight %}
 
- * `param`  $collection
- * `param`  array $data
+ * `param` $collection
+ * `param array` $data
 
 
 
@@ -154,7 +154,7 @@ $I->seeInCollection('users', array('name' => 'miles'));
 
 {% endhighlight %}
 
- * `param`  $collection
- * `param`  array $criteria
+ * `param` $collection
+ * `param array` $criteria
 
 
