@@ -4,7 +4,7 @@ title: "Unit Testing With Database"
 date: 2014-06-28 01:03:50
 ---
 
-He-hey! You just opened this page to say that there is no such thing as unit testing with database. Unit tests are supposed to test isolated pieces, and sure unit tests should not touch the database. And we can agree with that. But it happened that "unit test" term is far more popular then "integration test". Unit test have one very strong requirement. Isolation. Complete isolation from other code units and services. In real world we can spoil our lives trying to achive complete isolation. And even when with pain and sweat we finally got out models isolated from database, we receive a very strange class of tests. They do not provide a valuable feedback. Model test that does not connect to real database is useless, as it provide false positive results, and the code behind may crash connecting to real storage. So what do we want from unit test after all? To be written in complete isolation (what for?), or provide feedback?
+He-hey! You just opened this page to say that there is no such thing as unit testing with database. Unit tests are supposed to test isolated pieces, and sure unit tests should not touch the database. And we can agree with that. But it happened that "unit test" term is far more popular then "integration test". Unit test have one very strong requirement. Isolation. Complete isolation from other code units and services. In real world we can spoil our lives trying to achieve complete isolation. And even when with pain and sweat we finally got out models isolated from database, we receive a very strange class of tests. They do not provide a valuable feedback. Model test that does not connect to real database is useless, as it provide false positive results, and the code behind may crash connecting to real storage. So what do we want from unit test after all? To be written in complete isolation (what for?), or provide feedback?
 
 So let's not to concentrate on terms. Let's concentrate on testing.
 
@@ -97,7 +97,7 @@ may take table name (Laravel) or model name (Phalcon, Yii2).
 
 ## Who is that Tester?
 
-`$this->tester` object used here is instance of [Actor class](http://codeception.com/docs/02-GettingStarted#Actors) and contain all methods of  modules and helpers used in unit suite. It would be a good idea to put any shared code into helpers, and reuse accross test cases by accssing `$this->tester`. This object is injected into any testcase that extends `Codeception\TestCase\Test`. 
+`$this->tester` object used here is instance of [Actor class](http://codeception.com/docs/02-GettingStarted#Actors) and contain all methods of  modules and helpers used in unit suite. It would be a good idea to put any shared code into helpers, and reuse across test cases by accessing `$this->tester`. This object is injected into any testcase that extends `Codeception\TestCase\Test`. 
 
 ## Conclusion
 
