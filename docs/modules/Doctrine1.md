@@ -74,13 +74,13 @@ Example:
 {% highlight php %}
 
 <?php
-$I->dontSeeInTable('User', array('name' => 'Davert', 'email' => 'davert * `mail.com'));` 
+$I->dontSeeInTable('User', array('name' => 'Davert', 'email' => 'davert@mail.com'));
 
 
 {% endhighlight %}
 
- * `param`  $model
- * `param`  array $values
+ * `param` $model
+ * `param array` $values
 
 
 
@@ -101,10 +101,10 @@ $mail = $I->grabFromTable('User', 'email', array('name' => 'Davert'));
 
 {% endhighlight %}
 
- * `param`  $model
- * `param`  $column
- * `param`  array $values
- * `return`  mixed
+ * `param` $model
+ * `param` $column
+ * `param array` $values
+@return mixed
 
 
 
@@ -121,12 +121,12 @@ Example:
 {% highlight php %}
 
 <?php
-$I->seeInTable('User', array('name' => 'Davert', 'email' => 'davert * `mail.com'));` 
+$I->seeInTable('User', array('name' => 'Davert', 'email' => 'davert@mail.com'));
 
 
 {% endhighlight %}
 
- * `param`  $model
- * `param`  array $values
+ * `param` $model
+ * `param array` $values
 
 

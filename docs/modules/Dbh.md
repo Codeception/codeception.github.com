@@ -105,7 +105,7 @@ Example:
 {% highlight php %}
 
 <?php
-$I->dontSeeInDatabase('users', array('name' => 'Davert', 'email' => 'davert * `mail.com'));` 
+$I->dontSeeInDatabase('users', array('name' => 'Davert', 'email' => 'davert@mail.com'));
 
 
 {% endhighlight %}
@@ -113,13 +113,13 @@ Will generate:
 
 {% highlight yaml %}
  sql
-SELECT COUNT(*) FROM `users` WHERE `name` = 'Davert' AND `email` = 'davert * `mail.com'` 
+SELECT COUNT(*) FROM `users` WHERE `name` = 'Davert' AND `email` = 'davert@mail.com'
 
 {% endhighlight %}
 Fails if such user was found.
 
- * `param`        $table
- * `param`  array $criteria
+ * `param`       $table
+ * `param array` $criteria
 
 
 
@@ -140,13 +140,13 @@ $mail = $I->grabFromDatabase('users', 'email', array('name' => 'Davert'));
 
 {% endhighlight %}
 
- * `version`  1.1
+@version 1.1
 
- * `param`        $table
- * `param`        $column
- * `param`  array $criteria
+ * `param`       $table
+ * `param`       $column
+ * `param array` $criteria
 
- * `return`  mixed
+@return mixed
 
 
 
@@ -163,7 +163,7 @@ Example:
 {% highlight php %}
 
 <?php
-$I->seeInDatabase('users', array('name' => 'Davert', 'email' => 'davert * `mail.com'));` 
+$I->seeInDatabase('users', array('name' => 'Davert', 'email' => 'davert@mail.com'));
 
 
 {% endhighlight %}
@@ -171,12 +171,12 @@ Will generate:
 
 {% highlight yaml %}
  sql
-SELECT COUNT(*) FROM `users` WHERE `name` = 'Davert' AND `email` = 'davert * `mail.com'` 
+SELECT COUNT(*) FROM `users` WHERE `name` = 'Davert' AND `email` = 'davert@mail.com'
 
 {% endhighlight %}
 Fails if no such user found.
 
- * `param`        $table
- * `param`  array $criteria
+ * `param`       $table
+ * `param array` $criteria
 
 

@@ -80,8 +80,8 @@ Flushes all Memcached data.
  
 Checks item in Memcached doesn't exist or is the same as expected.
 
- * `param`  $key
- * `param`  bool $value
+ * `param` $key
+ * `param bool` $value
 
 
 
@@ -101,8 +101,8 @@ $users_count = $I->grabValueFromMemcached('users_count');
 
 {% endhighlight %}
 
- * `param`  $key
- * `return`  array|string
+ * `param` $key
+@return array|string
 
 
 
@@ -112,7 +112,7 @@ $users_count = $I->grabValueFromMemcached('users_count');
  
 Checks item in Memcached exists and the same as expected.
 
- * `param`  $key
- * `param`  $value
+ * `param` $key
+ * `param` $value
 
 

@@ -106,8 +106,8 @@ Takes last message from queue.
 
 $message = $I->grabMessageFromQueue('queue.emails');
 
- * `param`  $queue
- * `return`  AMQPMessage
+ * `param` $queue
+@return AMQPMessage
 
 
 
@@ -125,8 +125,8 @@ $I->pushToExchange('exchange.emails', new AMQPMessage('Thanks!'));
 
 {% endhighlight %}
 
- * `param`  $exchange
- * `param`  $message string|AMQPMessage
+ * `param` $exchange
+ * `param` $message string|AMQPMessage
 
 
 #### pushToQueue
@@ -142,8 +142,8 @@ $I->pushToQueue('queue.jobs', new AMQPMessage('create'));
 
 {% endhighlight %}
 
- * `param`  $queue
- * `param`  $message string|AMQPMessage
+ * `param` $queue
+ * `param` $message string|AMQPMessage
 
 
 
@@ -163,7 +163,7 @@ $I->seeMessageInQueueContainsText('queue.emails','davert');
 
 {% endhighlight %}
 
- * `param`  $queue
- * `param`  $text
+ * `param` $queue
+ * `param` $text
 
 

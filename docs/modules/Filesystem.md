@@ -50,7 +50,7 @@ Module was developed to test Codeception itself.
 Enters a directory In local filesystem.
 Project root directory is used by default
 
- * `param`  $path
+ * `param` $path
 
 
 
@@ -81,7 +81,7 @@ $I->cleanDir('logs');
 
 {% endhighlight %}
 
- * `param`  $dirname
+ * `param` $dirname
 
 
 #### copyDir
@@ -96,8 +96,8 @@ $I->copyDir('vendor','old_vendor');
 
 {% endhighlight %}
 
- * `param`  $src
- * `param`  $dst
+ * `param` $src
+ * `param` $dst
 
 
 
@@ -114,7 +114,7 @@ $I->deleteDir('vendor');
 
 {% endhighlight %}
 
- * `param`  $dirname
+ * `param` $dirname
 
 
 #### deleteFile
@@ -129,7 +129,7 @@ $I->deleteFile('composer.lock');
 
 {% endhighlight %}
 
- * `param`  $filename
+ * `param` $filename
 
 
 #### deleteThisFile
@@ -141,8 +141,8 @@ Deletes a file
  
 Checks if file does not exists in path
 
- * `param`  $filename
- * `param`  string $path
+ * `param` $filename
+ * `param string` $path
 
 
 #### dontSeeInThisFile
@@ -158,7 +158,7 @@ $I->dontSeeInThisFile('codeception/codeception');
 
 {% endhighlight %}
 
- * `param`  $text
+ * `param` $text
 
 
 
@@ -181,7 +181,7 @@ $I->seeInThisFile('codeception/codeception');
 
 {% endhighlight %}
 
- * `param`  $filename
+ * `param` $filename
 
 
 
@@ -201,7 +201,7 @@ $I->seeFileContentsEqual('3192');
 
 {% endhighlight %}
 
- * `param`  $text
+ * `param` $text
 
 
 #### seeFileFound
@@ -217,8 +217,8 @@ $I->seeFileFound('UserModel.php','app/models');
 
 {% endhighlight %}
 
- * `param`  $filename
- * `param`  string $path
+ * `param` $filename
+ * `param string` $path
 
 
 #### seeInThisFile
@@ -236,7 +236,7 @@ $I->seeInThisFile('codeception/codeception');
 
 {% endhighlight %}
 
- * `param`  $text
+ * `param` $text
 
 
 
@@ -244,6 +244,6 @@ $I->seeInThisFile('codeception/codeception');
  
 Saves contents to file
 
- * `param`  $filename
- * `param`  $contents
+ * `param` $filename
+ * `param` $contents
 
