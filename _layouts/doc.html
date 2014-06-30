@@ -30,12 +30,11 @@ layout: bootstrap
     <script type="text/javascript">
     $(document).ready(function () {
       $('#toc').toc({
-        'selectors': 'h2,h3,h4',
-        'prefix': 'toc',
-        'container': '#page',
-    'anchorName': function(i, heading, prefix) { //custom function for anchor name
-      return $(heading).text().replace(' ','-');
-    },    
+        selectors: 'h2,h3,h4',
+        container: '#page',
+        anchorName: function (i, heading, prefix) {
+          return $(heading).text().replace(/\s/g, '-').replace(/[^\w-]/g, '');
+        },    
   });
     });
     </script>
