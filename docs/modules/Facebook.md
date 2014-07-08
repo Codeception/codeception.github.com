@@ -45,8 +45,7 @@ To use this module with Composer you need <em>"facebook/php-sdk": "3.*"</em> pac
 
 ####  Test example:
 
-{% highlight php %}
-
+``` php
 <?php
 $I = new ApiGuy($scenario);
 $I->am('Guest');
@@ -58,11 +57,9 @@ $I->amGoingTo('send request to the backend, so that it will publish on user\'s w
 $I->sendPOST('/api/v1/some-api-endpoint');
 $I->seePostOnFacebookWithAttachedPlace('167724369950862');
 
+```
 
-{% endhighlight %}
-
-{% highlight php %}
-
+``` php
 <?php
 $I = new WebGuy($scenario);
 $I->am('Guest');
@@ -75,8 +72,7 @@ $I->see('Welcome, Guest');
 $I->click('Login with Facebook');
 $I->see('Welcome, ' . $fbUserFirstName);
 
-
-{% endhighlight %}
+```
 
 @since 1.6.3
 @author tiger.seo@gmail.com

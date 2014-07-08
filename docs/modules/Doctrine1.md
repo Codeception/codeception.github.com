@@ -71,13 +71,11 @@ Provide Doctrine model name and criteria that can be passed to addWhere DQL
 
 Example:
 
-{% highlight php %}
-
+``` php
 <?php
 $I->dontSeeInTable('User', array('name' => 'Davert', 'email' => 'davert@mail.com'));
 
-
-{% endhighlight %}
+```
 
  * `param` $model
  * `param array` $values
@@ -93,13 +91,11 @@ Provide Doctrine model name, desired field, and criteria that can be passed to a
 
 Example:
 
-{% highlight php %}
-
+``` php
 <?php
 $mail = $I->grabFromTable('User', 'email', array('name' => 'Davert'));
 
-
-{% endhighlight %}
+```
 
  * `param` $model
  * `param` $column
@@ -117,13 +113,11 @@ Provide Doctrine model name can be passed to addWhere DQL
 
 Example:
 
-{% highlight php %}
-
+``` php
 <?php
 $I->seeInTable('User', array('name' => 'Davert', 'email' => 'davert@mail.com'));
 
-
-{% endhighlight %}
+```
 
  * `param` $model
  * `param array` $values
