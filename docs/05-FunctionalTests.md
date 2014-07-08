@@ -267,4 +267,4 @@ If you are using a framework other than the ones listed here, create a module fo
 
 
 * **Next Chapter: [UnitTests >](/docs/06-UnitTests)**
-* **Previous Chapter: [< AcceptanceTests](/docs/04-AcceptanceTests)**<p>&nbsp;</p><div class="alert alert-warning">Docs are incomplete? Outdated? Or you just found a typo? <a href="https://github.com/Codeception/Codeception/tree/2.0/docs">Help us to improve documentation. Edit it on GitHub</a>
+* **Previous Chapter: [< AcceptanceTests](/docs/04-AcceptanceTests)**<p>&nbsp;</p><div class="alert alert-warning">Docs are incomplete? Outdated? Or you just found a typo? <a href="https://github.com/Codeception/Codeception/tree/2.0/docs">Help us to improve documentation. Edit it on GitHub</a></div>

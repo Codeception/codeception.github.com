@@ -405,4 +405,4 @@ Fork the Codeception repository, put the module into the __src/Codeception/Modul
 
 
 * **Next Chapter: [AcceptanceTests >](/docs/04-AcceptanceTests)**
-* **Previous Chapter: [< GettingStarted](/docs/02-GettingStarted)**<p>&nbsp;</p><div class="alert alert-warning">Docs are incomplete? Outdated? Or you just found a typo? <a href="https://github.com/Codeception/Codeception/tree/2.0/docs">Help us to improve documentation. Edit it on GitHub</a>
+* **Previous Chapter: [< GettingStarted](/docs/02-GettingStarted)**<p>&nbsp;</p><div class="alert alert-warning">Docs are incomplete? Outdated? Or you just found a typo? <a href="https://github.com/Codeception/Codeception/tree/2.0/docs">Help us to improve documentation. Edit it on GitHub</a></div>

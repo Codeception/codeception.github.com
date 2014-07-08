@@ -244,4 +244,4 @@ We took a look into the Codeception structure. Most of the things you need were 
 
 
 * **Next Chapter: [ModulesAndHelpers >](/docs/03-ModulesAndHelpers)**
-* **Previous Chapter: [< Introduction](/docs/01-Introduction)**<p>&nbsp;</p><div class="alert alert-warning">Docs are incomplete? Outdated? Or you just found a typo? <a href="https://github.com/Codeception/Codeception/tree/2.0/docs">Help us to improve documentation. Edit it on GitHub</a>
+* **Previous Chapter: [< Introduction](/docs/01-Introduction)**<p>&nbsp;</p><div class="alert alert-warning">Docs are incomplete? Outdated? Or you just found a typo? <a href="https://github.com/Codeception/Codeception/tree/2.0/docs">Help us to improve documentation. Edit it on GitHub</a></div>

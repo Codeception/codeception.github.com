@@ -305,4 +305,4 @@ Each feature mentioned above may dramatically help when using Codeception to aut
 
 
 * **Next Chapter: [Data >](/docs/09-Data)**
-* **Previous Chapter: [< AdvancedUsage](/docs/07-AdvancedUsage)**<p>&nbsp;</p><div class="alert alert-warning">Docs are incomplete? Outdated? Or you just found a typo? <a href="https://github.com/Codeception/Codeception/tree/2.0/docs">Help us to improve documentation. Edit it on GitHub</a>
+* **Previous Chapter: [< AdvancedUsage](/docs/07-AdvancedUsage)**<p>&nbsp;</p><div class="alert alert-warning">Docs are incomplete? Outdated? Or you just found a typo? <a href="https://github.com/Codeception/Codeception/tree/2.0/docs">Help us to improve documentation. Edit it on GitHub</a></div>

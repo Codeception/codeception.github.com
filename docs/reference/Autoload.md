@@ -64,4 +64,4 @@ Shortcut for { * `link`  self::register} for classes with empty namespaces.
  * `param` $path
 
 [See source](https://github.com/Codeception/Codeception/blob/2.0/src/Codeception/Util/Autoload.php#L49)
-<p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/blob/2.0/src/Codeception/Util/Autoload.php">Help us to improve documentation. Edit module reference</a>
+<p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/blob/2.0/src/Codeception/Util/Autoload.php">Help us to improve documentation. Edit module reference</a></div>
