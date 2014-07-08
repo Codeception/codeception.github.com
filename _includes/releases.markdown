@@ -2,7 +2,7 @@
 ## 2.0
 *Requires: PHP 5.4 and higher + CURL*
 
-* [Download Latest `2.0`` Release](http://codeception.com/releases/2.0.2/codecept.phar)
+* [Download Latest `2.0` Release](http://codeception.com/releases/2.0.2/codecept.phar)
 * [2.0.2](http://codeception.com/releases/2.0.2/codecept.phar)
 * [2.0.1](http://codeception.com/releases/2.0.1/codecept.phar)
 * [2.0.0-beta](http://codeception.com/releases/2.0.0-beta/codecept.phar)
@@ -14,7 +14,7 @@
 ## 1.8
 *Requires: PHP 5.3 and higher + CURL*
 
-* [Download Latest `1.8`` Release](http://codeception.com/releases/1.8.7/codecept.phar)
+* [Download Latest `1.8` Release](http://codeception.com/releases/1.8.7/codecept.phar)
 * [1.8.7](http://codeception.com/releases/1.8.7/codecept.phar)
 * [1.8.6](http://codeception.com/releases/1.8.6/codecept.phar)
 * [1.8.5](http://codeception.com/releases/1.8.5/codecept.phar)
@@ -28,7 +28,7 @@
 ## 1.7
 *Requires: PHP 5.3 and higher + CURL*
 
-* [Download Latest `1.7`` Release](http://codeception.com/releases/1.7.4/codecept.phar)
+* [Download Latest `1.7` Release](http://codeception.com/releases/1.7.4/codecept.phar)
 * [1.7.4](http://codeception.com/releases/1.7.4/codecept.phar)
 * [1.7.3](http://codeception.com/releases/1.7.3/codecept.phar)
 * [1.7.2](http://codeception.com/releases/1.7.2/codecept.phar)
@@ -40,7 +40,7 @@
 ## 1.6
 *Requires: PHP 5.3 and higher + CURL*
 
-* [Download Latest `1.6`` Release](http://codeception.com/releases/1.6.9/codecept.phar)
+* [Download Latest `1.6` Release](http://codeception.com/releases/1.6.9/codecept.phar)
 * [1.6.9](http://codeception.com/releases/1.6.9/codecept.phar)
 * [1.6.8.1](http://codeception.com/releases/1.6.8.1/codecept.phar)
 * [1.6.12](http://codeception.com/releases/1.6.12/codecept.phar)
