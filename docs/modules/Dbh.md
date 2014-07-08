@@ -16,13 +16,11 @@ Pass PDO instance to this module from within your bootstrap file.
 
 In _bootstrap.php:
 
-{% highlight php %}
-
+``` php
 <?php
 \Codeception\Module\Dbh::$dbh = $dbh;
 ?>
-
-{% endhighlight %}
+```
 
 This will make all queries in this connection run withing transaction and rolled back afterwards.
 
@@ -102,20 +100,16 @@ Provide table name and column values.
 
 Example:
 
-{% highlight php %}
-
+``` php
 <?php
 $I->dontSeeInDatabase('users', array('name' => 'Davert', 'email' => 'davert@mail.com'));
 
-
-{% endhighlight %}
+```
 Will generate:
 
-{% highlight  %}
-sql
+``` sql
 SELECT COUNT(*) FROM `users` WHERE `name` = 'Davert' AND `email` = 'davert@mail.com'
-
-{% endhighlight %}
+```
 Fails if such user was found.
 
  * `param`       $table
@@ -132,13 +126,11 @@ Provide table name, desired column and criteria.
 
 Example:
 
-{% highlight php %}
-
+``` php
 <?php
 $mail = $I->grabFromDatabase('users', 'email', array('name' => 'Davert'));
 
-
-{% endhighlight %}
+```
 
 @version 1.1
 
@@ -159,20 +151,16 @@ Provide table name and column values.
 
 Example:
 
-{% highlight php %}
-
+``` php
 <?php
 $I->seeInDatabase('users', array('name' => 'Davert', 'email' => 'davert@mail.com'));
 
-
-{% endhighlight %}
+```
 Will generate:
 
-{% highlight  %}
-sql
+``` sql
 SELECT COUNT(*) FROM `users` WHERE `name` = 'Davert' AND `email` = 'davert@mail.com'
-
-{% endhighlight %}
+```
 Fails if no such user found.
 
  * `param`       $table

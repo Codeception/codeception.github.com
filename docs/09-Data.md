@@ -15,8 +15,7 @@ When we decide to clean up a database, we should make this cleaning as fast as p
 
 Codeception has a `Db` module, which takes on most of the tasks of database interaction. By default it will try to repopulate the database from a dump and clean it up after each test. This module expects a database dump in SQL format. It's already prepared for configuration in `codeception.yml`:
 
-{% highlight yaml %}
-
+```yaml
 modules:
     config:
         Db:
@@ -24,8 +23,7 @@ modules:
             user: 'root'
             password:
             dump: tests/_data/your-dump-name.sql
-
-{% endhighlight %}
+```
 
 After you enable this module in your test suite, it will automatically populate the database from a dump and repopulate it on each test run. These settings can be changed through the `populate` and `cleanup` options, which may be set to `false`.
 
@@ -48,15 +46,13 @@ An ORM module can be connected with a `Db` module, but by default both will perf
 
 In `tests/functional.suite.yml`:
 
-{% highlight yaml %}
-
+```yaml
 modules:
 	enabled: [Db, Doctrine2, FunctionalHelper]
 	config:
 		Db:
 			cleanup: false
-
-{% endhighlight %}
+```
 
 Still, the `Db` module will perform database population from a dump before each test. Use `populate: false` to disable it.
 
@@ -67,15 +63,13 @@ A PDO connection can be set in the bootstrap file. This module also overrides th
 
 To use the `Db` module for population and `Dbh` for cleanups, use this config:
 
-{% highlight yaml %}
-
+```yaml
 modules:
 	enabled: [Db, Dbh, FunctionalHelper]
 	config:
 		Db:
 			cleanup: false
-
-{% endhighlight %}
+```
 
 Please, note that `Dbh` module should go after the `Db`. That allows the `Dbh` module to override actions.
 
@@ -87,20 +81,17 @@ Fixtures are sample data that we can use in tests. This data can be either gener
 
 Let's create `fixtures.php` file in `tests/functional` and load data from database to be used in tests.
 
-{% highlight php %}
-
+```php
 <?php
 // let's take user from sample database,
 // we can populate it with Db module
 $john = User::findOneBy('name', 'john');
 ?>
-
-{% endhighlight %}
+```
 
 Fixture usage in a sample acceptance or functional test:
 
-{% highlight php %}
-
+```php
 <?php
 require 'fixtures.php';
 
@@ -108,8 +99,7 @@ $I = new FunctionalTester($scenario);
 $I->amLoggedAs($john);
 $I->see('Welcome, John');
 ?>
-
-{% endhighlight %}
+```
 
 Also you can use the [Faker](https://github.com/fzaninotto/Faker) library to create test data within a bootstrap file.
 
@@ -117,16 +107,14 @@ Also you can use the [Faker](https://github.com/fzaninotto/Faker) library to cre
 
 If you want to create special database record for one test, you can use [`haveInDatabase`](http://codeception.com/docs/modules/Db#haveInDatabase) method of `Db` module.
 
-{% highlight php %}
-
+```php
 <?php 
 $I = new FunctionalTester($scenario);
 $I->haveInDatabase('posts', array('title' => 'Top 10 Testing Frameworks', 'body' => '1. Codeception'));
 $I->amOnPage('/posts');
 $I->see('Top 10 Testing Frameworks');
 ?>
-
-{% endhighlight %}
+```
 
 `haveInDatabase` inserts a row with provided values into database. All added records will be deleted in the end of a test. In `MongoDB` module we have similar [`haveInCollection`](http://codeception.com/docs/modules/MongoDb#haveInCollection) method.
 

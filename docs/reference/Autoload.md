@@ -38,8 +38,7 @@ It is used to autoload classes by namespaces with suffixes.
 
 Example:
 
-{% highlight php %}
-
+``` php
 <?php
 // loads UserHelper in 'helpers/UserHelper.php'
 Autoload::register('app\Codeception\Helper','Helper', __DIR__.'/helpers/');
@@ -47,8 +46,7 @@ Autoload::register('app\Codeception\Helper','Helper', __DIR__.'/helpers/');
 Autoload::register('app\tests','Page', __DIR__.'/pageobjects/');
 Autoload::register('app\tests','Controller', __DIR__.'/controllers/');
 ?>
-
-{% endhighlight %}
+```
 
  * `param` $namespace
  * `param` $suffix

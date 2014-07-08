@@ -17,11 +17,9 @@ Actor classes are not written but generated from suite configuration. When you c
 
 If Actor classes are not created or updated as you expect, try to generate them manually with `build` command:
 
-{% highlight bash %}
-
+```bash
 $ php codecept.phar build
-
-{% endhighlight %}
+```
 
 
 ## Writing a Sample Scenario
@@ -32,26 +30,21 @@ Let's say, we created a file `tests/acceptance/SigninCept.php`
 
 We can do that by running command:
 
-{% highlight bash %}
-
+```bash
 $ php codecept.phar generate:cept acceptance Signin
+```
 
-{% endhighlight %}
-
-{% highlight php %}
-
+```php
 <?php
 $I = new AcceptanceTester($scenario);
 ?>
-
-{% endhighlight %}
+```
 
 A Scenario always starts with Actor class initialization. After that, writing a scenario is just like typing `$I->` and choosing a proper action from the auto-completion list.
 
 Let's sign in to our site. We assume that we have a 'login' page where we are getting authenticated by login and password. Then we are moved to a user page, where we see the text `Hello, %username%`. Let's look at how this scenario is written in Codeception.
 
-{% highlight php %}
-
+```php
 <?php
 $I = new AcceptanceTester($scenario);
 $I->wantTo('log in as regular user');
@@ -61,31 +54,25 @@ $I->fillField('Password','qwerty');
 $I->click('Login');
 $I->see('Hello, davert');
 ?>
-
-{% endhighlight %}
+```
 
 Before we execute this test, we should make sure that the site is running on a local web server. Let's open the `tests/acceptance.suite.yml` file and replace the URL with the URL of your web application:
 
-{% highlight yaml %}
-
+``` yaml
 config:
     PhpBrowser:
         url: 'http://myappurl.local'
-
-{% endhighlight %}
+```
 
 After we configured URL we can run this test with `run` command:
 
-{% highlight bash %}
-
+``` bash
 $ php codecept.phar run
-
-{% endhighlight %}
+```
 
 Here is the output we should see: 
 
-{% highlight bash %}
-
+``` bash
 Acceptance Tests (1) -------------------------------
 Trying log in as regular user (SigninCept.php)   Ok
 ----------------------------------------------------
@@ -99,21 +86,17 @@ Unit Tests (0) -------------------------------------
 Time: 1 second, Memory: 21.00Mb
 
 OK (1 test, 1 assertions)
-
-{% endhighlight %}
+```
 
 Let's get a detailed output:
 
-{% highlight bash %}
-
+```bash
 $ php codecept.phar run acceptance --steps
-
-{% endhighlight %}
+```
 
 We should see a step-by-step report on the performed actions.
 
-{% highlight bash %}
-
+```bash
 Acceptance Tests (1) -------------------------------
 Trying to log in as regular user (SigninCept.php)
 Scenario:
@@ -128,8 +111,7 @@ Scenario:
 Time: 0 seconds, Memory: 21.00Mb
 
 OK (1 test, 1 assertions)
-
-{% endhighlight %}
+```
 
 That was a very simple test that you can reproduce for your own site.
 By emulating the user's actions you can test all of your site the same way.
@@ -157,43 +139,33 @@ Codeception has a global configuration in `codeception.yml` and a config for eac
 
 Tests can be started with the `run` command.
 
-{% highlight bash %}
-
+```bash
 $ php codecept.phar run
-
-{% endhighlight %}
+```
 
 With the first argument you can run tests from one suite.
 
-{% highlight bash %}
-
+```bash
 $ php codecept.phar run acceptance
-
-{% endhighlight %}
+```
 
 To run exactly one test, add a second argument. Provide a local path to the test, from the suite directory.
 
-{% highlight bash %}
-
+```bash
 $ php codecept.phar run acceptance SigninCept.php
-
-{% endhighlight %}
+```
 
 Alternatively you can provide full path to test file:
 
-{% highlight bash %}
-
+```bash
 $ php codecept.phar run tests/acceptance/SigninCept.php
-
-{% endhighlight %}
+```
 
 You can provide a directory path as well:
 
-{% highlight bash %}
-
+```bash
 $ php codecept.phar run tests/acceptance/backend
-
-{% endhighlight %}
+```
 
 Which will execute all tests from backend dir.
 
@@ -203,21 +175,17 @@ To execute a group of tests that are not stored in the same dir you can organize
 
 To generate JUnit XML output you can provide `--xml` option, and `--html` for HTML report. 
 
-{% highlight bash %}
-
+```bash
 $ php codecept.phar run --steps --xml --html
-
-{% endhighlight %}
+```
 
 This command will run all tests for all suites, displaying the steps, and building HTML and XML reports. Reports will be store in `tests/_output/` directory.
 
 And to learn all available options:
 
-{% highlight bash %}
-
+```bash
 $ php codecept.phar help run
-
-{% endhighlight %}
+```
 
 ## Debugging
 

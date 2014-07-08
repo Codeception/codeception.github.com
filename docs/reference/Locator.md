@@ -17,27 +17,23 @@ Please check them before writing complex functional or acceptance tests.
 Applies OR operator to any number of CSS or XPath selectors.
 You can mix up CSS and XPath selectors here.
 
-{% highlight php %}
-
+```php
 <?php
 use \Codeception\Util\Locator;
 
 $I->see('Title', Locator::combine('h1','h2','h3'));
 ?>
-
-{% endhighlight %}
+```
 
 This will search for `Title` text in either `h1`, `h2`, or `h3` tag. You can also combine CSS selector with XPath locator:
 
-{% highlight php %}
-
+```php
 <?php
 use \Codeception\Util\Locator;
 
 $I->fillField(Locator::combine('form input[type=text]','//form/textarea[2]'), 'qwerty');
 ?>
-
-{% endhighlight %}
+```
 
 As a result the Locator will produce a mixed XPath value that will be used in fillField action.
 
@@ -66,15 +62,13 @@ Finds element by it's attribute(s)
 
 Matches the *a* element with given URL
 
-{% highlight php %}
-
+```php
 <?php
 use \Codeception\Util\Locator;
 
 $I->see('Log In', Locator::href('/login.php'));
 ?>
-
-{% endhighlight %}
+```
 
  * `static` 
  * `param` $url
@@ -121,8 +115,7 @@ Matches the element with given tab index
 
 Do you often use the `TAB` key to navigate through the web page? How do your site respond to this navigation?
 You could try to match elements by their tab position using `tabIndex` method of `Locator` class.
-{% highlight php %}
-
+```php
 <?php
 use \Codeception\Util\Locator;
 
@@ -130,8 +123,7 @@ $I->fillField(Locator::tabIndex(1), 'davert');
 $I->fillField(Locator::tabIndex(2) , 'qwerty');
 $I->click('Login');
 ?>
-
-{% endhighlight %}
+```
 
  * `static` 
  * `param` $index

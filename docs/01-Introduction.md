@@ -27,8 +27,7 @@ Please, note that **any web site** can be covered with acceptance tests. Even if
 
 #### Sample acceptance test
 
-{% highlight php %}
-
+```php
 <?php
 $I = new AcceptanceTester($scenario);
 $I->amOnPage('/');
@@ -36,8 +35,7 @@ $I->click('Sign Up');
 $I->submitForm('#signup', array('username' => 'MilesDavis', 'email' => 'miles@davis.com'));
 $I->see('Thank you for Signing Up!');
 ?>
-
-{% endhighlight %}
+```
 
 #### Pros
 
@@ -63,8 +61,7 @@ For functional tests your application should be prepared to be run in a test env
 
 #### Sample functional test
 
-{% highlight php %}
-
+```php
 <?php
 $I = new FunctionalTester($scenario);
 $I->amOnPage('/');
@@ -74,8 +71,7 @@ $I->see('Thank you for Signing Up!');
 $I->seeEmailSent('miles@davis.com', 'Thank you for registration');
 $I->seeInDatabase('users', array('email' => 'miles@davis.com'));
 ?>
-
-{% endhighlight %}
+```
 
 #### Pros
 
@@ -100,8 +96,7 @@ But Codeception provides some good tools to make your unit tests simpler and cle
 
 #### Sample integration test
 
-{% highlight php %}
-
+```php
 <?php
 function testSavingUser()
 {
@@ -113,8 +108,7 @@ function testSavingUser()
     $this->unitTester->seeInDatabase('users',array('name' => 'Miles', 'surname' => 'Davis'));
 }
 ?>
-
-{% endhighlight %}
+```
 
 #### Pros
 

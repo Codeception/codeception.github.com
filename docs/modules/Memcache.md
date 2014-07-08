@@ -93,13 +93,11 @@ Grabs value from memcached by key
 
 Example:
 
-{% highlight php %}
-
+``` php
 <?php
 $users_count = $I->grabValueFromMemcached('users_count');
 ?>
-
-{% endhighlight %}
+```
 
  * `param` $key
 @return array|string

@@ -15,15 +15,13 @@ time.
 
 If the number of invocations is 0 it will throw an exception in verify.
 
-{% highlight php %}
-
+``` php
 <?php
 $user = Stub::make('User', array('getName' => Stub::atLeastOnce(function() { return 'Davert';}), 'someMethod' => function() {}));
 $user->getName();
 $user->getName();
 ?>
-
-{% endhighlight %}
+```
 
  * `param mixed` $params
 
@@ -40,35 +38,29 @@ Parameters for constructor passed as second argument
 Properties and methods can be set in third argument.
 Even protected and private properties can be set.
 
-{% highlight php %}
-
+``` php
 <?php
 Stub::construct('User', array('autosave' => false));
 Stub::construct('User', array('autosave' => false), array('name' => 'davert));
 ?>
-
-{% endhighlight %}
+```
 
 Accepts either name of class or object of that class
 
-{% highlight php %}
-
+``` php
 <?php
 Stub::construct(new User, array('autosave' => false), array('name' => 'davert));
 ?>
-
-{% endhighlight %}
+```
 
 To replace method provide it's name as a key in second parameter and it's return value or callback function as parameter
 
-{% highlight php %}
-
+``` php
 <?php
 Stub::construct('User', array(), array('save' => function () { return true; }));
 Stub::construct('User', array(), array('save' => true }));
 ?>
-
-{% endhighlight %}
+```
 
  * `param`                                  $class
  * `param array`                            $constructorParams
@@ -86,35 +78,29 @@ Parameters for constructor passed as second argument
 Properties and methods can be set in third argument.
 Even protected and private properties can be set.
 
-{% highlight php %}
-
+``` php
 <?php
 Stub::constructEmpty('User', array('autosave' => false));
 Stub::constructEmpty('User', array('autosave' => false), array('name' => 'davert));
 ?>
-
-{% endhighlight %}
+```
 
 Accepts either name of class or object of that class
 
-{% highlight php %}
-
+``` php
 <?php
 Stub::constructEmpty(new User, array('autosave' => false), array('name' => 'davert));
 ?>
-
-{% endhighlight %}
+```
 
 To replace method provide it's name as a key in second parameter and it's return value or callback function as parameter
 
-{% highlight php %}
-
+``` php
 <?php
 Stub::constructEmpty('User', array(), array('save' => function () { return true; }));
 Stub::constructEmpty('User', array(), array('save' => true }));
 ?>
-
-{% endhighlight %}
+```
 
  * `param`                                  $class
  * `param array`                            $constructorParams
@@ -132,35 +118,29 @@ Parameters for constructor passed as second argument
 Properties and methods can be set in third argument.
 Even protected and private properties can be set.
 
-{% highlight php %}
-
+``` php
 <?php
 Stub::constructEmptyExcept('User', 'save');
 Stub::constructEmptyExcept('User', 'save', array('autosave' => false), array('name' => 'davert));
 ?>
-
-{% endhighlight %}
+```
 
 Accepts either name of class or object of that class
 
-{% highlight php %}
-
+``` php
 <?php
 Stub::constructEmptyExcept(new User, 'save', array('autosave' => false), array('name' => 'davert));
 ?>
-
-{% endhighlight %}
+```
 
 To replace method provide it's name as a key in second parameter and it's return value or callback function as parameter
 
-{% highlight php %}
-
+``` php
 <?php
 Stub::constructEmptyExcept('User', 'save', array(), array('save' => function () { return true; }));
 Stub::constructEmptyExcept('User', 'save', array(), array('save' => true }));
 ?>
-
-{% endhighlight %}
+```
 
  * `param`                                 $class
  * `param`                                 $method
@@ -193,16 +173,14 @@ exception,
 If the number is less it will later be checked in verify() and also throw an
 exception.
 
-{% highlight php %}
-
+``` php
 <?php
 $user = Stub::make('User', array('getName' => Stub::exactly(3, function() { return 'Davert';}), 'someMethod' => function() {}));
 $user->getName();
 $user->getName();
 $user->getName();
 ?>
-
-{% endhighlight %}
+```
 
  * `param int`   $count
  * `param mixed` $params
@@ -234,35 +212,29 @@ Instantiates a class without executing a constructor.
 Properties and methods can be set as a second parameter.
 Even protected and private properties can be set.
 
-{% highlight php %}
-
+``` php
 <?php
 Stub::make('User');
 Stub::make('User', array('name' => 'davert));
 ?>
-
-{% endhighlight %}
+```
 
 Accepts either name of class or object of that class
 
-{% highlight php %}
-
+``` php
 <?php
 Stub::make(new User, array('name' => 'davert));
 ?>
-
-{% endhighlight %}
+```
 
 To replace method provide it's name as a key in second parameter and it's return value or callback function as parameter
 
-{% highlight php %}
-
+``` php
 <?php
 Stub::make('User', array('save' => function () { return true; }));
 Stub::make('User', array('save' => true }));
 ?>
-
-{% endhighlight %}
+```
 
  * `param`                                  $class - A class to be mocked
  * `param array`                            $params - properties and methods to set
@@ -280,35 +252,29 @@ Constructor is not triggered.
 Properties and methods can be set as a second parameter.
 Even protected and private properties can be set.
 
-{% highlight php %}
-
+``` php
 <?php
 Stub::makeEmpty('User');
 Stub::makeEmpty('User', array('name' => 'davert));
 ?>
-
-{% endhighlight %}
+```
 
 Accepts either name of class or object of that class
 
-{% highlight php %}
-
+``` php
 <?php
 Stub::makeEmpty(new User, array('name' => 'davert));
 ?>
-
-{% endhighlight %}
+```
 
 To replace method provide it's name as a key in second parameter and it's return value or callback function as parameter
 
-{% highlight php %}
-
+``` php
 <?php
 Stub::makeEmpty('User', array('save' => function () { return true; }));
 Stub::makeEmpty('User', array('save' => true }));
 ?>
-
-{% endhighlight %}
+```
 
  * `param`                                 $class
  * `param array`                           $params
@@ -325,35 +291,29 @@ Constructor is not triggered.
 Properties and methods can be replaced.
 Even protected and private properties can be set.
 
-{% highlight php %}
-
+``` php
 <?php
 Stub::makeEmptyExcept('User', 'save');
 Stub::makeEmptyExcept('User', 'save', array('name' => 'davert'));
 ?>
-
-{% endhighlight %}
+```
 
 Accepts either name of class or object of that class
 
-{% highlight php %}
-
+``` php
 <?php
 * Stub::makeEmptyExcept(new User, 'save');
 ?>
-
-{% endhighlight %}
+```
 
 To replace method provide it's name as a key in second parameter and it's return value or callback function as parameter
 
-{% highlight php %}
-
+``` php
 <?php
 Stub::makeEmptyExcept('User', 'save', array('isValid' => function () { return true; }));
 Stub::makeEmptyExcept('User', 'save', array('isValid' => true }));
 ?>
-
-{% endhighlight %}
+```
 
  * `param`                                  $class
  * `param`                                  $method
@@ -371,14 +331,12 @@ Checks if a method never has been invoked
 If method invoked, it will immediately throw an
 exception.
 
-{% highlight php %}
-
+``` php
 <?php
 $user = Stub::make('User', array('getName' => Stub::never(), 'someMethod' => function() {}));
 $user->someMethod();
 ?>
-
-{% endhighlight %}
+```
 
  * `param mixed` $params
 
@@ -394,15 +352,13 @@ time.
 If the number is less or greater it will later be checked in verify() and also throw an
 exception.
 
-{% highlight php %}
-
+``` php
 <?php
 $user = Stub::make('User', array('getName' => Stub::once(function() { return 'Davert';}), 'someMethod' => function() {}));
 $userName = $user->getName();
 $this->assertEquals('Davert', $userName);
 ?>
-
-{% endhighlight %}
+```
 
  * `param mixed` $params
 

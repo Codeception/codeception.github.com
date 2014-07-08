@@ -87,13 +87,11 @@ If you use PHP SoapServer with framework, try to block call to this method in te
  
 Checks XML response doesn't contain XPath locator
 
-{% highlight php %}
-
+``` php
 <?php
 $I->dontSeeSoapResponseContainsXPath('//root/user[@id=1]');
 ?>
-
-{% endhighlight %}
+```
 
  * `param` $xpath
 
@@ -150,17 +148,14 @@ Receives header name and parameters as array.
 
 Example:
 
-{% highlight php %}
-
+``` php
 <?php
 $I->haveSoapHeader('AuthHeader', array('username' => 'davert', 'password' => '123345'));
-
-{% endhighlight %}
+```
 
 Will produce header:
 
-{% highlight yaml %}
-
+```
    <soapenv:Header>
      <SessionHeader>
      <AuthHeader>
@@ -168,8 +163,7 @@ Will produce header:
          <password>12345</password>
      </AuthHeader>
   </soapenv:Header>
-
-{% endhighlight %}
+```
 
  * `param` $header
  * `param array` $params
@@ -196,15 +190,13 @@ Only nodeNames are checked to see elements match.
 
 Example:
 
-{% highlight php %}
-
+``` php
 <?php
 
 $I->seeResponseContains("<user><query>CreateUser<name>Davert</davert></user>");
 $I->seeSoapResponseContainsStructure("<query><name></name></query>");
 ?>
-
-{% endhighlight %}
+```
 
 Use this method to check XML of valid structure is returned.
 This method does not use schema for validation.
@@ -217,13 +209,11 @@ This method does not require path from root to match the structure.
  
 Checks XML response with XPath locator
 
-{% highlight php %}
-
+``` php
 <?php
 $I->seeSoapResponseContainsXPath('//root/user[@id=1]');
 ?>
-
-{% endhighlight %}
+```
 
  * `param` $xpath
 
@@ -237,8 +227,7 @@ Parameters can be passed either as DOMDocument, DOMNode, XML string, or array (i
 
 Example:
 
-{% highlight php %}
-
+``` php
 <?php
 $I->seeSoapResponseEquals("<?xml version="1.0" encoding="UTF-8"?><SOAP-ENV:Envelope><SOAP-ENV:Body><result>1</result></SOAP-ENV:Envelope>");
 
@@ -246,8 +235,7 @@ $dom = new \DOMDocument();
 $dom->load($file);
 $I->seeSoapRequestIncludes($dom);
 
-
-{% endhighlight %}
+```
 
  * `param` $xml
 
@@ -260,8 +248,7 @@ Parameter can be passed either as XmlBuilder, DOMDocument, DOMNode, XML string, 
 
 Example:
 
-{% highlight php %}
-
+``` php
 <?php
 $I->seeSoapResponseIncludes("<result>1</result>");
 $I->seeSoapRequestIncludes(\Codeception\Utils\Soap::response()->result->val(1));
@@ -270,8 +257,7 @@ $dom = new \DDOMDocument();
 $dom->load('template.xml');
 $I->seeSoapRequestIncludes($dom);
 ?>
-
-{% endhighlight %}
+```
 
  * `param` $xml
 
@@ -287,14 +273,12 @@ You are allowed to execute as much requests as you need inside test.
 
 Example:
 
-{% highlight php %}
-
+``` php
 $I->sendRequest('UpdateUser', '<user><id>1</id><name>notdavert</name></user>');
 $I->sendRequest('UpdateUser', \Codeception\Utils\Soap::request()->user
   ->id->val(1)->parent()
   ->name->val('notdavert');
-
-{% endhighlight %}
+```
 
  * `param` $request
  * `param` $body
