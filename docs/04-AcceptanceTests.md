@@ -8,7 +8,7 @@ title: Acceptance Testing - Codeception - Documentation
 Acceptance testing can be performed by a non-technical person. That person can be your tester, manager or even client.
 If you are developing a web-application (and probably you are) the tester needs nothing more than a web browser to check that your site works correctly. You can reproduce a AcceptanceTester's actions in scenarios and run them automatically after each site change. Codeception keeps tests clean and simple, like if they were recorded from the words of AcceptanceTester.
 
-It makes no difference what CMS or Framework is used on the site. You can even test sites created on different platforms, like Java, .NET, etc. It's always a good idea to add tests to your web site. At least you will be sure that site features work after the last changes were made. 
+It makes no difference what CMS or Framework is used on the site. You can even test sites created on different platforms, like Java, .NET, etc. It's always a good idea to add tests to your web site. At least you will be sure that site features work after the last changes were made.
 
 ## Sample Scenario
 
@@ -21,7 +21,7 @@ $I = new AcceptanceTester($scenario);
 $I->wantTo('sign in');
 $I->amOnPage('/login');
 $I->fillField('username', 'davert');
-$I->fillField('password','qwerty');
+$I->fillField('password', 'qwerty');
 $I->click('LOGIN');
 $I->see('Welcome, Davert!');
 ?>
@@ -30,7 +30,7 @@ $I->see('Welcome, Davert!');
 
 This scenario can probably be read by non-technical people. Codeception can even 'naturalize' this scenario, converting it into plain English:
 
-{% highlight yaml %}
+{% highlight bash %}
 
 I WANT TO SIGN IN
 I am on page '/login'
@@ -41,21 +41,21 @@ I see 'Welcome, Davert!'
 
 {% endhighlight %}
 
-Such transformations can be done by command: 
+Such transformations can be done by command:
 
-{% highlight yaml %}
- bash
+{% highlight bash %}
+
 $ php codecept.phar generate:scenarios
 
 {% endhighlight %}
 
 Generated scenarios will be stored in your ___data__ directory in text files.
 
-**This scenario can be performed either by a simple PHP browser or by a browser with Selenium WebDriver**. We will start writing our first acceptance tests with a PHPBrowser. 
+**This scenario can be performed either by a simple PHP Browser or by a browser with Selenium WebDriver**. We will start writing our first acceptance tests with a PhpBrowser.
 
 ## PHP Browser
 
-This is the fastest way to run acceptance tests, since it doesn't require running an actual browser. We use a PHP web scrapper, which acts like a browser: it sends a request, then receives and parses the response. Codeception uses [Guzzle](http://guzzlephp.org) and Symfony BrowserKit to interact with HTML web pages. Please note that you can't test actual visibility of elements, or javascript interactions. Good thing about PhpBrowser is that it can be run in any environment with just PHP and CURL required.
+This is the fastest way to run acceptance tests, since it doesn't require running an actual browser. We use a PHP web scrapper, which acts like a browser: it sends a request, then receives and parses the response. Codeception uses [Guzzle](http://guzzlephp.org) and Symfony BrowserKit to interact with HTML web pages. Please note that you can't test actual visibility of elements, or javascript interactions. Good thing about PhpBrowser is that it can be run in any environment with just PHP and cURL required.
 
 Common PhpBrowser drawbacks:
 
@@ -63,10 +63,10 @@ Common PhpBrowser drawbacks:
 * you can't fill fields that are not inside a form
 * you can't work with JavaScript interactions: modal windows, datepickers, etc.
 
-Before we start we need a local copy of the site running on your host. We need to specify the url parameter in the acceptance suite config (tests/acceptance.suite.yml).
+Before we start we need a local copy of the site running on your host. We need to specify the `url` parameter in the acceptance suite config (tests/acceptance.suite.yml).
 
 {% highlight yaml %}
- yaml
+
 class_name: AcceptanceTester
 modules:
     enabled:
@@ -92,8 +92,8 @@ $I->wantTo('sign in with valid account');
 
 The `wantTo` section describes your scenario in brief. There are additional comment methods that are useful to make a Codeception scenario a BDD Story. If you have ever written a BDD scenario in Gherkin, you can write a classic feature story:
 
-{% highlight yaml %}
-bash
+{% highlight bash %}
+
 As an Account Holder
 I want to withdraw cash from an ATM
 So that I can get money when the bank is closed
@@ -113,9 +113,9 @@ $I->lookForwardTo('get money when the bank is closed');
 
 {% endhighlight %}
 
-After we have described the story background, let's start writing a scenario. 
+After we have described the story background, let's start writing a scenario.
 
-The `$I` object is used to write all interactions. The methods of the `$I` object are taken from the `PHPBrowser` and `Db` modules. We will briefly describe them here: 
+The `$I` object is used to write all interactions. The methods of the `$I` object are taken from the `PhpBrowser` and `Db` modules. We will briefly describe them here:
 
 {% highlight php %}
 
@@ -125,7 +125,7 @@ $I->amOnPage('/login');
 
 {% endhighlight %}
 
-We assume that all `am` commands should describe the starting environment. The `amOnPage` command sets the starting point of a test on the __/login__ page.
+We assume that all `am` commands should describe the starting environment. The `amOnPage` command sets the starting point of a test to the __/login__ page.
 
 With the `PhpBrowser` you can click the links and fill the forms. That will probably be the majority of your actions.
 
@@ -250,7 +250,7 @@ Consider using these methods for ajax interactions.
 
 <?php
 $I->sendAjaxGetRequest('/refresh');
-$I->sendAjaxPostRequest('/update',array('name' => 'Miles', 'email' => 'Davis'));
+$I->sendAjaxPostRequest('/update', array('name' => 'Miles', 'email' => 'Davis'));
 ?>
 
 {% endhighlight %}
@@ -268,9 +268,9 @@ The most useful command for this is `see`.
 $I->see('Thank you, Miles');
 // We check that 'Thank you Miles' is inside 
 // the element with 'notice' class.
-$I->see('Thank you, Miles','.notice');
+$I->see('Thank you, Miles', '.notice');
 // Or using XPath locators
-$I->see('Thank you, Miles',"descendant-or-self::*[contains(concat(' ', normalize-space(@class), ' '), ' notice ')]");
+$I->see('Thank you, Miles', "descendant-or-self::*[contains(concat(' ', normalize-space(@class), ' '), ' notice ')]");
 // We check this message is not on page.
 $I->dontSee('Form is filled incorrectly');
 ?>
@@ -295,7 +295,7 @@ We also have other useful commands to perform checks. Please note that they all 
 <?php
 $I->seeInCurrentUrl('/user/miles');
 $I->seeCheckboxIsChecked('#agree');
-$I->seeInField('user[name]','Miles');
+$I->seeInField('user[name]', 'Miles');
 $I->seeLink('Login');
 ?>
 
@@ -310,7 +310,7 @@ Sometimes you don't want the test to be stopped when an assertion fails. Maybe y
 <?php
 $I->canSeeInCurrentUrl('/user/miles');
 $I->canSeeCheckboxIsChecked('#agree');
-$I->cantSeeInField('user[name]','Miles');
+$I->cantSeeInField('user[name]', 'Miles');
 ?>
 
 {% endhighlight %}
@@ -319,16 +319,16 @@ Each failed assertion will be shown in test results. Still, a failed assertion w
 
 #### Grabbers
 
-These commands retrieves data that can be used in test. Imagine, your site generates a password for every user and you want to check the user can log into the site using this password.
+These commands retrieve data that can be used in test. Imagine, your site generates a password for every user and you want to check the user can log into the site using this password.
 
 {% highlight php %}
 
 <?php
-$I->fillField('email','miles@davis.com')
+$I->fillField('email', 'miles@davis.com')
 $I->click('Generate Password');
 $password = $I->grabTextFrom('#password');
 $I->click('Login');
-$I->fillField('email','miles@davis.com');
+$I->fillField('email', 'miles@davis.com');
 $I->fillField('password', $password);
 $I->click('Log in!');
 ?>
@@ -350,13 +350,13 @@ $api_key = $I->grabValueFrom('input[name=api]');
 #### Comments
 
 Within a long scenario you should describe what actions you are going to perform and what results to achieve.
-Commands like `amGoingTo`, `expect`, `expectTo` helps you in making tests more descriptive.
+Commands like `amGoingTo`, `expect`, `expectTo` help you in making tests more descriptive.
 
 {% highlight php %}
 
 <?php
 $I->amGoingTo('submit user form with invalid values');
-$I->fillField('user[email]','miles');
+$I->fillField('user[email]', 'miles');
 $I->click('Update');
 $I->expect('the form is not submitted');
 $I->see('Form is filled incorrectly');
@@ -371,7 +371,7 @@ Actions for cookies:
 {% highlight php %}
 
 <?php
-$I->setCookie('auth','123345');
+$I->setCookie('auth', '123345');
 $I->grabCookie('auth');
 $I->seeCookie('auth');
 ?>
@@ -409,12 +409,10 @@ Your PhpBrowser tests we wrote previously can be executed inside a real browser 
 
 The only thing we need to change is to reconfigure and rebuild the AcceptanceTester class, to use **WebDriver** instead of PhpBrowser.
 
-Modify your {% highlight yaml %}
-acceptance.suite.yml
-{% endhighlight %} file...
+Modify your `acceptance.suite.yml` file:
 
 {% highlight yaml %}
-yaml
+
 class_name: AcceptanceTester
 modules:
     enabled:
@@ -463,7 +461,7 @@ See Codeception's [WebDriver module documentation](http://codeception.com/docs/m
 
 ### Multi Session Testing 
 
-Codeception allows you to execute actions in concurrent session. The most obvious case for it - testing realtime messaging between users on site. In order to do it you will need to launch 2 browser windows in a same time for the same test. Codeception has very smart concept for doing this. It is called **Friends**.
+Codeception allows you to execute actions in concurrent sessions. The most obvious case for it is testing realtime messaging between users on site. In order to do it you will need to launch two browser windows at the same time for the same test. Codeception has very smart concept for doing this. It is called **Friends**.
 
 {% highlight php %}
 
@@ -472,14 +470,14 @@ $I = new AcceptanceTester($scenario);
 $I->wantTo('try multi session');
 $I->amOnPage('/messages');
 $nick = $I->haveFriend('nick');
-$nick->does(function(WebGuy $I) {
+$nick->does(function(AcceptanceTester $I) {
     $I->amOnPage('/messages/new');
     $I->fillFiled('body', 'Hello all!')
     $I->click('Send');
-    $I->see('Hello all!','.message');
+    $I->see('Hello all!', '.message');
 });
 $I->wait(3);
-$I->see('Hello all!','.message');
+$I->see('Hello all!', '.message');
 ?>
 
 {% endhighlight %}
@@ -491,7 +489,7 @@ In this case we did some actions in second window with `does` command on a frien
 While testing, your actions may change the data on the site. Tests will fail if trying to create or update the same data twice. To avoid this problem, your database should be repopulated for each test. Codeception provides a `Db` module for that purpose. It will load a database dump after each passed test. To make repopulation work, create an sql dump of your database and put it into the __/tests/_data__ directory. Set the database connection and path to the dump in the global Codeception config.
 
 {% highlight yaml %}
-yaml
+
 # in codeception.yml:
 modules:
     config:
@@ -516,7 +514,7 @@ codecept_debug($I->grabTextFrom('#name'));
 {% endhighlight %}
 
 
-On each fail, the snapshot of the last shown page will be stored in the __tests/_log__ directory. PHPBrowser will store html code and WebDriver will save the screenshot of a page.
+On each fail, the snapshot of the last shown page will be stored in the __tests/_log__ directory. PhpBrowser will store HTML code and WebDriver will save the screenshot of a page.
 
 ## Conclusion
 
@@ -524,5 +522,6 @@ Writing acceptance tests with Codeception and PhpBrowser is a good start. You ca
 
 
 
+
 * **Next Chapter: [FunctionalTests >](/docs/05-FunctionalTests)**
-* **Previous Chapter: [< ModulesAndHelpers](/docs/03-ModulesAndHelpers)**
+* **Previous Chapter: [< ModulesAndHelpers](/docs/03-ModulesAndHelpers)**<p>&nbsp;</p><div class="alert alert-warning">Docs are incomplete? Outdated? Or you just found a typo? <a href="https://github.com/Codeception/Codeception/tree/2.0/docs">Help us to improve documentation. Edit it on GitHub</a>

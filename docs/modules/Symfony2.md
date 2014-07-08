@@ -5,7 +5,7 @@ title: Symfony2 Module - Codeception - Documentation
 
 # Symfony2 Module
 
-**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/master/src/Codeception/Module/Symfony2.php)**
+**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Symfony2.php)**
 
 
 This module uses Symfony2 Crawler and HttpKernel to emulate requests and get response.
@@ -244,7 +244,6 @@ Checks that cookie doesn't exist
 
  * `param` $cookie
 
-@return mixed
 
 
 #### dontSeeCurrentUrlEquals
@@ -345,7 +344,6 @@ Checks that page title does not contain text.
 
  * `param` $title
 
-@return mixed
 
 
 #### dontSeeLink
@@ -382,7 +380,6 @@ $I->dontSeeOptionIsSelected('#form input[name=payment]', 'Visa');
  * `param` $selector
  * `param` $optionText
 
-@return mixed
 
 
 
@@ -414,6 +411,7 @@ $I->fillField(['name' => 'email'], 'jon@mail.com');
 
 
 
+
 #### grabAttributeFrom
  
 Grabs attribute value from an element.
@@ -431,7 +429,6 @@ $I->grabAttributeFrom('#tooltip', 'title');
  * `param` $cssOrXpath
  * `param` $attribute
  * `internal param` $element
-@return mixed
 
 
 #### grabCookie
@@ -440,7 +437,6 @@ Grabs a cookie value.
 
  * `param` $cookie
 
-@return mixed
 
 
 #### grabFromCurrentUrl
@@ -460,7 +456,6 @@ $uri = $I->grabFromCurrentUrl();
  * `param null` $uri
 
  * `internal param` $url
-@return mixed
 
 
 #### grabServiceFromContainer
@@ -477,7 +472,6 @@ $em = $I->grabServiceFromContainer('doctrine');
 {% endhighlight %}
 
  * `param` $service
-@return mixed
 
 
 #### grabTextFrom
@@ -499,7 +493,6 @@ $value = $I->grabTextFrom('~<input value=(.*?)]~sgi');
 
  * `param` $cssOrXPathOrRegex
 
-@return mixed
 
 
 #### grabValueFrom
@@ -521,7 +514,6 @@ Unsets cookie
 
  * `param` $cookie
 
-@return mixed
 
 
 
@@ -572,7 +564,6 @@ Checks that cookie is set.
 
  * `param` $cookie
 
-@return mixed
 
 
 #### seeCurrentUrlEquals
@@ -636,7 +627,7 @@ $I->seeElement(['css' => 'form input'], ['name' => 'login']);
  
 Checks if any email were sent by last request
 
-@throws \LogicException
+ \LogicException
 
 
 #### seeInCurrentUrl
@@ -695,7 +686,6 @@ $I->seeInTitle('Blog - Post #1');
 
  * `param` $title
 
-@return mixed
 
 
 #### seeLink
@@ -733,7 +723,6 @@ $I->seeOptionIsSelected('#form input[name=payment]', 'Visa');
  * `param` $selector
  * `param` $optionText
 
-@return mixed
 
 
 #### seePageNotFound
@@ -747,7 +736,6 @@ Checks that response code is equal to value provided.
 
  * `param` $code
 
-@return mixed
 
 
 #### selectOption
@@ -844,7 +832,6 @@ Sets a cookie.
  * `param` $cookie
  * `param` $value
 
-@return mixed
 
 
 
@@ -913,4 +900,4 @@ $I->uncheckOption('#notify');
 
  * `param` $option
 
-
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Symfony2.php">Help us improve documentation. Edit module reference</a>

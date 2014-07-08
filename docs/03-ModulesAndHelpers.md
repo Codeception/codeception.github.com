@@ -30,7 +30,7 @@ Modules are attached to Actor classes in the suite config.
 For example, in `tests/functional.suite.yml` we should see.
 
 {% highlight yaml %}
-yaml
+
 class_name: FunctionalTester
 modules:
     enabled: [PhpBrowser, Db, Filesystem]
@@ -44,7 +44,7 @@ The FunctionalTester class has its methods defined in modules. Actually, it does
 Codeception has many bundled modules which will help you run tests for different purposes and in different environments. The number of modules is not constant -- it's supposed to grow as more frameworks and ORMs are supported.
 See all of them listed in the main menu under Modules section.
 
-All of these modules are documented. You can review their detailed references on [GitHub](https://github.com/DavertMik/Codeception/tree/master/docs/modules).
+All of these modules are documented. You can review their detailed references on [GitHub](https://github.com/Codeception/Codeception/tree/master/docs/modules).
 
 ## Helpers
 
@@ -138,7 +138,7 @@ Just type `$this->assert` to see all of them.
 
 What happens if you have two modules which contain the same named actions?
 Codeception allows you to override actions by changing the module order.
-The action from the second module will be loaded and the action from the first will be ignored.
+The action from the second module will be loaded and the action from the first one will be ignored.
 The order of the modules can be defined in the suite config.
 
 ### Connecting Modules
@@ -198,7 +198,7 @@ All hooks are defined in `\Codeception\Module` and are listed here. You are free
     public function _initialize() {
     }
 
-    // HOOK: on every Guy class initialization
+    // HOOK: on every Actor class initialization
     public function _cleanup() {
     }
 
@@ -214,7 +214,7 @@ All hooks are defined in `\Codeception\Module` and are listed here. You are free
     public function _beforeStep(\Codeception\Step $step) {
     }
 
-    // HOOK: after each  step
+    // HOOK: after each step
     public function _afterStep(\Codeception\Step $step) {
     }
 
@@ -258,8 +258,8 @@ Here is an example of how it works for PhpBrowser:
 
 This test, running with PhpBrowser module in debug mode, will print something like this:
 
-{% highlight yaml %}
-bash
+{% highlight bash %}
+
 I click "All pages"
 * Request (GET) http://localhost/pages {}
 * Response code: 200
@@ -300,7 +300,7 @@ class WebDriver extends \Codeception\Module
 The host and port parameter can be redefined in the suite config. Values are set in the `modules:config` section of the configuration file.
 
 {% highlight yaml %}
-yaml
+
 modules:
     enabled:
         - WebDriver
@@ -315,7 +315,7 @@ modules:
 
 {% endhighlight %}
 
-Optional and mandatory parameters can be accessed through the `$config` property. Use `$this->config['parameter']` to get it's value. 
+Optional and mandatory parameters can be accessed through the `$config` property. Use `$this->config['parameter']` to get its value. 
 
 ### Dynamic Configuration
 
@@ -390,7 +390,7 @@ class SecondDbHelper extends Db {
 
 {% endhighlight %}
 
-`$includeInheritedActions` set to false won't include the methods from parent classes into the generated Guy.
+`$includeInheritedActions` set to false won't include the methods from parent classes into the generated Actor.
 Still you can use inherited methods in your helper class.
 
 ## Conclusion
@@ -399,10 +399,10 @@ Modules are the true power of Codeception. They are used to emulate multiple inh
 Codeception provides modules to emulate web requests, access data, interact with popular PHP libraries, etc.
 For your application you might need custom actions. These can be defined in helper classes.
 If you have written a module that may be useful to others, share it.
-Fork the Codeception repository, put the module into the __src/Codeception/Module__ directory, and send a pull request
+Fork the Codeception repository, put the module into the __src/Codeception/Module__ directory, and send a pull request.
 
 
 
 
 * **Next Chapter: [AcceptanceTests >](/docs/04-AcceptanceTests)**
-* **Previous Chapter: [< GettingStarted](/docs/02-GettingStarted)**
+* **Previous Chapter: [< GettingStarted](/docs/02-GettingStarted)**<p>&nbsp;</p><div class="alert alert-warning">Docs are incomplete? Outdated? Or you just found a typo? <a href="https://github.com/Codeception/Codeception/tree/2.0/docs">Help us to improve documentation. Edit it on GitHub</a>

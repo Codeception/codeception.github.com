@@ -5,7 +5,7 @@ title: FTP Module - Codeception - Documentation
 
 # FTP Module
 
-**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/master/src/Codeception/Module/FTP.php)**
+**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/FTP.php)**
 
 
 
@@ -13,7 +13,7 @@ Works with SFTP/FTP servers.
 
 In order to test the contents of a specific file stored on any remote FTP/SFTP system
 this module downloads a temporary file to the local system. The temporary directory is
-defined by default as {% highlight yaml %}
+defined by default as {% highlight  %}
 tests/_data
 {% endhighlight %} to specify a different directory set the tmp config
 option to your chosen path.
@@ -21,6 +21,7 @@ option to your chosen path.
 Don't forget to create the folder and ensure its writable.
 
 Supported and tested FTP types are:
+
 * FTP
 * SFTP
 
@@ -28,7 +29,7 @@ Connection uses php build in FTP client for FTP, connection to SFTP uses [phpsec
 
 For SFTP, add [phpseclib](http://phpseclib.sourceforge.net/) to require list.
 {% highlight yaml %}
-json
+
 "require": {
  "phpseclib/phpseclib": "0.3.6"
 }
@@ -61,7 +62,7 @@ json
     modules:
        enabled: [FTP]
        config:
-          Db:
+          FTP:
              type: ftp
              host: '127.0.0.1'
              port: 21
@@ -77,7 +78,7 @@ json
     modules:
        enabled: [FTP]
        config:
-          Db:
+          FTP:
              type: sftp
              host: '127.0.0.1'
              port: 22
@@ -292,7 +293,7 @@ Grabber method for returning file/folders listing in an array
 
 <?php
 $files = $I->grabFileList();
-$count = $I->grabFileCount('TEST', false); // Include . .. .thumbs.db
+$count = $I->grabFileList('TEST', false); // Include . .. .thumbs.db
 ?>
 
 {% endhighlight %}
@@ -454,7 +455,7 @@ $I->seeFileFound('UserModel.php','app/models');
 ?>
 
 {% endhighlight %}
-it
+
  * `param` $filename
  * `param string` $path
 
@@ -470,6 +471,8 @@ DOES NOT OPEN the file when it's exists
 $I->seeFileFoundMatches('/^UserModel_([0-9]{6}).php$/','app/models');
 ?>
 
+{% endhighlight %}
+
  * `param` $regex
  * `param string` $path
 
@@ -480,13 +483,14 @@ Checks If opened file has `text` in it.
 
 Usage:
 
+{% highlight php %}
 
-{% endhighlight %} php
 <?php
 $I->openFile('composer.json');
 $I->seeInThisFile('codeception/codeception');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $text
 
@@ -507,4 +511,4 @@ $I->writeToFile('composer.json', 'some data here');
 
  * `param` $filename
  * `param` $contents
-
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/FTP.php">Help us improve documentation. Edit module reference</a>

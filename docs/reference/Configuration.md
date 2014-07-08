@@ -8,7 +8,7 @@ title: Configuration - Codeception - Documentation
 Default your global configuration file will be this:
 
 {% highlight yaml %}
-yaml
+
 # can be changed while bootstrapping project
 actor: Tester 
 
@@ -56,7 +56,7 @@ modules:
 Suite configuration acceptance.yml
 
 {% highlight yaml %}
-yaml
+
 class_name: AcceptanceTester
 modules:
     # enabled modules and helpers

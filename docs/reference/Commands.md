@@ -207,8 +207,7 @@ Generates Cept (scenario-driven test) file:
 
 Executes tests.
 
-{% highlight yaml %}
-
+{% highlight  %}
 Arguments:
  suite                 suite to be tested
  test                  test to be run

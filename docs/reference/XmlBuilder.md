@@ -36,8 +36,8 @@ echo $xml;
 
 This will produce this XML
 
-{% highlight yaml %}
-xml
+{% highlight xml %}
+
 <?xml version="1.0"?>
 <users>
 	<user>

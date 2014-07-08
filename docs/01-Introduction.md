@@ -137,4 +137,4 @@ It could be called a BDD framework. All Codeception tests are written in a descr
 
 
 
-* **Next Chapter: [GettingStarted >](/docs/02-GettingStarted)**
+* **Next Chapter: [GettingStarted >](/docs/02-GettingStarted)**<p>&nbsp;</p><div class="alert alert-warning">Docs are incomplete? Outdated? Or you just found a typo? <a href="https://github.com/Codeception/Codeception/tree/2.0/docs">Help us to improve documentation. Edit it on GitHub</a>

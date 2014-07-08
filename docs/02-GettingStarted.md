@@ -17,7 +17,7 @@ Actor classes are not written but generated from suite configuration. When you c
 
 If Actor classes are not created or updated as you expect, try to generate them manually with `build` command:
 
-{% highlight yaml %}
+{% highlight bash %}
 
 $ php codecept.phar build
 
@@ -32,7 +32,7 @@ Let's say, we created a file `tests/acceptance/SigninCept.php`
 
 We can do that by running command:
 
-{% highlight yaml %}
+{% highlight bash %}
 
 $ php codecept.phar generate:cept acceptance Signin
 
@@ -67,7 +67,7 @@ $I->see('Hello, davert');
 Before we execute this test, we should make sure that the site is running on a local web server. Let's open the `tests/acceptance.suite.yml` file and replace the URL with the URL of your web application:
 
 {% highlight yaml %}
- yaml
+
 config:
     PhpBrowser:
         url: 'http://myappurl.local'
@@ -76,16 +76,16 @@ config:
 
 After we configured URL we can run this test with `run` command:
 
-{% highlight yaml %}
- bash
+{% highlight bash %}
+
 $ php codecept.phar run
 
 {% endhighlight %}
 
 Here is the output we should see: 
 
-{% highlight yaml %}
- bash
+{% highlight bash %}
+
 Acceptance Tests (1) -------------------------------
 Trying log in as regular user (SigninCept.php)   Ok
 ----------------------------------------------------
@@ -104,16 +104,16 @@ OK (1 test, 1 assertions)
 
 Let's get a detailed output:
 
-{% highlight yaml %}
-bash
+{% highlight bash %}
+
 $ php codecept.phar run acceptance --steps
 
 {% endhighlight %}
 
 We should see a step-by-step report on the performed actions.
 
-{% highlight yaml %}
-bash
+{% highlight bash %}
+
 Acceptance Tests (1) -------------------------------
 Trying to log in as regular user (SigninCept.php)
 Scenario:
@@ -157,40 +157,40 @@ Codeception has a global configuration in `codeception.yml` and a config for eac
 
 Tests can be started with the `run` command.
 
-{% highlight yaml %}
-bash
+{% highlight bash %}
+
 $ php codecept.phar run
 
 {% endhighlight %}
 
 With the first argument you can run tests from one suite.
 
-{% highlight yaml %}
-bash
+{% highlight bash %}
+
 $ php codecept.phar run acceptance
 
 {% endhighlight %}
 
 To run exactly one test, add a second argument. Provide a local path to the test, from the suite directory.
 
-{% highlight yaml %}
-bash
+{% highlight bash %}
+
 $ php codecept.phar run acceptance SigninCept.php
 
 {% endhighlight %}
 
 Alternatively you can provide full path to test file:
 
-{% highlight yaml %}
-bash
+{% highlight bash %}
+
 $ php codecept.phar run tests/acceptance/SigninCept.php
 
 {% endhighlight %}
 
 You can provide a directory path as well:
 
-{% highlight yaml %}
-bash
+{% highlight bash %}
+
 $ php codecept.phar run tests/acceptance/backend
 
 {% endhighlight %}
@@ -203,8 +203,8 @@ To execute a group of tests that are not stored in the same dir you can organize
 
 To generate JUnit XML output you can provide `--xml` option, and `--html` for HTML report. 
 
-{% highlight yaml %}
-bash
+{% highlight bash %}
+
 $ php codecept.phar run --steps --xml --html
 
 {% endhighlight %}
@@ -213,8 +213,8 @@ This command will run all tests for all suites, displaying the steps, and buildi
 
 And to learn all available options:
 
-{% highlight yaml %}
-bash
+{% highlight bash %}
+
 $ php codecept.phar help run
 
 {% endhighlight %}
@@ -232,7 +232,7 @@ There are plenty of useful Codeception commands.
 * `generate:cest` *suite* *filename* - Generates a sample Cest test.
 * `generate:test` *suite* *filename* - Generates a sample PHPUnit Test with Codeception hooks.
 * `generate:phpunit` *suite* *filename* - Generates a classic PHPUnit Test.
-* `generate:suite` *suite* *guy* - Generates a new suite with the given Guy class name.
+* `generate:suite` *suite* *actor* - Generates a new suite with the given Actor class name.
 * `generate:scenarios` *suite* - Generates text files containing scenarios from tests.
 
 
@@ -244,4 +244,4 @@ We took a look into the Codeception structure. Most of the things you need were 
 
 
 * **Next Chapter: [ModulesAndHelpers >](/docs/03-ModulesAndHelpers)**
-* **Previous Chapter: [< Introduction](/docs/01-Introduction)**
+* **Previous Chapter: [< Introduction](/docs/01-Introduction)**<p>&nbsp;</p><div class="alert alert-warning">Docs are incomplete? Outdated? Or you just found a typo? <a href="https://github.com/Codeception/Codeception/tree/2.0/docs">Help us to improve documentation. Edit it on GitHub</a>

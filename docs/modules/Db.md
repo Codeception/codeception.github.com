@@ -5,7 +5,7 @@ title: Db Module - Codeception - Documentation
 
 # Db Module
 
-**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/master/src/Codeception/Module/Db.php)**
+**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Db.php)**
 
 
 Works with SQL database.
@@ -16,8 +16,8 @@ To have your database properly cleaned you should configure it to access the dat
 Also provides actions to perform checks in database.
 
 In order to have your database populated with data you need a raw SQL dump.
-Just put it in {% highlight yaml %}
- tests/_data 
+Just put it in {% highlight  %}
+tests/_data 
 {% endhighlight %} dir (by default) and specify path to it in config.
 Next time after database is cleared all your data will be restored from dump.
 Don't forget to include CREATE TABLE statements into it.
@@ -140,8 +140,8 @@ $I->dontSeeInDatabase('users', array('name' => 'Davert', 'email' => 'davert@mail
 {% endhighlight %}
 Will generate:
 
-{% highlight yaml %}
- sql
+{% highlight  %}
+sql
 SELECT COUNT(*) FROM `users` WHERE `name` = 'Davert' AND `email` = 'davert@mail.com'
 
 {% endhighlight %}
@@ -175,7 +175,6 @@ $mail = $I->grabFromDatabase('users', 'email', array('name' => 'Davert'));
  * `param`       $column
  * `param array` $criteria
 
-@return mixed
 
 
 
@@ -217,8 +216,8 @@ $I->seeInDatabase('users', array('name' => 'Davert', 'email' => 'davert@mail.com
 {% endhighlight %}
 Will generate:
 
-{% highlight yaml %}
- sql
+{% highlight  %}
+sql
 SELECT COUNT(*) FROM `users` WHERE `name` = 'Davert' AND `email` = 'davert@mail.com'
 
 {% endhighlight %}
@@ -227,4 +226,4 @@ Fails if no such user found.
  * `param`       $table
  * `param array` $criteria
 
-
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Db.php">Help us improve documentation. Edit module reference</a>
