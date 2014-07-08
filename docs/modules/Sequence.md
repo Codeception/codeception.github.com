@@ -20,17 +20,20 @@ This module has no actions, but introduces a function `sq` for generating unique
 Function `sq` generates sequence, the only parameter it takes, is id.
 You can get back to previously generated sequence using that id:
 
-``` php
+{% highlight php %}
+
 <?php
 'post'.sq(1); // post_521fbc63021eb
 'post'.sq(2); // post_521fbc6302266
 'post'.sq(1); // post_521fbc63021eb
 ?>
-```
+
+{% endhighlight %}
 
 Example:
 
-``` php
+{% highlight php %}
+
 <?php
 $I->wantTo('create article');
 $I->click('New Article');
@@ -39,18 +42,21 @@ $I->fillField('Body', 'Demo article with Lorem Ipsum');
 $I->click('save');
 $I->see('Article'.sq('name') ,'#articles')
 ?>
-```
+
+{% endhighlight %}
 
 Populating Database:
 
-``` php
+{% highlight php %}
+
 <?php
 
 for ($i = 0; $i<10; $i++) {
      $I->haveInDatabase('users', array('login' => 'user'.sq($i), 'email' => 'user'.sq($i).'@email.com');
 }
 ?>
-```
+
+{% endhighlight %}
 
 
 

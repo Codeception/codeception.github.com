@@ -75,14 +75,16 @@ Requires relative uri as parameter
 
 Example:
 
-``` php
+{% highlight php %}
+
 <?php
 // opens front page
 $I->amOnPage('/');
 // opens /register page
 $I->amOnPage('/register');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $page
 
@@ -113,12 +115,14 @@ Attaches file from Codeception data directory to upload field.
 
 Example:
 
-``` php
+{% highlight php %}
+
 <?php
 // file is stored in 'tests/_data/prices.xls'
 $I->attachFile('input[@type="file"]', 'prices.xls');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $field
  * `param` $filename
@@ -131,11 +135,13 @@ For radio buttons use `selectOption` method.
 
 Example:
 
-``` php
+{% highlight php %}
+
 <?php
 $I->checkOption('#agree');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $option
 
@@ -154,7 +160,8 @@ The second parameter is a context: CSS or XPath locator to narrow the search.
 
 Examples:
 
-``` php
+{% highlight php %}
+
 <?php
 // simple link
 $I->click('Logout');
@@ -169,7 +176,8 @@ $I->click('Logout', '#nav');
 // using strict locator
 $I->click(['link' => 'Login']);
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $link
  * `param` $context
@@ -186,13 +194,15 @@ Specify the css selector to match only specific region.
 
 Examples:
 
-```php
+{% highlight php %}
+
 <?php
 $I->dontSee('Login'); // I can suppose user is already logged in
 $I->dontSee('Sign Up','h1'); // I can suppose it's not a signup page
 $I->dontSee('Sign Up','//body/h1'); // with XPath
 ?>
-```
+
+{% endhighlight %}
 
  * `param`      $text
  * `param null` $selector
@@ -205,12 +215,14 @@ Use css selector or xpath to match.
 
 Example:
 
-``` php
+{% highlight php %}
+
 <?php
 $I->dontSeeCheckboxIsChecked('#agree'); // I suppose user didn't agree to terms
 $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user didn't check the first checkbox in form.
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $checkbox
 
@@ -228,12 +240,14 @@ Checks that cookie doesn't exist
 Checks that current url is not equal to value.
 Unlike `dontSeeInCurrentUrl` performs a strict check.
 
-``` php
+{% highlight php %}
+
 <?php
 // current url is not root
 $I->dontSeeCurrentUrlEquals('/');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $uri
 
@@ -242,12 +256,14 @@ $I->dontSeeCurrentUrlEquals('/');
  
 Checks that current url does not match a RegEx value
 
-``` php
+{% highlight php %}
+
 <?php
 // to match root url
 $I->dontSeeCurrentUrlMatches('~$/users/(\d+)~');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $uri
 
@@ -259,14 +275,16 @@ You can also specify expected attributes of this element.
 
 Example:
 
-``` php
+{% highlight php %}
+
 <?php
 $I->dontSeeElement('.error');
 $I->dontSeeElement('//form/input[1]');
 $I->dontSeeElement('input', ['name' => 'login']);
 $I->dontSeeElement('input', ['value' => '123456']);
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $selector
 
@@ -275,11 +293,13 @@ $I->dontSeeElement('input', ['value' => '123456']);
  
 Checks that current uri does not contain a value
 
-``` php
+{% highlight php %}
+
 <?php
 $I->dontSeeInCurrentUrl('/users/');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $uri
 
@@ -290,7 +310,8 @@ Checks that an input field or textarea doesn't contain value.
 Field is matched either by label or CSS or Xpath
 Example:
 
-``` php
+{% highlight php %}
+
 <?php
 $I->dontSeeInField('Body','Type your comment here');
 $I->dontSeeInField('form textarea[name=body]','Type your comment here');
@@ -299,7 +320,8 @@ $I->dontSeeInField('#searchform input','Search');
 $I->dontSeeInField('//form/*[@name=search]','Search');
 $I->seeInField(['name' => 'search'], 'Search');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $field
  * `param` $value
@@ -320,11 +342,13 @@ Specify url to narrow the results.
 
 Examples:
 
-``` php
+{% highlight php %}
+
 <?php
 $I->dontSeeLink('Logout'); // I suppose user is not logged in
 ?>
-```
+
+{% endhighlight %}
 
  * `param`      $text
  * `param null` $url
@@ -334,11 +358,13 @@ $I->dontSeeLink('Logout'); // I suppose user is not logged in
  
 Checks if option is not selected in select field.
 
-``` php
+{% highlight php %}
+
 <?php
 $I->dontSeeOptionIsSelected('#form input[name=payment]', 'Visa');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $selector
  * `param` $optionText
@@ -352,12 +378,14 @@ Fills a text field or textarea with value.
 
 Example:
 
-``` php
+{% highlight php %}
+
 <?php
 $I->fillField("//input[@type='text']", "Hello World!");
 $I->fillField(['name' => 'email'], 'jon@mail.com');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $field
  * `param` $value
@@ -376,11 +404,13 @@ $I->fillField(['name' => 'email'], 'jon@mail.com');
 Grabs attribute value from an element.
 Fails if element is not found.
 
-``` php
+{% highlight php %}
+
 <?php
 $I->grabAttributeFrom('#tooltip', 'title');
 ?>
-```
+
+{% endhighlight %}
 
 
  * `param` $cssOrXpath
@@ -401,12 +431,14 @@ Grabs a cookie value.
 Takes a parameters from current URI by RegEx.
 If no url provided returns full URI.
 
-``` php
+{% highlight php %}
+
 <?php
 $user_id = $I->grabFromCurrentUrl('~$/user/(\d+)/~');
 $uri = $I->grabFromCurrentUrl();
 ?>
-```
+
+{% endhighlight %}
 
  * `param null` $uri
 
@@ -420,13 +452,15 @@ Element is searched by CSS selector, XPath or matcher by regex.
 
 Example:
 
-``` php
+{% highlight php %}
+
 <?php
 $heading = $I->grabTextFrom('h1');
 $heading = $I->grabTextFrom('descendant-or-self::h1');
 $value = $I->grabTextFrom('~<input value=(.*?)]~sgi');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $cssOrXPathOrRegex
 
@@ -461,13 +495,15 @@ Specify the css selector to match only specific region.
 
 Examples:
 
-``` php
+{% highlight php %}
+
 <?php
 $I->see('Logout'); // I can suppose user is logged in
 $I->see('Sign Up','h1'); // I can suppose it's a signup page
 $I->see('Sign Up','//body/h1'); // with XPath
 ?>
-```
+
+{% endhighlight %}
 
  * `param`      $text
  * `param null` $selector
@@ -480,13 +516,15 @@ Use css selector or xpath to match.
 
 Example:
 
-``` php
+{% highlight php %}
+
 <?php
 $I->seeCheckboxIsChecked('#agree'); // I suppose user agreed to terms
 $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user agreed to terms, If there is only one checkbox in form.
 $I->seeCheckboxIsChecked('//form/input[@type=checkbox and @name=agree]');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $checkbox
 
@@ -504,12 +542,14 @@ Checks that cookie is set.
 Checks that current url is equal to value.
 Unlike `seeInCurrentUrl` performs a strict check.
 
-``` php
+{% highlight php %}
+
 <?php
 // to match root url
 $I->seeCurrentUrlEquals('/');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $uri
 
@@ -518,12 +558,14 @@ $I->seeCurrentUrlEquals('/');
  
 Checks that current url is matches a RegEx value
 
-``` php
+{% highlight php %}
+
 <?php
 // to match root url
 $I->seeCurrentUrlMatches('~$/users/(\d+)~');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $uri
 
@@ -533,7 +575,8 @@ $I->seeCurrentUrlMatches('~$/users/(\d+)~');
 Checks if element exists on a page, matching it by CSS or XPath.
 You can also specify expected attributes of this element.
 
-``` php
+{% highlight php %}
+
 <?php
 $I->seeElement('.error');
 $I->seeElement('//form/input[1]');
@@ -543,7 +586,8 @@ $I->seeElement('input', ['value' => '123456']);
 // strict locator in first arg, attributes in second
 $I->seeElement(['css' => 'form input'], ['name' => 'login']);
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $selector
  * `param array` $attributes
@@ -554,14 +598,16 @@ $I->seeElement(['css' => 'form input'], ['name' => 'login']);
  
 Checks that current uri contains a value
 
-``` php
+{% highlight php %}
+
 <?php
 // to match: /home/dashboard
 $I->seeInCurrentUrl('home');
 // to match: /users/1
 $I->seeInCurrentUrl('/users/');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $uri
 
@@ -573,7 +619,8 @@ Field is matched either by label or CSS or Xpath
 
 Example:
 
-``` php
+{% highlight php %}
+
 <?php
 $I->seeInField('Body','Type your comment here');
 $I->seeInField('form textarea[name=body]','Type your comment here');
@@ -582,7 +629,8 @@ $I->seeInField('#searchform input','Search');
 $I->seeInField('//form/*[@name=search]','Search');
 $I->seeInField(['name' => 'search'], 'Search');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $field
  * `param` $value
@@ -592,11 +640,13 @@ $I->seeInField(['name' => 'search'], 'Search');
  
 Checks that page title contains text.
 
-``` php
+{% highlight php %}
+
 <?php
 $I->seeInTitle('Blog - Post #1');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $title
 
@@ -609,12 +659,14 @@ Specify url to match link with exact this url.
 
 Examples:
 
-``` php
+{% highlight php %}
+
 <?php
 $I->seeLink('Logout'); // matches <a href="#">Logout</a>
 $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
 ?>
-```
+
+{% endhighlight %}
 
  * `param`      $text
  * `param null` $url
@@ -624,11 +676,13 @@ $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
  
 Checks if option is selected in select field.
 
-``` php
+{% highlight php %}
+
 <?php
 $I->seeOptionIsSelected('#form input[name=payment]', 'Visa');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $selector
  * `param` $optionText
@@ -654,21 +708,25 @@ Selects an option in select tag or in radio button group.
 
 Example:
 
-``` php
+{% highlight php %}
+
 <?php
 $I->selectOption('form select[name=account]', 'Premium');
 $I->selectOption('form input[name=payment]', 'Monthly');
 $I->selectOption('//form/select[@name=account]', 'Monthly');
 ?>
-```
+
+{% endhighlight %}
 
 Can select multiple options if second argument is array:
 
-``` php
+{% highlight php %}
+
 <?php
 $I->selectOption('Which OS do you use?', array('Windows','Linux'));
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $select
  * `param` $option
@@ -696,12 +754,14 @@ Example:
 Imagine that by clicking checkbox you trigger ajax request which updates user settings.
 We emulate that click by running this ajax request manually.
 
-``` php
+{% highlight php %}
+
 <?php
 $I->sendAjaxPostRequest('/updateSettings', array('notifications' => true)); // POST
 $I->sendAjaxGetRequest('/updateSettings', array('notifications' => true)); // GET
 
-```
+
+{% endhighlight %}
 
  * `param` $uri
  * `param` $params
@@ -716,11 +776,13 @@ Example:
 
 You need to perform an ajax request specifying the HTTP method.
 
-``` php
+{% highlight php %}
+
 <?php
 $I->sendAjaxRequest('PUT', /posts/7', array('title' => 'new title');
 
-```
+
+{% endhighlight %}
 
  * `param` $method
  * `param` $uri
@@ -749,15 +811,18 @@ This command itself triggers the request to form's action.
 
 Examples:
 
-``` php
+{% highlight php %}
+
 <?php
 $I->submitForm('#login', array('login' => 'davert', 'password' => '123456'));
 
-```
+
+{% endhighlight %}
 
 For sample Sign Up form:
 
-``` html
+{% highlight html %}
+
 <form action="/sign_up">
     Login: <input type="text" name="user[login]" /><br/>
     Password: <input type="password" name="user[password]" /><br/>
@@ -765,14 +830,17 @@ For sample Sign Up form:
     Select pricing plan <select name="plan"><option value="1">Free</option><option value="2" selected="selected">Paid</option></select>
     <input type="submit" value="Submit" />
 </form>
-```
+
+{% endhighlight %}
 I can write this:
 
-``` php
+{% highlight php %}
+
 <?php
 $I->submitForm('#userForm', array('user' => array('login' => 'Davert', 'password' => '123456', 'agree' => true)));
 
-```
+
+{% endhighlight %}
 Note, that pricing plan will be set to Paid, as it's selected on page.
 
  * `param` $selector
@@ -786,11 +854,13 @@ Unticks a checkbox.
 
 Example:
 
-``` php
+{% highlight php %}
+
 <?php
 $I->uncheckOption('#notify');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $option
 

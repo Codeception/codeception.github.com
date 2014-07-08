@@ -14,7 +14,8 @@ In this case you will get one report that covers the whole project.
 
 Place `codeception.yml` file into root folder of your project and specify paths to other `codeception.yml` configs you want to include.
 
-``` yaml
+{% highlight yaml %}
+
 include:
   - frontend
   - admin
@@ -23,7 +24,8 @@ paths:
   log: log
 settings:
   colors: false
-```
+
+{% endhighlight %}
 
 You should also specify path to `log` directory, where the reports and logs will be stored.
 
@@ -32,26 +34,32 @@ You should also specify path to `log` directory, where the reports and logs will
 To avoid naming conflicts between Actor classes and Helper classes, they should be added into namespaces.
 To create test suites with namespaces you can add `--namespace` option to bootstrap command.
 
-``` bash
+{% highlight bash %}
+
 $ php codecept.phar bootstrap --namespace frontend
-```
+
+{% endhighlight %}
 
 This will bootstrap a new project with `namespace: frontend` parameter in `codeception.yml` file. 
 Helpers will be in `frontend\Codeception\Module` namespace and Actor classes will be in `frontend` namespace.
 Thus, newly generated tests will look like this:
 
-```php
+{% highlight php %}
+
 <?php use frontend\AcceptanceTester;
 $I = new AcceptanceTester($scenario);
 //...
 ?>
-```
+
+{% endhighlight %}
 
 Once each of your applications (bundles) has its own namespace and different Helper or Actor classes, you can execute all tests in one runner. Run codeception tests as usual, using meta-config we created earlier:
 
-```bash
+{% highlight bash %}
+
 $ php codecept.phar run
-```
+
+{% endhighlight %}
 
 This will launch test suites for all 3 applications and merge the reports from all of them. Basically that would be very useful when you run your tests on Conitinous Integration server and you want to get one report in JUnit and HTML format. Codecoverage report will be merged too.
 
@@ -61,28 +69,34 @@ If your applications uses same helpers, follow the next section of this chapter.
 
 There is global `_bootstrap.php` file. This file is included at the very beginning of execution. We recommend to use it to initialize autoloaders and constants. It is especially useful if you want to include Modules or Helper classes that are not stored in `tests/_helpers` directory.
 
-```php
+{% highlight php %}
+
 <?php
 require_once __DIR__.'/../lib/tests/helpers/MyHelper.php';
 ?>
-```
+
+{% endhighlight %}
 
 Alternatively you can use Composer's autoloader. Codeception has its autoloader too.
 It's not PSR-0 compatible (yet), but it is still very useful when you need to declare alternative path for Helper classes:
 
-```php
+{% highlight php %}
+
 <?php
 Codeception\Util\Autoload::registerSuffix('Helper', __DIR__.'/../lib/tests/helpers');
 ?>
-```
+
+{% endhighlight %}
 
 Now all classes with suffix `Helper` will be additionally searched in `__DIR__.'/../lib/tests/helpers'. You can declare to load helpers of specific namespace. 
 
-```php
+{% highlight php %}
+
 <?php
 Codeception\Util\Autoload::register('MyApp\\Test', 'Helper', __DIR__.'/../lib/tests/helpers');
 ?>
-```
+
+{% endhighlight %}
 
 That will point autoloader to look for classes like `MyApp\Test\MyHelper` in path `__DIR__.'/../lib/tests/helpers'`.
 
@@ -90,13 +104,15 @@ Alternatively you can use autoloader to specify path for **PageObject and Contro
 
 Example of `tests/_bootstrap.php` file:
 
-``` php
+{% highlight php %}
+
 <?php
 Codeception\Util\Autoload::register('MyApp\\Test', 'Helper', __DIR__.'/../lib/tests/helpers');
 Codeception\Util\Autoload::register('MyApp\\Test', 'Page', __DIR__.'/pageobjects');
 Codeception\Util\Autoload::register('MyApp\\Test', 'Controller', __DIR__.'/controller');
 ?>
-```
+
+{% endhighlight %}
 
 ## Extension classes
 
@@ -134,7 +150,8 @@ There may be a confusion between `test.start`/`test.before` and `test.after`/`te
 
 The extension class itself is inherited from `Codeception\Platform\Extension`.
 
-``` php
+{% highlight php %}
+
 <?php
 class MyCustomExtension extends \Codeception\Platform\Extension
 {
@@ -160,7 +177,8 @@ class MyCustomExtension extends \Codeception\Platform\Extension
     public function print(\Codeception\Event\PrintResultEvent $e) {}
 }
 ?>
-```  
+
+{% endhighlight %}  
 
 By implementing event handling methods you can listen to event and even update passed objects.
 Extensions have some basic methods you can use:
@@ -174,19 +192,23 @@ Extensions have some basic methods you can use:
 
 Once you've implemented a simple extension class, you should include it in `tests/_bootstrap.php` file:
 
-``` php
+{% highlight php %}
+
 <?php
 include_once '/path/to/my/MyCustomExtension.php';
 ?>
-```
+
+{% endhighlight %}
 
 Then you can enable it in `codeception.yml`:
 
-```yaml
+{% highlight yaml %}
+
 extensions:
     enabled: [MyCustomExtension]
 
-```
+
+{% endhighlight %}
 
 ### Configuring Extension
 
@@ -194,14 +216,16 @@ In extension you can access currently passed options via `options` property.
 You also can access global config via `\Codeception\Configuration::config()` method. 
 But if you want to have custom options for your extension, you can pass them in `codeception.yml` file:
 
-```yaml
+{% highlight yaml %}
+
 extensions:
     enabled: [MyCustomExtension]
     config:
         MyCustomExtension:
             param: value
 
-```
+
+{% endhighlight %}
 
 Passed configuration is accessible via `config` property: `$this->config['param']`.
 
@@ -212,12 +236,14 @@ Check out a very basic extension [Notifier](https://github.com/Codeception/Notif
 Group Classes are extensions listening to events of a tests belonging to a specific group.
 When a test is added to a group:
 
-```php
+{% highlight php %}
+
 <?php 
 $scenario->group('admin');
 $I = new AcceptanceTester($scenario);
 ?>
-```
+
+{% endhighlight %}
 
 This test will trigger events:
 
@@ -230,7 +256,8 @@ This test will trigger events:
 
 A group class is built to listen to these events. It is pretty useful when additional setup is required for some of your tests. Let's say you want to load fixtures for tests that belong to `admin` group:
 
-```php
+{% highlight php %}
+
 <?php
 class AdminGroup extends \Codeception\Platform\Group
 {
@@ -253,17 +280,20 @@ class AdminGroup extends \Codeception\Platform\Group
     }
 }
 ?>
-```
+
+{% endhighlight %}
 
 A group class can be created with `php codecept.phar generate:group groupname` command.
 Group class will be stored in `tests/_groups` directory.
 
 A group class can be enabled just like you enable extension class. In file `codeception.yml`:
 
-``` yaml
+{% highlight yaml %}
+
 extensions:
     enabled: [AdminGroup]    
-```
+
+{% endhighlight %}
 
 Now Admin group class will listen to all events of tests that belong to the `admin` group.
 

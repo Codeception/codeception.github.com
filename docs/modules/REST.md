@@ -160,12 +160,14 @@ so that it can be used in next scenario steps
 
 Example:
 
-``` php
+{% highlight php %}
+
 <?php
 $user_id = $I->grabDataFromJsonResponse('user.user_id');
 $I->sendPUT('/user', array('id' => $user_id, 'name' => 'davert'));
 ?>
-```
+
+{% endhighlight %}
 
  * `param string` $path
 
@@ -191,12 +193,14 @@ Returns current response so that it can be used in next scenario steps.
 
 Example:
 
-``` php
+{% highlight php %}
+
 <?php
 $user_id = $I->grabResponse();
 $I->sendPUT('/user', array('id' => $user_id, 'name' => 'davert'));
 ?>
-```
+
+{% endhighlight %}
 
 @version 1.1
 @return string
@@ -229,11 +233,13 @@ Checks that http response header is received only once.
 HTTP RFC2616 allows multiple response headers with the same name.
 You can check that you didn't accidentally sent the same header twice.
 
-``` php
+{% highlight php %}
+
 <?php
 $I->seeHttpHeaderOnce('Cache-Control');
 ?>>
-```
+
+{% endhighlight %}
 
  * `param` $name
 
@@ -261,7 +267,8 @@ This method matches that response array contains provided array.
 
 Examples:
 
-``` php
+{% highlight php %}
+
 <?php
 // response: {name: john, email: john@gmail.com}
 $I->seeResponseContainsJson(array('name' => 'john'));
@@ -270,7 +277,8 @@ $I->seeResponseContainsJson(array('name' => 'john'));
 $I->seeResponseContainsJson(array('email' => 'john@gmail.com'));
 
 ?>
-```
+
+{% endhighlight %}
 
 This method recursively checks if one array can be found inside of another.
 

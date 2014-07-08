@@ -28,11 +28,12 @@ Supported and tested FTP types are:
 Connection uses php build in FTP client for FTP, connection to SFTP uses [phpseclib](http://phpseclib.sourceforge.net/) pulled in using composer.
 
 For SFTP, add [phpseclib](http://phpseclib.sourceforge.net/) to require list.
-```
+{% highlight yaml %}
 "require": {
  "phpseclib/phpseclib": "0.3.6"
 }
-```
+
+{% endhighlight %}
 
 ### Status
 
@@ -158,11 +159,13 @@ Enters a directory on the ftp system - FTP root directory is used by default
  
 Erases directory contents on the FTP/SFTP server
 
-``` php
+{% highlight php %}
+
 <?php
 $I->cleanDir('logs');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $dirname
 
@@ -181,11 +184,13 @@ Currently not supported in this module, overwrite inherited method
  
 Deletes directory with all subdirectories on the remote FTP/SFTP server
 
-``` php
+{% highlight php %}
+
 <?php
 $I->deleteDir('vendor');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $dirname
 
@@ -194,11 +199,13 @@ $I->deleteDir('vendor');
  
 Deletes a file on the remote FTP/SFTP system
 
-``` php
+{% highlight php %}
+
 <?php
 $I->deleteFile('composer.lock');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $filename
 
@@ -229,12 +236,14 @@ DOES NOT OPEN the file when it's exists
  
 Checks If opened file doesn't contain `text` in it
 
-``` php
+{% highlight php %}
+
 <?php
 $I->openFile('composer.json');
 $I->dontSeeInThisFile('codeception/codeception');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $text
 
@@ -246,11 +255,13 @@ $I->dontSeeInThisFile('codeception/codeception');
  
 Grabber method to return current working directory
 
-```php
+{% highlight php %}
+
 <?php
 $pwd = $I->grabDirectory();
 ?>
-```
+
+{% endhighlight %}
 
 @return string
 
@@ -259,12 +270,14 @@ $pwd = $I->grabDirectory();
  
 Grabber method for returning file/folders count in directory
 
-```php
+{% highlight php %}
+
 <?php
 $count = $I->grabFileCount();
 $count = $I->grabFileCount('TEST', false); // Include . .. .thumbs.db
 ?>
-```
+
+{% endhighlight %}
 
  * `param string` $path
  * `param bool` $ignore - suppress '.', '..' and '.thumbs.db'
@@ -275,12 +288,14 @@ $count = $I->grabFileCount('TEST', false); // Include . .. .thumbs.db
  
 Grabber method for returning file/folders listing in an array
 
-```php
+{% highlight php %}
+
 <?php
 $files = $I->grabFileList();
 $count = $I->grabFileList('TEST', false); // Include . .. .thumbs.db
 ?>
-```
+
+{% endhighlight %}
 
  * `param string` $path
  * `param bool` $ignore - suppress '.', '..' and '.thumbs.db'
@@ -291,11 +306,13 @@ $count = $I->grabFileList('TEST', false); // Include . .. .thumbs.db
  
 Grabber method to return last modified timestamp
 
-```php
+{% highlight php %}
+
 <?php
 $time = $I->grabFileModified('test.txt');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $filename
 @return bool
@@ -305,11 +322,13 @@ $time = $I->grabFileModified('test.txt');
  
 Grabber method to return file size
 
-```php
+{% highlight php %}
+
 <?php
 $size = $I->grabFileSize('test.txt');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $filename
 @return bool
@@ -325,11 +344,13 @@ On initiation of this modules you are automatically logged into
 the server using the specified config options or defaulted
 to anonymous user if not provided.
 
-``` php
+{% highlight php %}
+
 <?php
 $I->loginAs('user','password');
 ?>
-```
+
+{% endhighlight %}
 
  * `param String` $user
  * `param String` $password
@@ -339,11 +360,13 @@ $I->loginAs('user','password');
  
 Create a directory on the server
 
-``` php
+{% highlight php %}
+
 <?php
 $I->makeDir('vendor');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $dirname
 
@@ -355,12 +378,14 @@ Opens a file (downloads from the remote FTP/SFTP system to a tmp directory for p
 
 Usage:
 
-``` php
+{% highlight php %}
+
 <?php
 $I->openFile('composer.json');
 $I->seeInThisFile('codeception/codeception');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $filename
 
@@ -369,11 +394,13 @@ $I->seeInThisFile('codeception/codeception');
  
 Rename/Move directory on the FTP/SFTP server
 
-``` php
+{% highlight php %}
+
 <?php
 $I->renameDir('vendor', 'vendor_old');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $dirname
  * `param` $rename
@@ -383,11 +410,13 @@ $I->renameDir('vendor', 'vendor_old');
  
 Rename/Move file on the FTP/SFTP server
 
-``` php
+{% highlight php %}
+
 <?php
 $I->renameFile('composer.lock', 'composer_old.lock');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $filename
  * `param` $rename
@@ -401,12 +430,14 @@ Unlike `seeInThisFile` will fail if file has something more then expected lines.
 Better to use with HEREDOC strings.
 Matching is done after removing "\r" chars from file content.
 
-``` php
+{% highlight php %}
+
 <?php
 $I->openFile('process.pid');
 $I->seeFileContentsEqual('3192');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $text
 
@@ -416,11 +447,13 @@ $I->seeFileContentsEqual('3192');
 Checks if file exists in path on the remote FTP/SFTP system.
 DOES NOT OPEN the file when it's exists
 
-``` php
+{% highlight php %}
+
 <?php
 $I->seeFileFound('UserModel.php','app/models');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $filename
  * `param string` $path
@@ -431,11 +464,13 @@ $I->seeFileFound('UserModel.php','app/models');
 Checks if file exists in path on the remote FTP/SFTP system, using regular expression as filename.
 DOES NOT OPEN the file when it's exists
 
- ``` php
+ {% highlight php %}
+
 <?php
 $I->seeFileFoundMatches('/^UserModel_([0-9]{6}).php$/','app/models');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $regex
  * `param string` $path
@@ -447,12 +482,14 @@ Checks If opened file has `text` in it.
 
 Usage:
 
-``` php
+{% highlight php %}
+
 <?php
 $I->openFile('composer.json');
 $I->seeInThisFile('codeception/codeception');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $text
 
@@ -463,11 +500,13 @@ $I->seeInThisFile('codeception/codeception');
 Saves contents to tmp file and uploads the FTP/SFTP system.
 Overwrites current file on server if exists.
 
-``` php
+{% highlight php %}
+
 <?php
 $I->writeToFile('composer.json', 'some data here');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $filename
  * `param` $contents

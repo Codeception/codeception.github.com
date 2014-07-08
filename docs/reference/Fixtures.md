@@ -10,13 +10,15 @@ title: Codeception - Documentation
 
 Really basic class to store data in global array and use it in Cests/Tests.
 
-```php
+{% highlight php %}
+
 <?php
 Fixtures::add('user1', ['name' => 'davert']);
 Fixtures::get('user1');
 
 ?>
-```
+
+{% endhighlight %}
 
 
 #### *public static* add($name, $data) 

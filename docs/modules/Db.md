@@ -129,16 +129,20 @@ Provide table name and column values.
 
 Example:
 
-``` php
+{% highlight php %}
+
 <?php
 $I->dontSeeInDatabase('users', array('name' => 'Davert', 'email' => 'davert@mail.com'));
 
-```
+
+{% endhighlight %}
 Will generate:
 
-``` sql
+{% highlight sql %}
+
 SELECT COUNT(*) FROM `users` WHERE `name` = 'Davert' AND `email` = 'davert@mail.com'
-```
+
+{% endhighlight %}
 Fails if such user was found.
 
  * `param`       $table
@@ -155,11 +159,13 @@ Provide table name, desired column and criteria.
 
 Example:
 
-``` php
+{% highlight php %}
+
 <?php
 $mail = $I->grabFromDatabase('users', 'email', array('name' => 'Davert'));
 
-```
+
+{% endhighlight %}
 
 @version 1.1
 
@@ -174,11 +180,13 @@ $mail = $I->grabFromDatabase('users', 'email', array('name' => 'Davert'));
  
 Inserts SQL record into database. This record will be erased after the test.
 
-``` php
+{% highlight php %}
+
 <?php
 $I->haveInDatabase('users', array('name' => 'miles', 'email' => 'miles@davis.com'));
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $table
  * `param array` $data
@@ -197,16 +205,20 @@ Provide table name and column values.
 
 Example:
 
-``` php
+{% highlight php %}
+
 <?php
 $I->seeInDatabase('users', array('name' => 'Davert', 'email' => 'davert@mail.com'));
 
-```
+
+{% endhighlight %}
 Will generate:
 
-``` sql
+{% highlight sql %}
+
 SELECT COUNT(*) FROM `users` WHERE `name` = 'Davert' AND `email` = 'davert@mail.com'
-```
+
+{% endhighlight %}
 Fails if no such user found.
 
  * `param`       $table

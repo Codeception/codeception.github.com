@@ -116,12 +116,14 @@ $message = $I->grabMessageFromQueue('queue.emails');
  
 Sends message to exchange
 
-``` php
+{% highlight php %}
+
 <?php
 $I->pushToExchange('exchange.emails', 'thanks');
 $I->pushToExchange('exchange.emails', new AMQPMessage('Thanks!'));
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $exchange
  * `param` $message string|AMQPMessage
@@ -131,12 +133,14 @@ $I->pushToExchange('exchange.emails', new AMQPMessage('Thanks!'));
  
 Sends message to queue
 
-``` php
+{% highlight php %}
+
 <?php
 $I->pushToQueue('queue.jobs', 'create user');
 $I->pushToQueue('queue.jobs', new AMQPMessage('create'));
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $queue
  * `param` $message string|AMQPMessage
@@ -150,12 +154,14 @@ Checks if message containing text received.
 **This method drops message from queue**
 **This method will wait for message. If none is sent the script will stuck**.
 
-``` php
+{% highlight php %}
+
 <?php
 $I->pushToQueue('queue.emails', 'Hello, davert');
 $I->seeMessageInQueueContainsText('queue.emails','davert');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $queue
  * `param` $text

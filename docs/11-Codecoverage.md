@@ -21,14 +21,17 @@ or locally but running through web server. It may look hard to collect code cove
 
 To enable codecoverge put these lines in the global configuration file `codeception.yml`:
 
-``` yaml
+{% highlight yaml %}
+
 coverage:
     enabled: true
-```
+
+{% endhighlight %}
 
 That's ok for now. But what files should be present in final coverage report? You can filter files by providing blacklist and whitelist filters like this:
 
-``` yaml
+{% highlight yaml %}
+
 coverage:
     whitelist:
         include:
@@ -41,7 +44,8 @@ coverage:
         exclude:
             - app/cache/CacheProvider.php
 
-```
+
+{% endhighlight %}
 What are whitelists and blacklists?
 
 * A **whitelist** is a list of files that should be included in report even they were not touched.
@@ -52,14 +56,16 @@ Also you can use '\*' mask in a file name, i.e. `app/models/*Model.php` to match
 
 There is a shortcut if you don't need that complex filters:
 
-``` yaml
+{% highlight yaml %}
+
 coverage:
     enabled: true
     include:
         - app/*
     exclude:
         - app/cache/*
-```
+
+{% endhighlight %}
 
 These `include` and `exclude` options are to add or remove files from a whitelist.
 
@@ -73,9 +79,11 @@ All you need is to execute codeception with `--coverage` option.
 
 To generate a clover xml report or a tasty html report append also `--coverage-xml` and `--coverage-html` options.
 
-``` yaml
+{% highlight yaml %}
+
 codecept run --coverage --coverage-xml --coverage-html
-```
+
+{% endhighlight %}
 
 XML and HTML reports are stored to the `_output` directory. The best way to review report is to open `index.html` from `tests/_output/coverage` in your browser.
 XML clover reports are used by IDEs (like PHPStorm) or Continuous Integration servers (like Jenkins).
@@ -105,10 +113,12 @@ It's never been easier to setup remote codecoverage for your application. In any
 But if you run tests on different server (or your webserver doesn't use code from current directory) a single option `remote` should be added to config.
 For example, let's turn on remote coverage for acceptance suite in `acceptance.suite.yml`:
 
-``` yaml
+{% highlight yaml %}
+
 coverage:
     remote: true
-```
+
+{% endhighlight %}
 
 In this case remote Code Coverage results won't be merged with local ones, if this option is enabled.
 Merging is possible only in case a remote and local files have the same path.

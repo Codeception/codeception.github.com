@@ -207,7 +207,7 @@ Generates Cept (scenario-driven test) file:
 
 Executes tests.
 
-```
+{% highlight yaml %}
 Arguments:
  suite                 suite to be tested
  test                  test to be run
@@ -241,7 +241,8 @@ Options:
  --ansi                Force ANSI output.
  --no-ansi             Disable ANSI output.
  --no-interaction (-n) Do not ask any interactive question.
-```
+
+{% endhighlight %}
 
 
 

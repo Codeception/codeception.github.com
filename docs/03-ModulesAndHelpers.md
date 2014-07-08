@@ -12,7 +12,8 @@ All actions and assertions that can be performed by the Tester object in a class
 
 Let's look at this test.
 
-```php
+{% highlight php %}
+
 <?php
 $I = new FunctionalTester($scenario);
 $I->amOnPage('/');
@@ -20,18 +21,21 @@ $I->see('Hello');
 $I->seeInDatabase('users', array('id' => 1));
 $I->seeFileFound('running.lock');
 ?>
-```
+
+{% endhighlight %}
 
 It can operate with different entities: the web page can be loaded with the PhpBrowser module, the database assertion uses the Db module, and file state can be checked with the Filesystem module. 
 
 Modules are attached to Actor classes in the suite config.
 For example, in `tests/functional.suite.yml` we should see.
 
-```yaml
+{% highlight yaml %}
+
 class_name: FunctionalTester
 modules:
     enabled: [PhpBrowser, Db, Filesystem]
-```
+
+{% endhighlight %}
 
 The FunctionalTester class has its methods defined in modules. Actually, it doesn't contain any of them rather acts as a proxy. It knows which module executes this action and passes parameters into it. To make your IDE see all of the FunctionalTester methods, you use the `build` command. It generates the definition of the FunctionalTester class by copying the signatures from the corresponding modules.
 
@@ -50,7 +54,8 @@ It's a good idea to define missing actions or assertion commands in helpers.
 
 Let's say we are going to extend the FunctionalHelper class. By default it's linked with a FunctionalTester class and functional test suite.
 
-```php
+{% highlight php %}
+
 <?php
 namespace Codeception\Module;
 // here you can define custom functions for FunctionalTester
@@ -59,7 +64,8 @@ class FunctionalHelper extends \Codeception\Module
 {
 }
 ?>
-```
+
+{% endhighlight %}
 
 As for actions, everything is quite simple. Every action you define is a public function. Write any public method, run the `build` command, and you will see the new function added into the FunctionalTester class. Note: Public methods prefixed by `_` are treated as hidden and won't be added to your Actor class. 
 
@@ -67,27 +73,32 @@ Assertions can be a bit tricky. First of all, it's recommended to prefix all you
 
 Name your assertions like this:
 
-```php
+{% highlight php %}
+
 <?php
 $I->seePageReloaded();
 $I->seeClassIsLoaded($classname);
 $I->dontSeeUserExist($user);
 ?>
-```
+
+{% endhighlight %}
 And then use them in your tests:
 
-```php
+{% highlight php %}
+
 <?php
 $I = new FunctionalTester($scenario);
 $I->seePageReloaded();
 $I->seeClassIsLoaded('FunctionalTester');
 $I->dontSeeUserExist($user);
 ?>
-```
+
+{% endhighlight %}
 
 You can define asserts by using assertXXX methods in modules. Not all PHPUnit assert methods are included in modules. But you can use PHPUnit static methods from the `PHPUnit_Framework_Assert` class to leverage all of them.
 
-```php
+{% highlight php %}
+
 <?php
 
 function seeClassExist($class)
@@ -97,11 +108,13 @@ function seeClassExist($class)
     \PHPUnit_Framework_Assert::assertTrue(class_exists($class));
 }
 ?>
-```
+
+{% endhighlight %}
 
 In your helpers you can use these assertions:
 
-```php
+{% highlight php %}
+
 <?php
 
 function seeCanCheckEverything($thing)
@@ -115,7 +128,8 @@ function seeCanCheckEverything($thing)
     // ...
 }
 ?>
-```
+
+{% endhighlight %}
 
 Just type `$this->assert` to see all of them.
 
@@ -135,7 +149,8 @@ Modules can interact with each other through the `getModule` method. Please note
 
 Let's imagine that we are writing a module which reconnects to a database. It's supposed to use the dbh connection value from the Db module.
 
-```php
+{% highlight php %}
+
 <?php
 
 function reconnectToDatabase() {
@@ -144,7 +159,8 @@ function reconnectToDatabase() {
     $dbh->open();
 }
 ?>
-```
+
+{% endhighlight %}
 
 By using the `getModule` function you get access to all of the public methods and properties of the requested module. The dbh property was defined as public specifically to be available to other modules.
 
@@ -152,7 +168,8 @@ That technique may be also useful if you need to perform a sequence of actions t
 
 For example:
 
-```php
+{% highlight php %}
+
 <?php
 function seeConfigFilesCreated()
 {
@@ -162,7 +179,8 @@ function seeConfigFilesCreated()
     $filesystem->seeInFile('paths');
 }
 ?>
-```
+
+{% endhighlight %}
 
 ### Hooks
 
@@ -172,7 +190,8 @@ For example, the PhpBrowser module saves the current webpage to the `tests/_outp
 
 All hooks are defined in `\Codeception\Module` and are listed here. You are free to redefine them in your module.
 
-```php
+{% highlight php %}
+
 <?php
 
     // HOOK: used after configuration is loaded
@@ -211,7 +230,8 @@ All hooks are defined in `\Codeception\Module` and are listed here. You are free
     public function _failed(\Codeception\TestCase $test, $fail) {
     }
 ?>
-```
+
+{% endhighlight %}
 
 Please note that methods with a `_` prefix are not added to the Actor class. This allows them to be defined as public but used only for internal purposes.
 
@@ -226,21 +246,25 @@ Thus, modules are not black boxes. They are trying to show you what is happening
 To display additional information, use the `debug` and `debugSection` methods of the module.
 Here is an example of how it works for PhpBrowser:
 
-```php
+{% highlight php %}
+
 <?php
     $this->debugSection('Request', $params));
     $client->request($method, $uri, $params);
     $this->debug('Response Code: ' . $this->client->getStatusCode());
 ?>    
-```
+
+{% endhighlight %}
 
 This test, running with PhpBrowser module in debug mode, will print something like this:
 
-```bash
+{% highlight bash %}
+
 I click "All pages"
 * Request (GET) http://localhost/pages {}
 * Response code: 200
-```
+
+{% endhighlight %}
 
 
 
@@ -249,29 +273,34 @@ I click "All pages"
 Modules can be configured from the suite config file, or globally from `codeception.yml`.
 Mandatory parameters should be defined in the `$requiredFields` property of the module class. Here is how it is done in the Db module:
 
-```php
+{% highlight php %}
+
 <?php
 class Db extends \Codeception\Module {
     protected $requiredFields = array('dsn', 'user', 'password');
 ?>
-```
+
+{% endhighlight %}
 
 The next time you start the suite without setting these values, an exception will be thrown. 
 
 For optional parameters, you should set default values. The `$config` property is used to define optional parameters as well as their values. In the WebDriver module we use default Selenium Server address and port. 
 
-```php
+{% highlight php %}
+
 <?php
 class WebDriver extends \Codeception\Module
 {
     protected $requiredFields = array('browser', 'url');    
     protected $config = array('host' => '127.0.0.1', 'port' => '4444');
 ?>    
-```
+
+{% endhighlight %}
 
 The host and port parameter can be redefined in the suite config. Values are set in the `modules:config` section of the configuration file.
 
-```yaml
+{% highlight yaml %}
+
 modules:
     enabled:
         - WebDriver
@@ -283,7 +312,8 @@ modules:
         Db:
             cleanup: false
             repopulate: false
-```
+
+{% endhighlight %}
 
 Optional and mandatory parameters can be accessed through the `$config` property. Use `$this->config['parameter']` to get its value. 
 
@@ -292,11 +322,13 @@ Optional and mandatory parameters can be accessed through the `$config` property
 If you want to reconfigure module in run time, you can use the `_reconfigure` method of the module.
 You may call it from helper class and pass in all the fields you want to change.
 
-```php
+{% highlight php %}
+
 <?php
 $this->getModule('WebDriver')->_reconfigure(array('browser' => 'chrome'));
 ?>
-```
+
+{% endhighlight %}
 
 By the end of a test all your changes will be rolled back to the original config values.
 
@@ -304,20 +336,23 @@ By the end of a test all your changes will be rolled back to the original config
 
 Like each class, a Helper can be inherited from a module.
 
-```php
+{% highlight php %}
+
 <?php
 namespace Codeception\Module;
 class MySeleniumHelper extends \Codeception\Module\WebDriver  {
 }
 ?>
-```
+
+{% endhighlight %}
 
 In an inherited helper, you replace implemented methods with your own realization.
 You can also replace `_before` and `_after` hooks, which might be an option when you need to customize starting and stopping of a testing session.
 
 If some of the methods of the parent class should not be used in child module, you can disable them. Codeception has several options for this.
 
-```php
+{% highlight php %}
+
 <?php
 namespace Codeception\Module;
 class MySeleniumHelper extends \Codeception\Module\WebDriver 
@@ -332,13 +367,15 @@ class MySeleniumHelper extends \Codeception\Module\WebDriver
     public static $excludeActions = array('seeElement');
 }
 ?>
-```
+
+{% endhighlight %}
 
 Option `$includeInheritedActions` set to false adds the ability to create aliases for parent methods.
  It allows you to resolve conflicts between modules. Let's say we want to use the `Db` module with our `SecondDbHelper`
  that actually inherits from `Db`. How can we use `seeInDatabase` methods from both modules? Let's find out.
 
-```php
+{% highlight php %}
+
 <?php
 namespace Codeception\Module;
 class SecondDbHelper extends Db {
@@ -350,7 +387,8 @@ class SecondDbHelper extends Db {
     }
 }
 ?>
-```
+
+{% endhighlight %}
 
 `$includeInheritedActions` set to false won't include the methods from parent classes into the generated Actor.
 Still you can use inherited methods in your helper class.

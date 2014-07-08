@@ -73,11 +73,13 @@ Project root directory is used by default
  
 Erases directory contents
 
-``` php
+{% highlight php %}
+
 <?php
 $I->cleanDir('logs');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $dirname
 
@@ -86,11 +88,13 @@ $I->cleanDir('logs');
  
 Copies directory with all contents
 
-``` php
+{% highlight php %}
+
 <?php
 $I->copyDir('vendor','old_vendor');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $src
  * `param` $dst
@@ -102,11 +106,13 @@ $I->copyDir('vendor','old_vendor');
  
 Deletes directory with all subdirectories
 
-``` php
+{% highlight php %}
+
 <?php
 $I->deleteDir('vendor');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $dirname
 
@@ -115,11 +121,13 @@ $I->deleteDir('vendor');
  
 Deletes a file
 
-``` php
+{% highlight php %}
+
 <?php
 $I->deleteFile('composer.lock');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $filename
 
@@ -141,12 +149,14 @@ Checks if file does not exists in path
  
 Checks If opened file doesn't contain `text` in it
 
-``` php
+{% highlight php %}
+
 <?php
 $I->openFile('composer.json');
 $I->dontSeeInThisFile('codeception/codeception');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $text
 
@@ -162,12 +172,14 @@ Opens a file and stores it's content.
 
 Usage:
 
-``` php
+{% highlight php %}
+
 <?php
 $I->openFile('composer.json');
 $I->seeInThisFile('codeception/codeception');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $filename
 
@@ -180,12 +192,14 @@ Unlike `seeInThisFile` will fail if file has something more then expected lines.
 Better to use with HEREDOC strings.
 Matching is done after removing "\r" chars from file content.
 
-``` php
+{% highlight php %}
+
 <?php
 $I->openFile('process.pid');
 $I->seeFileContentsEqual('3192');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $text
 
@@ -195,11 +209,13 @@ $I->seeFileContentsEqual('3192');
 Checks if file exists in path.
 Opens a file when it's exists
 
-``` php
+{% highlight php %}
+
 <?php
 $I->seeFileFound('UserModel.php','app/models');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $filename
  * `param string` $path
@@ -211,12 +227,14 @@ Checks If opened file has `text` in it.
 
 Usage:
 
-``` php
+{% highlight php %}
+
 <?php
 $I->openFile('composer.json');
 $I->seeInThisFile('codeception/codeception');
 ?>
-```
+
+{% endhighlight %}
 
  * `param` $text
 

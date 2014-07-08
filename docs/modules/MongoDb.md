@@ -94,10 +94,12 @@ Check out the driver if you get problems loading dumps and cleaning databases.
  
 Checks if collection doesn't contain an item.
 
-``` php
+{% highlight php %}
+
 <?php
 $I->dontSeeInCollection('users', array('name' => 'miles'));
-```
+
+{% endhighlight %}
 
  * `param` $collection
  * `param array` $criteria
@@ -110,10 +112,12 @@ $I->dontSeeInCollection('users', array('name' => 'miles'));
  
 Grabs a data from collection
 
-``` php
+{% highlight php %}
+
 <?php
 $cursor = $I->grabFromCollection('users', array('name' => 'miles'));
-```
+
+{% endhighlight %}
 
  * `param` $collection
  * `param array` $criteria
@@ -125,10 +129,12 @@ $cursor = $I->grabFromCollection('users', array('name' => 'miles'));
  
 Inserts data into collection
 
-``` php
+{% highlight php %}
+
 $I->haveInCollection('users', array('name' => 'John', 'email' => 'john@coltrane.com'));
 $user_id = $I->haveInCollection('users', array('email' => 'john@coltrane.com'));
-```
+
+{% endhighlight %}
 
  * `param` $collection
  * `param array` $data
@@ -141,10 +147,12 @@ $user_id = $I->haveInCollection('users', array('email' => 'john@coltrane.com'));
  
 Checks if collection contains an item.
 
-``` php
+{% highlight php %}
+
 <?php
 $I->seeInCollection('users', array('name' => 'miles'));
-```
+
+{% endhighlight %}
 
  * `param` $collection
  * `param array` $criteria

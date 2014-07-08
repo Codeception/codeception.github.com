@@ -20,22 +20,27 @@ Codeception have nice generators to simplify test creation.
 You can start with generating a classical PHPUnit test extending `\PHPUnit_Framework_TestCase` class.
 This can be done by this command:
 
-```bash
+{% highlight bash %}
+
 $ php codecept.phar generate:phpunit unit Example
-```
+
+{% endhighlight %}
 
 Codeception has its addons to standard unit tests, so let's try them.
 We need another command to create Codeception-powered unit tests.
 
-```bash
+{% highlight bash %}
+
 $ php codecept.phar generate:test unit Example
-```
+
+{% endhighlight %}
 
 Both tests will create a new `ExampleTest` file located in `tests/unit` directory.
 
 A test created by `generate:test` command will look like this:
 
-```php
+{% highlight php %}
+
 <?php
 use Codeception\Util\Stub;
 
@@ -57,7 +62,8 @@ class ExampleTest extends \Codeception\TestCase\Test
     }
 }
 ?>
-```
+
+{% endhighlight %}
 
 This class has predefined `_before` and `_after` methods to start with. You can use them to create a tested object before each test, and destroy it afterwards.
 
@@ -66,20 +72,23 @@ As you see, unlike in PHPUnit, `setUp` and `tearDown` methods are replaced with 
 The actual `setUp` and `tearDown` were implemented by parent class `\Codeception\TestCase\Test` and set up the UnitTester class to have all the cool actions from Cept-files to be run as a part of unit tests. Just like in acceptance and functional tests you can choose the proper modules for `UnitTester` class in `unit.suite.yml` configuration file.
 
 
-```yaml
+{% highlight yaml %}
+
 # Codeception Test Suite Configuration
 
 # suite for unit (internal) tests.
 class_name: UnitTester
 modules:
     enabled: [UnitHelper, Asserts]
-```
+
+{% endhighlight %}
 
 ### Classical Unit Testing
 
 Unit tests in Codeception are written in absolutely the same way as it is done in PHPUnit:
 
-```php
+{% highlight php %}
+
 <?php
 class UserTest extends \Codeception\TestCase\Test
 {
@@ -98,7 +107,8 @@ class UserTest extends \Codeception\TestCase\Test
     }
 }
 ?>
-```
+
+{% endhighlight %}
 
 ### BDD Specification Testing
 
@@ -108,7 +118,8 @@ That's why it's pretty important not just to cover your application with unit te
 
 For this case we have a stand-alone project [Specify](https://github.com/Codeception/Specify) (which is included in phar package) for writing specifications inside unit tests.
 
-```php
+{% highlight php %}
+
 <?php
 class UserTest extends \Codeception\TestCase\Test
 {
@@ -135,7 +146,8 @@ class UserTest extends \Codeception\TestCase\Test
     }
 }
 ?>        
-```
+
+{% endhighlight %}
 
 Using `specify` codeblocks you can describe any piece of test. This makes tests much cleaner and understandable for everyone in your team.
 
@@ -143,24 +155,28 @@ Code inside `specify` blocks is isolated. In the example above any change to `$t
 
 Also you may add [Codeception\Verify](https://github.com/Codeception/Verify) for BDD-style assertions. This tiny library adds more readable assertions, which is quite nice, if you are always confused of which argument in `assert` calls is expected and which one is actual.
 
-```php
+{% highlight php %}
+
 <?php
 verify($user->getName())->equals('john');
 ?>
-```
+
+{% endhighlight %}
 
 ## Using Modules
 
 As in scenario-driven functional or acceptance tests you can access Actor class methods. If you write integration tests, it may be useful to include `Db` module for database testing. 
 
-```yaml
+{% highlight yaml %}
+
 # Codeception Test Suite Configuration
 
 # suite for unit (internal) tests.
 class_name: UnitTester
 modules:
     enabled: [Db, UnitHelper]
-```
+
+{% endhighlight %}
 
 To access UnitTester methods you can use `UnitTester` property in a test.
 
@@ -168,7 +184,8 @@ To access UnitTester methods you can use `UnitTester` property in a test.
 
 Let's see how you can do some database testing:
 
-```php
+{% highlight php %}
+
 <?php
 function testSavingUser()
 {
@@ -180,7 +197,8 @@ function testSavingUser()
     $this->tester->seeInDatabase('users', array('name' => 'Miles', 'surname' => 'Davis'));
 }
 ?>
-```
+
+{% endhighlight %}
 
 Database will be cleaned and populated after each test, as it happens for acceptance and functional tests.
 If it's not your required behavior, please change the settings of `Db` module for the current suite.
@@ -191,14 +209,16 @@ Codeception allows you to access properties and methods of all modules defined f
 
 For example, if you use `Symfony2` module, here is the way you can access Symfony container:
 
-```php
+{% highlight php %}
+
 <?php
 /**
  * @var Symfony\Component\DependencyInjection\Container
  */
 $container = $this->getModule('Symfony2')->container;
 ?>
-```
+
+{% endhighlight %}
 
 All public variables are listed in references for corresponding modules.
 
@@ -208,7 +228,8 @@ Alternatively to testcases extended from `PHPUnit_Framework_TestCase` you may us
 
 The example above can be rewritten in scenario-driven manner like this:
 
-```php
+{% highlight php %}
+
 <?php
 class UserCest
 {
@@ -228,18 +249,21 @@ class UserCest
     }
 }
 ?>
-```
+
+{% endhighlight %}
 
 For unit testing you may include `Asserts` module, that adds regular assertions to UnitTester which you may access from `$t` variable.
 
-```yaml
+{% highlight yaml %}
+
 # Codeception Test Suite Configuration
 
 # suite for unit (internal) tests.
 class_name: UnitTester
 modules:
     enabled: [Asserts, Db, UnitHelper]
-```
+
+{% endhighlight %}
 
 [Learn more about Cest format](http://codeception.com/docs/07-AdvancedUsage#Cest-Classes).
 
@@ -249,12 +273,14 @@ Codeception provides a tiny wrapper over PHPUnit mocking framework to create stu
 
 In this example we instantiate object without calling a constructor and replace `getName` method to return value *john*.
 
-```php
+{% highlight php %}
+
 <?php
 $user = Stub::make('User', ['getName' => 'john']);
 $name = $user->getName(); // 'john'
 ?>
-```
+
+{% endhighlight %}
 
 Stubs are created with PHPUnit's mocking framework. Alternatively you can use [Mockery](https://github.com/padraic/mockery) (with [Mockery module](https://github.com/Codeception/MockeryModule)), [AspectMock](https://github.com/Codeception/AspectMock) or others.
 

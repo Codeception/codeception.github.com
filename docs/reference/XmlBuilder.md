@@ -11,7 +11,8 @@ title: Codeception - Documentation
 That's a pretty simple yet powerful class to build XML structures in jQuery-like style. With no XML line actually written!
 Uses DOM extension to manipulate XML data.
 
-```php
+{% highlight php %}
+
 <?php
 $xml = new \Codeception\Util\XmlBuilder();
 $xml->users
@@ -30,11 +31,13 @@ $xml->users
 		->active
 			->val(1);
 echo $xml;
-```
+
+{% endhighlight %}
 
 This will produce this XML
 
-```xml
+{% highlight xml %}
+
 <?xml version="1.0"?>
 <users>
 	<user>
@@ -48,7 +51,8 @@ This will produce this XML
 		<active>1</active>
 	</user>
 </users>
-```
+
+{% endhighlight %}
 
 ### Usage
 

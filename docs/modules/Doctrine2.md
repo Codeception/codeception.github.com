@@ -15,12 +15,14 @@ As the module uses active connection and active entity manager, instance of this
 
 It can be done in bootstrap file, by setting static $em property:
 
-``` php
+{% highlight php %}
+
 <?php
 
 \Codeception\Module\Doctrine2::$em = $em
 
-```
+
+{% endhighlight %}
 ### Status
 
 * Maintainer: **davert**
@@ -107,11 +109,13 @@ You can use entity associations to build complex queries.
 
 Example:
 
-``` php
+{% highlight php %}
+
 <?php
 $email = $I->grabFromRepository('User', 'email', array('name' => 'davert'));
 ?>
-```
+
+{% endhighlight %}
 
 @version 1.1
  * `param` $entity
@@ -130,12 +134,14 @@ Please, note: this fake repositories will be accessible through entity manager t
 
 Example:
 
-``` php
+{% highlight php %}
+
 <?php
 
 $I->haveFakeRepository('Entity\User', array('findByUsername' => function($username) {  return null; }));
 
-```
+
+{% endhighlight %}
 
 This creates a stub class for Entity\User repository with redefined method findByUsername, which will always return the NULL value.
 
@@ -155,11 +161,13 @@ Adds entity to repository and flushes. You can redefine it's properties with the
 
 Example:
 
-``` php
+{% highlight php %}
+
 <?php
 $I->persistEntity(new \Entity\User, array('name' => 'Miles'));
 $I->persistEntity($user, array('name' => 'Miles'));
-```
+
+{% endhighlight %}
 
  * `param` $obj
  * `param array` $values
@@ -175,13 +183,15 @@ You can use entity associations to build complex queries.
 
 Example:
 
-``` php
+{% highlight php %}
+
 <?php
 $I->seeInRepository('User', array('name' => 'davert'));
 $I->seeInRepository('User', array('name' => 'davert', 'Company' => array('name' => 'Codegyre')));
 $I->seeInRepository('Client', array('User' => array('Company' => array('name' => 'Codegyre')));
 ?>
-```
+
+{% endhighlight %}
 
 Fails if record for given criteria can\'t be found,
 
