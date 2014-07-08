@@ -13,7 +13,7 @@ Works with SFTP/FTP servers.
 
 In order to test the contents of a specific file stored on any remote FTP/SFTP system
 this module downloads a temporary file to the local system. The temporary directory is
-defined by default as {% highlight  %}
+defined by default as {% highlight yaml %}
 tests/_data
 {% endhighlight %} to specify a different directory set the tmp config
 option to your chosen path.
