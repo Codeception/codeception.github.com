@@ -5,9 +5,9 @@ title: Functional Tests - Codeception - Documentation
 
 # Functional Tests
 
-Now that we've written some acceptance tests, functional tests are almost the same, with just one major difference: Functional tests don't require a web server to run tests.
+Now that we've written some acceptance tests, functional tests are almost the same, with just one major difference: functional tests don't require a web server to run tests.
 
-In simple terms we set `$_REQUEST`, `$_GET` and `$_POST` variables then we execute application from a test. This may be valuable as functional tests are faster and provide detailed stack traces on failures.
+In simple terms we set `$_REQUEST`, `$_GET` and `$_POST` variables and then we execute application from a test. This may be valuable as functional tests are faster and provide detailed stack traces on failures.
 
 Codeception can connect to different web frameworks which support functional testing: Symfony2, Laravel4, Yii2, Zend Framework and others. You just need to enable desired module in your functional suite config to start.
 
@@ -19,8 +19,8 @@ Modules for all of these frameworks share the same interface, and thus your test
 $I = new FunctionalTester($scenario);
 $I->amOnPage('/');
 $I->click('Login');
-$I->fillField('Username','Miles');
-$I->fillField('Password','Davis');
+$I->fillField('Username', 'Miles');
+$I->fillField('Password', 'Davis');
 $I->click('Enter');
 $I->see('Hello, Miles', 'h1');
 // $I->seeEmailIsSent() - special for Symfony2
@@ -36,8 +36,8 @@ Acceptance tests are usually much slower than functional tests. But functional t
 
 #### Headers, Cookies, Sessions
 
-One of the common issues problems with functional tests are usage of PHP functions that deal with `headers`, `sessions`, `cookies`.
-As you know, `header` function triggers an error if it is executed more then once. In functional tests we run application multiple times thus, we will get lots of trash errors in the result.
+One of the common issues with functional tests is usage of PHP functions that deal with `headers`, `sessions`, `cookies`.
+As you know, `header` function triggers an error if it is executed more than once for the same header. In functional tests we run application multiple times, thus, we will get lots of trash errors in the result.
 
 #### Shared Memory
 
@@ -50,17 +50,17 @@ Keep your memory clean, avoid memory leaks and clean global and static variables
 ## Enabling Framework Modules
 
 You have a functional testing suite in `tests/functional` dir.
-To start you need to include one of the framework's module in suite config file: `tests/functional.suite.yml`. Below we provide simplified instructions for setting up functional tests with most popular PHP frameworks
+To start you need to include one of the framework modules in suite config file: `tests/functional.suite.yml`. Below we provide simplified instructions for setting up functional tests with the most popular PHP frameworks.
 
 ### Symfony2
 
 To perform Symfony2 integrations you don't need to install any bundles or do any configuration changes.
-You just need to include the Symfony2 module into your test suite. If you also use Doctrine2, don't forget to include it either.
+You just need to include the `Symfony2` module into your test suite. If you also use Doctrine2, don't forget to include it too.
 
-Example for `functional.suite.yml`
+Example of `functional.suite.yml`
 
 {% highlight yaml %}
-yaml
+
 class_name: FunctionalTester
 modules:
     enabled: [Symfony2, Doctrine2, TestHelper] 
@@ -75,10 +75,10 @@ The module uses the Symfony Profiler to provide additional information and asser
 
 ### Laravel 4
 
-[Laravel](http://codeception.com/docs/modules/Laravel4) module is zero configuration and can be easily set up.
+[Laravel](http://codeception.com/docs/modules/Laravel4) module requires no configuration and can be easily set up.
 
 {% highlight yaml %}
-yaml
+
 class_name: FunctionalTester
 modules:
     enabled: [Laravel4, TestHelper]
@@ -93,11 +93,11 @@ Yii2 tests are included in [Basic](https://github.com/yiisoft/yii2-app-basic) an
 ### Yii
 
 By itself Yii framework does not have an engine for functional testing.
-So Codeception is the first and only functional testing framework for Yii.
+So Codeception is the first and the only functional testing framework for Yii.
 To use it with Yii include `Yii1` module into config.
 
 {% highlight yaml %}
-yaml
+
 class_name: FunctionalTester
 modules:
     enabled: [Yii1, TestHelper]
@@ -105,14 +105,14 @@ modules:
 {% endhighlight %}
 
 To avoid common pitfalls we discussed earlier, Codeception provides basic hooks over Yii engine.
-Please set them up [following the installation steps in module reference](http://codeception.com/docs/modules/Yii1).
+Please set them up following [the installation steps in module reference](http://codeception.com/docs/modules/Yii1).
 
 ### Zend Framework 2
 
 Use [ZF2](http://codeception.com/docs/modules/ZF2) module to run functional tests inside Zend Framework 2.
 
 {% highlight yaml %}
-yaml
+
 class_name: FunctionalTester
 modules:
     enabled: [ZF2, TestHelper]
@@ -122,12 +122,12 @@ modules:
 ### Zend Framework 1.x
 
 The module for Zend Framework is highly inspired by ControllerTestCase class, used for functional testing with PHPUnit. 
-It follows similar approaches for bootstrapping and cleaning up. To start using Zend Framework in your functional tests, include the ZF1 module.
+It follows similar approaches for bootstrapping and cleaning up. To start using Zend Framework in your functional tests, include the `ZF1` module.
 
-Example for `functional.suite.yml`
+Example of `functional.suite.yml`
 
 {% highlight yaml %}
-yaml
+
 class_name: FunctionalTester
 modules:
     enabled: [ZF1, TestHelper] 
@@ -136,12 +136,12 @@ modules:
 
 [See the full reference](http://codeception.com/docs/modules/ZF1)
 
-#### Phalcon 1.x
+### Phalcon 1.x
 
-Phalcon1 module requires creating bootstrap file which returns instance of `\Phalcon\Mvc\Application`. To start functional tests with Phalcon you should enable Phalon1 module and provid path to this bootstrap file:
+`Phalcon1` module requires creating bootstrap file which returns instance of `\Phalcon\Mvc\Application`. To start writing functional tests with Phalcon support you should enable `Phalcon1` module and provide path to this bootstrap file:
 
 {% highlight yaml %}
-yaml
+
 class_name: FunctionalTester
 modules:
     enabled: [Phalcon1, FunctionalHelper]
@@ -155,9 +155,9 @@ modules:
 
 ## Writing Functional Tests
 
-Functional tests are written in the same manner as [Acceptance Tests](http://codeception.com/docs/04-AcceptanceTests) with PhpBrowser module enabled. All framework modules and PHPBrowser module share the same methods and the same engine.
+Functional tests are written in the same manner as [Acceptance Tests](http://codeception.com/docs/04-AcceptanceTests) with `PhpBrowser` module enabled. All framework modules and `PhpBrowser` module share the same methods and the same engine.
 
-So we can open a web page with `amOnPage` command.
+Therefore we can open a web page with `amOnPage` command.
 
 {% highlight php %}
 
@@ -168,7 +168,7 @@ $I->amOnPage('/login');
 
 {% endhighlight %}
 
-We can click on links to open web pages of application.
+We can click links to open web pages of application.
 
 {% highlight php %}
 
@@ -184,16 +184,16 @@ $I->click(['class' => 'logout']);
 
 {% endhighlight %}
 
-We can submit form as well
+We can submit forms as well:
 
 {% highlight php %}
 
 <?php
-$I->submitForm('form#login', ['name' => 'jon', 'password' => '123456']);
+$I->submitForm('form#login', ['name' => 'john', 'password' => '123456']);
 // alternatively
-$I->fillField('#login input[name=name]', 'jon');
+$I->fillField('#login input[name=name]', 'john');
 $I->fillField('#login input[name=password]', '123456');
-$I->click('Sibmut', '#login');
+$I->click('Submit', '#login');
 ?>
 
 {% endhighlight %}
@@ -203,17 +203,17 @@ And do assertions:
 {% highlight php %}
 
 <?php
-$I->see('Welcome, jon');
-$I->see('Logged in successfulyy', '.notice');
-$I->seeCurrentUrlEquals('/profile/jon');
+$I->see('Welcome, john');
+$I->see('Logged in successfully', '.notice');
+$I->seeCurrentUrlEquals('/profile/john');
 ?>
 
 {% endhighlight %}
 
-Framework modules also contain additional methods to access framework internals. For instance, Laravel4, Phalcon1, and Yii2 module have `seeRecord` method which uses ActiveRecord layer to check that record exists in database.
-Laravel4 module also contain methods to do additional session checks. You may find `seeSessionHasErrors` useful when you test form validations.
+Framework modules also contain additional methods to access framework internals. For instance, `Laravel4`, `Phalcon1`, and `Yii2` modules have `seeRecord` method which uses ActiveRecord layer to check that record exists in database.
+`Laravel4` module also contains methods to do additional session checks. You may find `seeSessionHasErrors` useful when you test form validations.
 
-Take a look on the complete reference on module you are using. Most of its methods are common for all modules but some of them are unique.
+Take a look at the complete reference for module you are using. Most of its methods are common for all modules but some of them are unique.
 
 Also you can access framework globals inside a test or access Depenency Injection containers inside `FunctionalHelper` class.
 
@@ -235,18 +235,18 @@ class FunctionalHelper extends \Codeception\Module
 
 {% endhighlight %}
 
-We accessed Symfony2 internal kernel and took a service out of container. We also created custom method in `FunctionalTester` class which can be used in test.
+We accessed Symfony2 internal kernel and took a service out of container. We also created custom method in `FunctionalTester` class which can be used in tests.
 
-You can learn more about accessing framework you use by checking *Public Properties* section in respective module. 
+You can learn more about accessing framework you use by checking *Public Properties* section in the reference for the corresponding module. 
 
 ## Error Reporting
 
-By default Codeception uses `E_ALL & ~E_STRICT & ~E_DEPRECATED` error reporting value. 
-In functional tests you might want to change this values depending on framework's error policy.
-The error reporting value can be set at suite configuraion file:
+By default Codeception uses `E_ALL & ~E_STRICT & ~E_DEPRECATED` error reporting level. 
+In functional tests you might want to change this level depending on framework's error policy.
+The error reporting level can be set in the suite configuraion file:
 
 {% highlight yaml %}
-yaml
+
 class_name: FunctionalTester
 modules:
     enabled: [Yii1, TestHelper]
@@ -267,4 +267,4 @@ If you are using a framework other than the ones listed here, create a module fo
 
 
 * **Next Chapter: [UnitTests >](/docs/06-UnitTests)**
-* **Previous Chapter: [< AcceptanceTests](/docs/04-AcceptanceTests)**
+* **Previous Chapter: [< AcceptanceTests](/docs/04-AcceptanceTests)**<p>&nbsp;</p><div class="alert alert-warning">Docs are incomplete? Outdated? Or you just found a typo? <a href="https://github.com/Codeception/Codeception/tree/2.0/docs">Help us to improve documentation. Edit it on GitHub</a>
