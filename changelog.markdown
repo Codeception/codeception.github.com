@@ -3,9 +3,7 @@ layout: page
 title: Codeception Changelog
 ---
 
-<p>&nbsp;</p>
 <div class="alert alert-warning">Download specific version at <a href="/builds">builds page</a></div>
-<p>&nbsp;</p>
 
 # Changelog
 
