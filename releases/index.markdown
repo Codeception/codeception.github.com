@@ -1,16 +1,4 @@
----
-layout: bootstrap
----
-<div class="row">
-  <div class="col-sm-6 col-lg-6">
-    <div class="content page" id="page">           
-      <div>
-        {{ content }}
-      </div>  
-    </div>
-  </div>
-  <div class="col-sm-6 col-lg-6">
-    
+
 ## 2.0
 *Requires: PHP 5.4 and higher + CURL*
 
@@ -58,6 +46,3 @@ layout: bootstrap
 * [1.6.12](http://codeception.com/releases/1.6.12/codecept.phar)
 * [1.6.11](http://codeception.com/releases/1.6.11/codecept.phar)
 * [1.6.10](http://codeception.com/releases/1.6.10/codecept.phar)
-
-  </div>
-</div>
