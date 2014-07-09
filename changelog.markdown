@@ -1,6 +1,6 @@
 ---
-layout: releases
-title: Codeception Releases
+layout: post
+title: Codeception Changelog
 ---
 
 # Changelog
