@@ -91,6 +91,10 @@ Flexible notifications with [notificator](https://github.com/namshi/notificator)
 
 Starts remote debug session during test execution.
 
+#### [Allure Codeception Adapter](https://github.com/allure-framework/allure-codeception)
+
+It is an Codeception adapter for Allure Framework - a flexible, lightweight and multi-language framework for writing self-documenting tests.
+
 ---
 
 ## IDE Plugins
