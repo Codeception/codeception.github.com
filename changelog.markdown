@@ -7,28 +7,43 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.0.3
+
+* <strong>Symfony2</strong> Symfony3 directory structure implemented by <strong><a href="https://github.com/a6software">@a6software</a></strong> *2014-07-21*
+* Console: printing returned values *2014-07-21*
+* FIX: TAP and JSON logging should not be started when no option --json or --tap provided *2014-07-21*
+* <strong>Doctrine2</strong> FIXED: persisting transaction between Symfony requests *2014-07-19*
+* <strong>Symfony2</strong> created Symfony2 connector with persistent services *2014-07-19*
+* <strong>Doctrine2</strong> implemented haveInRepository method (previously empty) *2014-07-17*
+* When Cest fails <strong><a href="https://github.com/after">@after</a></strong> method wont be executed *2014-07-17*
+* <strong>Laravel4</strong> App is rebooted before each test. Fixes <a href="https://github.com/Codeception/Codeception/issues/1205">#1205</a> *2014-07-15*
+* FIX: `codeception/specify` is now available in phar *2014-07-14*
+* FIX: Interactive console works again *2014-07-09*
+* `_bootstrap.php` is now loaded before `beforeSuite` module hooks.
+* FIX: Suite `_bootstrap.php` was loaded after test run by <strong><a href="https://github.com/samdark">@samdark</a></strong> *2014-07-11*
+
 #### 2.0.2
 
-* [PhpBrowser][Frameworks] correctly send values when there are several submit buttons in a form by @TrustNik *2014-07-08*
-* [REST] fixed connection with framework modules *2014-07-06*
-* [PhpBrowser][Frameworks] `checkOption` now works for checkboxes with array[] name by @TrustNik
-* [PhpBrowser][Frameworks] FIX: `seeOptionIsSelected` and `dontSeeOptionIsSelected` now works with radiobuttons by @TrustNik *2014-07-05*
-* [FTP] MODULE ADDED by @nathanmac *2014-07-05*
-* [WebDriver] Enabled remote upload of local files to remote selenium server by @motin *2014-07-05*
-* [Yii2][Yii1] disabled logging for better functional test performance
+* <strong>PhpBrowser</strong><strong>Frameworks</strong> correctly send values when there are several submit buttons in a form by <strong><a href="https://github.com/TrustNik">@TrustNik</a></strong> *2014-07-08*
+* <strong>REST</strong> fixed connection with framework modules *2014-07-06*
+* <strong>PhpBrowser</strong><strong>Frameworks</strong> `checkOption` now works for checkboxes with array[] name by <strong><a href="https://github.com/TrustNik">@TrustNik</a></strong>
+* <strong>PhpBrowser</strong><strong>Frameworks</strong> FIX: `seeOptionIsSelected` and `dontSeeOptionIsSelected` now works with radiobuttons by <strong><a href="https://github.com/TrustNik">@TrustNik</a></strong> *2014-07-05*
+* <strong>FTP</strong> MODULE ADDED by <strong><a href="https://github.com/nathanmac">@nathanmac</a></strong> *2014-07-05*
+* <strong>WebDriver</strong> Enabled remote upload of local files to remote selenium server by <strong><a href="https://github.com/motin">@motin</a></strong> *2014-07-05*
+* <strong>Yii2</strong><strong>Yii1</strong> disabled logging for better functional test performance
 
 #### 2.0.1
 
-* [Phalcon1] Fixed connector
-* [WebDriver] added seeInPageSource and dontSeeInPageSource methods
-* [WebDriver] see method now checks only for visible BODY element by @artyfarty
-* [REST] added Bearer authentication by @dizews
+* <strong>Phalcon1</strong> Fixed connector
+* <strong>WebDriver</strong> added seeInPageSource and dontSeeInPageSource methods
+* <strong>WebDriver</strong> see method now checks only for visible BODY element by <strong><a href="https://github.com/artyfarty">@artyfarty</a></strong>
+* <strong>REST</strong> added Bearer authentication by <strong><a href="https://github.com/dizews">@dizews</a></strong>
 * removed auto added submit buttons in forms previously used as hook for DomCrawler
-* BUGFIX: PHP 5.4.x compatibility fixed. Sample error output: 'Method WelcomeCept.php does not exist' #1084 #1069 #1109
-* Second parameter of Cest method is treated as scenario variable on parse. Fix #1058
+* BUGFIX: PHP 5.4.x compatibility fixed. Sample error output: 'Method WelcomeCept.php does not exist' <a href="https://github.com/Codeception/Codeception/issues/1084">#1084</a> <a href="https://github.com/Codeception/Codeception/issues/1069">#1069</a> <a href="https://github.com/Codeception/Codeception/issues/1109">#1109</a>
+* Second parameter of Cest method is treated as scenario variable on parse. Fix <a href="https://github.com/Codeception/Codeception/issues/1058">#1058</a>
 * prints raw stack trace including codeception classes in -vvv mode
-* screenshots on fail are saved to properly named files #1075
-* [Symfony2] added debug config option to switch debug mode by @pmcjury
+* screenshots on fail are saved to properly named files <a href="https://github.com/Codeception/Codeception/issues/1075">#1075</a>
+* <strong>Symfony2</strong> added debug config option to switch debug mode by <strong><a href="https://github.com/pmcjury">@pmcjury</a></strong>
 
 #### 2.0.0
 
@@ -47,7 +62,7 @@ title: Codeception Changelog
 
 #### 2.0.0-RC
 
-* [WebDriver] makeScreenshot does not use filename of a test
+* <strong>WebDriver</strong> makeScreenshot does not use filename of a test
 * added `grabAttributeFrom`
 * seeElement to accept attributes in second parameter: seeElement('input',['name'=>'login'])
 
