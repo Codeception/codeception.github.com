@@ -91,6 +91,10 @@ Flexible notifications with [notificator](https://github.com/namshi/notificator)
 
 Starts remote debug session during test execution.
 
+#### [WP Browser and WPDb](https://github.com/lucatume/wp-browser)
+
+WP Browser is an extension of PHPBrowser implementing WordPress specific methods to write ```cest``` and ```cept``` format tests for WordPress websites with an higher level of abstraction; WPDb (WordPress Database) is an extension of Codeception Db module implementing methods specific to a WordPress database. For more information about the ongoing development process see [theAverageDev.com](http://theaveragedev.com), Composer package is [on Packagist](https://packagist.org/packages/lucatume/wp-browser).
+
 ---
 
 ## IDE Plugins
