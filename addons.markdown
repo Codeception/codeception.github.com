@@ -30,6 +30,10 @@ This module helps to upload files when using webdriver via remote connection.
 
 Visual regression tests integrated in Codeception. This module can be used to compare the current representation of a website element with an expeted. It was written on the shoulders of codeception and integrates in a very easy way.
 
+#### [WordPress Browser and Database](https://github.com/lucatume/wp-browser)
+
+An extension of Codeception own PhpBrowser and Db modules to allow for easy and streamlined WordPress themes and plugins testing. 
+
 ## Extensions
 
 Codeception extensions are developed by third-party contributors and can enhance test execution flow, by listening to internal events. [Read more about extensions](http://codeception.com/docs/08-Customization#Extension-classes).
