@@ -7,6 +7,26 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.0.4
+
+* Fix: GroupManager uses DIRECTORY_SEPARATOR for loaded tests *2014-08-05*
+* <strong>[Laravel4]</strong> Uses `app.url` config value for creating requests. Fixes <a href="https://github.com/Codeception/Codeception/issues/1095">#1095</a> *2014-08-04*
+* <strong>[Laravel4]</strong> `seeAuthenticated` / `dontSeeAuthenticated` assertions added to check that current user is authenticated *2014-08-04*
+* <strong>[Laravel4]</strong> `logout` action added *2014-08-04*
+* <strong>[Laravel4]</strong> `amLoggedAs` can login user by credentials *2014-08-04*
+* <strong>[Laravel4]</strong> Added `amOnRoute`, `amOnAction`, `seeCurrentRouteIs`, `seeCurrentActionIs` actions *2014-08-04*
+* <strong>[Laravel4]</strong> Added `haveEnabledFilters` and `haveDisabledFilters` actions to toggle filters in runtime *2014-08-04*
+* <strong>[Laravel4]</strong> Added `filters` option to enable filters on testing *2014-08-04*
+* <strong>[REST]</strong> seeResponseContainsJson should not take arrays order into account. See <a href="https://github.com/Codeception/Codeception/issues/1268">#1268</a> *2014-08-04*
+* <strong>[REST]</strong> grabDataFromJsonResponse accepts empty path to return entire json response *2014-08-04*
+* <strong>[REST]</strong> print_r replaced with var_export for better output on json comparison <a href="https://github.com/Codeception/Codeception/issues/1210">#1210</a> *2014-08-02*
+* <strong>[REST]</strong> Reset request variables in the before hook by <strong><a href="https://github.com/brutuscat">@brutuscat</a></strong> <a href="https://github.com/Codeception/Codeception/issues/1232">#1232</a> *2014-08-01*
+* <strong>[Db]</strong> Oci driver for oracle database by <strong><a href="https://github.com/Sikolasol">@Sikolasol</a></strong> <a href="https://github.com/Codeception/Codeception/issues/1234">#1234</a> <a href="https://github.com/Codeception/Codeception/issues/1243">#1243</a> *2014-08-01*
+* <strong>[Laravel4]</strong> Unit testing and test environment are now configurable <a href="https://github.com/Codeception/Codeception/issues/1255">#1255</a> by <strong><a href="https://github.com/ipalaus">@ipalaus</a></strong> *2014-08-01*
+* <strong>[Laravel4]</strong> Fixed Cest testing when using Laravel's Auth <a href="https://github.com/Codeception/Codeception/issues/1258">#1258</a> by <strong><a href="https://github.com/ipalaus">@ipalaus</a></strong> *2014-08-01*
+* FIX <a href="https://github.com/Codeception/Codeception/issues/948">#948</a> code coverage HTML: uncovered files missing by <strong><a href="https://github.com/RLasinski">@RLasinski</a></strong> *2014-07-26*
+* <strong>[Laravel4]</strong> project root relative config parameter added by <strong><a href="https://github.com/kernio">@kernio</a></strong> *2014-07-26*
+
 #### 2.0.3
 
 * <strong>[Symfony2]</strong> Symfony3 directory structure implemented by <strong><a href="https://github.com/a6software">@a6software</a></strong> *2014-07-21*

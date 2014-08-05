@@ -187,6 +187,14 @@ $ php codecept.phar run tests/acceptance/SigninCept.php
 
 {% endhighlight %}
 
+You can execute one test from a test class (for Cest or Test formats)
+
+{% highlight bash %}
+
+$ php codecept.phar run tests/acceptance/SignInCest:anonymousLogin
+
+{% endhighlight %}
+
 You can provide a directory path as well:
 
 {% highlight bash %}
