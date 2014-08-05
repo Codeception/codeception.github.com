@@ -9,6 +9,7 @@ title: Codeception Changelog
 
 #### 2.0.4
 
+* <strong>[Laravel4]</strong> More functional, cli, and api tests added to demo application <https://github.com/Codeception/sample-l4-app> *2014-08-05*
 * Fix: GroupManager uses DIRECTORY_SEPARATOR for loaded tests *2014-08-05*
 * <strong>[Laravel4]</strong> Uses `app.url` config value for creating requests. Fixes <a href="https://github.com/Codeception/Codeception/issues/1095">#1095</a> *2014-08-04*
 * <strong>[Laravel4]</strong> `seeAuthenticated` / `dontSeeAuthenticated` assertions added to check that current user is authenticated *2014-08-04*
