@@ -182,8 +182,11 @@
       </div>
     </div>
 <div id="copyright">
-  © 2011&ndash;<span data-toggle="tooltip" alt="" title="YOU BROKE MY PHP! FIX IT ASAP!">&lt;?= date('Y') ?&gt;</span>
-  <!-- You broke my PHP, man! -->
+  © 2011&ndash;
+  <script type="text/javascript">
+	var currentYear = new Date().getFullYear();
+	document.write(currentYear);
+  </script>
 </div>  
 
 
@@ -209,3 +212,5 @@
   
 
   </body></html>
+  
+  
