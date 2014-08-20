@@ -79,6 +79,10 @@ Extensions should be installed via **Composer**.
 
 Extension for starting and stopping built-in PHP server. Works on Windows, Mac, Linux.
 
+#### [Phantoman](https://github.com/site5/phantoman)
+
+Extension for automatically starting and stopping PhantomJS when running tests.
+
 #### [DrushDb](https://github.com/pfaocle/DrushDb)
 
 DrushDb is a Codeception extension to populate and cleanup test **Drupal** sites during test runs using Drush aliases and the sql-sync command.
