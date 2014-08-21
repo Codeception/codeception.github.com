@@ -71,23 +71,15 @@ Authenticates user for HTTP_AUTH
 
 #### amOnPage
  
-Opens the page.
-Requires relative uri as parameter
+ Converting $page to valid Yii2 url
+ Allows input like:
+ $I->amOnPage(['site/view','page'=>'about']);
+ $I->amOnPage('index-test.php?site/index');
+ $I->amOnPage('http://localhost/index-test.php?site/index');
 
-Example:
 
-{% highlight php %}
 
-<?php
-// opens front page
-$I->amOnPage('/');
-// opens /register page
-$I->amOnPage('/register');
-?>
 
-{% endhighlight %}
-
- * `param` $page
 
 
 
@@ -717,6 +709,24 @@ $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
 
  * `param`      $text
  * `param null` $url
+
+
+#### seeNumberOfElements
+ 
+Tests number of $elements on page
+
+{% highlight php %}
+
+<?php
+$I->seeNumberOfElements('tr', 10);
+$I->seeNumberOfElements('tr', [0,10]); //between 0 and 10 elements
+?>
+
+{% endhighlight %}
+ * `param` $selector
+ * `param mixed` $expected:
+- string: strict number
+- array: range of numbers [0,10]  
 
 
 #### seeOptionIsSelected

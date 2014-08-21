@@ -69,6 +69,10 @@ Project root directory is used by default
 
 
 
+
+
+
+
 #### cleanDir
  
 Erases directory contents
@@ -188,7 +192,7 @@ $I->seeInThisFile('codeception/codeception');
 #### seeFileContentsEqual
  
 Checks the strict matching of file contents.
-Unlike `seeInThisFile` will fail if file has something more then expected lines.
+Unlike `seeInThisFile` will fail if file has something more than expected lines.
 Better to use with HEREDOC strings.
 Matching is done after removing "\r" chars from file content.
 
