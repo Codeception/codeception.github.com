@@ -7,6 +7,20 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.0.5
+
+* <strong>[Queue]</strong> module added with AWS, Iron.io, and Beanstalkd support. Thanks to <strong><a href="https://github.com/nathanmac">@nathanmac</a></strong> *2014-08-21*
+* <strong>[WebDriver]</strong> fixed attachFile error message when file does not exists <a href="https://github.com/Codeception/Codeception/issues/1333">#1333</a> by <strong><a href="https://github.com/TroyRudolph">@TroyRudolph</a></strong> *2014-08-21*
+* <strong>[Asserts]</strong> Added assertLessThan and assertLessThanOrEqual by <strong><a href="https://github.com/Great">@Great</a></strong>-Antique *2014-08-21*
+* <strong>[ZF2]</strong> fixed <a href="https://github.com/Codeception/Codeception/issues/1283">#1283</a> by <strong><a href="https://github.com/dkiselew">@dkiselew</a></strong> *2014-08-21*
+* Added functionality to Stub to allow ConsecutiveCallStub. See <a href="https://github.com/Codeception/Codeception/issues/1300">#1300</a> by <strong><a href="https://github.com/nathanmac">@nathanmac</a></strong> *2014-08-21*
+* Cest generator inserts  object into _before and _after methods by <strong><a href="https://github.com/TroyRudolph">@TroyRudolph</a></strong> *2014-08-21*
+* <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> Fixed <a href="https://github.com/Codeception/Codeception/issues/1304">#1304</a> - ->selectOption() fails if two submit buttons present by <strong><a href="https://github.com/fdjohnston">@fdjohnston</a></strong> *2014-08-21*
+* <strong>[WebDriver]</strong><strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> seeNumberOfElements method added by <strong><a href="https://github.com/dynasource">@dynasource</a></strong> *2014-08-21*
+* recursive runner for included suites by <strong><a href="https://github.com/dynasource">@dynasource</a></strong> *2014-08-21*
+* Disabled skipped/incomplete tests logging in jUnit logger for smooth Bamboo integration by <strong><a href="https://github.com/ayastreb">@ayastreb</a></strong> *2014-08-21*
+
+
 #### 2.0.4
 
 * <strong>[Laravel4]</strong> More functional, cli, and api tests added to demo application <https://github.com/Codeception/sample-l4-app> *2014-08-05*

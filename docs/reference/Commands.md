@@ -704,7 +704,7 @@ Generates StepObject class. You will be asked for steps you want to implement.
 
 ## Clean
 
-Cleans `_output` directory
+Cleans `log` directory
 
 * `codecept clean`
 * `codecept clean -c path/to/project`

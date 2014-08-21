@@ -191,7 +191,7 @@ You can execute one test from a test class (for Cest or Test formats)
 
 {% highlight bash %}
 
-$ php codecept.phar run tests/acceptance/SignInCest:anonymousLogin
+$ php codecept.phar run tests/acceptance/SignInCest.php:anonymousLogin
 
 {% endhighlight %}
 
