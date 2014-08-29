@@ -95,9 +95,9 @@ Flexible notifications with [notificator](https://github.com/namshi/notificator)
 
 Starts remote debug session during test execution.
 
-#### [WPBrowser, WPDatabase](https://github.com/lucatume/wp-browser)
+#### [WPBrowser, WPDatabase, WPLoader](https://github.com/lucatume/wp-browser)
 
-WordPress specific extensions of PHPBrowser and Db modules to allow for more streamlined testing of themes and plugins.
+WordPress specific extensions of PHPBrowser and Db modules to allow for more streamlined testing of themes and plugins and a WordPress autoamated testing suite wrapper.
 
 ---
 
