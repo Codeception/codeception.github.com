@@ -81,7 +81,7 @@ Extensions should be installed via **Composer**.
 
 #### [Allure Codeception Adapter](https://github.com/allure-framework/allure-codeception)
 
-This is a Codeception adapter for [Allure Framework[(https://github.com/allure-framework).
+This is a Codeception adapter for [Allure Framework](https://github.com/allure-framework).
 
 #### [PhpBuiltinServer](https://github.com/tiger-seo/PhpBuiltinServer)
 
