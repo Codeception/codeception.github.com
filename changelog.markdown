@@ -7,6 +7,40 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.0.6
+
+* Fixed list of executed suites while running included suites by <strong><a href="https://github.com/gureedo">@gureedo</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/1427">#1427</a> *2014-10-08*
+* <strong>[Frameworks]</strong> support files and request names containing square brackets, dots, spaces. See <a href="https://github.com/Codeception/Codeception/issues/1438">#1438</a>. Thanks to <strong><a href="https://github.com/kkopachev">@kkopachev</a></strong> *2014-10-08*
+* <strong>[PhpBrowser]</strong> array of files for Guzzle to support format: file<strong>[foo]</strong><strong>[bar]</strong>. Fixes <a href="https://github.com/Codeception/Codeception/issues/342">#342</a> by <strong><a href="https://github.com/kkopachev">@kkopachev</a></strong> *2014-10-07*
+* Added strict mode for XML generation. *2014-10-06*
+
+In this mode only standard JUnit attributes are added to XML reports, so special attributes like `feature` won't be included. This improvement fixes usage XML reports with Jenkins <a href="https://github.com/Codeception/Codeception/issues/1408">#1408</a>
+  To enable strict xml generation add to `codeception.yml`:
+
+```
+settings:
+    strict_xml: true
+```
+
+* Fixed retrieval of codecoverage reports on remote server <a href="https://github.com/Codeception/Codeception/issues/1379">#1379</a> *2014-10-06*
+* <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> Malformed XPath won't throw fatal error, but makes tests fail. Fixes <a href="https://github.com/Codeception/Codeception/issues/1409">#1409</a> *2014-10-06*
+* Build command generates actors for included suites. See <a href="https://github.com/Codeception/Codeception/issues/1267">#1267</a> *2014-10-03*
+* CodeCoverage throws error on unsuccessful requests (status code is not 200) to remote server. Fixes <a href="https://github.com/Codeception/Codeception/issues/346">#346</a> *2014-10-03*
+* CodeCoverage can be disabled per suite. Fix <a href="https://github.com/Codeception/Codeception/issues/1249">#1249</a> *2014-10-02*
+* Fix: --colors and --no-colors options can override settings from config *2014-10-02*
+* <strong>[WebDriver]</strong> `waitForElement*` methods accept strict locators and WebDriverBy as parameters. See <a href="https://github.com/Codeception/Codeception/issues/1396">#1396</a> *2014-09-29*
+* <strong>[PhpBrowser]</strong> `executeInGuzzle` uses baseUrl set from config. Fixes <a href="https://github.com/Codeception/Codeception/issues/1416">#1416</a> *2014-09-29*
+* <strong>[Laravel4]</strong> fire booted callbacks between requests without kernel reboot. Fixes <a href="https://github.com/Codeception/Codeception/issues/1389">#1389</a>, See <a href="https://github.com/Codeception/Codeception/issues/1415">#1415</a> *2014-09-29*
+* <strong>[WebDriver]</strong><strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> `submitForm` accepts forms with document-relative paths. Fixes <a href="https://github.com/Codeception/Codeception/issues/1274">#1274</a> *2014-09-28*
+* <strong>[WebDriver]</strong><strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> Fixed <a href="https://github.com/Codeception/Codeception/issues/1381">#1381</a>: `fillField` fails for a form without a submit button by <strong><a href="https://github.com/zbateson">@zbateson</a></strong> *2014-09-28*
+* <strong>[PhpBrowser]</strong><strong>[WebDriver]</strong> `amOnPage` now accepts absolute urls *2014-09-27*
+* <strong>[Db]</strong> ignore errors from lastInsertId by <strong><a href="https://github.com/tomykaira">@tomykaira</a></strong> *2014-09-27*
+* <strong>[WebDriver]</strong> saves HTML snapshot on fail *2014-09-27*
+* <strong>[WebDriver]</strong> fixed <a href="https://github.com/Codeception/Codeception/issues/1392">#1392</a>: findField should select by id, css, then fall back on xpath *2014-09-27*
+* <strong>[WebDriver]</strong> Don't check for xpath if css selector is set, by <strong><a href="https://github.com/Danielss89">@Danielss89</a></strong> <a href="https://github.com/Codeception/Codeception/issues/1367">#1367</a> *2014-09-27*
+* Specify actor class for friends by <strong><a href="https://github.com/tomykaira">@tomykaira</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/1394">#1394</a> *2014-09-27*
+
+
 #### 2.0.5
 
 * <strong>[Queue]</strong> module added with AWS, Iron.io, and Beanstalkd support. Thanks to <strong><a href="https://github.com/nathanmac">@nathanmac</a></strong> *2014-08-21*
