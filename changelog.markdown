@@ -7,6 +7,15 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.0.7
+
+* <strong>[Db]</strong> Made the postgresql loader load $$ syntax correctly by <strong><a href="https://github.com/rtuin">@rtuin</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/1450">#1450</a> *2014-10-12*
+* <strong>[Yii1]</strong> fixed syntax typo in Yii1 Connector by <strong><a href="https://github.com/xt99">@xt99</a></strong> *2014-10-12*
+* <strong>[PhpBrowser]</strong><strong>[WebDriver]</strong> amOnUrl method added for opening absolute urls. This behavior taken from amOnPage method, initially introduced in 2.0.6 *2014-10-12*
+* Fixed usage of whitespaces in wantTo. See <a href="https://github.com/Codeception/Codeception/issues/1456">#1456</a> *2014-10-12*
+* <strong>[WebDriver]</strong><strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> fillField is matching element by name, then by CSS. Fixes <a href="https://github.com/Codeception/Codeception/issues/1454">#1454</a> *2014-10-12*
+
+
 #### 2.0.6
 
 * Fixed list of executed suites while running included suites by <strong><a href="https://github.com/gureedo">@gureedo</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/1427">#1427</a> *2014-10-08*
