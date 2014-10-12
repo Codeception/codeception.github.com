@@ -109,13 +109,6 @@ service.
 
 
 
-
-
-
-
-
-
-
 #### addMessageToQueue
  
 Add a message to a queue/tube
@@ -123,13 +116,13 @@ Add a message to a queue/tube
 {% highlight php %}
 
 <?php
-    $I->addMessageToQueue('this is a messages', 'default');
+$I->addMessageToQueue('this is a messages', 'default');
 ?>
 
 {% endhighlight %}
 
  * `param string` $message Message Body
- * `param string` $queue   Queue Name
+ * `param string` $queue Queue Name
 
 
 
@@ -159,12 +152,13 @@ Clear all messages of the queue/tube
 {% highlight php %}
 
 <?php
-    $I->clearQueue('default');
+$I->clearQueue('default');
 ?>
 
 {% endhighlight %}
 
  * `param string` $queue Queue Name
+
 
 
 
@@ -176,7 +170,7 @@ Check if a queue/tube is NOT empty of all messages
 {% highlight php %}
 
 <?php
-    $I->dontSeeEmptyQueue('default');
+$I->dontSeeEmptyQueue('default');
 ?>
 
 {% endhighlight %}
@@ -191,7 +185,7 @@ Check if a queue/tube does NOT exist on the queueing server.
 {% highlight php %}
 
 <?php
-    $I->dontSeeQueueExists('default');
+$I->dontSeeQueueExists('default');
 ?>
 
 {% endhighlight %}
@@ -206,13 +200,13 @@ Check if a queue/tube does NOT have a given current number of messages
 {% highlight php %}
 
 <?php
-    $I->dontSeeQueueHasCurrentCount('default', 10);
+$I->dontSeeQueueHasCurrentCount('default', 10);
 ?>
 
 {% endhighlight %}
 
- * `param string` $queue    Queue Name
- * `param int`    $expected Number of messages expected
+ * `param string` $queue Queue Name
+ * `param int` $expected Number of messages expected
 
 
 #### dontSeeQueueHasTotalCount
@@ -222,13 +216,13 @@ Check if a queue/tube does NOT have a given total number of messages
 {% highlight php %}
 
 <?php
-    $I->dontSeeQueueHasTotalCount('default', 10);
+$I->dontSeeQueueHasTotalCount('default', 10);
 ?>
 
 {% endhighlight %}
 
- * `param string` $queue    Queue Name
- * `param int`    $expected Number of messages expected
+ * `param string` $queue Queue Name
+ * `param int` $expected Number of messages expected
 
 
 
@@ -274,7 +268,7 @@ Grabber method to get the list of queues/tubes on the server
 {% highlight php %}
 
 <?php
-    $I->grabQueues();
+$queues = $I->grabQueues();
 ?>
 
 {% endhighlight %}
@@ -292,7 +286,7 @@ Check if a queue/tube is empty of all messages
 {% highlight php %}
 
 <?php
-    $I->seeEmptyQueue('default');
+$I->seeEmptyQueue('default');
 ?>
 
 {% endhighlight %}
@@ -307,7 +301,7 @@ Check if a queue/tube exists on the queueing server.
 {% highlight php %}
 
 <?php
-    $I->seeQueueExists('default');
+$I->seeQueueExists('default');
 ?>
 
 {% endhighlight %}
@@ -322,13 +316,13 @@ Check if a queue/tube has a given current number of messages
 {% highlight php %}
 
 <?php
-    $I->seeQueueHasCurrentCount('default', 10);
+$I->seeQueueHasCurrentCount('default', 10);
 ?>
 
 {% endhighlight %}
 
- * `param string` $queue    Queue Name
- * `param int`    $expected Number of messages expected
+ * `param string` $queue Queue Name
+ * `param int` $expected Number of messages expected
 
 
 #### seeQueueHasTotalCount
@@ -338,12 +332,12 @@ Check if a queue/tube has a given total number of messages
 {% highlight php %}
 
 <?php
-    $I->seeQueueHasTotalCount('default', 10);
+$I->seeQueueHasTotalCount('default', 10);
 ?>
 
 {% endhighlight %}
 
- * `param string` $queue    Queue Name
- * `param int`    $expected Number of messages expected
+ * `param string` $queue Queue Name
+ * `param int` $expected Number of messages expected
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Queue.php">Help us to improve documentation. Edit module reference</a></div>
