@@ -841,7 +841,7 @@ You need to perform an ajax request specifying the HTTP method.
 {% highlight php %}
 
 <?php
-$I->sendAjaxRequest('PUT', /posts/7', array('title' => 'new title');
+$I->sendAjaxRequest('PUT', '/posts/7', array('title' => 'new title'));
 
 
 {% endhighlight %}

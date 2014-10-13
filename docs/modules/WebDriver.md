@@ -54,6 +54,7 @@ PhantomJS is headless alternative to Selenium Server.
              wait: 10
              capabilities:
                  unexpectedAlertBehaviour: 'accept'
+                 firefox_profile: '/Users/paul/Library/Application Support/Firefox/Profiles/codeception-profile.zip.b64' 
 
 ### Migration Guide (Selenium2 -> WebDriver)
 
@@ -144,6 +145,23 @@ $I->amOnPage('/');
 
  * `param` $subdomain
 
+
+
+#### amOnUrl
+ 
+Open web page at absolute URL.
+Base url will be reconfigured to use the host of provided Url.
+
+{% highlight php %}
+
+<?php
+$I->amOnUrl('http://codeception.com');
+$I->anOnPage('/quickstart'); // moves to http://codeception.com/quickstart
+?>
+
+{% endhighlight %}
+ * `param` $url
+@return
 
 
 #### appendField
@@ -560,10 +578,11 @@ $I->fillField(['name' => 'email'], 'jon@mail.com');
 
 
 
+
+
 #### getVisibleText
  
 @return string
-
 
 
 #### grabAttributeFrom
@@ -652,6 +671,7 @@ $name = $I->grabValueFrom(['name' => 'username']);
 {% endhighlight %}
 
  * `param` $field
+
 
 
 

@@ -141,6 +141,23 @@ $I->amOnPage('/');
 
 
 
+#### amOnUrl
+ 
+Open web page at absolute URL.
+Base url will be reconfigured to use the host of provided Url.
+
+{% highlight php %}
+
+<?php
+$I->amOnUrl('http://codeception.com');
+$I->anOnPage('/quickstart'); // moves to http://codeception.com/quickstart
+?>
+
+{% endhighlight %}
+ * `param` $url
+@return
+
+
 
 
 
@@ -876,7 +893,7 @@ You need to perform an ajax request specifying the HTTP method.
 {% highlight php %}
 
 <?php
-$I->sendAjaxRequest('PUT', /posts/7', array('title' => 'new title');
+$I->sendAjaxRequest('PUT', '/posts/7', array('title' => 'new title'));
 
 
 {% endhighlight %}
