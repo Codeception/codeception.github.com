@@ -72,8 +72,7 @@ class FactoryHelper extends \Codeception\Module
 ?>
 {% endhighlight %}
 
-This is how generation of Post and User is defined. From the box, Muffin is designed to work with ActiveRecord models, and with Eloquent in particular.
-We will **demonstrate its usage in Laravel application**. Nevertheless FactoryMuffin can be customized to work with Doctrine as well.
+This is how generation of Post and User is defined. From the box, Muffin is designed to work with ActiveRecord models, and with Eloquent in particular. So you can use it in Yii, Phalcon, yet we will **demonstrate its usage in Laravel application**. FactoryMuffin can also be customized to work with Doctrine as well.
 
 ## Using Factories in Laravel
 
@@ -113,6 +112,9 @@ class FactoryHelper extends \Codeception\Module
 
     public function _after(\Codeception\TestCase $test)
     {
+        // actually this is not needed
+        // if you use cleanup: true option 
+        // in Laravel4 module
         $this->factory->deleteSaved();
     }
 }
