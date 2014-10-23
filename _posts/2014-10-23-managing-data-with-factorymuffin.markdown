@@ -182,3 +182,5 @@ class UserTest extends \Codeception\TestCase\Test
 
 As you see, factories make your tests clean and expressive. 
 Forget about managing test data manually, forget about fixtures. Use [FactoryMuffin](http://factory-muffin.thephpleague.com/).
+
+**Update** [FactoryHelper for Symfony2 and Doctrine modules](https://github.com/DavertMik/SymfonyCodeceptionApp/blob/factories/tests/_support/FactoryHelper.php)
