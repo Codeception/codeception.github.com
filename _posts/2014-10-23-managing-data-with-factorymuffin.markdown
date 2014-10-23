@@ -133,7 +133,7 @@ $I->seeNumberOfElements('.post', 20);
 ?>
 {% endhighlight %}
 
-[Source code of this example is on GitHub](https://github.com/Codeception/sample-l4-app/tree/factories).
+[Source code of this example is on GitHub](https://github.com/Codeception/sample-l4-app/commit/7057518d41eaff6bbba2d4bea7aee400cf504492).
 
 ## Factories in Unit Tests
 
