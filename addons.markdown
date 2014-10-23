@@ -15,6 +15,10 @@ You can access multiple test suites and decide which tests to include in a run. 
 
 ## Modules
 
+#### [IM](https://github.com/nathanmac/im-codeception-module)
+
+This module allows the testing against external messaging services as well as triggering notifications via your tests, currently supports HipChat messaging service.
+
 #### [MailCatcher](https://github.com/captbaritone/codeception-mailcatcher-module) 
 
 This module will let you test emails that are sent during your Codeception acceptance tests. It depends upon you having MailCatcher installed on your development server.
