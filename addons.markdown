@@ -15,6 +15,10 @@ You can access multiple test suites and decide which tests to include in a run. 
 
 ## Modules
 
+#### [Date/Time](https://github.com/nathanmac/datetime-codeception-module)
+
+This module provides additional helpers for your test to help with date and time comparisons.
+
 #### [IM](https://github.com/nathanmac/im-codeception-module)
 
 This module allows the testing against external messaging services as well as triggering notifications via your tests, currently supports HipChat messaging service.
