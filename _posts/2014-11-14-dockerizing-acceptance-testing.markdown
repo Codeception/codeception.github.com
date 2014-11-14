@@ -58,7 +58,7 @@ And here comes a tricky question. If Selenium is completely isolated, how can we
 
 {% highlight bash %}
 docker run -i -t -p 4444:4444 -e APP_HOST=myhost davert/selenium-env
-{% endhighlight %}}
+{% endhighlight %}
 
 This will bind `myhost` to your host machine IP. So, container, and Firefox, Chromium, can get access to your local web site from inside container. 
 
