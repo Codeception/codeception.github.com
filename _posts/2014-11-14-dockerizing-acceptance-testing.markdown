@@ -88,7 +88,7 @@ Everything else is pretty similar. Also you can easily switch from Selenium to P
 
 If you need to have Selenium Server from version other than 2.44.0 (which is latest for today), you should update Docker file and build an image from it. 
 
-SeleniumEnv and PhantomEnv may simplify testing for all Linux users. They will definitely simplify setting up Continuous Integration servers. You can even recreate a complete testing environment inside a container. Look into [RoboCI](https://github.com/Codegyre/RoboCI) project for this. It allows you to recreate Travis CI service at your own host. Sounds cool, right? 
+SeleniumEnv and PhantomEnv may simplify testing for all Linux users. They will definitely simplify setting up Continuous Integration servers. You can even **recreate a complete testing environment inside a container**. Take a look into [RoboCI](https://github.com/Codegyre/RoboCI) project for this. It allows you to build Travis CI-like service on your own host!
 
 Use them and enjoy :)
 
