@@ -4,6 +4,9 @@ title: "Dockerizing Acceptance Testing: Selenium and PhantomJS not required"
 date: 2014-11-14 01:03:50
 ---
 
+![Selenium](http://www.seleniumhq.org/images/big-logo.png)
+![PhantomJS](https://cdn.tutsplus.com/net/uploads/legacy/2161_phantom/preview.png)
+
 This post summarizes some recent work that was done for creating portable testing environments. The idea was to reduce dependencies required by acceptance testing. As you know, testing of web pages require Selenium or PhanromJS servers, which allow to interact with web page, and execute user scripts on page. However, installing those dependencies, can be a pain. Especially Selenium. If you are not running it inside desktop environment you probably need to have Firefox or Chromium, and they can't be run without virtual framebuffer, as they have some display server to run on. Setting up those packages can take liters of sweat and bunch of nerves.
 
 That's why we decided to pack **Selenium and PhantomJS into portable Docker containers**. Did you hear about [Docker](http://docker.com)? If not - you probably should take some time to look at it. Docker allows you to create virtual environments on Linux hosts without real virtualization. Docker creates an isolated environment inside the host machine without recreating operating system. 
@@ -67,7 +70,7 @@ php -S 0.0.0.0:8000
 docker run -i -t -p 4444:4444 -e APP_PORT=8000 davert/selenium-env 
 # in new terminal window
 codecept run acceptance
-{% endhlighlight %}
+{% endhighlight %}
 
 ### PhantomJS From Container
 
