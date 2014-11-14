@@ -13,7 +13,7 @@ That's why we decided to pack **Selenium and PhantomJS into portable Docker cont
 
 Docker containers are lightweight and easy to use. If you have Linux. Probably all your servers use Linux, so you might find docker images of Selenium and PhantomJS pretty useful!
 
-### Selenium From Container
+### [SeleniumEnv](https://github.com/Codeception/SeleniumEnv): Selenium, Xvfb, Firefox, and Chromium Inside Container
 
 OK, lets assume **you are using Linux and Docker >=1.2**. 
 From now on running Selenium won't take from you anything more then running those commands:
@@ -72,7 +72,7 @@ docker run -i -t -p 4444:4444 -e APP_PORT=8000 davert/selenium-env
 codecept run acceptance
 {% endhighlight %}
 
-### PhantomJS From Container
+### [PhantomJsEnv](https://github.com/Codeception/PhantomJsEnv): PhantomJS Inside Container
 
 Instructions are the same for **running PhantomJS**. It can be started with 
 
@@ -84,11 +84,11 @@ Everything else is pretty similar. Also you can easily switch from Selenium to P
 
 ## Images and Source Code
 
-[SeleniumEnv](https://github.com/Codeception/SeleniumEnv) and [PhantomJS](https://github.com/Codeception/PhantomJsEnv) are created from [Travis CI Cookbooks](https://github.com/travis-ci/travis-cookbooks) and packed into containers. They are free to use and free to modify for custom needs. 
+[SeleniumEnv](https://github.com/Codeception/SeleniumEnv) and [PhantomJsEnv](https://github.com/Codeception/PhantomJsEnv) are created from [Travis CI Cookbooks](https://github.com/travis-ci/travis-cookbooks) and packed into containers. They are free to use and free to modify for custom needs. 
 
 If you need to have Selenium Server from version other than 2.44.0 (which is latest for today), you should update Docker file and build an image from it. 
 
-SeleniumEnv and PhantomEnv may simplify testing for all Linux users. They will definitely simplify setting up Continuous Integration servers. You can even **recreate a complete testing environment inside a container**. Take a look into [RoboCI](https://github.com/Codegyre/RoboCI) project for this. It allows you to build Travis CI-like service on your own host!
+SeleniumEnv and PhantomJsEnv may simplify testing for all Linux users. They will definitely simplify setting up Continuous Integration servers. You can even **recreate a complete testing environment inside a container**. Take a look into [RoboCI](https://github.com/Codegyre/RoboCI) project for this. It allows you to build Travis CI-like service on your own host!
 
 Use them and enjoy :)
 
