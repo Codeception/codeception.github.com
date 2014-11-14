@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Running Acceptance Tests Without Selenium or PhantomJS Installed"
+title: "Running Acceptance Tests With No Selenium or PhantomJS Installed"
 date: 2014-11-14 01:03:50
 ---
 
