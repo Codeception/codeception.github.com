@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Dockerizing Acceptance Testing: Selenium and PhantomJS not required"
+title: "Running Acceptance Tests Without Selenium or PhantomJS Installed"
 date: 2014-11-14 01:03:50
 ---
 
