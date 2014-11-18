@@ -7,6 +7,27 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.0.8
+
+* Dependencies updated: facebook/php-webdriver 0.5.x and guzzle 5 *2014-11-17*
+* <strong>[WebDriver]</strong> Fixed selectOption and (dont)seeOptionIsSelected for multiple radio button groups by <strong><a href="https://github.com/MasonM">@MasonM</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/1467">#1467</a> *2014-11-18*
+* <strong>[WebDriver]</strong><strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> Clicked submit button can be specified as 3rd parameter in `submitForm` method by <strong><a href="https://github.com/zbateson">@zbateson</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/1518">#1518</a>
+* <strong>[ZF1]</strong> Format ZF response to Symfony\Component\BrowserKit\Response by <strong><a href="https://github.com/MOuli90">@MOuli90</a></strong>. Fixes <a href="https://github.com/Codeception/Codeception/issues/1476">#1476</a>
+* <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> fixed `grabValueFrom` method by <strong><a href="https://github.com/zbateson">@zbateson</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/1512">#1512</a>
+* <strong>[Db]</strong> Fixed Postgresql error with schemas by <strong><a href="https://github.com/rafreis">@rafreis</a></strong>. Fixes <a href="https://github.com/Codeception/Codeception/issues/970">#970</a>
+* <strong>[PhpBrowser]</strong> Fix for meta refresh tags with interval by <strong><a href="https://github.com/zbateson">@zbateson</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/1515">#1515</a>
+* <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> Fixed: `grabTextFrom` doesn't work with regex by <strong><a href="https://github.com/zbateson">@zbateson</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/1519">#1519</a>
+* Cest tests support multiple `<strong><a href="https://github.com/before">@before</a></strong>` and `<strong><a href="https://github.com/after">@after</a></strong>` annotations. Thanks to <strong><a href="https://github.com/draculus">@draculus</a></strong> and <strong><a href="https://github.com/zbateson">@zbateson</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/1517">#1517</a>
+* <strong>[FTP]</strong> Stops test execution on failed connection by <strong><a href="https://github.com/yegortokmakov">@yegortokmakov</a></strong>
+* <strong>[AMQP]</strong> Fix for purging queues on initialization stage. Check for open channel is not needed and it prevents from cleaning queue by <strong><a href="https://github.com/yegortokmakov">@yegortokmakov</a></strong>
+* CodeCoverage remote context configuration added by <strong><a href="https://github.com/synchrone">@synchrone</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/1524">#1524</a> [Documentation updated](http://codeception.com/docs/11-Codecoverage#Remote-Context-Options)
+* Implemented better descriptions for error exception. Fix <a href="https://github.com/Codeception/Codeception/issues/1503">#1503</a>
+* Added `c3_url` option to code coverage settings. `c3_url` allows to explicitly set url for index file with c3 included. See <a href="https://github.com/Codeception/Codeception/issues/1024">#1024</a>
+* <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> Fixed selecting checkbock in a group of checkboxes <a href="https://github.com/Codeception/Codeception/issues/1535">#1535</a>
+* <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> submitForm sends default values for radio buttons and checkboxes by <strong><a href="https://github.com/zbateson">@zbateson</a></strong>. Fixes <a href="https://github.com/Codeception/Codeception/issues/1507">#1507</a> *2014-11-3*
+* <strong>[ZF2]</strong> Close any open ZF2 sessions by <strong><a href="https://github.com/FnTm">@FnTm</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/1486">#1486</a> *2014-10-24*
+
+
 #### 2.0.7
 
 * <strong>[Db]</strong> Made the postgresql loader load $$ syntax correctly by <strong><a href="https://github.com/rtuin">@rtuin</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/1450">#1450</a> *2014-10-12*

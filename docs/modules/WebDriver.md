@@ -54,7 +54,6 @@ PhantomJS is headless alternative to Selenium Server.
              wait: 10
              capabilities:
                  unexpectedAlertBehaviour: 'accept'
-                 firefox_profile: '/Users/paul/Library/Application Support/Firefox/Profiles/codeception-profile.zip.b64' 
 
 ### Migration Guide (Selenium2 -> WebDriver)
 
@@ -145,23 +144,6 @@ $I->amOnPage('/');
 
  * `param` $subdomain
 
-
-
-#### amOnUrl
- 
-Open web page at absolute URL.
-Base url will be reconfigured to use the host of provided Url.
-
-{% highlight php %}
-
-<?php
-$I->amOnUrl('http://codeception.com');
-$I->anOnPage('/quickstart'); // moves to http://codeception.com/quickstart
-?>
-
-{% endhighlight %}
- * `param` $url
-@return
 
 
 #### appendField
@@ -578,11 +560,10 @@ $I->fillField(['name' => 'email'], 'jon@mail.com');
 
 
 
-
-
 #### getVisibleText
  
 @return string
+
 
 
 #### grabAttributeFrom
@@ -671,7 +652,6 @@ $name = $I->grabValueFrom(['name' => 'username']);
 {% endhighlight %}
 
  * `param` $field
-
 
 
 
@@ -1083,16 +1063,24 @@ Sets a cookie.
  
 Submits a form located on page.
 Specify the form by it's css or xpath selector.
-Fill the form fields values as array. Hidden fields can't be accessed.
+Fill the form fields values as array.
 
+Skipped fields will be filled by their values from page.
+You don't need to click the 'Submit' button afterwards.
 This command itself triggers the request to form's action.
+
+You can optionally specify what button or buttons to include
+in the request with the last parameter as an alternative to
+explicitly setting its value in the second parameter, as
+button values are not included otherwise included in the
+request.
 
 Examples:
 
 {% highlight php %}
 
 <?php
-$I->submitForm('#login', array('login' => 'davert', 'password' => '123456'));
+$I->submitForm('#login', array('login' => 'davert', 'password' => '123456'), array('clickedButtonName', 'submitButtonName'));
 
 
 {% endhighlight %}
@@ -1106,11 +1094,25 @@ For sample Sign Up form:
     Password: <input type="password" name="user[password]" /><br/>
     Do you agree to out terms? <input type="checkbox" name="user[agree]" /><br/>
     Select pricing plan <select name="plan"><option value="1">Free</option><option value="2" selected="selected">Paid</option></select>
-    <input type="submit" value="Submit" />
+    <input type="submit" name="submitButton" value="Submit" />
 </form>
 
 {% endhighlight %}
 You can write this:
+
+{% highlight php %}
+
+<?php
+$I->submitForm('#userForm', array('user' => array('login' => 'Davert', 'password' => '123456', 'agree' => true)), 'submitButton');
+
+
+{% endhighlight %}
+Note, that pricing plan will be set to Paid, as it's selected on page.
+
+ * `param` $selector
+ * `param` $params
+
+You can also emulate a JavaScript submission by not specifying any buttons in the third parameter to submitForm.
 
 {% highlight php %}
 
@@ -1120,9 +1122,6 @@ $I->submitForm('#userForm', array('user' => array('login' => 'Davert', 'password
 
 {% endhighlight %}
 
- * `param` $selector
- * `param` $params
- \Codeception\Exception\ElementNotFound
 
 
 #### switchToIFrame
