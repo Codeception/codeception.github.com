@@ -54,6 +54,7 @@ PhantomJS is headless alternative to Selenium Server.
              wait: 10
              capabilities:
                  unexpectedAlertBehaviour: 'accept'
+                 firefox_profile: '/Users/paul/Library/Application Support/Firefox/Profiles/codeception-profile.zip.b64' 
 
 ### Migration Guide (Selenium2 -> WebDriver)
 
@@ -144,6 +145,21 @@ $I->amOnPage('/');
 
  * `param` $subdomain
 
+
+
+#### amOnUrl
+ 
+Open web page at absolute URL.
+Base url will be reconfigured to use the host of provided Url.
+
+{% highlight php %}
+
+<?php
+$I->amOnUrl('http://codeception.com');
+$I->amOnPage('/quickstart'); // moves to http://codeception.com/quickstart
+?>
+
+{% endhighlight %}
 
 
 #### appendField
@@ -560,10 +576,11 @@ $I->fillField(['name' => 'email'], 'jon@mail.com');
 
 
 
+
+
 #### getVisibleText
  
 @return string
-
 
 
 #### grabAttributeFrom
@@ -652,6 +669,7 @@ $name = $I->grabValueFrom(['name' => 'username']);
 {% endhighlight %}
 
  * `param` $field
+
 
 
 
@@ -1063,25 +1081,19 @@ Sets a cookie.
  
 Submits a form located on page.
 Specify the form by it's css or xpath selector.
-Fill the form fields values as array.
+Fill the form fields values as array. Hidden fields can't be accessed.
 
-Skipped fields will be filled by their values from page.
-You don't need to click the 'Submit' button afterwards.
 This command itself triggers the request to form's action.
-
-You can optionally specify what button or buttons to include
-in the request with the last parameter as an alternative to
-explicitly setting its value in the second parameter, as
-button values are not included otherwise included in the
-request.
 
 Examples:
 
 {% highlight php %}
 
 <?php
-$I->submitForm('#login', array('login' => 'davert', 'password' => '123456'), array('clickedButtonName', 'submitButtonName'));
-
+$I->submitForm('#login', array('login' => 'davert', 'password' => '123456'));
+// or
+$I->submitForm('#login', array('login' => 'davert', 'password' => '123456'), 'submitButtonName');
+?>
 
 {% endhighlight %}
 
@@ -1107,21 +1119,11 @@ $I->submitForm('#userForm', array('user' => array('login' => 'Davert', 'password
 
 
 {% endhighlight %}
-Note, that pricing plan will be set to Paid, as it's selected on page.
 
  * `param` $selector
  * `param` $params
-
-You can also emulate a JavaScript submission by not specifying any buttons in the third parameter to submitForm.
-
-{% highlight php %}
-
-<?php
-$I->submitForm('#userForm', array('user' => array('login' => 'Davert', 'password' => '123456', 'agree' => true)));
-
-
-{% endhighlight %}
-
+ * `param` $button
+ \Codeception\Exception\ElementNotFound
 
 
 #### switchToIFrame
