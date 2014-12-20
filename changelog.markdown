@@ -47,7 +47,7 @@ codecept run unit tests/unit/Codeception/TestLoaderTest:testAddCept
 * <strong>[REST]</strong> sendXXX methods now encode objects implementing JsonSerializable interfaces. *2014-12-19*
 * <strong>[REST]</strong> added methods to validate JSON structure *2014-12-19*
 
-[seeResponseJsonMatchesJsonPath](http://codeception.com/docs/modules/REST#seeResponseJsonMatchesJsonPath) validates response JSON against <strong>[JsonPath]</strong>(http://goessner.net/articles/JsonPath/).
+[seeResponseJsonMatchesJsonPath](http://codeception.com/docs/modules/REST#seeResponseJsonMatchesJsonPath) validates response JSON against [JsonPath](http://goessner.net/articles/JsonPath/).
 Usage of JsonPath requires library `flow/jsonpath` to be installed.
 
 [seeResponseJsonMatchesXpath](http://codeception.com/docs/modules/REST#seeResponseJsonMatchesXpath) validates response JSON against XPath.
