@@ -19,18 +19,10 @@ codecept run unit tests/unit/Codeception/TestLoaderTest
 codecept run unit Codeception
 codecept run unit Codeception:testAddCept
 
-codecept run unit /var/www/myapp.dev/vendor/codeception/codeception/tests/unit/Codeception
-codecept run unit /var/www/myapp.dev/vendor/codeception/codeception/tests/unit/Codeception:testAddCept
-
 codecept run unit Codeception/TestLoaderTest.php
 codecept run unit Codeception/TestLoaderTest
 codecept run unit Codeception/TestLoaderTest.php:testAddCept
 codecept run unit Codeception/TestLoaderTest:testAddCept
-
-codecept run unit /var/www/myapp.dev/vendor/codeception/codeception/tests/unit/Codeception/TestLoaderTest.php
-codecept run unit /var/www/myapp.dev/vendor/codeception/codeception/tests/unit/Codeception/TestLoaderTest.php:testAddCept
-codecept run unit /var/www/myapp.dev/vendor/codeception/codeception/tests/unit/Codeception/TestLoaderTest
-codecept run unit /var/www/myapp.dev/vendor/codeception/codeception/tests/unit/Codeception/TestLoaderTest:testAddCept
 
 codecept run unit tests/unit/Codeception
 codecept run unit tests/unit/Codeception:testAddCept
