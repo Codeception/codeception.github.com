@@ -47,13 +47,13 @@ codecept run unit tests/unit/Codeception/TestLoaderTest:testAddCept
 * <strong>[REST]</strong> sendXXX methods now encode objects implementing JsonSerializable interfaces. *2014-12-19*
 * <strong>[REST]</strong> added methods to validate JSON structure *2014-12-19*
 
-`seeResponseJsonMatchesJsonPath` validates response JSON against <strong>[JsonPath]</strong>(http://goessner.net/articles/JsonPath/).
-Usage of JsonPath requires library "flow/jsonpath" to be installed.
+[seeResponseJsonMatchesJsonPath](http://codeception.com/docs/modules/REST#seeResponseJsonMatchesJsonPath) validates response JSON against <strong>[JsonPath]</strong>(http://goessner.net/articles/JsonPath/).
+Usage of JsonPath requires library `flow/jsonpath` to be installed.
 
-`seeResponseJsonMatchesXpath` validates response JSON against XPath.
+[seeResponseJsonMatchesXpath](http://codeception.com/docs/modules/REST#seeResponseJsonMatchesXpath) validates response JSON against XPath.
 It converts JSON structure into valid XPath document and executes XPath for it.
 
-`grabDataFromResponseByJsonPath` method was added as well to grab data JSONPath.
+[grabDataFromResponseByJsonPath](http://codeception.com/docs/modules/REST#grabDataFromResponseByJsonPath) method was added as well to grab data JSONPath.
 
 * <strong>[REST]</strong> `grabDataFromJsonResponse` deprecated in favor of `grabDataFromResponseByJsonPath` *2014-12-19*
 * <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> fixed `Unreachable field` error while filling [] fields in input and textarea fields. Issues <a href="https://github.com/Codeception/Codeception/issues/1585">#1585</a> <a href="https://github.com/Codeception/Codeception/issues/1602">#1602</a> *2014-12-18*
