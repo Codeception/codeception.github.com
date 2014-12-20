@@ -859,7 +859,7 @@ You need to perform an ajax request specifying the HTTP method.
 {% highlight php %}
 
 <?php
-$I->sendAjaxRequest('PUT', '/posts/7', array('title' => 'new title'));
+$I->sendAjaxRequest('PUT', /posts/7', array('title' => 'new title');
 
 
 {% endhighlight %}
@@ -889,24 +889,23 @@ Skipped fields will be filled by their values from page.
 You don't need to click the 'Submit' button afterwards.
 This command itself triggers the request to form's action.
 
-You can optionally specify what button's value to include
+You can optionally specify what button or buttons to include
 in the request with the last parameter as an alternative to
 explicitly setting its value in the second parameter, as
-button values are not otherwise included in the request.
+button values are not included otherwise included in the
+request.
 
 Examples:
 
 {% highlight php %}
 
 <?php
-$I->submitForm('#login', array('login' => 'davert', 'password' => '123456'));
-// or
-$I->submitForm('#login', array('login' => 'davert', 'password' => '123456'), 'submitButtonName');
-?>
+$I->submitForm('#login', array('login' => 'davert', 'password' => '123456'), array('clickedButtonName', 'submitButtonName'));
+
 
 {% endhighlight %}
 
-For a sample Sign Up form:
+For sample Sign Up form:
 
 {% highlight html %}
 
@@ -919,7 +918,7 @@ For a sample Sign Up form:
 </form>
 
 {% endhighlight %}
-You could write the following to submit it:
+I can write this:
 
 {% highlight php %}
 
@@ -928,7 +927,10 @@ $I->submitForm('#userForm', array('user' => array('login' => 'Davert', 'password
 
 
 {% endhighlight %}
-Note that "2" will be the submitted value for the "plan" field, as it is the selected option.
+Note, that pricing plan will be set to Paid, as it's selected on page.
+
+ * `param` $selector
+ * `param` $params
 
 You can also emulate a JavaScript submission by not specifying any buttons in the third parameter to submitForm.
 
@@ -939,10 +941,6 @@ $I->submitForm('#userForm', array('user' => array('login' => 'Davert', 'password
 
 
 {% endhighlight %}
-
- * `param` $selector
- * `param` $params
- * `param` $button
 
 
 

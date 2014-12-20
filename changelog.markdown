@@ -7,6 +7,58 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.0.9
+
+* **Fixed Symfony 2.6 compatibility in Yaml::parse by <strong><a href="https://github.com/antonioribeiro">@antonioribeiro</a></strong>**
+* Specific tests can be executed without adding .php extension by <strong><a href="https://github.com/antonioribeiro">@antonioribeiro</a></strong> See <a href="https://github.com/Codeception/Codeception/issues/1531">#1531</a> *2014-12-20*
+
+Now you can run specific test using shorter format:
+
+```
+codecept run unit tests/unit/Codeception/TestLoaderTest
+codecept run unit Codeception
+codecept run unit Codeception:testAddCept
+
+codecept run unit /var/www/myapp.dev/vendor/codeception/codeception/tests/unit/Codeception
+codecept run unit /var/www/myapp.dev/vendor/codeception/codeception/tests/unit/Codeception:testAddCept
+
+codecept run unit Codeception/TestLoaderTest.php
+codecept run unit Codeception/TestLoaderTest
+codecept run unit Codeception/TestLoaderTest.php:testAddCept
+codecept run unit Codeception/TestLoaderTest:testAddCept
+
+codecept run unit /var/www/myapp.dev/vendor/codeception/codeception/tests/unit/Codeception/TestLoaderTest.php
+codecept run unit /var/www/myapp.dev/vendor/codeception/codeception/tests/unit/Codeception/TestLoaderTest.php:testAddCept
+codecept run unit /var/www/myapp.dev/vendor/codeception/codeception/tests/unit/Codeception/TestLoaderTest
+codecept run unit /var/www/myapp.dev/vendor/codeception/codeception/tests/unit/Codeception/TestLoaderTest:testAddCept
+
+codecept run unit tests/unit/Codeception
+codecept run unit tests/unit/Codeception:testAddCept
+codecept run unit tests/unit/Codeception/TestLoaderTest.php
+codecept run unit tests/unit/Codeception/TestLoaderTest.php:testAddCept
+codecept run unit tests/unit/Codeception/TestLoaderTest
+codecept run unit tests/unit/Codeception/TestLoaderTest:testAddCept
+```
+
+* <strong>[Db]</strong> Remove table constraints prior to drop table in clean up for SqlSrv by <strong><a href="https://github.com/jonsa">@jonsa</a></strong> *2014-12-20*
+* <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> Fixed: submitForm with form using site-root relative paths may fail depending on configuration <a href="https://github.com/Codeception/Codeception/issues/1510">#1510</a> by <strong><a href="https://github.com/zbateson">@zbateson</a></strong> *2014-12-20*
+* <strong>[WebDriver]</strong><strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> `seeInField` method to work for radio, checkbox and select fields. Thanks to <strong><a href="https://github.com/zbateson">@zbateson</a></strong> *2014-12-20*
+* Fixed usage of `--no-colors` flag by <strong><a href="https://github.com/zbateson">@zbateson</a></strong>. Issue <a href="https://github.com/Codeception/Codeception/issues/1562">#1562</a> *2014-12-20*
+* <strong>[REST]</strong> sendXXX methods now encode objects implementing JsonSerializable interfaces. *2014-12-19*
+* <strong>[REST]</strong> added methods to validate JSON structure *2014-12-19*
+
+`seeResponseJsonMatchesJsonPath` validates response JSON against <strong>[JsonPath]</strong>(http://goessner.net/articles/JsonPath/).
+Usage of JsonPath requires library "flow/jsonpath" to be installed.
+
+`seeResponseJsonMatchesXpath` validates response JSON against XPath.
+It converts JSON structure into valid XPath document and executes XPath for it.
+
+`grabDataFromResponseByJsonPath` method was added as well to grab data JSONPath.
+
+* <strong>[REST]</strong> `grabDataFromJsonResponse` deprecated in favor of `grabDataFromResponseByJsonPath` *2014-12-19*
+* <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> fixed `Unreachable field` error while filling [] fields in input and textarea fields. Issues <a href="https://github.com/Codeception/Codeception/issues/1585">#1585</a> <a href="https://github.com/Codeception/Codeception/issues/1602">#1602</a> *2014-12-18*
+
+
 #### 2.0.8
 
 * Dependencies updated: facebook/php-webdriver 0.5.x and guzzle 5 *2014-11-17*
@@ -17,7 +69,7 @@ title: Codeception Changelog
 * <strong>[Db]</strong> Fixed Postgresql error with schemas by <strong><a href="https://github.com/rafreis">@rafreis</a></strong>. Fixes <a href="https://github.com/Codeception/Codeception/issues/970">#970</a>
 * <strong>[PhpBrowser]</strong> Fix for meta refresh tags with interval by <strong><a href="https://github.com/zbateson">@zbateson</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/1515">#1515</a>
 * <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> Fixed: `grabTextFrom` doesn't work with regex by <strong><a href="https://github.com/zbateson">@zbateson</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/1519">#1519</a>
-* Cest tests support multiple <strong><a href="https://github.com/before">@before</a></strong> and <strong><a href="https://github.com/after">@after</a></strong> annotations. Thanks to <strong><a href="https://github.com/draculus">@draculus</a></strong> and <strong><a href="https://github.com/zbateson">@zbateson</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/1517">#1517</a>
+* Cest tests support multiple `<strong><a href="https://github.com/before">@before</a></strong>` and `<strong><a href="https://github.com/after">@after</a></strong>` annotations. Thanks to <strong><a href="https://github.com/draculus">@draculus</a></strong> and <strong><a href="https://github.com/zbateson">@zbateson</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/1517">#1517</a>
 * <strong>[FTP]</strong> Stops test execution on failed connection by <strong><a href="https://github.com/yegortokmakov">@yegortokmakov</a></strong>
 * <strong>[AMQP]</strong> Fix for purging queues on initialization stage. Check for open channel is not needed and it prevents from cleaning queue by <strong><a href="https://github.com/yegortokmakov">@yegortokmakov</a></strong>
 * CodeCoverage remote context configuration added by <strong><a href="https://github.com/synchrone">@synchrone</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/1524">#1524</a> [Documentation updated](http://codeception.com/docs/11-Codecoverage#Remote-Context-Options)

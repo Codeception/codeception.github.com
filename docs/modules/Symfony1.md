@@ -326,12 +326,18 @@ Skipped fields will be filled by their values from page.
 You don't need to click the 'Submit' button afterwards.
 This command itself triggers the request to form's action.
 
+You can optionally specify what button or buttons to include
+in the request with the last parameter as an alternative to
+explicitly setting its value in the second parameter, as
+button values are not included otherwise included in the
+request.
+
 Examples:
 
 {% highlight php %}
 
 <?php
-$I->submitForm('#login', array('login' => 'davert', 'password' => '123456'));
+$I->submitForm('#login', array('login' => 'davert', 'password' => '123456'), array('clickedButtonName', 'submitButtonName'));
 
 
 {% endhighlight %}
@@ -345,7 +351,7 @@ For sample Sign Up form:
     Password: <input type="password" name="user[password]" /><br/>
     Do you agree to out terms? <input type="checkbox" name="user[agree]" /><br/>
     Select pricing plan <select name="plan"><option value="1">Free</option><option value="2" selected="selected">Paid</option></select>
-    <input type="submit" value="Submit" />
+    <input type="submit" name="submitButton" value="Submit" />
 </form>
 
 {% endhighlight %}
@@ -354,7 +360,7 @@ I can write this:
 {% highlight php %}
 
 <?php
-$I->submitForm('#userForm', array('user' => array('login' => 'Davert', 'password' => '123456', 'agree' => true)));
+$I->submitForm('#userForm', array('user' => array('login' => 'Davert', 'password' => '123456', 'agree' => true)), 'submitButton');
 
 
 {% endhighlight %}
@@ -362,5 +368,17 @@ Note, that pricing plan will be set to Paid, as it's selected on page.
 
  * `param` $selector
  * `param` $params
+
+You can also emulate a JavaScript submission by not specifying any buttons in the third parameter to submitForm.
+
+{% highlight php %}
+
+<?php
+$I->submitForm('#userForm', array('user' => array('login' => 'Davert', 'password' => '123456', 'agree' => true)));
+
+
+{% endhighlight %}
+
+
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Symfony1.php">Help us to improve documentation. Edit module reference</a></div>
