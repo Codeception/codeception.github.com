@@ -43,7 +43,7 @@ codecept run unit tests/unit/Codeception/TestLoaderTest:testAddCept
 Usage of JsonPath requires library `flow/jsonpath` to be installed.
 
 [seeResponseJsonMatchesXpath](http://codeception.com/docs/modules/REST#seeResponseJsonMatchesXpath) validates response JSON against XPath.
-It converts JSON structure into valid XPath document and executes XPath for it.
+It converts JSON structure into valid XML document and executes XPath for it.
 
 [grabDataFromResponseByJsonPath](http://codeception.com/docs/modules/REST#grabDataFromResponseByJsonPath) method was added as well to grab data JSONPath.
 
