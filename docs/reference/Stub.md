@@ -79,7 +79,7 @@ Stub::construct(new User, array('autosave' => false), array('name' => 'davert));
 
 {% endhighlight %}
 
-To replace method provide it's name as a key in second parameter and it's return value or callback function as parameter
+To replace method provide it's name as a key in third parameter and it's return value or callback function as parameter
 
 {% highlight php %}
 
@@ -125,7 +125,7 @@ Stub::constructEmpty(new User, array('autosave' => false), array('name' => 'dave
 
 {% endhighlight %}
 
-To replace method provide it's name as a key in second parameter and it's return value or callback function as parameter
+To replace method provide it's name as a key in third parameter and it's return value or callback function as parameter
 
 {% highlight php %}
 
@@ -171,7 +171,7 @@ Stub::constructEmptyExcept(new User, 'save', array('autosave' => false), array('
 
 {% endhighlight %}
 
-To replace method provide it's name as a key in second parameter and it's return value or callback function as parameter
+To replace method provide it's name as a key in third parameter and it's return value or callback function as parameter
 
 {% highlight php %}
 

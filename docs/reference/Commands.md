@@ -288,6 +288,7 @@ Options:
 
 
 
+
 ## SelfUpdate
 
 Auto-updates phar archive from official site: 'http://codeception.com/codecept.phar' .
@@ -391,6 +392,8 @@ Starting from Codeception 2.0 actor classes are auto-generated. Use this command
 
 * `codecept build`
 * `codecept build path/to/project`
+
+
 
 
 
