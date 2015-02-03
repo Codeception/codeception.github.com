@@ -25,8 +25,6 @@ title: Codeception Changelog
 * Fixed remote context options on CodeCoverage by <strong><a href="https://github.com/synchrone">@synchrone</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/1664">#1664</a> *2015-01-26*
 * <strong>[MongoDb]</strong> `seeNumElementsInCollection` method added by <strong><a href="https://github.com/sahanh">@sahanh</a></strong>
 * <strong>[MongoDb]</strong> Added new methods: `grabCollectionCount`, `seeElementIsArray`, `seeElementIsObject` by <strong><a href="https://github.com/antoniofrignani">@antoniofrignani</a></strong>
-
-  !<strong>[MongoTests]</strong>(https://cloud.githubusercontent.com/assets/802713/5755827/4dcbfd9e-9ca9-11e4-826f-fb262aa2ee8c.png)
 * <strong>[WebDriver]</strong> Allow `selectOption()` to select options not inside forms by <strong><a href="https://github.com/n8whnp">@n8whnp</a></strong> See <a href="https://github.com/Codeception/Codeception/issues/1638">#1638</a>
 * <strong>[FTP]</strong> Added support for sftp connections with an RSA SSH key by <strong><a href="https://github.com/mattvot">@mattvot</a></strong>.
 * <strong>[PhpBrowser]</strong><strong>[WebDriver]</strong> allows to handle domain and path for cookies *2015-01-24*
