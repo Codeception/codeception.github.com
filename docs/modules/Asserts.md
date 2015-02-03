@@ -12,28 +12,6 @@ Special module for using asserts in your tests.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #### assertContains
  
 Checks that haystack contains needle
@@ -115,7 +93,6 @@ Checks that expected is less or equal than actual
  * `param string` $message
 
 
-
 #### assertNotContains
  
 Checks that haystack doesn't contain needle.
@@ -158,8 +135,6 @@ Checks that variable is NULL
  * `param string` $message
 
 
-
-
 #### assertTrue
  
 Checks that condition is positive.
@@ -168,17 +143,10 @@ Checks that condition is positive.
  * `param string` $message
 
 
-
-
 #### fail
  
 Fails the test with message.
 
  * `param` $message
-
-
-
-
-
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Asserts.php">Help us to improve documentation. Edit module reference</a></div>

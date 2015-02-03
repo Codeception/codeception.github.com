@@ -492,7 +492,7 @@ $I->amOnPage('/messages');
 $nick = $I->haveFriend('nick');
 $nick->does(function(AcceptanceTester $I) {
     $I->amOnPage('/messages/new');
-    $I->fillFiled('body', 'Hello all!')
+    $I->fillField('body', 'Hello all!')
     $I->click('Send');
     $I->see('Hello all!', '.message');
 });

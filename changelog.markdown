@@ -7,6 +7,36 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.0.10
+
+* **Console Improvement**: better formatting of test progress. Improved displaying of debug messages and PHP Fatal Errors.
+  Codeception now uses features of interactive shell to print testing progress.
+  In case of non-interactive shell (when running from CI like Jenkins) this feature is gracefully degraded to standard mode.
+  You can turn off interactive printing manually by providing `--no-interaction` option or simply `-n`
+* `ExceptionWrapper` messages unpacked into normal and verbose exceptions.
+* HTML reports now allow to filter tests by status. Thanks to <strong><a href="https://github.com/raistlin">@raistlin</a></strong>
+* Added '_failed' hook for Cest tests. Fixes <a href="https://github.com/Codeception/Codeception/issues/1660">#1660</a> *2015-02-02*
+* <strong>[REST]</strong> fixed setting Host header. Issue <a href="https://github.com/Codeception/Codeception/issues/1650">#1650</a> *2015-02-02*
+* <strong>[Laravel4]</strong> Disconnecting from database after each test to prevent Too many connections exception <a href="https://github.com/Codeception/Codeception/issues/1665">#1665</a> by <strong><a href="https://github.com/mnabialek">@mnabialek</a></strong> *2015-02-02*
+* <strong>[Symfony2]</strong> Fixed kernel reuse in <a href="https://github.com/Codeception/Codeception/issues/1656">#1656</a> by <strong><a href="https://github.com/hacfi">@hacfi</a></strong> *2015-02-01*
+* <strong>[REST]</strong> request params are now correctly saved to `$this->params` property. Fixes <a href="https://github.com/Codeception/Codeception/issues/1682">#1682</a> by <strong><a href="https://github.com/gmhenderson">@gmhenderson</a></strong> *2015-02-01*
+* Interactive shell updated: deprecated Symfony helpers replaced, printed output cleaned *2015-01-28*
+* <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> Fixed `matchOption` to return the option value in case there is no value attribute by <strong><a href="https://github.com/synchrone">@synchrone</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/1663">#1663</a> *2015-01-26*
+* Fixed remote context options on CodeCoverage by <strong><a href="https://github.com/synchrone">@synchrone</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/1664">#1664</a> *2015-01-26*
+* <strong>[MongoDb]</strong> `seeNumElementsInCollection` method added by <strong><a href="https://github.com/sahanh">@sahanh</a></strong>
+* <strong>[MongoDb]</strong> Added new methods: `grabCollectionCount`, `seeElementIsArray`, `seeElementIsObject` by <strong><a href="https://github.com/antoniofrignani">@antoniofrignani</a></strong>
+
+  !<strong>[MongoTests]</strong>(https://cloud.githubusercontent.com/assets/802713/5755827/4dcbfd9e-9ca9-11e4-826f-fb262aa2ee8c.png)
+* <strong>[WebDriver]</strong> Allow `selectOption()` to select options not inside forms by <strong><a href="https://github.com/n8whnp">@n8whnp</a></strong> See <a href="https://github.com/Codeception/Codeception/issues/1638">#1638</a>
+* <strong>[FTP]</strong> Added support for sftp connections with an RSA SSH key by <strong><a href="https://github.com/mattvot">@mattvot</a></strong>.
+* <strong>[PhpBrowser]</strong><strong>[WebDriver]</strong> allows to handle domain and path for cookies *2015-01-24*
+* <strong>[CLI]</strong> Allow CLI module to handle nonzero response codes without failing by <strong><a href="https://github.com/DevShep">@DevShep</a></strong>
+* <strong>[Yii2]</strong> Fix the bug with `session_id()`. See <a href="https://github.com/Codeception/Codeception/issues/1606">#1606</a> by <strong><a href="https://github.com/TriAnMan">@TriAnMan</a></strong>
+* <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> Fix double slashes in certain forms submitted by `submitForm` by <strong><a href="https://github.com/Revisor">@Revisor</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/1625">#1625</a>
+* <strong>[Facebook]</strong> `grabFacebookTestUserId` method added by <strong><a href="https://github.com/ipalaus">@ipalaus</a></strong>
+* Always eval error level settings passed from config file.
+
+
 #### 2.0.9
 
 * **Fixed Symfony 2.6 compatibility in Yaml::parse by <strong><a href="https://github.com/antonioribeiro">@antonioribeiro</a></strong>**
@@ -39,13 +69,13 @@ codecept run unit tests/unit/Codeception/TestLoaderTest:testAddCept
 * <strong>[REST]</strong> sendXXX methods now encode objects implementing JsonSerializable interfaces. *2014-12-19*
 * <strong>[REST]</strong> added methods to validate JSON structure *2014-12-19*
 
-[seeResponseJsonMatchesJsonPath](http://codeception.com/docs/modules/REST#seeResponseJsonMatchesJsonPath) validates response JSON against [JsonPath](http://goessner.net/articles/JsonPath/).
+<strong>[seeResponseJsonMatchesJsonPath]</strong>(http://codeception.com/docs/modules/REST#seeResponseJsonMatchesJsonPath) validates response JSON against <strong>[JsonPath]</strong>(http://goessner.net/articles/JsonPath/).
 Usage of JsonPath requires library `flow/jsonpath` to be installed.
 
-[seeResponseJsonMatchesXpath](http://codeception.com/docs/modules/REST#seeResponseJsonMatchesXpath) validates response JSON against XPath.
+<strong>[seeResponseJsonMatchesXpath]</strong>(http://codeception.com/docs/modules/REST#seeResponseJsonMatchesXpath) validates response JSON against XPath.
 It converts JSON structure into valid XML document and executes XPath for it.
 
-[grabDataFromResponseByJsonPath](http://codeception.com/docs/modules/REST#grabDataFromResponseByJsonPath) method was added as well to grab data JSONPath.
+<strong>[grabDataFromResponseByJsonPath]</strong>(http://codeception.com/docs/modules/REST#grabDataFromResponseByJsonPath) method was added as well to grab data JSONPath.
 
 * <strong>[REST]</strong> `grabDataFromJsonResponse` deprecated in favor of `grabDataFromResponseByJsonPath` *2014-12-19*
 * <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> fixed `Unreachable field` error while filling [] fields in input and textarea fields. Issues <a href="https://github.com/Codeception/Codeception/issues/1585">#1585</a> <a href="https://github.com/Codeception/Codeception/issues/1602">#1602</a> *2014-12-18*

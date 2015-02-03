@@ -18,50 +18,6 @@ Wrapper for basic shell commands and shell output
 *Please review the code of non-stable modules and provide patches if you have issues.*
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #### dontSeeInShellOutput
  
 Checks that output from latest command doesn't contain text
@@ -70,17 +26,23 @@ Checks that output from latest command doesn't contain text
 
 
 
-
-
-
-
-
 #### runShellCommand
  
-Executes a shell command
+Executes a shell command.
+Fails If exit code is > 0. You can disable this by setting second parameter to false
+
+{% highlight php %}
+
+<?php
+$I->runShellCommand('phpunit');
+
+// do not fail test when command fails
+$I->runShellCommand('phpunit', false);
+
+{% endhighlight %}
 
  * `param` $command
-
+ * `param bool` $failNonZero
 
 
 #### seeInShellOutput

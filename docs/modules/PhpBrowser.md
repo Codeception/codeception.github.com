@@ -56,39 +56,6 @@ Use Guzzle request options to configure certifications and others.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #### amHttpAuthenticated
  
 Authenticates user for HTTP_AUTH
@@ -150,30 +117,6 @@ $I->amOnPage('/quickstart'); // moves to http://codeception.com/quickstart
 ?>
 
 {% endhighlight %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #### attachFile
@@ -243,10 +186,6 @@ $I->click(['link' => 'Login']);
  * `param` $context
 
 
-
-
-
-
 #### dontSee
  
 Checks that the current page doesn't contain the text specified.
@@ -285,9 +224,11 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
 #### dontSeeCookie
  
 Checks that there isn't a cookie with the given name.
+You can set additional cookie params like `domain`, `path` as array passed in last argument.
 
  * `param` $cookie
 
+ * `param array` $params
 
 
 #### dontSeeCurrentUrlEquals
@@ -446,7 +387,6 @@ If Codeception lacks important Guzzle Client methods, implement them and submit 
  * `param callable` $function
 
 
-
 #### fillField
  
 Fills a text field or textarea with the given string.
@@ -462,14 +402,6 @@ $I->fillField(['name' => 'email'], 'jon@mail.com');
 
  * `param` $field
  * `param` $value
-
-
-
-
-
-
-
-
 
 
 #### grabAttributeFrom
@@ -494,9 +426,11 @@ $I->grabAttributeFrom('#tooltip', 'title');
 #### grabCookie
  
 Grabs a cookie value.
+You can set additional cookie params like `domain`, `path` in array passed as last argument.
 
  * `param` $cookie
 
+ * `param array` $params
 
 
 #### grabFromCurrentUrl
@@ -544,20 +478,14 @@ $value = $I->grabTextFrom('~<input value=(.*?)]~sgi'); // match with a regex
 @return array|mixed|null|string
 
 
-
-
-
-
-
-
-
 #### resetCookie
  
 Unsets cookie with the given name.
+You can set additional cookie params like `domain`, `path` in array passed as last argument.
 
  * `param` $cookie
 
-
+ * `param array` $params
 
 
 #### see
@@ -599,6 +527,7 @@ $I->seeCheckboxIsChecked('//form/input[@type=checkbox and @name=agree]');
 #### seeCookie
  
 Checks that a cookie with the given name is set.
+You can set additional cookie params like `domain`, `path` as array passed in last argument.
 
 {% highlight php %}
 
@@ -609,7 +538,7 @@ $I->seeCookie('PHPSESSID');
 {% endhighlight %}
 
  * `param` $cookie
-
+ * `param array` $params
 
 
 #### seeCurrentUrlEquals
@@ -879,6 +808,7 @@ $I->sendAjaxRequest('PUT', '/posts/7', array('title' => 'new title'));
 #### setCookie
  
 Sets a cookie with the given name and value.
+You can set additional cookie params like `domain`, `path`, `expire`, `secure` in array passed as last argument.
 
 {% highlight php %}
 
@@ -888,14 +818,16 @@ $I->setCookie('PHPSESSID', 'el4ukv0kqbvoirg7nkp4dncpk3');
 
 {% endhighlight %}
 
- * `param` $cookie
- * `param` $value
+ * `param` $name
+ * `param` $val
+ * `param array` $params
+ * `internal param` $cookie
+ * `internal param` $value
 
 
 
 #### setHeader
 __not documented__
-
 
 
 #### submitForm
@@ -962,7 +894,6 @@ $I->submitForm('#userForm', array('user' => array('login' => 'Davert', 'password
  * `param` $selector
  * `param` $params
  * `param` $button
-
 
 
 #### uncheckOption

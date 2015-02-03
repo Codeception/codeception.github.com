@@ -20,57 +20,12 @@ Fork it to extend the module for FTP, Amazon S3, others.
 Module was developed to test Codeception itself.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #### amInPath
  
 Enters a directory In local filesystem.
 Project root directory is used by default
 
  * `param` $path
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #### cleanDir
@@ -102,8 +57,6 @@ $I->copyDir('vendor','old_vendor');
 
  * `param` $src
  * `param` $dst
-
-
 
 
 #### deleteDir
@@ -165,11 +118,6 @@ $I->dontSeeInThisFile('codeception/codeception');
  * `param` $text
 
 
-
-
-
-
-
 #### openFile
  
 Opens a file and stores it's content.
@@ -186,7 +134,6 @@ $I->seeInThisFile('codeception/codeception');
 {% endhighlight %}
 
  * `param` $filename
-
 
 
 #### seeFileContentsEqual
@@ -243,11 +190,11 @@ $I->seeInThisFile('codeception/codeception');
  * `param` $text
 
 
-
 #### writeToFile
  
 Saves contents to file
 
  * `param` $filename
  * `param` $contents
+
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Filesystem.php">Help us to improve documentation. Edit module reference</a></div>

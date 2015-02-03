@@ -51,6 +51,8 @@ Codeception doesn't restrict you to only the modules from the main repository. N
 
 It's a good idea to define missing actions or assertion commands in helpers.
 
+Note: Helpers class names must end with "*Helper.php"
+
 Let's say we are going to extend the FunctionalHelper class. By default it's linked with a FunctionalTester class and functional test suite.
 
 {% highlight php %}
