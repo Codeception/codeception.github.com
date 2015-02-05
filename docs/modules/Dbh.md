@@ -53,50 +53,6 @@ This module despite of it's stability may act unstable because of transactions i
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #### dontSeeInDatabase
  
 Effect is opposite to ->seeInDatabase
@@ -126,9 +82,6 @@ Fails if such user was found.
  * `param array` $criteria
 
 
-
-
-
 #### grabFromDatabase
  
 Fetches a single column value from a database.
@@ -149,10 +102,6 @@ $mail = $I->grabFromDatabase('users', 'email', array('name' => 'Davert'));
  * `param`       $table
  * `param`       $column
  * `param array` $criteria
-
-
-
-
 
 
 

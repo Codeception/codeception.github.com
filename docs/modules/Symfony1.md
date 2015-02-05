@@ -32,29 +32,6 @@ Please note, this module doesn't implement standard frameworks interface.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #### amLoggedAs
  
 Log in as sfDoctrineGuardUser.
@@ -72,27 +49,6 @@ Opens the page.
  * `param` $page
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #### click
  
 Click on link or button and move to next page.
@@ -107,8 +63,6 @@ Emulates click on form's submit button.
 You don't need that action if you fill form by ->submitForm action.
 
  * `param` $selector
-
-
 
 
 #### dontSee
@@ -167,16 +121,6 @@ $I->dontSeeLink('Logout'); // I suppose user is not logged in
 
  * `param` $text
  * `param null` $url
-
-
-
-
-
-
-
-
-
-
 
 
 #### see

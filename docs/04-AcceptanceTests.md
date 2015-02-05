@@ -200,7 +200,7 @@ Let's submit this sample form inside the Codeception test.
           <option value="m">Male</option>
           <option value="f">Female</option>
      </select>     
-     <input type="submit" value="Update" />
+     <input type="submit" name="submitButton" value="Update" />
 </form>
 
 {% endhighlight %}
@@ -237,7 +237,28 @@ $I->submitForm('#update_form', array('user' => array(
 
 {% endhighlight %}
 
-The `submitForm` is not emulating a user's actions, but it's quite useful in situations when the form is not formatted properly, for example to discover that labels aren't set or that fields have unclean names or badly written ids, or the form is sent by a javascript call. 
+The `submitForm` is not emulating a user's actions, but it's quite useful in situations when the form is not formatted properly, for example to discover that labels aren't set or that fields have unclean names or badly written ids, or the form is sent by a javascript call.
+
+By default, submitForm doesn't send values for buttons.  The last parameter allows specifying what button values should be sent, or button values can be implicitly specified in the second parameter.
+
+{% highlight php %}
+
+<?php
+$I->submitForm('#update_form', array('user' => array(
+     'name' => 'Miles',
+     'email' => 'Davis',
+     'gender' => 'm'
+)), 'submitButton');
+// this would be the same effect, but the value has to be implicitly specified
+$I->submitForm('#update_form', array('user' => array(
+     'name' => 'Miles',
+     'email' => 'Davis',
+     'gender' => 'm',
+	 'submitButton' => 'Update'
+)));
+?>
+
+{% endhighlight %}
 
 #### AJAX Emulation
 
@@ -471,7 +492,7 @@ $I->amOnPage('/messages');
 $nick = $I->haveFriend('nick');
 $nick->does(function(AcceptanceTester $I) {
     $I->amOnPage('/messages/new');
-    $I->fillFiled('body', 'Hello all!')
+    $I->fillField('body', 'Hello all!')
     $I->click('Send');
     $I->see('Hello all!', '.message');
 });
@@ -517,7 +538,7 @@ On each fail, the snapshot of the last shown page will be stored in the __tests/
 
 ## Conclusion
 
-Writing acceptance tests with Codeception and PhpBrowser is a good start. You can easily test your Joomla, Drupal, Wordpress sites, as well as those made with frameworks. Writing acceptance tests is like describing a tester's actions in PHP. They are quite readable and very easy to write. Don't forget to repopulate the database on each test run.
+Writing acceptance tests with Codeception and PhpBrowser is a good start. You can easily test your Joomla, Drupal, WordPress sites, as well as those made with frameworks. Writing acceptance tests is like describing a tester's actions in PHP. They are quite readable and very easy to write. Don't forget to repopulate the database on each test run.
 
 
 
