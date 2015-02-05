@@ -1,9 +1,6 @@
 <?php
-class Robofile
+class RoboFile extends \Robo\Tasks
 {
-    use Robo\Output;
-    use Robo\Task\FileSystem;
-    use Robo\Task\Git;
  
  	function post()
  	{
