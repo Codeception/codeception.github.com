@@ -187,7 +187,7 @@ $ php codecept.phar run tests/acceptance/SigninCept.php
 
 {% endhighlight %}
 
-You can execute one test from a test class (for Cest or Test formats)
+You can execute one test from a test class (for Cest or Test formats). Works in a similar way to phpunit's --filter option
 
 {% highlight bash %}
 
