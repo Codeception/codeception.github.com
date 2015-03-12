@@ -15,6 +15,14 @@ You can access multiple test suites and decide which tests to include in a run. 
 
 ## Modules
 
+#### [CakePHP](https://github.com/cakephp/codeception)
+
+Official CakePHP 3 module for Codeception.
+
+#### [CakeCeption](https://github.com/hkzpjt/cakeception)
+
+Integrate Codeception to CakePHP v2.* projects
+
 #### [Date/Time](https://github.com/nathanmac/datetime-codeception-module)
 
 This module provides additional helpers for your test to help with date and time comparisons.
