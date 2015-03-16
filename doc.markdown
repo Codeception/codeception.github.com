@@ -18,12 +18,12 @@ Everything you want to know about Codeception can be found in Guides.
 
 * [Introduction](/docs/01-Introduction) - all about testing: acceptance, unit, and functional tests explained.
 * [Getting Started](/docs/02-GettingStarted) - setting up and writing a first test with Codeception
-* [Modules](/docs/03-Modules) - understanding modules and helpers
+* [Modules](/docs/03-ModulesAndHelpers) - understanding modules and helpers
 * [Acceptance Tests](/docs/04-AcceptanceTests) - writing Selenium and PhpBrowser accetance tests.
 * [Functional Tests](/docs/05-FunctionalTests) - writing functional tests for popular PHP frameworks.
-* [Unit Tests (Test)](/docs/06-UnitTests-TEST) - writing PHPUnit tests using Codeception helpers.
-* [Unit Tests in Scenarios](/docs/07-UnitTestsScenarios) - unit testing in scenarios proof of concept.
-* [Unit Tests Practice](/docs/08-UnitTests-CEST) - writing scenario-driven unit tests 
+* [Unit Tests](/docs/06-UnitTests) - writing PHPUnit tests using Codeception helpers.
+* [Advanced Usage](/docs/07-AdvancedUsage) - improving your testing experience and project organization.
+* [Customization](/docs/08-Customization) - extending and customizing file structure and test execution routines.
 * [Data](/docs/09-Data) - repopulation of database, cleaning up data, using fixtures, etc.
 * [Web Services](/docs/10-WebServices) - testing REST and SOAP WSDL webservices.
 
