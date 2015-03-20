@@ -35,6 +35,10 @@ This module allows the testing against external messaging services as well as tr
 
 This module will let you test emails that are sent during your Codeception acceptance tests. It depends upon you having MailCatcher installed on your development server.
 
+#### [MailTrap](https://github.com/WhatDaFox/Codeception-Mailtrap)
+
+Codeception module to test email using Mailtrap.io
+
 #### [Mockery](https://github.com/Codeception/MockeryModule)
 
 Integrates Mockery into Codeception tests.
