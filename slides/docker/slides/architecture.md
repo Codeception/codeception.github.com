@@ -1,1 +1,1 @@
-<!-- .slide: data-background="/img/architecture.svg" data-background-size="600px" data-background-color="#DCEDC8" -->
+<!-- .slide: data-background="img/architecture.svg" data-background-size="600px" data-background-color="#DCEDC8" -->

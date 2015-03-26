@@ -1,3 +1,3 @@
 # Jenkins CI
 
-![](/img/jenkins-logo.png)
+![](img/jenkins-logo.png)

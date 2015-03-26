@@ -1,3 +1,3 @@
 # Travis CI
 
-![](/img/travis.gif)
+![](img/travis.gif)

@@ -1,4 +1,4 @@
 
 ### Configuration Matrix Example
 
-![](/img/matrix.png)
+![](img/matrix.png)
