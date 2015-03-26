@@ -15,6 +15,18 @@ You can access multiple test suites and decide which tests to include in a run. 
 
 ## Modules
 
+#### [CakePHP](https://github.com/cakephp/codeception)
+
+Official CakePHP 3 module for Codeception.
+
+#### [CakeCeption](https://github.com/hkzpjt/cakeception)
+
+Integrate Codeception to CakePHP v2.* projects
+
+#### [Date/Time](https://github.com/nathanmac/datetime-codeception-module)
+
+This module provides additional helpers for your test to help with date and time comparisons.
+
 #### [IM](https://github.com/nathanmac/im-codeception-module)
 
 This module allows the testing against external messaging services as well as triggering notifications via your tests, currently supports HipChat messaging service.
@@ -22,6 +34,10 @@ This module allows the testing against external messaging services as well as tr
 #### [MailCatcher](https://github.com/captbaritone/codeception-mailcatcher-module) 
 
 This module will let you test emails that are sent during your Codeception acceptance tests. It depends upon you having MailCatcher installed on your development server.
+
+#### [MailTrap](https://github.com/WhatDaFox/Codeception-Mailtrap)
+
+Codeception module to test email using Mailtrap.io
 
 #### [Mockery](https://github.com/Codeception/MockeryModule)
 

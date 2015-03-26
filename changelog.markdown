@@ -7,6 +7,29 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.0.11
+
+* Updated to PHPUnit 4.5 *2015-02-23*
+* <strong>[Laravel5]</strong> module added by <strong><a href="https://github.com/janhenkgerritsen">@janhenkgerritsen</a></strong> *2015-02-23*
+* Fixed problem with extensions being always loaded with default options by <strong><a href="https://github.com/sjableka">@sjableka</a></strong>. Fixes <a href="https://github.com/Codeception/Codeception/issues/1716">#1716</a> *2015-02-23*
+* <strong>[Db]</strong> Cleanup now works for tables with primary is not named 'id'. Fix by <strong><a href="https://github.com/KennethVeipert">@KennethVeipert</a></strong> See <a href="https://github.com/Codeception/Codeception/issues/1727">#1727</a> *2015-02-23*
+* <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> `submitForm` improvements by <strong><a href="https://github.com/zbateson">@zbateson</a></strong>: *2015-02-23*
+
+Removed submitForm's reliance on using parse_str and parse_url to
+generate params (which caused unexpected side-effects like failing
+for values with ampersands).
+
+Modified the css selector for input elements so disabled input
+elements don't get sent default values.
+
+Modifications to ensure multiple values get sent correctly.
+
+* <strong>[Laravel4]</strong> middleware is loaded on requests. Fixed <a href="https://github.com/Codeception/Codeception/issues/1680">#1680</a> by <strong><a href="https://github.com/jotweh">@jotweh</a></strong> *2015-02-23*
+* <strong>[Dbh]</strong> Begin transaction only unless transaction is already in progress by <strong><a href="https://github.com/thecatontheflat">@thecatontheflat</a></strong> *2015-02-23*
+* <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> Fix quiet crash when crawler is null by <strong><a href="https://github.com/aivus">@aivus</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/1714">#1714</a> *2015-02-23*
+* <strong>[Yii2]</strong> Fixed usage of PUT method by <strong><a href="https://github.com/miroslav">@miroslav</a></strong>-chandler *2015-02-23*
+
+
 #### 2.0.10
 
 * **Console Improvement**: better formatting of test progress. Improved displaying of debug messages and PHP Fatal Errors.
