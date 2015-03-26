@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Docker & Jenkins</title>
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="bower_components/reveal.js/css/reveal.min.css">
+    
+        <link rel="stylesheet" href="bower_components/reveal.js/css/theme/moon.css" id="theme">
+    
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="bower_components/reveal-highlight-themes/styles/zenburn.css" id="highlight-theme">
+
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+          if( window.location.search.match( /print-pdf/gi ) ) {
+            var link = document.createElement( 'link' );
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = 'bower_components/reveal.js/css/print/pdf.css';
+                document.getElementsByTagName( 'head' )[0].appendChild( link );
+            }
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <div class="slides">
+
+                
+                    
+                        
+    <section data-markdown="slides/index.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-html="slides/me.html"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/about.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/env.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/vagrant.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/testenv.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/setup.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/docker.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/whatisdocker.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/architecture.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/image.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/dockerfile.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/container.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/dockercontainer.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/dockerrun.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/ci.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/travis.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/travisfeatures.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/jenkins.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/jenkinsfeatures.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/jenkinsscreen.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/concurrent.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/buildmatrix.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/matrix.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/jenkinsmulti.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/dockerjob.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/testcontainer.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/runtests.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/learner.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/conclusion.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/thanks.md"></section>
+
+
+                    
+                    
+                
+            </div>
+
+        </div>
+
+        <script src="bower_components/reveal.js/lib/js/head.min.js"></script>
+        <script src="bower_components/reveal.js/js/reveal.min.js"></script>
+        <script>
+            // Configure Reveal
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+                backgroundTransition: 'zoom',
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'bower_components/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'bower_components/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'bower_components/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'bower_components/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'bower_components/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'bower_components/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+                    // { src: 'bower_components/reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+                    //{ src: 'bower_components/reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+
+                    { src: 'js/loadhtmlslides.js', condition: function() { return !!document.querySelector( '[data-html]' ); } }
+                ]
+            });
+        </script>
+
+    </body>
+
+</html>
