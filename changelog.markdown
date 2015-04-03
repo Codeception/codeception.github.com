@@ -7,6 +7,28 @@ title: Codeception Changelog
 
 # Changelog
 
+
+#### 2.0.12
+
+* <strong>[Laravel5]</strong> Fix for undefined method `Symfony\Component\HttpFoundation\Request::route()` by <strong><a href="https://github.com/janhenkgerritsen">@janhenkgerritsen</a></strong>
+* <strong>[Yii2]</strong> Fix https support and verbose output added by <strong><a href="https://github.com/TriAnMan">@TriAnMan</a></strong> See <a href="https://github.com/Codeception/Codeception/issues/1770">#1770</a>
+* <strong>[Yii2]</strong> `haveRecord` to insert insert unsafe attributes by <strong><a href="https://github.com/nkovacs">@nkovacs</a></strong>. Fixes <a href="https://github.com/Codeception/Codeception/issues/1775">#1775</a>
+* <strong>[Asserts]</strong> `assertSame` and `assertNotSame` added by <strong><a href="https://github.com/hidechae">@hidechae</a></strong> *2015-04-03*
+* <strong>[Laravel5]</strong> Add `packages` option for application packages by <strong><a href="https://github.com/jonathantorres">@jonathantorres</a></strong>  <a href="https://github.com/Codeception/Codeception/issues/1782">#1782</a>
+* <strong>[PhpBrowser]</strong><strong>[WebDriver]</strong><strong>[Frameworks]</strong> `seeInFormFields` method added for checking multiple form field values. See <a href="https://github.com/Codeception/Codeception/issues/1795">#1795</a> *2015-04-03*
+* <strong>[ZF2]</strong> Fixed setting Content-Type header by <strong><a href="https://github.com/Gorp">@Gorp</a></strong> See <a href="https://github.com/Codeception/Codeception/issues/1796">#1796</a> *2015-04-03*
+* <strong>[Yii2]</strong> Pass body request into yii2 request, allowing to send Xml payload by <strong><a href="https://github.com/m8rge">@m8rge</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/1806">#1806</a>
+* Fixed conditional assertions firing TEST_AFTER event by <strong><a href="https://github.com/zbateson">@zbateson</a></strong>. Issues <a href="https://github.com/Codeception/Codeception/issues/1647">#1647</a> <a href="https://github.com/Codeception/Codeception/issues/1354">#1354</a> and <a href="https://github.com/Codeception/Codeception/issues/1111">#1111</a> *2015-04-03*
+* Fixing mocking Laravel models by removing `__mocked` property in classes created with Stub by <strong><a href="https://github.com/EVODelavega">@EVODelavega</a></strong> See <a href="https://github.com/Codeception/Codeception/issues/1785">#1785</a> *2015-04-03*
+* <strong>[WebDriver]</strong> `submitForm` allows array parameter values by <strong><a href="https://github.com/zbateson">@zbateson</a></strong> *2015-04-03*
+* <strong>[SOAP]</strong> Added `framework_collect_buffer` option to disable buffering output by <strong><a href="https://github.com/Noles">@Noles</a></strong> *2015-04-03*
+* <strong>[Laravel4]</strong> added  to run artisan commands by <strong><a href="https://github.com/bgetsug">@bgetsug</a></strong> *2015-04-03*
+* <strong>[AMQP]</strong> add a routing key to a push to exchange by <strong><a href="https://github.com/jistok">@jistok</a></strong> *2015-04-03*
+* Interactive console updated to work with namespaces by <strong><a href="https://github.com/jistok">@jistok</a></strong> *2015-04-03*
+* <strong>[PhpBrowser]</strong> added deleteHeader method by <strong><a href="https://github.com/zbateson">@zbateson</a></strong> *2015-04-03*
+* Disabling loading of bootstrap files by setting `bootstrap: false` in globall settings or inside suite config. Fixes <a href="https://github.com/Codeception/Codeception/issues/1813">#1813</a> *2015-04-03*
+
+
 #### 2.0.11
 
 * Updated to PHPUnit 4.5 *2015-02-23*

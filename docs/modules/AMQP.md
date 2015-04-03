@@ -67,19 +67,22 @@ $message = $I->grabMessageFromQueue('queue.emails');
 
 #### pushToExchange
  
-Sends message to exchange
+Sends message to exchange by sending exchange name, message
+and (optionally) a routing key
 
 {% highlight php %}
 
 <?php
 $I->pushToExchange('exchange.emails', 'thanks');
 $I->pushToExchange('exchange.emails', new AMQPMessage('Thanks!'));
+$I->pushToExchange('exchange.emails', new AMQPMessage('Thanks!'), 'severity');
 ?>
 
 {% endhighlight %}
 
  * `param` $exchange
  * `param` $message string|AMQPMessage
+ * `param` $routing_key
 
 
 #### pushToQueue
