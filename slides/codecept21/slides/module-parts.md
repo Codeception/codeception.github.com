@@ -5,10 +5,19 @@
 
 ```
 modules:
-    enabled: [Laravel4.ORM, REST.Json]  
+    enabled: 
+        # load only *Record actions
+        - Laravel4:
+            part: ORM
+        # do not load actions for XML assertions
+        - REST:
+           part: Json
 ```
 
 ```
 modules:
-    enabled: [REST.Xml]  
+    enabled: 
+        # do not load JSON actions
+        - REST:        
+            part:
 ```
