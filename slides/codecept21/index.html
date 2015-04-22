@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Codeception 2.1</title>
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="bower_components/reveal.js/css/reveal.min.css">
+    
+        <link rel="stylesheet" href="css/theme.css" id="theme">
+    
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="bower_components/reveal-highlight-themes/styles/zenburn.css" id="highlight-theme">
+
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+          if( window.location.search.match( /print-pdf/gi ) ) {
+            var link = document.createElement( 'link' );
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = 'bower_components/reveal.js/css/print/pdf.css';
+                document.getElementsByTagName( 'head' )[0].appendChild( link );
+            }
+        </script>
+
+        <style>
+            html>body {
+                background: url(img/30.jpg);
+                background-size: 100% auto;
+            }
+
+            html aside.controls {
+                display: none;
+            }
+        </style>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <div class="slides">
+
+                
+                    
+                        
+    <section data-markdown="slides/index.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/psr-4.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/psr-4-sample.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/tester.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/dependency-injection.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/di-sample-1.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/di-sample-2.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/di-sample-3.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/config.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/conflicts.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/depends.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/current.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/merge-environments.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/module-parts.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/session-snapshot.md"></section>
+
+
+                    
+                    
+                
+                    
+                        
+    <section data-markdown="slides/when.md"></section>
+
+
+                    
+                    
+                
+            </div>
+
+        </div>
+
+        <script src="bower_components/reveal.js/lib/js/head.min.js"></script>
+        <script src="bower_components/reveal.js/js/reveal.min.js"></script>
+        <script>
+            // Configure Reveal
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'bower_components/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'bower_components/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'bower_components/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'bower_components/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'bower_components/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'bower_components/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+                    // { src: 'bower_components/reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+                    //{ src: 'bower_components/reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+
+                    { src: 'js/loadhtmlslides.js', condition: function() { return !!document.querySelector( '[data-html]' ); } }
+                ]
+            });
+        </script>
+
+    </body>
+
+</html>
