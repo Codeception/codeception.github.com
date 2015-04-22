@@ -19,5 +19,5 @@ modules:
     enabled: 
         # do not load JSON actions
         - REST:        
-            part:
+            part: Xml
 ```
