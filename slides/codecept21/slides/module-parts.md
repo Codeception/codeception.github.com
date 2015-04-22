@@ -3,7 +3,7 @@
 * module can be loaded partially into tester class
 * use only specific actions of module
 
-```
+``` yaml
 modules:
     enabled: 
         # load only *Record actions
@@ -14,7 +14,7 @@ modules:
            part: Json
 ```
 
-```
+``` yaml
 modules:
     enabled: 
         # do not load JSON actions
