@@ -7,6 +7,17 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.0.13
+
+* Updated to PHPUnit 4.6
+* <strong>[Db]</strong> fixed regression introduced in 2.0.11. `haveInDatabase` works in PostgreSQL on tables with 'id' as primary key. Fix by <strong><a href="https://github.com/akireikin">@akireikin</a></strong> <a href="https://github.com/Codeception/Codeception/issues/1846">#1846</a> <a href="https://github.com/Codeception/Codeception/issues/1761">#1761</a>
+* added `--no-rebuild` option to disable automatic actor classes rebuilds *2015-04-24*
+* suppressed warnings on failed actor classes auto-rebuilds
+* enable group listener for grouping with annotation by <strong><a href="https://github.com/litpuvn">@litpuvn</a></strong> Fixes <a href="https://github.com/Codeception/Codeception/issues/1830">#1830</a>
+* unix terminals output improved by calculating screen size. Done by <strong><a href="https://github.com/DexterHD">@DexterHD</a></strong> See <a href="https://github.com/Codeception/Codeception/issues/1858">#1858</a>
+* <strong>[Yii2]</strong> Remove line to activate request parsers by <strong><a href="https://github.com/m8rge">@m8rge</a></strong> <a href="https://github.com/Codeception/Codeception/issues/1843">#1843</a>
+* <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> Various `fillField`/`submitForm` improvements by <strong><a href="https://github.com/zbateson">@zbateson</a></strong> See <a href="https://github.com/Codeception/Codeception/issues/1840">#1840</a>. Fixes <a href="https://github.com/Codeception/Codeception/issues/1828">#1828</a>, <a href="https://github.com/Codeception/Codeception/issues/1689">#1689</a>
+* Allow following symlinks when searching for tests by <strong><a href="https://github.com/nechutny">@nechutny</a></strong> <a href="https://github.com/Codeception/Codeception/issues/1862">#1862</a>
 
 #### 2.0.12
 
