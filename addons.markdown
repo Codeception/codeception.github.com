@@ -27,6 +27,10 @@ Integrate Codeception to CakePHP v2.* projects
 
 This module provides additional helpers for your test to help with date and time comparisons.
 
+#### [Doctrine1](https://github.com/Codeception/Doctrine1Module)
+
+Module for Doctrine 1.x ORM (deprecated in Codeception 2.1)
+
 #### [IM](https://github.com/nathanmac/im-codeception-module)
 
 This module allows the testing against external messaging services as well as triggering notifications via your tests, currently supports HipChat messaging service.
@@ -42,6 +46,10 @@ Codeception module to test email using Mailtrap.io
 #### [Mockery](https://github.com/Codeception/MockeryModule)
 
 Integrates Mockery into Codeception tests.
+
+#### [Symfony1](https://github.com/Codeception/symfony1module)
+
+Module for symfony 1.x framework (deprecated in Codeception 2.1)
 
 #### [Remote File Attachment](https://github.com/phmLabs/codeception-module-attachfileremote)
 This module helps to upload files when using webdriver via remote connection.
