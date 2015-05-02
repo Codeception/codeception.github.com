@@ -9,8 +9,8 @@ We are glad to announce the first release of Codeception 2.1. It was a long time
 [Take a look](http://codeception.com/slides/codecept21) what is landed in Codeception 2.1.
 
 
-<iframe src="/slides/codecept21" width="600" height="600" align="left">
-</iframe>
+<script async class="speakerdeck-embed" data-id="aa35edd4591343369f634ce29944134d" data-ratio="1.41436464088398" src="//speakerdeck.com/assets/embed.js"></script>
+
 
 
 Full list of features is available in [changelog](https://github.com/Codeception/Codeception/blob/master/CHANGELOG.md#210-beta). [Documentation was updated](https://github.com/Codeception/Codeception/pull/1878/files?diff=unified) accordingly. 
