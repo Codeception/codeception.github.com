@@ -19,4 +19,4 @@ You can install Codeception 2.1 via composer by requiring `2.1.0-beta` version, 
 
 Give new Codeception a try and send us feedback. As always [use GitHub issues](https://github.com/Codeception/Codeception/issues) for that. Thanks for being with us all that time! We hope you will love this release.
 
-
+Stable 2.1.0 is expected by the middle-end of May
