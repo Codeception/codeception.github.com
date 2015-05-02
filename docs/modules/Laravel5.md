@@ -417,7 +417,7 @@ $I->dontSeeRecord('users', array('name' => 'davert'));
 
 {% endhighlight %}
 
- * `param` $model
+ * `param` $tableName
  * `param array` $attributes
 
 
@@ -505,7 +505,7 @@ $category = $I->grabRecord('users', array('name' => 'davert'));
 
 {% endhighlight %}
 
- * `param` $model
+ * `param` $tableName
  * `param array` $attributes
 
 
@@ -573,7 +573,7 @@ $user_id = $I->haveRecord('users', array('name' => 'Davert'));
 
 {% endhighlight %}
 
- * `param` $model
+ * `param` $tableName
  * `param array` $attributes
 
 
@@ -990,7 +990,7 @@ $I->seeRecord('users', array('name' => 'davert'));
 
 {% endhighlight %}
 
- * `param` $model
+ * `param` $tableName
  * `param array` $attributes
 
 
