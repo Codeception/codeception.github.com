@@ -20,3 +20,11 @@ You can install Codeception 2.1 via composer by requiring `2.1.0-beta` version, 
 Give new Codeception a try and send us feedback. As always [use GitHub issues](https://github.com/Codeception/Codeception/issues) for that. Thanks for being with us all that time! We hope you will love this release.
 
 Stable 2.1.0 is expected by the middle-end of May
+
+
+## Upgrade Notes
+
+* If you are upgrading from Codeception 2.0 delete actor classes in `tests/acceptance`, `tests/functional`, etc, and rebuild actor classes. They will be recreated in `tests/_support`.
+* Try to execute new tests. If there are unmet dependencies, or module conflicts, you will be notified by exception with an advice how to resolve it.
+* It is recommended to recreate Helpers per suite with `g:helper` generator, like `codecept g:helper Acceptance`. New helpers will be store in `tests/_support/Helper`. 
+* Same for PageObjects and StepObjects, they should be moved to `_support`.
