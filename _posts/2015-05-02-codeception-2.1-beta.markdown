@@ -9,7 +9,7 @@ We are glad to announce the first release of Codeception 2.1. It was a long time
 [Take a look](http://codeception.com/slides/codecept21) what is landed in Codeception 2.1.
 
 
-<iframe src="/slides/codecept21" width="800" height="800" align="left">
+<iframe src="/slides/codecept21" width="600" height="600" align="left">
 </iframe>
 
 
