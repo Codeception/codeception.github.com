@@ -22,6 +22,7 @@ title: Codeception Builds
 * [2.0.4](http://codeception.com/releases/2.0.4/codecept.phar)
 * [2.0.3](http://codeception.com/releases/2.0.3/codecept.phar)
 * [2.0.2](http://codeception.com/releases/2.0.2/codecept.phar)
+* [2.0.14](http://codeception.com/releases/2.0.14/codecept.phar)
 * [2.0.13](http://codeception.com/releases/2.0.13/codecept.phar)
 * [2.0.12](http://codeception.com/releases/2.0.12/codecept.phar)
 * [2.0.11](http://codeception.com/releases/2.0.11/codecept.phar)
