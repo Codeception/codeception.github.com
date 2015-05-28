@@ -39,11 +39,11 @@ return new \Phalcon\Mvc\Application($di);
 
 You can use this module by setting params in your functional.suite.yml:
 <pre>
-class_name: TestGuy
+class_name: FunctionalTester
 modules:
     enabled: [FileSystem, TestHelper, Phalcon1]
     config:
-        Phalcon1
+        Phalcon1:
             bootstrap: 'app/config/bootstrap.php'
             cleanup: true
             savepoints: true
@@ -53,9 +53,7 @@ modules:
 ### Status
 
 Maintainer: **cujo**
-Stability: **alfa**
-
-
+Stability: **beta**
 
 
 #### amHttpAuthenticated
@@ -384,12 +382,13 @@ Checks that record does not exist in database.
 
 {% highlight php %}
 
-$I->dontSeeRecord('Phosphorum\Models\Categories', array('name' => 'Testing'));
+<?php
+$I->dontSeeRecord('Phosphorum\Models\Categories', ['name' => 'Testing']);
 
 {% endhighlight %}
 
- * `param` $model
- * `param array` $attributes
+ * `param string` $model Model name
+ * `param array` $attributes Model attributes
 
 
 #### fillField
@@ -463,12 +462,13 @@ Retrieves record from database
 
 {% highlight php %}
 
-$category = $I->grabRecord('Phosphorum\Models\Categories', array('name' => 'Testing'));
+<?php
+$category = $I->grabRecord('Phosphorum\Models\Categories', ['name' => 'Testing']);
 
 {% endhighlight %}
 
- * `param` $model
- * `param array` $attributes
+ * `param string` $model Model name
+ * `param array` $attributes Model attributes
 
 
 #### grabTextFrom
@@ -501,8 +501,8 @@ $value = $I->grabTextFrom('~<input value=(.*?)]~sgi'); // match with a regex
  
 Sets value to session. Use for authorization.
 
- * `param` $key
- * `param` $val
+ * `param string` $key
+ * `param mixed` $val
 
 
 #### haveRecord
@@ -512,14 +512,14 @@ Inserts record into the database.
 {% highlight php %}
 
 <?php
-$user_id = $I->haveRecord('Phosphorum\Models\Users', array('name' => 'Phalcon'));
-$I->haveRecord('Phosphorum\Models\Categories', array('name' => 'Testing')');
+$user_id = $I->haveRecord('Phosphorum\Models\Users', ['name' => 'Phalcon']);
+$I->haveRecord('Phosphorum\Models\Categories', ['name' => 'Testing']');
 ?>
 
 {% endhighlight %}
 
- * `param` $model
- * `param array` $attributes
+ * `param string` $model Model name
+ * `param array` $attributes Model attributes
 
 
 #### resetCookie
@@ -758,8 +758,8 @@ $I->seeInFormFields('//form[@id=my-form]', $form);
 Checks that session contains value.
 If value is `null` checks that session has key.
 
- * `param` $key
- * `param null` $value
+ * `param string` $key
+ * `param mixed` $value
 
 
 #### seeInTitle
@@ -842,12 +842,13 @@ Checks that record exists in database.
 
 {% highlight php %}
 
-$I->seeRecord('Phosphorum\Models\Categories', array('name' => 'Testing'));
+<?php
+$I->seeRecord('Phosphorum\Models\Categories', ['name' => 'Testing']);
 
 {% endhighlight %}
 
- * `param` $model
- * `param array` $attributes
+ * `param string` $model Model name
+ * `param array` $attributes Model attributes
 
 
 #### seeResponseCodeIs

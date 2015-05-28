@@ -7,6 +7,41 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.0.14
+
+* Improved output *2015-05-22*
+  * data providers print simplified
+  * output respects console size with `tput` and tries to fit area
+  * non-interactive environments for `tput` are ignored
+* <strong>[Frameworks]</strong><strong>[PhpBrowser]</strong><strong>[Symfony2]</strong> Fields are passed as PHP-array on form submission the same way as `Symfony\Component\DomCrawler\Form->getPhpValues()` does. Fixes fails of Symfony form tests  *2015-05-22*
+* <strong>[Laravel4]</strong> Fixed bug with filters. See <a href="https://github.com/Codeception/Codeception/issues/1810">#1810</a>. *2015-05-21*
+* <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> Fixed working associative array form fields (like `FooBar<strong>[bar]</strong>`). Fixes regression <a href="https://github.com/Codeception/Codeception/issues/1923">#1923</a> by <strong><a href="https://github.com/davertmik">@davertmik</a></strong> and <strong><a href="https://github.com/zbateson">@zbateson</a></strong>.
+* <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> Fixed cloning form nodes Codeception\Lib\InnerBrowser::getFormFromCrawler(): ID XXX already defined *2015-05-13*
+* <strong>[Laravel4]</strong> <strong>[Laravel5]</strong> Improved error message for `amOnRoute` and `amOnAction` methods if route or action does not exist *2015-05-04*
+* <strong>[Laravel4]</strong> Fixed issue with session configuration *2015-05-01*
+* <strong>[Laravel4]</strong> Partial rewrite of module *2015-05-01*
+  * Added `getApplication()` method
+  * Added `seeFormHasErrors()`, `seeFormErrorMessages(array $bindings)` and `seeFormErrorMessage($key, $errorMessage)` methods
+  * Deprecated `seeSessionHasErrors()` and `seeSessionErrorMessage(array $bindings)` methods.
+* fixed stderr output messages in PHPStorm console *2015-04-26*
+* Allow following symlinks when searching for tests by <strong><a href="https://github.com/nechutny">@nechutny</a></strong>
+* Fixed `g:scenarios --single-file` missing linebreaks between scenarios by <strong><a href="https://github.com/Zifius">@Zifius</a></strong> Parially fixes <a href="https://github.com/Codeception/Codeception/issues/1866">#1866</a>
+* <strong>[Frameworks]</strong><strong>[PhpBrowser]</strong> Fixed errors like `<strong>[ErrorException]</strong> Array to string conversion` when using strict locators. Fix by <strong><a href="https://github.com/neochief">@neochief</a></strong> <a href="https://github.com/Codeception/Codeception/issues/1881">#1881</a>
+* <strong>[Frameworks]</strong><strong>[PhpBrowser]</strong> Fix for URLs with query parameters not properly constructed for GET form submissions by <strong><a href="https://github.com/zbateson">@zbateson</a></strong> Fixes <a href="https://github.com/Codeception/Codeception/issues/1891">#1891</a>
+* <strong>[Facebook]</strong> Updated Facebook SDK to 4.0 by <strong><a href="https://github.com/enginvardar">@enginvardar</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/1896">#1896</a>.
+* <strong>[DB]</strong> Quote table name in `Db::getPrimaryKeyColumn` and `Db::deleteQueryMethods` by <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/1912">#1912</a>
+* <strong>[Silex]</strong> Can be used for API functional testing. Improvement by <strong><a href="https://github.com/arduanov">@arduanov</a></strong> See <a href="https://github.com/Codeception/Codeception/issues/1945">#1945</a>
+* <strong>[Doctrine2]</strong> Added new config option `symfony_em_service` to specify service name for Doctrine entity manager in Symfony DIC by <strong><a href="https://github.com/danieltuwien">@danieltuwien</a></strong> <a href="https://github.com/Codeception/Codeception/issues/1915">#1915</a>
+* <strong>[Db]</strong> Reversed order of removing records with foreign keys created by `haveInDatabase`. Fixes <a href="https://github.com/Codeception/Codeception/issues/1942">#1942</a> by <strong><a href="https://github.com/satahippy">@satahippy</a></strong>
+* <strong>[Db]</strong> Quote names in PostgreSQL queries. Fix <a href="https://github.com/Codeception/Codeception/issues/1916">#1916</a> by <strong><a href="https://github.com/satahippy">@satahippy</a></strong>
+* <strong>[ZF1]</strong> Various improvements by <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong> See <a href="https://github.com/Codeception/Codeception/issues/1924">#1924</a>
+* <strong>[ZF2]</strong><strong>[ZF2]</strong> Improved passing request headers by <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>
+* <strong>[Phalcon1]</strong> Improved dependency injector container check by <strong><a href="https://github.com/sergeyklay">@sergeyklay</a></strong> <a href="https://github.com/Codeception/Codeception/issues/1967">#1967</a>
+* <strong>[Yii2]</strong> Enabled logging by <strong><a href="https://github.com/TriAnMan">@TriAnMan</a></strong> <a href="https://github.com/Codeception/Codeception/issues/1539">#1539</a>
+* Attribute `feature` added to xml reports in `Codeception\TestCase\Test` test report by <strong><a href="https://github.com/tankist">@tankist</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/1964">#1964</a>
+* Fixed <a href="https://github.com/Codeception/Codeception/issues/1779">#1779</a> by <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>
+* ...special thanks to <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong> for creating demo <strong>[ZF1]</strong>(https://github.com/Naktibalda/codeception-zf1-tests) and <strong>[ZF2]</strong>(https://github.com/Naktibalda/codeception-zf2-tests) applications with api tests examples.
+
 #### 2.0.13
 
 * Updated to PHPUnit 4.6

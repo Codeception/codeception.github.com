@@ -102,7 +102,7 @@ $I->amOnRoute('posts.create');
 
 {% endhighlight %}
 
- * `param` $route
+ * `param` $routeName
  * `param array` $params
 
 
@@ -763,8 +763,7 @@ $I->seeFormErrorMessage('username', 'Invalid Username');
  
 Assert that specific form error messages are set in the view.
 
-Useful for validation messages and generally messages array
- e.g.
+Useful for validation messages e.g.
  return `Redirect::to('register')->withErrors($validator);`
 
 Example of Usage
@@ -781,7 +780,15 @@ $I->seeFormErrorMessages(array('username'=>'Invalid Username'));
 
 #### seeFormHasErrors
  
-Assert that the form errors are bound to the View.
+Assert that form errors are bound to the View.
+
+{% highlight php %}
+
+<?php
+$I->seeFormHasErrors();
+?>
+
+{% endhighlight %}
 
 @return bool
 
@@ -899,7 +906,16 @@ $I->seeInFormFields('//form[@id=my-form]', $form);
 
 #### seeInSession
  
-Assert that the session has a given list of values.
+Assert that a session variable exists.
+
+{% highlight php %}
+
+<?php
+$I->seeInSession('key');
+$I->seeInSession('key', 'value');
+?>
+
+{% endhighlight %}
 
  * `param`  string|array $key
  * `param`  mixed $value
@@ -986,7 +1002,9 @@ Checks that record exists in database.
 
 {% highlight php %}
 
+<?php
 $I->seeRecord('users', array('name' => 'davert'));
+?>
 
 {% endhighlight %}
 
@@ -1005,6 +1023,15 @@ Checks that response code is equal to value provided.
 #### seeSessionHasValues
  
 Assert that the session has a given list of values.
+
+{% highlight php %}
+
+<?php
+$I->seeSessionHasValues(['key1', 'key2']);
+$I->seeSessionHasValues(['key1' => 'value1', 'key2' => 'value2']);
+?>
+
+{% endhighlight %}
 
  * `param`  array $bindings
 @return void
