@@ -54,7 +54,7 @@ To start you need to include one of the framework modules in suite config file: 
 
 ### Symfony2
 
-To perform Symfony2 integrations you don't need to install any bundles or do any configuration changes.
+To perform [Symfony2](http://codeception.com/docs/modules/Symfony2) integrations you don't need to install any bundles or do any configuration changes.
 You just need to include the `Symfony2` module into your test suite. If you also use Doctrine2, don't forget to include it too.
 
 Example of `functional.suite.yml`
@@ -71,11 +71,9 @@ By default this module will search for App Kernel in the `app` directory.
 
 The module uses the Symfony Profiler to provide additional information and assertions.
 
-[See the full reference](http://codeception.com/docs/modules/Symfony2)
-
 ### Laravel 4
 
-[Laravel](http://codeception.com/docs/modules/Laravel4) module requires no configuration and can be easily set up.
+[Laravel4](http://codeception.com/docs/modules/Laravel4) module requires no configuration and can be easily set up.
 
 {% highlight yaml %}
 
@@ -85,14 +83,26 @@ modules:
 
 {% endhighlight %}
 
+### Laravel 5
+
+[Laravel5](http://codeception.com/docs/modules/Laravel5) module requires no configuration and can be easily set up.
+
+{% highlight yaml %}
+
+class_name: FunctionalTester
+modules:
+    enabled: [Laravel5, TestHelper]
+
+{% endhighlight %}
+
 
 ### Yii2
 
-Yii2 tests are included in [Basic](https://github.com/yiisoft/yii2-app-basic) and [Advanced](https://github.com/yiisoft/yii2-app-advanced) application templates. Follow Yii2 guides to start.
+[Yii2](http://codeception.com/docs/modules/Yii2) tests are included in [Basic](https://github.com/yiisoft/yii2-app-basic) and [Advanced](https://github.com/yiisoft/yii2-app-advanced) application templates. Follow Yii2 guides to start.
 
 ### Yii
 
-By itself Yii framework does not have an engine for functional testing.
+By itself [Yii](http://codeception.com/docs/modules/Yii1) framework does not have an engine for functional testing.
 So Codeception is the first and the only functional testing framework for Yii.
 To use it with Yii include `Yii1` module into config.
 
@@ -121,7 +131,7 @@ modules:
 
 ### Zend Framework 1.x
 
-The module for Zend Framework is highly inspired by ControllerTestCase class, used for functional testing with PHPUnit. 
+The module for [Zend Framework](http://codeception.com/docs/modules/ZF1) is highly inspired by ControllerTestCase class, used for functional testing with PHPUnit. 
 It follows similar approaches for bootstrapping and cleaning up. To start using Zend Framework in your functional tests, include the `ZF1` module.
 
 Example of `functional.suite.yml`
@@ -134,11 +144,9 @@ modules:
 
 {% endhighlight %}
 
-[See the full reference](http://codeception.com/docs/modules/ZF1)
-
 ### Phalcon 1.x
 
-`Phalcon1` module requires creating bootstrap file which returns instance of `\Phalcon\Mvc\Application`. To start writing functional tests with Phalcon support you should enable `Phalcon1` module and provide path to this bootstrap file:
+[Phalcon1](http://codeception.com/docs/modules/Phalcon1) module requires creating bootstrap file which returns instance of `\Phalcon\Mvc\Application`. To start writing functional tests with Phalcon support you should enable `Phalcon1` module and provide path to this bootstrap file:
 
 {% highlight yaml %}
 
@@ -151,7 +159,6 @@ modules:
 
 {% endhighlight %}
 
-[See the full reference](http://codeception.com/docs/modules/Phalcon1)
 
 ## Writing Functional Tests
 
@@ -210,7 +217,7 @@ $I->seeCurrentUrlEquals('/profile/john');
 
 {% endhighlight %}
 
-Framework modules also contain additional methods to access framework internals. For instance, `Laravel4`, `Phalcon1`, and `Yii2` modules have `seeRecord` method which uses ActiveRecord layer to check that record exists in database.
+Framework modules also contain additional methods to access framework internals. For instance, `Laravel4`, `Laravel5`, `Phalcon1`, and `Yii2` modules have `seeRecord` method which uses ActiveRecord layer to check that record exists in database.
 `Laravel4` module also contains methods to do additional session checks. You may find `seeSessionHasErrors` useful when you test form validations.
 
 Take a look at the complete reference for module you are using. Most of its methods are common for all modules but some of them are unique.
