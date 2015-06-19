@@ -49,7 +49,7 @@ Checks that condition is negative.
 
 #### assertGreaterThan
  
-Checks that expected is greater than actual
+Checks that actual is greater than expected
 
  * `param`        $expected
  * `param`        $actual
@@ -58,7 +58,7 @@ Checks that expected is greater than actual
 
 #### assertGreaterThanOrEqual
  
-Checks that expected is greater or equal than actual
+Checks that actual is greater or equal than expected
 
  * `param`        $expected
  * `param`        $actual
@@ -77,7 +77,7 @@ Checks that expected is greater or equal than actual
 
 #### assertLessThan
  
-Checks that expected is less than actual
+Checks that actual is less than expected
 
  * `param`        $expected
  * `param`        $actual
@@ -86,7 +86,7 @@ Checks that expected is less than actual
 
 #### assertLessThanOrEqual
  
-Checks that expected is less or equal than actual
+Checks that actual is less or equal than expected
 
  * `param`        $expected
  * `param`        $actual

@@ -10,10 +10,8 @@ title: Laravel4 Module - Codeception - Documentation
 
 
 This module allows you to run functional tests for Laravel 4.
-Module is very fresh and should be improved with Laravel testing capabilities.
-Please try it and leave your feedbacks. If you want to maintain it - connect Codeception team.
-
-Uses 'bootstrap/start.php' to launch.
+Please try it and leave your feedback.
+The original author of this module is Davert.
 
 ### Demo Project
 
@@ -21,9 +19,9 @@ Uses 'bootstrap/start.php' to launch.
 
 ### Status
 
-* Maintainer: **Davert**
+* Maintainer: **Jan-Henk Gerritsen**
 * Stability: **stable**
-* Contact: davert.codeception@mailican.com
+* Contact: janhenkgerritsen@gmail.com
 
 ### Config
 
@@ -36,7 +34,7 @@ Uses 'bootstrap/start.php' to launch.
 
 ### API
 
-* kernel - `Illuminate\Foundation\Application` instance
+* app - `Illuminate\Foundation\Application` instance
 * client - `BrowserKit` client
 
 
@@ -149,6 +147,13 @@ $I->checkOption('#agree');
 {% endhighlight %}
 
  * `param` $option
+
+
+#### checkStartFileExists
+ 
+Make sure the Laravel start file exists.
+
+ ModuleConfig
 
 
 #### click
@@ -449,6 +454,13 @@ $I->fillField(['name' => 'email'], 'jon@mail.com');
 
  * `param` $field
  * `param` $value
+
+
+#### getApplication
+ 
+Provides access the Laravel application object.
+
+@return \Illuminate\Foundation\Application
 
 
 #### grabAttributeFrom
@@ -754,6 +766,62 @@ $I->seeElement(['css' => 'form input'], ['name' => 'login']);
 @return
 
 
+#### seeFormErrorMessage
+ 
+Assert that specific form error message is set in the view.
+
+Useful for validation messages and generally messages array
+ e.g.
+ return `Redirect::to('register')->withErrors($validator);`
+
+Example of Usage
+
+{% highlight php %}
+
+<?php
+$I->seeFormErrorMessage('username', 'Invalid Username');
+?>
+
+{% endhighlight %}
+ * `param string` $key
+ * `param string` $errorMessage
+
+
+#### seeFormErrorMessages
+ 
+Assert that specific form error messages are set in the view.
+
+Useful for validation messages and generally messages array
+ e.g.
+ return `Redirect::to('register')->withErrors($validator);`
+
+Example of Usage
+
+{% highlight php %}
+
+<?php
+$I->seeFormErrorMessages(array('username'=>'Invalid Username'));
+?>
+
+{% endhighlight %}
+ * `param array` $bindings
+
+
+#### seeFormHasErrors
+ 
+Assert that form errors are bound to the View.
+
+{% highlight php %}
+
+<?php
+$I->seeFormHasErrors();
+?>
+
+{% endhighlight %}
+
+@return bool
+
+
 #### seeInCurrentUrl
  
 Checks that current URI contains the given string.
@@ -867,7 +935,16 @@ $I->seeInFormFields('//form[@id=my-form]', $form);
 
 #### seeInSession
  
-Assert that the session has a given list of values.
+Assert that a session variable exists.
+
+{% highlight php %}
+
+<?php
+$I->seeInSession('key');
+$I->seeInSession('key', 'value');
+?>
+
+{% endhighlight %}
 
  * `param`  string|array $key
  * `param`  mixed $value
@@ -954,7 +1031,9 @@ Checks that record exists in database.
 
 {% highlight php %}
 
+<?php
 $I->seeRecord('users', array('name' => 'davert'));
+?>
 
 {% endhighlight %}
 
@@ -989,18 +1068,37 @@ $I->seeSessionErrorMessage(array('username'=>'Invalid Username'));
 
 {% endhighlight %}
  * `param array` $bindings
+@deprecated
 
 
 #### seeSessionHasErrors
  
 Assert that the session has errors bound.
 
+{% highlight php %}
+
+<?php
+$I->seeSessionHasErrors();
+?>
+
+{% endhighlight %}
+
 @return bool
+@deprecated
 
 
 #### seeSessionHasValues
  
 Assert that the session has a given list of values.
+
+{% highlight php %}
+
+<?php
+$I->seeSessionHasValues(['key1', 'key2']);
+$I->seeSessionHasValues(['key1' => 'value1', 'key2' => 'value2']);
+?>
+
+{% endhighlight %}
 
  * `param`  array $bindings
 @return void
@@ -1089,6 +1187,11 @@ $I->sendAjaxRequest('PUT', '/posts/7', array('title' => 'new title'));
  * `param` $method
  * `param` $uri
  * `param` $params
+
+
+#### setApplication
+ 
+ * `param` $app
 
 
 #### setCookie
