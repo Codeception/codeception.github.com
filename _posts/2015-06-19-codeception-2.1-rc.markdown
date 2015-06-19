@@ -23,6 +23,8 @@ modules:
 
 That should be enough to have everything upgraded. We already prepared [updated guides](https://github.com/Codeception/Codeception/tree/master/docs) (they didn't change from 2.1.0-beta). Please try new Codeception and tell us your opinion in comments or on [GitHub](https://github.com/Codeception/Codeception/issues).
 
+Codeception 2.1 can be used with latest Guzzle 6 (as well as previous Guzzle releases). That's the most important change since the beta version. Please see [the changelog](https://github.com/Codeception/Codeception/blob/master/CHANGELOG.md) for more info.
+
 
 [Download 2.1.0-rc phar](http://codeception.com/releases/2.1.0-rc1/codecept.phar)
 
