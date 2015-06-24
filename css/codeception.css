@@ -1,15 +1,21 @@
 .main-features {
-  margin-top: 10px;      
+  margin-top: 10px;
 }
 body {
   background:  #ecf0f1; /** url("/images/bg.png") transparent !important; */
-}  
+}
 body .navbar.nav-custom {
   background: #2980b9;
-}    
+}
 
 body .nav-custom .navbar-nav {
 	padding-top: 5px;
+}
+
+@media screen and (max-device-width : 760px) {
+    body .nav-custom .navbar-nav {
+        padding-top: 0px;
+    }
 }
 
 body .nav-custom .navbar-nav>li>a {
@@ -50,7 +56,7 @@ body .hero-unit h1 {
 }
 
 #page h4 {
-	border-bottom: 1px solid #656270;	
+	border-bottom: 1px solid #656270;
 }
 
 .sample-code {
@@ -105,7 +111,7 @@ body b {
 #contributors a {
 	margin-right: 5px;
 	margin-bottom: 5px;
-	float: left;	
+	float: left;
 }
 #contributors a img {
 	border-radius: 5px;
@@ -129,7 +135,7 @@ body b {
 #toc a {
 	padding: 5px;
 	width: 100%;
-   font-size: 1.2em;   
+    font-size: 1.2em;
 }
 
 #footer {
@@ -145,11 +151,11 @@ body b {
 	font-size: 0.9em;
 	text-align: center;
 	padding-top: 10px;
-	background: #2980b9;	
+	background: #2980b9;
 }
 
 body .dropdown-modules {
-	min-width: 300px;	
+	min-width: 300px;
 }
 
 body .dropdown-modules li a {
@@ -173,4 +179,33 @@ body .dropdown-modules li a {
 
 p img {
 	max-width: 100%;
+}
+
+ul.navbar-collapse {
+	max-height: none;
+}
+
+ul.navbar-nav {
+	margin: 0 -15px;
+}
+
+@media screen and (max-width : 1260px) {
+	.follow {
+		display: none;
+	}
+}
+
+@media screen and (max-width : 760px) {
+	.menu li {
+		clear: both;
+	}
+}
+
+@media screen and (min-width: 1030px) {
+	.navbar-collapse.collapse {
+		display: block!important;
+		height: auto!important;
+		padding-bottom: 0;
+		overflow: visible!important;
+	}
 }
