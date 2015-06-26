@@ -1,66 +1,37 @@
 ---
 layout: doc
-title: Symfony2 Module - Codeception - Documentation
+title: Lumen Module - Codeception - Documentation
 ---
 
-# Symfony2 Module
+# Lumen Module
 
-**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Symfony2.php)**
+**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Lumen.php)**
 
 
-This module uses Symfony2 Crawler and HttpKernel to emulate requests and test response.
 
-### Demo Project
+This module allows you to run functional tests for Lumen.
+Please try it and leave your feedback.
 
-<https://github.com/DavertMik/SymfonyCodeceptionApp>
+### Demo project
+<https://github.com/janhenkgerritsen/codeception-lumen-sample>
 
 ### Status
 
-* Maintainer: **davert**
-* Stability: **stable**
-* Contact: codecept@davert.mail.ua
+* Maintainer: **Jan-Henk Gerritsen**
+* Stability: **dev**
+* Contact: janhenkgerritsen@gmail.com
 
 ### Config
 
-#### Symfony 2.x
+* cleanup: `boolean`, default `true` - all db queries will be run in transaction, which will be rolled back at the end of test.
+* bootstrap: `string`, default `bootstrap/app.php` - Relative path to app.php config file.
+* root: `string`, default `` - Root path of our application.
+* packages: `string`, default `workbench` - Root path of application packages (if any).
 
-* app_path: 'app' - specify custom path to your app dir, where bootstrap cache and kernel interface is located.
-* environment: 'local' - environment used for load kernel
-* debug: true - turn on/off debug mode
+### API
 
-
-#### Example (`functional.suite.yml`) - Symfony 2.x Directory Structure
-
-    modules: 
-       enabled: [Symfony2]
-       config:
-          Symfony2:
-             app_path: 'app/front'
-             environment: 'local_test'
-
-#### Symfony 3.x Directory Structure
-
-* app_path: 'app' - specify custom path to your app dir, where the kernel interface is located.
-* var_path: 'var' - specify custom path to your var dir, where bootstrap cache is located.
-* environment: 'local' - environment used for load kernel
-* debug: true - turn on/off debug mode
-
-#### Example (`functional.suite.yml`) - Symfony 3 Directory Structure
-
-    modules:
-       enabled: [Symfony2]
-       config:
-          Symfony2:
-             app_path: 'app/front'
-             var_path: 'var'
-             environment: 'local_test'
-
-
-### Public Properties
-
-* kernel - HttpKernel instance
-* client - current Crawler instance
-* container - dependency injection container instance
+* app - `Illuminate\Foundation\Application` instance
+* client - `BrowserKit` client
 
 
 
@@ -70,6 +41,17 @@ Authenticates user for HTTP_AUTH
 
  * `param` $username
  * `param` $password
+
+
+#### amLoggedAs
+ 
+Set the currently logged in user for the application.
+Takes either an object that implements the User interface or
+an array of credentials.
+
+ * `param`  \Illuminate\Contracts\Auth\User|array $user
+ * `param`  string $driver
+@return void
 
 
 #### amOnPage
@@ -88,6 +70,22 @@ $I->amOnPage('/register');
 {% endhighlight %}
 
  * `param` $page
+
+
+#### amOnRoute
+ 
+Opens web page using route name and parameters.
+
+{% highlight php %}
+
+<?php
+$I->amOnRoute('homepage');
+?>
+
+{% endhighlight %}
+
+ * `param` $routeName
+ * `param array` $params
 
 
 #### attachFile
@@ -174,6 +172,11 @@ $I->dontSee('Sign Up','//body/h1'); // with XPath
 
  * `param`      $text
  * `param null` $selector
+
+
+#### dontSeeAuthentication
+ 
+Check that user is not authenticated
 
 
 #### dontSeeCheckboxIsChecked
@@ -384,6 +387,22 @@ $I->dontSeeOptionIsSelected('#form input[name=payment]', 'Visa');
 
 
 
+#### dontSeeRecord
+ 
+Checks that record does not exist in database.
+
+{% highlight php %}
+
+<?php
+$I->dontSeeRecord('users', array('name' => 'davert'));
+?>
+
+{% endhighlight %}
+
+ * `param` $tableName
+ * `param array` $attributes
+
+
 #### fillField
  
 Fills a text field or textarea with the given string.
@@ -399,6 +418,13 @@ $I->fillField(['name' => 'email'], 'jon@mail.com');
 
  * `param` $field
  * `param` $value
+
+
+#### getApplication
+ 
+Provides access the Lumen application object.
+
+@return \Laravel\Lumen\Application
 
 
 #### grabAttributeFrom
@@ -449,20 +475,45 @@ $uri = $I->grabFromCurrentUrl();
  * `internal param` $url
 
 
-#### grabServiceFromContainer
+#### grabRecord
  
-Grabs a service from Symfony DIC container.
-Recommended to use for unit testing.
+Retrieves record from database
 
 {% highlight php %}
 
 <?php
-$em = $I->grabServiceFromContainer('doctrine');
+$category = $I->grabRecord('users', array('name' => 'davert'));
 ?>
 
 {% endhighlight %}
 
- * `param` $service
+ * `param` $tableName
+ * `param array` $attributes
+
+
+#### grabService
+ 
+Return an instance of a class from the IoC Container.
+
+Example
+{% highlight php %}
+
+<?php
+// In Lumen
+App::bind('foo', function($app)
+{
+    return new FooBar;
+});
+
+// Then in test
+$service = $I->grabService('foo');
+
+// Will return an instance of FooBar, also works for singletons.
+?>
+
+{% endhighlight %}
+
+ * `param`  string $class
 
 
 #### grabTextFrom
@@ -489,6 +540,27 @@ $value = $I->grabTextFrom('~<input value=(.*?)]~sgi'); // match with a regex
  * `param` $field
 
 @return array|mixed|null|string
+
+
+#### haveRecord
+ 
+Inserts record into the database.
+
+{% highlight php %}
+
+<?php
+$user_id = $I->haveRecord('users', array('name' => 'Davert'));
+?>
+
+{% endhighlight %}
+
+ * `param` $tableName
+ * `param array` $attributes
+
+
+#### logout
+ 
+Logs user out
 
 
 #### resetCookie
@@ -518,6 +590,11 @@ $I->see('Sign Up','//body/h1'); // with XPath
 
  * `param`      $text
  * `param null` $selector
+
+
+#### seeAuthentication
+ 
+Checks that user is authenticated
 
 
 #### seeCheckboxIsChecked
@@ -609,13 +686,6 @@ $I->seeElement(['css' => 'form input'], ['name' => 'login']);
  * `param` $selector
  * `param array` $attributes
 @return
-
-
-#### seeEmailIsSent
- 
-Checks if any email were sent by last request
-
- \LogicException
 
 
 #### seeInCurrentUrl
@@ -729,6 +799,15 @@ $I->seeInFormFields('//form[@id=my-form]', $form);
  * `param` $params
 
 
+#### seeInSession
+ 
+Assert that the session has a given list of values.
+
+ * `param`  string|array $key
+ * `param`  mixed $value
+@return void
+
+
 #### seeInTitle
  
 Checks that the page title contains the given string.
@@ -803,12 +882,34 @@ $I->seeOptionIsSelected('#form input[name=payment]', 'Visa');
 Asserts that current page has 404 response status code.
 
 
+#### seeRecord
+ 
+Checks that record exists in database.
+
+{% highlight php %}
+
+$I->seeRecord('users', array('name' => 'davert'));
+
+{% endhighlight %}
+
+ * `param` $tableName
+ * `param array` $attributes
+
+
 #### seeResponseCodeIs
  
 Checks that response code is equal to value provided.
 
  * `param` $code
 
+
+
+#### seeSessionHasValues
+ 
+Assert that the session has a given list of values.
+
+ * `param`  array $bindings
+@return void
 
 
 #### selectOption
@@ -1105,4 +1206,4 @@ $I->uncheckOption('#notify');
 
  * `param` $option
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Symfony2.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Lumen.php">Help us to improve documentation. Edit module reference</a></div>
