@@ -7,6 +7,24 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.0.15
+
+* <strong>[Phalcon1]</strong> Fixed getting has more than one field by <strong><a href="https://github.com/sergeyklay">@sergeyklay</a></strong> <a href="https://github.com/Codeception/Codeception/issues/2010">#2010</a>.
+* <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> Compute relative URIs against the effective request URI when there is a redirect. <a href="https://github.com/Codeception/Codeception/issues/2058">#2058</a> <a href="https://github.com/Codeception/Codeception/issues/2057">#2057</a>
+* <strong>[PhpBrowser]</strong> Fixed Guzzle Connector headers by <strong><a href="https://github.com/valeriyaslovikovskaya">@valeriyaslovikovskaya</a></strong> <a href="https://github.com/Codeception/Codeception/issues/2028">#2028</a>
+* <strong>[Symfony2]</strong> kernel is created for every test by <strong><a href="https://github.com/quaninte">@quaninte</a></strong> <a href="https://github.com/Codeception/Codeception/issues/2020">#2020</a>
+* <strong>[WebDriver]</strong> Added WebDriver init settings `connection_timeout` and `request_timeout` by <strong><a href="https://github.com/n8whnp">@n8whnp</a></strong> <a href="https://github.com/Codeception/Codeception/issues/2065">#2065</a>
+* <strong>[MongoDb]</strong> added ability to change the database by <strong><a href="https://github.com/clarkeash">@clarkeash</a></strong> <a href="https://github.com/Codeception/Codeception/issues/2015">#2015</a>
+* <strong>[Doctrine2]</strong> Fixed issues after first request is made <a href="https://github.com/Codeception/Codeception/issues/2025">#2025</a> <strong><a href="https://github.com/AlexStansfield">@AlexStansfield</a></strong>
+* <strong>[REST]</strong> Improved JsonArray to compare repeated values correctly by <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong> <a href="https://github.com/Codeception/Codeception/issues/2070">#2070</a>
+* <strong>[MongoDb]</strong> Remove not necessary config fields `user` and `password` by <strong><a href="https://github.com/nicklasos">@nicklasos</a></strong>
+* `Stub::construct` can be used to set private/protected properties by <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong> <a href="https://github.com/Codeception/Codeception/issues/2082">#2082</a>
+* Fixed <strong><a href="https://github.com/before">@before</a></strong> and <strong><a href="https://github.com/after">@after</a></strong> hooks in Cest. _before method was executed on each call of method specified in <strong><a href="https://github.com/before">@before</a></strong> annotation *2015-06-15*
+* <strong>[Laravel5]</strong> Fix for domains in `route()` helper. See <a href="https://github.com/Codeception/Codeception/issues/2000">#2000</a>. *2015-06-04*
+* <strong>[REST]</strong> Fixed sending `JsonSerializable` object on POST by <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong> and <strong><a href="https://github.com/andersonamuller">@andersonamuller</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/1988">#1988</a> <a href="https://github.com/Codeception/Codeception/issues/1994">#1994</a>
+* <strong>[MongoDb]</strong> escaped filename shell argument for loading MongoDB by <strong><a href="https://github.com/christoph">@christoph</a></strong>-hautzinger. <a href="https://github.com/Codeception/Codeception/issues/1998">#1998</a> *2015-06-03*
+* <strong>[Lumen]</strong> **Module added** by <strong><a href="https://github.com/janhenkgerritsen">@janhenkgerritsen</a></strong>
+
 #### 2.0.14
 
 * Improved output *2015-05-22*

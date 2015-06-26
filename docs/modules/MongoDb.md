@@ -100,6 +100,7 @@ Inserts data into collection
 
 {% highlight php %}
 
+<?php
 $I->haveInCollection('users', array('name' => 'John', 'email' => 'john@coltrane.com'));
 $user_id = $I->haveInCollection('users', array('email' => 'john@coltrane.com'));
 
@@ -171,5 +172,19 @@ $I->seeNumElementsInCollection('users', 1, array('name' => 'miles'));
  * `param` $collection
  * `param integer` $expected
  * `param array` $criteria
+
+
+#### useDatabase
+ 
+Inserts data into collection
+
+{% highlight php %}
+
+<?php
+$I->useDatabase('db_1');
+
+{% endhighlight %}
+
+ * `param` $dbName
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/MongoDb.php">Help us to improve documentation. Edit module reference</a></div>
