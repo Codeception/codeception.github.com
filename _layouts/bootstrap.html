@@ -1,211 +1,211 @@
 <!doctype html>
-<html><head>
-  <title>
-    {% if page.title %}
-    {{ page.title }}
-    {% else %}
-    Codeception
-    {% endif %}
-  </title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-  <link href="http://fonts.googleapis.com/css?family=Philosopher&amp;subset=latin" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/css/codeception.css">
-  <link rel="stylesheet" href="/css/contributors.css">
-  <link rel="stylesheet" type="text/css" media="screen" href="/css/syntax.css">  
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js" type="text/javascript"></script>
-  <script src="/js/jquery.toc.min.js" type="text/javascript" charset="utf-8"></script>
-  <script src="/js/contributors.js" type="text/javascript" charset="utf-8"></script>
+<html>
+<head>
+    <title>
+        {% if page.title %}
+        {{ page.title }}
+        {% else %}
+        Codeception
+        {% endif %}
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <link href="http://fonts.googleapis.com/css?family=Philosopher&amp;subset=latin" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/codeception.css">
+    <link rel="stylesheet" href="/css/contributors.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/syntax.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js" type="text/javascript"></script>
+    <script src="/js/jquery.toc.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/contributors.js" type="text/javascript" charset="utf-8"></script>
 
-  <link title="Codeception Blog" type="application/rss+xml" rel="alternate" href="/rss.xml">  
-  <link rel="shortcut icon" href="/images/favicon.png">
-  <link rel="author" href="https://plus.google.com/+Codeception">
+    <link title="Codeception Blog" type="application/rss+xml" rel="alternate" href="/rss.xml">
+    <link rel="shortcut icon" href="/images/favicon.png">
+    <link rel="author" href="https://plus.google.com/+Codeception">
 </head>
-
 <body>{% capture guides %}{% include guides.html %}{% endcapture %}
 {% capture modules %}{% include modules.html %}{% endcapture %}
 {% capture reference %}{% include reference.html %}{% endcapture %}
-
-
 <nav class="navbar nav-custom navbar-inverse">
-
-
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a href="/" class="navbar-brand"><img src="/images/toplogo.png" alt="codeception" /></a>
-  </div>    
-
-  <div class="navbar-inner">    
-
-  <div class="follow nav pull-right navbar-text">
-      <a href="https://twitter.com/codeception" class="twitter-follow-button" data-show-count="false" data-lang="en" data-size="large">Follow @Codeception</a>
-      <script>!function (d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (!d.getElementById(id)) {
-              js = d.createElement(s);
-              js.id = id;
-              js.src = "//platform.twitter.com/widgets.js";
-              fjs.parentNode.insertBefore(js, fjs);
-          }
-      }(document, "script", "twitter-wjs");</script>
-  </div>
-
-
-        <ul class="nav navbar-nav navbar-collapse">
-          <li>
-            <a href="/quickstart">Quickstart</a> 
-          </li>
-          <li>
-            </li><li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">        Guides
-                <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                {{ guides }}
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">        Modules
-                <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu dropdown-modules">
-                {{ modules }}
-              </ul>
-            </li>     
-
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">        Reference
-                <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                {{ reference }}
-              </ul>
-
-
-            </li>
-
-            <li>
-              <a href="/video">Video</a> 
-            </li>
-            <li>
-              <a href="/blog">Blog</a> 
-            </li>
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="http://phptest.club/category/codeception">        Community
-                <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="http://phptest.club/category/codeception">Community Forum</a></li>
-                <li><a href="http://automated-testing.info/category/codeception">Russian Community</a></li>
-                <li><a href="http://stackoverflow.com/questions/tagged/codeception">StackOverflow</a></li>
-              </ul>
-
-
-            </li>
-            
-            <li>            
-              <a href="/credits">Credits</a> 
-            </li>
-            <li>
-              <a href="/install">Install</a> 
-            </li>
-            <li>
-              <a href="/addons">Addons</a> 
-            </li>            
-            <li>
-              <a href="/changelog">Changelog</a> 
-            </li>            
-
-          </ul>
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a href="/" class="navbar-brand"><img src="/images/toplogo.png" alt="codeception"/></a>
+    </div>
+    <div class="navbar-inner">
+        <div class="follow nav pull-right navbar-text">
+            <a href="https://twitter.com/codeception" class="twitter-follow-button" data-show-count="false"
+               data-lang="en" data-size="large">Follow @Codeception</a>
+            <script>!function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (!d.getElementById(id)) {
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "//platform.twitter.com/widgets.js";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }
+            }(document, "script", "twitter-wjs");</script>
         </div>
-      </div>
+        <ul class="nav navbar-nav navbar-collapse collapse menu">
+            <li>
+                <a href="/quickstart">Quickstart</a>
+            </li>
+            <li>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Guides
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    {{ guides }}
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Modules
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu dropdown-modules">
+                    {{ modules }}
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Reference
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    {{ reference }}
+                </ul>
+            </li>
+            <li>
+                <a href="/video">Video</a>
+            </li>
+            <li>
+                <a href="/blog">Blog</a>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="http://phptest.club/category/codeception">
+                    Community
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="http://phptest.club/category/codeception">Community Forum</a></li>
+                    <li><a href="http://automated-testing.info/category/codeception">Russian Community</a></li>
+                    <li><a href="http://stackoverflow.com/questions/tagged/codeception">StackOverflow</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="/credits">Credits</a>
+            </li>
+            <li>
+                <a href="/install">Install</a>
+            </li>
+            <li>
+                <a href="/addons">Addons</a>
+            </li>
+            <li>
+                <a href="/changelog">Changelog</a>
+            </li>
+        </ul>
+    </div>
+    </div>
 </nav>
+<div class="container">
+    {{ content }}
+</div>
+<div id="footer">
     <div class="container">
-      {{ content }}      
-    </div>
-
-
-    <div id="footer">
-      <div class="container">
         <div class="row">
-        <div class="col-sm-4 col-lg-4">
-            <h3>Credits</h3>
-            <p>
-            Codeception is a BDD-styled PHP testing framework, created by <a href="https://twitter.com/davert" target="_blank">Michael Bodnarchuk @davert</a>.     
-            within <a href="http://codegyre.com">Codegyre Developers Team</a>. Logo by <a href="https://twitter.com/adnanblog">Mr. Adnan</a>. OpenSource <strong>MIT Licensed</strong>.
-            </p>
+            <div class="col-sm-4 col-lg-4">
+                <h3>Credits</h3>
 
-            <div>
+                <p>
+                    Codeception is a BDD-styled PHP testing framework, created by <a href="https://twitter.com/davert"
+                                                                                     target="_blank">Michael Bodnarchuk
+                    @davert</a>.
+                    within <a href="http://codegyre.com">Codegyre Developers Team</a>. Logo by <a
+                        href="https://twitter.com/adnanblog">Mr. Adnan</a>. OpenSource <strong>MIT Licensed</strong>.
+                </p>
 
-              <a href="https://github.com/codeception/codeception" class="pull-left">
-                <img src="/images/github.png">
-              </a>
+                <div>
 
-              <a href="https://twitter.com/codeception" class="pull-left">
-                <img src="/images/twitter.png">
-              </a>
+                    <a href="https://github.com/codeception/codeception" class="pull-left">
+                        <img src="/images/github.png">
+                    </a>
 
-              <a href="http://www.facebook.com/pages/Codeception/288959711204412" class="pull-left">
-                <img src="/images/facebook.png">
-              </a>              
+                    <a href="https://twitter.com/codeception" class="pull-left">
+                        <img src="/images/twitter.png">
+                    </a>
 
-              <a href="https://plus.google.com/b/108429499160233541695/108429499160233541695/posts" class="pull-left">
-                <img src="/images/gplus.png">
-              </a>              
+                    <a href="http://www.facebook.com/pages/Codeception/288959711204412" class="pull-left">
+                        <img src="/images/facebook.png">
+                    </a>
+
+                    <a href="https://plus.google.com/b/108429499160233541695/108429499160233541695/posts"
+                       class="pull-left">
+                        <img src="/images/gplus.png">
+                    </a>
+
+                </div>
+
+                <div style="clear: both;">
+                    <h4>Sponsored by</h4>
+                    <a href="http://2amigos.us/">
+                        <img src="/images/2amigos.png"
+                             alt="Sponsored by 2AmigOS web development and consultancy in Miami"
+                             title="Sponsored by 2AmigOS web development and consultancy in Miami">
+                    </a>
+                </div>
+
 
             </div>
 
-            <div style="clear: both;">
-              <h4>Sponsored by</h4>
-              <a href="http://2amigos.us/">
-                <img src="/images/2amigos.png" alt="Sponsored by 2AmigOS web development and consultancy in Miami" title="Sponsored by 2AmigOS web development and consultancy in Miami">
-              </a>
+            <div class="col-sm-8 col-lg-8">
+                <h3>Thanks to all our contributors</h3>
+
+                <div id="contributors"></div>
+
             </div>
-            
-
-
-
         </div>
-
-        <div class="col-sm-8 col-lg-8">
-<h3>Thanks to all our contributors</h3>
-<div id="contributors"></div>
-
-        </div>
-      </div>
-      </div>
     </div>
+</div>
 <div id="copyright">
-  © 2011&ndash;<span data-toggle="tooltip" alt="" title="YOU BROKE MY PHP! FIX IT ASAP!">&lt;?= date('Y') ?&gt;</span>
-  <!-- You broke my PHP, man! -->
-</div>  
+    © 2011&ndash;<span data-toggle="tooltip" alt="" title="YOU BROKE MY PHP! FIX IT ASAP!">&lt;?= date('Y') ?&gt;</span>
+    <!-- You broke my PHP, man! -->
+</div>
 
 
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script type="text/javascript">
 
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-1899308-9']);
     _gaq.push(['_trackPageview']);
 
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
     })();
 
-    </script>
+</script>
 
-    <div id="bugira_widget" style="position: fixed; right: 10px; bottom: 0px;"></div>
-    <script type="text/javascript">var __bugira_config = {"api_key":"dste248173q7"};
-    (function() {var w = document.createElement('script'); w.type = 'text/javascript'; w.async = true; w.src = 'http://bugiracdn.appspot.com/bugira-widget.js';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(w);})();</script>
+<div id="bugira_widget" style="position: fixed; right: 10px; bottom: 0px;"></div>
+<script type="text/javascript">var __bugira_config = {"api_key": "dste248173q7"};
+(function () {
+    var w = document.createElement('script');
+    w.type = 'text/javascript';
+    w.async = true;
+    w.src = 'http://bugiracdn.appspot.com/bugira-widget.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(w);
+})();</script>
 
-  
 
-  </body></html>
+</body>
+</html>
