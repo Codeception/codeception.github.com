@@ -1,9 +1,10 @@
 ---
 layout: doc
-title: Introduction - Codeception - Documentation
+title: Codeception Documentation
 ---
 
-{% include switch.html %}
+
+{% include doc_2.0.html %}
 
 # Introduction
 
@@ -28,8 +29,7 @@ Please, note that **any website** can be covered with acceptance tests. Even if 
 
 #### Sample acceptance test
 
-{% highlight php %}
-
+```php
 <?php
 $I = new AcceptanceTester($scenario);
 $I->amOnPage('/');
@@ -37,8 +37,7 @@ $I->click('Sign Up');
 $I->submitForm('#signup', array('username' => 'MilesDavis', 'email' => 'miles@davis.com'));
 $I->see('Thank you for Signing Up!');
 ?>
-
-{% endhighlight %}
+```
 
 #### Pros
 
@@ -64,8 +63,7 @@ For functional tests your application should be prepared to be run in a test env
 
 #### Sample functional test
 
-{% highlight php %}
-
+```php
 <?php
 $I = new FunctionalTester($scenario);
 $I->amOnPage('/');
@@ -75,8 +73,7 @@ $I->see('Thank you for Signing Up!');
 $I->seeEmailSent('miles@davis.com', 'Thank you for registration');
 $I->seeInDatabase('users', array('email' => 'miles@davis.com'));
 ?>
-
-{% endhighlight %}
+```
 
 #### Pros
 
@@ -101,8 +98,7 @@ Even inexperienced developers should understand what is tested and how. Requirem
 
 #### Sample integration test
 
-{% highlight php %}
-
+```php
 <?php
 function testSavingUser()
 {
@@ -114,8 +110,7 @@ function testSavingUser()
     $this->unitTester->seeInDatabase('users',array('name' => 'Miles', 'surname' => 'Davis'));
 }
 ?>
-
-{% endhighlight %}
+```
 
 #### Pros
 
@@ -134,8 +129,3 @@ function testSavingUser()
 Despite the wide popularity of TDD, not all PHP developers ever write automated tests for their applications. The Codeception framework was developed to make testing actually fun. It allows writing unit, functional, integration, and acceptance tests, in one style.
 
 It could be called a BDD framework. All Codeception tests are written in a descriptive manner. Just by looking at the test body you can get a clear understanding of what is being tested and how it is performed. Even complex tests with many assertions are written in a simple PHP DSL.
-
-
-
-
-* **Next Chapter: [GettingStarted >](/docs/02-GettingStarted)**<p>&nbsp;</p><div class="alert alert-warning">Docs are incomplete? Outdated? Or you just found a typo? <a href="https://github.com/Codeception/Codeception/tree/2.0/docs">Help us to improve documentation. Edit it on GitHub</a></div>

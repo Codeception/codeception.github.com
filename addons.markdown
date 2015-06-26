@@ -5,6 +5,10 @@ title: Addons
 
 # Addons
 
+
+{% include extensions.md %}
+
+
 ## Applications 
 
 #### [WebCeption](https://github.com/jayhealey/Webception)
@@ -65,45 +69,6 @@ An extension of Codeception own PhpBrowser and Db modules to allow for easy and 
 ## Extensions
 
 Codeception extensions are developed by third-party contributors and can enhance test execution flow, by listening to internal events. [Read more about extensions](http://codeception.com/docs/08-Customization#Extension-classes).
-
-
-### Official Extensions
-
-Official Extensions are installed with Codeception but you should enable them manually. Also they are a good point to learn about developing your own extensions.
-
-#### [Codeception\Platform\Logger](https://github.com/Codeception/Codeception/blob/2.0/src/Codeception/Platform/Logger.php)
-
-Logs suites/tests/steps using Monolog library *(formerly enabled by default)*.
-
-Enable it in `codeception.yml`:
-
-{% highlight yaml %}
-extensions:
-    enabled: [Codeception\Platform\Logger]
-{% endhighlight %}
-
-#### [Codeception\Platform\RunFailed](https://github.com/Codeception/Codeception/blob/2.0/src/Codeception/Platform/RunFailed.php)
-
-Saves failed tests into tests/_output/failed in order to rerun failed tests.
-
-Enable it in `codeception.yml`:
-
-{% highlight yaml %}
-extensions:
-    enabled: [Codeception\Platform\RunFailed]
-{% endhighlight %}
-
-Then you can run failed tests by running `failed` group:
-
-```
-codecept run -g failed
-```
-
-#### [Codeception\Platform\SimpleOutput](https://github.com/Codeception/Codeception/blob/2.0/src/Codeception/Platform/SimpleOutput.php)
-
-Changes output style. If you need to implement your own output format you should use this extension as a starting point.
-
-### 3rd Party Extensions
 
 Extensions should be installed via **Composer**.
 
