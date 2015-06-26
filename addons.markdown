@@ -135,6 +135,10 @@ Starts remote debug session during test execution.
 
 WordPress specific extensions of PHPBrowser and Db modules to allow for more streamlined testing of themes and plugins and a WordPress automated testing suite wrapper.
 
+#### [Joomla-Browser](https://github.com/joomla-projects/joomla-browser)
+
+An extended Webdriver Browser to navigate through Joomla sites with Codeception.
+
 ---
 
 ## IDE Plugins
