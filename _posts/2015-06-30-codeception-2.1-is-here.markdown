@@ -43,19 +43,19 @@ class UserCest
   {
       $page->openProfile();
       $page->editProfile();
-      $I->fillField($this->page->oldPasswordField, '123456');
-      $I->fillField($this->page->newPasswordField, '654321');
-      $I->fillField($this->page->passwordFieldRepeat, '654321');
-      $I->click($this->page->saveBtn);
+      $I->fillField($page->oldPasswordField, '123456');
+      $I->fillField($page->newPasswordField, '654321');
+      $I->fillField($page->passwordFieldRepeat, '654321');
+      $I->click($page->saveBtn);
       $I->see('Password has been updated');
   }
 
   // inject step object into Cest
   function adminUpdatePassword(\Step\Admin $I)
   {
-    $I->enterAdminArea();
-    $I->changePassword('654321');
-    $I->see('Password has been updated');
+      $I->enterAdminArea();
+      $I->changePassword('654321');
+      $I->see('Password has been updated');
   }
 }
 ?>
