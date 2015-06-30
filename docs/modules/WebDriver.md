@@ -3,9 +3,13 @@ layout: doc
 title: WebDriver Module - Codeception - Documentation
 ---
 
+
+
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Module/WebDriver.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/WebDriver.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/WebDriver.md"><strong>2.1</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/WebDriver.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/WebDriver.md">1.8</a></div>
+
 # WebDriver Module
 
-**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/WebDriver.php)**
+**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/WebDriver.php)**
 
 
 New generation Selenium WebDriver module.
@@ -50,16 +54,15 @@ It allows you to run Selenium tests on a server without a GUI installed.
 #### Example (`acceptance.suite.yml`)
 
     modules:
-       enabled: [WebDriver]
-       config:
-          WebDriver:
+       enabled:
+          - WebDriver:
              url: 'http://localhost/'
              browser: firefox
              window_size: 1024x768
              wait: 10
              capabilities:
                  unexpectedAlertBehaviour: 'accept'
-                 firefox_profile: '/Users/paul/Library/Application Support/Firefox/Profiles/codeception-profile.zip.b64' 
+                 firefox_profile: '/Users/paul/Library/Application Support/Firefox/Profiles/codeception-profile.zip.b64'
 
 
 ### Locating Elements
@@ -628,6 +631,10 @@ $uri = $I->grabFromCurrentUrl();
  * `internal param` $url
 
 
+#### grabMultiple
+__not documented__
+
+
 #### grabTextFrom
  
 Finds and returns the text contents of the given element.
@@ -665,6 +672,14 @@ $name = $I->grabValueFrom(['name' => 'username']);
 
  * `param` $field
 
+
+
+#### loadSessionSnapshot
+ 
+Loads cookies from saved snapshot.
+
+ * `param` $name
+@see saveSessionSnapshot
 
 
 #### makeScreenshot
@@ -730,8 +745,8 @@ This method is useful while writing tests, since it allows you to inspect the cu
 
 #### pressKey
  
-Presses the given key on the given element. 
-To specify a character and modifier (e.g. ctrl, alt, shift, meta), pass an array for $char with 
+Presses the given key on the given element.
+To specify a character and modifier (e.g. ctrl, alt, shift, meta), pass an array for $char with
 the modifier as the first element and the character as the second.
 For special keys use key constants from \WebDriverKeys class.
 
@@ -782,6 +797,39 @@ $I->resizeWindow(800, 600);
 
  * `param int` $width
  * `param int` $height
+
+
+#### saveSessionSnapshot
+ 
+Saves current cookies into named snapshot in order to restore them in other tests
+This is useful to save session state between tests.
+For example, if user needs log in to site for each test this scenario can be executed once
+while other tests can just restore saved cookies.
+
+{% highlight php %}
+
+<?php
+// inside AcceptanceTester class:
+
+public function login()
+{
+     // if snapshot exists - skipping login
+     if ($I->loadSessionSnapshot('login')) return;
+
+     // logging in
+     $I->amOnPage('/login');
+     $I->fillField('name', 'jon');
+     $I->fillField('password', '123345');
+     $I->click('Login');
+
+     // saving snapshot
+     $I->saveSessionSnapshot('login');
+}
+?>
+
+{% endhighlight %}
+
+ * `param` $name
 
 
 #### see
@@ -929,7 +977,7 @@ $I->seeInCurrentUrl('/users/');
 
 #### seeInField
  
-Checks that the given input field or textarea contains the given value. 
+Checks that the given input field or textarea contains the given value.
 For fuzzy locators, fields are matched by label text, the "name" attribute, CSS, and XPath.
 
 {% highlight php %}
@@ -1088,9 +1136,9 @@ $I->seeNumberOfElements('tr', [0,10]); //between 0 and 10 elements
 
 {% endhighlight %}
  * `param` $selector
- * `param mixed` $expected:
+ * `param mixed` $expected :
 - string: strict number
-- array: range of numbers [0,10]  
+- array: range of numbers [0,10]
 
 
 #### seeOptionIsSelected
@@ -1154,8 +1202,6 @@ $I->setCookie('PHPSESSID', 'el4ukv0kqbvoirg7nkp4dncpk3');
  * `param` $name
  * `param` $val
  * `param array` $params
- * `internal param` $cookie
- * `internal param` $value
 
 
 
@@ -1417,7 +1463,7 @@ __not documented__
 Wait for $timeout seconds.
 
  * `param int` $timeout secs
- \Codeception\Exception\TestRuntime
+ \Codeception\Exception\TestRuntimeException
 
 
 #### waitForElement
@@ -1535,4 +1581,4 @@ $I->waitForText('foo', 30, '.title'); // secs
  * `param null` $selector
  \Exception
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/WebDriver.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/WebDriver.php">Help us to improve documentation. Edit module reference</a></div>

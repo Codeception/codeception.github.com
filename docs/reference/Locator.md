@@ -48,7 +48,7 @@ As a result the Locator will produce a mixed XPath value that will be used in fi
  * `throws`  \Exception
  * `return`  string
 
-[See source](https://github.com/Codeception/Codeception/blob/2.0/src/Codeception/Util/Locator.php#L46)
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php#L45)
 
 #### *public static* find($element, array $attributes) 
 
@@ -61,7 +61,7 @@ Finds element by it's attribute(s)
 
  * `return`  string
 
-[See source](https://github.com/Codeception/Codeception/blob/2.0/src/Codeception/Util/Locator.php#L137)
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php#L136)
 
 #### *public static* href($url) 
 
@@ -81,21 +81,21 @@ $I->see('Log In', Locator::href('/login.php'));
  * `param` $url
  * `return`  string
 
-[See source](https://github.com/Codeception/Codeception/blob/2.0/src/Codeception/Util/Locator.php#L73)
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php#L72)
 
 #### *public static* isCSS($selector) 
 
  * `param` $selector
  * `return`  bool
 
-[See source](https://github.com/Codeception/Codeception/blob/2.0/src/Codeception/Util/Locator.php#L154)
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php#L153)
 
 #### *public static* isID($id) 
 
 Checks that string and CSS selector for element by ID
 
 
-[See source](https://github.com/Codeception/Codeception/blob/2.0/src/Codeception/Util/Locator.php#L181)
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php#L180)
 
 #### *public static* isXPath($locator) 
 
@@ -104,7 +104,7 @@ Checks that locator is an XPath
  * `param` $locator
  * `return`  bool
 
-[See source](https://github.com/Codeception/Codeception/blob/2.0/src/Codeception/Util/Locator.php#L170)
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php#L169)
 
 #### *public static* option($value) 
 
@@ -114,7 +114,7 @@ Matches option by text
 
  * `return`  string
 
-[See source](https://github.com/Codeception/Codeception/blob/2.0/src/Codeception/Util/Locator.php#L109)
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php#L108)
 
 #### *public static* tabIndex($index) 
 
@@ -138,6 +138,6 @@ $I->click('Login');
  * `param` $index
  * `return`  string
 
-[See source](https://github.com/Codeception/Codeception/blob/2.0/src/Codeception/Util/Locator.php#L97)
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php#L96)
 
-<p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/blob/2.0/src/Codeception/Util/Locator.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php">Help us to improve documentation. Edit module reference</a></div>

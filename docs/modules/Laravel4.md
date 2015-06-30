@@ -3,9 +3,13 @@ layout: doc
 title: Laravel4 Module - Codeception - Documentation
 ---
 
+
+
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Module/Laravel4.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Laravel4.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Laravel4.md"><strong>2.1</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Laravel4.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Laravel4.md">1.8</a></div>
+
 # Laravel4 Module
 
-**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Laravel4.php)**
+**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/Laravel4.php)**
 
 
 
@@ -16,6 +20,12 @@ The original author of this module is Davert.
 ### Demo Project
 
 <https://github.com/Codeception/sample-l4-app>
+
+### Example
+
+    modules:
+        enabled:
+            - Laravel4
 
 ### Status
 
@@ -37,6 +47,10 @@ The original author of this module is Davert.
 * app - `Illuminate\Foundation\Application` instance
 * client - `BrowserKit` client
 
+### Parts
+
+* ORM - include only haveRecord/grabRecord/seeRecord/dontSeeRecord actions
+
 
 
 #### amHttpAuthenticated
@@ -55,6 +69,7 @@ Takes either `UserInterface` instance or array of credentials.
  * `param`  \Illuminate\Auth\UserInterface|array $user
  * `param`  string $driver
 @return void
+@part framework
 
 
 #### amOnAction
@@ -437,6 +452,8 @@ $I->dontSeeRecord('users', array('name' => 'davert'));
 
  * `param` $tableName
  * `param array` $attributes
+@part orm
+@part framework
 
 
 #### fillField
@@ -511,6 +528,10 @@ $uri = $I->grabFromCurrentUrl();
  * `internal param` $url
 
 
+#### grabMultiple
+__not documented__
+
+
 #### grabRecord
  
 Retrieves record from database
@@ -525,6 +546,8 @@ $category = $I->grabRecord('users', array('name' => 'davert'));
 
  * `param` $tableName
  * `param array` $attributes
+@part ORM
+@part framework
 
 
 #### grabService
@@ -551,6 +574,7 @@ $service = $I->grabService('foo');
 {% endhighlight %}
 
  * `param`  string $class
+@part framework
 
 
 #### grabTextFrom
@@ -603,11 +627,14 @@ $user_id = $I->haveRecord('users', array('name' => 'Davert'));
 
  * `param` $tableName
  * `param array` $attributes
+@part orm
+@part framework
 
 
 #### logout
  
 Logs user out
+@part framework
 
 
 #### resetCookie
@@ -642,6 +669,7 @@ $I->see('Sign Up','//body/h1'); // with XPath
 #### seeAuthentication
  
 Checks that user is authenticated
+@part framework
 
 
 #### seeCheckboxIsChecked
@@ -842,7 +870,7 @@ $I->seeInCurrentUrl('/users/');
 
 #### seeInField
  
-Checks that the given input field or textarea contains the given value. 
+Checks that the given input field or textarea contains the given value.
 For fuzzy locators, fields are matched by label text, the "name" attribute, CSS, and XPath.
 
 {% highlight php %}
@@ -998,9 +1026,9 @@ $I->seeNumberOfElements('tr', [0,10]); //between 0 and 10 elements
 
 {% endhighlight %}
  * `param` $selector
- * `param mixed` $expected:
+ * `param mixed` $expected :
 - string: strict number
-- array: range of numbers [0,10]  
+- array: range of numbers [0,10]
 
 
 #### seeOptionIsSelected
@@ -1039,6 +1067,8 @@ $I->seeRecord('users', array('name' => 'davert'));
 
  * `param` $tableName
  * `param array` $attributes
+@part orm
+@part framework
 
 
 #### seeResponseCodeIs
@@ -1210,8 +1240,6 @@ $I->setCookie('PHPSESSID', 'el4ukv0kqbvoirg7nkp4dncpk3');
  * `param` $name
  * `param` $val
  * `param array` $params
- * `internal param` $cookie
- * `internal param` $value
 
 
 
@@ -1403,4 +1431,4 @@ $I->uncheckOption('#notify');
 
  * `param` $option
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Laravel4.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/Laravel4.php">Help us to improve documentation. Edit module reference</a></div>

@@ -3,9 +3,13 @@ layout: doc
 title: Facebook Module - Codeception - Documentation
 ---
 
+
+
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Module/Facebook.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Facebook.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Facebook.md"><strong>2.1</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Facebook.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Facebook.md">1.8</a></div>
+
 # Facebook Module
 
-**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Facebook.php)**
+**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/Facebook.php)**
 
 
 Provides testing for projects integrated with Facebook API.
@@ -33,9 +37,9 @@ To use this module with Composer you need <em>"facebook/php-sdk": "3.*"</em> pac
 #### Config example
 
     modules:
-        enabled: [Facebook]
-        config:
-            Facebook:
+        enabled:
+            - Facebook:
+                depends: PhpBrowser
                 app_id: 412345678901234
                 secret: ccb79c1b0fdff54e4f7c928bf233aea5
                 test_user:
@@ -96,13 +100,6 @@ Returns the test user email.
 @return string
 
 
-#### grabFacebookTestUserFirstName
- 
-Returns the test user first name.
-
-@return string
-
-
 #### grabFacebookTestUserId
  
 Returns the test user id.
@@ -115,6 +112,17 @@ Returns the test user id.
 Returns URL for test user auto-login.
 
 @return string
+
+
+#### grabFacebookTestUserName
+ 
+Returns the test user name.
+
+@return string
+
+
+#### grabFacebookTestUserPassword
+__not documented__
 
 
 #### haveFacebookTestUserAccount
@@ -133,11 +141,18 @@ Get facebook test user be logged in on facebook.
  ModuleConfigException
 
 
+#### postToFacebookAsTestUser
+ 
+Please, note that you must have publish_actions permission to be able to publish to user's feed.
+
+ * `param array` $params
+
+
 #### seePostOnFacebookWithAttachedPlace
  
 
-Please, note that you must have publish_stream permission to be able to publish to user's feed.
+Please, note that you must have publish_actions permission to be able to publish to user's feed.
 
  * `param string` $placeId Place identifier to be verified against user published posts
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Facebook.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/Facebook.php">Help us to improve documentation. Edit module reference</a></div>
