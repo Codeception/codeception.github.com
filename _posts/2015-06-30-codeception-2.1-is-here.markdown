@@ -13,7 +13,7 @@ If you didn't track for the changes in master we will list all the new features 
  ![recorder](http://codeception.com/images/recorder.gif)
 
 * **Updated to Guzzle 6**. Codeception can now work both with Guzzle v5 and Guzzle v6. PhpBrowser chooses right connector depending on Guzzle version installed.
-* **PSR-4**: all support classes moved to `tests/_support` by default. Actors, Helpers, PageObjects, StepObjects, GroupObjects to follow PSR-4 naming style. New `AcceptanceTester`, `FunctionalTester`, `UnitTester` classes are expected to be extended with custom methods. For instance, you can define some common behaviors there. For instance, it is a good idea to place `login` method into  the actor class:
+* **PSR-4**: all support classes moved to `tests/_support` by default. Actors, Helpers, PageObjects, StepObjects, GroupObjects to follow PSR-4 naming style. New `AcceptanceTester`, `FunctionalTester`, `UnitTester` classes are expected to be extended with methods of common behaviors there. For instance, it is a good idea to place `login` method into  the actor class:
 
 {% highlight php %}
 <?php
@@ -148,7 +148,7 @@ As for REST module you can load methods only for API format you are using. You c
 
 * Whenever you have steps grouped inside actor class, pageobject, or stepobject, you can the step executed with its substeps in console or HTML report. 
 ![html report](/images/substeps.png)
-* **RunFailed** extension is enabled by default for all new projects. It means that you can rerun your failed tests by executing `codecept run -g failed` when this extension is enabled. 
+* **RunFailed** extension is enabled by default for all new projects. It means that you can rerun your failed tests by executing `codecept run -g failed` when this extension is enabled. 1
 
 And lots of other notable improvements which you can see in [changelog](https://github.com/Codeception/Codeception/blob/master/CHANGELOG.md). 
 
