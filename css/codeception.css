@@ -5,7 +5,16 @@ body {
   background:  #ecf0f1; /** url("/images/bg.png") transparent !important; */
 }
 body .navbar.nav-custom {
-  background: #2980b9;
+  background: #042943;
+  border-bottom:1px solid #1D3E55;
+  border:0px;
+  border-radius:0px;
+}
+
+body .navbar-brand img{
+  width: 50px;
+  margin-left: 10px;
+  margin-top: 10px;
 }
 
 body .nav-custom .navbar-nav {
@@ -19,7 +28,10 @@ body .nav-custom .navbar-nav {
 }
 
 body .nav-custom .navbar-nav>li>a {
-		color: #eee;
+		color: #CCD4D9;
+		font-size:13px;
+		font-weight:600;
+
 }
 
 body .nav-custom .navbar-brand {
@@ -36,7 +48,7 @@ body .hero-unit {
 }
 
 body h1, body h2, body h3, body h3 {
-	font-family: "Philosopher", "Open Sans","Lucida Grande","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family: "Quicksand", "Open Sans", "Lucida Grande","Helvetica Neue",Helvetica,Arial,sans-serif;
 	color: #45414B;
 }
 
@@ -44,10 +56,20 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
 }
 
-body .hero-unit h1 {
-	color: #008391;
+body #home-hero h1 {
+	color: #fff;
 	font-size: 48px;
 	font-weight: bold;
+	padding-top:35px;
+}
+
+#home-hero img{
+	position:relative;
+	top:-7px;
+}
+
+#home-hero p.lead {
+	color:#fff;
 }
 
 .hero-unit p.lead {
@@ -189,16 +211,90 @@ ul.navbar-nav {
 	margin: 0 -15px;
 }
 
+.row.home{
+	padding-top:225px;
+}
+
+.row.home.no-padding-top{
+	padding-top:0px;
+}
+
+.row.home-btns{
+	margin-bottom:70px;
+}
+
+.well.dark{
+	background:#042943;
+	background: rgba(0, 0, 0, 0.2);
+	border:0px;
+}
+
+.well.dark p{
+	color:#ccc;
+}
+
+.well.dark p b{
+	color:#eee;
+}
+
+#home-hero{
+	width:100%;
+	height:490px;
+	left:0px;
+	top:0px;
+	position:absolute;
+	background:#042943;
+	background-image:url(../images/home-bg.jpg);
+	background-size:cover;
+	background-position-y:6	0px;
+	display:block;
+	text-align:center;
+	padding-top:63px;
+}
+
 @media screen and (max-width : 1260px) {
 	.follow {
 		display: none;
 	}
 }
 
-@media screen and (max-width : 760px) {
+
+@media screen and (max-width : 992px) {
+	body #home-hero h1{
+		padding-top:75px;
+	}
+
+	#home-hero{
+		height:320px;
+	}
+
+	.well.dark{
+		background:#fff;
+	}
+
+	.well.dark p{
+		color:#888;
+	}
+
+	.well.dark p b{
+		color:#333;
+	}
+
+	.row.home-btns{
+		margin-bottom:0px;
+	}
+}
+
+@media screen and (max-width : 767px) {
+	
 	.menu li {
 		clear: both;
 	}
+
+	body #home-hero h1{
+		padding-top:0px;
+	}
+
 }
 
 @media screen and (min-width: 1030px) {
