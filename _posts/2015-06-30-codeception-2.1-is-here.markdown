@@ -4,7 +4,7 @@ title: "Codeception 2.1 Is Here"
 date: 2015-06-30 01:03:50
 ---
 
-We are finally ready to show you the Codeception 2.1. Since RC we stabilized its codebase, and we encourage you to start all your new projects with Codeception 2.1. As well as migrate old ones. 
+We are finally ready to show you the Codeception 2.1. Since RC we stabilized its codebase, and we encourage you to start all your new projects with Codeception 2.1. As well as migrate old ones. Codeception 2.1 is aimed for consistency and provide you the better experience for testing your web applications. This new release makes tests even more simple to read, write, and maintain.
 
 If you didn't track for the changes in master we will list all the new features here:
 
