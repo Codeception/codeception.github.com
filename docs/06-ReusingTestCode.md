@@ -1,5 +1,3 @@
-</div>
-
 ---
 layout: doc
 title: Reusing Test Code - Codeception - Documentation

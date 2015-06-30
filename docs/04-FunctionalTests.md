@@ -1,5 +1,3 @@
-</div>
-
 ---
 layout: doc
 title: Functional Tests - Codeception - Documentation

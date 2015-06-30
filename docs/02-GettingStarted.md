@@ -1,5 +1,3 @@
-</div>
-
 ---
 layout: doc
 title: Getting Started - Codeception - Documentation

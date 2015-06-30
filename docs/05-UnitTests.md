@@ -1,5 +1,3 @@
-</div>
-
 ---
 layout: doc
 title: Unit Tests - Codeception - Documentation

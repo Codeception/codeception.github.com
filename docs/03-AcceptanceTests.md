@@ -1,5 +1,3 @@
-</div>
-
 ---
 layout: doc
 title: Acceptance Testing - Codeception - Documentation

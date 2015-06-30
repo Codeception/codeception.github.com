@@ -1,5 +1,3 @@
-</div>
-
 ---
 layout: doc
 title: Advanced Usage - Codeception - Documentation

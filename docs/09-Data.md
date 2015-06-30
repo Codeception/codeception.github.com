@@ -1,5 +1,3 @@
-</div>
-
 ---
 layout: doc
 title: Working with Data - Codeception - Documentation
