@@ -5,7 +5,7 @@ title: Symfony2 Module - Codeception - Documentation
 
 # Symfony2 Module
 
-**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Symfony2.php)**
+**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/Symfony2.php)**
 
 
 This module uses Symfony2 Crawler and HttpKernel to emulate requests and test response.
@@ -27,11 +27,11 @@ This module uses Symfony2 Crawler and HttpKernel to emulate requests and test re
 * app_path: 'app' - specify custom path to your app dir, where bootstrap cache and kernel interface is located.
 * environment: 'local' - environment used for load kernel
 * debug: true - turn on/off debug mode
-
-
+* em_service: 'doctrine.orm.entity_manager' - use the stated EntityManager to pair with Doctrine Module.
+*
 #### Example (`functional.suite.yml`) - Symfony 2.x Directory Structure
 
-    modules: 
+    modules:
        enabled: [Symfony2]
        config:
           Symfony2:
@@ -43,17 +43,17 @@ This module uses Symfony2 Crawler and HttpKernel to emulate requests and test re
 * app_path: 'app' - specify custom path to your app dir, where the kernel interface is located.
 * var_path: 'var' - specify custom path to your var dir, where bootstrap cache is located.
 * environment: 'local' - environment used for load kernel
+* em_service: 'doctrine.orm.entity_manager' - use the stated EntityManager to pair with Doctrine Module.
 * debug: true - turn on/off debug mode
 
 #### Example (`functional.suite.yml`) - Symfony 3 Directory Structure
 
     modules:
-       enabled: [Symfony2]
-       config:
-          Symfony2:
-             app_path: 'app/front'
-             var_path: 'var'
-             environment: 'local_test'
+       enabled:
+          - Symfony2:
+              app_path: 'app/front'
+              var_path: 'var'
+              environment: 'local_test'
 
 
 ### Public Properties
@@ -449,6 +449,10 @@ $uri = $I->grabFromCurrentUrl();
  * `internal param` $url
 
 
+#### grabMultiple
+__not documented__
+
+
 #### grabServiceFromContainer
  
 Grabs a service from Symfony DIC container.
@@ -638,7 +642,7 @@ $I->seeInCurrentUrl('/users/');
 
 #### seeInField
  
-Checks that the given input field or textarea contains the given value. 
+Checks that the given input field or textarea contains the given value.
 For fuzzy locators, fields are matched by label text, the "name" attribute, CSS, and XPath.
 
 {% highlight php %}
@@ -776,9 +780,9 @@ $I->seeNumberOfElements('tr', [0,10]); //between 0 and 10 elements
 
 {% endhighlight %}
  * `param` $selector
- * `param mixed` $expected:
+ * `param mixed` $expected :
 - string: strict number
-- array: range of numbers [0,10]  
+- array: range of numbers [0,10]
 
 
 #### seeOptionIsSelected
@@ -912,8 +916,6 @@ $I->setCookie('PHPSESSID', 'el4ukv0kqbvoirg7nkp4dncpk3');
  * `param` $name
  * `param` $val
  * `param array` $params
- * `internal param` $cookie
- * `internal param` $value
 
 
 
@@ -1105,4 +1107,4 @@ $I->uncheckOption('#notify');
 
  * `param` $option
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Symfony2.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/Symfony2.php">Help us to improve documentation. Edit module reference</a></div>

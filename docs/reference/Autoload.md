@@ -8,60 +8,50 @@ title: Codeception - Documentation
 
 
 
-Custom autoloader to load classes by suffixes: `Helper`, `Page`, `Step`, etc.
+Autoloader, which is fully compatible with PSR-4, and can be used to autoload your `Helper`, `Page`, and `Step` classes.
 
 
+#### *public static* addNamespace($prefix, $base_dir, $prepend = null) 
 
-#### *public static* load($class) 
-
- * `param` $class
- * `return`  bool
-
-[See source](https://github.com/Codeception/Codeception/blob/2.0/src/Codeception/Util/Autoload.php#L58)
-
-#### *public static* matches($class, $namespace, $suffix) 
-
-*is public for testing purposes*
-
- * `param` $class
- * `param` $namespace
- * `param` $suffix
- * `return`  bool
-
-[See source](https://github.com/Codeception/Codeception/blob/2.0/src/Codeception/Util/Autoload.php#L86)
-
-#### *public static* register($namespace, $suffix, $path) 
-
-A very basic yet useful autoloader, not compatible with PSR-0.
-It is used to autoload classes by namespaces with suffixes.
+Adds a base directory for a namespace prefix.
 
 Example:
 
 {% highlight php %}
 
 <?php
-// loads UserHelper in 'helpers/UserHelper.php'
-Autoload::register('app\Codeception\Helper', 'Helper', __DIR__.'/helpers/');
-// loads LoginPage in 'pageobjects/LoginPage.php'
-Autoload::register('app\tests', 'Page', __DIR__.'/pageobjects/');
-Autoload::register('app\tests', 'Controller', __DIR__.'/controllers/');
+// app\Codeception\UserHelper will be loaded from '/path/to/helpers/UserHelper.php'
+Autoload::addNamespace('app\Codeception', '/path/to/helpers');
+
+// LoginPage will be loaded from '/path/to/pageobjects/LoginPage.php'
+Autoload::addNamespace('', '/path/to/pageobjects');
+
+Autoload::addNamespace('app\Codeception', '/path/to/controllers');
 ?>
 
 {% endhighlight %}
 
- * `param` $namespace
- * `param` $suffix
- * `param` $path
+ * `param string` $prefix The namespace prefix.
+ * `param string` $base_dir A base directory for class files in the namespace.
+ * `param bool` $prepend If true, prepend the base directory to the stack instead of appending it; this causes it to be searched first rather than last.
+ * `return`  void
 
-[See source](https://github.com/Codeception/Codeception/blob/2.0/src/Codeception/Util/Autoload.php#L34)
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Autoload.php#L42)
+
+#### *public static* load($class) 
+
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Autoload.php#L85)
+
+#### *public static* register($namespace, $suffix, $path) 
+
+ * `deprecated`  Use self::addNamespace() instead.
+
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Autoload.php#L72)
 
 #### *public static* registerSuffix($suffix, $path) 
 
-Shortcut for { * `link`  self::register} for classes with empty namespaces.
+ * `deprecated`  Use self::addNamespace() instead.
 
- * `param` $suffix
- * `param` $path
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Autoload.php#L80)
 
-[See source](https://github.com/Codeception/Codeception/blob/2.0/src/Codeception/Util/Autoload.php#L49)
-
-<p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/blob/2.0/src/Codeception/Util/Autoload.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Autoload.php">Help us to improve documentation. Edit module reference</a></div>

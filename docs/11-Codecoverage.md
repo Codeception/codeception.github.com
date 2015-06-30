@@ -1,3 +1,5 @@
+</div>
+
 ---
 layout: doc
 title: Codeception - Documentation
@@ -168,4 +170,4 @@ It's never been easier to setup local and remote code coverage. Just one config 
 
 
 * **Next Chapter: [ParallelExecution >](/docs/12-ParallelExecution)**
-* **Previous Chapter: [< WebServices](/docs/10-WebServices)**<p>&nbsp;</p><div class="alert alert-warning">Docs are incomplete? Outdated? Or you just found a typo? <a href="https://github.com/Codeception/Codeception/tree/2.0/docs">Help us to improve documentation. Edit it on GitHub</a></div>
+* **Previous Chapter: [< WebServices](/docs/10-WebServices)**

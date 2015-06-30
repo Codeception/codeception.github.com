@@ -5,7 +5,7 @@ title: FTP Module - Codeception - Documentation
 
 # FTP Module
 
-**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/FTP.php)**
+**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/FTP.php)**
 
 
 
@@ -51,6 +51,7 @@ For SFTP, add [phpseclib](http://phpseclib.sourceforge.net/) to require list.
 * timeout: 90 - timeout settings for connecting the ftp server.
 * user: anonymous - user to access ftp server, defaults to anonymous authentication.
 * password - password, defaults to empty for anonymous.
+* key - path to RSA key for sftp.
 * tmp - path to local directory for storing tmp files.
 * passive: true - Turns on or off passive mode (FTP only)
 * cleanup: true - remove tmp files from local directory on completion.
@@ -447,4 +448,4 @@ $I->writeToFile('composer.json', 'some data here');
  * `param` $filename
  * `param` $contents
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/FTP.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/FTP.php">Help us to improve documentation. Edit module reference</a></div>

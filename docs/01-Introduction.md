@@ -1,9 +1,9 @@
+</div>
+
 ---
 layout: doc
 title: Introduction - Codeception - Documentation
 ---
-
-{% include switch.html %}
 
 # Introduction
 
@@ -34,7 +34,7 @@ Please, note that **any website** can be covered with acceptance tests. Even if 
 $I = new AcceptanceTester($scenario);
 $I->amOnPage('/');
 $I->click('Sign Up');
-$I->submitForm('#signup', array('username' => 'MilesDavis', 'email' => 'miles@davis.com'));
+$I->submitForm('#signup', ['username' => 'MilesDavis', 'email' => 'miles@davis.com']);
 $I->see('Thank you for Signing Up!');
 ?>
 
@@ -70,10 +70,10 @@ For functional tests your application should be prepared to be run in a test env
 $I = new FunctionalTester($scenario);
 $I->amOnPage('/');
 $I->click('Sign Up');
-$I->submitForm('#signup', array('username' => 'MilesDavis', 'email' => 'miles@davis.com'));
+$I->submitForm('#signup', ['username' => 'MilesDavis', 'email' => 'miles@davis.com']);
 $I->see('Thank you for Signing Up!');
 $I->seeEmailSent('miles@davis.com', 'Thank you for registration');
-$I->seeInDatabase('users', array('email' => 'miles@davis.com'));
+$I->seeInDatabase('users', ['email' => 'miles@davis.com']);
 ?>
 
 {% endhighlight %}
@@ -111,7 +111,7 @@ function testSavingUser()
     $user->setSurname('Davis');
     $user->save();
     $this->assertEquals('Miles Davis', $user->getFullName());
-    $this->unitTester->seeInDatabase('users',array('name' => 'Miles', 'surname' => 'Davis'));
+    $this->unitTester->seeInDatabase('users', ['name' => 'Miles', 'surname' => 'Davis']);
 }
 ?>
 
@@ -138,4 +138,4 @@ It could be called a BDD framework. All Codeception tests are written in a descr
 
 
 
-* **Next Chapter: [GettingStarted >](/docs/02-GettingStarted)**<p>&nbsp;</p><div class="alert alert-warning">Docs are incomplete? Outdated? Or you just found a typo? <a href="https://github.com/Codeception/Codeception/tree/2.0/docs">Help us to improve documentation. Edit it on GitHub</a></div>
+* **Next Chapter: [GettingStarted >](/docs/02-GettingStarted)**

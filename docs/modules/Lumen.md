@@ -5,7 +5,7 @@ title: Lumen Module - Codeception - Documentation
 
 # Lumen Module
 
-**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Lumen.php)**
+**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/Lumen.php)**
 
 
 
@@ -475,6 +475,10 @@ $uri = $I->grabFromCurrentUrl();
  * `internal param` $url
 
 
+#### grabMultiple
+__not documented__
+
+
 #### grabRecord
  
 Retrieves record from database
@@ -708,7 +712,7 @@ $I->seeInCurrentUrl('/users/');
 
 #### seeInField
  
-Checks that the given input field or textarea contains the given value. 
+Checks that the given input field or textarea contains the given value.
 For fuzzy locators, fields are matched by label text, the "name" attribute, CSS, and XPath.
 
 {% highlight php %}
@@ -855,9 +859,9 @@ $I->seeNumberOfElements('tr', [0,10]); //between 0 and 10 elements
 
 {% endhighlight %}
  * `param` $selector
- * `param mixed` $expected:
+ * `param mixed` $expected :
 - string: strict number
-- array: range of numbers [0,10]  
+- array: range of numbers [0,10]
 
 
 #### seeOptionIsSelected
@@ -1013,8 +1017,6 @@ $I->setCookie('PHPSESSID', 'el4ukv0kqbvoirg7nkp4dncpk3');
  * `param` $name
  * `param` $val
  * `param array` $params
- * `internal param` $cookie
- * `internal param` $value
 
 
 
@@ -1206,4 +1208,4 @@ $I->uncheckOption('#notify');
 
  * `param` $option
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Lumen.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/Lumen.php">Help us to improve documentation. Edit module reference</a></div>

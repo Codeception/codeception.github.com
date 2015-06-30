@@ -1,3 +1,5 @@
+</div>
+
 ---
 layout: doc
 title: Acceptance Testing - Codeception - Documentation
@@ -49,7 +51,7 @@ $ php codecept.phar generate:scenarios
 
 {% endhighlight %}
 
-Generated scenarios will be stored in your ___data__ directory in text files.
+Generated scenarios will be stored in your ___output__ directory in text files.
 
 **This scenario can be performed either by a simple PHP Browser or by a browser with Selenium WebDriver**. We will start writing our first acceptance tests with a PhpBrowser.
 
@@ -63,19 +65,16 @@ Common PhpBrowser drawbacks:
 * you can't fill fields that are not inside a form
 * you can't work with JavaScript interactions: modal windows, datepickers, etc.
 
-Before we start we need a local copy of the site running on your host. We need to specify the `url` parameter in the acceptance suite config (tests/acceptance.suite.yml).
+Before we start we need a local copy of the site running on your host. We need to specify the `url` parameter in the acceptance suite config (`tests/acceptance.suite.yml`).
 
 {% highlight yaml %}
 
 class_name: AcceptanceTester
 modules:
     enabled:
-        - PhpBrowser
-        - AcceptanceHelper
-        - Db
-    config:
-        PhpBrowser:
-            url: [your site's url]
+        - PhpBrowser:
+            url: {{your site url}}
+        - \Helper\Acceptance
 
 {% endhighlight %}
 
@@ -115,7 +114,7 @@ $I->lookForwardTo('get money when the bank is closed');
 
 After we have described the story background, let's start writing a scenario.
 
-The `$I` object is used to write all interactions. The methods of the `$I` object are taken from the `PhpBrowser` and `Db` modules. We will briefly describe them here:
+The `$I` object is used to write all interactions. The methods of the `$I` object are taken from the `PhpBrowser` module. We will briefly describe it here:
 
 {% highlight php %}
 
@@ -125,7 +124,7 @@ $I->amOnPage('/login');
 
 {% endhighlight %}
 
-We assume that all `am` commands should describe the starting environment. The `amOnPage` command sets the starting point of a test to the __/login__ page.
+We assume that all `am` actions should describe the starting environment. The `amOnPage` action sets the starting point of a test to the __/login__ page.
 
 With the `PhpBrowser` you can click the links and fill the forms. That will probably be the majority of your actions.
 
@@ -256,21 +255,6 @@ $I->submitForm('#update_form', array('user' => array(
      'gender' => 'm',
 	 'submitButton' => 'Update'
 )));
-?>
-
-{% endhighlight %}
-
-#### AJAX Emulation
-
-As we know, PHP browser can't process JavaScript. Still, all the ajax calls can be easily emulated by sending the proper requests to the server.
-
-Consider using these methods for ajax interactions.
-
-{% highlight php %}
-
-<?php
-$I->sendAjaxGetRequest('/refresh');
-$I->sendAjaxPostRequest('/update', array('name' => 'Miles', 'email' => 'Davis'));
 ?>
 
 {% endhighlight %}
@@ -425,7 +409,7 @@ $user_id = $I->grabFromCurrentUrl('~$/user/(\d+)/~');
 ## Selenium WebDriver
 
 A nice feature of Codeception is that most scenarios can be easily ported between the testing backends.
-Your PhpBrowser tests we wrote previously can be executed inside a real browser (or even PhantomJS) with Selenium WebDriver.
+Your PhpBrowser tests we wrote previously can be executed inside a real browser (or PhantomJS) with Selenium WebDriver.
 
 The only thing we need to change is to reconfigure and rebuild the AcceptanceTester class, to use **WebDriver** instead of PhpBrowser.
 
@@ -436,12 +420,10 @@ Modify your `acceptance.suite.yml` file:
 class_name: AcceptanceTester
 modules:
     enabled:
-        - WebDriver
-        - AcceptanceHelper
-    config:
-        WebDriver:
-            url: 'http://localhost/myapp/'
+        - WebDriver:
+            url: {{your site url}}
             browser: firefox            
+        - \Helper\Acceptance
 
 {% endhighlight %}
 
@@ -478,6 +460,39 @@ $I->click('#agree_button');
 In this case we are waiting for agree button to appear and then clicking it. If it didn't appear for 30 seconds, test will fail. There are other `wait` methods you may use.
 
 See Codeception's [WebDriver module documentation](http://codeception.com/docs/modules/WebDriver) for the full reference.
+
+### Session Snapshots
+
+It's often needed to persist user session between tests.
+If you need to authorize user for each test you can do so by filling Login form in the beginning of each test. 
+Running those steps take time, and in case of Selenium tests (which are slow by themselves) can be this time can be significant. 
+Codeception allows you to share cookies between tests, so once logged in user could stay authorized for other tests.
+
+In demonstration purposes let's write a support function `test_login` and use it in test: 
+
+{% highlight php %}
+
+<?php
+function test_login($I)
+{
+     // if snapshot exists - skipping login
+     if ($I->loadSessionSnapshot('login')) return;
+     // logging in
+     $I->amOnPage('/login');
+     $I->fillField('name', 'jon');
+     $I->fillField('password', '123345');
+     $I->click('Login');
+     // saving snapshot
+     $I->saveSessionSnapshot('login');
+}
+// in test:
+$I = new AcceptanceTester($scenario);
+test_login($I);
+?>
+
+{% endhighlight %}
+
+Instead of writing `test_login` function shown above it is recommended to implement it inside `AcceptanceTester` class.   
 
 ### Multi Session Testing 
 
@@ -521,6 +536,8 @@ modules:
 
 {% endhighlight %}
 
+After we configured Db module we should have it enabled in `acceptance.suite.yml` config.
+
 ### Debugging
 
 Codeception modules can print valuable information while running. Just execute tests with the `--debug` option to see running details. For any custom output use `codecept_debug` function.
@@ -533,8 +550,9 @@ codecept_debug($I->grabTextFrom('#name'));
 
 {% endhighlight %}
 
+On each fail, the snapshot of the last shown page will be stored in the __tests/_output__ directory. PhpBrowser will store HTML code and WebDriver will save the screenshot of a page.
 
-On each fail, the snapshot of the last shown page will be stored in the __tests/_log__ directory. PhpBrowser will store HTML code and WebDriver will save the screenshot of a page.
+Sometimes you may want to inspect a web page opened by a running test. For such cases you may use [pauseExecution](http://codeception.com/docs/modules/WebDriver#pauseExecution) method of WebDriver module.
 
 ## Conclusion
 
@@ -543,5 +561,5 @@ Writing acceptance tests with Codeception and PhpBrowser is a good start. You ca
 
 
 
-* **Next Chapter: [FunctionalTests >](/docs/05-FunctionalTests)**
-* **Previous Chapter: [< ModulesAndHelpers](/docs/03-ModulesAndHelpers)**<p>&nbsp;</p><div class="alert alert-warning">Docs are incomplete? Outdated? Or you just found a typo? <a href="https://github.com/Codeception/Codeception/tree/2.0/docs">Help us to improve documentation. Edit it on GitHub</a></div>
+* **Next Chapter: [FunctionalTests >](/docs/04-FunctionalTests)**
+* **Previous Chapter: [< GettingStarted](/docs/02-GettingStarted)**
