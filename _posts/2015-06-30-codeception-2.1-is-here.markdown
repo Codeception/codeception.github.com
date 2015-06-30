@@ -15,7 +15,7 @@ If you didn't track for the changes in master we will list all the new features 
 * **Updated to Guzzle 6**. Codeception can now work both with Guzzle v5 and Guzzle v6. PhpBrowser chooses right connector depending on Guzzle version installed.
 * **PSR-4**: all support classes moved to `tests/_support` by default. Actors, Helpers, PageObjects, StepObjects, GroupObjects to follow PSR-4 naming style. New `AcceptanceTester`, `FunctionalTester`, `UnitTester` classes are expected to be extended with custom methods. For instance, you can define some common behaviors there. For instance, it is a good idea to place `login` method into  the actor class:
 
-{{% highlight php %}}
+{% highlight php %}
 <?php
 class AcceptanceTester extends \Codeception\Actor
 {
@@ -30,11 +30,11 @@ class AcceptanceTester extends \Codeception\Actor
     }
 }
 ?>
-{{% endhighlight %}}
+{% endhighlight %}
 
 * **Dependency Injection**: support classes can be injected into tests. Support classes can be injected into each other too.
 
-{{% highlight php %}}
+{% highlight php %}
 <?php
 class UserCest 
 {
@@ -59,7 +59,7 @@ class UserCest
   }
 }
 ?>
-{{% endhighlight %}}
+{% endhighlight %}
 
 * **Module config simplified**: Modules can be configured in `enabled` section of suite config. Take a look of this sample declaration of Api suite, there is no `config` section inside modules.
 
@@ -88,7 +88,7 @@ As you can see, you don't need to specify `PhpBrowser` in  `enabled` section, yo
 
 * **Current** modules, environment, and test name can be received in scenario.
 
-{{% highlight php %}}
+{% highlight php %}
 <?php
 $scenario->current('name'); // returns current test name
 $scenario->current('modules'); // returns current modules
@@ -101,7 +101,7 @@ if ($scenario->current('env') == 'firefox') {
 // naming screenshot
 $I->makeScreenshot($scenario->current('name').'_screenshot.png');
 ?>
-{{% endhighlight %}}
+{% endhighlight %}
 
 
 * **Environment Matrix**: You can run tests combining several environments by separating their names by comma:
@@ -122,11 +122,11 @@ tests/_envs
 
 *  Cept files should avoid setting their metadata via `$scenario` methods. Instead of calling `$scenario->skip()`, `$scenario->group('firefox')`, etc, it is recommended to set scenario settings with annotations `// @skip`, `// @group firefox`. However, you can use `$scenario->skip` whenever you need to do it on some condition, like 
 
-{{% highlight php %}}
+{% highlight php %}
 <?php
 if (substr(PHP_OS, 0, 3) == 'Win') $scenario->skip()
 ?>
-{{% endhighlight %}}
+{% endhighlight %}
 
 * Improved HTML reports
 ![html report](/images/html-report.png)
