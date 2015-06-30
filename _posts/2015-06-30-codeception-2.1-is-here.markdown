@@ -148,6 +148,7 @@ As for REST module you can load methods only for API format you are using. You c
 
 * Whenever you have steps grouped inside actor class, pageobject, or stepobject, you can the step executed with its substeps in console or HTML report. 
 ![html report](/images/substeps.png)
+* **RunFailed** extension is enabled by default for all new projects. It means that you can rerun your failed tests by executing `codecept run -g failed` when this extension is enabled. 
 
 And lots of other notable improvements which you can see in [changelog](https://github.com/Codeception/Codeception/blob/master/CHANGELOG.md). 
 
