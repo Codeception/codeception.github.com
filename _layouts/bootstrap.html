@@ -10,7 +10,7 @@
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-    <link href="http://fonts.googleapis.com/css?family=Philosopher&amp;subset=latin" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/codeception.css">
     <link rel="stylesheet" href="/css/contributors.css">
@@ -173,7 +173,7 @@
     </div>
 </div>
 <div id="copyright">
-    © 2011&ndash;<span data-toggle="tooltip" alt="" title="YOU BROKE MY PHP! FIX IT ASAP!">&lt;?= date('Y') ?&gt;</span>
+    © 2011&ndash;{{ site.time | date: '%Y' }}
     <!-- You broke my PHP, man! -->
 </div>
 
@@ -194,6 +194,15 @@
         s.parentNode.insertBefore(ga, s);
     })();
 
+</script>
+
+<script>
+// Adding this layout functionality for mobile views with the homepage hero
+$(document).ready(function(){
+    $('.navbar-toggle').click(function(){
+        $('.row.home').toggleClass('no-padding-top');
+    });
+});
 </script>
 
 <div id="bugira_widget" style="position: fixed; right: 10px; bottom: 0px;"></div>
