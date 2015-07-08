@@ -58,9 +58,10 @@ h1, h2, h3, h4, h5, h6 {
 
 body #home-hero h1 {
 	color: #fff;
-	font-size: 48px;
+	font-size: 56px;
 	font-weight: bold;
 	padding-top:35px;
+	text-shadow: #000 1px 2px 5px;
 }
 
 #home-hero img{
