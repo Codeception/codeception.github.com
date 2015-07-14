@@ -1,11 +1,13 @@
 ---
 layout: doc
-title: AMQP Module - Codeception - Documentation
+title: Codeception - Documentation
 ---
 
-# AMQP Module
 
-**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/AMQP.php)**
+
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Module/AMQP.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/AMQP.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/AMQP.md"><strong>2.1</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/AMQP.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/AMQP.md">1.8</a></div>
+
+
 
 
 This module interacts with message broker software that implements
@@ -36,9 +38,8 @@ To use this module with Composer you need <em>"videlalvaro/php-amqplib": "*"</em
 #### Example
 
     modules:
-        enabled: [AMQP]
-        config:
-            AMQP:
+        enabled:
+            - AMQP:
                 host: 'localhost'
                 port: '5672'
                 username: 'guest'
@@ -62,7 +63,7 @@ Takes last message from queue.
 $message = $I->grabMessageFromQueue('queue.emails');
 
  * `param` $queue
-@return AMQPMessage
+ * `return` AMQPMessage
 
 
 #### pushToExchange
@@ -121,4 +122,4 @@ $I->seeMessageInQueueContainsText('queue.emails','davert');
  * `param` $queue
  * `param` $text
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/AMQP.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/AMQP.php">Help us to improve documentation. Edit module reference</a></div>

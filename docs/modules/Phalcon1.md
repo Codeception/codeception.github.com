@@ -1,14 +1,16 @@
 ---
 layout: doc
-title: Phalcon1 Module - Codeception - Documentation
+title: Codeception - Documentation
 ---
 
-# Phalcon1 Module
-
-**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Phalcon1.php)**
 
 
-This module provides integration with [Phalcon framework](http://www.phalconphp.com/) (1.x).
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Module/Phalcon1.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Phalcon1.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Phalcon1.md"><strong>2.1</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Phalcon1.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Phalcon1.md">1.8</a></div>
+
+
+
+
+This module provides integration with [Phalcon framework](http://www.phalconphp.com/) (1.x/2.x).
 
 ### Demo Project
 
@@ -41,19 +43,65 @@ You can use this module by setting params in your functional.suite.yml:
 <pre>
 class_name: FunctionalTester
 modules:
-    enabled: [FileSystem, TestHelper, Phalcon1]
-    config:
-        Phalcon1:
+    enabled:
+        - Phalcon1:
             bootstrap: 'app/config/bootstrap.php'
             cleanup: true
             savepoints: true
 </pre>
 
 
+### Parts
+
+* ORM - include only haveRecord/grabRecord/seeRecord/dontSeeRecord actions
+
 ### Status
 
-Maintainer: **cujo**
+Maintainer: **sergeyklay**
 Stability: **beta**
+
+
+#### _findElements
+
+*hidden API method, expected to be used from Helper classes*
+ 
+Locates element using available Codeception locator types:
+
+* XPath
+* CSS
+* Strict Locator
+
+Use it in Helpers or GroupObject or Extension classes:
+
+{% highlight php %}
+
+$els = $this->getModule('Phalcon1')->_findElements('.items');
+$els = $this->getModule('Phalcon1')->_findElements(['name' => 'username']);
+
+$editLinks = $this->getModule('Phalcon1')->_findElements(['link' => 'Edit']);
+// now you can iterate over $editLinks and check that all them have valid hrefs
+
+{% endhighlight %}
+
+WebDriver module returns `Facebook\WebDriver\Remote\RemoteWebElement` instances
+PhpBrowser and Framework modules return `Symfony\Component\DomCrawler\Crawler` instances
+
+ * `param` $locator
+ * `return` array of interactive elements
+
+
+#### _savePageSource
+
+*hidden API method, expected to be used from Helper classes*
+ 
+Saves page source of to a file
+
+{% highlight php %}
+
+$this->getModule('Phalcon1')->_savePageSource(codecept_output_dir().'page.html');
+
+{% endhighlight %}
+ * `param` $filename
 
 
 #### amHttpAuthenticated
@@ -384,6 +432,7 @@ Checks that record does not exist in database.
 
 <?php
 $I->dontSeeRecord('Phosphorum\Models\Categories', ['name' => 'Testing']);
+?>
 
 {% endhighlight %}
 
@@ -456,6 +505,10 @@ $uri = $I->grabFromCurrentUrl();
  * `internal param` $url
 
 
+#### grabMultiple
+__not documented__
+
+
 #### grabRecord
  
 Retrieves record from database
@@ -464,11 +517,23 @@ Retrieves record from database
 
 <?php
 $category = $I->grabRecord('Phosphorum\Models\Categories', ['name' => 'Testing']);
+?>
 
 {% endhighlight %}
 
  * `param string` $model Model name
  * `param array` $attributes Model attributes
+@part orm
+
+
+#### grabServiceFromDi
+ 
+Resolves the service based on its configuration from Phalcon's DI container
+Recommended to use for unit testing.
+
+ * `param string` $service    Service name
+ * `param array`  $parameters Parameters [Optional]
+
 
 
 #### grabTextFrom
@@ -494,7 +559,7 @@ $value = $I->grabTextFrom('~<input value=(.*?)]~sgi'); // match with a regex
  
  * `param` $field
 
-@return array|mixed|null|string
+ * `return` array|mixed|null|string
 
 
 #### haveInSession
@@ -520,6 +585,27 @@ $I->haveRecord('Phosphorum\Models\Categories', ['name' => 'Testing']');
 
  * `param string` $model Model name
  * `param array` $attributes Model attributes
+@part orm
+
+
+#### haveServiceInDi
+ 
+Registers a service in the services container and resolve it. This record will be erased after the test.
+Recommended to use for unit testing.
+
+{% highlight php %}
+
+<?php
+$filter = $I->haveServiceInDi('filter', ['className' => '\Phalcon\Filter']);
+?>
+
+{% endhighlight %}
+
+ * `param string` $name
+ * `param mixed` $definition
+ * `param boolean` $shared
+
+ * `return` mixed|null
 
 
 #### resetCookie
@@ -662,7 +748,7 @@ $I->seeInCurrentUrl('/users/');
 
 #### seeInField
  
-Checks that the given input field or textarea contains the given value. 
+Checks that the given input field or textarea contains the given value.
 For fuzzy locators, fields are matched by label text, the "name" attribute, CSS, and XPath.
 
 {% highlight php %}
@@ -809,9 +895,9 @@ $I->seeNumberOfElements('tr', [0,10]); //between 0 and 10 elements
 
 {% endhighlight %}
  * `param` $selector
- * `param mixed` $expected:
+ * `param mixed` $expected :
 - string: strict number
-- array: range of numbers [0,10]  
+- array: range of numbers [0,10]
 
 
 #### seeOptionIsSelected
@@ -844,6 +930,7 @@ Checks that record exists in database.
 
 <?php
 $I->seeRecord('Phosphorum\Models\Categories', ['name' => 'Testing']);
+?>
 
 {% endhighlight %}
 
@@ -960,8 +1047,6 @@ $I->setCookie('PHPSESSID', 'el4ukv0kqbvoirg7nkp4dncpk3');
  * `param` $name
  * `param` $val
  * `param array` $params
- * `internal param` $cookie
- * `internal param` $value
 
 
 
@@ -1006,7 +1091,7 @@ For example, given this sample "Sign Up" form:
     <input type="text" name="user[login]" /><br/>
     Password:
     <input type="password" name="user[password]" /><br/>
-    Do you agree to out terms?
+    Do you agree to our terms?
     <input type="checkbox" name="user[agree]" /><br/>
     Select pricing plan:
     <select name="plan">
@@ -1153,4 +1238,4 @@ $I->uncheckOption('#notify');
 
  * `param` $option
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Phalcon1.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/Phalcon1.php">Help us to improve documentation. Edit module reference</a></div>

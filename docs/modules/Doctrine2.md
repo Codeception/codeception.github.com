@@ -1,11 +1,13 @@
 ---
 layout: doc
-title: Doctrine2 Module - Codeception - Documentation
+title: Codeception - Documentation
 ---
 
-# Doctrine2 Module
 
-**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Doctrine2.php)**
+
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Module/Doctrine2.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Doctrine2.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Doctrine2.md"><strong>2.1</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Doctrine2.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Doctrine2.md">1.8</a></div>
+
+
 
 
 Allows integration and testing for projects with Doctrine2 ORM.
@@ -33,7 +35,7 @@ It can be done in bootstrap file, by setting static $em property:
 
 * auto_connect: true - tries to get EntityManager through connected frameworks. If none found expects the $em values specified as described above.
 * cleanup: true - all doctrine queries will be run in transaction, which will be rolled back at the end of test.
-* symfony_em_service: 'doctrine.orm.entity_manager' - use the stated EntityManager (optional).
+* connection_callback: - callable that will return an instance of EntityManager. This is a must if you run Doctrine without Zend2 or Symfony2 frameworks
 
  #### Example (`functional.suite.yml`)
 
@@ -42,6 +44,10 @@ It can be done in bootstrap file, by setting static $em property:
         config:
            Doctrine2:
               cleanup: false
+
+### Public Properties
+
+* `em` - Entity Manager
 
 
 #### dontSeeInRepository
@@ -77,7 +83,7 @@ $email = $I->grabFromRepository('User', 'email', array('name' => 'davert'));
  * `param` $entity
  * `param` $field
  * `param array` $params
-@return array
+ * `return` array
 
 
 #### haveFakeRepository
@@ -159,4 +165,4 @@ Fails if record for given criteria can\'t be found,
  * `param` $entity
  * `param array` $params
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Doctrine2.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/Doctrine2.php">Help us to improve documentation. Edit module reference</a></div>

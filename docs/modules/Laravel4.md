@@ -1,11 +1,13 @@
 ---
 layout: doc
-title: Laravel4 Module - Codeception - Documentation
+title: Codeception - Documentation
 ---
 
-# Laravel4 Module
 
-**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Laravel4.php)**
+
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Module/Laravel4.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Laravel4.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Laravel4.md"><strong>2.1</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Laravel4.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Laravel4.md">1.8</a></div>
+
+
 
 
 
@@ -16,6 +18,12 @@ The original author of this module is Davert.
 ### Demo Project
 
 <https://github.com/Codeception/sample-l4-app>
+
+### Example
+
+    modules:
+        enabled:
+            - Laravel4
 
 ### Status
 
@@ -37,6 +45,53 @@ The original author of this module is Davert.
 * app - `Illuminate\Foundation\Application` instance
 * client - `BrowserKit` client
 
+### Parts
+
+* ORM - include only haveRecord/grabRecord/seeRecord/dontSeeRecord actions
+
+
+
+#### _findElements
+
+*hidden API method, expected to be used from Helper classes*
+ 
+Locates element using available Codeception locator types:
+
+* XPath
+* CSS
+* Strict Locator
+
+Use it in Helpers or GroupObject or Extension classes:
+
+{% highlight php %}
+
+$els = $this->getModule('Laravel4')->_findElements('.items');
+$els = $this->getModule('Laravel4')->_findElements(['name' => 'username']);
+
+$editLinks = $this->getModule('Laravel4')->_findElements(['link' => 'Edit']);
+// now you can iterate over $editLinks and check that all them have valid hrefs
+
+{% endhighlight %}
+
+WebDriver module returns `Facebook\WebDriver\Remote\RemoteWebElement` instances
+PhpBrowser and Framework modules return `Symfony\Component\DomCrawler\Crawler` instances
+
+ * `param` $locator
+ * `return` array of interactive elements
+
+
+#### _savePageSource
+
+*hidden API method, expected to be used from Helper classes*
+ 
+Saves page source of to a file
+
+{% highlight php %}
+
+$this->getModule('Laravel4')->_savePageSource(codecept_output_dir().'page.html');
+
+{% endhighlight %}
+ * `param` $filename
 
 
 #### amHttpAuthenticated
@@ -55,6 +110,7 @@ Takes either `UserInterface` instance or array of credentials.
  * `param`  \Illuminate\Auth\UserInterface|array $user
  * `param`  string $driver
 @return void
+@part framework
 
 
 #### amOnAction
@@ -131,7 +187,7 @@ Calls an Artisan command and returns output as a string
  * `param string` $command       The name of the command as displayed in the artisan command list
  * `param array`  $parameters    An associative array of command arguments
 
-@return string
+ * `return` string
 
 
 #### checkOption
@@ -153,7 +209,7 @@ $I->checkOption('#agree');
  
 Make sure the Laravel start file exists.
 
- ModuleConfig
+
 
 
 #### click
@@ -437,6 +493,8 @@ $I->dontSeeRecord('users', array('name' => 'davert'));
 
  * `param` $tableName
  * `param array` $attributes
+@part orm
+@part framework
 
 
 #### fillField
@@ -460,7 +518,7 @@ $I->fillField(['name' => 'email'], 'jon@mail.com');
  
 Provides access the Laravel application object.
 
-@return \Illuminate\Foundation\Application
+ * `return` \Illuminate\Foundation\Application
 
 
 #### grabAttributeFrom
@@ -511,6 +569,10 @@ $uri = $I->grabFromCurrentUrl();
  * `internal param` $url
 
 
+#### grabMultiple
+__not documented__
+
+
 #### grabRecord
  
 Retrieves record from database
@@ -525,6 +587,8 @@ $category = $I->grabRecord('users', array('name' => 'davert'));
 
  * `param` $tableName
  * `param array` $attributes
+@part ORM
+@part framework
 
 
 #### grabService
@@ -551,6 +615,7 @@ $service = $I->grabService('foo');
 {% endhighlight %}
 
  * `param`  string $class
+@part framework
 
 
 #### grabTextFrom
@@ -576,7 +641,7 @@ $value = $I->grabTextFrom('~<input value=(.*?)]~sgi'); // match with a regex
  
  * `param` $field
 
-@return array|mixed|null|string
+ * `return` array|mixed|null|string
 
 
 #### haveDisabledFilters
@@ -603,11 +668,14 @@ $user_id = $I->haveRecord('users', array('name' => 'Davert'));
 
  * `param` $tableName
  * `param array` $attributes
+@part orm
+@part framework
 
 
 #### logout
  
 Logs user out
+@part framework
 
 
 #### resetCookie
@@ -642,6 +710,7 @@ $I->see('Sign Up','//body/h1'); // with XPath
 #### seeAuthentication
  
 Checks that user is authenticated
+@part framework
 
 
 #### seeCheckboxIsChecked
@@ -819,7 +888,7 @@ $I->seeFormHasErrors();
 
 {% endhighlight %}
 
-@return bool
+ * `return` bool
 
 
 #### seeInCurrentUrl
@@ -842,7 +911,7 @@ $I->seeInCurrentUrl('/users/');
 
 #### seeInField
  
-Checks that the given input field or textarea contains the given value. 
+Checks that the given input field or textarea contains the given value.
 For fuzzy locators, fields are matched by label text, the "name" attribute, CSS, and XPath.
 
 {% highlight php %}
@@ -948,7 +1017,7 @@ $I->seeInSession('key', 'value');
 
  * `param`  string|array $key
  * `param`  mixed $value
-@return void
+ * `return` void
 
 
 #### seeInTitle
@@ -998,9 +1067,9 @@ $I->seeNumberOfElements('tr', [0,10]); //between 0 and 10 elements
 
 {% endhighlight %}
  * `param` $selector
- * `param mixed` $expected:
+ * `param mixed` $expected :
 - string: strict number
-- array: range of numbers [0,10]  
+- array: range of numbers [0,10]
 
 
 #### seeOptionIsSelected
@@ -1039,6 +1108,8 @@ $I->seeRecord('users', array('name' => 'davert'));
 
  * `param` $tableName
  * `param array` $attributes
+@part orm
+@part framework
 
 
 #### seeResponseCodeIs
@@ -1101,7 +1172,7 @@ $I->seeSessionHasValues(['key1' => 'value1', 'key2' => 'value2']);
 {% endhighlight %}
 
  * `param`  array $bindings
-@return void
+ * `return` void
 
 
 #### selectOption
@@ -1210,8 +1281,6 @@ $I->setCookie('PHPSESSID', 'el4ukv0kqbvoirg7nkp4dncpk3');
  * `param` $name
  * `param` $val
  * `param array` $params
- * `internal param` $cookie
- * `internal param` $value
 
 
 
@@ -1256,7 +1325,7 @@ For example, given this sample "Sign Up" form:
     <input type="text" name="user[login]" /><br/>
     Password:
     <input type="password" name="user[password]" /><br/>
-    Do you agree to out terms?
+    Do you agree to our terms?
     <input type="checkbox" name="user[agree]" /><br/>
     Select pricing plan:
     <select name="plan">
@@ -1403,4 +1472,4 @@ $I->uncheckOption('#notify');
 
  * `param` $option
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Laravel4.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/Laravel4.php">Help us to improve documentation. Edit module reference</a></div>

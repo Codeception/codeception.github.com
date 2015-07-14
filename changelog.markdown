@@ -7,11 +7,55 @@ title: Codeception Changelog
 
 # Changelog
 
-#### 2.0.16
+#### 2.1.1
 
-* <strong>[REST]</strong> Module usage should not depend on order it was declared. Fixes <a href="https://github.com/Codeception/Codeception/issues/2100">#2100</a> by <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>
-* <strong>[Db]</strong> When `populate` is enabled cleanup should happen only if enabled too <a href="https://github.com/Codeception/Codeception/issues/2148">#2148</a> by <strong><a href="https://github.com/gammamatrix">@gammamatrix</a></strong>
-* <strong>[Laravel5]</strong> Rewrite of module to fix open issues and other problems *2015-07-09*
+* <strong>[WebDriver]</strong> **Upgraded to facebook/webdriver 1.0** *2015-07-11*
+  WebDriver classes were moved to `Facebook\WebDriver` namespace. Please take that into account when using WebDriver API directly.
+  Till 2.2 Codeception will keep non-namespaced aliases of WebDriver classes.
+* Module Reference now contains documentation for hidden API methods which should be used in Helper classes
+* Skipped and Incomplete tests won't fire `test.before` and `test.after` events. For instamce, WebDriver browser with won't be started and Db cleanups won't be executed on skipped tests.
+* Annotations `<strong><a href="https://github.com/skip">@skip</a></strong>` and `<strong><a href="https://github.com/incomplete">@incomplete</a></strong>` enabled in Cest files <a href="https://github.com/Codeception/Codeception/issues/2131">#2131</a>
+* <strong>[WebDriver]</strong><strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> `_findElements($locator)` method added to use in Helper classes *2015-07-11*
+  Now you can use `$this->getModule('WebDriver')->findElements('.user');` in Helpers to match all elements with `user` class using WebDriver module
+* <strong>[PhpBrowser]</strong> Fixed `amOnUrl` method to open absolute URLs.
+* <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> Fix for `fillField` using values that contain ampersands by <strong><a href="https://github.com/GawainLynch">@GawainLynch</a></strong> and <strong><a href="https://github.com/zbateson">@zbateson</a></strong> Issue <a href="https://github.com/Codeception/Codeception/issues/2132">#2132</a>
+* <strong>[WebDriver]</strong><strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> Fixed missing HTTPS when trying to access protected pages <a href="https://github.com/Codeception/Codeception/issues/2141">#2141</a>
+
+#### 2.1.0
+
+* <strong>[Recorder]</strong>(https://github.com/Codeception/Codeception/tree/master/ext#codeceptionextensionrecorder) extension added. Shows acceptance test progress with a recorded slideshow.
+* **Updated to Guzzle 6**. Codeception can now work both with Guzzle v5 and Guzzle v6. PhpBrowser chooses right connector depending on Guzzle version installed. By <strong><a href="https://github.com/davertmik">@davertmik</a></strong> and <strong><a href="https://github.com/enumag">@enumag</a></strong>
+* Annotations in Cept files.
+  Instead of calling `$scenario->skip()`, `$scenario->group('firefox')`, etc, it is recommended to set scenario metadata with annotations `// <strong><a href="https://github.com/skip">@skip</a></strong>`, `// <strong><a href="https://github.com/group">@group</a></strong> firefox`.
+  Annotations can be parsed from line or block comments. `$scenario->skip()` and `$scenario->incomplete()` are still valid and can be executed inside conditional statements:
+  ```
+  if (!extension_loaded('xdebug')) $scenario->skip('Xdebug required')
+  ```
+* **PSR-4**: all support classes moved to `tests/_support` by default. Actors, Helpers, PageObjects, StepObjects, GroupObjects to follow PSR-4 naming style. Autoloader implemented by <strong><a href="https://github.com/splinter89">@splinter89</a></strong>.
+* **Dependency Injection**: support classes can be injected into tests. Support classes can be injected into each other too. This happens by implementing method `_inject` and explicitly specifying class names as parameters. Implemented by <strong><a href="https://github.com/splinter89">@splinter89</a></strong>.
+* **Actor classes can be extended**, their generated parts were moved to special traits in `_generated` namespace. Each *Tester class can be updated with custom methods.
+* **Module config simplified**: Modules can be configured in `enabled` section of suite config.
+* **Conflicts**: module can define conflicts with each other by implementing `_conflicts` method
+* **Dependencies**: module can explicitly define dependencies and expect their injection by implementing `_inject` and `_depends` methods and relying on dependency injection container.
+* **Current** modules, environment, and test name can be received in scenario. Example: `$scenario->current('env')` returns current environment name. Fixes <a href="https://github.com/Codeception/Codeception/issues/1251">#1251</a>
+* **Environment Matrix**: environments can be merged. Environment configs can be created in `tests/_envs`, environment generator added. Implemented by By <strong><a href="https://github.com/sjableka">@sjableka</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/1747">#1747</a>
+* **Custom Printers**: XML, JSON, TAP, Report printers can be redefined in configuration. See <a href="https://github.com/Codeception/Codeception/issues/1425">#1425</a>
+* <strong>[Db]</strong> Added `reconnect` option for long running tests, which will connect to database before the test and disconnect after. By <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>
+* Module parts. Actions of modules can be loaded partially in order to disable actions which are not used in current tests. For instance, disable web actions of framework modules in unit testsing.
+* **Kohana**, **Symfony1**, **Doctrine1** modules considered deprecated and moved to standalone packages.
+* `shuffle` added to settings. Randomizes order of running tests. See <a href="https://github.com/Codeception/Codeception/issues/1504">#1504</a>
+* Console output improved: scenario stack traces contain files and lines of fail.
+* <strong>[Doctrine2]</strong><strong>[Symfony2]</strong> `symfony_em_service` config option moved from Doctrine2 to Symfony2 module and renamed to `em_service` *2015-06-03*
+* <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> Fixed cloning form nodes `Codeception\Lib\InnerBrowser::getFormFromCrawler(): ID XXX already defined` *2015-05-13*
+* <strong>[WebDriver]</strong> session snapshot implemented, allows to store cookies and load them, i.e., to keep user session between testss.
+* <strong>[WebDriver]</strong><strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> Malformed XPath locators wil throw an exception <a href="https://github.com/Codeception/Codeception/issues/1441">#1441</a>
+* `MODULE_INIT` event is fired before initializing modules <a href="https://github.com/Codeception/Codeception/issues/1370">#1370</a>
+* Graceful tests termination using `pcntl_signal`. See <a href="https://github.com/Codeception/Codeception/issues/1286">#1286</a>
+* Group classes renamed to GroupObjects; Base GroupObject class renamed to `Codeception\GroupObject`
+* Official extensions moved to `ext` dir; Base Extension class renamed to `Codeception\Extension`
+* Duplicate environment options won't cause Codeception to run environment tests twice
+* <strong>[Phalcon1]</strong> `haveServiceInDi` method implemented by <strong><a href="https://github.com/sergeyklay">@sergeyklay</a></strong>
+* <strong>[Db]</strong> `seeNumRecords` method added by <strong><a href="https://github.com/sergeyklay">@sergeyklay</a></strong>
 
 #### 2.0.15
 
@@ -120,6 +164,11 @@ Modifications to ensure multiple values get sent correctly.
 * <strong>[Dbh]</strong> Begin transaction only unless transaction is already in progress by <strong><a href="https://github.com/thecatontheflat">@thecatontheflat</a></strong> *2015-02-23*
 * <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> Fix quiet crash when crawler is null by <strong><a href="https://github.com/aivus">@aivus</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/1714">#1714</a> *2015-02-23*
 * <strong>[Yii2]</strong> Fixed usage of PUT method by <strong><a href="https://github.com/miroslav">@miroslav</a></strong>-chandler *2015-02-23*
+
+
+#### 2.1.0
+
+* <strong>[WebDriver]</strong> Saving and restoring session snapshots implemented *2015-03-16*
 
 
 #### 2.0.10

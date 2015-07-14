@@ -1,11 +1,13 @@
 ---
 layout: doc
-title: REST Module - Codeception - Documentation
+title: Codeception - Documentation
 ---
 
-# REST Module
 
-**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/REST.php)**
+
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Module/REST.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/REST.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/REST.md"><strong>2.1</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/REST.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/REST.md">1.8</a></div>
+
+
 
 
 Module for testing REST WebService.
@@ -32,12 +34,10 @@ This module requires PHPBrowser or any of Framework modules enabled.
 #### Example
 
     modules:
-       enabled: [PhpBrowser, REST]
-       config:
-          PhpBrowser:
-             url: http://serviceapp/
-          REST:
-             url: 'http://serviceapp/api/v1/'
+       enabled:
+           - REST:
+               depends: PhpBrowser
+               url: 'http://serviceapp/api/v1/'
 
 ### Public Properties
 
@@ -46,6 +46,11 @@ This module requires PHPBrowser or any of Framework modules enabled.
 * response - last response (string)
 
 
+### Parts
+
+* Json - actions for validating Json responses (no Xml responses)
+* Xml - actions for validating XML responses (no Json responses)
+
 
 
 #### amBearerAuthenticated
@@ -53,14 +58,18 @@ This module requires PHPBrowser or any of Framework modules enabled.
 Adds Bearer authentication via access token.
 
  * `param` $accessToken
+@part json
+@part xml
 
 
 #### amDigestAuthenticated
  
-s Digest authentication via username/password.
+Adds Digest authentication via username/password.
 
-ram $username
-ram $password
+ * `param` $username
+ * `param` $password
+@part json
+@part xml
 
 
 #### amHttpAuthenticated
@@ -69,6 +78,8 @@ Adds HTTP authentication via username/password.
 
  * `param` $username
  * `param` $password
+@part json
+@part xml
 
 
 #### dontSeeHttpHeader
@@ -78,12 +89,16 @@ its value, asserting that are not there
 
  * `param` $name
  * `param` $value
+@part json
+@part xml
 
 
 #### dontSeeResponseCodeIs
  
 Checks that response code is not equal to provided value.
 
+@part json
+@part xml
  * `param` $code
 
 
@@ -92,12 +107,15 @@ Checks that response code is not equal to provided value.
 Checks whether last response do not contain text.
 
  * `param` $text
+@part json
+@part xml
 
 
 #### dontSeeResponseContainsJson
  
 Opposite to seeResponseContainsJson
 
+@part json
  * `param array` $json
 
 
@@ -106,29 +124,60 @@ Opposite to seeResponseContainsJson
 Opposite to seeResponseJsonMatchesJsonPath
 
  * `param array` $jsonPath
+@part json
 
 
-#### grabDataFromJsonResponse
+#### dontSeeXmlResponseEquals
  
-Returns data from the current JSON response using specified path
-so that it can be used in next scenario steps.
+Checks XML response does not equal to provided XML.
+Comparison is done by canonicalizing both xml`s.
 
-**this method is deprecated in favor of `grabDataFromResponseByJsonPath`**
+Parameter can be passed either as XmlBuilder, DOMDocument, DOMNode, XML string, or array (if no attributes).
 
-Example:
+ * `param` $xml
+@part xml
+
+
+#### dontSeeXmlResponseIncludes
+ 
+Checks XML response does not include provided XML.
+Comparison is done by canonicalizing both xml`s.
+Parameter can be passed either as XmlBuilder, DOMDocument, DOMNode, XML string, or array (if no attributes).
+
+ * `param` $xml
+@part xml
+
+
+#### dontSeeXmlResponseMatchesXpath
+ 
+Checks wheather XML response does not match XPath
 
 {% highlight php %}
 
 <?php
-$user_id = $I->grabDataFromJsonResponse('user.user_id');
-$I->sendPUT('/user', array('id' => $user_id, 'name' => 'davert'));
-?>
+$I->dontSeeXmlResponseMatchesXpath('//root/user[@id=1]');
 
 {% endhighlight %}
+@part xml
+ * `param` $xpath
 
-@deprecated please use `grabDataFromResponseByJsonPath`
- * `param string` $path
+
+#### grabAttributeFrom
+ 
+Finds and returns attribute of element.
+Element is matched by either CSS or XPath
+
+ * `param` $cssOrXPath
+ * `param` $attribute
 @return string
+@part xml
+
+
+#### grabDataFromJsonResponse
+ 
+ * `param` $path
+@throws ModuleException
+@deprecated
 
 
 #### grabDataFromResponseByJsonPath
@@ -154,7 +203,8 @@ $I->sendPUT('/user', array('id' => $firstUser[0], 'name' => 'davert'));
  * `param` $jsonPath
 @return array
 @version 2.0.9
- \Exception
+@throws \Exception
+@part json
 
 
 #### grabHttpHeader
@@ -162,9 +212,11 @@ $I->sendPUT('/user', array('id' => $firstUser[0], 'name' => 'davert'));
 Returns the value of the specified header name
 
  * `param` $name
- * `param Boolean` $first  Whether to return the first value or all header values
+ * `param Boolean` $first Whether to return the first value or all header values
 
  * `return string|array The first header value if` $first is true, an array of values otherwise
+@part json
+@part xml
 
 
 #### grabResponse
@@ -184,6 +236,18 @@ $I->sendPUT('/user', array('id' => $user_id, 'name' => 'davert'));
 
 @version 1.1
 @return string
+@part json
+@part xml
+
+
+#### grabTextContentFromXmlElement
+ 
+Finds and returns text contents of element.
+Element is matched by either CSS or XPath
+
+ * `param` $cssOrXPath
+@return string
+@part xml
 
 
 #### haveHttpHeader
@@ -192,6 +256,8 @@ Sets HTTP header
 
  * `param` $name
  * `param` $value
+@part json
+@part xml
 
 
 #### seeHttpHeader
@@ -201,6 +267,8 @@ its value, asserting that are there
 
  * `param` $name
  * `param` $value
+@part json
+@part xml
 
 
 #### seeHttpHeaderOnce
@@ -218,12 +286,16 @@ $I->seeHttpHeaderOnce('Cache-Control');
 {% endhighlight %}
 
  * `param` $name
+@part json
+@part xml
 
 
 #### seeResponseCodeIs
  
 Checks response code equals to provided value.
 
+@part json
+@part xml
  * `param` $code
 
 
@@ -232,6 +304,8 @@ Checks response code equals to provided value.
 Checks whether the last response contains text.
 
  * `param` $text
+@part json
+@part xml
 
 
 #### seeResponseContainsJson
@@ -259,12 +333,15 @@ $I->seeResponseContainsJson(array('email' => 'john@gmail.com'));
 This method recursively checks if one array can be found inside of another.
 
  * `param array` $json
+@part json
 
 
 #### seeResponseEquals
  
 Checks if response is exactly the same as provided.
 
+@part json
+@part xml
  * `param` $response
 
 
@@ -273,6 +350,7 @@ Checks if response is exactly the same as provided.
 Checks whether last response was valid JSON.
 This is done with json_last_error function.
 
+@part json
 
 
 #### seeResponseIsXml
@@ -280,6 +358,7 @@ This is done with json_last_error function.
 Checks whether last response was valid XML.
 This is done with libxml_get_last_error function.
 
+@part xml
 
 
 #### seeResponseJsonMatchesJsonPath
@@ -327,6 +406,7 @@ $I->seeResponseJsonMatchesJsonPath('$.store..price');
 
 {% endhighlight %}
 
+@part json
 @version 2.0.9
 
 
@@ -372,8 +452,52 @@ $I->seeResponseJsonMatchesXpath('/store//price');
 ?>
 
 {% endhighlight %}
-
+@part json
 @version 2.0.9
+
+
+#### seeXmlResponseEquals
+ 
+Checks XML response equals provided XML.
+Comparison is done by canonicalizing both xml`s.
+
+Parameters can be passed either as DOMDocument, DOMNode, XML string, or array (if no attributes).
+
+ * `param` $xml
+@part xml
+
+
+#### seeXmlResponseIncludes
+ 
+Checks XML response includes provided XML.
+Comparison is done by canonicalizing both xml`s.
+Parameter can be passed either as XmlBuilder, DOMDocument, DOMNode, XML string, or array (if no attributes).
+
+Example:
+
+{% highlight php %}
+
+<?php
+$I->seeXmlResponseIncludes("<result>1</result>");
+?>
+
+{% endhighlight %}
+
+ * `param` $xml
+
+
+#### seeXmlResponseMatchesXpath
+ 
+Checks wheather XML response matches XPath
+
+{% highlight php %}
+
+<?php
+$I->seeXmlResponseMatchesXpath('//root/user[@id=1]');
+
+{% endhighlight %}
+@part xml
+ * `param` $xpath
 
 
 #### sendDELETE
@@ -383,6 +507,8 @@ Sends DELETE request to given uri.
  * `param` $url
  * `param array` $params
  * `param array` $files
+@part json
+@part xml
 
 
 #### sendGET
@@ -391,6 +517,8 @@ Sends a GET request to given uri.
 
  * `param` $url
  * `param array` $params
+@part json
+@part xml
 
 
 #### sendHEAD
@@ -399,6 +527,8 @@ Sends a HEAD request to given uri.
 
  * `param` $url
  * `param array` $params
+@part json
+@part xml
 
 
 #### sendLINK
@@ -411,6 +541,8 @@ Sends LINK request to given uri.
 @link http://tools.ietf.org/html/rfc2068#section-19.6.2.4
 
 @author samva.ua@gmail.com
+@part json
+@part xml
 
 
 #### sendOPTIONS
@@ -419,6 +551,8 @@ Sends an OPTIONS request to given uri.
 
  * `param` $url
  * `param array` $params
+@part json
+@part xml
 
 
 #### sendPATCH
@@ -428,6 +562,8 @@ Sends PATCH request to given uri.
  * `param`       $url
  * `param array` $params
  * `param array` $files
+@part json
+@part xml
 
 
 #### sendPOST
@@ -439,6 +575,8 @@ Parameters and files (as array of filenames) can be provided.
  * `param` $url
  * `param array|\JsonSerializable` $params
  * `param array` $files
+@part json
+@part xml
 
 
 #### sendPUT
@@ -448,6 +586,8 @@ Sends PUT request to given uri.
  * `param` $url
  * `param array` $params
  * `param array` $files
+@part json
+@part xml
 
 
 #### sendUNLINK
@@ -458,5 +598,7 @@ Sends UNLINK request to given uri.
  * `param array` $linkEntries (entry is array with keys "uri" and "link-param")
 @link http://tools.ietf.org/html/rfc2068#section-19.6.2.4
 @author samva.ua@gmail.com
+@part json
+@part xml
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/REST.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/REST.php">Help us to improve documentation. Edit module reference</a></div>
