@@ -51,12 +51,10 @@ In `tests/functional.suite.yml`:
 {% highlight yaml %}
 
 modules:
-	  enabled: 
-        - Db:
-          cleanup: false      
-        - Doctrine2:
-            depends: Symfony2
-        - \Helper\Functional
+	enabled: [Db, Doctrine2, FunctionalHelper]
+	config:
+		Db:
+			cleanup: false
 
 {% endhighlight %}
 
@@ -72,11 +70,10 @@ To use the `Db` module for population and `Dbh` for cleanups, use this config:
 {% highlight yaml %}
 
 modules:
-  	enabled: 
-        - Db:
-            cleanup: false
-        - Dbh
-        - \Helper\Functional
+	enabled: [Db, Dbh, FunctionalHelper]
+	config:
+		Db:
+			cleanup: false
 
 {% endhighlight %}
 
@@ -124,10 +121,7 @@ If you want to create special database record for one test, you can use [`haveIn
 
 <?php 
 $I = new FunctionalTester($scenario);
-$I->haveInDatabase('posts', [
-  'title' => 'Top 10 Testing Frameworks', 
-  'body' => '1. Codeception'
-]);
+$I->haveInDatabase('posts', array('title' => 'Top 10 Testing Frameworks', 'body' => '1. Codeception'));
 $I->amOnPage('/posts');
 $I->see('Top 10 Testing Frameworks');
 ?>
@@ -144,4 +138,4 @@ Codeception is not abandoning the developer when dealing with data. Tools for da
 
 
 * **Next Chapter: [WebServices >](/docs/10-WebServices)**
-* **Previous Chapter: [< Customization](/docs/08-Customization)**
+* **Previous Chapter: [< Customization](/docs/08-Customization)**<p>&nbsp;</p><div class="alert alert-warning">Docs are incomplete? Outdated? Or you just found a typo? <a href="https://github.com/Codeception/Codeception/tree/2.0/docs">Help us to improve documentation. Edit it on GitHub</a></div>

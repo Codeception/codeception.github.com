@@ -3,13 +3,9 @@ layout: doc
 title: Dbh Module - Codeception - Documentation
 ---
 
-
-
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Module/Dbh.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Dbh.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Dbh.md"><strong>2.1</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Dbh.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Dbh.md">1.8</a></div>
-
 # Dbh Module
 
-**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/Dbh.php)**
+**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Dbh.php)**
 
 
 This module replaces Db module for functional and unit testing, and requires PDO instance to be set.
@@ -49,7 +45,7 @@ This module despite of it's stability may act unstable because of transactions i
 
 #### Example
 
-    modules:
+    modules: 
        enabled: [Dbh]
        config:
           Dbh:
@@ -135,4 +131,4 @@ Fails if no such user found.
  * `param`       $table
  * `param array` $criteria
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/Dbh.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Dbh.php">Help us to improve documentation. Edit module reference</a></div>

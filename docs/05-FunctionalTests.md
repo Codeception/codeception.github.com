@@ -32,7 +32,7 @@ As you see you can use same tests for functional and acceptance testing.
 
 ## Pitfalls
 
-Acceptance tests are usually much slower than functional tests. But functional tests are less stable as they run Codeception and application in one environment. If your application was not designed to run in long living process, for instance you use `exit` operator or global variables, probably functional tests are not for you. 
+Acceptance tests are usually much slower than functional tests. But functional tests are less stable as they run Codeception and application in one environment.
 
 #### Headers, Cookies, Sessions
 
@@ -56,7 +56,6 @@ To start you need to include one of the framework modules in suite config file: 
 
 To perform Symfony2 integrations you don't need to install any bundles or do any configuration changes.
 You just need to include the `Symfony2` module into your test suite. If you also use Doctrine2, don't forget to include it too.
-To make Doctrine2 module connect using `doctrine` service from Symfony DIC you should specify Symfony2 module as a dependency for Doctrine2.  
 
 Example of `functional.suite.yml`
 
@@ -64,11 +63,7 @@ Example of `functional.suite.yml`
 
 class_name: FunctionalTester
 modules:
-    enabled: 
-        - Symfony2
-        - Doctrine2:
-            depends: Symfony2 # connect to Symfony
-        - \Helper\Functional
+    enabled: [Symfony2, Doctrine2, TestHelper] 
 
 {% endhighlight %}
 
@@ -78,19 +73,15 @@ The module uses the Symfony Profiler to provide additional information and asser
 
 [See the full reference](http://codeception.com/docs/modules/Symfony2)
 
-### Laravel
+### Laravel 4
 
-[Laravel4](http://codeception.com/docs/modules/Laravel4) and [Laravel5](http://codeception.com/docs/modules/Laravel5) 
-modules included, and require no configuration.
-
+[Laravel](http://codeception.com/docs/modules/Laravel4) module requires no configuration and can be easily set up.
 
 {% highlight yaml %}
 
 class_name: FunctionalTester
 modules:
-    enabled: 
-        - Laravel5
-        - \Helper\Functional
+    enabled: [Laravel4, TestHelper]
 
 {% endhighlight %}
 
@@ -109,9 +100,7 @@ To use it with Yii include `Yii1` module into config.
 
 class_name: FunctionalTester
 modules:
-    enabled: 
-        - Yii1
-        - \Helper\Functional
+    enabled: [Yii1, TestHelper]
 
 {% endhighlight %}
 
@@ -126,9 +115,7 @@ Use [ZF2](http://codeception.com/docs/modules/ZF2) module to run functional test
 
 class_name: FunctionalTester
 modules:
-    enabled: 
-        - ZF2
-        - \Helper\Functional
+    enabled: [ZF2, TestHelper]
 
 {% endhighlight %}
 
@@ -143,9 +130,7 @@ Example of `functional.suite.yml`
 
 class_name: FunctionalTester
 modules:
-    enabled: 
-        - ZF1
-        - \Helper\Functional 
+    enabled: [ZF1, TestHelper] 
 
 {% endhighlight %}
 
@@ -159,10 +144,10 @@ modules:
 
 class_name: FunctionalTester
 modules:
-    enabled:
-        - Phalcon1:
+    enabled: [Phalcon1, FunctionalHelper]
+    config:
+        Phalcon1
             bootstrap: 'app/config/bootstrap.php'
-        - \Helper\Functional
 
 {% endhighlight %}
 
@@ -230,18 +215,19 @@ Framework modules also contain additional methods to access framework internals.
 
 Take a look at the complete reference for module you are using. Most of its methods are common for all modules but some of them are unique.
 
-Also you can access framework globals inside a test or access Dependency Injection containers inside `Helper\Functional` class.
+Also you can access framework globals inside a test or access Dependency Injection containers inside `FunctionalHelper` class.
 
 {% highlight php %}
 
 <?php
-namespace Helper;
-
-class Functional extends \Codeception\Module
+class FunctionalHelper extends \Codeception\Module
 {
     function doSomethingWithMyService()
     {
-        $service = $this->getModule('Symfony2')->grabServiceFromContainer('myservice');
+        $service = $this->getModule('Symfony2') // lookup for Symfony 2 module
+            ->container // get current DI container
+            ->get('my_service'); // access a service
+
         $service->doSomething();
     }
 }
@@ -249,7 +235,9 @@ class Functional extends \Codeception\Module
 
 {% endhighlight %}
 
-Check also all available *Public Properties* of used modules to get full access to its data. 
+We accessed Symfony2 internal kernel and took a service out of container. We also created custom method in `FunctionalTester` class which can be used in tests.
+
+You can learn more about accessing framework you use by checking *Public Properties* section in the reference for the corresponding module. 
 
 ## Error Reporting
 
@@ -261,9 +249,7 @@ The error reporting level can be set in the suite configuration file:
 
 class_name: FunctionalTester
 modules:
-    enabled: 
-        - Yii1
-        - \Helper\Functional
+    enabled: [Yii1, TestHelper]
 error_level: "E_ALL & ~E_STRICT & ~E_DEPRECATED"
 
 {% endhighlight %}
@@ -280,5 +266,5 @@ If you are using a framework other than the ones listed here, create a module fo
 
 
 
-* **Next Chapter: [UnitTests >](/docs/05-UnitTests)**
-* **Previous Chapter: [< AcceptanceTests](/docs/03-AcceptanceTests)**
+* **Next Chapter: [UnitTests >](/docs/06-UnitTests)**
+* **Previous Chapter: [< AcceptanceTests](/docs/04-AcceptanceTests)**<p>&nbsp;</p><div class="alert alert-warning">Docs are incomplete? Outdated? Or you just found a typo? <a href="https://github.com/Codeception/Codeception/tree/2.0/docs">Help us to improve documentation. Edit it on GitHub</a></div>

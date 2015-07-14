@@ -1,66 +1,32 @@
 ---
 layout: doc
-title: Symfony2 Module - Codeception - Documentation
+title: Kohana Module - Codeception - Documentation
 ---
 
-# Symfony2 Module
+# Kohana Module
 
-**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Symfony2.php)**
+**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Kohana.php)**
 
 
-This module uses Symfony2 Crawler and HttpKernel to emulate requests and test response.
-
-### Demo Project
-
-<https://github.com/DavertMik/SymfonyCodeceptionApp>
+This module provides integration with [Kohana](http://kohanaframework.org/) v3.
+Functional tests can be run inside Kohana. All commands of this module are just the same as in other modules that share Framework interface.
 
 ### Status
 
-* Maintainer: **davert**
-* Stability: **stable**
-* Contact: codecept@davert.mail.ua
+* Maintainer: **Nikita Groshin**
+* Stability: **alpha**
+* Contact: nike-17@ya.ru
 
-### Config
+#### Installation
 
-#### Symfony 2.x
+This module sets $_SERVER['KOHANA_ENV'] = 'testing'
 
-* app_path: 'app' - specify custom path to your app dir, where bootstrap cache and kernel interface is located.
-* environment: 'local' - environment used for load kernel
-* debug: true - turn on/off debug mode
+1. Fix your bootstrap/index.php [like this](https://gist.github.com/2043592)
+2. You need install this module https://github.com/nike-17/codeception-kohana
+  or just fix your Cookie class like this https://github.com/nike-17/codeception-kohana/blob/master/classes/cookie.php 
+3. if you have some problem pls feel free to ask me nike-17@ya.ru
 
-
-#### Example (`functional.suite.yml`) - Symfony 2.x Directory Structure
-
-    modules: 
-       enabled: [Symfony2]
-       config:
-          Symfony2:
-             app_path: 'app/front'
-             environment: 'local_test'
-
-#### Symfony 3.x Directory Structure
-
-* app_path: 'app' - specify custom path to your app dir, where the kernel interface is located.
-* var_path: 'var' - specify custom path to your var dir, where bootstrap cache is located.
-* environment: 'local' - environment used for load kernel
-* debug: true - turn on/off debug mode
-
-#### Example (`functional.suite.yml`) - Symfony 3 Directory Structure
-
-    modules:
-       enabled: [Symfony2]
-       config:
-          Symfony2:
-             app_path: 'app/front'
-             var_path: 'var'
-             environment: 'local_test'
-
-
-### Public Properties
-
-* kernel - HttpKernel instance
-* client - current Crawler instance
-* container - dependency injection container instance
+Module is created by [Nikita Groshin](nike-17@ya.ru)
 
 
 
@@ -449,22 +415,6 @@ $uri = $I->grabFromCurrentUrl();
  * `internal param` $url
 
 
-#### grabServiceFromContainer
- 
-Grabs a service from Symfony DIC container.
-Recommended to use for unit testing.
-
-{% highlight php %}
-
-<?php
-$em = $I->grabServiceFromContainer('doctrine');
-?>
-
-{% endhighlight %}
-
- * `param` $service
-
-
 #### grabTextFrom
  
 Finds and returns the text contents of the given element.
@@ -609,13 +559,6 @@ $I->seeElement(['css' => 'form input'], ['name' => 'login']);
  * `param` $selector
  * `param array` $attributes
 @return
-
-
-#### seeEmailIsSent
- 
-Checks if any email were sent by last request
-
- \LogicException
 
 
 #### seeInCurrentUrl
@@ -1105,4 +1048,4 @@ $I->uncheckOption('#notify');
 
  * `param` $option
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Symfony2.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Kohana.php">Help us to improve documentation. Edit module reference</a></div>

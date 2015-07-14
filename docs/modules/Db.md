@@ -3,13 +3,9 @@ layout: doc
 title: Db Module - Codeception - Documentation
 ---
 
-
-
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Module/Db.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Db.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Db.md"><strong>2.1</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Db.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Db.md">1.8</a></div>
-
 # Db Module
 
-**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/Db.php)**
+**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Db.php)**
 
 
 Works with SQL database.
@@ -59,20 +55,19 @@ Check out drivers if you get problems loading dumps and cleaning databases.
 * dump - path to database dump.
 * populate: true - should the dump be loaded before test suite is started.
 * cleanup: true - should the dump be reloaded after each test
-* reconnect: false - should the module reconnect to database before each test
 
 #### Example
 
     modules:
-       enabled:
-          - Db:
+       enabled: [Db]
+       config:
+          Db:
              dsn: 'mysql:host=localhost;dbname=testdb'
              user: 'root'
              password: ''
              dump: 'tests/_data/dump.sql'
              populate: true
              cleanup: false
-             reconnect: true
 
 ### Public Properties
 * dbh - contains PDO connection.
@@ -176,21 +171,4 @@ Fails if no such user found.
  * `param`       $table
  * `param array` $criteria
 
-
-#### seeNumRecords
- 
-Asserts that found number of records in database
-
-{% highlight php %}
-
-<?php
-$I->seeNumRecords(1, 'users', ['name' => 'davert'])
-?>
-
-{% endhighlight %}
-
- * `param int`    $num      Expected number
- * `param string` $table    Table name
- * `param array`  $criteria Search criteria [Optional]
-
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/Db.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Db.php">Help us to improve documentation. Edit module reference</a></div>

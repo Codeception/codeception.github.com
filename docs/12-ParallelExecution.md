@@ -17,12 +17,7 @@ Codeception does not provide a command like `run-parallel`. There is no common s
 * Will they use different hosts?
 * How should I split my tests across parallel processes?
 
-There are two approaches to achieve parallelization. We can use [Docker](http://docker.com) and run each process inside isolated containers, and have those containers executed simultaneously. 
-
-<div class="alert alert-warning">
-Docker works really well for isolating testing environments. 
-By the time of writing this chapter, we didn't have an awesome tool like it. This chapter demonstrates how to manage parallel execution manually. As you will see we spend too much effort trying to isolate tests which Docker does for free. Today we **recommend using Docker** for parallel testing.
-</div>
+And we don't have a single answer for you to any of those questions. Instead, we provide you with a customizable solution which can be easily configured to match your needs. Also, we will share some ideas that you might find helpful.
 
 ## What to do
 
@@ -107,12 +102,13 @@ $ robo
 Robo version 0.4.4
 ---
 Available commands:
-  help                     Displays help 
+  help                     Displays help for a command
   list                     Lists commands
 parallel
   parallel:merge-results   
   parallel:run             
   parallel:split-tests     
+
 
 {% endhighlight %}
 
@@ -353,4 +349,4 @@ Codeception does not provide tools for parallel test execution. This is a comple
 
 
 
-* **Previous Chapter: [< Codecoverage](/docs/11-Codecoverage)**
+* **Previous Chapter: [< Codecoverage](/docs/11-Codecoverage)**<p>&nbsp;</p><div class="alert alert-warning">Docs are incomplete? Outdated? Or you just found a typo? <a href="https://github.com/Codeception/Codeception/tree/2.0/docs">Help us to improve documentation. Edit it on GitHub</a></div>

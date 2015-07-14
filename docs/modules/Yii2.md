@@ -3,13 +3,9 @@ layout: doc
 title: Yii2 Module - Codeception - Documentation
 ---
 
-
-
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Module/Yii2.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Yii2.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Yii2.md"><strong>2.1</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Yii2.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Yii2.md">1.8</a></div>
-
 # Yii2 Module
 
-**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/Yii2.php)**
+**For additional reference, please review the [source](https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Yii2.php)**
 
 
 This module provides integration with [Yii framework](http://www.yiiframework.com/) (2.0).
@@ -25,15 +21,11 @@ You can use this module by setting params in your functional.suite.yml:
 <pre>
 class_name: TestGuy
 modules:
-    enabled:
-        - Yii2:
+    enabled: [Yii2, TestHelper]
+    config:
+        Yii2:
             configFile: '/path/to/config.php'
 </pre>
-
-### Parts
-
-* ORM - include only haveRecord/grabRecord/seeRecord/dontSeeRecord actions
-
 
 ### Status
 
@@ -373,7 +365,6 @@ $I->dontSeeRecord('app\models\User', array('name' => 'davert'));
 
  * `param` $model
  * `param array` $attributes
-@part orm
 
 
 #### fillField
@@ -441,10 +432,6 @@ $uri = $I->grabFromCurrentUrl();
  * `internal param` $url
 
 
-#### grabMultiple
-__not documented__
-
-
 #### grabRecord
  
 Retrieves record from database
@@ -457,7 +444,6 @@ $category = $I->grabRecord('app\models\User', array('name' => 'davert'));
 
  * `param` $model
  * `param array` $attributes
-@part orm
 
 
 #### grabTextFrom
@@ -500,7 +486,6 @@ $user_id = $I->haveRecord('app\models\User', array('name' => 'Davert'));
 
  * `param` $model
  * `param array` $attributes
-@part orm
 
 
 #### resetCookie
@@ -643,7 +628,7 @@ $I->seeInCurrentUrl('/users/');
 
 #### seeInField
  
-Checks that the given input field or textarea contains the given value.
+Checks that the given input field or textarea contains the given value. 
 For fuzzy locators, fields are matched by label text, the "name" attribute, CSS, and XPath.
 
 {% highlight php %}
@@ -781,9 +766,9 @@ $I->seeNumberOfElements('tr', [0,10]); //between 0 and 10 elements
 
 {% endhighlight %}
  * `param` $selector
- * `param mixed` $expected :
+ * `param mixed` $expected:
 - string: strict number
-- array: range of numbers [0,10]
+- array: range of numbers [0,10]  
 
 
 #### seeOptionIsSelected
@@ -820,7 +805,6 @@ $I->seeRecord('app\models\User', array('name' => 'davert'));
 
  * `param` $model
  * `param array` $attributes
-@part orm
 
 
 #### seeResponseCodeIs
@@ -932,6 +916,8 @@ $I->setCookie('PHPSESSID', 'el4ukv0kqbvoirg7nkp4dncpk3');
  * `param` $name
  * `param` $val
  * `param array` $params
+ * `internal param` $cookie
+ * `internal param` $value
 
 
 
@@ -1123,4 +1109,4 @@ $I->uncheckOption('#notify');
 
  * `param` $option
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/Yii2.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.0/src/Codeception/Module/Yii2.php">Help us to improve documentation. Edit module reference</a></div>

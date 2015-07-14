@@ -76,107 +76,6 @@ As you see, Cest class have no parents like `\Codeception\TestCase\Test` or `PHP
 
 Also you can define `_failed` method in Cest class which will be called if test finishes with `error` or fails.
 
-## Dependency Injection
-
-Codeception supports simple dependency injection for Cest and \Codeception\TestCase\Test classes. It means that you can specify which classes you need as parameters of the special `_inject()` method, and Codeception will automatically create the respective objects and invoke this method, passing all dependencies as arguments. This may be useful when working with Helpers, for example:
-
-{% highlight php %}
-
-<?php
-class SignUpCest
-{
-    /**
-     * @var Helper\SignUp
-     */
-    protected $signUp;
-
-    /**
-     * @var Helper\NavBarHelper
-     */
-    protected $navBar;
- 
-    protected function _inject(\Helper\SignUp $signUp, \Helper\NavBar $navBar)
-    {
-        $this->signUp = $signUp;
-        $this->navBar = $navBar;
-    }
-    
-    public function signUp(\AcceptanceTester $I)
-    {
-        $I->wantTo('sign up');
- 
-        $this->navBar->click('Sign up');
-        $this->signUp->register([
-            'first_name'            => 'Joe',
-            'last_name'             => 'Jones',
-            'email'                 => 'joe@jones.com',
-            'password'              => '1234',
-            'password_confirmation' => '1234'
-        ]);
-    }
-}
-?>
-
-{% endhighlight %}
-
-Example of Test class:
-
-{% highlight php %}
-
-<?php
-class MathTest extends \Codeception\TestCase\Test
-{
-   /**
-    * @var \UnitTester
-    */
-    protected $tester;
-
-    /**
-     * @var Helper\Math
-     */
-    protected $math;
-
-    protected function _inject(\Helper\Math $math)
-    {
-        $this->math = $math;
-    }
-
-    public function testAll()
-    {
-        $this->assertEquals(3, $this->math->add(1, 2));
-        $this->assertEquals(1, $this->math->subtract(3, 2));
-    }
-}
-?>
-
-{% endhighlight %}
-
-However, Dependency Injection is not limited to this. It allows you to **inject any class**, which can be constructed with arguments known to Codeception.
-
-In order to make auto-wiring work, you will need to implement `_inject()` method with the list of desired arguments. It is important to speicfy the type of arguments, so Codeception can guess which objects are expected to be received. The `_inject()` will be invoked just once right after creation of the TestCase object (either Cest or Test). Dependency Injection will also work in a similar manner for Helper and Actor classes.
-
-Each test of Cest class can declare its own dependencies and receive them from method arguments:
-
-{% highlight php %}
-
-<?php
-class UserCest
-{
-    function updateUser(\Helper\User $u, \AcceptanceTester $I, \Page\User $userPage)
-    {
-        $user = $u->createDummyUser();
-        $userPage->login($user->getName(), $user->getPassword());
-        $userPage->updateProfile(['name' => 'Bill']);
-        $I->see('Profile was saved');
-        $I->see('Profile of Bill','h1');
-    }
-}
-?>
-
-{% endhighlight %}
-
-Moreover, Codeception can resolve dependencies recursively (when `A` depends on `B`, and `B` depends on `C` etc.) and handle parameters of primitive types with default values (like `$param = 'default'`). Of course, you are not allowed to have *cyclic dependencies*.
-
 ### Before/After Annotations
 
 You can control execution flow with `@before` and `@after` annotations. You may move common actions into protected (non-test) methods and invoke them before or after the test method by putting them into annotations. It is possible to invoke several methods by using more than one `@before` or `@after` annotation. Methods are invoked in order from top to bottom.
@@ -222,179 +121,6 @@ class ModeratorCest {
 {% endhighlight %}
 
 You can also use `@before` and `@after` for included functions. But you can't have multiple annotations of the same kind for single method - one method can have only one `@before` and only one `@after` annotation.
-
-## Environments
-
-For cases where you need to run tests with different configurations you can define different config environments.
-The most typical use cases are running acceptance tests in different browsers, or running database tests using different database engines.
-
-Let's demonstrate usage of environments for the browsers case.
-
-We need to add new lines to `acceptance.suite.yml`:
-
-{% highlight yaml %}
-
-class_name: AcceptanceTester
-modules:
-    enabled:
-        - WebDriver
-        - \Helper\Acceptance
-    config:
-        WebDriver:
-            url: 'http://127.0.0.1:8000/'
-            browser: 'firefox'
-
-env:
-    phantom:
-         modules:
-            config:
-                WebDriver:
-                    browser: 'phantomjs'
-
-    chrome:
-         modules:
-            config:
-                WebDriver:
-                    browser: 'chrome'
-
-    firefox:
-        # nothing changed
-
-{% endhighlight %}
-
-Basically you can define different environments inside the `env` root, name them (`phantom`, `chrome` etc.),
-and then redefine any configuration parameters that were set before.
-
-You can also define environments in separate configuration files placed in the directory specified by `envs` option in
-`paths` configuration:
-
-{% highlight yaml %}
-
-paths:
-    envs: tests/_envs
-
-{% endhighlight %}
-
-Names of these files are used as environments names (e.g. `chrome.yml` or `chrome.dist.yml` for environment named `chrome`). 
-You can generate a new file with environment configuration using `generate:environment` command:
-
-{% highlight bash %}
-
-$ php codecept.phar g:env chrome
-
-{% endhighlight %}
-
-and in there you can just specify options that you wish to override:
-
-{% highlight yaml %}
-
-modules:
-    config:
-        WebDriver:
-            browser: 'chrome'
-
-{% endhighlight %}
-
-Environment configuration files are merged into the main configuration before suite configuration is merged.
-
-You can easily switch between those configs by running tests with `--env` option. To run tests only for PhantomJS you need to pass `--env phantom` option:
-
-{% highlight bash %}
-
-$ php codecept.phar run acceptance --env phantom
-
-{% endhighlight %}
-
-To run tests in all 3 browsers, just list all the environments:
-
-{% highlight bash %}
-
-$ php codecept.phar run acceptance --env phantom --env chrome --env firefox
-
-{% endhighlight %}
-
-and tests will be executed 3 times, each time in a different browser.
-
-It's also possible to merge multiple environments into one configuration by using comma as a separator:
-
-{% highlight bash %}
-
-$ php codecept.phar run acceptance --env dev,phantom --env dev,chrome --env dev,firefox
-
-{% endhighlight %}
-
-Configuration is merged in the given order. This way you can easily create multiple combinations of your environment configurations.
-
-Depending on environment you may choose which tests are to be executed.
-For example, you might need some tests to be executed only in Firefox, and a few tests only in Chrome.
-
-Desired environments can be specified with `@env` annotation for tests in Test and Cest formats:
-
-{% highlight php %}
-
-<?php
-class UserCest
-{
-    /**
-     * This test will be executed only in 'firefox' and 'phantom' environments
-     *
-     * @env firefox
-     * @env phantom
-     */
-    public function webkitOnlyTest(AcceptanceTester $I)
-    {
-        // I do something
-    }
-}
-?>
-
-{% endhighlight %}
-
-For Cept you should use `$scenario->env()`:
-
-{% highlight php %}
-
-<?php
-$scenario->env('firefox');
-$scenario->env('phantom');
-// or
-$scenario->env(['phantom', 'firefox']);
-?>
-
-{% endhighlight %}
-
-If merged environments are used, then you can specify multiple required environments (order is ignored):
-
-{% highlight php %}
-
-<?php
-$scenario->env('firefox,dev');
-$scenario->env('dev,phantom');
-?>
-
-{% endhighlight %}
-
-This way you can easily control which tests will be executed for each environments.
-
-### Current values
-
-Sometimes you may need to change test behavior in realtime. For instance, behavior of the same test may differ in Firefox and in Chromium.
-In runtime we can receive current environment name, test name, or list of enabled modules by calling `$scenario->current()` method.
-    
-{% highlight php %}
-
-<?php
-// retrieve current environment
-$scenario->current('env'); 
-
-// list of all enabled modules
-$scenario->current('modules'); 
-
-// test name
-$scenario->current('name');
-?>
-
-{% endhighlight %}
 
 ### Depends Annotation
 
@@ -492,9 +218,9 @@ In this case all tests that belongs to groups `admin` and `editor` will be execu
 $scenario->group('admin');
 $scenario->group('editor');
 // or
-$scenario->group(['admin', 'editor']);
+$scenario->group(array('admin', 'editor'))
 // or
-$scenario->groups(['admin', 'editor'])
+$scenario->groups(array('admin', 'editor'))
 
 $I = new AcceptanceTester($scenario);
 $I->wantToTest('admin area');
@@ -560,34 +286,361 @@ groups:
 
 This will load all found `p*` files in `tests/_data` as groups.
 
+## Refactoring
 
-## Custom Reporters
+As the test base grows, tests will require refactoring to share common variables and behaviors. The classical example is a `login` action which may be called for every test of your test suite. It would be wise to write it once and use it in all tests.
 
-In order to customize output you can use Extensions, as it is done in [SimpleOutput Extension](https://github.com/Codeception/Codeception/blob/master/ext%2FSimpleOutput.php).
-But what if you need to change output format of XML or JSON results triggered with `--xml` or `--json` options?
-Codeception uses printers from PHPUnit and overrides some of them. If you need to customize one of standard reporters you can override them too.
-If you are thinking on implementing your own reporter you should add `reporters` section to `codeception.yml` and override one of standard printer classes to your own:
+It's pretty obvious that for such cases you can use your own PHP classes to define such methods.
 
-{% highlight yaml %}
+{% highlight php %}
 
-reporters: 
-    xml: Codeception\PHPUnit\Log\JUnit
-    html: Codeception\PHPUnit\ResultPrinter\HTML
-    tap: PHPUnit_Util_Log_TAP
-    json: PHPUnit_Util_Log_JSON
-    report: Codeception\PHPUnit\ResultPrinter\Report
+<?php
+class TestCommons
+{
+    public static $username = 'john';
+    public static $password = 'coltrane';
+
+    public static function logMeIn($I)
+    {
+        $I->amOnPage('/login');
+        $I->fillField('username', self::$username);
+        $I->fillField('password', self::$password);
+        $I->click('Enter');
+    }
+}
+?>
 
 {% endhighlight %}
 
-All reporters implement [PHPUnit_Framework_TestListener](https://phpunit.de/manual/current/en/extending-phpunit.html#extending-phpunit.PHPUnit_Framework_TestListener) interface.
-It is recommended to read the code of original reporter before overriding it.
+Then this file can be required in `_bootstrap.php` file:
+
+{% highlight php %}
+
+<?php
+// bootstrap
+require_once '/path/to/test/commons/TestCommons.php';
+?>
+
+{% endhighlight %}
+
+and used in your scenarios:
+
+{% highlight php %}
+
+<?php
+$I = new AcceptanceTester($scenario);
+TestCommons::logMeIn($I);
+?>
+
+{% endhighlight %}
+
+If you caught the idea, let's learn some built-in features for structuring your test code. We will discover implementation of `PageObject` and `StepObject` patterns in Codeception.
+
+## PageObjects
+
+[PageObject pattern](http://code.google.com/p/selenium/wiki/PageObjects) is widely used by test automation engineers. The PageObject pattern represents a web page as a class and the DOM elements on that page as its properties, and some basic interactions as its methods.
+PageObjects are very important when you are developing a flexible architecture of your tests. Please do not hardcode complex CSS or XPath locators in your tests but rather move them into PageObject classes.
+
+Codeception can generate a PageObject class for you with command:
+
+{% highlight bash %}
+
+$ php codecept.phar generate:pageobject Login
+
+{% endhighlight %}
+
+This will create a `LoginPage` class in `tests/_pages`. The basic PageObject is nothing more then empty class with a few stubs.
+It is expected you will get it populated with UI locators of a page it represents and then those locators will be used on a page.
+Locators are represented with public static properties:
+
+{% highlight php %}
+
+<?php
+class LoginPage
+{
+    public static $URL = '/login';
+
+    public static $usernameField = '#mainForm #username';
+    public static $passwordField = '#mainForm input[name=password]';
+    public static $loginButton = '#mainForm input[type=submit]';
+}
+?>
+
+{% endhighlight %}
+
+And this is how this page object can be used in a test:
+
+{% highlight php %}
+
+<?php
+$I = new AcceptanceTester($scenario);
+$I->wantTo('login to site');
+$I->amOnPage(LoginPage::$URL);
+$I->fillField(LoginPage::$usernameField, 'bill evans');
+$I->fillField(LoginPage::$passwordField, 'debby');
+$I->click(LoginPage::$loginButton);
+$I->see('Welcome, bill');
+?>
+
+{% endhighlight %}
+As you see, you can freely change markup of your login page, and all the tests interacting with this page will have their locators updated according to properties of LoginPage class.
+
+But let's move further. A PageObject concept also defines that methods for the page interaction should also be stored in a PageObject class.
+This can't be done in `LoginPage` class we just generated. Because this class is accessible across all test suites, we do not know which Actor class will be used for interaction. Thus, we will need to generate another page object. In this case we will explicitly define the suite to be used:
+
+{% highlight bash %}
+
+$ php codecept.phar generate:pageobject acceptance UserLogin
+
+{% endhighlight %}
+
+*We called this class UserLogin for not to get into conflict with Login class we created before.*
+
+This generated `UserLoginPage` class looks almost the same way as LoginPage class we had before with one difference. It now stores passed instance of Actor class. An AcceptanceTester can be accessed via `AcceptanceTester` property of that class. Let's define a `login` method in this class.
+
+{% highlight php %}
+
+<?php
+class UserLoginPage
+{
+    // include url of current page
+    public static $URL = '/login';
+
+    /**
+     * @var AcceptanceTester
+     */
+    protected $AcceptanceTester;
+
+    public function __construct(AcceptanceTester $I)
+    {
+        $this->AcceptanceTester = $I;
+    }
+
+    public static function of(AcceptanceTester $I)
+    {
+        return new static($I);
+    }
+
+    public function login($name, $password)
+    {
+        $I = $this->AcceptanceTester;
+
+        $I->amOnPage(self::$URL);
+        $I->fillField(LoginPage::$usernameField, $name);
+        $I->fillField(LoginPage::$passwordField, $password);
+        $I->click(LoginPage::$loginButton);
+
+        return $this;
+    }    
+}
+?>
+
+{% endhighlight %}
+
+And here is an example of how this PageObject can be used in a test.
+
+{% highlight php %}
+
+<?php
+$I = new AcceptanceTester($scenario);
+UserLoginPage::of($I)->login('bill evans', 'debby');
+?>
+
+{% endhighlight %}
+
+Probably we should merge the `UserLoginPage` and `LoginPage` classes as they do play the same role. But `LoginPage` can be used both in functional and acceptance tests, when `UserLoginPage` only in tests with `AcceptanceTester`. So it's up to you to use global page objects or local per suite page objects. If you feel like your functional tests have much in common with acceptance tests, you should store locators in global PageObject class and use StepObjects as an alternative to behavioral PageObjects.
+
+## StepObjects
+
+StepObjects pattern came from BDD frameworks. StepObject class contains a bunch of common actions that may be used widely in different tests.
+The `login` method we used above can be a good example of such method. Similarly actions for creating/updating/deleting resources should be moved to StepObject too. Let's create a StepObject class and see what it looks like.
+
+Lets create `Member` Steps class, generator will prompt you for methods to include, so let's add `login` to it.
+
+{% highlight bash %}
+
+$ php codecept.phar generate:stepobject acceptance Member
+
+{% endhighlight %}
+
+You will be asked to enter action names, but it's optional. Enter one at a time, and press Enter. After specifying all needed actions, leave empty line to go on to StepObject creation.
+
+{% highlight bash %}
+
+$ php codecept.phar generate:stepobject acceptance Member
+Add action to StepObject class (ENTER to exit): login
+Add action to StepObject class (ENTER to exit):
+StepObject was created in <you path>/tests/acceptance/_steps/MemberSteps.php
+
+{% endhighlight %}
+
+It will generate class in `tests/acceptance/_steps/MemberSteps.php` similar to this:
+
+{% highlight php %}
+
+<?php
+namespace AcceptanceTester;
+
+class MemberSteps extends \AcceptanceTester
+{
+    public function login()
+    {
+        $I = $this;
+
+    }
+}
+?>
+
+{% endhighlight %}
+
+As you see, this class is very simple. It extends `AcceptanceTester` class, thus, all methods and properties of `AcceptanceTester` are available for usage in it.
+
+`login` method can be implemented like this:
+
+{% highlight php %}
+
+<?php
+namespace AcceptanceTester;
+
+class MemberSteps extends \AcceptanceTester
+{
+    public function login($name, $password)
+    {
+        $I = $this;
+        $I->amOnPage(\LoginPage::$URL);
+        $I->fillField(\LoginPage::$usernameField, $name);
+        $I->fillField(\LoginPage::$passwordField, $password);
+        $I->click(\LoginPage::$loginButton);
+    }
+}
+?>
+
+{% endhighlight %}
+
+In tests you can use a StepObject by instantiating `MemberSteps` class instead of `AcceptanceTester`.
+
+{% highlight php %}
+
+<?php
+$I = new AcceptanceTester\MemberSteps($scenario);
+$I->login('bill evans', 'debby');
+?>
+
+{% endhighlight %}
+
+As you see, StepObject class looks much simpler and readable then classical PageObject. 
+As an alternative to StepObject we could use methods of `AcceptanceHelper` class. In a helper we do not have access to `$I` object itself, thus it's better to use Helpers to implement new actions, and StepObjects to combine common scenarios.
+
+## Environments
+
+For cases where you need to run tests with different configurations you can define different config environments.
+The most typical use cases are running acceptance tests in different browsers, or running database tests using different database engines.
+
+Let's demonstrate usage of environments for the browsers case.
+
+We need to add new lines to `acceptance.suite.yml`:
+
+{% highlight yaml %}
+
+class_name: AcceptanceTester
+modules:
+    enabled:
+        - WebDriver
+        - AcceptanceHelper
+    config:
+        WebDriver:
+            url: 'http://127.0.0.1:8000/'
+            browser: 'firefox'
+
+env:
+    phantom:
+         modules:
+            config:
+                WebDriver:
+                    browser: 'phantomjs'
+
+    chrome:
+         modules:
+            config:
+                WebDriver:
+                    browser: 'chrome'
+
+    firefox:
+        # nothing changed
+
+{% endhighlight %}
+
+At first these config trees may look ugly, but it is the cleanest way of doing this.
+Basically you can define different environments inside the `env` root, name them (`phantom`, `chrome` etc.),
+and then redefine any configuration parameters that were set before.
+
+You can easily switch between those configs by running tests with `--env` option. To run tests only for PhantomJS you need to pass `--env phantom` option:
+
+{% highlight bash %}
+
+$ php codecept.phar run acceptance --env phantom
+
+{% endhighlight %}
+
+To run tests in all 3 browsers, just list all the environments:
+
+{% highlight bash %}
+
+$ php codecept.phar run acceptance --env phantom --env chrome --env firefox
+
+{% endhighlight %}
+
+and tests will be executed 3 times, each time in a different browser.
+
+Depending on environment you may choose which tests are to be executed.
+For example, you might need some tests to be executed only in Firefox, and few tests only in Chrome.
+
+Desired environments can be specified with `@env` annotation for tests in Test and Cest formats:
+
+{% highlight php %}
+
+<?php
+class UserCest
+{
+    /**
+     * This test will be executed only in 'firefox' and 'phantom' environments
+     *
+     * @env firefox
+     * @env phantom
+     */
+    public function webkitOnlyTest(AcceptanceTester $I)
+    {
+        // I do something
+    }
+}
+?>
+
+{% endhighlight %}
+
+For Cept you should use `$scenario->env()`:
+
+{% highlight php %}
+
+<?php
+$scenario->env('firefox');
+$scenario->env('phantom');
+// or
+$scenario->env(array('phantom', 'firefox'));
+?>
+
+{% endhighlight %}
+
+This way you can easily control what tests will be executed for which browsers.
+
 
 ## Conclusion
 
-Codeception is a framework which may look simple at first glance. But it allows you to build powerful tests with a single API, refactor them, and write them faster using the interactive console. Codeception tests can be easily organized in groups or Cest classes.
+Codeception is a framework which may look simple at first glance. But it allows you to build powerful tests with single API, refactor them, and write them faster using interactive console. Codeception tests can be easily organized in groups or Cest classes, locators can be stored in PageObjects and common steps can be combined in StepObjects.
+
+Probably it has too much features for one framework. But nevertheless Codeception follows the KISS principle: it's easy to start, easy to learn, and easy to extend.
 
 
 
 
 * **Next Chapter: [Customization >](/docs/08-Customization)**
-* **Previous Chapter: [< ReusingTestCode](/docs/06-ReusingTestCode)**
+* **Previous Chapter: [< UnitTests](/docs/06-UnitTests)**<p>&nbsp;</p><div class="alert alert-warning">Docs are incomplete? Outdated? Or you just found a typo? <a href="https://github.com/Codeception/Codeception/tree/2.0/docs">Help us to improve documentation. Edit it on GitHub</a></div>

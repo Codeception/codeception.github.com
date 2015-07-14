@@ -65,34 +65,63 @@ This will launch test suites for all 3 applications and merge the reports from a
 
 If your applications uses same helpers, follow the next section of this chapter.
 
-## Extension
+## Autoload Helper classes
+
+There is global `_bootstrap.php` file. This file is included at the very beginning of execution. We recommend to use it to initialize autoloaders and constants. It is especially useful if you want to include Modules or Helper classes that are not stored in `tests/_helpers` directory.
+
+{% highlight php %}
+
+<?php
+require_once __DIR__.'/../lib/tests/helpers/MyHelper.php';
+?>
+
+{% endhighlight %}
+
+Alternatively you can use Composer's autoloader. Codeception has its autoloader too.
+It's not PSR-0 compatible (yet), but it is still very useful when you need to declare alternative path for Helper classes:
+
+{% highlight php %}
+
+<?php
+Codeception\Util\Autoload::registerSuffix('Helper', __DIR__.'/../lib/tests/helpers');
+?>
+
+{% endhighlight %}
+
+Now all classes with suffix `Helper` will be additionally searched in `__DIR__.'/../lib/tests/helpers'. You can declare to load helpers of specific namespace. 
+
+{% highlight php %}
+
+<?php
+Codeception\Util\Autoload::register('MyApp\\Test', 'Helper', __DIR__.'/../lib/tests/helpers');
+?>
+
+{% endhighlight %}
+
+That will point autoloader to look for classes like `MyApp\Test\MyHelper` in path `__DIR__.'/../lib/tests/helpers'`.
+
+Alternatively you can use autoloader to specify path for **PageObject and Controller** classes, if they have appropriate suffixes in their names.
+
+Example of `tests/_bootstrap.php` file:
+
+{% highlight php %}
+
+<?php
+Codeception\Util\Autoload::register('MyApp\\Test', 'Helper', __DIR__.'/../lib/tests/helpers');
+Codeception\Util\Autoload::register('MyApp\\Test', 'Page', __DIR__.'/pageobjects');
+Codeception\Util\Autoload::register('MyApp\\Test', 'Controller', __DIR__.'/controller');
+?>
+
+{% endhighlight %}
+
+## Extension classes
+
+<div class="alert">This section requires advanced PHP skills and some knowledge of Codeception and PHPUnit internals.</div>
 
 Codeception has limited capabilities to extend its core features.
 Extensions are not supposed to override current functionality, but are pretty useful if you are experienced developer and you want to hook into testing flow.
 
-By default, one `RunFailed` Extension is already enabled in your global `codeception.yml`. 
-It allows you to rerun failed tests with `-g failed` option:
-   
-{% highlight php %}
- codecept.phar run -g failed
-
-{% endhighlight %}
-
-Codeception comes with bundled extensions located in `ext` directory. For instance, you can enable Logger extension to log test exection with Monolog 
-
-{% highlight yaml %}
-
-extensions:
-    enabled:
-        - Codeception\Extension\RunFailed # default extension
-        - Codeception\Extension\Logger # enabled extension
-    config:
-        Codeception\Extension\Logger:
-            max_files: 5 # logger configuration
-
-{% endhighlight %}
-
-But what are extensions, anyway? Basically speaking, Extensions are nothing more then event listeners based on [Symfony Event Dispatcher](http://symfony.com/doc/current/components/event_dispatcher/introduction.html) component.
+Basically speaking, Extensions are nothing more then event listeners based on [Symfony Event Dispatcher](http://symfony.com/doc/current/components/event_dispatcher/introduction.html) component.
 
 Here are the events and event classes. The events are listed in order they happen during execution. Each event has a corresponding class, which is passed to listener, and contains specific objects.
 
@@ -119,12 +148,12 @@ Here are the events and event classes. The events are listed in order they happe
 
 There may be a confusion between `test.start`/`test.before` and `test.after`/`test.end`. Start/end events are triggered by PHPUnit itself. But before/after events are triggered by Codeception. Thus, when you have classical PHPUnit test (extended from `PHPUnit_Framework_TestCase`), before/after events won't be triggered for them. On `test.before` event you can mark test as skipped or incomplete, which is not possible in `test.start`. You can learn more from [Codeception internal event listeners](https://github.com/Codeception/Codeception/tree/master/src/Codeception/Subscriber).
 
-The extension class itself is inherited from `Codeception\Extension`.
+The extension class itself is inherited from `Codeception\Platform\Extension`.
 
 {% highlight php %}
 
 <?php
-class MyCustomExtension extends \Codeception\Extension
+class MyCustomExtension extends \Codeception\Platform\Extension
 {
     // list events to listen to
     public static $events = array(
@@ -157,14 +186,19 @@ Extensions have some basic methods you can use:
 * `write` - prints to screen
 * `writeln` - prints to screen with line end char at the end
 * `getModule` - allows you to access a module
-* `hasModule` - checks if module is enabled
-* `getModuleNames` - list all enabled modules
 * `_reconfigure` - can be implemented instead of overriding constructor. 
 
 ### Enabling Extension
 
-Once you've implemented a simple extension class, you can require it in `tests/_bootstrap.php`, 
-load with Composer's autoloader defined in `composer.json`, or store class inside `tests/_support`dir.
+Once you've implemented a simple extension class, you should include it in `tests/_bootstrap.php` file:
+
+{% highlight php %}
+
+<?php
+include_once '/path/to/my/MyCustomExtension.php';
+?>
+
+{% endhighlight %}
 
 Then you can enable it in `codeception.yml`:
 
@@ -172,6 +206,7 @@ Then you can enable it in `codeception.yml`:
 
 extensions:
     enabled: [MyCustomExtension]
+
 
 {% endhighlight %}
 
@@ -196,9 +231,9 @@ Passed configuration is accessible via `config` property: `$this->config['param'
 
 Check out a very basic extension [Notifier](https://github.com/Codeception/Notifier).
 
-## Group Objects
+## Group Classes
 
-Group Objects are extensions listening to events of a tests belonging to a specific group.
+Group Classes are extensions listening to events of a tests belonging to a specific group.
 When a test is added to a group:
 
 {% highlight php %}
@@ -219,14 +254,12 @@ This test will trigger events:
 * `test.fail.admin`
 * `test.after.admin`
 
-A group object is built to listen to these events. It is pretty useful when additional setup is required for some of your tests. Let's say you want to load fixtures for tests that belong to `admin` group:
+A group class is built to listen to these events. It is pretty useful when additional setup is required for some of your tests. Let's say you want to load fixtures for tests that belong to `admin` group:
 
 {% highlight php %}
 
 <?php
-namespace Group;
-
-class Admin extends \Codeception\GroupObject
+class AdminGroup extends \Codeception\Platform\Group
 {
     public static $group = 'admin';
 
@@ -251,14 +284,14 @@ class Admin extends \Codeception\GroupObject
 {% endhighlight %}
 
 A group class can be created with `php codecept.phar generate:group groupname` command.
-Group class will be stored in `tests/_support/Group` directory.
+Group class will be stored in `tests/_groups` directory.
 
 A group class can be enabled just like you enable extension class. In file `codeception.yml`:
 
 {% highlight yaml %}
 
 extensions:
-    enabled: [Group\Admin]    
+    enabled: [AdminGroup]    
 
 {% endhighlight %}
 
@@ -266,10 +299,10 @@ Now Admin group class will listen to all events of tests that belong to the `adm
 
 ## Conclusion
 
-Each feature mentioned above may dramatically help when using Codeception to automate testing of large projects, although some features may require advanced knowledge of PHP. There is no "best practice" or "use cases" when we talk about groups, extensions, or other powerful features of Codeception. If you see you have a problem that can be solved using these extensions, then give them a try.
+Each feature mentioned above may dramatically help when using Codeception to automate testing of large projects, although some features may require advanced knowledge of PHP. There is no "best practice" or "use cases" when we talk about groups, extensions, or other powerful features of Codeception. If you see you have a problem that can be solved using these extensions, then give them a try. 
 
 
 
 
 * **Next Chapter: [Data >](/docs/09-Data)**
-* **Previous Chapter: [< AdvancedUsage](/docs/07-AdvancedUsage)**
+* **Previous Chapter: [< AdvancedUsage](/docs/07-AdvancedUsage)**<p>&nbsp;</p><div class="alert alert-warning">Docs are incomplete? Outdated? Or you just found a typo? <a href="https://github.com/Codeception/Codeception/tree/2.0/docs">Help us to improve documentation. Edit it on GitHub</a></div>
