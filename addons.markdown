@@ -104,6 +104,10 @@ WordPress specific extensions of PHPBrowser and Db modules to allow for more str
 
 An extended Webdriver Browser to navigate through Joomla sites with Codeception.
 
+#### [TestStatistics](https://github.com/redCOMPONENT-COM/teststatistics#teststatistics)
+
+TestStatistics is a Codeception Extension to measure the performance of your tests. The extension lists your slower steps, probably meaning that the used locator is not performant. Is a smart tool to improve the speed of your Acceptance tests, and serves as example to create your own reporting extensions.
+
 ---
 
 ## IDE Plugins
