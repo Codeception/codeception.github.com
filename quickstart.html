@@ -97,12 +97,13 @@ $I->see('Home');
           <b>dev server</b>is running. &nbsp;Put application URL into:&nbsp;
           <b>tests/acceptance.suite.yml</b>&nbsp;</p>
         <div>
-          <pre>class_name: AcceptanceGuy 
-modules: 
-enabled: [PhpBrowser, AcceptanceHelper]
-config: 
-  PhpBrowser:
-      url: '<b>{YOUR APP'S URL}</b>'
+          <pre>
+class_name: AcceptanceTester
+modules:
+    enabled:
+        - PhpBrowser:
+            url: {YOUR APP'S URL}
+        - \Helper\Acceptance
           </pre>
         </div>
       </div>
