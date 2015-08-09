@@ -17,7 +17,7 @@ Place `codeception.yml` file into root folder of your project and specify paths 
 {% highlight yaml %}
 
 include:
-  - frontend
+  - frontend/src/*Bundle
   - admin
   - api/rest
 paths:
@@ -27,7 +27,12 @@ settings:
 
 {% endhighlight %}
 
+
 You should also specify path to `log` directory, where the reports and logs will be stored.
+
+<div class="alert alert-notice">
+Wildcards (*) can be used to specify multiple directories at once.
+</div>
 
 ### Namespaces
 

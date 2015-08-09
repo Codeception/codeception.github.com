@@ -5,51 +5,66 @@ title: Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Module/Silex.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Silex.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Silex.md"><strong>2.1</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Silex.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Silex.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Module/Phalcon2.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Phalcon2.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Phalcon2.md"><strong>2.1</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Phalcon2.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Phalcon2.md">1.8</a></div>
 
 
 
 
-Module for testing Silex applications like you would regularly do with Silex\WebTestCase.
-This module uses Symfony2 Crawler and HttpKernel to emulate requests and get response.
+This module provides integration with [Phalcon framework](http://www.phalconphp.com/) (2.x).
+Please try it and leave your feedback.
+The module is based on the Phalcon1 module.
 
-This module may be considered experimental and require feedback and pull requests from you )
+### Demo Project
+
+<https://github.com/phalcon/forum>
 
 ### Status
 
-* Maintainer: **davert**
-* Stability: **alpha**
-* Contact: davert.codecept@resend.cc
+* Maintainer: **Serghei Iakovlev**
+* Stability: **dev**
+* Contact: sadhooklay@gmail.com
+
+### Example
+
+    modules:
+        enabled:
+            - Phalcon2:
+                bootstrap: 'app/config/bootstrap.php'
+                cleanup: true
+                savepoints: true
 
 ### Config
 
-* app: **required** - path to Silex bootstrap file.
+The following configurations are required for this module:
+* boostrap: the path of the application bootstrap file</li>
+* cleanup: cleanup database (using transactions)</li>
+* savepoints: use savepoints to emulate nested transactions</li>
 
-#### Bootstrap File
+The application bootstrap file must return Application object but not call its handle() method.
 
-Bootstrap is the same as [WebTestCase.createApplication](http://silex.sensiolabs.org/doc/testing.html#webtestcase) should be.
+Sample bootstrap (`app/config/bootstrap.php`):
 
 {% highlight php %}
 
-<?
-$app = require __DIR__.'/path/to/app.php';
-$app['debug'] = true;
-$app['exception_handler']->disable();
-
-return $app; // optionally
+<?php
+$config = include __DIR__ . "/config.php";
+include __DIR__ . "/loader.php";
+$di = new \Phalcon\DI\FactoryDefault();
+include __DIR__ . "/services.php";
+return new \Phalcon\Mvc\Application($di);
 ?>
 
 {% endhighlight %}
 
-#### Example (`functional.suite.yml`)
+### API
 
-    modules:
-       enabled:
-          - Silex:
-             app: 'app/bootstrap.php'
+* di - `Phalcon\Di\Injectable` instance
+* client - `BrowserKit` client
 
-Class Silex
-@package Codeception\Module
+### Parts
+
+* ORM - include only haveRecord/grabRecord/seeRecord/dontSeeRecord actions
+
 
 
 #### _findElements
@@ -67,10 +82,10 @@ Use it in Helpers or GroupObject or Extension classes:
 {% highlight php %}
 
 <?php
-$els = $this->getModule('Silex')->_findElements('.items');
-$els = $this->getModule('Silex')->_findElements(['name' => 'username']);
+$els = $this->getModule('Phalcon2')->_findElements('.items');
+$els = $this->getModule('Phalcon2')->_findElements(['name' => 'username']);
 
-$editLinks = $this->getModule('Silex')->_findElements(['link' => 'Edit']);
+$editLinks = $this->getModule('Phalcon2')->_findElements(['link' => 'Edit']);
 // now you can iterate over $editLinks and check that all them have valid hrefs
 
 {% endhighlight %}
@@ -90,7 +105,7 @@ Saves page source of to a file
 
 {% highlight php %}
 
-$this->getModule('Silex')->_savePageSource(codecept_output_dir().'page.html');
+$this->getModule('Phalcon2')->_savePageSource(codecept_output_dir().'page.html');
 
 {% endhighlight %}
  * `param` $filename
@@ -416,6 +431,22 @@ $I->dontSeeOptionIsSelected('#form input[name=payment]', 'Visa');
 
 
 
+#### dontSeeRecord
+ 
+Checks that record does not exist in database.
+
+{% highlight php %}
+
+<?php
+$I->dontSeeRecord('Phosphorum\Models\Categories', ['name' => 'Testing']);
+?>
+
+{% endhighlight %}
+
+ * `param string` $model Model name
+ * `param array` $attributes Model attributes
+
+
 #### fillField
  
 Fills a text field or textarea with the given string.
@@ -485,20 +516,31 @@ $uri = $I->grabFromCurrentUrl();
 __not documented__
 
 
-#### grabService
+#### grabRecord
  
-Return an instance of a class from the Container.
+Retrieves record from database
 
-Example
 {% highlight php %}
 
 <?php
-$I->grabService('session');
+$category = $I->grabRecord('Phosphorum\Models\Categories', ['name' => 'Testing']);
 ?>
 
 {% endhighlight %}
 
- * `param`  string $service
+ * `param string` $model Model name
+ * `param array` $attributes Model attributes
+* Part: ** orm**
+
+
+#### grabServiceFromDi
+ 
+Resolves the service based on its configuration from Phalcon's DI container
+Recommended to use for unit testing.
+
+ * `param string` $service    Service name
+ * `param array`  $parameters Parameters [Optional]
+
 
 
 #### grabTextFrom
@@ -525,6 +567,52 @@ $value = $I->grabTextFrom('~<input value=(.*?)]~sgi'); // match with a regex
  * `param` $field
 
  * `return` array|mixed|null|string
+
+
+#### haveInSession
+ 
+Sets value to session. Use for authorization.
+
+ * `param string` $key
+ * `param mixed` $val
+
+
+#### haveRecord
+ 
+Inserts record into the database.
+
+{% highlight php %}
+
+<?php
+$user_id = $I->haveRecord('Phosphorum\Models\Users', ['name' => 'Phalcon']);
+$I->haveRecord('Phosphorum\Models\Categories', ['name' => 'Testing']');
+?>
+
+{% endhighlight %}
+
+ * `param string` $model Model name
+ * `param array` $attributes Model attributes
+* Part: ** orm**
+
+
+#### haveServiceInDi
+ 
+Registers a service in the services container and resolve it. This record will be erased after the test.
+Recommended to use for unit testing.
+
+{% highlight php %}
+
+<?php
+$filter = $I->haveServiceInDi('filter', ['className' => '\Phalcon\Filter']);
+?>
+
+{% endhighlight %}
+
+ * `param string` $name
+ * `param mixed` $definition
+ * `param boolean` $shared
+
+ * `return` mixed|null
 
 
 #### resetCookie
@@ -758,6 +846,15 @@ $I->seeInFormFields('//form[@id=my-form]', $form);
  * `param` $params
 
 
+#### seeInSession
+ 
+Checks that session contains value.
+If value is `null` checks that session has key.
+
+ * `param string` $key
+ * `param mixed` $value
+
+
 #### seeInTitle
  
 Checks that the page title contains the given string.
@@ -830,6 +927,22 @@ $I->seeOptionIsSelected('#form input[name=payment]', 'Visa');
 #### seePageNotFound
  
 Asserts that current page has 404 response status code.
+
+
+#### seeRecord
+ 
+Checks that record exists in database.
+
+{% highlight php %}
+
+<?php
+$I->seeRecord('Phosphorum\Models\Categories', ['name' => 'Testing']);
+?>
+
+{% endhighlight %}
+
+ * `param string` $model Model name
+ * `param array` $attributes Model attributes
 
 
 #### seeResponseCodeIs
@@ -1132,4 +1245,4 @@ $I->uncheckOption('#notify');
 
  * `param` $option
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/Silex.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/Phalcon2.php">Help us to improve documentation. Edit module reference</a></div>

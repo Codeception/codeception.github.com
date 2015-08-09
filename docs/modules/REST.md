@@ -59,7 +59,7 @@ Adds Bearer authentication via access token.
 
  * `param` $accessToken
 @part json
-@part xml
+* Part: ** xml**
 
 
 #### amDigestAuthenticated
@@ -69,7 +69,7 @@ Adds Digest authentication via username/password.
  * `param` $username
  * `param` $password
 @part json
-@part xml
+* Part: ** xml**
 
 
 #### amHttpAuthenticated
@@ -79,7 +79,7 @@ Adds HTTP authentication via username/password.
  * `param` $username
  * `param` $password
 @part json
-@part xml
+* Part: ** xml**
 
 
 #### dontSeeHttpHeader
@@ -90,7 +90,7 @@ its value, asserting that are not there
  * `param` $name
  * `param` $value
 @part json
-@part xml
+* Part: ** xml**
 
 
 #### dontSeeResponseCodeIs
@@ -108,7 +108,7 @@ Checks whether last response do not contain text.
 
  * `param` $text
 @part json
-@part xml
+* Part: ** xml**
 
 
 #### dontSeeResponseContainsJson
@@ -124,7 +124,7 @@ Opposite to seeResponseContainsJson
 Opposite to seeResponseJsonMatchesJsonPath
 
  * `param array` $jsonPath
-@part json
+* Part: ** json**
 
 
 #### dontSeeXmlResponseEquals
@@ -135,7 +135,7 @@ Comparison is done by canonicalizing both xml`s.
 Parameter can be passed either as XmlBuilder, DOMDocument, DOMNode, XML string, or array (if no attributes).
 
  * `param` $xml
-@part xml
+* Part: ** xml**
 
 
 #### dontSeeXmlResponseIncludes
@@ -145,7 +145,7 @@ Comparison is done by canonicalizing both xml`s.
 Parameter can be passed either as XmlBuilder, DOMDocument, DOMNode, XML string, or array (if no attributes).
 
  * `param` $xml
-@part xml
+* Part: ** xml**
 
 
 #### dontSeeXmlResponseMatchesXpath
@@ -170,7 +170,7 @@ Element is matched by either CSS or XPath
  * `param` $cssOrXPath
  * `param` $attribute
 @return string
-@part xml
+* Part: ** xml**
 
 
 #### grabDataFromJsonResponse
@@ -204,7 +204,7 @@ $I->sendPUT('/user', array('id' => $firstUser[0], 'name' => 'davert'));
 @return array
 @version 2.0.9
 @throws \Exception
-@part json
+* Part: ** json**
 
 
 #### grabHttpHeader
@@ -216,7 +216,7 @@ Returns the value of the specified header name
 
  * `return string|array The first header value if` $first is true, an array of values otherwise
 @part json
-@part xml
+* Part: ** xml**
 
 
 #### grabResponse
@@ -237,7 +237,7 @@ $I->sendPUT('/user', array('id' => $user_id, 'name' => 'davert'));
 @version 1.1
 @return string
 @part json
-@part xml
+* Part: ** xml**
 
 
 #### grabTextContentFromXmlElement
@@ -247,7 +247,7 @@ Element is matched by either CSS or XPath
 
  * `param` $cssOrXPath
 @return string
-@part xml
+* Part: ** xml**
 
 
 #### haveHttpHeader
@@ -257,7 +257,7 @@ Sets HTTP header
  * `param` $name
  * `param` $value
 @part json
-@part xml
+* Part: ** xml**
 
 
 #### seeHttpHeader
@@ -268,7 +268,7 @@ its value, asserting that are there
  * `param` $name
  * `param` $value
 @part json
-@part xml
+* Part: ** xml**
 
 
 #### seeHttpHeaderOnce
@@ -287,7 +287,7 @@ $I->seeHttpHeaderOnce('Cache-Control');
 
  * `param` $name
 @part json
-@part xml
+* Part: ** xml**
 
 
 #### seeResponseCodeIs
@@ -305,7 +305,7 @@ Checks whether the last response contains text.
 
  * `param` $text
 @part json
-@part xml
+* Part: ** xml**
 
 
 #### seeResponseContainsJson
@@ -333,7 +333,7 @@ $I->seeResponseContainsJson(array('email' => 'john@gmail.com'));
 This method recursively checks if one array can be found inside of another.
 
  * `param array` $json
-@part json
+* Part: ** json**
 
 
 #### seeResponseEquals
@@ -350,7 +350,7 @@ Checks if response is exactly the same as provided.
 Checks whether last response was valid JSON.
 This is done with json_last_error function.
 
-@part json
+* Part: ** json**
 
 
 #### seeResponseIsXml
@@ -358,7 +358,7 @@ This is done with json_last_error function.
 Checks whether last response was valid XML.
 This is done with libxml_get_last_error function.
 
-@part xml
+* Part: ** xml**
 
 
 #### seeResponseJsonMatchesJsonPath
@@ -464,7 +464,7 @@ Comparison is done by canonicalizing both xml`s.
 Parameters can be passed either as DOMDocument, DOMNode, XML string, or array (if no attributes).
 
  * `param` $xml
-@part xml
+* Part: ** xml**
 
 
 #### seeXmlResponseIncludes
@@ -508,7 +508,7 @@ Sends DELETE request to given uri.
  * `param array` $params
  * `param array` $files
 @part json
-@part xml
+* Part: ** xml**
 
 
 #### sendGET
@@ -518,7 +518,7 @@ Sends a GET request to given uri.
  * `param` $url
  * `param array` $params
 @part json
-@part xml
+* Part: ** xml**
 
 
 #### sendHEAD
@@ -528,7 +528,7 @@ Sends a HEAD request to given uri.
  * `param` $url
  * `param array` $params
 @part json
-@part xml
+* Part: ** xml**
 
 
 #### sendLINK
@@ -542,7 +542,7 @@ Sends LINK request to given uri.
 
 @author samva.ua@gmail.com
 @part json
-@part xml
+* Part: ** xml**
 
 
 #### sendOPTIONS
@@ -552,7 +552,7 @@ Sends an OPTIONS request to given uri.
  * `param` $url
  * `param array` $params
 @part json
-@part xml
+* Part: ** xml**
 
 
 #### sendPATCH
@@ -563,7 +563,7 @@ Sends PATCH request to given uri.
  * `param array` $params
  * `param array` $files
 @part json
-@part xml
+* Part: ** xml**
 
 
 #### sendPOST
@@ -576,7 +576,7 @@ Parameters and files (as array of filenames) can be provided.
  * `param array|\JsonSerializable` $params
  * `param array` $files
 @part json
-@part xml
+* Part: ** xml**
 
 
 #### sendPUT
@@ -587,7 +587,7 @@ Sends PUT request to given uri.
  * `param array` $params
  * `param array` $files
 @part json
-@part xml
+* Part: ** xml**
 
 
 #### sendUNLINK
@@ -599,6 +599,6 @@ Sends UNLINK request to given uri.
 @link http://tools.ietf.org/html/rfc2068#section-19.6.2.4
 @author samva.ua@gmail.com
 @part json
-@part xml
+* Part: ** xml**
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/REST.php">Help us to improve documentation. Edit module reference</a></div>

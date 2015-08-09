@@ -63,6 +63,7 @@ Use it in Helpers or GroupObject or Extension classes:
 
 {% highlight php %}
 
+<?php
 $els = $this->getModule('Laravel5')->_findElements('.items');
 $els = $this->getModule('Laravel5')->_findElements(['name' => 'username']);
 
@@ -226,6 +227,19 @@ $I->click(['link' => 'Login']);
 
  * `param` $link
  * `param` $context
+
+
+#### disableMiddleware
+ 
+Disable middleware for the next requests.
+
+{% highlight php %}
+
+<?php
+$I->disableMiddleware();
+?>
+
+{% endhighlight %}
 
 
 #### dontSee
@@ -474,7 +488,20 @@ $I->dontSeeRecord('users', array('name' => 'davert'));
 
  * `param` $tableName
  * `param array` $attributes
-@part orm
+* Part: ** orm**
+
+
+#### enableMiddleware
+ 
+Enable middleware for the next requests.
+
+{% highlight php %}
+
+<?php
+$I->enableMiddleware();
+?>
+
+{% endhighlight %}
 
 
 #### fillField
@@ -567,7 +594,7 @@ $category = $I->grabRecord('users', array('name' => 'davert'));
 
  * `param` $tableName
  * `param array` $attributes
-@part orm
+* Part: ** orm**
 
 
 #### grabService
@@ -636,7 +663,7 @@ $user_id = $I->haveRecord('users', array('name' => 'Davert'));
 
  * `param` $tableName
  * `param array` $attributes
-@part orm
+* Part: ** orm**
 
 
 #### logout
@@ -1072,7 +1099,7 @@ $I->seeRecord('users', array('name' => 'davert'));
 
  * `param` $tableName
  * `param array` $attributes
-@part orm
+* Part: ** orm**
 
 
 #### seeResponseCodeIs

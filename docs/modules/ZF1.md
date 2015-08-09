@@ -82,6 +82,7 @@ Use it in Helpers or GroupObject or Extension classes:
 
 {% highlight php %}
 
+<?php
 $els = $this->getModule('ZF1')->_findElements('.items');
 $els = $this->getModule('ZF1')->_findElements(['name' => 'username']);
 

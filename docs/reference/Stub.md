@@ -30,7 +30,7 @@ $user->getName();
 
  * `return`  StubMarshaler
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L659)
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L663)
 
 #### *public static* consecutive() 
 
@@ -50,7 +50,7 @@ $user->getName(); //amy
 
  * `return`  ConsecutiveMap
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L722)
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L726)
 
 #### *public static* construct($class, $constructorParams = null, $params = null, $testCase = null) 
 
@@ -63,7 +63,7 @@ Even protected and private properties can be set.
 
 <?php
 Stub::construct('User', array('autosave' => false));
-Stub::construct('User', array('autosave' => false), array('name' => 'davert));
+Stub::construct('User', array('autosave' => false), array('name' => 'davert'));
 ?>
 
 {% endhighlight %}
@@ -73,7 +73,7 @@ Accepts either name of class or object of that class
 {% highlight php %}
 
 <?php
-Stub::construct(new User, array('autosave' => false), array('name' => 'davert));
+Stub::construct(new User, array('autosave' => false), array('name' => 'davert'));
 ?>
 
 {% endhighlight %}
@@ -109,7 +109,7 @@ Even protected and private properties can be set.
 
 <?php
 Stub::constructEmpty('User', array('autosave' => false));
-Stub::constructEmpty('User', array('autosave' => false), array('name' => 'davert));
+Stub::constructEmpty('User', array('autosave' => false), array('name' => 'davert'));
 ?>
 
 {% endhighlight %}
@@ -119,7 +119,7 @@ Accepts either name of class or object of that class
 {% highlight php %}
 
 <?php
-Stub::constructEmpty(new User, array('autosave' => false), array('name' => 'davert));
+Stub::constructEmpty(new User, array('autosave' => false), array('name' => 'davert'));
 ?>
 
 {% endhighlight %}
@@ -155,7 +155,7 @@ Even protected and private properties can be set.
 
 <?php
 Stub::constructEmptyExcept('User', 'save');
-Stub::constructEmptyExcept('User', 'save', array('autosave' => false), array('name' => 'davert));
+Stub::constructEmptyExcept('User', 'save', array('autosave' => false), array('name' => 'davert'));
 ?>
 
 {% endhighlight %}
@@ -165,7 +165,7 @@ Accepts either name of class or object of that class
 {% highlight php %}
 
 <?php
-Stub::constructEmptyExcept(new User, 'save', array('autosave' => false), array('name' => 'davert));
+Stub::constructEmptyExcept(new User, 'save', array('autosave' => false), array('name' => 'davert'));
 ?>
 
 {% endhighlight %}
@@ -227,7 +227,7 @@ $user->getName();
 
  * `return`  StubMarshaler
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L689)
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L693)
 
 #### *public static* factory($class, $num = null, $params = null) 
 
@@ -251,7 +251,7 @@ Even protected and private properties can be set.
 
 <?php
 Stub::make('User');
-Stub::make('User', array('name' => 'davert));
+Stub::make('User', array('name' => 'davert'));
 ?>
 
 {% endhighlight %}
@@ -261,7 +261,7 @@ Accepts either name of class or object of that class
 {% highlight php %}
 
 <?php
-Stub::make(new User, array('name' => 'davert));
+Stub::make(new User, array('name' => 'davert'));
 ?>
 
 {% endhighlight %}
@@ -282,7 +282,7 @@ Stub::make('User', array('save' => true }));
  * `param bool|\PHPUnit_Framework_TestCase` $testCase
 
  * `return`  object - mock
- * `throws`  \RuntimeException when class not exists
+ * `throws`  \RuntimeException when class does not exist
 
 [See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L44)
 
@@ -297,7 +297,7 @@ Even protected and private properties can be set.
 
 <?php
 Stub::makeEmpty('User');
-Stub::makeEmpty('User', array('name' => 'davert));
+Stub::makeEmpty('User', array('name' => 'davert'));
 ?>
 
 {% endhighlight %}
@@ -307,7 +307,7 @@ Accepts either name of class or object of that class
 {% highlight php %}
 
 <?php
-Stub::makeEmpty(new User, array('name' => 'davert));
+Stub::makeEmpty(new User, array('name' => 'davert'));
 ?>
 
 {% endhighlight %}
@@ -397,7 +397,7 @@ $user->someMethod();
 
  * `return`  StubMarshaler
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L606)
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L610)
 
 #### *public static* once($params = null) 
 
@@ -421,7 +421,7 @@ $this->assertEquals('Davert', $userName);
 
  * `return`  StubMarshaler
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L633)
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L637)
 
 #### *public static* update($mock, array $params) 
 

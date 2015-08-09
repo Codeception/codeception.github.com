@@ -28,9 +28,9 @@ Configure modules in `api.suite.yml`:
 class_name: ApiTester
 modules:
     enabled:
-				- REST:
-				    url: http://serviceapp/api/v1/
-				    depends: PhpBrowser
+		- REST:
+			url: http://serviceapp/api/v1/
+			depends: PhpBrowser
 
 {% endhighlight %}
 
@@ -41,10 +41,10 @@ The REST module will connect to `PhpBrowser` according to this configuration. De
 class_name: ApiTester
 modules:
     enabled:
-				- REST:
-				    url: http://serviceapp/api/v1/
-				    depends: PhpBrowser
-				    part: Json
+		- REST:
+			url: http://serviceapp/api/v1/
+			depends: PhpBrowser
+			part: Json
 
 {% endhighlight %}
 
@@ -56,9 +56,9 @@ API tests can be functional and be executed using Symfony2, Laravel4, Laravel5, 
 class_name: ApiTester
 modules:
     enabled:
-				- REST:
-				    url: /api/v1/
-				    depends: Laravel5
+		- REST:
+			url: /api/v1/
+			depends: Laravel5
 
 {% endhighlight %}
 
@@ -191,9 +191,9 @@ Let's configure `SOAP` module to be used with `PhpBrowser`:
 class_name: ApiTester
 modules:
     enabled:
-				- SOAP:
-				    depends: PhpBrowser
-				    endpoint: http://serviceapp/api/v1/
+		- SOAP:
+			depends: PhpBrowser
+			endpoint: http://serviceapp/api/v1/
 
 {% endhighlight %}
 

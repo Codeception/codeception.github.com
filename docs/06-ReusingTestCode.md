@@ -273,10 +273,15 @@ But let's move further. A PageObject concept also defines that methods for the p
 {% highlight php %}
 
 <?php
-class UserLoginPage
+namespace Page;
+
+class Login
 {
-    // include url of current page
     public static $URL = '/login';
+
+    public static $usernameField = '#mainForm #username';
+    public static $passwordField = '#mainForm input[name=password]';
+    public static $loginButton = '#mainForm input[type=submit]';
 
     /**
      * @var AcceptanceTester
@@ -293,9 +298,9 @@ class UserLoginPage
         $I = $this->tester;
 
         $I->amOnPage(self::$URL);
-        $I->fillField(LoginPage::$usernameField, $name);
-        $I->fillField(LoginPage::$passwordField, $password);
-        $I->click(LoginPage::$loginButton);
+        $I->fillField(self::$usernameField, $name);
+        $I->fillField(self::$passwordField, $password);
+        $I->click(self::$loginButton);
 
         return $this;
     }    
@@ -309,8 +314,10 @@ And here is an example of how this PageObject can be used in a test.
 {% highlight php %}
 
 <?php
+use Page\Login as LoginPage;
+
 $I = new AcceptanceTester($scenario);
-$loginPage = new \Page\Login($I);
+$loginPage = new LoginPage($I);
 $loginPage->login('bill evans', 'debby');
 $I->amOnPage('/profile');
 $I->see('Bill Evans Profile', 'h1');

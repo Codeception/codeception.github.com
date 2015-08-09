@@ -98,7 +98,7 @@ Deletes a file
 
 #### dontSeeFileFound
  
-Checks if file does not exists in path
+Checks if file does not exist in path
 
  * `param` $filename
  * `param string` $path

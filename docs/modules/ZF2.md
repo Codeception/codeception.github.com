@@ -47,6 +47,7 @@ Use it in Helpers or GroupObject or Extension classes:
 
 {% highlight php %}
 
+<?php
 $els = $this->getModule('ZF2')->_findElements('.items');
 $els = $this->getModule('ZF2')->_findElements(['name' => 'username']);
 
@@ -463,6 +464,22 @@ $uri = $I->grabFromCurrentUrl();
 
 #### grabMultiple
 __not documented__
+
+
+#### grabServiceFromContainer
+ 
+Grabs a service from ZF2 container.
+Recommended to use for unit testing.
+
+{% highlight php %}
+
+<?php
+$em = $I->grabServiceFromContainer('Doctrine\ORM\EntityManager');
+?>
+
+{% endhighlight %}
+
+ * `param` $service
 
 
 #### grabTextFrom

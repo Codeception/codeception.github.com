@@ -51,6 +51,7 @@ Use it in Helpers or GroupObject or Extension classes:
 
 {% highlight php %}
 
+<?php
 $els = $this->getModule('Lumen')->_findElements('.items');
 $els = $this->getModule('Lumen')->_findElements(['name' => 'username']);
 

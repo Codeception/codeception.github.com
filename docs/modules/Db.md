@@ -72,6 +72,24 @@ Check out drivers if you get problems loading dumps and cleaning databases.
              cleanup: false
              reconnect: true
 
+#### SQL data dump
+
+ * Comments are permitted.
+ * The `dump.sql` may contain multiline statements.
+  * The delimiter, a semi-colon in this case, must be on the same line as the last statement:
+ 
+{% highlight sql %}
+
+-- Add a few contacts to the table.
+REPLACE INTO `Contacts` (`created`, `modified`, `status`, `contact`, `first`, `last`) VALUES
+(NOW(), NOW(), 1, 'Bob Ross', 'Bob', 'Ross'),
+(NOW(), NOW(), 1, 'Fred Flintstone', 'Fred', 'Flintstone');
+
+-- Remove existing orders for testing.
+DELETE FROM `Order`;
+
+{% endhighlight %}
+
 ### Public Properties
 * dbh - contains PDO connection.
 * driver - contains Connection Driver. See [list all available drivers](https://github.com/Codeception/Codeception/tree/master/src/Codeception/Util/Driver)

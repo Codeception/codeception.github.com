@@ -54,6 +54,7 @@ Use it in Helpers or GroupObject or Extension classes:
 
 {% highlight php %}
 
+<?php
 $els = $this->getModule('Yii2')->_findElements('.items');
 $els = $this->getModule('Yii2')->_findElements(['name' => 'username']);
 
@@ -414,7 +415,7 @@ $I->dontSeeRecord('app\models\User', array('name' => 'davert'));
 
  * `param` $model
  * `param array` $attributes
-@part orm
+* Part: ** orm**
 
 
 #### fillField
@@ -498,7 +499,7 @@ $category = $I->grabRecord('app\models\User', array('name' => 'davert'));
 
  * `param` $model
  * `param array` $attributes
-@part orm
+* Part: ** orm**
 
 
 #### grabTextFrom
@@ -541,7 +542,7 @@ $user_id = $I->haveRecord('app\models\User', array('name' => 'Davert'));
 
  * `param` $model
  * `param array` $attributes
-@part orm
+* Part: ** orm**
 
 
 #### resetCookie
@@ -861,7 +862,7 @@ $I->seeRecord('app\models\User', array('name' => 'davert'));
 
  * `param` $model
  * `param array` $attributes
-@part orm
+* Part: ** orm**
 
 
 #### seeResponseCodeIs

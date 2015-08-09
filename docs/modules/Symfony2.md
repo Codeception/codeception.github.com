@@ -14,7 +14,7 @@ This module uses Symfony2 Crawler and HttpKernel to emulate requests and test re
 
 ### Demo Project
 
-<https://github.com/DavertMik/SymfonyCodeceptionApp>
+<https://github.com/Codeception/symfony-demo>
 
 ### Status
 
@@ -33,12 +33,13 @@ This module uses Symfony2 Crawler and HttpKernel to emulate requests and test re
 *
 #### Example (`functional.suite.yml`) - Symfony 2.x Directory Structure
 
-    modules:
-       enabled: [Symfony2]
-       config:
-          Symfony2:
-             app_path: 'app/front'
-             environment: 'local_test'
+{% highlight yaml %}
+   modules:
+       - Symfony2:
+           app_path: 'app/front'
+           environment: 'local_test'
+
+{% endhighlight %}
 
 #### Symfony 3.x Directory Structure
 
@@ -80,6 +81,7 @@ Use it in Helpers or GroupObject or Extension classes:
 
 {% highlight php %}
 
+<?php
 $els = $this->getModule('Symfony2')->_findElements('.items');
 $els = $this->getModule('Symfony2')->_findElements(['name' => 'username']);
 

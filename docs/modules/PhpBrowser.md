@@ -34,7 +34,7 @@ If test fails stores last shown page in 'output' dir.
 * cookies - ...
 * auth - ...
 * verify - ...
-* .. those and other [Guzzle Request options](http://docs.guzzlephp.org/en/latest/clients.html#request-options)
+* .. those and other [Guzzle Request options](http://docs.guzzlephp.org/en/latest/request-options.html)
 
 
 #### Example (`acceptance.suite.yml`)
@@ -76,6 +76,7 @@ Use it in Helpers or GroupObject or Extension classes:
 
 {% highlight php %}
 
+<?php
 $els = $this->getModule('PhpBrowser')->_findElements('.items');
 $els = $this->getModule('PhpBrowser')->_findElements(['name' => 'username']);
 

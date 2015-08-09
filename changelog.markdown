@@ -7,14 +7,42 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.1.2
+
+* **Updated to PHPUnit 4.8**
+* Enhancement: **Wildcard includes enabled when testing [multiple applications](http://codeception.com/docs/08-Customization#One-Runner-for-Multiple-Applications)**. See <a href="https://github.com/Codeception/Codeception/issues/2016">#2016</a> By <strong><a href="https://github.com/nzod">@nzod</a></strong>
+* <strong>[Symfony2]</strong> fixed Doctrine2 integration: Doctrine transactions will start before each test and rollback afterwards. *2015-08-08*
+* <strong>[Doctrine2]</strong> establishing connection and starting transaction is moved to `_before`. *2015-08-08*
+* <strong>[PhpBrowser]</strong> Removed disabled and file fields from form values. By <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong> *2015-08-08*
+* <strong>[ZF2]</strong> Added grabServiceFromContainer function. By InVeX  *2015-08-08*
+* <strong>[PhpBrowser]</strong><strong>[Guzzle6]</strong> Disabled strict mode of CookieJar <a href="https://github.com/Codeception/Codeception/issues/2234">#2234</a> By <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong> *2015-08-04*
+* <strong>[Laravel5]</strong> Added `disableMiddleware()` and `enableMiddleware()` methods. By <strong><a href="https://github.com/janhenkgerritsen">@janhenkgerritsen</a></strong> *2015-08-07*
+* Enhancement: If a specific *ActorActions trait does not exist in `tests/_support/_generated` directory, it will be created automatically before run.
+* Enhancement: do not execute all included suites if you run one specific suite *2015-08-08*
+* `Extension\Recorder` navigate over slides with left and right arrow keys, do not create screenshots for comment steps.
+* `Extension\Recorder` generates index html for all saved records.
+* `Extension\Recorder` fixed for creating directories twice. Fixed <a href="https://github.com/Codeception/Codeception/issues/2216">#2216</a>
+* `Extension\Logger` fixed <a href="https://github.com/Codeception/Codeception/issues/2216">#2216</a>
+* Fixed injection of Helpers into Cest and Test files. See <a href="https://github.com/Codeception/Codeception/issues/2222">#2222</a>
+* `Stub::makeEmpty` on interfaces works again by <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>
+* Command `generate:scenarios` fixed for Cest files by <strong><a href="https://github.com/mkudenko">@mkudenko</a></strong> See <a href="https://github.com/Codeception/Codeception/issues/1962">#1962</a>
+* <strong>[Db]</strong> Quoted table name in Db::select, removed identical methods from child classes by <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/2231">#2231</a>
+* <strong>[WebDriver]</strong> added support for running tests on a remote server behind a proxy with `http_proxy` and `http_proxy_port` config options by <strong><a href="https://github.com/jdq22">@jdq22</a></strong> *2015-07-29*
+* <strong>[Laravel]</strong> Fixed issue with error handling for `haveRecord()` method in Laravel modules <a href="https://github.com/Codeception/Codeception/issues/2217">#2217</a> by <strong><a href="https://github.com/janhenkgerritsen">@janhenkgerritsen</a></strong> *2015-07-28*
+* Fixed displayed XML/HTML report path <a href="https://github.com/Codeception/Codeception/issues/2187">#2187</a> by <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong> *2015-07-27*
+* <strong>[WebDriver]</strong> Fixed `waitForElementChange` fatal error by <strong><a href="https://github.com/stipsan">@stipsan</a></strong>
+* <strong>[Db]</strong> Enhanced dollar quoting ($$) processing in PostgreSQL driver by <strong><a href="https://github.com/YasserHassan">@YasserHassan</a></strong> *2015-07-20*
+* <strong>[REST]</strong> Created tests for file-upload with REST module. By <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong> *2015-08-08*
+* <strong>[Lumen]</strong> Fixed issue where wrong request object was passed to the Lumen application by <strong><a href="https://github.com/janhenkgerritsen">@janhenkgerritsen</a></strong> *2015-07-18*
+
 #### 2.1.1
 
 * <strong>[WebDriver]</strong> **Upgraded to facebook/webdriver 1.0** *2015-07-11*
   WebDriver classes were moved to `Facebook\WebDriver` namespace. Please take that into account when using WebDriver API directly.
   Till 2.2 Codeception will keep non-namespaced aliases of WebDriver classes.
 * Module Reference now contains documentation for hidden API methods which should be used in Helper classes
-* Skipped and Incomplete tests won't fire `test.before` and `test.after` events. For instance, WebDriver browser with won't be started and Db cleanups won't be executed on skipped tests.
-* Annotations <pre>@skip</pre> and <pre>@incomplete</pre> enabled in Cest files <a href="https://github.com/Codeception/Codeception/issues/2131">#2131</a>
+* Skipped and Incomplete tests won't fire `test.before` and `test.after` events. For instance, WebDriver browser won't be started and Db cleanups won't be executed on incomplete or skipped tests.
+* Annotations `skip` and `incomplete` enabled in Cest files <a href="https://github.com/Codeception/Codeception/issues/2131">#2131</a>
 * <strong>[WebDriver]</strong><strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> `_findElements($locator)` method added to use in Helper classes *2015-07-11*
   Now you can use `$this->getModule('WebDriver')->findElements('.user');` in Helpers to match all elements with `user` class using WebDriver module
 * <strong>[PhpBrowser]</strong> Fixed `amOnUrl` method to open absolute URLs.
@@ -415,3 +443,4 @@ settings:
 * added extension to rerun failed tests
 * webdriver upgraded to 0.4
 * upgraded to PHPUnit 4
+
