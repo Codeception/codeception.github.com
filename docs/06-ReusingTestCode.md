@@ -185,7 +185,7 @@ In tests you can use a StepObject by instantiating `Step\Acceptance\Admin` inste
 {% highlight php %}
 
 <?php
-use Step/Acceptance/Admin as AdminTester;
+use Step\Acceptance\Admin as AdminTester;
 
 $I = new AdminTester($scenario);
 $I->loginAsAdmin();
@@ -343,7 +343,7 @@ class UserCest
 
 {% endhighlight %}
 
-The dependency nijection container can construct any object that require any known class type. For instance, `Page\Login` required `AcceptanceTester`, and so it was injected into `Page\Login` constructor, and PageObject was created and passed into method arguments. You should specify explicitly the types of requried objects for Codeception to know what objects should be created for a test. Dependency Injection will be described in the next chapter. 
+The dependency injection container can construct any object that require any known class type. For instance, `Page\Login` required `AcceptanceTester`, and so it was injected into `Page\Login` constructor, and PageObject was created and passed into method arguments. You should specify explicitly the types of requried objects for Codeception to know what objects should be created for a test. Dependency Injection will be described in the next chapter. 
 
 ## Modules and Helpers
 
