@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Using Codeception for Symfony projects"
+title: "Using Codeception for Symfony Projects"
 date: 2015-09-04 01:03:50
 ---
 
