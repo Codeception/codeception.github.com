@@ -6,7 +6,7 @@ date: 2015-09-04 01:03:50
 
 Codeception Testing Framework from its roots was a plugin of symfony 1 framework. Today Codeception is powered by Symfony components and can be used to run functional tests for practically any popular PHP framework. 
 
-Why would you someone ever choose Codeception if Symfony is already have mature testing infrastructure. Well, here are our reasons. Codeception tests are: 
+Why would you someone ever choose Codeception if Symfony already has mature testing infrastructure. Well, here are our reasons. Codeception tests are: 
 
 * **fast**, as each functional/integration test is wrapped into transaction using Doctrine ORM
 * **scenario-driven**, it means that tests are linear, described in easy to get PHP DSL
