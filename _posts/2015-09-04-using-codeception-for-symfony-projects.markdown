@@ -61,7 +61,11 @@ Unit tests of Codeception are not quite different from regular PHPUnit tests. Yo
 Let's have a test that will check that there is specific number of posts on a page. Symfony-demo app has the [similar test](https://github.com/symfony/symfony-demo/blob/master/src%2FAppBundle%2FTests%2FController%2FBlogControllerTest.php#L29) included:
 
 {% highlight php %} 
+<?php
+namespace AppBundle\Tests\Controller;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use AppBundle\Entity\Post;
+
 class BlogControllerTest extends WebTestCase
 {
   public function testIndex()
@@ -87,7 +91,10 @@ php bin/codecept g:cest functional BlogCest -c src/AppBundle
 And here goes the test:
 
 {% highlight php %} 
+<?php
+namespace AppBundle;
 use AppBundle\Entity\Post;
+
 class BlogCest 
 {
     public function postsOnIndexPage(FunctionalTester $I)
@@ -161,7 +168,7 @@ you will probably see that `BlogCest` of `AppBundle` was executed as it was expe
 
 ![tests](https://github.com/Codeception/symfony-demo/raw/2.1/app/data/demo.png)
 
-The most complex thing in starting using Codeception with Symfony is have it configured. Despite Codeception is auto-connecting to Symfony framework and Doctrine you still have to do some changes to follow Symfony structure. Please take a detailed look into [forked version of symfony-demo project](https://github.com/Codeception/symfony-demo) 
+The most complex thing in starting using Codeception with Symfony is have it configured. Despite Codeception is auto-connecting to Symfony framework and Doctrine you still have to do some changes to follow Symfony structure. Please **take a detailed look into [our forked version of symfony-demo project](https://github.com/Codeception/symfony-demo)** 
 which we configured in the manner we described in this post. Please use similar configuration for all your Symfony projects.
 
 Start using Codeception and discover how complex things can be tested in really simple manner. And once again, even functional and integration tests are really fast, as we start transaction before each test and rollback it afterwards. Write them as many as you need to, do not rely on unit tests only!
