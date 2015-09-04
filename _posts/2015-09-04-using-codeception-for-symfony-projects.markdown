@@ -173,4 +173,4 @@ which we configured in the manner we described in this post. Please use similar 
 
 Start using Codeception and discover how complex things can be tested in really simple manner. And once again, even functional and integration tests are really fast, as we start transaction before each test and rollback it afterwards. Write them as many as you need to, do not rely on unit tests only!
 
-**P.S.** Symfony2 and Doctrin2 module is seeking for an active maintainer. If you work with Symfony and Codeception please [contact us](http://codeception.com/credits) to join Codeception team!
+**P.S.** Symfony2 and Doctrine2 module is seeking for an active maintainer. If you work with Symfony and Codeception please [contact us](http://codeception.com/credits) to join Codeception team!
