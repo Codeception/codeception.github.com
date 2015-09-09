@@ -47,6 +47,10 @@ This module will let you test emails that are sent during your Codeception accep
 
 Codeception module to test email using Mailtrap.io
 
+#### [MailSMTP](https://github.com/AhmedSamy/codeception-smtp-mail) 
+
+This module will let you test emails using simple SMTP connection, with any provider that supports IMAP
+
 #### [Mockery](https://github.com/Codeception/MockeryModule)
 
 Integrates Mockery into Codeception tests.
