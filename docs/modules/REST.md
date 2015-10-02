@@ -547,11 +547,11 @@ $I->seeResponseIsJsonType([
 {% endhighlight %}
 
 You can also add custom filters y accessing `JsonType::addCustomFilter` method.
-See JsonType reference.
+See [JsonType reference](http://codeception.com/docs/reference/JsonType).
 
+@part json
 @version 2.1.3
  * `param array` $jsonType
-* Part: ** json**
 
 
 #### seeXmlResponseEquals
