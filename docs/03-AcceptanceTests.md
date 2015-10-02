@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Acceptance Testing - Codeception - Documentation
+title: 03-AcceptanceTests - Codeception - Documentation
 ---
 
 # Acceptance Testing

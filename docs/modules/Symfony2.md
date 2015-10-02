@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: switch to iframe - Codeception - Documentation
+title: Symfony2 - Codeception - Documentation
 ---
 
 

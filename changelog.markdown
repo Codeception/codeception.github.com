@@ -9,7 +9,7 @@ title: Codeception Changelog
 
 #### 2.1.3
 
-* <strong>[REST]</strong> Added matching data types by with new methods <a href="http://codeception.com/docs/modules/REST#seeResponseMatchesJsonType">seeResponseMatchesJsonType</a> and `dontSeeResponseMatchesJsonType`. See <a href="https://github.com/Codeception/Codeception/issues/2391">#2391</a>
+* <strong>[REST]</strong> **Added matching data types** by with new methods `seeResponseMatchesJsonType` and `dontSeeResponseMatchesJsonType`. See <a href="https://github.com/Codeception/Codeception/issues/2391">#2391</a>
 * <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> added `_request` and `_loadPage` hidden API methods for performing arbitrary requests.
 * <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> Fixed `seeInField`, `dontSeeInField` for disabled fields <a href="https://github.com/Codeception/Codeception/issues/2378">#2378</a>. See <a href="https://github.com/Codeception/Codeception/issues/2414">#2414</a>.
 * Environment files can now be located in subfolders of `tests/_env` by <strong><a href="https://github.com/Zifius">@Zifius</a></strong>

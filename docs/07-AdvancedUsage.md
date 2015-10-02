@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Advanced Usage - Codeception - Documentation
+title: 07-AdvancedUsage - Codeception - Documentation
 ---
 
 # Advanced Usage

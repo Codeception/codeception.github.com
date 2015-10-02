@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Getting Started - Codeception - Documentation
+title: 02-GettingStarted - Codeception - Documentation
 ---
 
 # Getting Started

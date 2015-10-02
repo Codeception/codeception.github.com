@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Testing WebServices - Codeception - Documentation
+title: 10-WebServices - Codeception - Documentation
 ---
 
 # Testing WebServices

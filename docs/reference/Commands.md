@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Console Commands - Codeception - Documentation
+title: Commands - Codeception - Documentation
 ---
 
 # Console Commands

@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Codeception - Documentation
+title: REST - Codeception - Documentation
 ---
 
 

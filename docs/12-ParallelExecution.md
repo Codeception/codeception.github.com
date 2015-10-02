@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Parallel Execution - Codeception - Documentation
+title: 12-ParallelExecution - Codeception - Documentation
 ---
 
 # Parallel Execution

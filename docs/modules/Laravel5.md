@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: switch to iframe - Codeception - Documentation
+title: Laravel5 - Codeception - Documentation
 ---
 
 

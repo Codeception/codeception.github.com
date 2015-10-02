@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Shorthand Functions - Codeception - Documentation
+title: Functions - Codeception - Documentation
 ---
 
 # Shorthand Functions

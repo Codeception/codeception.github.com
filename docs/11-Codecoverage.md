@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Codeception - Documentation
+title: 11-Codecoverage - Codeception - Documentation
 ---
 
 ## Code Coverage
