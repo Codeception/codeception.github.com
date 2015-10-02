@@ -705,7 +705,33 @@ $uri = $I->grabFromCurrentUrl();
 
 
 #### grabMultiple
-__not documented__
+ 
+Grabs either the text content, or attribute values, of nodes
+matched by $cssOrXpath and returns them as an array.
+
+{% highlight html %}
+
+<a href="#first">First</a>
+<a href="#second">Second</a>
+<a href="#third">Third</a>
+
+{% endhighlight %}
+
+{% highlight php %}
+
+<?php
+// would return ['First', 'Second', 'Third']
+$aLinkText = $I->grabMultiple('a');
+
+// would return ['#first', '#second', '#third']
+$aLinks = $I->grabMultiple('a', 'href');
+?>
+
+{% endhighlight %}
+
+ * `param` $cssOrXpath
+ * `param` $attribute
+ * `return` string[]
 
 
 #### grabTextFrom
@@ -749,10 +775,8 @@ $name = $I->grabValueFrom(['name' => 'username']);
 
 #### loadSessionSnapshot
  
-Loads cookies from saved snapshot.
-
- * `param` $name
-@see saveSessionSnapshot
+ * `param string` $name
+ * `return` bool
 
 
 #### makeScreenshot
@@ -874,35 +898,7 @@ $I->resizeWindow(800, 600);
 
 #### saveSessionSnapshot
  
-Saves current cookies into named snapshot in order to restore them in other tests
-This is useful to save session state between tests.
-For example, if user needs log in to site for each test this scenario can be executed once
-while other tests can just restore saved cookies.
-
-{% highlight php %}
-
-<?php
-// inside AcceptanceTester class:
-
-public function login()
-{
-     // if snapshot exists - skipping login
-     if ($I->loadSessionSnapshot('login')) return;
-
-     // logging in
-     $I->amOnPage('/login');
-     $I->fillField('name', 'jon');
-     $I->fillField('password', '123345');
-     $I->click('Login');
-
-     // saving snapshot
-     $I->saveSessionSnapshot('login');
-}
-?>
-
-{% endhighlight %}
-
- * `param` $name
+ * `param string` $name
 
 
 #### see
@@ -1212,6 +1208,10 @@ $I->seeNumberOfElements('tr', [0,10]); //between 0 and 10 elements
  * `param mixed` $expected :
 - string: strict number
 - array: range of numbers [0,10]
+
+
+#### seeNumberOfElementsInDOM
+__not documented__
 
 
 #### seeOptionIsSelected
