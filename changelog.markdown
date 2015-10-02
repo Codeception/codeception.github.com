@@ -7,6 +7,34 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.1.3
+
+* <strong>[REST]</strong> Added matching data types by with new methods <a href="http://codeception.com/docs/modules/REST#seeResponseMatchesJsonType">seeResponseMatchesJsonType</a> and `dontSeeResponseMatchesJsonType`. See <a href="https://github.com/Codeception/Codeception/issues/2391">#2391</a>
+* <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> added `_request` and `_loadPage` hidden API methods for performing arbitrary requests.
+* <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> Fixed `seeInField`, `dontSeeInField` for disabled fields <a href="https://github.com/Codeception/Codeception/issues/2378">#2378</a>. See <a href="https://github.com/Codeception/Codeception/issues/2414">#2414</a>.
+* Environment files can now be located in subfolders of `tests/_env` by <strong><a href="https://github.com/Zifius">@Zifius</a></strong>
+* <strong>[Symfony2]</strong> Fixed issue when accessing profiler when no request has been performed <a href="https://github.com/Codeception/Codeception/issues/652">#652</a>.
+* <strong>[Symfony2]</strong> Added `amOnRoute` and `seeCurrentRouteIs` methods  by <strong><a href="https://github.com/raistlin">@raistlin</a></strong>
+* <strong>[ZF2]</strong> Added `amOnRoute` and `seeCurrentRouteIs` methods module, by <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>
+* Fixed issue with trailing slashes in `seeCurrentUrlEquals` and `dontSeeCurrentUrlEquals` methods <a href="https://github.com/Codeception/Codeception/issues/2324">#2324</a>. By <strong><a href="https://github.com/janhenkgerritsen">@janhenkgerritsen</a></strong>
+* Warning is displayed once using unconfigured environment.
+* Fixed loading environment configurations for Cept files by <strong><a href="https://github.com/splinter89">@splinter89</a></strong>
+* Fixed bootstrap with namespaces to inject namespaced actor classes properly.
+* <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> added hidden `_request()` method to send requests to backend from Helper classes.
+* <strong>[Laravel5]</strong> Added `disableEvents()`, `enableEvents()` and `expectEvents()` methods. By <strong><a href="https://github.com/janhenkgerritsen">@janhenkgerritsen</a></strong>
+* <strong>[Laravel5]</strong> Added `dontSeeFormErrors()` method. By <strong><a href="https://github.com/janhenkgerritsen">@janhenkgerritsen</a></strong>
+* <strong>[Db]</strong> Deleted Oracle driver (it existed by mistake, the real driver is Oci). By <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>
+* <strong>[Db]</strong> Implemented getPrimaryKey method for Sqlite, Mysql, Postgresql, Oracle and MsSql. By <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>
+* <strong>[Db]</strong> Implemented support for composite primary keys and tables without primary keys. By <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>
+* Fixed the scalarizeArray to be aware of NULL fields <a href="https://github.com/Codeception/Codeception/issues/2264">#2264</a>. By <strong><a href="https://github.com/fbidu">@fbidu</a></strong>
+* <strong>[Soap]</strong> Fixed SOAP module <a href="https://github.com/Codeception/Codeception/issues/2296">#2296</a>. By <strong><a href="https://github.com/relaxart">@relaxart</a></strong>
+* Fixed a bug where blank lines in a groups file would run every test in the project <a href="https://github.com/Codeception/Codeception/issues/2297">#2297</a>. By <strong><a href="https://github.com/imjoehaines">@imjoehaines</a></strong>
+* <strong>[WebDriver]</strong> seeNumberOfElements should only count visible elements <a href="https://github.com/Codeception/Codeception/issues/2303">#2303</a>. By <strong><a href="https://github.com/sascha">@sascha</a></strong>-egerer
+* <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> Verbose output for all HTTP requests. By <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>
+* <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> Throw `Codeception\Exception\ExternalUrlException` when framework module tries to open an external URL <a href="https://github.com/Codeception/Codeception/issues/2328">#2328</a>. By <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>
+* <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> Added `switchToIframe` method. By <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>
+* <strong>[Dbh]</strong> module deprecated
+
 #### 2.1.2
 
 * **Updated to PHPUnit 4.8**

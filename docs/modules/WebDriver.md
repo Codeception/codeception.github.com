@@ -714,7 +714,33 @@ $uri = $I->grabFromCurrentUrl();
 
 
 #### grabMultiple
-__not documented__
+
+Grabs either the text content, or attribute values, of nodes
+matched by $cssOrXpath and returns them as an array.
+
+{% highlight html %}
+
+<a href="#first">First</a>
+<a href="#second">Second</a>
+<a href="#third">Third</a>
+
+{% endhighlight %}
+
+{% highlight php %}
+
+<?php
+// would return ['First', 'Second', 'Third']
+$aLinkText = $I->grabMultiple('a');
+
+// would return ['#first', '#second', '#third']
+$aLinks = $I->grabMultiple('a', 'href');
+?>
+
+{% endhighlight %}
+
+ * `param` $cssOrXpath
+ * `param` $attribute
+ * `return` string[]
 
 
 #### grabTextFrom
@@ -763,6 +789,8 @@ Loads cookies from saved snapshot.
  * `param` $name
 @see saveSessionSnapshot
 
+ * `param string` $name
+ * `return` bool
 
 #### makeScreenshot
 
@@ -911,8 +939,7 @@ public function login()
 
 {% endhighlight %}
 
- * `param` $name
-
+ * `param string` $name
 
 #### see
 
@@ -1221,6 +1248,10 @@ $I->seeNumberOfElements('tr', [0,10]); //between 0 and 10 elements
  * `param mixed` $expected :
 - string: strict number
 - array: range of numbers [0,10]
+
+
+#### seeNumberOfElementsInDOM
+__not documented__
 
 
 #### seeOptionIsSelected
