@@ -85,7 +85,7 @@ Parameter can be passed either as XmlBuilder, DOMDocument, DOMNode, XML string, 
 Finds and returns attribute of element.
 Element is matched by either CSS or XPath
 
-@version 1.1
+ * Available since 1.1
  * `param` $cssOrXPath
  * `param` $attribute
  * `return` string
@@ -96,7 +96,7 @@ Element is matched by either CSS or XPath
 Finds and returns text contents of element.
 Element is matched by either CSS or XPath
 
-@version 1.1
+ * Available since 1.1
  * `param` $cssOrXPath
  * `return` string
 

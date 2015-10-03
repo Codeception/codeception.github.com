@@ -125,9 +125,9 @@ To load arbitrary page for interaction, use `_loadPage` method.
  * `param array` $files
  * `param array` $server
  * `param null` $content
-@return mixed|Crawler
-@throws ExternalUrlException
-@see `_loadPage`
+ * `return` mixed|Crawler
+ ExternalUrlException
+ * see `_loadPage`
 
 
 #### _savePageSource
@@ -475,7 +475,7 @@ $I->dontSeeRecord('app\models\User', array('name' => 'davert'));
 
  * `param` $model
  * `param array` $attributes
-* Part: ** orm**
+ * `[Part]` orm
 
 
 #### fillField
@@ -585,7 +585,7 @@ $category = $I->grabRecord('app\models\User', array('name' => 'davert'));
 
  * `param` $model
  * `param array` $attributes
-* Part: ** orm**
+ * `[Part]` orm
 
 
 #### grabTextFrom
@@ -628,7 +628,7 @@ $user_id = $I->haveRecord('app\models\User', array('name' => 'Davert'));
 
  * `param` $model
  * `param array` $attributes
-* Part: ** orm**
+ * `[Part]` orm
 
 
 #### resetCookie
@@ -748,7 +748,7 @@ $I->seeElement(['css' => 'form input'], ['name' => 'login']);
 
  * `param` $selector
  * `param array` $attributes
-@return
+ * return
 
 
 #### seeInCurrentUrl
@@ -948,7 +948,7 @@ $I->seeRecord('app\models\User', array('name' => 'davert'));
 
  * `param` $model
  * `param array` $attributes
-* Part: ** orm**
+ * `[Part]` orm
 
 
 #### seeResponseCodeIs

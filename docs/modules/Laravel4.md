@@ -136,9 +136,9 @@ To load arbitrary page for interaction, use `_loadPage` method.
  * `param array` $files
  * `param array` $server
  * `param null` $content
-@return mixed|Crawler
-@throws ExternalUrlException
-@see `_loadPage`
+ * `return` mixed|Crawler
+ ExternalUrlException
+ * see `_loadPage`
 
 
 #### _savePageSource
@@ -170,8 +170,8 @@ Takes either `UserInterface` instance or array of credentials.
 
  * `param`  \Illuminate\Auth\UserInterface|array $user
  * `param`  string $driver
-@return void
-* Part: ** framework**
+ * `return` void
+ * `[Part]` framework
 
 
 #### amOnAction
@@ -270,7 +270,7 @@ $I->checkOption('#agree');
  
 Make sure the Laravel start file exists.
 
-
+ ModuleConfig
 
 
 #### click
@@ -554,8 +554,8 @@ $I->dontSeeRecord('users', array('name' => 'davert'));
 
  * `param` $tableName
  * `param array` $attributes
-@part orm
-* Part: ** framework**
+ * `[Part]` orm
+ * `[Part]` framework
 
 
 #### fillField
@@ -674,8 +674,8 @@ $category = $I->grabRecord('users', array('name' => 'davert'));
 
  * `param` $tableName
  * `param array` $attributes
-@part ORM
-* Part: ** framework**
+ * `[Part]` ORM
+ * `[Part]` framework
 
 
 #### grabService
@@ -702,7 +702,7 @@ $service = $I->grabService('foo');
 {% endhighlight %}
 
  * `param`  string $class
-* Part: ** framework**
+ * `[Part]` framework
 
 
 #### grabTextFrom
@@ -755,14 +755,14 @@ $user_id = $I->haveRecord('users', array('name' => 'Davert'));
 
  * `param` $tableName
  * `param array` $attributes
-@part orm
-* Part: ** framework**
+ * `[Part]` orm
+ * `[Part]` framework
 
 
 #### logout
  
 Logs user out
-* Part: ** framework**
+ * `[Part]` framework
 
 
 #### resetCookie
@@ -797,7 +797,7 @@ $I->see('Sign Up','//body/h1'); // with XPath
 #### seeAuthentication
  
 Checks that user is authenticated
-* Part: ** framework**
+ * `[Part]` framework
 
 
 #### seeCheckboxIsChecked
@@ -919,7 +919,7 @@ $I->seeElement(['css' => 'form input'], ['name' => 'login']);
 
  * `param` $selector
  * `param array` $attributes
-@return
+ * return
 
 
 #### seeFormErrorMessage
@@ -1195,8 +1195,8 @@ $I->seeRecord('users', array('name' => 'davert'));
 
  * `param` $tableName
  * `param array` $attributes
-@part orm
-* Part: ** framework**
+ * `[Part]` orm
+ * `[Part]` framework
 
 
 #### seeResponseCodeIs
@@ -1226,7 +1226,7 @@ $I->seeSessionErrorMessage(array('username'=>'Invalid Username'));
 
 {% endhighlight %}
  * `param array` $bindings
-@deprecated
+ * deprecated
 
 
 #### seeSessionHasErrors
@@ -1241,8 +1241,8 @@ $I->seeSessionHasErrors();
 
 {% endhighlight %}
 
-@return bool
-@deprecated
+ * `return` bool
+ * deprecated
 
 
 #### seeSessionHasValues

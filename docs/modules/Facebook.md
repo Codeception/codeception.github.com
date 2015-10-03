@@ -136,7 +136,7 @@ Get facebook test user be created.
  
 Get facebook test user be logged in on facebook.
 
-
+ ModuleConfigException
 
 
 #### postToFacebookAsTestUser

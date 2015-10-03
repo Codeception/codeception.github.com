@@ -151,9 +151,9 @@ To load arbitrary page for interaction, use `_loadPage` method.
  * `param array` $files
  * `param array` $server
  * `param null` $content
-@return mixed|Crawler
-@throws ExternalUrlException
-@see `_loadPage`
+ * `return` mixed|Crawler
+ ExternalUrlException
+ * see `_loadPage`
 
 
 #### _savePageSource
@@ -615,7 +615,7 @@ $category = $I->grabRecord('Phosphorum\Models\Categories', ['name' => 'Testing']
 
  * `param string` $model Model name
  * `param array` $attributes Model attributes
-* Part: ** orm**
+ * `[Part]` orm
 
 
 #### grabServiceFromDi
@@ -677,7 +677,7 @@ $I->haveRecord('Phosphorum\Models\Categories', ['name' => 'Testing']');
 
  * `param string` $model Model name
  * `param array` $attributes Model attributes
-* Part: ** orm**
+ * `[Part]` orm
 
 
 #### haveServiceInDi
@@ -817,7 +817,7 @@ $I->seeElement(['css' => 'form input'], ['name' => 'login']);
 
  * `param` $selector
  * `param array` $attributes
-@return
+ * return
 
 
 #### seeInCurrentUrl

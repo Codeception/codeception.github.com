@@ -153,9 +153,9 @@ To load arbitrary page for interaction, use `_loadPage` method.
  * `param array` $files
  * `param array` $server
  * `param null` $content
-@return mixed|Crawler
-@throws ExternalUrlException
-@see `_loadPage`
+ * `return` mixed|Crawler
+ ExternalUrlException
+ * see `_loadPage`
 
 
 #### _savePageSource
@@ -764,7 +764,7 @@ $I->seeElement(['css' => 'form input'], ['name' => 'login']);
 
  * `param` $selector
  * `param array` $attributes
-@return
+ * return
 
 
 #### seeInCurrentUrl

@@ -136,9 +136,9 @@ To load arbitrary page for interaction, use `_loadPage` method.
  * `param array` $files
  * `param array` $server
  * `param null` $content
-@return mixed|Crawler
-@throws ExternalUrlException
-@see `_loadPage`
+ * `return` mixed|Crawler
+ ExternalUrlException
+ * see `_loadPage`
 
 
 #### _savePageSource
@@ -593,7 +593,7 @@ $I->dontSeeRecord('users', array('name' => 'davert'));
 
  * `param` $tableName
  * `param array` $attributes
-* Part: ** orm**
+ * `[Part]` orm
 
 
 #### enableEvents
@@ -754,7 +754,7 @@ $category = $I->grabRecord('users', array('name' => 'davert'));
 
  * `param` $tableName
  * `param array` $attributes
-* Part: ** orm**
+ * `[Part]` orm
 
 
 #### grabService
@@ -823,7 +823,7 @@ $user_id = $I->haveRecord('users', array('name' => 'Davert'));
 
  * `param` $tableName
  * `param array` $attributes
-* Part: ** orm**
+ * `[Part]` orm
 
 
 #### logout
@@ -984,7 +984,7 @@ $I->seeElement(['css' => 'form input'], ['name' => 'login']);
 
  * `param` $selector
  * `param array` $attributes
-@return
+ * return
 
 
 #### seeFormErrorMessage
@@ -1259,7 +1259,7 @@ $I->seeRecord('users', array('name' => 'davert'));
 
  * `param` $tableName
  * `param array` $attributes
-* Part: ** orm**
+ * `[Part]` orm
 
 
 #### seeResponseCodeIs

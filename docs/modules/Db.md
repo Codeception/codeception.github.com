@@ -140,7 +140,7 @@ $mail = $I->grabFromDatabase('users', 'email', array('name' => 'Davert'));
 
 {% endhighlight %}
 
-@version 1.1
+ * Available since 1.1
 
  * `param`       $table
  * `param`       $column

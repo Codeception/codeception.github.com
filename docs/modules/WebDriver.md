@@ -151,8 +151,8 @@ PhpBrowser and Framework modules return `Symfony\Component\DomCrawler\Crawler` i
 *hidden API method, expected to be used from Helper classes*
  
 Uri of currently opened page.
-@return string
-
+ * `return` string
+ ModuleException
 
 
 #### _getUrl
@@ -160,7 +160,7 @@ Uri of currently opened page.
 *hidden API method, expected to be used from Helper classes*
  
 Returns URL of a host.
-
+ ModuleConfigException
 
 
 #### _savePageSource
@@ -262,7 +262,7 @@ $I->appendField('#myTextField', 'appended');
 
  * `param string` $field
  * `param string` $value
-
+ \Codeception\Exception\ElementNotFound
 
 
 #### attachFile
@@ -342,7 +342,7 @@ $I->click(['link' => 'Login']);
 Performs contextual click with the right mouse button on an element.
 
  * `param` $cssOrXPath
-
+ \Codeception\Exception\ElementNotFound
 
 
 #### dontSee
@@ -591,7 +591,7 @@ $I->dontSeeOptionIsSelected('#form input[name=payment]', 'Visa');
 Performs a double-click on an element matched by CSS or XPath.
 
  * `param` $cssOrXPath
-
+ \Codeception\Exception\ElementNotFound
 
 
 #### dragAndDrop
@@ -844,7 +844,7 @@ $I->moveMouseOver(['css' => '.checkout'], 20, 50);
  * `param int` $offsetX
  * `param int` $offsetY
 
-
+ \Codeception\Exception\ElementNotFound
 
 
 #### pauseExecution
@@ -877,7 +877,7 @@ $I->pressKey('#name', array('ctrl', 'a'), \Facebook\WebDriver\WebDriverKeys::DEL
 
  * `param` $element
  * `param` $char Can be char or array with modifier. You can provide several chars.
-
+ \Codeception\Exception\ElementNotFound
 
 
 #### reloadPage
@@ -1023,7 +1023,7 @@ $I->seeElement(['css' => 'form input'], ['name' => 'login']);
 
  * `param` $selector
  * `param array` $attributes
-@return
+ * return
 
 
 #### seeElementInDOM
@@ -1551,7 +1551,7 @@ __not documented__
 Wait for $timeout seconds.
 
  * `param int` $timeout secs
-
+ \Codeception\Exception\TestRuntimeException
 
 
 #### waitForElement
@@ -1570,7 +1570,7 @@ $I->click('#agree_button');
 
  * `param` $element
  * `param int` $timeout seconds
-
+ \Exception
 
 
 #### waitForElementChange
@@ -1592,7 +1592,7 @@ $I->waitForElementChange('#menu', function(WebDriverElement $el) {
  * `param` $element
  * `param \Closure` $callback
  * `param int` $timeout seconds
-
+ \Codeception\Exception\ElementNotFound
 
 
 #### waitForElementNotVisible
@@ -1610,7 +1610,7 @@ $I->waitForElementNotVisible('#agree_button', 30); // secs
 
  * `param` $element
  * `param int` $timeout seconds
-
+ \Exception
 
 
 #### waitForElementVisible
@@ -1629,7 +1629,7 @@ $I->click('#agree_button');
 
  * `param` $element
  * `param int` $timeout seconds
-
+ \Exception
 
 
 #### waitForJS
@@ -1668,6 +1668,6 @@ $I->waitForText('foo', 30, '.title'); // secs
  * `param string` $text
  * `param int` $timeout seconds
  * `param null` $selector
-
+ \Exception
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/WebDriver.php">Help us to improve documentation. Edit module reference</a></div>
