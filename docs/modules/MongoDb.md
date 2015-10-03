@@ -103,8 +103,8 @@ Inserts data into collection
 {% highlight php %}
 
 <?php
-$I->haveInCollection('users', array('name' => 'John', 'email' => 'john@coltrane.com'));
-$user_id = $I->haveInCollection('users', array('email' => 'john@coltrane.com'));
+$I->haveInCollection('users', array('name' => 'John', 'email' => 'john * `coltrane.com'));` 
+$user_id = $I->haveInCollection('users', array('email' => 'john * `coltrane.com'));` 
 
 {% endhighlight %}
 

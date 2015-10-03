@@ -95,7 +95,7 @@ $email = $I->grabFromRepository('User', 'email', array('name' => 'davert'));
 
 {% endhighlight %}
 
- * Available since 1.1
+ * `Available since` 1.1
  * `param` $entity
  * `param` $field
  * `param array` $params
