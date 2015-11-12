@@ -13,10 +13,9 @@ title: REST - Codeception - Documentation
 Module for testing REST WebService.
 
 This module can be used either with frameworks or PHPBrowser.
-It tries to guess the framework is is attached to.
+If a framework module is connected, the testing will occur in the application directly.
+Otherwise, a PHPBrowser should be specified as a dependency to send requests and receive responses from a server.
 
-Whether framework is used it operates via standard framework modules.
-Otherwise sends raw HTTP requests to url via PHPBrowser.
 
 ### Status
 
@@ -525,6 +524,8 @@ Here is the list of possible filters:
 * `integer:>{val}` - checks that integer is greater than {val} (works with float and string types too).
 * `integer:<{val}` - checks that integer is lower than {val} (works with float and string types too).
 * `string:url` - checks that value is valid url.
+* `string:date` - checks that value is date in JavaScript format: https://weblog.west-wind.com/posts/2014/Jan/06/JavaScript-JSON-Date-Parsing-and-real-Dates
+* `string:email` - checks that value is a valid email according to http://emailregex.com/
 * `string:regex({val})` - checks that string matches a regex provided with {val}
 
 This is how filters can be used:

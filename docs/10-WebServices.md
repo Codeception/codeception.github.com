@@ -108,7 +108,7 @@ $I->seeResponseContainsJson([
 
 {% endhighlight %}
 
-You may want to perform even more complex assertions on a response. This can be done by writing your own methods in the [Helper](http://codeception.com/docs/03-ModulesAndHelpers#Helpers) classes. To access the latest JSON response you will need to get the `response` property of the `REST` module. Let's demonstrate it with the `seeResponseIsHtml` method:
+You may want to perform even more complex assertions on a response. This can be done by writing your own methods in the [Helper](http://codeception.com/docs/06-ReusingTestCode#Modules-and-Helpers) classes. To access the latest JSON response you will need to get the `response` property of the `REST` module. Let's demonstrate it with the `seeResponseIsHtml` method:
 
 {% highlight php %}
 
@@ -146,6 +146,28 @@ $I->seeResponseJsonMatchesXpath('//user/login');
 ?>
 
 {% endhighlight %}
+
+More detailed check can be applied if you need to validate the type of fields in a response.
+You can do that by using with a [seeResponseMatchesJsonType](http://codeception.com/docs/modules/REST#seeResponseMatchesJsonType) action in which you define the structure of JSON response.
+
+{% highlight php %}
+
+<?php
+$I->sendGET('/users/1');
+$I->seeResponseIsJson();
+$I->seeResponseMatchesJsonType([
+    'id' => 'integer',
+    'name' => 'string',
+    'email' => 'string:email',
+    'homepage' => 'string:url|null',
+    'created_at' => 'string:date',
+    'is_active' => 'boolean'
+]);
+?>
+
+{% endhighlight %}
+
+Codeception uses this simple and lightweight definitions format which can be [easily learned and extended](http://codeception.com/docs/modules/REST#seeResponseMatchesJsonType).
 
 ### Testing XML Responses
 

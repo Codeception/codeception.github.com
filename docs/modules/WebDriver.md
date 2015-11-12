@@ -50,6 +50,7 @@ It allows you to run Selenium tests on a server without a GUI installed.
 * `request_timeout` - timeout for a request to return something from remote selenium server (30 seconds by default).
 * `http_proxy` - sets http proxy server url for testing a remote server.
 * `http_proxy_port` - sets http proxy server port
+* `debug_log_entries` - how many selenium entries to print with `debugWebDriverLogs` or on fail (15 by default).
 
 #### Example (`acceptance.suite.yml`)
 
@@ -202,7 +203,6 @@ Opens the page for the given relative URI.
 $I->amOnPage('/');
 // opens /register page
 $I->amOnPage('/register');
-?>
 
 {% endhighlight %}
 
@@ -345,20 +345,38 @@ Performs contextual click with the right mouse button on an element.
  * `throws`  \Codeception\Exception\ElementNotFound
 
 
+#### debugWebDriverLogs
+ 
+Print out latest Selenium Logs in debug mode
+
+
 #### dontSee
  
-Checks that the current page doesn't contain the text specified.
+Checks that the current page doesn't contain the text specified (case insensitive).
 Give a locator as the second parameter to match a specific region.
 
 {% highlight php %}
 
 <?php
-$I->dontSee('Login'); // I can suppose user is already logged in
-$I->dontSee('Sign Up','h1'); // I can suppose it's not a signup page
-$I->dontSee('Sign Up','//body/h1'); // with XPath
-?>
+$I->dontSee('Login');                    // I can suppose user is already logged in
+$I->dontSee('Sign Up','h1');             // I can suppose it's not a signup page
+$I->dontSee('Sign Up','//body/h1');      // with XPath
 
 {% endhighlight %}
+
+Note that the search is done after stripping all HTML tags from the body,
+so `$I->dontSee('strong')` will fail on strings like:
+
+  - `<p>I am Stronger than thou</p>`
+  - `<script>document.createElement('strong');</script>`
+
+But will ignore strings like:
+
+  - `<strong>Home</strong>`
+  - `<div class="strong">Home</strong>`
+  - `<!-- strong -->`
+
+For checking the raw source code, use `seeInSource()`.
 
  * `param`      $text
  * `param null` $selector
@@ -541,6 +559,21 @@ $I->dontSeeInFormFields('#form-id', [
 Checks that the page source doesn't contain the given string.
 
  * `param` $text
+
+
+#### dontSeeInSource
+ 
+Checks that the current page contains the given string in its
+raw source code.
+
+{% highlight php %}
+
+<?php
+$I->dontSeeInSource('<h1>Green eggs &amp; ham</h1>');
+
+{% endhighlight %}
+
+ * `param`      $raw
 
 
 #### dontSeeInTitle
@@ -918,18 +951,33 @@ $I->resizeWindow(800, 600);
 
 #### see
  
-Checks that the current page contains the given string.
-Specify a locator as the second parameter to match a specific region.
+Checks that the current page contains the given string (case insensitive).
+
+You can specify a specific HTML element (via CSS or XPath) as the second 
+parameter to only search within that element.
 
 {% highlight php %}
 
 <?php
-$I->see('Logout'); // I can suppose user is logged in
-$I->see('Sign Up','h1'); // I can suppose it's a signup page
-$I->see('Sign Up','//body/h1'); // with XPath
-?>
+$I->see('Logout');                 // I can suppose user is logged in
+$I->see('Sign Up', 'h1');          // I can suppose it's a signup page
+$I->see('Sign Up', '//body/h1');   // with XPath
 
 {% endhighlight %}
+
+Note that the search is done after stripping all HTML tags from the body,
+so `$I->see('strong')` will return true for strings like:
+
+  - `<p>I am Stronger than thou</p>`
+  - `<script>document.createElement('strong');</script>`
+
+But will *not* be true for strings like:
+
+  - `<strong>Home</strong>`
+  - `<div class="strong">Home</strong>`
+  - `<!-- strong -->`
+
+For checking the raw source code, use `seeInSource()`.
 
  * `param`      $text
  * `param null` $selector
@@ -1171,6 +1219,21 @@ $I->seeInPageSource('<link rel="apple-touch-icon"');
 Checks that the active JavaScript popup, as created by `window.alert`|`window.confirm`|`window.prompt`, contains the given string.
 
  * `param` $text
+
+
+#### seeInSource
+ 
+Checks that the current page contains the given string in its
+raw source code.
+
+{% highlight php %}
+
+<?php
+$I->seeInSource('<h1>Green eggs &amp; ham</h1>');
+
+{% endhighlight %}
+
+ * `param`      $raw
 
 
 #### seeInTitle
@@ -1421,7 +1484,7 @@ $I->submitForm('#my-form', [
 Mixing string and boolean values for a checkbox's value is not supported
 and may produce unexpected results.
 
-Field names ending in "[]" must be passed without the trailing square 
+Field names ending in "[]" must be passed without the trailing square
 bracket characters, and must contain an array for its value.  This allows
 submitting multiple values with the same name, consider:
 

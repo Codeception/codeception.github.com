@@ -7,6 +7,34 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.1.4
+
+* <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> Added `_getResponseContent` hidden method. By <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>
+* <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> Added `moveBack` method. By <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>
+* <strong>[WebDriver]</strong><strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> Added `seeInSource`, `dontSeeInSource` methods to check raw HTML instead of stripped text in `see`/`dontSee`. By <strong><a href="https://github.com/zbateson">@zbateson</a></strong> in <a href="https://github.com/Codeception/Codeception/issues/2465">#2465</a>
+* <strong>[WebDriver]</strong> print Selenium WebDriver logs on failure or manually with `debugWebDriverLogs` in debug mode. Config option `debug_log_entries` added. See <a href="https://github.com/Codeception/Codeception/issues/2471">#2471</a> By <strong><a href="https://github.com/MasonM">@MasonM</a></strong> and <strong><a href="https://github.com/DavertMik">@DavertMik</a></strong>.
+* <strong>[ZF2]</strong> grabs service from container without reinitializing it. Fixes <a href="https://github.com/Codeception/Codeception/issues/2519">#2519</a> where Doctrine2 gets different instances of the entity manager everytime grabServiceFromContainer is called. By <strong><a href="https://github.com/dranzd">@dranzd</a></strong>
+* <strong>[REST]</strong> fixed usage of JsonArray and `json_last_error_msg` function on PHP 5.4. See <a href="https://github.com/Codeception/Codeception/issues/2535">#2535</a>. By <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>
+* <strong>[REST]</strong> `seeResponseIsJsonType` can now validate emails with `string:email` definition. By <strong><a href="https://github.com/DavertMik">@DavertMik</a></strong>
+* <strong>[REST]</strong> `seeResponseIsJsonType`: `string|null` as well as `null|string` can be used to match null type. <a href="https://github.com/Codeception/Codeception/issues/2522">#2522</a> <a href="https://github.com/Codeception/Codeception/issues/2500">#2500</a> By <strong><a href="https://github.com/vslovik">@vslovik</a></strong>
+* <strong>[REST]</strong> REST methods can be used to inspect result of the last request made by PhpBrowser or framework module. see <a href="https://github.com/Codeception/Codeception/issues/2507">#2507</a>. By <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>
+* <strong>[Silex]</strong> Doctrine provider added. Doctrine2 module can be connected to Silex app with `depends: Silex` in config. By <strong><a href="https://github.com/arduanov">@arduanov</a></strong> <a href="https://github.com/Codeception/Codeception/issues/2503">#2503</a>
+* <strong>[Laravel5]</strong> Removed `expectEvents` and added `seeEventTriggered` and `dontSeeEventTriggered`. By <strong><a href="https://github.com/janhenkgerritsen">@janhenkgerritsen</a></strong>
+* <strong>[Laravel5]</strong> Fixed fatal error in `seeCurrentRouteIs` and `seeCurrentActionIs` methods. See <a href="https://github.com/Codeception/Codeception/issues/2517">#2517</a>. By <strong><a href="https://github.com/janhenkgerritsen">@janhenkgerritsen</a></strong>
+* <strong>[Laravel5]</strong> Improved the error messages for several methods. See <a href="https://github.com/Codeception/Codeception/issues/2476">#2476</a>. By <strong><a href="https://github.com/janhenkgerritsen">@janhenkgerritsen</a></strong>
+* <strong>[Laravel5]</strong> Improved form error methods. See <a href="https://github.com/Codeception/Codeception/issues/2432">#2432</a>. By <strong><a href="https://github.com/janhenkgerritsen">@janhenkgerritsen</a></strong>
+* <strong>[Laravel5]</strong> Added wrapper methods for Laravel 5 model factories. See <a href="https://github.com/Codeception/Codeception/issues/2442">#2442</a>. By <strong><a href="https://github.com/janhenkgerritsen">@janhenkgerritsen</a></strong>
+* <strong>[Phalcon]</strong> Added `amOnRoute` and `seeCurrentRouteIs` methods by <strong><a href="https://github.com/sergeyklay">@sergeyklay</a></strong>
+* <strong>[Phalcon]</strong> Added `seeSessionHasValues` by <strong><a href="https://github.com/sergeyklay">@sergeyklay</a></strong>
+* <strong>[Phalcon]</strong> Added `getApplication()` method by <strong><a href="https://github.com/sergeyklay">@sergeyklay</a></strong>
+* <strong>[Symfony2]</strong> Sets `xdebug.max_nesting_level` to 200 only if it is lower. Fixes error hiding <a href="https://github.com/Codeception/Codeception/issues/2462">#2462</a> by <strong><a href="https://github.com/mhightower">@mhightower</a></strong>
+* <strong>[Db]</strong> Save the search path when importing Postgres dumps <a href="https://github.com/Codeception/Codeception/issues/2441">#2441</a> by <strong><a href="https://github.com/EspadaV8">@EspadaV8</a></strong>
+* <strong>[Yii2]</strong> Fixed problems with transaction rollbacks when using the `cleanup` flag. See <a href="https://github.com/Codeception/Codeception/issues/2488">#2488</a>. By <strong><a href="https://github.com/ivokund">@ivokund</a></strong>
+* <strong>[Yii2]</strong> Clean up previously uploaded files between tests by <strong><a href="https://github.com/tibee">@tibee</a></strong>
+* Actor classes generation improved by <strong><a href="https://github.com/codemedic">@codemedic</a></strong> <a href="https://github.com/Codeception/Codeception/issues/2453">#2453</a>
+* Added support for nested helper by <strong><a href="https://github.com/luka">@luka</a></strong>-zitnik <a href="https://github.com/Codeception/Codeception/issues/2494">#2494</a>
+* Make `generate:suite` respect bootstrap setting in <a href="https://github.com/Codeception/Codeception/issues/2512">#2512</a>. By <strong><a href="https://github.com/dmitrivereshchagin">@dmitrivereshchagin</a></strong>
+
 #### 2.1.3
 
 * <strong>[REST]</strong> **Added matching data types** by with new methods `seeResponseMatchesJsonType` and `dontSeeResponseMatchesJsonType`. See <a href="https://github.com/Codeception/Codeception/issues/2391">#2391</a>

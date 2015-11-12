@@ -59,7 +59,7 @@ This module despite of it's stability may act unstable because of transactions i
  
 Effect is opposite to ->seeInDatabase
 
-Checks if there is no record with such column values in database.
+Asserts that there is no record with the given column values in a database.
 Provide table name and column values.
 
 Example:
@@ -109,7 +109,7 @@ $mail = $I->grabFromDatabase('users', 'email', array('name' => 'Davert'));
 
 #### seeInDatabase
  
-Checks if a row with given column values exists.
+Asserts that a row with the given column values exists.
 Provide table name and column values.
 
 Example:
