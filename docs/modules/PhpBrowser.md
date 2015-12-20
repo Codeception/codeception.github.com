@@ -650,7 +650,7 @@ $I->grabAttributeFrom('#tooltip', 'title');
 
  * `param` $cssOrXpath
  * `param` $attribute
- * `internal param` $element
+
 
 
 #### grabCookie
@@ -679,7 +679,6 @@ $uri = $I->grabFromCurrentUrl();
 
  * `param null` $uri
 
- * `internal param` $url
 
 
 #### grabMultiple
@@ -1176,7 +1175,7 @@ $I->sendAjaxRequest('PUT', '/posts/7', array('title' => 'new title'));
 #### setCookie
  
 Sets a cookie with the given name and value.
-You can set additional cookie params like `domain`, `path`, `expire`, `secure` in array passed as last argument.
+You can set additional cookie params like `domain`, `path`, `expires`, `secure` in array passed as last argument.
 
 {% highlight php %}
 

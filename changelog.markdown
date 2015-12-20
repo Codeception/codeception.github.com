@@ -7,6 +7,37 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.1.5
+
+* **PHP7 support**
+* **Symfony3 support**
+* <strong>[ZendExpressive]</strong> **module added** by <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>
+* <strong>[Frameworks]</strong> **Internal Domains**: Framework modules now throw an `ExternalUrlException` when a test tries to open a URL that is not handled by the framework, i.e. an external URL. See <a href="https://github.com/Codeception/Codeception/issues/2396">#2396</a>
+* Syntax check for tests. If PHP7 is used, `ParseException` handles syntax error, otherwise linting happens with `php -l`. <strong><a href="https://github.com/davertmik">@davertmik</a></strong>
+* Fixed Cest generation to not include "use" statements if no namespaces set
+* <strong>[REST]</strong> Modified JsonArray::sequentialArrayIntersect to return complete matches only by <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>. Fixes <a href="https://github.com/Codeception/Codeception/issues/2635">#2635</a>
+* <strong>[REST]</strong> Fixes validation of several types with filters. See <a href="https://github.com/Codeception/Codeception/issues/2581">#2581</a> By <strong><a href="https://github.com/davertmik">@davertmik</a></strong>
+* <strong>[REST]</strong> JsonType improved URL filter to use `filter_var($value, FILTER_VALIDATE_URL)`
+* <strong>[REST]</strong> JsonType to support collections: all items in an array will be validates against JsonType. By <strong><a href="https://github.com/davertmik">@davertmik</a></strong>
+* <strong>[REST]</strong> Various fixes to JsonType: <a href="https://github.com/Codeception/Codeception/issues/2555">#2555</a> <a href="https://github.com/Codeception/Codeception/issues/2548">#2548</a> <a href="https://github.com/Codeception/Codeception/issues/2542">#2542</a>
+* <strong>[REST]</strong> Hides binary request data in debug by <strong><a href="https://github.com/codemedic">@codemedic</a></strong>. Fixed <a href="https://github.com/Codeception/Codeception/issues/1884">#1884</a>, See <a href="https://github.com/Codeception/Codeception/issues/2552">#2552</a> 
+* <strong>[WebDriver]</strong> Allow `appendField` to work with content editable div by <strong><a href="https://github.com/nsanden">@nsanden</a></strong> <a href="https://github.com/Codeception/Codeception/issues/2588">#2588</a>
+* <strong>[WebDriver]</strong> Allows adding ssl proxy settings by <strong><a href="https://github.com/mjntan35">@mjntan35</a></strong>.
+* <strong>[Symfony2]</strong> Config option `cache_router` added (disabled by default) by <strong><a href="https://github.com/raistlin">@raistlin</a></strong>.
+* <strong>[Doctrine]</strong> Fixed <a href="https://github.com/Codeception/Codeception/issues/2060">#2060</a>: Too many connections error by <strong><a href="https://github.com/dranzd">@dranzd</a></strong>
+* <strong>[Symfony2]</strong> `services` part added to allow access Symfony DIC while wokring with WebDriver or PhpBrowser by <strong><a href="https://github.com/laszlo">@laszlo</a></strong>-karpati See <a href="https://github.com/Codeception/Codeception/issues/2629">#2629</a>
+* <strong>[WebDriver]</strong><strong>[PhpBrowser]</strong> Unified setCookie "expires" param name by <strong><a href="https://github.com/davertmik">@davertmik</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/2582">#2582</a>
+* <strong>[Memcache]</strong> add adaptive close call on `_after` by <strong><a href="https://github.com/pfz">@pfz</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/2572">#2572</a> 
+* <strong>[Symfony2]</strong> Move kernel booting and container set up into _initialize() method by <strong><a href="https://github.com/Franua">@Franua</a></strong>  <a href="https://github.com/Codeception/Codeception/issues/2491">#2491</a> 
+* <strong>[WebDriver]</strong> Fixed `seeInField` for textareas by <strong><a href="https://github.com/nsanden">@nsanden</a></strong> 
+* <strong>[Yii2]</strong><strong>[REST]</strong> Fixed using Yii2 as dependency for REST by <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/2562">#2562</a>
+* <strong>[Laravel5]</strong> Removed `enableMiddleware` and `enableEvents` methods. See <a href="https://github.com/Codeception/Codeception/issues/2602">#2602</a>. By <strong><a href="https://github.com/janhenkgerritsen">@janhenkgerritsen</a></strong>
+* <strong>[Laravel]</strong> Refactored modules. See <a href="https://github.com/Codeception/Codeception/issues/2602">#2602</a>. By <strong><a href="https://github.com/janhenkgerritsen">@janhenkgerritsen</a></strong>
+* <strong>[Laravel5]</strong> Fix bug for `seeCurrentRouteIs` when routes don't match. See <a href="https://github.com/Codeception/Codeception/issues/2593">#2593</a>. By <strong><a href="https://github.com/maddhatter">@maddhatter</a></strong>
+* <strong>[PhpBrowser]</strong> Set curl options for Guzzle6 correctly. See <a href="https://github.com/Codeception/Codeception/issues/2533">#2533</a>. By <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>
+* Fixed usage of GroupObject by unit tests. GroupObjects can skip tests by <strong><a href="https://github.com/davetmik">@davetmik</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/2617">#2617</a>
+
+
 #### 2.1.4
 
 * <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> Added `_getResponseContent` hidden method. By <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>

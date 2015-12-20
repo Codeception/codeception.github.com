@@ -46,7 +46,7 @@ class BasicCest
 
 **Each public method of Cest (except those starting with `_`) will be executed as a test** and will receive Actor class as the first parameter and `$scenario` variable as the second one.
 
-In `_before` and `_after` methods you can use common setups and teardowns for the tests in the class. This actually makes Cest tests more flexible then Cepts, which rely only on similar methods in Helper classes.
+In `_before` and `_after` methods you can use common setups and teardowns for the tests in the class. This actually makes Cest tests more flexible than Cepts, which rely only on similar methods in Helper classes.
 
 As you see, we are passing Actor object into `tryToTest` method. It allows us to write scenarios the way we did before.
 
@@ -153,7 +153,7 @@ class MathTest extends \Codeception\TestCase\Test
 
 However, Dependency Injection is not limited to this. It allows you to **inject any class**, which can be constructed with arguments known to Codeception.
 
-In order to make auto-wiring work, you will need to implement `_inject()` method with the list of desired arguments. It is important to speicfy the type of arguments, so Codeception can guess which objects are expected to be received. The `_inject()` will be invoked just once right after creation of the TestCase object (either Cest or Test). Dependency Injection will also work in a similar manner for Helper and Actor classes.
+In order to make auto-wiring work, you will need to implement `_inject()` method with the list of desired arguments. It is important to specify the type of arguments, so Codeception can guess which objects are expected to be received. The `_inject()` will be invoked just once right after creation of the TestCase object (either Cest or Test). Dependency Injection will also work in a similar manner for Helper and Actor classes.
 
 Each test of Cest class can declare its own dependencies and receive them from method arguments:
 

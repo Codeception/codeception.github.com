@@ -18,9 +18,8 @@ This module uses Symfony2 Crawler and HttpKernel to emulate requests and test re
 
 ### Status
 
-* Maintainer: **davert**
+* Maintainer: **raistlin**
 * Stability: **stable**
-* Contact: codecept@davert.mail.ua
 
 ### Config
 
@@ -30,7 +29,8 @@ This module uses Symfony2 Crawler and HttpKernel to emulate requests and test re
 * environment: 'local' - environment used for load kernel
 * debug: true - turn on/off debug mode
 * em_service: 'doctrine.orm.entity_manager' - use the stated EntityManager to pair with Doctrine Module.
-*
+* cache_router: 'false' - enable router caching between tests in order to [increase performance](http://lakion.com/blog/how-did-we-speed-up-sylius-behat-suite-with-blackfire) 
+
 #### Example (`functional.suite.yml`) - Symfony 2.x Directory Structure
 
 {% highlight yaml %}
@@ -48,6 +48,7 @@ This module uses Symfony2 Crawler and HttpKernel to emulate requests and test re
 * environment: 'local' - environment used for load kernel
 * em_service: 'doctrine.orm.entity_manager' - use the stated EntityManager to pair with Doctrine Module.
 * debug: true - turn on/off debug mode
+* cache_router: 'false' - enable router caching between tests in order to [increase performance](http://lakion.com/blog/how-did-we-speed-up-sylius-behat-suite-with-blackfire) 
 
 #### Example (`functional.suite.yml`) - Symfony 3 Directory Structure
 
@@ -65,6 +66,26 @@ This module uses Symfony2 Crawler and HttpKernel to emulate requests and test re
 * client - current Crawler instance
 * container - dependency injection container instance
 
+### Parts
+
+* services - allows to use Symfony2 DIC only with WebDriver or PhpBrowser modules. 
+
+Usage example:
+
+{% highlight yaml %}
+
+class_name: AcceptanceTester
+modules:
+    enabled:
+        - Symfony2:
+            part: SERVICES
+        - Doctrine2:
+            depends: Symfony2
+        - WebDriver:
+            url: http://your-url.com
+            browser: phantomjs
+
+{% endhighlight %}
 
 
 #### _findElements
@@ -591,7 +612,7 @@ $I->grabAttributeFrom('#tooltip', 'title');
 
  * `param` $cssOrXpath
  * `param` $attribute
- * `internal param` $element
+
 
 
 #### grabCookie
@@ -620,7 +641,6 @@ $uri = $I->grabFromCurrentUrl();
 
  * `param null` $uri
 
- * `internal param` $url
 
 
 #### grabMultiple
@@ -667,6 +687,7 @@ $em = $I->grabServiceFromContainer('doctrine');
 {% endhighlight %}
 
  * `param` $service
+ * `[Part]` services
 
 
 #### grabTextFrom
@@ -693,6 +714,11 @@ $value = $I->grabTextFrom('~<input value=(.*?)]~sgi'); // match with a regex
  * `param` $field
 
  * `return` array|mixed|null|string
+
+
+#### invalidateCachedRouter
+ 
+Invalidate previously cached routes.
 
 
 #### moveBack
@@ -1157,7 +1183,7 @@ $I->sendAjaxRequest('PUT', '/posts/7', array('title' => 'new title'));
 #### setCookie
  
 Sets a cookie with the given name and value.
-You can set additional cookie params like `domain`, `path`, `expire`, `secure` in array passed as last argument.
+You can set additional cookie params like `domain`, `path`, `expires`, `secure` in array passed as last argument.
 
 {% highlight php %}
 
