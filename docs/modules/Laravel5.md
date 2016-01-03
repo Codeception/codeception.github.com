@@ -697,32 +697,6 @@ $I->dontSeeRecord('users', array('name' => 'davert'));
  * `[Part]` orm
 
 
-#### enableEvents
- 
-Enable events for the next requests.
-
-{% highlight php %}
-
-<?php
-$I->enableEvents();
-?>
-
-{% endhighlight %}
-
-
-#### enableMiddleware
- 
-Enable middleware for the next requests.
-
-{% highlight php %}
-
-<?php
-$I->enableMiddleware();
-?>
-
-{% endhighlight %}
-
-
 #### fillField
  
 Fills a text field or textarea with the given string.
@@ -763,7 +737,7 @@ $I->grabAttributeFrom('#tooltip', 'title');
 
  * `param` $cssOrXpath
  * `param` $attribute
- * `internal param` $element
+
 
 
 #### grabCookie
@@ -792,7 +766,6 @@ $uri = $I->grabFromCurrentUrl();
 
  * `param null` $uri
 
- * `internal param` $url
 
 
 #### grabMultiple
@@ -894,26 +867,7 @@ $value = $I->grabTextFrom('~<input value=(.*?)]~sgi'); // match with a regex
 
 
 #### haveModel
- 
-Use Laravel's model factory to create a model.
-Can only be used with Laravel 5.1 and later.
-
-{% highlight php %}
-
-<?php
-$I->haveModel('App\User');
-$I->haveModel('App\User', ['name' => 'John Doe']);
-$I->haveModel('App\User', [], 'admin');
-$I->haveModel('App\User', [], 'admin', 3);
-?>
-
-{% endhighlight %}
-
- * `see`  http://laravel.com/docs/5.1/testing#model-factories
- * `param string` $model
- * `param array` $attributes
- * `param string` $name
- * `param int` $times
+__not documented__
 
 
 #### haveRecord
@@ -1563,7 +1517,7 @@ $I->sendAjaxRequest('PUT', '/posts/7', array('title' => 'new title'));
 #### setCookie
  
 Sets a cookie with the given name and value.
-You can set additional cookie params like `domain`, `path`, `expire`, `secure` in array passed as last argument.
+You can set additional cookie params like `domain`, `path`, `expires`, `secure` in array passed as last argument.
 
 {% highlight php %}
 

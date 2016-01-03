@@ -1,70 +1,33 @@
 ---
 layout: doc
-title: ZF1 - Codeception - Documentation
+title: ZendExpressive - Codeception - Documentation
 ---
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Module/ZF1.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/ZF1.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/ZF1.md"><strong>2.1</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/ZF1.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/ZF1.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Module/ZendExpressive.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/ZendExpressive.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/ZendExpressive.md"><strong>2.1</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/ZendExpressive.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/ZendExpressive.md">1.8</a></div>
 
 
 
 
-This module allows you to run tests inside Zend Framework.
-It acts just like ControllerTestCase, but with usage of Codeception syntax.
+This module allows you to run tests inside Zend Expressive.
 
-It assumes, you have standard structure with __APPLICATION_PATH__ set to './application'
-and LIBRARY_PATH set to './library'. If it's not then set the appropriate path in the Config.
-
-[Tutorial](http://codeception.com/01-27-2012/bdd-with-zend-framework.html)
+Uses `config/container.php` file by default.
 
 ### Status
 
-* Maintainer: **davert**
-* Stability: **stable**
-* Contact: codecept@davert.mail.ua
+* Maintainer: **Naktibalda**
+* Stability: **alpha**
 
 ### Config
 
-* env  - environment used for testing ('testing' by default).
-* config - relative path to your application config ('application/configs/application.ini' by default).
-* app_path - relative path to your application folder ('application' by default).
-* lib_path - relative path to your library folder ('library' by default).
+* container: relative path to file which returns Container (default: `config/container.php`)
 
 ### API
 
+* application -  instance of `\Zend\Expressive\Application`
+* container - instance of `\Interop\Container\ContainerInterface`
 * client - BrowserKit client
-* db - current instance of Zend_Db_Adapter
-* bootstrap - current bootstrap file.
-
-### Cleaning up
-
-For Doctrine1 and Doctrine2 all queries are put inside rollback transaction. If you are using one of this ORMs connect their modules to speed up testing.
-
-Unfortunately Zend_Db doesn't support nested transactions, thus, for cleaning your database you should either use standard Db module or
-[implement nested transactions yourself](http://blog.ekini.net/2010/03/05/zend-framework-how-to-use-nested-transactions-with-zend_db-and-mysql/).
-
-If your database supports nested transactions (MySQL doesn't) or you implemented them you can put all your code inside a transaction.
-Use a generated helper TestHelper. Use this code inside of it.
-
-{% highlight php %}
-
-<?php
-namespace Codeception\Module;
-class TestHelper extends \Codeception\Module {
-     function _before($test) {
-         $this->getModule('ZF1')->db->beginTransaction();
-     }
-
-     function _after($test) {
-         $this->getModule('ZF1')->db->rollback();
-     }
-}
-?>
-
-{% endhighlight %}
-
-This will make your functional tests run super-fast.
 
 
 
@@ -83,10 +46,10 @@ Use it in Helpers or GroupObject or Extension classes:
 {% highlight php %}
 
 <?php
-$els = $this->getModule('ZF1')->_findElements('.items');
-$els = $this->getModule('ZF1')->_findElements(['name' => 'username']);
+$els = $this->getModule('ZendExpressive')->_findElements('.items');
+$els = $this->getModule('ZendExpressive')->_findElements(['name' => 'username']);
 
-$editLinks = $this->getModule('ZF1')->_findElements(['link' => 'Edit']);
+$editLinks = $this->getModule('ZendExpressive')->_findElements(['link' => 'Edit']);
 // now you can iterate over $editLinks and check that all them have valid hrefs
 
 {% endhighlight %}
@@ -111,7 +74,7 @@ Use it in Helpers when you want to retrieve response of request performed by ano
 // in Helper class
 public function seeResponseContains($text)
 {
-   $this->assertContains($text, $this->getModule('ZF1')->_getResponseContent(), "response contains");
+   $this->assertContains($text, $this->getModule('ZendExpressive')->_getResponseContent(), "response contains");
 }
 ?>
 
@@ -133,7 +96,7 @@ Useful for testing multi-step forms on a specific step.
 <?php
 // in Helper class
 public function openCheckoutFormStep2($orderId) {
-    $this->getModule('ZF1')->_loadPage('POST', '/checkout/step2', ['order' => $orderId]);
+    $this->getModule('ZendExpressive')->_loadPage('POST', '/checkout/step2', ['order' => $orderId]);
 }
 ?>
 
@@ -160,7 +123,7 @@ Returns a string with response body.
 <?php
 // in Helper class
 public function createUserByApi($name) {
-    $userData = $this->getModule('ZF1')->_request('POST', '/api/v1/users', ['name' => $name]);
+    $userData = $this->getModule('ZendExpressive')->_request('POST', '/api/v1/users', ['name' => $name]);
     $user = json_decode($userData);
     return $user->id;
 }
@@ -189,7 +152,7 @@ Saves page source of to a file
 
 {% highlight php %}
 
-$this->getModule('ZF1')->_savePageSource(codecept_output_dir().'page.html');
+$this->getModule('ZendExpressive')->_savePageSource(codecept_output_dir().'page.html');
 
 {% endhighlight %}
  * `param` $filename
@@ -218,23 +181,6 @@ $I->amOnPage('/register');
 {% endhighlight %}
 
  * `param` $page
-
-
-#### amOnRoute
- 
-Opens web page using route name and parameters.
-
-{% highlight php %}
-
-<?php
-$I->amOnRoute('posts.create');
-$I->amOnRoute('posts.show', array('id' => 34));
-?>
-
-{% endhighlight %}
-
- * `param` $routeName
- * `param array` $params
 
 
 #### attachFile
@@ -761,23 +707,6 @@ $I->seeCookie('PHPSESSID');
 {% endhighlight %}
 
  * `param` $cookie
- * `param array` $params
-
-
-#### seeCurrentRouteIs
- 
-Checks that current url matches route.
-
-{% highlight php %}
-
-<?php
-$I->seeCurrentRouteIs('posts.index');
-$I->seeCurrentRouteIs('posts.show', ['id' => 8]));
-?>
-
-{% endhighlight %}
-
- * `param` $routeName
  * `param array` $params
 
 
@@ -1374,4 +1303,4 @@ $I->uncheckOption('#notify');
 
  * `param` $option
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/ZF1.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/ZendExpressive.php">Help us to improve documentation. Edit module reference</a></div>

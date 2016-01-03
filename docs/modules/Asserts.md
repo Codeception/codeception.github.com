@@ -12,6 +12,7 @@ title: Asserts - Codeception - Documentation
 
 Special module for using asserts in your tests.
 
+<div class="alert alert-warning">Warning: does not work on <a href="https://github.com/facebook/hhvm/issues/5786">HHVM</a></div>
 
 
 #### assertContains
