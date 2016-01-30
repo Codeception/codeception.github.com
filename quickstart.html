@@ -17,20 +17,28 @@ title: Quick Start Codeception
       <div class="panel-body">
 
       <div class="container">
-        <div class="col-sm-6 col-lg-6">
+          <div class="col-sm-6 col-lg-6">
+              <p>Download and save the
+                  <b>phar</b> archive to the root of your web application.&nbsp;</p>
+              <a class="btn btn-lg btn-success" href="/thanks" target="_blank">Download Codeception</a>
 
-      <p>Download and save the
-        <b>phar</b> archive to the root of your web application.&nbsp;</p>
-      <a class="btn btn-lg btn-success" href="/thanks" target="_blank">Download Codeception</a>
+              <p class="text-muted">Alternatively download it from console</p>
+              <div>
+                  <pre><code>wget http://codeception.com/codecept.phar</code></pre>
+              </div>
+          </div>
 
-      <p class="text-muted">Alternatively download it from console</p>
-      <div>
-      <pre><code>wget http://codeception.com/codecept.phar</code></pre>
-      </div>
+          <div class="col-sm-6 col-lg-6">
+              <p>If you are using PHP 5.4 or PHP 5.5 < 5.5.9.</p>
+              <a class="btn btn-lg btn-success" href="/thanks_php54" target="_blank">Download Codeception</a>
 
+              <p class="text-muted">Alternatively download it from console</p>
+              <div>
+                  <pre><code>wget http://codeception.com/php54/codecept.phar</code></pre>
+              </div>
+          </div>
 
-        </div>
-        <div class="col-sm-6 col-lg-6">
+          <div class="col-sm-6 col-lg-6">
           Install via Composer
 
 <pre><code>php composer.phar require "codeception/codeception:*"</code></pre>          
@@ -38,6 +46,7 @@ title: Quick Start Codeception
 <p>Use <code>./vendor/bin/codecept</code> instead of codecept.phar in this case.</p>
 
         </div>
+
           <div class="col-sm-6 col-lg-6">
               Install Globally
 
