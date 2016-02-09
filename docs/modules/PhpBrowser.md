@@ -46,6 +46,18 @@ If test fails stores last shown page in 'output' dir.
                auth: ['admin', '123345']
                curl:
                    CURLOPT_RETURNTRANSFER: true
+               cookies:
+                   cookie-1:
+                       Name: userName
+                       Value: john.doe
+                   cookie-2:
+                       Name: authToken
+                       Value: 1abcd2345
+                       Domain: subdomain.domain.com
+                       Path: /admin/
+                       Expires: 1292177455
+                       Secure: true
+                       HttpOnly: false
 
 
 All SSL certification checks are disabled by default.
@@ -1214,7 +1226,8 @@ $I->amOnPage('test-headers.php');
 #### submitForm
  
 Submits the given form on the page, optionally with the given form
-values.  Give the form fields values as an array.
+values.  Pass the form field's values as an array in the second
+parameter.
 
 Although this function can be used as a short-hand version of 
 `fillField()`, `selectOption()`, `click()` etc. it has some important 

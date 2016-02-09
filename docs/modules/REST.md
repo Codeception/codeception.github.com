@@ -583,6 +583,7 @@ $I->seeXmlResponseIncludes("<result>1</result>");
 {% endhighlight %}
 
  * `param` $xml
+ * `[Part]` xml
 
 
 #### seeXmlResponseMatchesXpath
@@ -699,5 +700,15 @@ Sends UNLINK request to given uri.
  * `author`  samva.ua * `gmail.com` 
  * `[Part]` json
  * `[Part]` xml
+
+
+#### startFollowingRedirects
+ 
+Enables automatic redirects to be followed by the client
+
+
+#### stopFollowingRedirects
+ 
+Prevents automatic redirects to be followed by the client
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/REST.php">Help us to improve documentation. Edit module reference</a></div>

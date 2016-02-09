@@ -887,6 +887,22 @@ Checks if any email were sent by last request
  * `throws`  \LogicException
 
 
+#### seeInCurrentRoute
+ 
+Checks that current url matches route.
+Unlike seeCurrentRouteIs, this can matches without exact route parameters
+
+{% highlight php %}
+
+<?php
+$I->seeCurrentRouteMatches('my_blog_pages');
+?>
+
+{% endhighlight %}
+
+ * `param` $routeName
+
+
 #### seeInCurrentUrl
  
 Checks that current URI contains the given string.
@@ -1202,7 +1218,8 @@ $I->setCookie('PHPSESSID', 'el4ukv0kqbvoirg7nkp4dncpk3');
 #### submitForm
  
 Submits the given form on the page, optionally with the given form
-values.  Give the form fields values as an array.
+values.  Pass the form field's values as an array in the second
+parameter.
 
 Although this function can be used as a short-hand version of 
 `fillField()`, `selectOption()`, `click()` etc. it has some important 

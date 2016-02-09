@@ -7,6 +7,30 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.1.6
+
+* Starting from 2.1.6 you can **download PHP 5.4 compatible phar build** at http://codeception.com/php54/codecept.phar by <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>. See [installation guide](http://codeception.com/install).
+* <strong>[WebDriver]</strong> Fixed uploading files with **PhantomJS** <a href="https://github.com/Codeception/Codeception/issues/1823">#1823</a> by <strong><a href="https://github.com/DavertMik">@DavertMik</a></strong> and <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>. Please specify your browser name as `phantom` in WebDriver config in order to use PhantomJS-specific hooks.
+* Fixed parsing PHP files with spaces in name on PHP<7 by <strong><a href="https://github.com/acuthbert">@acuthbert</a></strong>. Fixes <a href="https://github.com/Codeception/Codeception/issues/2647">#2647</a>
+* <strong>[WebDriver]</strong> Fixed proxy error when using with Chrome <a href="https://github.com/Codeception/Codeception/issues/2651">#2651</a> by <strong><a href="https://github.com/vaikla">@vaikla</a></strong>
+* <strong>[Laravel5]</strong> Allow Laravel5 application URL to be set through config. By <strong><a href="https://github.com/gmhenderson">@gmhenderson</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/2676">#2676</a>
+* <strong>[Laravel5]</strong> Mocked events should also return an array. Fix by <strong><a href="https://github.com/devinfd">@devinfd</a></strong>
+* Fixed using codecoverage with environments <a href="https://github.com/Codeception/Codeception/issues/2634">#2634</a>
+* Various HHVM improvements by <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>, for instance, Asserts module issues has been fixed.
+* <strong>[REST]</strong> Fixes <a href="https://github.com/Codeception/Codeception/issues/2775">#2775</a> `seeResponseJsonMatchesXpath` when JSON contains ampersand. By <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>.
+* <strong>[Filesystem]</strong> Added `seeNumberNewLines` method to check the number of new lines in opened file. By <strong><a href="https://github.com/sergeyklay">@sergeyklay</a></strong>
+* <strong>[Symfony2]</strong> Added `seeCurrentRouteMatches` action by <strong><a href="https://github.com/laszlo">@laszlo</a></strong>-karpati See <a href="https://github.com/Codeception/Codeception/issues/2665">#2665</a>
+* <strong>[Sequence]</strong> Added `sqs` function to generate unique sequences per suite. <a href="https://github.com/Codeception/Codeception/issues/2766">#2766</a> by <strong><a href="https://github.com/johnatannvmd">@johnatannvmd</a></strong>
+* <strong>[FTP]</strong> Fixed various bugs by <strong><a href="https://github.com/k">@k</a></strong>-serenade. See <a href="https://github.com/Codeception/Codeception/issues/2755">#2755</a>
+* <strong>[Frameworks]</strong><strong>[PhpBrowser]</strong> Fixed <a href="https://github.com/Codeception/Codeception/issues/2733">#2733</a>: `seeOptionIsSelected` sees first option as selected if none is selected by <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>
+* <strong>[Symfony2]</strong> Removed 'localhost' from getInternalDomains by <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>. Fixed <a href="https://github.com/Codeception/Codeception/issues/2717">#2717</a>
+* Bugfix for using groups by directory on Windows by <strong><a href="https://github.com/tortuetorche">@tortuetorche</a></strong> See <a href="https://github.com/Codeception/Codeception/issues/2550">#2550</a> and <a href="https://github.com/Codeception/Codeception/issues/2551">#2551</a>
+* <strong>[REST]</strong> Fixed failed message for `seeHttpHeader` and `dontSeeHttpHeader` from null to expected value <a href="https://github.com/Codeception/Codeception/issues/2697">#2697</a> by <strong><a href="https://github.com/zondor">@zondor</a></strong>
+* <strong>[REST]</strong> Added methods to control redirect: `stopFollowingRedirects` and `startFollowingRedirects` by <strong><a href="https://github.com/brutuscat">@brutuscat</a></strong>
+* [Recorder Extension] Added `animate_slides` config to disable left-right sliding animation between screenshots by <strong><a href="https://github.com/vml">@vml</a></strong>-rmott
+
+
+
 #### 2.1.5
 
 * **PHP7 support**

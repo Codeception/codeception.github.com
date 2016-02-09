@@ -1132,7 +1132,8 @@ $I->setCookie('PHPSESSID', 'el4ukv0kqbvoirg7nkp4dncpk3');
 #### submitForm
  
 Submits the given form on the page, optionally with the given form
-values.  Give the form fields values as an array.
+values.  Pass the form field's values as an array in the second
+parameter.
 
 Although this function can be used as a short-hand version of 
 `fillField()`, `selectOption()`, `click()` etc. it has some important 
