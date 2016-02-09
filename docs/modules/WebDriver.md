@@ -26,6 +26,8 @@ It allows you to run Selenium tests on a server without a GUI installed.
 1. Download [PhantomJS](http://phantomjs.org/download.html)
 2. Run PhantomJS in WebDriver mode: `phantomjs --webdriver=4444`
 
+You will need to set a browser name to `phantom` in configuration.
+
 
 ### Status
 
@@ -60,11 +62,18 @@ It allows you to run Selenium tests on a server without a GUI installed.
              url: 'http://localhost/'
              browser: firefox
              window_size: 1024x768
-             wait: 10
              capabilities:
                  unexpectedAlertBehaviour: 'accept'
                  firefox_profile: '/Users/paul/Library/Application Support/Firefox/Profiles/codeception-profile.zip.b64'
 
+
+#### PhantomJS Example (`acceptance.suite.yml`)
+
+    modules:
+       enabled:
+          - WebDriver:
+             url: 'http://localhost/'
+             browser: phantomjs
 
 
 ### SauceLabs.com Integration
@@ -650,7 +659,7 @@ If Codeception commands are not enough, this allows you to use Selenium WebDrive
 
 {% highlight php %}
 
-$I->executeInSelenium(function(\Facebook\WebDriver\RemoteWebDriver $webdriver) {
+$I->executeInSelenium(function(\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver) {
   $webdriver->get('http://google.com');
 });
 
@@ -1570,7 +1579,7 @@ If the window has no name, the only way to access it is via the `executeInSeleni
 {% highlight php %}
 
 <?php
-$I->executeInSelenium(function (\Facebook\WebDriver\RemoteWebDriver $webdriver) {
+$I->executeInSelenium(function (\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver) {
      $handles=$webdriver->getWindowHandles();
      $last_window = end($handles);
      $webdriver->switchTo()->window($last_window);

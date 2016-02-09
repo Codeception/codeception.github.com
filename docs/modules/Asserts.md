@@ -12,8 +12,6 @@ title: Asserts - Codeception - Documentation
 
 Special module for using asserts in your tests.
 
-<div class="alert alert-warning">Warning: does not work on <a href="https://github.com/facebook/hhvm/issues/5786">HHVM</a></div>
-
 
 #### assertContains
  
@@ -41,7 +39,6 @@ Checks that two variables are equal.
  * `param string` $message
 
 
-
 #### assertFalse
  
 Checks that condition is negative.
@@ -53,7 +50,7 @@ Checks that condition is negative.
 #### assertFileExists
  
 Checks if file exists
- 
+
  * `param string` $filename
  * `param string` $message
 
@@ -61,7 +58,7 @@ Checks if file exists
 #### assertFileNotExists
  
 Checks if file doesn't exist
- 
+
  * `param string` $filename
  * `param string` $message
 
@@ -188,7 +185,6 @@ Checks that two variables are same
  * `param`        $expected
  * `param`        $actual
  * `param string` $message
-
 
 
 #### assertTrue
