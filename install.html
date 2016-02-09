@@ -69,13 +69,21 @@ title: Codeception Installation
 <p>From now on Codeception (with installed PHPUnit) can be run as:</p>
 
 <p>
-<pre><code>vendor/bin/codecept</code></pre>
+<pre><code>php vendor/bin/codecept</code></pre>
 </p>
 
 <p>Initialize your testing environment with</p>
 
 <p>
-<pre><code>vendor/bin/codecept bootstrap</code></pre>
+<pre><code>php vendor/bin/codecept bootstrap</code></pre>
+</p>
+
+<h3>Minimal Codeception</h3>
+
+<p>Currently Codeception installs Webdriver and Guzzle libraries as dependencies. If you don't plan to do acceptance testing, you can get minimal installation of Codeception by requiring `codeception/base`</p>
+
+<p>
+<pre><code>php composer.phar require "codeception/base:*" --dev</code></pre>
 </p>
 
 
