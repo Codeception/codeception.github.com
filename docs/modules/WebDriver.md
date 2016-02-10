@@ -59,6 +59,7 @@ In case you want to test a local site or site behind a firewall you should use a
 1. Create an account at [SauceLabs.com](http://SauceLabs.com) to get your username and access key
 2. In the module configuration use the format `username`:`access_key`@ondemand.saucelabs.com' for `host`
 3. Configure `platform` under `capabilities` to define the [Operating System](https://docs.saucelabs.com/reference/platforms-configurator/#/)
+4. run a tunnel app if your site can't be accessed from Internet
 
 {% highlight yaml %}
 
@@ -73,13 +74,13 @@ In case you want to test a local site or site behind a firewall you should use a
                  platform: 'Windows 10'
 
 {% endhighlight %}
-4. run a tunnel app if your site can't be accessed from Internet
 
 #### BrowserStack
 
 1. Create an account at [BrowserStack](https://www.browserstack.com/) to get your username and access key
 2. In the module configuration use the format `username`:`access_key`@ondemand.saucelabs.com' for `host`
 3. Configure `platform` under `capabilities` to define the [Operating System](https://docs.saucelabs.com/reference/platforms-configurator/#/)
+4. If your site is available only locally or via VPN you should use a tunnel app. In this case add `browserstack.local` capability and set it to true.
 
 {% highlight yaml %}
 
@@ -96,7 +97,6 @@ In case you want to test a local site or site behind a firewall you should use a
                  browserstack.local: true # for local testing
 
 {% endhighlight %}
-4. run a tunnel app if your site can't be accessed from Internet. In this case ensure that `browserstack.local` capability is set to true.
 
 ### Configuration
 
@@ -117,6 +117,8 @@ In case you want to test a local site or site behind a firewall you should use a
 
 Example (`acceptance.suite.yml`)
 
+{% highlight yaml %}
+
     modules:
        enabled:
           - WebDriver:
@@ -126,6 +128,8 @@ Example (`acceptance.suite.yml`)
              capabilities:
                  unexpectedAlertBehaviour: 'accept'
                  firefox_profile: '~/firefox-profiles/codeception-profile.zip.b64'
+
+{% endhighlight %}
 
 #### Status
 
