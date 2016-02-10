@@ -233,6 +233,7 @@ Take a look at the complete reference for module you are using. Most of its meth
 Also you can access framework globals inside a test or access Dependency Injection containers inside `Helper\Functional` class.
 
 {% highlight php %}
+
 <?php
 namespace Helper;
 
@@ -245,6 +246,7 @@ class Functional extends \Codeception\Module
     }
 }
 ?>
+
 {% endhighlight %}
 
 Check also all available *Public Properties* of used modules to get full access to its data. 

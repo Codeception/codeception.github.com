@@ -55,10 +55,10 @@ Example:
 {% highlight php %}
 
 <?php
-JsonType::addCustomFilter('slug', function($value) {
-    return strpos(' ', $value) !== false;
+JsonType::addCustomFilter('email', function($value) {
+    return strpos(' * `',`  $value) !== false;
 });
-// => use it as 'string:slug'
+// => use it as 'string:email'
 
 
 // add custom function to matcher with `len($val)` syntax
