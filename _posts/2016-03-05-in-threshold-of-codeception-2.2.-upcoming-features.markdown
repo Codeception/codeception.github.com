@@ -52,7 +52,7 @@ This feature would be useful if you want to share database configuration with ap
        enabled:
           - WebDriver:
              url: http://mysite.com
-             host: %SAUCE_USER%:%SAUCE_KEY%@ondemand.saucelabs.com'
+             host: '%SAUCE_USER%:%SAUCE_KEY%@ondemand.saucelabs.com'
              port: 80
              browser: chrome
              capabilities:
