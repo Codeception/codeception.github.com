@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "In Threshold of Codeception 2.2. Upcoming Features"
+title: "In The Threshold of Codeception 2.2. Upcoming Features"
 date: 2016-03-05 01:03:50
 ---
 
@@ -12,7 +12,7 @@ We don't plan any major breaking changes in this release. However, we will remov
 
 Yes, Codeception is finally will unlock it's dependency on PHPUnit 4.8 so you could receive the latest stable versions of PHPUnit. As you may know PHPUnit 5.x has much better support of PHP7, so anyone who develop using the latest version of PHP should use it. But wait, it's not the feature of Codeception 2.2 itself! Codeception 2.1.7 will be released with PHPUnit 5.x support as well.
 
-## Test Dependencies
+### Test Dependencies
 
 Finally `@depends` annotation works as you might expected it to. The hardest thing about dependencies is that PHPUnit does nothing to organize dependent tests in a right order:
 
@@ -29,7 +29,9 @@ Here is the annotation format to use to declare dependencies. It should be {full
 @depends App\Service\UserTest:create
 ```
 
-## Params
+Unlike PHPUnit, you can't pass data between dependent tests. Alternatively you can use Helpers or `Codeception\Util\Fixtures` class to store shared data.
+
+### Params
 
 This lines are written just in the same time as corresponding pull request is merged:
 
@@ -57,7 +59,7 @@ This feature would be useful if you want to share database configuration with ap
                  platform: 'Windows 10'
 ```
 
-## Conflicts
+### Conflicts
 
 This is possibly a breaking feature which was announced in Codeception 2.1 but never worked the way it supposed to be. So let's talk about it once again. A friendly reminder, if you use config like this:
 
