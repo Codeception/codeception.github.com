@@ -44,7 +44,7 @@ That's why we recommend to have tests with real browser interaction. You can [le
 But what about unit and functional tests? As we decided we will put them into bundles. *Symfony-demo* has only *AppBundle* included, so we will create new Codeception setup in `src/AppBundle`. Take a note that we want those tests to be placed in their own namespace:
 
 {% highlight bash %}
-php bin/codecept bootstrap --empty -c src/AppBundle --namespace AppBundle
+php bin/codecept bootstrap --empty src/AppBundle --namespace AppBundle
 {% endhighlight %}
 
 We will also create `unit` and `functional` suites there:
