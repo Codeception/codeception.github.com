@@ -60,7 +60,7 @@
 .highlight .vi { color: #bb60d5 } /* Name.Variable.Instance */
 .highlight .il { color: #40a070 } /* Literal.Number.Integer.Long */
 
-.highlight pre {
+pre.highlight  {
   font-family: "Bitstream Vera Sans Mono",monospace;
   background: #222;
   font-size: 85%;
@@ -78,3 +78,4 @@ p code, li code {
   font-family: "Bitstream Vera Sans Mono",monospace;  
   padding: 0 5px;
 }	
+
