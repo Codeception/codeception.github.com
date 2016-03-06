@@ -22,9 +22,10 @@ So their usage in Codeception was useless, especially if you were executing test
 
 Codeception takes the exact `@depends` annotation, reorders tests so dependent tests always will executed after the tests they rely on. This will work for Cest and Test formats both. And you can actually declare dependencies for tests in other files. Be sure, they will be taken, executed in the right order, and if a test fails its dependencies will be skipped. This is likely improve acceptance testing. If login test doesn't pass, you shouldn't even try to launch all other tests with authorization required.
 
-Here is the annotation format to use to declare dependencies. It should be {fullClassName}:{testName}
+Here is the annotation format to use to declare dependencies. It should be {fullClassName}:{testName} or {testName} for the test in the same class.
 
 ```
+@depends login
 @depends UserCest:login
 @depends App\Service\UserTest:create
 ```
