@@ -103,6 +103,8 @@ modules:
 This way you can use API to create test data for application:
 
 ```php
+<?php
+$I = new AcceptanceTester($scenario);
 // let's create a post
 $I->sendPOST('/posts', ['title' => 'Hello, Codeception 2.2', 'body' => 'Almost here']);
 
