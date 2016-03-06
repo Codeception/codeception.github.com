@@ -92,12 +92,23 @@ If you were mixing WebDriver with PhpBrowser in order to use REST API inside acc
 ```yaml
 modules:
     enabled:
-        - WebDriver
+        - WebDriver:
             url: http://localhost/
             browser: firefox
-        - REST
+        - REST:
             url: http://localhost/api
             depends: PhpBrowser
+```
+
+This way you can use API to create test data for application:
+
+```php
+// let's create a post
+$I->sendPOST('/posts', ['title' => 'Hello, Codeception 2.2', 'body' => 'Almost here']);
+
+// check it is actually there
+$I->amOnPage('/posts');
+$I->see('Hello, Codeception', 'h2');
 ```
 
 ### ...and much more to come
