@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "In The Threshold of Codeception 2.2. Upcoming Features"
+title: "On The Threshold of Codeception 2.2: Upcoming Features"
 date: 2016-03-05 01:03:50
 ---
 
