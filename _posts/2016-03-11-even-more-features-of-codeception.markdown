@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Introducing even more features of Codeception 2.2"
+title: "Even More Features of Codeception 2.2"
 date: 2016-03-10 01:03:50
 ---
 
