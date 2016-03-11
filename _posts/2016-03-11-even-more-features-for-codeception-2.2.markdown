@@ -18,6 +18,7 @@ DataFactory module should solve this with fixture generators, called factories. 
 This is how it works. You define rules to generate models:
 
 ```php
+<?php
 use League\FactoryMuffin\Faker\Facade as Faker;
 
 $fm->define(User::class)->setDefinitions([
@@ -76,6 +77,7 @@ In PHPUnit you could have one test to be executed several times with different d
 For REST API testing this might look like:
 
 ```php
+<?php
  /**
   * @example ['/api/', 200]
   * @example ['/api/protected', 401]
@@ -87,6 +89,7 @@ For REST API testing this might look like:
     $I->sendGET($example[0]);
     $I->seeResponseCodeIs($example[1]);
   }
+?>
 ```
 
 Data in `@example` annotation can be defined using JSON objects, JSON-arrays, or Symfony-style annotation.
