@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Introducing even more features of Codeception 2.2"
-date: 2016-03-11 01:03:50
+date: 2016-03-10 01:03:50
 ---
 
 Today we continue to show you new features of Codeception 2.2, planned to release this March.
