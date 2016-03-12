@@ -7,6 +7,25 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.1.7
+
+* **PHPUnit 5.x support**
+* Global Bootstrap, Suite Bootstrap, Module Initialization happens before test loading. Fixes issues of autoloading TestCase classes introduced in 2.1.5, see <a href="https://github.com/Codeception/Codeception/issues/2872">#2872</a>
+* Added option to skip PHP files validation in `codeception.yml` - `settings: lint: false`
+* <strong>[Facebook]</strong> Updated to  facebook/php-sdk-v4 version 5 by <strong><a href="https://github.com/orhan">@orhan</a></strong>-swe and <strong><a href="https://github.com/tigerseo">@tigerseo</a></strong> <a href="https://github.com/Codeception/Codeception/issues/2828">#2828</a> <a href="https://github.com/Codeception/Codeception/issues/2415">#2415</a>
+* <strong>[WebDriver]</strong> Added `scrollTo` action by <strong><a href="https://github.com/javigomez">@javigomez</a></strong> and <strong><a href="https://github.com/davertmik">@davertmik</a></strong> <a href="https://github.com/Codeception/Codeception/issues/2844">#2844</a>
+* Fix encoding problems in PHP prior to 5.6 by <strong><a href="https://github.com/pejaycz">@pejaycz</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/2831">#2831</a>
+* <strong>[Queue]</strong> Fixed `clearQueue` for AmazonSQS by <strong><a href="https://github.com/mikitu">@mikitu</a></strong> <a href="https://github.com/Codeception/Codeception/issues/2805">#2805</a>
+* <strong>[Db]</strong> Fixed loading files in Sqlite <strong><a href="https://github.com/mcustiel">@mcustiel</a></strong> See <a href="https://github.com/Codeception/Codeception/issues/2812">#2812</a>
+* <strong>[PhpBrowser]</strong> `amHttpAuthenticated` allows null, null as parameters to unset authentication. <a href="https://github.com/Codeception/Codeception/issues/2896">#2896</a>
+* `Util\Locator` added `contains` method to easily locate any element containing a text.
+* <strong>[Laravel5]</strong> Added `guard` parameters to `seeAuthentication` and `dontSeeAuthentication` methods. By <strong><a href="https://github.com/janhenkgerritsen">@janhenkgerritsen</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/2876">#2876</a>
+* <strong>[Laravel5]</strong> Added functionality to disable/enable Laravel's exception handling. By <strong><a href="https://github.com/janhenkgerritsen">@janhenkgerritsen</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/2763">#2763</a>
+* <strong>[Laravel5]</strong> Authentication now persists between requests when calling `amLoggedAs` with an instance of `Authenticable`. See <a href="https://github.com/Codeception/Codeception/issues/2795">#2795</a>
+* <strong>[REST]</strong> Fixed dontSeeXmlResponseMatchesXpath method <a href="https://github.com/Codeception/Codeception/issues/2825">#2825</a> by <strong><a href="https://github.com/mangust404">@mangust404</a></strong>
+* <strong>[ZF2]</strong> Fixed POST parameters <a href="https://github.com/Codeception/Codeception/issues/2814">#2814</a> by <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>
+* <strong>[ZF1]</strong> Call Zend_Registry::_unsetInstance in _after <a href="https://github.com/Codeception/Codeception/issues/2863">#2863</a> by <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>
+
 #### 2.1.6
 
 * Starting from 2.1.6 you can **download PHP 5.4 compatible phar build** at http://codeception.com/php54/codecept.phar by <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>. See [installation guide](http://codeception.com/install).
@@ -28,8 +47,6 @@ title: Codeception Changelog
 * <strong>[REST]</strong> Fixed failed message for `seeHttpHeader` and `dontSeeHttpHeader` from null to expected value <a href="https://github.com/Codeception/Codeception/issues/2697">#2697</a> by <strong><a href="https://github.com/zondor">@zondor</a></strong>
 * <strong>[REST]</strong> Added methods to control redirect: `stopFollowingRedirects` and `startFollowingRedirects` by <strong><a href="https://github.com/brutuscat">@brutuscat</a></strong>
 * [Recorder Extension] Added `animate_slides` config to disable left-right sliding animation between screenshots by <strong><a href="https://github.com/vml">@vml</a></strong>-rmott
-
-
 
 #### 2.1.5
 
@@ -60,7 +77,6 @@ title: Codeception Changelog
 * <strong>[Laravel5]</strong> Fix bug for `seeCurrentRouteIs` when routes don't match. See <a href="https://github.com/Codeception/Codeception/issues/2593">#2593</a>. By <strong><a href="https://github.com/maddhatter">@maddhatter</a></strong>
 * <strong>[PhpBrowser]</strong> Set curl options for Guzzle6 correctly. See <a href="https://github.com/Codeception/Codeception/issues/2533">#2533</a>. By <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>
 * Fixed usage of GroupObject by unit tests. GroupObjects can skip tests by <strong><a href="https://github.com/davetmik">@davetmik</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/2617">#2617</a>
-
 
 #### 2.1.4
 

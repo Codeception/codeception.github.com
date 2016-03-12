@@ -50,6 +50,24 @@ As a result the Locator will produce a mixed XPath value that will be used in fi
 
 [See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php#L45)
 
+#### *public static* contains($element, $text) 
+
+Locates an element containing a text inside.
+Either CSS or XPath locator can be passed, however they will be converted to XPath.
+
+{% highlight php %}
+
+Locator::contains('label', 'Name'); // label containing name
+Locator::contains('div[ * `contenteditable=true]',`  'hello world');
+
+{% endhighlight %}
+
+ * `param` $element
+ * `param` $text
+ * `return`  string
+
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php#L198)
+
 #### *public static* find($element, array $attributes) 
 
 Finds element by it's attribute(s)
@@ -85,7 +103,7 @@ $I->see('Log In', Locator::href('/login.php'));
 
 #### *public static* humanReadableString($selector) 
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php#L185)
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php#L204)
 
 #### *public static* isCSS($selector) 
 

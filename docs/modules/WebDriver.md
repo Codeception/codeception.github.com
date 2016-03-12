@@ -1027,6 +1027,24 @@ $I->resizeWindow(800, 600);
  * `param string` $name
 
 
+#### scrollTo
+ 
+Move to the middle of the given element matched by the given locator.
+Extra shift, calculated from the top-left corner of the element, can be set by passing $offsetX and $offsetY parameters.
+
+{% highlight php %}
+
+<?php
+$I->scrollTo(['css' => '.checkout'], 20, 50);
+?>
+
+{% endhighlight %}
+
+ * `param` $selector
+ * `param int` $offsetX
+ * `param int` $offsetY
+
+
 #### see
  
 Checks that the current page contains the given string (case insensitive).

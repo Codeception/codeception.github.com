@@ -37,6 +37,7 @@ See the Acceptance tests section below for more details.
 * bootstrap: `string`, default `bootstrap/app.php` - Relative path to app.php config file.
 * root: `string`, default `` - Root path of our application.
 * packages: `string`, default `workbench` - Root path of application packages (if any).
+* disable_exception_handling: `boolean`, default `true` - disable Laravel exception handling
 * disable_middleware: `boolean`, default `false` - disable all middleware.
 * disable_events: `boolean`, default `false` - disable all events.
 * url: `string`, default `` - The application URL.
@@ -376,6 +377,19 @@ $I->disableEvents();
 {% endhighlight %}
 
 
+#### disableExceptionHandling
+ 
+Disable Laravel exception handling.
+
+{% highlight php %}
+
+<?php
+$I->disableExceptionHandling();
+?>
+
+{% endhighlight %}
+
+
 #### disableMiddleware
  
 Disable middleware for the next requests.
@@ -423,7 +437,9 @@ For checking the raw source code, use `seeInSource()`.
 
 #### dontSeeAuthentication
  
-Check that user is not authenticated
+Check that user is not authenticated.
+You can specify the guard that should be use for Laravel >= 5.2.
+ * `param string|null` $guard
 
 
 #### dontSeeCheckboxIsChecked
@@ -698,6 +714,19 @@ $I->dontSeeRecord('users', array('name' => 'davert'));
  * `[Part]` orm
 
 
+#### enableExceptionHandling
+ 
+Enable Laravel exception handling.
+
+{% highlight php %}
+
+<?php
+$I->enableExceptionHandling();
+?>
+
+{% endhighlight %}
+
+
 #### fillField
  
 Fills a text field or textarea with the given string.
@@ -969,7 +998,9 @@ For checking the raw source code, use `seeInSource()`.
 
 #### seeAuthentication
  
-Checks that a user is authenticated
+Checks that a user is authenticated.
+You can specify the guard that should be use for Laravel >= 5.2.
+ * `param string|null` $guard
 
 
 #### seeCheckboxIsChecked
