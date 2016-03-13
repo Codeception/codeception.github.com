@@ -27,6 +27,7 @@
 {% capture modules %}{% include modules.html %}{% endcapture %}
 {% capture reference %}{% include reference.html %}{% endcapture %}
 <nav class="navbar nav-custom navbar-inverse">
+<div class="container">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
@@ -37,19 +38,6 @@
         <a href="/" class="navbar-brand"><img src="/images/toplogo.png" alt="codeception"/></a>
     </div>
     <div class="navbar-inner">
-        <div class="follow nav pull-right" style="margin-top: 10px">
-            <a href="https://twitter.com/codeception" class="twitter-follow-button" data-show-count="false"
-               data-lang="en" data-size="large">Follow @Codeception</a>
-            <script>!function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (!d.getElementById(id)) {
-                    js = d.createElement(s);
-                    js.id = id;
-                    js.src = "//platform.twitter.com/widgets.js";
-                    fjs.parentNode.insertBefore(js, fjs);
-                }
-            }(document, "script", "twitter-wjs");</script>
-        </div>
         <ul class="nav navbar-nav navbar-collapse collapse menu">
             <li>
                 <a href="/quickstart">Quickstart</a>
@@ -111,7 +99,7 @@
             </li>
         </ul>
     </div>
-    </div>
+</div> <!-- /.container -->
 </nav>
 <div class="container">
     {{ content }}
@@ -179,7 +167,7 @@ In Subscription Billing">
                             <div class="addthis_toolbox addthis_default_style ">
           <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
           <a class="addthis_button_tweet"></a>
-          <a class="addthis_button_google_plusone" g:plusone:size="medium"></a> 
+          <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
         </div>
         <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
         <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-501c6975683af72f"></script>

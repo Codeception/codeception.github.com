@@ -3,8 +3,8 @@
 }
 body {
   background:  #ecf0f1; /** url("/images/bg.png") transparent !important; */
-  word-wrap: break-word; // IE
-  overflow-wrap: break-word; // CSS3
+  word-wrap: break-word; /* IE */
+  overflow-wrap: break-word; /* CSS3 */
 }
 body .navbar.nav-custom {
   background: #042943;
@@ -223,7 +223,7 @@ ul.navbar-nav {
 }
 
 .row.home-btns{
-	margin-bottom:70px;
+	margin-bottom:35px;
 }
 
 .well.dark{
@@ -283,7 +283,7 @@ ul.navbar-nav {
 	}
 
 	.row.home-btns{
-		margin-bottom:0px;
+		margin-bottom:20px;
 	}
 
 	ul {
