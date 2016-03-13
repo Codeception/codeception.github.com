@@ -5,33 +5,48 @@ layout: bootstrap
 <!-- Adding the new Homepage here -->
 <div id="home-hero">
 
-  <h1><img src="/images/logo.png" alt="Codeception Logo">Codeception</h1>      
+  <h1><img src="/images/logo.png" alt="Codeception Logo">Codeception</h1>
   <p class="lead">Modern PHP testing for everyone.</p>
 
 </div>
 
 <div class="row home">
-
   <div class="col-sm-12 col-lg-12">
-
   <div class="row home-btns">
-    <div class="col-sm-12 col-lg-6 col-md-6">
-        <div class="well dark">
-          <a class="btn btn-primary btn-lg btn-block" href="/install"><span class="btn-label">Install →</span></a>
+    <div class="col-sm-12 col-md-4 col-md-offset-2">
+        <div class="well dark text-center">
+          <a class="btn btn-primary btn-lg btn-block" href="/install"><span class="btn-label">Install</span></a>
           <p><br/>To install codeception you can download it or include it in your composer.json file.
           </p>
         </div>
       </div>
 
-      <div class="col-sm-12 col-lg-6 col-md-6">
-        <div class="well dark">
-          <a class="btn btn-lg btn-warning btn-block" href="/quickstart"><span class="btn-label">Quick Start →</span></a>
-          <p><br/>Write and execute a test for an existing app
+      <div class="col-sm-12 col-md-4">
+        <div class="well dark text-center">
+          <a class="btn btn-lg btn-warning btn-block" href="/quickstart"><span class="btn-label">5min Quick Start</span></a>
+          <p><br/>Write and execute a test for an existing app<br>
             <b>in less then 5 mins!</b>
           </p>
         </div>
       </div>
-  </div>
+  </div> <!-- /.row -->
+      <div class="row home-btns">
+        <div class="col-xs-12 text-center">
+        <aside>
+          <a href="https://twitter.com/codeception" class="twitter-follow-button" data-show-count="false"
+             data-lang="en" data-size="large">Follow @Codeception</a>
+          <script>!function (d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (!d.getElementById(id)) {
+                  js = d.createElement(s);
+                  js.id = id;
+                  js.src = "//platform.twitter.com/widgets.js";
+                  fjs.parentNode.insertBefore(js, fjs);
+              }
+          }(document, "script", "twitter-wjs");</script>
+        </aside>
+        </div> <!-- /.col -->
+      </div> <!-- /.row -->
 
     <div class="row">
       <div class="col-sm-4 col-lg-4">
@@ -39,7 +54,7 @@ layout: bootstrap
           <h4>Acceptance Testing</h4>
           <p>
             <b>Selenium WebDriver</b>, PhpBrowser. Data cleanup. Continuous Integration. Remote CodeCoverage.
-          </p> 
+          </p>
         </div>
       </div>
       <div class="col-sm-4 col-lg-4">
@@ -56,8 +71,8 @@ layout: bootstrap
            <p>
             <b>REST</b>, <b>SOAP</b>, <b>XML-RPC</b> via PHPBrowser or PHP Frameworks.
           </p>
+          And <strong>Unit Testing</strong> powered by PHPUnit.
         </div>
-        <div><em>...and unit testing powered by PHPUnit</em></div>    
       </div>
     </div>
   </div>
@@ -98,71 +113,54 @@ layout: bootstrap
 
     <div class="well page">
       <h3>Questions you wanted to ask</h3>
-      <span class="badge badge-info pull-right">Q</span>
+    <br>
       <h4>Do I really need this?</h4>
-      <p>If you develop complex web applications with forms, links, and many
-        pages (or maybe APIs), and you want to
-        <b>check all forms and links in minutes</b>, you need to use a testing framework.
+      <p>If you develop complex web applications with forms, then you <em>need</em> to use a testing framework. A testing framework allows you to test all links, forms, pages, APIs, and anything else in just minutes using automated test scripts.
       </p>
-      <span class="badge badge-info pull-right">Q</span>
+    <br>
       <h4>Why should I use this instead of PHPUnit?</h4>
-      <p>Being the most popular unit testing framework PHPUnit has very limited
-        features for functional testing with
+      <p>PHPUnit has very limited features for functional testing with
         <b>Selenium</b> or other backends. Codeception is
-        <b>PHPUnit on steroids</b>. Everything you need for testing is built-in and
-        works just out of the box. No more pain in configuring Selenium, data cleanup, writing XPaths,      
-         and fixtures.
+        <b>PHPUnit on steroids</b>. Everything you need for testing is built-in, and 'just works' out of the box. No more pain in configuring Selenium, data cleanup, writing XPaths, or fixtures.
       </p>
-      <span class="badge badge-info pull-right">Q</span>
+    <br>
 
       <h4>It looks just like Behat</h4>
-      <p>Unlike Behat, Codeception tests are written in PHP. Thus, they are more flexible and easy in writing. Also you can use
-        <b>variables and operators</b>, <b>CSS and XPath</b> locators in your tests. These features allow you to
-        build a solid test automation platform for testing your web application.
-        Codeception tests are simple and readable for your developers, managers,
-        and QA team.
+      <p>Unlike Behat, Codeception tests are written in PHP. They are flexible and easy to write. You can use
+        <b>variables and operators</b>, <b>CSS and XPath</b> locators in your tests. These features allow you to build a solid test automation platform for testing your web application. Codeception tests are simple and readable for your developers, managers, and QA team.
       </p>
 
-      <span class="badge badge-info pull-right">Q</span>
+    <br>
       <h4>We are planning to use Selenium IDE. Why Codeception?</h4>
       <p>Codeception works great with Selenium. But with Codeception you can write your tests in PHP.
         The main reason is: <strong>Selenium IDE tests are tightly bound to XPath locators</strong>.
-        If you ever change anything in layout tests will fall. Codeception locators
-        are more stable. You can use names, labels, button names and CSS to match
-        elements on page. It's much easier to support the Codeception test then
-        Selenium's one. 
-        Selenium just can't clean data between tests, can't check database values, or generate code coverage reports.
+        If you ever change anything in the layout, tests will fail. Codeception locators are more stable. You can use names, labels, button names and CSS to match elements on page. It's much easier to support the Codeception test then Selenium's. Codeception can clean data between tests, can check database values, and can generate code coverage reports.
       </p>
 
-      <span class="badge badge-info pull-right">Q</span>
+    <br>
       <h4>Is Codeception a tool for testing legacy projects?</h4>
-      <p>Sure you can use Codeception for black-box testing of your legacy application. 
-      But in the same manner you can start testing modern web application as well. 
-      With modules that integrates with <b>all popular PHP frameworks</b> you can start writing functional tests in seconds. Unit tests? Write them as you do in PHPUnit with some enhancement. Codeception keeps your tests in one place, makes them structured and readable.    
+      <p>Sure, you can use Codeception for black-box testing of your legacy applications. But in the same manner you can start testing modern web application as well. With modules that integrates with <b>all popular PHP frameworks</b> you can start writing functional tests in seconds. Unit tests? Write them as you do in PHPUnit with some enhancement. Codeception keeps your tests in one place, makes them structured and readable.
       </p>
-
     </div>
-
-
   </div>
+
   <div class="col-sm-6 col-lg-6">
     <h5>Blog</h5>
-
         <ul class="list-group">
         {% for post in site.posts limit: 3 %}
         <li class="list-group-item">
           <div class="pull-right">{{ post.date | date: "%B %d, %Y" }}</div>
-          <span>            
+          <span>
             <a href="{{ post.url }}">{{ post.title }}</a>
           </span>
         </li>
         {% endfor %}
         </ul>
-
-        <h2>Examples</h2>        
-        <span class="badge pull-right">Db</span>
-        <span class="badge pull-right">PhpBrowser</span>
+<hr>
+        <h2>Examples...</h2>
         <h3>Acceptance Test</h3>
+        <span class="badge">PhpBrowser</span>
+        <span class="badge">Db</span>
         <p>
 {% highlight php %}
 <?php
@@ -177,17 +175,17 @@ $I->fillField('body', 'By Peter Jackson');
 $I->click('Save');
 $I->see('page created'); // notice generated
 $I->see('Hobbit','h1'); // head of page of is our title
-$I->seeInCurrentUrl('pages/hobbit'); 
+$I->seeInCurrentUrl('pages/hobbit');
 $I->seeInDatabase('pages', array('title' => 'Hobbit'));
 ?>
 {% endhighlight %}
         </p>
         <p>This test can be executed inside Mozilla Firefox using Selenium Webdriver,
           or any browser. You can also execute this test without any browser
-          by using a PHP browser emulator based on CURL. 
+          by using a PHP browser emulator based on CURL.
         </p>
           <p>
-          <a class="btn btn-default" href="/docs/03-AcceptanceTests"><span class="btn-label">Read more about Acceptance Tests →</span></a> 
+          <a class="btn btn-default" href="/docs/03-AcceptanceTests"><span class="btn-label">Read more about Acceptance Tests →</span></a>
           </p>
 
           <p>
@@ -196,16 +194,16 @@ $I->seeInDatabase('pages', array('title' => 'Hobbit'));
           </p>
 
           <p>
-          <a class="btn btn-default" href="/docs/04-FunctionalTests"><span class="btn-label">Read more about Functional Tests →</span></a> 
+          <a class="btn btn-default" href="/docs/04-FunctionalTests"><span class="btn-label">Read more about Functional Tests →</span></a>
           </p>
 
+            <hr>
 
-
-        <span class="badge pull-right">PhpBrowser</span>
-            <span class="badge pull-right">REST</span>
 <h3>API Test</h3>
-  <p>
+<span class="badge">PhpBrowser</span>
+<span class="badge">REST</span>
 
+<p>
 {% highlight php %}
 <?php
 $I = new ApiTester($scenario);
@@ -218,53 +216,55 @@ $I->seeResponseIsJson();
 $I->seeResponseContainsJson(array('result' => 'ok'));
 ?>
 {% endhighlight %}
-  </p>
-  <p>
+</p>
+
+<p>
 This test can be executed inside PhpBrowser or as a functional test of one of the most popular PHP frameworks.
   </p>
 
   <p>
-        <a class="btn btn-default" href="/docs/10-WebServices"><span class="btn-label">Read more about API Tests →</span></a> 
+        <a class="btn btn-default" href="/docs/10-WebServices"><span class="btn-label">Read more about API Tests →</span></a>
   </p>
+<hr>
 
-
-<span class="badge pull-right">Unit</span>
-<span class="badge pull-right">Db</span>
 <h3>Unit Test</h3>
-
-{% highlight php %}
-<?php
-use \Codeception\Util\Stub;
-class UserTest extends \Codeception\TestCase\Test
-{
-    public function testUserSave() {
-        $user = Stub::make('User');
-        $user->setName('davert');
-        $this->assertEquals('davert', $user->getName());
-        $user->save();
-        $this->tester->seeInDatabase('users', array('name' => 'davert'));
-    }
-}
-?>
-{% endhighlight %}
-
+<span class="badge">Unit</span>
+<span class="badge">Db</span>
 <p>
-  PHPUnit test format with some useful helpers. 
+  {% highlight php %}
+  <?php
+  use \Codeception\Util\Stub;
+  class UserTest extends \Codeception\TestCase\Test
+  {
+      public function testUserSave() {
+          $user = Stub::make('User');
+          $user->setName('davert');
+          $this->assertEquals('davert', $user->getName());
+          $user->save();
+          $this->tester->seeInDatabase('users', array('name' => 'davert'));
+      }
+  }
+  ?>
+  {% endhighlight %}
+  </p>
+<p>
+  PHPUnit test format with some useful helpers.
   In this test we check that value was saved to database with one simple command 'seeInDatabase'.
 </p>
-<a class="btn btn-default" href="/docs/05-UnitTests"><span class="btn-label">Read more about Unit Tests →</span></a> 
+<a class="btn btn-default" href="/docs/05-UnitTests"><span class="btn-label">Read more about Unit Tests →</span></a>
+
+<hr>
 
 <h2>AspectMock</h2>
-
 <p>
   A side-project of Codeception for unit testing any PHP code.
   <a href="https://github.com/Codeception/AspectMock">AspectMock</a>
-  most powerful mocking framework that can stub and mock practically anything. Even static methods, 
+  most powerful mocking framework that can stub and mock practically anything. Even static methods,
   can be tested now. Use it for legacy or untestable code.
 </p>
 
 {% highlight php %}
-<?php; 
+<?php;
 // mocking static method calls
 $this->assertEquals('users', User::tableName());
 test::double('User', ['tableName' => 'fake_users']);
@@ -280,6 +280,6 @@ $this->assertEquals('davert@mail.ua', $user->getEmail());
 <a class="btn btn-primary" href="https://github.com/Codeception/AspectMock">
   Install AspectMock →
 </a>
-    
+
 </div>
 </div>
