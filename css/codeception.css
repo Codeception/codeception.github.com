@@ -14,26 +14,14 @@ body .navbar.nav-custom {
 }
 
 body .navbar-brand img{
-  width: 50px;
-  margin-left: 10px;
-  margin-top: 10px;
-}
-
-body .nav-custom .navbar-nav {
-	padding-top: 5px;
-}
-
-@media screen and (max-device-width : 760px) {
-    body .nav-custom .navbar-nav {
-        padding-top: 0px;
-    }
+  height: 50px;
+  margin-left: 8px;
 }
 
 body .nav-custom .navbar-nav>li>a {
 		color: #CCD4D9;
 		font-size:13px;
 		font-weight:600;
-
 }
 
 body .nav-custom .navbar-brand {
