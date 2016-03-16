@@ -87,13 +87,14 @@ title: Quick Start Codeception
       <b>tests/acceptance/WelcomeCept.php</b>
     </p>
     <div>
-      {% highlight php %}
-      <?php
-        $I = new AcceptanceTester($scenario);
-        $I->wantTo('ensure that frontpage works');
-        $I->amOnPage('/');
-        $I->see('Home');
-      ?>{% endhighlight %}
+{% highlight php %}
+<?php
+  $I = new AcceptanceTester($scenario);
+  $I->wantTo('ensure that frontpage works');
+  $I->amOnPage('/');
+  $I->see('Home');
+?>
+{% endhighlight %}
     </div>
     <p class="text-muted">It will check that your frontpage contains the word <b>Home</b> in it.</p>
       </div> <!-- /.panel-body -->
@@ -106,14 +107,14 @@ title: Quick Start Codeception
     <b>dev server</b>is running. &nbsp;Put application URL into:&nbsp;
     <b>tests/acceptance.suite.yml</b>&nbsp;</p>
     <div>
-      <pre>
-        class_name: AcceptanceTester
-        modules:
-        enabled:
-        - PhpBrowser:
-        url: {YOUR APP'S URL}
-        - \Helper\Acceptance
-      </pre>
+<pre>
+  class_name: AcceptanceTester
+  modules:
+  enabled:
+    - PhpBrowser:
+  url: {YOUR APP'S URL}
+    - \Helper\Acceptance
+</pre>
     </div>
       </div> <!-- /.panel-body -->
     </div> <!-- /.panel -->
@@ -144,15 +145,15 @@ title: Quick Start Codeception
 <div class="panel-heading">If you did everything right and your app has "Home" text on frontpage you
   will see this in output</div>
   <div class="panel-body">
-    <pre><code>Suite acceptance started
-      Trying to <b>ensure that frontpage works</b> (WelcomeCept.php) - Ok
-      Suite functional started
-      Suite unit started
+<pre>Suite acceptance started
+Trying to <b>ensure that frontpage works</b> (WelcomeCept.php) - Ok
+Suite functional started
+Suite unit started
 
-      Time: 1 second, Memory: 21.00Mb
-      <b>OK (1 test, 1 assertions)</b></code></pre>
-        </div> <!-- /.panel-body -->
-      </div> <!-- /.panel -->
+Time: 1 second, Memory: 21.00Mb
+  <b>OK (1 test, 1 assertions)</b></pre>
+  </div> <!-- /.panel-body -->
+</div> <!-- /.panel -->
 </div>
 
 <div class="col-sm-4 col-lg-4">
