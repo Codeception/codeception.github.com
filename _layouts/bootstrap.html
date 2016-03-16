@@ -37,13 +37,11 @@
         </button>
         <a href="/" class="navbar-brand"><img src="/images/toplogo.png" alt="codeception"/></a>
     </div>
-    <div class="navbar-inner">
-        <ul class="nav navbar-nav navbar-collapse collapse menu">
-            <li>
-                <a href="/quickstart">Quickstart</a>
-            </li>
-            <li>
-            </li>
+    <div class="collapse navbar-collapse menu ">
+        <ul class="nav navbar-nav navbar-left">
+            <li><a href="#">Quick Start</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Guides
                     <b class="caret"></b>
@@ -60,6 +58,9 @@
                     {{ modules }}
                 </ul>
             </li>
+            <li>
+                <a href="/addons">Extensions</a>
+            </li>
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Reference
                     <b class="caret"></b>
@@ -68,34 +69,18 @@
                     {{ reference }}
                 </ul>
             </li>
-            <li>
-                <a href="/video">Video</a>
-            </li>
-            <li>
-                <a href="/blog">Blog</a>
-            </li>
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="http://phptest.club/category/codeception">
                     Community
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
+                    <li><a href="/blog">Blog</a> </li>
                     <li><a href="http://phptest.club/category/codeception">Community Forum</a></li>
                     <li><a href="http://automated-testing.info/category/codeception">Russian Community</a></li>
                     <li><a href="http://stackoverflow.com/questions/tagged/codeception">StackOverflow</a></li>
+                    <li><a href="/video">Nettuts+ Video Course</a></li>
                 </ul>
-            </li>
-            <li>
-                <a href="/credits">Credits</a>
-            </li>
-            <li>
-                <a href="/install">Install</a>
-            </li>
-            <li>
-                <a href="/addons">Addons</a>
-            </li>
-            <li>
-                <a href="/changelog">Changelog</a>
             </li>
         </ul>
     </div>
@@ -173,13 +158,12 @@ In Subscription Billing">
         <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-501c6975683af72f"></script>
 
                 </div>
-
             </div>
         </div>
     </div>
-</div>
-<div id="copyright">
-    © 2011&ndash;{{ site.time | date: '%Y' }}
+    <div id="copyright">
+        © 2011&ndash;{{ site.time | date: '%Y' }}
+    </div>
 </div>
 
 
