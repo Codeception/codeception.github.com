@@ -170,12 +170,12 @@ body b {
 	background: #bdc3c7;
 }
 #copyright {
-	height: 25px;
+	height: 35px;
 	color: #fff;
 	font-weight: bold;
 	font-size: 0.9em;
 	text-align: center;
-	padding-top: 10px;
+	padding: 10px 0;
 	background: #2980b9;
 }
 
