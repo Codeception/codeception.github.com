@@ -14,14 +14,26 @@ body .navbar.nav-custom {
 }
 
 body .navbar-brand img{
-  height: 50px;
-  margin-left: 8px;
+  width: 50px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+body .nav-custom .navbar-nav {
+	padding-top: 5px;
+}
+
+@media screen and (max-device-width : 760px) {
+    body .nav-custom .navbar-nav {
+        padding-top: 0px;
+    }
 }
 
 body .nav-custom .navbar-nav>li>a {
 		color: #CCD4D9;
 		font-size:13px;
 		font-weight:600;
+
 }
 
 body .nav-custom .navbar-brand {
@@ -158,12 +170,12 @@ body b {
 	background: #bdc3c7;
 }
 #copyright {
-	height: 35px;
+	height: 25px;
 	color: #fff;
 	font-weight: bold;
 	font-size: 0.9em;
 	text-align: center;
-	padding: 10px 0;
+	padding-top: 10px;
 	background: #2980b9;
 }
 
@@ -211,8 +223,7 @@ ul.navbar-nav {
 }
 
 .row.home-btns{
-	margin-top:40px;
-	margin-bottom:40px;
+	margin-bottom:35px;
 }
 
 .well.dark{
@@ -233,14 +244,14 @@ ul.navbar-nav {
 	width:100%;
 	height:600px;
 	left:0px;
-	top:50px; /* space needed for navbar */
+	top:0px;
 	position:absolute;
 	background:#042943 no-repeat center center;
 	background-image: url(../images/home-bg.jpg);
 	background-size:cover;
 	display:block;
 	text-align:center;
-	padding-top:80px;
+	padding-top:85px;
 }
 
 @media screen and (max-width : 1260px) {
