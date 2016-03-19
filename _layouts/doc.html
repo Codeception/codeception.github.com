@@ -16,7 +16,12 @@ layout: bootstrap
   </div>
   <div class="col-sm-4 col-lg-4">
 
-   <div id="toc" class="nav"></div>
+   <div id="searchable">
+    <input type="search" class="search" placeholder="live search...">
+    <br>
+     <!-- toc.js generated nav... -->
+     <div id="toc" class="nav"></div>
+   </div> <!-- /#searchable -->
 
    <script type="text/javascript">
     $(document).ready(function () {
@@ -25,24 +30,22 @@ layout: bootstrap
         'prefix': 'toc',
         'container': '#page',
         //custom function for anchor name
+        'anchorName': function(i, heading, prefix) {
           return $(heading).text().replace(/\s/g, '-').replace(/[^\w-]/g, '');
         },
       });
-    });
-  </script>
 
-  <div class="well">
-    <script>
-      (function() {
-        var cx = '009959493015473517972:mxjflnekt-y';
-        var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
-        gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-        '//www.google.com/cse/cse.js?cx=' + cx;
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
-      })();
-    </script>
-    <gcse:search></gcse:search>
-  </div>
+      // List.js
+      $('#toc > ul').addClass('list');
+      $('#toc ul.list li a').addClass('searchitem');
+      var options = {
+        valueNames: [ 'searchitem' ]
+      };
+      var userList = new List('searchable', options);
+      // end List.js
+
+    }); // docrdy
+  </script>
 
 </div>
 </div>
