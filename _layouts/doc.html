@@ -4,49 +4,48 @@ layout: bootstrap
 
 <div class="row">
   <div class="col-sm-8 col-lg-8">
-    <div class="content page">           
+    <div class="content page">
       <div>
 
         <div id="page">
-
-
-
-        {{ content }}
+          {{ content }}
+        </div>
       </div>
-  </div>
 
-      </div>  
     </div>
+  </div>
   <div class="col-sm-4 col-lg-4">
 
-   <div id="toc" class="nav"></div>
+   <div id="searchable">
+    <input type="search" class="search" placeholder="live search...">
+    <br>
+     <!-- toc.js generated nav... -->
+     <div id="toc" class="nav"></div>
+   </div> <!-- /#searchable -->
 
-    <script type="text/javascript">
+   <script type="text/javascript">
     $(document).ready(function () {
       $('#toc').toc({
         'selectors': 'h2,h3,h4',
         'prefix': 'toc',
         'container': '#page',
-    'anchorName': function(i, heading, prefix) { //custom function for anchor name
-      return $(heading).text().replace(/\s/g, '-').replace(/[^\w-]/g, '');
-    },    
-  });
-    });
-    </script>
+        //custom function for anchor name
+        'anchorName': function(i, heading, prefix) {
+          return $(heading).text().replace(/\s/g, '-').replace(/[^\w-]/g, '');
+        },
+      });
 
-<div class="well">
-<script>
-  (function() {
-    var cx = '009959493015473517972:mxjflnekt-y';
-    var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
-    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-        '//www.google.com/cse/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
-  })();
-</script>
-<gcse:search></gcse:search>
-      </div>
+      // List.js
+      $('#toc > ul').addClass('list');
+      $('#toc ul.list li a').addClass('searchitem');
+      var options = {
+        valueNames: [ 'searchitem' ]
+      };
+      var userList = new List('searchable', options);
+      // end List.js
 
+    }); // docrdy
+  </script>
 
-  </div>
+</div>
 </div>
