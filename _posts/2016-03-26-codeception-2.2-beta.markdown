@@ -62,7 +62,7 @@ composer require --dev "codeception/codeception:2.2.0-beta"
 
 Next steps to do:
 
-* [Read the changelog](https://github.com/Codeception/Codeception/blob/master/CHANGELOG.md)
+* [Read the changelog](https://github.com/Codeception/Codeception/blob/master/CHANGELOG.md). Check for all breaking changes. Probably you will need to update your Helper classes.
 * Refer to updated [module docs for this beta release](https://github.com/Codeception/Codeception/tree/master/docs/modules) in master branch.
 
 Stable release will come in next week(s). The release date depends on reported issues and on progress of updating documentation.
