@@ -64,7 +64,7 @@ This module helps to upload files when using webdriver via remote connection.
 
 #### [VisualCeption](https://github.com/DigitalProducts/codeception-module-visualception)
 
-Visual regression tests integrated in Codeception. This module can be used to compare the current representation of a website element with an expeted. It was written on the shoulders of codeception and integrates in a very easy way.
+Visual regression tests integrated in Codeception. This module can be used to compare the current representation of a website element with an expected. It was written on the shoulders of codeception and integrates in a very easy way.
 
 #### [CSS Regression](https://github.com/sascha-egerer/css-regression)
 
