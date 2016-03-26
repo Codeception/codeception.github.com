@@ -481,7 +481,7 @@ Basic example:
 
 <?php
 // {'user_id': 1, 'name': 'davert', 'is_active': false}
-$I->seeResponseIsJsonType([
+$I->seeResponseMatchesJsonType([
      'user_id' => 'integer',
      'name' => 'string|null',
      'is_active' => 'boolean'
@@ -509,7 +509,7 @@ You can also use nested data type structures:
 
 <?php
 // {'user_id': 1, 'name': 'davert', 'company': {'name': 'Codegyre'}}
-$I->seeResponseIsJsonType([
+$I->seeResponseMatchesJsonType([
      'user_id' => 'integer|string', // multiple types
      'company' => ['name' => 'string']
 ]);
@@ -534,13 +534,13 @@ This is how filters can be used:
 
 <?php
 // {'user_id': 1, 'email' => 'davert * `codeception.com'}` 
-$I->seeResponseIsJsonType([
+$I->seeResponseMatchesJsonType([
      'user_id' => 'string:>0:<1000', // multiple filters can be used
      'email' => 'string:regex(~\ * `~)'`  // we just check that  * ``  char is included
 ]);
 
 // {'user_id': '1'}
-$I->seeResponseIsJsonType([
+$I->seeResponseMatchesJsonType([
      'user_id' => 'string:>0', // works with strings as well
 }
 ?>
@@ -553,6 +553,7 @@ See [JsonType reference](http://codeception.com/docs/reference/JsonType).
  * `[Part]` json
  * `Available since` 2.1.3
  * `param array` $jsonType
+ * `param string` $jsonPath
 
 
 #### seeXmlResponseEquals
