@@ -4,8 +4,8 @@ title: "Codeception 2.2 Beta"
 date: 2016-03-26 01:03:50
 ---
 
-Happy Easter, everyone! Ok, not everyone but those who celebrate Easter on this weekend. 
-If you do (or even not), you probably have some free time to play with something new. 
+Happy Easter, everyone! Ok, not actually everyone, but Happy Easter to those who celebrate it this weekend. 
+If you do (or even not), you probably will have free time to play with something new. 
 And yes, by *something* we mean a **beta version of Codeception 2.2**!
 
 We already announced lots of changes in Codeception:
