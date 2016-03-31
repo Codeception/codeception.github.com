@@ -74,6 +74,10 @@ CSS / Visual regression tests integrated in Codeception. This module can be used
 
 An extension of Codeception own PhpBrowser and Db modules to allow for easy and streamlined WordPress themes and plugins testing. 
 
+### [S3 Filesystem](https://github.com/polevaultweb/s3-filesystem)
+
+An Amazon S3 Filesystem module.
+
 ## Extensions
 
 Codeception extensions are developed by third-party contributors and can enhance test execution flow, by listening to internal events. [Read more about extensions](http://codeception.com/docs/08-Customization#Extension-classes).
