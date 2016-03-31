@@ -19,6 +19,10 @@ You can access multiple test suites and decide which tests to include in a run. 
 
 ## Modules
 
+### [Amazon S3 Filesystem](https://github.com/polevaultweb/s3-filesystem)
+
+An Amazon S3 Filesystem module.
+
 #### [CakePHP](https://github.com/cakephp/codeception)
 
 Official CakePHP 3 module for Codeception.
@@ -73,10 +77,6 @@ CSS / Visual regression tests integrated in Codeception. This module can be used
 #### [WordPress Browser and Database](https://github.com/lucatume/wp-browser)
 
 An extension of Codeception own PhpBrowser and Db modules to allow for easy and streamlined WordPress themes and plugins testing. 
-
-### [S3 Filesystem](https://github.com/polevaultweb/s3-filesystem)
-
-An Amazon S3 Filesystem module.
 
 ## Extensions
 
