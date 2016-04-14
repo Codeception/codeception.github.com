@@ -1,3 +1,9 @@
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
+
+.navbar {
+	margin-bottom: 0;
+}
+
 .main-features {
   margin-top: 10px;
 }
@@ -44,28 +50,6 @@ body h1, body h2, body h3, body h3 {
 
 h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
-}
-
-body #home-hero h1 {
-	color: #fff;
-	font-size: 56px;
-	font-weight: bold;
-	padding-top:35px;
-	text-shadow: #000 1px 2px 5px;
-}
-
-#home-hero img{
-	position:relative;
-	top:-7px;
-}
-
-#home-hero p.lead {
-	color:#fff;
-}
-
-.hero-unit p.lead {
-	font-weight: bold;
-	font-style: italic;
 }
 
 #page h4 {
@@ -202,18 +186,18 @@ ul.navbar-nav {
 	margin: 0 -15px;
 }
 
-.row.home{
-	padding-top:225px;
-}
+// .row.home{
+// 	padding-top:225px;
+// }
 
-.row.home.no-padding-top{
-	padding-top:0px;
-}
+// .row.home.no-padding-top{
+// 	padding-top:0px;
+// }
 
-.row.home-btns{
-	margin-top:40px;
-	margin-bottom:40px;
-}
+// .row.home-btns{
+// 	margin-top:40px;
+// 	margin-bottom:40px;
+// }
 
 .well.dark{
 	background:#042943;
@@ -229,18 +213,32 @@ ul.navbar-nav {
 	color:#eee;
 }
 
-#home-hero{
-	width:100%;
+#home-hero {
 	height:600px;
-	left:0px;
-	top:50px; /* space needed for navbar */
-	position:absolute;
 	background:#042943 no-repeat center center;
 	background-image: url(../images/home-bg.jpg);
 	background-size:cover;
-	display:block;
 	text-align:center;
 	padding-top:80px;
+}
+
+#home-hero h1 {
+	color: #fff;
+	font-size: 56px;
+	font-weight: bold;
+	padding-top:35px;
+	text-shadow: #000 1px 2px 5px;
+}
+
+#home-hero img {
+	position:relative;
+	top: -8px;
+}
+
+#home-hero p.lead {
+	color:#fff;
+	font-weight: bold;
+	font-style: italic;
 }
 
 @media screen and (max-width : 1260px) {
@@ -251,13 +249,6 @@ ul.navbar-nav {
 
 
 @media screen and (max-width : 992px) {
-	body #home-hero h1{
-		padding-top:75px;
-	}
-
-	#home-hero{
-		height:320px;
-	}
 
 	.well.dark{
 		background:#fff;
@@ -282,12 +273,13 @@ ul.navbar-nav {
 
 @media screen and (max-width : 767px) {
 
-	.menu li {
-		clear: both;
+	#home-hero {
+		height: 500px;
+		padding-top: 0;
 	}
 
-	body #home-hero h1{
-		padding-top:0px;
+	.menu li {
+		clear: both;
 	}
 }
 
@@ -299,14 +291,32 @@ ul.navbar-nav {
 		overflow: visible!important;
 	}
 }
-#searchable > .search {
+#searchable {
+	margin-top: 20px;
+}
+#searchable .search {
 	width: 100%;
 	height: 45px;
-	color: #333;
+	color: #888;
 	text-indent: 16px;
 	border-radius: 24px;
 	border: 1px solid #ddd;
-	box-shadow: inset 0 1px 1px hsla(0, 0%, 0%, 0.075);
+	box-shadow: inset 0 1px 1px #ccc;
 	transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 	outline: none;
 }
+
+#searchable::after {
+	font-family: "FontAwesome";
+	content: "\f002";
+	color: #ccc;
+	position: absolute;
+	top: 34px;
+	right: 40px;
+}
+
+.fill-thanks {
+	padding-top: 200px;
+	padding-bottom: 200px;
+}
+
