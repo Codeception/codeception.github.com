@@ -19,7 +19,7 @@ You can access multiple test suites and decide which tests to include in a run. 
 
 ## Modules
 
-### [Amazon S3 Filesystem](https://github.com/polevaultweb/s3-filesystem)
+#### [Amazon S3 Filesystem](https://github.com/polevaultweb/s3-filesystem)
 
 An Amazon S3 Filesystem module.
 
