@@ -7,6 +7,18 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.1.8
+
+* `Util\Locator` added methods to create locators to match element at their position: `elementAt`, `firstElement`, `lastElement`
+* <strong>[Symfony]</strong> Refactor to unify service retrieval, avoid memleaks and reduce memory footprint. Closes <a href="https://github.com/Codeception/Codeception/issues/2938">#2938</a> and <a href="https://github.com/Codeception/Codeception/issues/2954">#2954</a>.
+* <strong>[Symfony]</strong> New optoin `rebootable_client` that reboots client's kernel before each request.
+* <strong>[WebDriver]</strong> fixed `seeInField` for textarea with whitespaces before and after string. Closes <a href="https://github.com/Codeception/Codeception/issues/2921">#2921</a>
+* <strong>[Symfony]</strong> Deprecated `grabServiceFromContainer` use `grabService` instead. For consistency with other frameworks.
+* <strong>[Asserts]</strong> More `assert*` methods from PHPUnit added
+* <strong>[Asserts]</strong> Added `expectException` method
+* `codecept self-update` works with proxy by <strong><a href="https://github.com/gr1ev0us">@gr1ev0us</a></strong>
+* [Phalcon1 add params support for method amOnRoute by <strong><a href="https://github.com/MelnykDmitro">@MelnykDmitro</a></strong>
+
 #### 2.1.7
 
 * **PHPUnit 5.x support**
