@@ -124,6 +124,10 @@ TestStatistics is a Codeception Extension to measure the performance of your tes
 
 Integration with TeamCity CI server by service-messages
 
+#### [EventsScripting](https://github.com/oprudkyi/codeception-events-scripting)
+
+Run shell scripts on events - before/after suites/environments/full test run  
+
 ---
 
 ## IDE Plugins
