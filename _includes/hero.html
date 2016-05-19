@@ -1,0 +1,47 @@
+<!-- Adding the new Homepage here -->
+<div id="home-hero">
+  <div class="bubble">
+    <h1>
+    <img src="/images/logo.svg" alt="" class="logo">
+    Codeception</h1>
+    <p class="lead">
+      <em>
+        
+    ~ Elegant and Efficient Testing for PHP ~
+      </em>
+    </p>    
+
+    <div class="container">
+    <div class="row home-btns">
+      <div class="col-sm-12 col-md-4 col-md-offset-4 ">
+        <div class="well dark text-center">
+          <a class="btn btn-lg btn-block btn-install" href="/quickstart">Quick Start</a><br>
+          <p>
+            Write and execute a test for an existing app<br>
+            <strong>in less then 5 minutes!</strong>
+          </p>
+        </div>
+      </div>
+    </div> <!-- /.row -->
+    </div>
+
+
+
+  </div>
+</div>
+
+<script>
+  $(document).ready(function(){
+    resizeDiv();
+  });
+
+  window.onresize = function(event) {
+    resizeDiv();
+  }
+
+  function resizeDiv() {
+    vph = $(window).height();
+    $('#home-hero').css({'height': vph});
+  }  
+</script>
+

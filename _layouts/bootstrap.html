@@ -12,7 +12,8 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 
     <!-- CSS -->
-    <link href='http://fonts.googleapis.com/css?family=Philosopher&amp;subset=latin' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Yantramanav:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Shanti:400,700' rel='stylesheet' type='text/css'>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="/css/codeception.css">
@@ -35,7 +36,7 @@
     {% capture modules %}{% include modules.html %}{% endcapture %}
     {% capture reference %}{% include reference.html %}{% endcapture %}
     <nav class="navbar nav-custom navbar-inverse">
-        <div class="container">
+        <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -77,6 +78,9 @@
                             {{ reference }}
                         </ul>
                     </li>
+                    <li>
+                        <a href="/blog">Blog</a>
+                    </li>                    
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="http://phptest.club/category/codeception">
                             Community
@@ -95,24 +99,44 @@
         </div> <!-- /.container -->
     </nav>
 
+    {% if page.hero %}
+    <div>{% include {{ page.hero }} %}</div>
+    {% endif %}
+
     <!-- CONTENT -->
-    <div class="container">
+    <div class="wide">
+    <div class="container-fluid">
         {{ content }}
     </div>
+    </div>    
 
     <div id="footer">
         <div class="container">
             <div class="row">
-                <div class="col-sm-4 col-lg-4">
-                    <h3>Credits</h3>
-
+                <div class="col-sm-6 col-lg-3">
                     <p>
                         Codeception is a BDD-styled PHP testing framework, brought to you by <a href="http://codeception.com/credits">Codeception Team</a>.
                         Logo by <a
                         href="https://twitter.com/adnanblog">Mr. Adnan</a>. OpenSource <strong>MIT Licensed</strong>.
                     </p>
 
+                                    <h4>Sponsored by</h4>
+                    <a href="https://www.rebilly.com/">
+                        <img src="/images/Rebilly.png" style="width:100%; background: #fff; border-radius: 20px;" alt="Your Partner
+                        In Subscription Billing
+                        Uncover your revenue potential with
+                        our recurring billing software." title="Your Partner
+                        In Subscription Billing">
+                    </a>
+
+
+            </div>
+
+
+            <div class="col-sm-6 col-lg-3">
+
                     <div>
+
                         <a href="https://github.com/codeception/codeception" class="pull-left">
                             <img src="/images/github.png">
                         </a>
@@ -125,47 +149,59 @@
                             <img src="/images/facebook.png">
                         </a>
 
-                        <a href="https://plus.google.com/b/108429499160233541695/108429499160233541695/posts"
-                        class="pull-left">
-                        <img src="/images/gplus.png">
-                    </a>
 
-                </div>
 
-                <div style="clear: both;">
-                    <h4>Sponsored by</h4>
-                    <a href="https://www.rebilly.com/">
-                        <img src="/images/Rebilly.png" style="width:300px;" alt="Your Partner
-                        In Subscription Billing
-                        Uncover your revenue potential with
-                        our recurring billing software." title="Your Partner
-                        In Subscription Billing">
-                    </a>
-<!--
-<a href="http://2amigos.us/">
-<img src="/images/2amigos.png" style="opacity: 0.7"
-alt="Sponsored by 2AmigOS web development and consultancy in Miami"
-title="Sponsored by 2AmigOS web development and consultancy in Miami">
-</a>
--->
-                </div>
+                </div>            
+
+                <div style="clear: both; display: block"></div>
+                <ul class="footer-links" >
+                    <li><a href="/install">Installation</a></li>
+                    <li><a href="/credits">Credits</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/credits">Releases</a></li>
+                    <li><a href="https://github.com/Codeception/Codeception/blob/master/LICENSE1">License</a></li>
+                </ul>
+
+
+
+
             </div>
 
-            <div class="col-sm-8 col-lg-8">
-                <h3>Thanks to all our contributors</h3>
 
-                <div id="contributors"></div>
+            <div class="col-sm-6 col-lg-6">
 
-                <div>
-                    <div class="addthis_toolbox addthis_default_style ">
-                      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-                      <a class="addthis_button_tweet"></a>
-                      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
-                  </div>
-                  <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-                  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-501c6975683af72f"></script>
+    <h4>Codeception Family</h4>
 
-              </div>
+
+  
+    <div>
+      <div class="sublogo">
+        <a href="http://robo.li">
+        <img src="http://robo.li/img/robo.png" alt="Robo">
+        </a>
+      </div>
+      <a href="http://robo.li"><h3>Robo</h3></a>
+      <p>Modern PHP <strong>Task Runner</strong>. 
+      Allows to declare tasks with zero configuration in pure PHP. 
+      </p>
+    </div>
+
+  
+    <div>
+      <div class="sublogo">
+        <a href="http://codecept.io">
+        <img src="/images/cjs-logo.png" alt="Robo">
+        </a>
+      </div>
+      <a href="http://codecept.io"><h3>CodeceptJS</h3></a>
+      <p>Codeception for <strong>NodeJS</strong>. 
+      Write acceptance tests in ES6 and execute in webdriverio, Selenium WebDriver, and Protractor.
+      </p>
+    </div>
+
+
+
+
           </div>
       </div>
   </div>

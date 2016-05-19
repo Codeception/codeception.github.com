@@ -1,6 +1,7 @@
 ---
 layout: index
 title: Codeception - BDD-style PHP testing.
+hero: hero.html
 ---          
 
 ### Acceptance Test
