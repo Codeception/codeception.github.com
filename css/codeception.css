@@ -70,6 +70,23 @@ body #home-hero h1 {
 	top:-7px;
 }
 
+.maintainer a {
+	color: #fff;
+}
+
+.maintainer {
+	border-left: 1px solid #ccc;
+	padding-left: 2em;
+	color: #ccc;
+	float: right;
+}
+
+.maintainer img {
+	border-radius: 50px;
+	width: 100px;
+	height: 100px;
+}
+
 #home-hero p.lead {
 	color:#fff;
 }
@@ -294,7 +311,8 @@ ul.navbar-nav {
 
 #home-hero{
 	width:100%;
-	height:800px;
+	height:100vh;
+	min-height: 800px;
 	left:0px;
 	// top:50px; /* space needed for navbar */
 	background:#042943 no-repeat center center;
@@ -468,5 +486,24 @@ ul.navbar-nav {
 	margin-right: 20px;
 	width: 80px;
 	margin-bottom: 10px;
-
 }
+
+.sidebar {
+	color: #000;
+  background: #fff;
+  border-bottom: 5px solid #666;
+}
+
+.sidebar ul {
+	font-size: 1.1em;
+	list-style: none;	
+	padding-left: 0;
+	line-height: 2;
+}
+
+.sidebar ul li:before {
+  content: 	"\2713";
+  margin: 0 0.5em;  
+}
+
+.sidebar ul li {}
