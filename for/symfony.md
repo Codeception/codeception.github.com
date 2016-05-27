@@ -134,12 +134,12 @@ Functional tests are written in the same manner as acceptance tests. They also u
 class_name: FunctionalTester
 modules:
     enabled:
-        - Symfony2:
+        - Symfony:
             app_path: '../../app'
             var_path: '../../app'
         - Doctrine2:
-            depends: Symfony2
-        - \AcmeBundle\Helper\Functional
+            depends: Symfony
+        - \AppBundle\Helper\Functional
 ```
 
 <div class="alert alert-warning">
@@ -150,6 +150,41 @@ modules:
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
   Continue to <a href="http://codeception.com/docs/04-FunctionalTests">Functional Testing Guide &raquo;</a>
+</div>
+
+### API Tests
+
+API Tests are done at functional testing level but instead of testing HTML responses on user actions, they test requests and responses via protocols like REST or SOAP. To create api tests for `ApiBundle` bundle you should create a suite for them
+
+```
+php bin/codecept g:suite api -c src/ApiBundle
+```
+
+You will need to enable `REST`, `Symfony` and `Doctrine` module in `src/ApiBundle/tests/api.suite.yml`:
+
+```yaml
+class_name: ApiTester
+modules:
+    enabled:
+        - REST:
+            url: /v1
+            depends: Symfony
+        - Doctrine2:
+            depends: Symfony
+        - \ApiBundle\Helper\Api
+    config:
+        - Symfony:
+            app_path: '../../app'
+            var_path: '../../app'
+
+```
+
+Symfony module actions like `amOnPage` or `see` should not be available for testing API. This why Symfony module is not enabled but declared with `depends` for REST module. But Symfony module should be configured to load Kernel class from app_path.
+
+
+<div class="alert alert-warning">
+  <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+  Continue to <a href="http://codeception.com/docs/10-WebServices#REST">REST API Testing Guide &raquo;</a>.
 </div>
 
 
@@ -167,11 +202,13 @@ Codeception is powered by PHPUnit so unit and integration test work in a similar
 php bin/codecept g:phpunit unit Foo -c src/AppBundle
 ```
 
-This generates a standard test inherited from `PHPUnit_Framework_TestCase`. For integration tests you may use Codeception-enhanced format which allows accessing services DI container, Doctrine, and others. To have it create a unit test extending `Codeception\Test\Unit` class:
+This generates a standard test inherited from `PHPUnit_Framework_TestCase`. For integration tests you may use Codeception-enhanced format which allows accessing services DI container, Doctrine, and others. You will need to enable Doctrine2 and Symfony module in `unit.suite.yml` config. Such integration test is extending `Codeception\Test\Unit` class and created by running:
 
 ```
 php bin/codecept g:test unit Foo -c src/AppBundle
 ```
+
+Actions of Symfony and Doctrine2 modules will be accessible from `$this->tester` inside a test of `Codeception\Test\Unit`.
 
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
@@ -189,3 +226,5 @@ include:
 ```
 
 Then running codeception tests from root directory will execute tests from all bundles as well as acceptance tests.
+
+1

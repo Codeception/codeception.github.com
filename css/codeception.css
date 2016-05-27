@@ -290,12 +290,12 @@ ul.navbar-nav {
 .hero {
 	background: #042943 no-repeat top center;	
 	background-size: cover; 
-	height: 500px;
+	height: 80vh;
 	width: 100%;	
 	font-family: 'Yantramanav', sans-serif;
 	margin-top: -20px;
 	color: #fff;
-	padding-top: 2em;	
+	padding-top: 10vh;	
 }
 
 .hero .quiet {
