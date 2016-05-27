@@ -76,13 +76,13 @@ composer exec codecept g:cest functional Login
 Codeception is powered by PHPUnit so unit and integration test work in a similar manner. To genereate a plain PHPUnit test for `Foo\Bar` class 
 
 ```
-php bin/codecept g:phpunit unit "Foo\Bar"
+composer exec codecept g:phpunit unit "Foo\Bar"
 ```
 
 This generates a standard test inherited from `PHPUnit_Framework_TestCase`. For integration tests you may use Codeception-enhanced format which allows accessing services from DI container, use Eloquent, Data Factories. To have it create a unit test extending `Codeception\Test\Unit` class:
 
 ```
-php bin/codecept g:test unit "Foo\Bar"
+composer exec codecept g:test unit "Foo\Bar"
 ```
 
 You will need to enable Laravel5 module in `unit.suite.yml` to have its methods inside `$this->tester` object.
@@ -133,7 +133,7 @@ Laravel5 module won't be able to wrap test execution in a transaction but method
 API Tests are done at functional testing level but instead of testing HTML responses on user actions, they test requests and responses via protocols like REST or SOAP. To create api tests you should create a suite for them
 
 ```
-php bin/codecept g:suite api
+composer exec codecept g:suite api
 ```
 
 You will need to enable `REST`, `Laravel5` module in `tests/api.suite.yml`:
