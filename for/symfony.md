@@ -226,5 +226,3 @@ include:
 ```
 
 Then running codeception tests from root directory will execute tests from all bundles as well as acceptance tests.
-
-1

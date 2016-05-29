@@ -3,9 +3,33 @@ layout: bootstrap
 title: Quick Start Codeception
 ---
 
+</div></div>
+<div class="hero" style="background-image: url(/images/backgrounds/quickstart.jpg); ">
+
+  <div class="wide">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 col-sm-12 text-center">       
+        <h1>Codeception<br> Quickstart Guide</h1>
+        
+      </div>
+
+    </div>
+
+    
+
+    
+  </div>
+</div>
+
+
+</div>
+
+<div class="wide">
+<div class="container-fluid">
 <div class="row">
-  <div class="col-xs-12 col-md-9">
-    <h1>Codeception Quickstart Guide</h1>
+  <div class="col-xs-12 col-lg-8">
+  <div class="page">
     <p class="lead">Codeception PHP Testing Framework is designed to work just out of the box.
       This means its installation requires minimal steps and no external dependencies
       preinstalled (except PHP, of course). Only one configuration step should
@@ -14,11 +38,8 @@ title: Quick Start Codeception
       <p>
         <strong class="text-info text-uppercase">Requirements: PHP5.3, CURL enabled</strong>
       </p>
-  </div> <!-- /.col -->
-</div> <!-- /.row -->
+      </div>
 
-<div class="row">
-<div class="col-xs-12 col-md-9">
     <div class="panel panel-info">
       <div class="panel-heading"><h4 class="panel-title">1. Download</h4></div>
       <div class="panel-body">
@@ -46,6 +67,10 @@ title: Quick Start Codeception
           <pre>sudo chmod a+x /usr/local/bin/codecept</pre>
           <p><code class="text-muted">$ codecept</code></p>
 
+<hr>
+<p><a href="/install">Alternative Installations</a></p>
+            
+
           <!-- <p>Use <code>codecept</code> instead of codecept.phar in this case.</p> -->
         </div> <!-- /.panel-body -->
       </div> <!-- /.panel -->
@@ -53,10 +78,10 @@ title: Quick Start Codeception
       <div class="panel panel-info">
         <div class="panel-heading"><h4 class="panel-title">2. Install</h4></div>
         <div class="panel-body">
-          <p>Open console directory where you saved codecept.phar file and execute:</p>
+          <p>Execute:</p>
           <div>
             <p>
-              <pre>php codecept.phar bootstrap</pre>
+              <pre>codecept bootstrap</pre>
             </p>
           </div>
           <p class="text-muted">This creates
@@ -71,7 +96,7 @@ title: Quick Start Codeception
               of a real user visiting your site.</p>
               <div>
                 <p>
-                  <pre>php codecept.phar generate:cept acceptance Welcome</pre>
+                  <pre>codecept generate:cept acceptance Welcome</pre>
                 </p>
               </div>
               <p class="text-muted">Codeception scenario tests are called Cepts.</p>
@@ -108,12 +133,12 @@ title: Quick Start Codeception
     <b>tests/acceptance.suite.yml</b>&nbsp;</p>
     <div>
 <pre>
-  class_name: AcceptanceTester
-  modules:
-  enabled:
-    - PhpBrowser:
-  url: {YOUR APP'S URL}
-    - \Helper\Acceptance
+class_name: AcceptanceTester
+modules:
+    enabled:
+        - PhpBrowser:
+            url: {YOUR APP'S URL}
+        - \Helper\Acceptance
 </pre>
     </div>
       </div> <!-- /.panel-body -->
@@ -125,7 +150,7 @@ title: Quick Start Codeception
     <p>Codeception are executed with 'run' command</p>
     <div>
       <p>
-        <pre>php codecept.phar run</pre>
+        <pre>codecept run</pre>
       </p>
     </div>
     <p class="text-muted">This will execute our Welcome test with
@@ -136,27 +161,35 @@ title: Quick Start Codeception
         </div> <!-- /.panel-body -->
       </div> <!-- /.panel -->
 </div> <!-- /.col -->
+<div class="col-sm-12 col-lg-4">
+<h3>Quick Start For</h3>
+{% include for.html %}
+
+</div>
+
 </div> <!-- /.row -->
 
-<div class="container">
   <div class="row">
-<div class="col-sm-8 col-lg-8">
+<div class="col-sm-12 col-lg-8">
 <div class="panel panel-success">
 <div class="panel-heading">If you did everything right and your app has "Home" text on frontpage you
   will see this in output</div>
   <div class="panel-body">
-<pre>Suite acceptance started
-Trying to <b>ensure that frontpage works</b> (WelcomeCept.php) - Ok
-Suite functional started
-Suite unit started
+<pre>
+Acceptance Tests (1) -------------------------------
+&#10003; <b>WelcomeCept: Ensure that frontpage works</b>
+
+Functional Tests -----------------------------------
+Unit Tests -----------------------------------------
 
 Time: 1 second, Memory: 21.00Mb
-  <b>OK (1 test, 1 assertions)</b></pre>
+<b>OK (1 test, 1 assertions)</b></pre>
   </div> <!-- /.panel-body -->
 </div> <!-- /.panel -->
 </div>
 
-<div class="col-sm-4 col-lg-4">
+<div class="col-sm-12 col-lg-4">
+
 <p>Follow the Acceptance Testing chapter to learn how to test your
   web application by clicking links, filling forms, as your regular users
   do.</p>
@@ -167,4 +200,5 @@ Time: 1 second, Memory: 21.00Mb
   </div>
 </div>
   </div>
+</div>
 </div>
