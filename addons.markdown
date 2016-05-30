@@ -128,6 +128,10 @@ Integration with TeamCity CI server by service-messages
 
 Run shell scripts on events - before/after suites/environments/full test run  
 
+#### [GherkinParam](https://github.com/edno/codeception-gherkin-param)
+
+The Codeception extension for supporting parameter notation in Gherkin scenario.
+
 ---
 
 ## IDE Plugins
