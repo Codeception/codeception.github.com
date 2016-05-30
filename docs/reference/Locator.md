@@ -68,6 +68,27 @@ Locator::contains('div[ * `contenteditable=true]',`  'hello world');
 
 [See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php#L198)
 
+#### *public static* elementAt($element, $position) 
+
+Locates element at position.
+Either CSS or XPath locator can be passed as locator,
+position is an integer. If a negative value is provided, counting starts from the last element.
+First element has index 1
+
+{% highlight php %}
+
+Locator::elementAt('//table/tr', 2); // second row
+Locator::elementAt('//table/tr', -1); // last row
+Locator::elementAt('table#grind>tr', -2); // previous than last row
+
+{% endhighlight %}
+
+ * `param` $element CSS or XPath locator
+ * `param` $position xpath index
+ * `return`  mixed
+
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php#L220)
+
 #### *public static* find($element, array $attributes) 
 
 Finds element by it's attribute(s)
@@ -80,6 +101,23 @@ Finds element by it's attribute(s)
  * `return`  string
 
 [See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php#L136)
+
+#### *public static* firstElement($element) 
+
+Locates first element of group elements.
+Either CSS or XPath locator can be passed as locator,
+Equal to `Locator::elementAt($locator, 1)`
+
+{% highlight php %}
+
+Locator::firstElement('//table/tr');
+
+{% endhighlight %}
+
+ * `param` $element
+ * `return`  mixed
+
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php#L244)
 
 #### *public static* href($url) 
 
@@ -103,7 +141,12 @@ $I->see('Log In', Locator::href('/login.php'));
 
 #### *public static* humanReadableString($selector) 
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php#L204)
+Transforms strict locator, \Facebook\WebDriver\WebDriverBy into a string represenation
+
+ * `param` $selector
+ * `return`  string
+
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php#L272)
 
 #### *public static* isCSS($selector) 
 
@@ -127,6 +170,23 @@ Checks that locator is an XPath
  * `return`  bool
 
 [See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php#L169)
+
+#### *public static* lastElement($element) 
+
+Locates last element of group elements.
+Either CSS or XPath locator can be passed as locator,
+Equal to `Locator::elementAt($locator, -1)`
+
+{% highlight php %}
+
+Locator::lastElement('//table/tr');
+
+{% endhighlight %}
+
+ * `param` $element
+ * `return`  mixed
+
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php#L261)
 
 #### *public static* option($value) 
 

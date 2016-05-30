@@ -29,7 +29,8 @@ This module uses Symfony2 Crawler and HttpKernel to emulate requests and test re
 * environment: 'local' - environment used for load kernel
 * debug: true - turn on/off debug mode
 * em_service: 'doctrine.orm.entity_manager' - use the stated EntityManager to pair with Doctrine Module.
-* cache_router: 'false' - enable router caching between tests in order to [increase performance](http://lakion.com/blog/how-did-we-speed-up-sylius-behat-suite-with-blackfire) 
+* cache_router: 'false' - enable router caching between tests in order to [increase performance](http://lakion.com/blog/how-did-we-speed-up-sylius-behat-suite-with-blackfire)
+* rebootable_client: 'true' - reboot client's kernel before each request
 
 #### Example (`functional.suite.yml`) - Symfony 2.x Directory Structure
 
@@ -48,7 +49,8 @@ This module uses Symfony2 Crawler and HttpKernel to emulate requests and test re
 * environment: 'local' - environment used for load kernel
 * em_service: 'doctrine.orm.entity_manager' - use the stated EntityManager to pair with Doctrine Module.
 * debug: true - turn on/off debug mode
-* cache_router: 'false' - enable router caching between tests in order to [increase performance](http://lakion.com/blog/how-did-we-speed-up-sylius-behat-suite-with-blackfire) 
+* cache_router: 'false' - enable router caching between tests in order to [increase performance](http://lakion.com/blog/how-did-we-speed-up-sylius-behat-suite-with-blackfire)
+* rebootable_client: 'true' - reboot client's kernel before each request
 
 #### Example (`functional.suite.yml`) - Symfony 3 Directory Structure
 
@@ -64,11 +66,10 @@ This module uses Symfony2 Crawler and HttpKernel to emulate requests and test re
 
 * kernel - HttpKernel instance
 * client - current Crawler instance
-* container - dependency injection container instance
 
 ### Parts
 
-* services - allows to use Symfony2 DIC only with WebDriver or PhpBrowser modules. 
+* services - allows to use Symfony2 DIC only with WebDriver or PhpBrowser modules.
 
 Usage example:
 
@@ -86,6 +87,9 @@ modules:
             browser: phantomjs
 
 {% endhighlight %}
+
+@property-read ContainerInterface $container
+
 
 
 #### _findElements
@@ -673,6 +677,23 @@ $aLinks = $I->grabMultiple('a', 'href');
  * `return` string[]
 
 
+#### grabService
+ 
+Grabs a service from Symfony DIC container.
+Recommended to use for unit testing.
+
+{% highlight php %}
+
+<?php
+$em = $I->grabService('doctrine');
+?>
+
+{% endhighlight %}
+
+ * `param` $service
+ * `[Part]` services
+
+
 #### grabServiceFromContainer
  
 Grabs a service from Symfony DIC container.
@@ -688,6 +709,7 @@ $em = $I->grabServiceFromContainer('doctrine');
 
  * `param` $service
  * `[Part]` services
+ * `deprecated`  Use grabService instead
 
 
 #### grabTextFrom
@@ -726,6 +748,37 @@ Invalidate previously cached routes.
 Moves back in history.
 
  * `param int` $numberOfSteps (default value 1)
+
+
+#### persistService
+ 
+Get service $serviceName and add it to the lists of persistent services.
+If $isPermanent then service becomes persistent between tests
+
+ * `param string`  $serviceName
+ * `param boolean` $isPermanent
+
+
+#### rebootClientKernel
+ 
+Reboot client's kernel.
+Can be used to manually reboot kernel when 'rebootable_client' => false
+
+{% highlight php %}
+
+<?php
+...
+perform some requests
+...
+$I->rebootClientKernel();
+...
+perform other requests
+...
+
+?>
+
+{% endhighlight %}
+
 
 
 #### resetCookie
@@ -1439,5 +1492,12 @@ $I->uncheckOption('#notify');
 {% endhighlight %}
 
  * `param` $option
+
+
+#### unpersistService
+ 
+Remove service $serviceName from the lists of persistent services.
+
+ * `param string` $serviceName
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/Symfony2.php">Help us to improve documentation. Edit module reference</a></div>

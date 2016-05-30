@@ -19,6 +19,10 @@ You can access multiple test suites and decide which tests to include in a run. 
 
 ## Modules
 
+#### [Amazon S3 Filesystem](https://github.com/polevaultweb/s3-filesystem)
+
+An Amazon S3 Filesystem module.
+
 #### [CakePHP](https://github.com/cakephp/codeception)
 
 Official CakePHP 3 module for Codeception.
@@ -92,6 +96,10 @@ Extension for starting and stopping built-in PHP server. Works on Windows, Mac, 
 
 Extension for automatically starting and stopping PhantomJS when running tests.
 
+#### [MultiDb](https://github.com/redmatter/Codeception-MultiDb)
+
+Extension that enables working with multiple dabatase backends and safe switching between them. It provides equivalant service as the Db module and more. Use v1.x for codeception v2.0 and v2.x for codeception v2.1.
+
 #### [DrushDb](https://github.com/pfaocle/DrushDb)
 
 DrushDb is a Codeception extension to populate and cleanup test **Drupal** sites during test runs using Drush aliases and the sql-sync command.
@@ -119,6 +127,14 @@ TestStatistics is a Codeception Extension to measure the performance of your tes
 #### [TeamCity](https://github.com/neronmoon/TeamcityCodeception)
 
 Integration with TeamCity CI server by service-messages
+
+#### [EventsScripting](https://github.com/oprudkyi/codeception-events-scripting)
+
+Run shell scripts on events - before/after suites/environments/full test run  
+
+#### [GherkinParam](https://github.com/edno/codeception-gherkin-param)
+
+The Codeception extension for supporting parameter notation in Gherkin scenario.
 
 ---
 

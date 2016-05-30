@@ -97,7 +97,7 @@ And yes, examples work only in Cests.
 
 ### Custom Commands
 
-Long requested feature that finally was implemented by [Tobias Matthaiou](https://github.com/sd-tm) allows you ro register custom commands to Codeception runner. 
+Long requested feature that finally was implemented by [Tobias Matthaiou](https://github.com/sd-tm) allows you to register custom commands to Codeception runner. 
 
 If you ever created Symfony Console commands you will be familiar in creating custom commands for Codeception. You migth probably use to have your own template generators, perform data migrations, etc. You can register one as simple as you do it for extension:
 
