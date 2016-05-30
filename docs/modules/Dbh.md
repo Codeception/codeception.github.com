@@ -37,7 +37,8 @@ Otherwise consider using ORMs like Doctrine, that emulate nested transactions, o
 * Stability: **stable**
 * Contact: codecept@davert.mail.ua
 
-This module despite of it's stability may act unstable because of transactions issue. If test fails with fatal error and transaction is not finished, it may affect other transactions.
+This module despite of it's stability may act unstable because of transactions issue.
+If test fails with fatal error and transaction is not finished, it may affect other transactions.
 
 *Please review the code of non-stable modules and provide patches if you have issues.*
 
@@ -62,25 +63,15 @@ Effect is opposite to ->seeInDatabase
 Asserts that there is no record with the given column values in a database.
 Provide table name and column values.
 
-Example:
-
 {% highlight php %}
 
 <?php
 $I->dontSeeInDatabase('users', array('name' => 'Davert', 'email' => 'davert * `mail.com'));` 
 
-
-{% endhighlight %}
-Will generate:
-
-{% highlight sql %}
-
-SELECT COUNT(*) FROM `users` WHERE `name` = 'Davert' AND `email` = 'davert * `mail.com'` 
-
 {% endhighlight %}
 Fails if such user was found.
 
- * `param`       $table
+ * `param string` $table
  * `param array` $criteria
 
 
@@ -89,20 +80,15 @@ Fails if such user was found.
 Fetches a single column value from a database.
 Provide table name, desired column and criteria.
 
-Example:
-
 {% highlight php %}
 
 <?php
 $mail = $I->grabFromDatabase('users', 'email', array('name' => 'Davert'));
 
-
 {% endhighlight %}
 
- * `Available since` 1.1
-
- * `param`       $table
- * `param`       $column
+ * `param string` $table
+ * `param string` $column
  * `param array` $criteria
 
 
@@ -112,25 +98,15 @@ $mail = $I->grabFromDatabase('users', 'email', array('name' => 'Davert'));
 Asserts that a row with the given column values exists.
 Provide table name and column values.
 
-Example:
-
 {% highlight php %}
 
 <?php
 $I->seeInDatabase('users', array('name' => 'Davert', 'email' => 'davert * `mail.com'));` 
 
-
-{% endhighlight %}
-Will generate:
-
-{% highlight sql %}
-
-SELECT COUNT(*) FROM `users` WHERE `name` = 'Davert' AND `email` = 'davert * `mail.com'` 
-
 {% endhighlight %}
 Fails if no such user found.
 
- * `param`       $table
+ * `param string` $table
  * `param array` $criteria
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/Dbh.php">Help us to improve documentation. Edit module reference</a></div>

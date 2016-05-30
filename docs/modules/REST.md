@@ -195,7 +195,8 @@ Deprecated since 2.0.9 and removed since 2.1.0
 #### grabDataFromResponseByJsonPath
  
 Returns data from the current JSON response using [JSONPath](http://goessner.net/articles/JsonPath/) as selector.
-JsonPath is XPath equivalent for querying Json structures. Try your JsonPath expressions [online](http://jsonpath.curiousconcept.com/).
+JsonPath is XPath equivalent for querying Json structures.
+Try your JsonPath expressions [online](http://jsonpath.curiousconcept.com/).
 Even for a single value an array is returned.
 
 This method **require [`flow/jsonpath` > 0.2](https://github.com/FlowCommunications/JSONPath/) library to be installed**.
@@ -376,7 +377,8 @@ This is done with libxml_get_last_error function.
 #### seeResponseJsonMatchesJsonPath
  
 Checks if json structure in response matches [JsonPath](http://goessner.net/articles/JsonPath/).
-JsonPath is XPath equivalent for querying Json structures. Try your JsonPath expressions [online](http://jsonpath.curiousconcept.com/).
+JsonPath is XPath equivalent for querying Json structures.
+Try your JsonPath expressions [online](http://jsonpath.curiousconcept.com/).
 This assertion allows you to check the structure of response json.
 
 This method **require [`flow/jsonpath` > 0.2](https://github.com/FlowCommunications/JSONPath/) library to be installed**.

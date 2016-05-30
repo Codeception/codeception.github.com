@@ -19,7 +19,13 @@ If the number of invocations is 0 it will throw an exception in verify.
 {% highlight php %}
 
 <?php
-$user = Stub::make('User', array('getName' => Stub::atLeastOnce(function() { return 'Davert';}), 'someMethod' => function() {}));
+$user = Stub::make(
+    'User',
+    array(
+        'getName' => Stub::atLeastOnce(function() { return 'Davert';}),
+        'someMethod' => function() {}
+    )
+);
 $user->getName();
 $user->getName();
 ?>
@@ -30,7 +36,7 @@ $user->getName();
 
  * `return`  StubMarshaler
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L666)
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L695)
 
 #### *public static* consecutive() 
 
@@ -50,7 +56,7 @@ $user->getName(); //amy
 
  * `return`  ConsecutiveMap
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L729)
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L764)
 
 #### *public static* construct($class, $constructorParams = null, $params = null, $testCase = null) 
 
@@ -78,7 +84,8 @@ Stub::construct(new User, array('autosave' => false), array('name' => 'davert'))
 
 {% endhighlight %}
 
-To replace method provide it's name as a key in third parameter and it's return value or callback function as parameter
+To replace method provide it's name as a key in third parameter
+and it's return value or callback function as parameter
 
 {% highlight php %}
 
@@ -96,7 +103,7 @@ Stub::construct('User', array(), array('save' => true }));
 
  * `return`  object
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L282)
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L286)
 
 #### *public static* constructEmpty($class, $constructorParams = null, $params = null, $testCase = null) 
 
@@ -124,7 +131,8 @@ Stub::constructEmpty(new User, array('autosave' => false), array('name' => 'dave
 
 {% endhighlight %}
 
-To replace method provide it's name as a key in third parameter and it's return value or callback function as parameter
+To replace method provide it's name as a key in third parameter
+and it's return value or callback function as parameter
 
 {% highlight php %}
 
@@ -142,7 +150,7 @@ Stub::constructEmpty('User', array(), array('save' => true }));
 
  * `return`  object
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L333)
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L338)
 
 #### *public static* constructEmptyExcept($class, $method, $constructorParams = null, $params = null, $testCase = null) 
 
@@ -170,7 +178,8 @@ Stub::constructEmptyExcept(new User, 'save', array('autosave' => false), array('
 
 {% endhighlight %}
 
-To replace method provide it's name as a key in third parameter and it's return value or callback function as parameter
+To replace method provide it's name as a key in third parameter
+and it's return value or callback function as parameter
 
 {% highlight php %}
 
@@ -189,7 +198,7 @@ Stub::constructEmptyExcept('User', 'save', array(), array('save' => true }));
 
  * `return`  object
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L389)
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L395)
 
 #### *public static* copy($obj, $params = null) 
 
@@ -200,7 +209,7 @@ Clones an object and redefines it's properties (even protected and private)
 
  * `return`  mixed
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L237)
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L240)
 
 #### *public static* exactly($count, $params = null) 
 
@@ -214,7 +223,13 @@ exception.
 {% highlight php %}
 
 <?php
-$user = Stub::make('User', array('getName' => Stub::exactly(3, function() { return 'Davert';}), 'someMethod' => function() {}));
+$user = Stub::make(
+    'User',
+    array(
+        'getName' => Stub::exactly(3, function() { return 'Davert';}),
+        'someMethod' => function() {}
+    )
+);
 $user->getName();
 $user->getName();
 $user->getName();
@@ -227,7 +242,7 @@ $user->getName();
 
  * `return`  StubMarshaler
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L696)
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L731)
 
 #### *public static* factory($class, $num = null, $params = null) 
 
@@ -239,7 +254,7 @@ Creates $num instances of class through `Stub::make`.
 
  * `return`  array
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L93)
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L94)
 
 #### *public static* make($class, $params = null, $testCase = null) 
 
@@ -266,7 +281,8 @@ Stub::make(new User, array('name' => 'davert'));
 
 {% endhighlight %}
 
-To replace method provide it's name as a key in second parameter and it's return value or callback function as parameter
+To replace method provide it's name as a key in second parameter
+and it's return value or callback function as parameter
 
 {% highlight php %}
 
@@ -284,7 +300,7 @@ Stub::make('User', array('save' => true }));
  * `return`  object - mock
  * `throws`  \RuntimeException when class does not exist
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L44)
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L45)
 
 #### *public static* makeEmpty($class, $params = null, $testCase = null) 
 
@@ -312,7 +328,8 @@ Stub::makeEmpty(new User, array('name' => 'davert'));
 
 {% endhighlight %}
 
-To replace method provide it's name as a key in second parameter and it's return value or callback function as parameter
+To replace method provide it's name as a key in second parameter
+and it's return value or callback function as parameter
 
 {% highlight php %}
 
@@ -329,7 +346,7 @@ Stub::makeEmpty('User', array('save' => true }));
 
  * `return`  object
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L211)
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L214)
 
 #### *public static* makeEmptyExcept($class, $method, $params = null, $testCase = null) 
 
@@ -357,7 +374,8 @@ Accepts either name of class or object of that class
 
 {% endhighlight %}
 
-To replace method provide it's name as a key in second parameter and it's return value or callback function as parameter
+To replace method provide it's name as a key in second parameter
+and it's return value or callback function as parameter
 
 {% highlight php %}
 
@@ -375,7 +393,7 @@ Stub::makeEmptyExcept('User', 'save', array('isValid' => true }));
 
  * `return`  object
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L140)
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L142)
 
 #### *public static* never($params = null) 
 
@@ -397,7 +415,7 @@ $user->someMethod();
 
  * `return`  StubMarshaler
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L613)
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L630)
 
 #### *public static* once($params = null) 
 
@@ -410,7 +428,13 @@ exception.
 {% highlight php %}
 
 <?php
-$user = Stub::make('User', array('getName' => Stub::once(function() { return 'Davert';}), 'someMethod' => function() {}));
+$user = Stub::make(
+    'User',
+    array(
+        'getName' => Stub::once(function() { return 'Davert';}),
+        'someMethod' => function() {}
+    )
+);
 $userName = $user->getName();
 $this->assertEquals('Davert', $userName);
 ?>
@@ -421,7 +445,7 @@ $this->assertEquals('Davert', $userName);
 
  * `return`  StubMarshaler
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L640)
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L663)
 
 #### *public static* update($mock, array $params) 
 
@@ -433,6 +457,6 @@ Replaces properties of current stub
  * `return`  mixed
  * `throws`  \LogicException
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L482)
+[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L499)
 
 <p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php">Help us to improve documentation. Edit module reference</a></div>

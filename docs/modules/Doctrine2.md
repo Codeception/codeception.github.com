@@ -120,7 +120,8 @@ $I->haveFakeRepository('Entity\User', array('findByUsername' => function($userna
 
 {% endhighlight %}
 
-This creates a stub class for Entity\User repository with redefined method findByUsername, which will always return the NULL value.
+This creates a stub class for Entity\User repository with redefined method findByUsername,
+which will always return the NULL value.
 
  * `param` $classname
  * `param array` $methods

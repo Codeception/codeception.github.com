@@ -27,7 +27,8 @@ Supported and tested FTP types are:
 * FTP
 * SFTP
 
-Connection uses php build in FTP client for FTP, connection to SFTP uses [phpseclib](http://phpseclib.sourceforge.net/) pulled in using composer.
+Connection uses php build in FTP client for FTP,
+connection to SFTP uses [phpseclib](http://phpseclib.sourceforge.net/) pulled in using composer.
 
 For SFTP, add [phpseclib](http://phpseclib.sourceforge.net/) to require list.
 {% highlight yaml %}
@@ -315,7 +316,8 @@ $I->makeDir('vendor');
 
 #### openFile
  
-Opens a file (downloads from the remote FTP/SFTP system to a tmp directory for processing) and stores it's content.
+Opens a file (downloads from the remote FTP/SFTP system to a tmp directory for processing)
+and stores it's content.
 
 Usage:
 

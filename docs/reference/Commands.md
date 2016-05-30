@@ -130,7 +130,8 @@ Creates empty Helper class.
 
 ## Bootstrap
 
-Creates default config, tests directory and sample suites for current project. Use this command to start building a test suite.
+Creates default config, tests directory and sample suites for current project.
+Use this command to start building a test suite.
 
 By default it will create 3 suites **acceptance**, **functional**, and **unit**.
 

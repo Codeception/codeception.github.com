@@ -53,9 +53,10 @@ See the Acceptance tests section below for more details.
 
 ### Acceptance tests
 
-You should not use this module for acceptance tests. If you want to use Laravel functionality with your acceptance tests,
-for example to do test setup, you can initialize the Laravel functionality by adding the following lines of code to your
-suite `_bootstrap.php` file:
+You should not use this module for acceptance tests.
+If you want to use Laravel functionality with your acceptance tests,
+for example to do test setup, you can initialize the Laravel functionality
+by adding the following lines of code to your suite `_bootstrap.php` file:
 
     require 'bootstrap/autoload.php';
     $app = require 'bootstrap/app.php';
@@ -873,7 +874,8 @@ $service = $I->grabService('foo');
 #### grabTextFrom
  
 Finds and returns the text contents of the given element.
-If a fuzzy locator is used, the element is found using CSS, XPath, and by matching the full page source by regular expression.
+If a fuzzy locator is used, the element is found using CSS, XPath,
+and by matching the full page source by regular expression.
 
 {% highlight php %}
 
@@ -966,7 +968,7 @@ You can set additional cookie params like `domain`, `path` in array passed as la
  
 Checks that the current page contains the given string (case insensitive).
 
-You can specify a specific HTML element (via CSS or XPath) as the second 
+You can specify a specific HTML element (via CSS or XPath) as the second
 parameter to only search within that element.
 
 {% highlight php %}
@@ -1571,8 +1573,8 @@ Submits the given form on the page, optionally with the given form
 values.  Pass the form field's values as an array in the second
 parameter.
 
-Although this function can be used as a short-hand version of 
-`fillField()`, `selectOption()`, `click()` etc. it has some important 
+Although this function can be used as a short-hand version of
+`fillField()`, `selectOption()`, `click()` etc. it has some important
 differences:
 
  * Only field *names* may be used, not CSS/XPath selectors nor field labels
@@ -1582,7 +1584,7 @@ differences:
    like you would if you called `fillField()` or `selectOption()` with
    a missing field.
 
-Fields that are not provided will be filled by their values from the page, 
+Fields that are not provided will be filled by their values from the page,
 or from any previous calls to `fillField()`, `selectOption()` etc.
 You don't need to click the 'Submit' button afterwards.
 This command itself triggers the request to form's action.
@@ -1671,7 +1673,7 @@ $I->submitForm(
 
 {% endhighlight %}
 
-This function works well when paired with `seeInFormFields()` 
+This function works well when paired with `seeInFormFields()`
 for quickly testing CRUD interfaces and form validation logic.
 
 {% highlight php %}
@@ -1719,7 +1721,7 @@ $I->submitForm('#my-form', [
 Mixing string and boolean values for a checkbox's value is not supported
 and may produce unexpected results.
 
-Field names ending in `[]` must be passed without the trailing square 
+Field names ending in `[]` must be passed without the trailing square
 bracket characters, and must contain an array for its value.  This allows
 submitting multiple values with the same name, consider:
 

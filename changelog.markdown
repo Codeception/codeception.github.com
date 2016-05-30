@@ -7,6 +7,30 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.1.9
+
+* PHPUnit 5.4 compatibility for creating mocks using `Codeception\Util\Stub` by <strong><a href="https://github.com/davertmik">@davertmik</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/3093">#3093</a> and <a href="https://github.com/Codeception/Codeception/issues/3080">#3080</a>
+* Updated dependencies to support Symfony 3.1
+* Added `settings: backup_global` to config, to disable backup_global option of PHPUnit by <strong><a href="https://github.com/mkeasling">@mkeasling</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/3045">#3045</a>. Fixes <a href="https://github.com/Codeception/Codeception/issues/3044">#3044</a>
+* <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> `see` matches UTF-8 text case-insensitively by <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>. Fixes <a href="https://github.com/Codeception/Codeception/issues/3114">#3114</a>
+* Fixed page object generation with namespaces by <strong><a href="https://github.com/eugene">@eugene</a></strong>-manuilov and <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/3126">#3126</a> Fixes <a href="https://github.com/Codeception/Codeception/issues/3012">#3012</a>
+* `--steps` will not disable code coverage. By <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>. Fixes <a href="https://github.com/Codeception/Codeception/issues/2620">#2620</a>
+* Suppress console coverage report with `--quiet` by <strong><a href="https://github.com/EspadaV8">@EspadaV8</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/2370">#2370</a>
+* Improved multibyte output in console by <strong><a href="https://github.com/kt81">@kt81</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/3130">#3130</a>
+* <strong>[Lumen]</strong> Fixed: `initializeLumen()` method has been called twice on start by <strong><a href="https://github.com/kt81">@kt81</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/3124">#3124</a> <a href="https://github.com/Codeception/Codeception/issues/2607">#2607</a>
+* <strong>[Db]</strong> Allow INT Parameter SQL Binding by <strong><a href="https://github.com/davidcochrum">@davidcochrum</a></strong> . Fixes <a href="https://github.com/Codeception/Codeception/issues/3118">#3118</a>
+* <strong>[Db]</strong> Support LIKE conditions in assertions.
+* <strong>[Db]</strong> Improved regex for parsing comments by <strong><a href="https://github.com/dima">@dima</a></strong>-stefantsov. See <a href="https://github.com/Codeception/Codeception/issues/3138">#3138</a>
+* <strong>[Dbh]</strong> Fix `seeInDatabase` and `dontSeeInDatabase` with empty criteria. Closes <a href="https://github.com/Codeception/Codeception/issues/3116">#3116</a>
+* <strong>[Symfony]</strong> Improve fail messages on seeInCurrentRoute and seeCurrentRouteIs
+* <strong>[Symfony]</strong> Improve route comparison on seeInCurrentRoute and seeCurrentRouteIs
+* <strong>[WebDriver]</strong> multi session testing with friends improved by <strong><a href="https://github.com/eXorus">@eXorus</a></strong>. Webdriver sessions are finished correctly; `leave()` method added to Friend class. See <a href="https://github.com/Codeception/Codeception/issues/3068">#3068</a>
+* <strong>[PhpBrowser]</strong> added `handler` and `middleware` config options to customize Guzzle handlers and middleware
+* Added full support of phpunit-bridge features.
+* <strong>[Laravel]</strong> Fixed issue where non-existing services were called in _before and _after methods. See <a href="https://github.com/Codeception/Codeception/issues/3028">#3028</a>.
+* <strong>[WebDriver]</strong> fixed using `saveSessionSnapshot` with codecoverage. Closes <a href="https://github.com/Codeception/Codeception/issues/2923">#2923</a>
+* <strong>[ZF2]</strong> create new instance of Application for each request
+
 #### 2.1.8
 
 * `Util\Locator` added methods to create locators to match element at their position: `elementAt`, `firstElement`, `lastElement`
