@@ -552,6 +552,11 @@ ul.navbar-nav {
 }
  
 @media (max-width: 767px) {
+	.dropdown-menu {
+		background: #fff;
+
+	}
+
 	.dropdown-menu.multi-column {
 		min-width: 240px !important;
 		overflow-x: hidden;
