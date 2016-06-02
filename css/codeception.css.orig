@@ -1,3 +1,9 @@
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
+
+.navbar {
+	margin-bottom: 0;
+}
+
 .main-features {
 	margin-top: 10px;
 }
@@ -56,6 +62,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
 }
 
+<<<<<<< HEAD
 
 body #home-hero h1 {
 	color: #fff;
@@ -96,6 +103,8 @@ body #home-hero h1 {
 	font-style: italic;
 }
 
+=======
+>>>>>>> master
 #page h4 {
 	border-bottom: 1px solid #656270;
 }
@@ -259,18 +268,18 @@ ul.navbar-nav {
 	margin: 0 -15px;
 }
 
-.row.home{
-	padding-top:225px;
-}
+// .row.home{
+// 	padding-top:225px;
+// }
 
-.row.home.no-padding-top{
-	padding-top:0px;
-}
+// .row.home.no-padding-top{
+// 	padding-top:0px;
+// }
 
-.row.home-btns{
-	margin-top:40px;
-	margin-bottom:40px;
-}
+// .row.home-btns{
+// 	margin-top:40px;
+// 	margin-bottom:40px;
+// }
 
 .well.dark{
 	background:#042943;
@@ -286,6 +295,7 @@ ul.navbar-nav {
 	color:#eee;
 }
 
+<<<<<<< HEAD
 
 .hero {
 	background: #042943 no-repeat top center;	
@@ -320,6 +330,13 @@ ul.navbar-nav {
 	background-size: cover;
 	display: table;
 	margin-top: -20px;
+=======
+#home-hero {
+	height:600px;
+	background:#042943 no-repeat center center;
+	background-image: url(../images/home-bg.jpg);
+	background-size:cover;
+>>>>>>> master
 	text-align:center;
 	border-bottom: 10px solid #fff;
 }
@@ -342,6 +359,25 @@ ul.navbar-nav {
 	border-radius: 100px;
 }
 
+#home-hero h1 {
+	color: #fff;
+	font-size: 56px;
+	font-weight: bold;
+	padding-top:35px;
+	text-shadow: #000 1px 2px 5px;
+}
+
+#home-hero img {
+	position:relative;
+	top: -8px;
+}
+
+#home-hero p.lead {
+	color:#fff;
+	font-weight: bold;
+	font-style: italic;
+}
+
 @media screen and (max-width : 1260px) {
 	.follow {
 		display: none;
@@ -350,13 +386,6 @@ ul.navbar-nav {
 
 
 @media screen and (max-width : 992px) {
-	body #home-hero h1{
-		padding-top:75px;
-	}
-
-	#home-hero{
-		height:320px;
-	}
 
 	.well.dark{
 		background:#fff;
@@ -381,12 +410,13 @@ ul.navbar-nav {
 
 @media screen and (max-width : 767px) {
 
-	.menu li {
-		clear: both;
+	#home-hero {
+		height: 500px;
+		padding-top: 0;
 	}
 
-	body #home-hero h1{
-		padding-top:0px;
+	.menu li {
+		clear: both;
 	}
 }
 
@@ -398,18 +428,22 @@ ul.navbar-nav {
 		overflow: visible!important;
 	}
 }
-#searchable > .search {
+#searchable {
+	margin-top: 20px;
+}
+#searchable .search {
 	width: 100%;
 	height: 45px;
-	color: #333;
+	color: #888;
 	text-indent: 16px;
 	border-radius: 24px;
 	border: 1px solid #ddd;
-	box-shadow: inset 0 1px 1px hsla(0, 0%, 0%, 0.075);
+	box-shadow: inset 0 1px 1px #ccc;
 	transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 	outline: none;
 }
 
+<<<<<<< HEAD
 .card {
 	padding: 3em;
 
@@ -552,11 +586,6 @@ ul.navbar-nav {
 }
  
 @media (max-width: 767px) {
-	.dropdown-menu {
-		background: #fff;
-
-	}
-
 	.dropdown-menu.multi-column {
 		min-width: 240px !important;
 		overflow-x: hidden;
@@ -566,11 +595,19 @@ ul.navbar-nav {
 .panel-body {
 	font-size: 1.2em;
 }
-
-.casestudy .btn {
-	border-left: 5px solid #D32F2F;
+=======
+#searchable::after {
+	font-family: "FontAwesome";
+	content: "\f002";
+	color: #ccc;
+	position: absolute;
+	top: 34px;
+	right: 40px;
 }
 
-.carousel-control.right {
-	background: none !important;
+.fill-thanks {
+	padding-top: 200px;
+	padding-bottom: 200px;
 }
+
+>>>>>>> master

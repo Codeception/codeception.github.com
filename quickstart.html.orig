@@ -2,7 +2,9 @@
 layout: bootstrap
 title: Quick Start Codeception
 ---
+<div class="container">
 
+<<<<<<< HEAD
 </div></div>
 <div class="hero" style="background-image: url(/images/backgrounds/quickstart.jpg); ">
 
@@ -35,9 +37,16 @@ title: Quick Start Codeception
       preinstalled (except PHP, of course). Only one configuration step should
       be taken and you are ready to test your web application from an eye of
       actual user.</p>
+=======
+  <div class="row">
+    <div class="col-xs-12 col-md-9">
+      <h1>Codeception Quickstart Guide</h1>
+      <p class="lead">Codeception PHP Testing Framework is designed to work just out of the box. This means its installation requires minimal steps and no external dependencies preinstalled (except PHP, of course). Only one configuration step should be taken and you are ready to test your web application from an eye of actual user.</p>
+>>>>>>> master
       <p>
-        <strong class="text-info text-uppercase">Requirements: PHP5.3, CURL enabled</strong>
+        <strong class="text-info text-uppercase">Requirements: PHP 5.4, CURL enabled</strong>
       </p>
+<<<<<<< HEAD
       </div>
 
     <div class="panel panel-info">
@@ -48,6 +57,21 @@ title: Quick Start Codeception
             <pre>$ composer require "codeception/codeception"  <span class="text-muted">// ./vendor/bin/codecept</span></pre>
             <p><code class="text-muted">$ alias codecept='./vendor/bin/codecept'</code></p>
           </div>
+=======
+    </div> <!-- /.col -->
+  </div> <!-- /.row -->
+
+<div class="row">
+<div class="col-xs-12 col-md-9">
+<div class="panel panel-info">
+<div class="panel-heading"><h4 class="panel-title">1. Download</h4></div>
+<div class="panel-body">
+<div class="">
+<p class="lead">Install via Composer</p>
+<pre>$ composer require "codeception/codeception"  <span class="text-muted">// ./vendor/bin/codecept</span></pre>
+<p><code class="text-muted">$ alias codecept='./vendor/bin/codecept'</code></p>
+</div>
+>>>>>>> master
 <hr>
 
 <p class="lead">Install PHAR locally</p>
@@ -58,10 +82,9 @@ title: Quick Start Codeception
 <!-- phar php54 -->
 <pre>$ wget http://codeception.com/php54/codecept.phar <span class="text-muted">// PHP 5.4 and 5.5</span><a href="/thanks_php54" style="float:right" target="_blank">download <span class="glyphicon glyphicon-download"></span></a></pre>
 <p><code class="text-muted">$ alias codecept='codecept.phar'</code></p>
-    <div>
-    </div>
 
 <hr>
+<<<<<<< HEAD
           <p class="lead">Install PHAR globally</p>
           <pre>sudo curl -LsS http://codeception.com/codecept.phar -o /usr/local/bin/codecept</pre>
           <pre>sudo chmod a+x /usr/local/bin/codecept</pre>
@@ -102,16 +125,54 @@ title: Quick Start Codeception
               <p class="text-muted">Codeception scenario tests are called Cepts.</p>
                 </div> <!-- /.panel-body -->
               </div> <!-- /.panel -->
+=======
+<p class="lead">Install PHAR globally</p>
+<pre>sudo curl -LsS http://codeception.com/codecept.phar -o /usr/local/bin/codecept</pre>
+<pre>sudo chmod a+x /usr/local/bin/codecept</pre>
+<p><code class="text-muted">$ codecept</code></p>
+
+<!-- <p>Use <code>codecept</code> instead of codecept.phar in this case.</p> -->
+</div> <!-- /.panel-body -->
+</div> <!-- /.panel -->
 
 <div class="panel panel-info">
-  <div class="panel-heading">
-    <h4 class="panel-title">4. Write Basic Test</h4>
-  </div>
-  <div class="panel-body">
-    <p>It's now time to write your first test. Edit the file we've just created
-      <b>tests/acceptance/WelcomeCept.php</b>
-    </p>
-    <div>
+<div class="panel-heading"><h4 class="panel-title">2. Install</h4></div>
+<div class="panel-body">
+<p>Open console directory where you saved codecept.phar file and execute:</p>
+<div>
+<p>
+<pre>$ codecept bootstrap</pre>
+</p>
+</div>
+<p class="text-muted">This creates
+<b>codeception.yml</b> file and <b>tests</b> directory.</p>
+</div> <!-- /.panel-body -->
+</div> <!-- /.panel -->
+>>>>>>> master
+
+<div class="panel panel-info">
+<div class="panel-heading"><h4 class="panel-title">3. Create Test</h4></div>
+<div class="panel-body">
+<p>Generate your first acceptance test. Acceptance tests emulate behavior
+of a real user visiting your site.</p>
+<div>
+<p>
+<pre>$ codecept generate:cept acceptance Welcome</pre>
+</p>
+</div>
+<p class="text-muted">Codeception scenario tests are called Cepts.</p>
+</div> <!-- /.panel-body -->
+</div> <!-- /.panel -->
+
+<div class="panel panel-info">
+<div class="panel-heading">
+<h4 class="panel-title">4. Write Basic Test</h4>
+</div>
+<div class="panel-body">
+<p>It's now time to write your first test. Edit the file we've just created
+<b>tests/acceptance/WelcomeCept.php</b>
+</p>
+<div>
 {% highlight php %}
 <?php
   $I = new AcceptanceTester($scenario);
@@ -120,31 +181,41 @@ title: Quick Start Codeception
   $I->see('Home');
 ?>
 {% endhighlight %}
-    </div>
-    <p class="text-muted">It will check that your frontpage contains the word <b>Home</b> in it.</p>
-      </div> <!-- /.panel-body -->
-    </div> <!-- /.panel -->
+</div>
+<p class="text-muted">It will check that your frontpage contains the word <b>Home</b> in it.</p>
+</div> <!-- /.panel-body -->
+</div> <!-- /.panel -->
 
 <div class="panel panel-info">
-<div class="panel-heading"><h4 class="panel-title">5. Configure Acceptance Tests</h4></div>
+<div class="panel-heading"><h4 class="panel-title">
+  5. Configure Acceptance Tests</h4>
+</div>
 <div class="panel-body">
-  <p>Please make sure your local
-    <b>dev server</b>is running. &nbsp;Put application URL into:&nbsp;
-    <b>tests/acceptance.suite.yml</b>&nbsp;</p>
-    <div>
+<p>Please make sure your local
+<b>dev server</b>is running. &nbsp;Put application URL into:&nbsp;
+<b>tests/acceptance.suite.yml</b>&nbsp;</p>
+<div>
 <pre>
 class_name: AcceptanceTester
 modules:
+<<<<<<< HEAD
     enabled:
         - PhpBrowser:
             url: {YOUR APP'S URL}
         - \Helper\Acceptance
+=======
+enabled:
+  - PhpBrowser:
+url: {YOUR APP'S URL}
+  - \Helper\Acceptance
+>>>>>>> master
 </pre>
-    </div>
-      </div> <!-- /.panel-body -->
-    </div> <!-- /.panel -->
+</div>
+</div> <!-- /.panel-body -->
+</div> <!-- /.panel -->
 
 <div class="panel panel-info">
+<<<<<<< HEAD
   <div class="panel-heading"><h4 class="panel-title">6. Run!</h4></div>
   <div class="panel-body">
     <p>Codeception are executed with 'run' command</p>
@@ -160,6 +231,23 @@ modules:
       <b>WebDriver</b> module.</p>
         </div> <!-- /.panel-body -->
       </div> <!-- /.panel -->
+=======
+<div class="panel-heading"><h4 class="panel-title">6. Run!</h4></div>
+<div class="panel-body">
+<p>Codeception are executed with 'run' command</p>
+<div>
+<p>
+<pre>$ codecept run</pre>
+</p>
+</div>
+<p class="text-muted">This will execute our Welcome test with
+<b>PhpBrowser</b>. It's PHP script that can check HTML page contents, click
+links, fill forms, and submit POST and GET requests. For more complex tests
+that require a browser use Selenium with
+<b>WebDriver</b> module.</p>
+</div> <!-- /.panel-body -->
+</div> <!-- /.panel -->
+>>>>>>> master
 </div> <!-- /.col -->
 <div class="col-sm-12 col-lg-4">
 <h3>Quick Start For</h3>
@@ -169,6 +257,7 @@ modules:
 
 </div> <!-- /.row -->
 
+<<<<<<< HEAD
   <div class="row">
 <div class="col-sm-12 col-lg-8">
 <div class="panel panel-success">
@@ -185,9 +274,26 @@ Unit Tests -----------------------------------------
 Time: 1 second, Memory: 21.00Mb
 <b>OK (1 test, 1 assertions)</b></pre>
   </div> <!-- /.panel-body -->
-</div> <!-- /.panel -->
-</div>
+=======
+<div class="row">
+<div class="col-sm-9 col-lg-9">
+<div class="panel panel-success">
+<div class="panel-heading">If you did everything right and your app has "Home" text on frontpage you
+will see this in output</div>
+<div class="panel-body">
+<pre>Suite acceptance started
+Trying to <b>ensure that frontpage works</b> (WelcomeCept.php) - Ok
+Suite functional started
+Suite unit started
 
+Time: 1 second, Memory: 21.00Mb
+<b>OK (1 test, 1 assertions)</b></pre>
+</div> <!-- /.panel-body -->
+>>>>>>> master
+</div> <!-- /.panel -->
+</div> <!-- /.col -->
+
+<<<<<<< HEAD
 <div class="col-sm-12 col-lg-4">
 
 <p>Follow the Acceptance Testing chapter to learn how to test your
@@ -202,3 +308,19 @@ Time: 1 second, Memory: 21.00Mb
   </div>
 </div>
 </div>
+=======
+<div class="col-sm-3 col-lg-3">
+<p>Follow the Acceptance Testing chapter to learn how to test your
+web application by clicking links, filling forms, as your regular users
+do.</p>
+
+<div class="list-group">
+<a class="list-group-item" href="/docs/02-GettingStarted">A Complete Getting Started Guide</a>
+<a class="list-group-item active" href="/docs/03-AcceptanceTests">Continue with Acceptance Tests</a>
+<a class="list-group-item" href="/docs/01-Introduction">The difference &nbsp;between Acceptance Tests and Unit Tests</a>
+</div> <!-- /.list-group -->
+</div> <!-- /.col -->
+</div> <!-- /.row -->
+
+</div> <!-- /.container -->
+>>>>>>> master
