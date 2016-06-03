@@ -17,7 +17,7 @@ title: Codeception Changelog
 * *Breaking* **Conflicts API implemented** Frameworks + PhpBrowser + WebDriver can't be used together unless only non-conflicting part is used. [Announcement](http://codeception.com/03-05-2016/codeception-2.2.-upcoming-features.html#conflicts)
 * **Examples** as an alternative to Data Providers. [Announcement](http://codeception.com/03-10-2016/even-more-features-of-codeception.html#examples)
 * **Params** loading from yml, env files or environment. [Announcement](http://codeception.com/03-05-2016/codeception-2.2.-upcoming-features.html#params)
-* **Test dependencies** with `**[depends](https://github.com/depends)**` annotation. [Announcement](http://codeception.com/03-05-2016/codeception-2.2.-upcoming-features.html#test-dependencies)
+* **Test dependencies** with `@depends` annotation. [Announcement](http://codeception.com/03-05-2016/codeception-2.2.-upcoming-features.html#test-dependencies)
 * **Custom Commands** inject your own commands as as simple as extension. [Announcement](http://codeception.com/03-10-2016/even-more-features-of-codeception.html#custom-commands)
 * `codecept dry-run` command added to show scenario steps without executing them.
 * *Breaking* **[Dbh]** module removed
@@ -483,7 +483,7 @@ It converts JSON structure into valid XML document and executes XPath for it.
 * **[Db]** Fixed Postgresql error with schemas by **[rafreis](https://github.com/rafreis)**. Fixes [#970](https://github.com/Codeception/Codeception/issues/970)
 * **[PhpBrowser]** Fix for meta refresh tags with interval by **[zbateson](https://github.com/zbateson)**. See [#1515](https://github.com/Codeception/Codeception/issues/1515)
 * [PhpBrowser][Frameworks] Fixed: `grabTextFrom` doesn't work with regex by **[zbateson](https://github.com/zbateson)**. See [#1519](https://github.com/Codeception/Codeception/issues/1519)
-* Cest tests support multiple `**[before](https://github.com/before)**` and `**[after](https://github.com/after)**` annotations. Thanks to **[draculus](https://github.com/draculus)** and **[zbateson](https://github.com/zbateson)**. See [#1517](https://github.com/Codeception/Codeception/issues/1517)
+* Cest tests support multiple `@before` and `@after` annotations. Thanks to **[draculus](https://github.com/draculus)** and **[zbateson](https://github.com/zbateson)**. See [#1517](https://github.com/Codeception/Codeception/issues/1517)
 * **[FTP]** Stops test execution on failed connection by **[yegortokmakov](https://github.com/yegortokmakov)**
 * **[AMQP]** Fix for purging queues on initialization stage. Check for open channel is not needed and it prevents from cleaning queue by **[yegortokmakov](https://github.com/yegortokmakov)**
 * CodeCoverage remote context configuration added by **[synchrone](https://github.com/synchrone)**. See [#1524](https://github.com/Codeception/Codeception/issues/1524) [Documentation updated](http://codeception.com/docs/11-Codecoverage#Remote-Context-Options)
