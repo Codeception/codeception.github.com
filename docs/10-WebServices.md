@@ -11,7 +11,7 @@ You should start by creating a new test suite, (which was not provided by the `b
 
 {% highlight bash %}
 
-$ php codecept.phar generate:suite api
+$ php codecept generate:suite api
 
 {% endhighlight %}
 
@@ -19,7 +19,7 @@ We will put all the api tests there.
 
 ## REST
 
-The REST web service is accessed via HTTP with standard methods: `GET`, `POST`, `PUT`, `DELETE`. They allow users to receive and manipulate entities from the service. Accessing a WebService requires an HTTP client, so for using it you need the module `PhpBrowser` or one of framework modules set up. For example, we can use the `Symfony2` module for Symfony2 applications in order to ignore web server and test web service internally.
+The REST web service is accessed via HTTP with standard methods: `GET`, `POST`, `PUT`, `DELETE`. They allow users to receive and manipulate entities from the service. Accessing a WebService requires an HTTP client, so for using it you need the module `PhpBrowser` or one of framework modules set up. For example, we can use the `Symfony` module for Symfony2 applications in order to ignore web server and test web service internally.
 
 Configure modules in `api.suite.yml`:
 
@@ -28,9 +28,9 @@ Configure modules in `api.suite.yml`:
 class_name: ApiTester
 modules:
     enabled:
-		- REST:
-			url: http://serviceapp/api/v1/
-			depends: PhpBrowser
+        - REST:
+            url: http://serviceapp/api/v1/
+            depends: PhpBrowser
 
 {% endhighlight %}
 
@@ -41,14 +41,14 @@ The REST module will connect to `PhpBrowser` according to this configuration. De
 class_name: ApiTester
 modules:
     enabled:
-		- REST:
-			url: http://serviceapp/api/v1/
-			depends: PhpBrowser
-			part: Json
+        - REST:
+            url: http://serviceapp/api/v1/
+            depends: PhpBrowser
+            part: Json
 
 {% endhighlight %}
 
-API tests can be functional and be executed using Symfony2, Laravel4, Laravel5, Zend, or any other framework module. You will need slightly update configuration for it: 
+API tests can be functional and be executed using Symfony, Laravel5, Zend, or any other framework module. You will need slightly update configuration for it:
 
 
 {% highlight yaml %}
@@ -56,9 +56,9 @@ API tests can be functional and be executed using Symfony2, Laravel4, Laravel5, 
 class_name: ApiTester
 modules:
     enabled:
-		- REST:
-			url: /api/v1/
-			depends: Laravel5
+        - REST:
+            url: /api/v1/
+            depends: Laravel5
 
 {% endhighlight %}
 
@@ -66,7 +66,7 @@ Once we have configured our new testing suite, we can create the first sample te
 
 {% highlight bash %}
 
-$ php codecept.phar generate:cept api CreateUser
+$ php codecept generate:cept api CreateUser
 
 {% endhighlight %}
 
@@ -83,7 +83,7 @@ $I->sendPOST('/users', ['name' => 'davert', 'email' => 'davert@codeception.com']
 $I->seeResponseCodeIs(200);
 $I->seeResponseIsJson();
 $I->seeResponseContains('{"result":"ok"}');
-?>
+
 
 {% endhighlight %}
 
@@ -98,13 +98,13 @@ The last line of the previous example verified that the response contained the p
 $I->seeResponseContainsJson(['result' => 'ok']);
 // it can match tree-like structures as well
 $I->seeResponseContainsJson([
-	'user' => [
-			'name' => 'davert',
-			'email' => 'davert@codeception.com',
-			'status' => 'inactive'
-	]
+  'user' => [
+      'name' => 'davert',
+      'email' => 'davert@codeception.com',
+      'status' => 'inactive'
+  ]
 ]);
-?>
+
 
 {% endhighlight %}
 
@@ -116,13 +116,13 @@ You may want to perform even more complex assertions on a response. This can be 
 namespace Helper;
 class Api extends \Codeception\Module
 {
-	public function seeResponseIsHtml()
-	{
-		$response = $this->getModule('REST')->response;
-        \PHPUnit_Framework_Assert::assertRegex('~^<!DOCTYPE HTML(.*?)<html>.*?<\/html>~m', $response);
-	}
+  public function seeResponseIsHtml()
+  {
+    $response = $this->getModule('REST')->response;
+    $this->assertRegExp('~^<!DOCTYPE HTML(.*?)<html>.*?<\/html>~m', $response);
+  }
 }
-?>
+
 
 {% endhighlight %}
 
@@ -143,7 +143,7 @@ $I->sendGET('/users');
 $I->seeResponseIsJson();
 $I->seeResponseJsonMatchesJsonPath('$[0].user.login');
 $I->seeResponseJsonMatchesXpath('//user/login');
-?>
+
 
 {% endhighlight %}
 
@@ -163,7 +163,7 @@ $I->seeResponseMatchesJsonType([
     'created_at' => 'string:date',
     'is_active' => 'boolean'
 ]);
-?>
+
 
 {% endhighlight %}
 
@@ -185,13 +185,13 @@ $I->sendGET('/users.xml');
 $I->seeResponseIsXml();
 $I->seeXmlResponseMatchesXpath('//user/login');
 $I->seeXmlResponseIncludes(XmlUtils::toXml(
-		'user' => [
-			'name' => 'davert',
-			'email' => 'davert@codeception.com',
-			'status' => 'inactive'
-	]
+    'user' => [
+      'name' => 'davert',
+      'email' => 'davert@codeception.com',
+      'status' => 'inactive'
+  ]
 ));
-?>
+
 
 {% endhighlight %}
 
@@ -213,9 +213,9 @@ Let's configure `SOAP` module to be used with `PhpBrowser`:
 class_name: ApiTester
 modules:
     enabled:
-		- SOAP:
-			depends: PhpBrowser
-			endpoint: http://serviceapp/api/v1/
+    - SOAP:
+      depends: PhpBrowser
+      endpoint: http://serviceapp/api/v1/
 
 {% endhighlight %}
 
@@ -225,7 +225,7 @@ SOAP request may contain application specific information, like authentication o
 
 <?php
 $I->haveSoapHeader('Auth', array('username' => 'Miles', 'password' => '123456'));
-?>
+
 
 {% endhighlight %}
 will produce this XML header
@@ -234,8 +234,8 @@ will produce this XML header
 
 <soap:Header>
 <Auth>
-	<username>Miles</username>
-	<password>123456</password>
+  <username>Miles</username>
+  <password>123456</password>
 </Auth>
 </soap:Header>
 
@@ -247,7 +247,7 @@ Use `sendSoapRequest` method to define the body of your request.
 
 <?php
 $I->sendSoapRequest('CreateUser', '<name>Miles Davis</name><email>miles@davis.com</email>');
-?>
+
 
 {% endhighlight %}
 
@@ -257,8 +257,8 @@ This call will be translated to XML:
 
 <soap:Body>
 <ns:CreateUser>
-	<name>Miles Davis</name>
-	<email>miles@davis.com</email>
+  <name>Miles Davis</name>
+  <email>miles@davis.com</email>
 </ns:CreateUser>
 </soap:Body>
 
@@ -269,11 +269,11 @@ And here is the list of sample assertions that can be used with SOAP.
 {% highlight php %}
 
 <?php
-$I->seeSoapResponseEquals('<?xml version="1.0"?><error>500</error>');
+$I->seeSoapResponseEquals('<?xml version="1.0"<error>500</error>');
 $I->seeSoapResponseIncludes('<result>1</result>');
 $I->seeSoapResponseContainsStructure('<user><name></name><email></email>');
 $I->seeSoapResponseContainsXPath('//result/user/name[@id=1]');
-?>
+
 
 {% endhighlight %}
 
@@ -289,12 +289,12 @@ $I = new ApiTester($scenario);
 $I->wantTo('create user');
 $I->haveSoapHeader('Session', array('token' => '123456'));
 $I->sendSoapRequest('CreateUser', Xml::build()
-	->user->email->val('miles@davis.com'));
+  ->user->email->val('miles@davis.com'));
 $I->seeSoapResponseIncludes(Xml::build()
-	->result->val('Ok')
-		->user->attr('id', 1)
+  ->result->val('Ok')
+    ->user->attr('id', 1)
 );
-?>
+
 
 {% endhighlight %}
 
@@ -308,13 +308,13 @@ You may extend current functionality by using `SOAP` module in your helper class
 namespace Helper;
 class Api extends \Codeception\Module {
 
-	public function seeResponseIsValidOnSchema($schema)
-	{
-		$response = $this->getModule('SOAP')->response;
-		$this->assertTrue($response->schemaValidate($schema));
-	}
+  public function seeResponseIsValidOnSchema($schema)
+  {
+    $response = $this->getModule('SOAP')->response;
+    $this->assertTrue($response->schemaValidate($schema));
+  }
 }
-?>
+
 
 {% endhighlight %}
 

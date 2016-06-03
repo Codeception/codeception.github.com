@@ -1,0 +1,87 @@
+---
+layout: bootstrap
+---
+<<<<<<< HEAD
+
+<div class="row">
+  <div class="col-sm-3 col-lg-3">
+
+   <div id="searchable">
+    <input type="search" class="search" placeholder="live search...">
+    <br>
+     <!-- toc.js generated nav... -->
+     <div id="toc" class="nav"></div>
+   </div> <!-- /#searchable -->
+   <script type="text/javascript">
+    $(document).ready(function () {
+      $('#toc').toc({
+        'selectors': 'h2,h3,h4',
+        'prefix': 'toc',
+        'container': '#page',
+=======
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="content page">
+        <div id="page">
+          {{ content }}
+        </div> <!-- /#page -->
+      </div> <!-- /.content page -->
+    </div> <!-- /.col -->
+    <div class="col-sm-4">
+     <div id="searchable">
+      <div>
+        <input type="search" class="search" placeholder="live search...">
+      </div>
+      <!-- toc.js generated nav... -->
+      <div id="toc" class="nav"></div>
+    </div> <!-- /#searchable -->
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#toc').toc({
+          'selectors': 'h2,h3,h4',
+          'prefix': 'toc',
+          'container': '#page',
+>>>>>>> master
+        //custom function for anchor name
+        'anchorName': function(i, heading, prefix) {
+          return $(heading).text().replace(/\s/g, '-').replace(/[^\w-]/g, '');
+        },
+      });
+      // List.js
+      $('#toc > ul').addClass('list');
+      $('#toc ul.list li a').addClass('searchitem');
+      var options = {
+        valueNames: [ 'searchitem' ]
+      };
+      var userList = new List('searchable', options);
+      // end List.js
+<<<<<<< HEAD
+
+    }); // docrdy
+  </script>
+
+</div>
+
+  <div class="col-sm-9 col-lg-9">
+    <div class="content page">
+      <div>
+
+        <div id="page">
+          {{ content }}
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</div>
+=======
+      }); // docrdy
+    </script>
+  </div> <!-- /.col -->
+</div> <!-- /.row -->
+</div> <!-- /.container -->
+>>>>>>> master

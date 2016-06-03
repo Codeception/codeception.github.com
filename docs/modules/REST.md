@@ -5,9 +5,9 @@ title: REST - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Module/REST.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/REST.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/REST.md"><strong>2.1</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/REST.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/REST.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Module/REST.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/REST.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/REST.md"><strong>2.2</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/REST.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/REST.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/REST.md">1.8</a></div>
 
-
+# REST
 
 
 Module for testing REST WebService.
@@ -15,14 +15,6 @@ Module for testing REST WebService.
 This module can be used either with frameworks or PHPBrowser.
 If a framework module is connected, the testing will occur in the application directly.
 Otherwise, a PHPBrowser should be specified as a dependency to send requests and receive responses from a server.
-
-
-### Status
-
-* Maintainer: **tiger-seo**, **davert**
-* Stability: **stable**
-* Contact: codecept@davert.mail.ua
-* Contact: tiger.seo@gmail.com
 
 ### Configuration
 
@@ -44,13 +36,18 @@ This module requires PHPBrowser or any of Framework modules enabled.
 * params - array of sent data
 * response - last response (string)
 
-
 ### Parts
 
 * Json - actions for validating Json responses (no Xml responses)
 * Xml - actions for validating XML responses (no Json responses)
 
+### Conflicts
 
+Conflicts with SOAP module
+
+
+
+### Actions
 
 #### amBearerAuthenticated
  
@@ -172,7 +169,7 @@ $I->dontSeeXmlResponseMatchesXpath('//root/user[ * `id=1]');`
  * `param` $xpath
 
 
-#### grabAttributeFrom
+#### grabAttributeFromXmlElement
  
 Finds and returns attribute of element.
 Element is matched by either CSS or XPath
@@ -195,7 +192,8 @@ Deprecated since 2.0.9 and removed since 2.1.0
 #### grabDataFromResponseByJsonPath
  
 Returns data from the current JSON response using [JSONPath](http://goessner.net/articles/JsonPath/) as selector.
-JsonPath is XPath equivalent for querying Json structures. Try your JsonPath expressions [online](http://jsonpath.curiousconcept.com/).
+JsonPath is XPath equivalent for querying Json structures.
+Try your JsonPath expressions [online](http://jsonpath.curiousconcept.com/).
 Even for a single value an array is returned.
 
 This method **require [`flow/jsonpath` > 0.2](https://github.com/FlowCommunications/JSONPath/) library to be installed**.
@@ -264,7 +262,16 @@ Element is matched by either CSS or XPath
 
 #### haveHttpHeader
  
-Sets HTTP header
+Sets HTTP header valid for all next requests. Use `deleteHeader` to unset it
+
+{% highlight php %}
+
+<?php
+$I->haveHttpHeader('Content-Type', 'application/json');
+// all next requests will contain this header
+?>
+
+{% endhighlight %}
 
  * `param` $name
  * `param` $value
@@ -376,7 +383,8 @@ This is done with libxml_get_last_error function.
 #### seeResponseJsonMatchesJsonPath
  
 Checks if json structure in response matches [JsonPath](http://goessner.net/articles/JsonPath/).
-JsonPath is XPath equivalent for querying Json structures. Try your JsonPath expressions [online](http://jsonpath.curiousconcept.com/).
+JsonPath is XPath equivalent for querying Json structures.
+Try your JsonPath expressions [online](http://jsonpath.curiousconcept.com/).
 This assertion allows you to check the structure of response json.
 
 This method **require [`flow/jsonpath` > 0.2](https://github.com/FlowCommunications/JSONPath/) library to be installed**.
@@ -712,4 +720,4 @@ Enables automatic redirects to be followed by the client
  
 Prevents automatic redirects to be followed by the client
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/REST.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.2/src/Codeception/Module/REST.php">Help us to improve documentation. Edit module reference</a></div>

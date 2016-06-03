@@ -5,9 +5,9 @@ title: WebDriver - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Module/WebDriver.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/WebDriver.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/WebDriver.md"><strong>2.1</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/WebDriver.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/WebDriver.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Module/WebDriver.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/WebDriver.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/WebDriver.md"><strong>2.2</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/WebDriver.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/WebDriver.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/WebDriver.md">1.8</a></div>
 
-
+# WebDriver
 
 
 New generation Selenium WebDriver module.
@@ -32,7 +32,8 @@ New generation Selenium WebDriver module.
 
 #### PhantomJS
 
-PhantomJS is a headless alternative to Selenium Server that implements [the WebDriver protocol](https://code.google.com/p/selenium/wiki/JsonWireProtocol).
+PhantomJS is a headless alternative to Selenium Server that implements
+[the WebDriver protocol](https://code.google.com/p/selenium/wiki/JsonWireProtocol).
 It allows you to run Selenium tests on a server without a GUI installed.
 
 1. Download [PhantomJS](http://phantomjs.org/download.html)
@@ -52,7 +53,8 @@ It allows you to run Selenium tests on a server without a GUI installed.
 ### Cloud Testing
 
 Cloud Testing services can run your WebDriver tests in the cloud.
-In case you want to test a local site or site behind a firewall you should use a tunnel application provided by a service.
+In case you want to test a local site or site behind a firewall
+you should use a tunnel application provided by a service.
 
 #### SauceLabs
 
@@ -160,9 +162,14 @@ Based on [facebook php-webdriver](https://github.com/facebook/php-webdriver)
 
 #### Locating Elements
 
-Most methods in this module that operate on a DOM element (e.g. `click`) accept a locator as the first argument, which can be either a string or an array.
+Most methods in this module that operate on a DOM element (e.g. `click`) accept a locator as the first argument,
+which can be either a string or an array.
 
-If the locator is an array, it should have a single element, with the key signifying the locator type (`id`, `name`, `css`, `xpath`, `link`, or `class`) and the value being the locator itself. This is called a "strict" locator. Examples:
+If the locator is an array, it should have a single element,
+with the key signifying the locator type (`id`, `name`, `css`, `xpath`, `link`, or `class`)
+and the value being the locator itself.
+This is called a "strict" locator.
+Examples:
 
 * `['id' => 'foo']` matches `<div id="foo">`
 * `['name' => 'foo']` matches `<div name="foo">`
@@ -171,16 +178,25 @@ If the locator is an array, it should have a single element, with the key signif
 * `['link' => 'Click here']` matches `<a href="google.com">Click here</a>`
 * `['class' => 'foo']` matches `<div class="foo">`
 
-Writing good locators can be tricky. The Mozilla team has written an excellent guide titled [Writing reliable locators for Selenium and WebDriver tests](https://blog.mozilla.org/webqa/2013/09/26/writing-reliable-locators-for-selenium-and-webdriver-tests/).
+Writing good locators can be tricky.
+The Mozilla team has written an excellent guide titled [Writing reliable locators for Selenium and WebDriver tests](https://blog.mozilla.org/webqa/2013/09/26/writing-reliable-locators-for-selenium-and-webdriver-tests/).
 
-If you prefer, you may also pass a string for the locator. This is called a "fuzzy" locator. In this case, Codeception uses a a variety of heuristics (depending on the exact method called) to determine what element you're referring to. For example, here's the heuristic used for the `submitForm` method:
+If you prefer, you may also pass a string for the locator. This is called a "fuzzy" locator.
+In this case, Codeception uses a a variety of heuristics (depending on the exact method called) to determine what element you're referring to.
+For example, here's the heuristic used for the `submitForm` method:
 
 1. Does the locator look like an ID selector (e.g. "#foo")? If so, try to find a form matching that ID.
 2. If nothing found, check if locator looks like a CSS selector. If so, run it.
 3. If nothing found, check if locator looks like an XPath expression. If so, run it.
 4. Throw an `ElementNotFound` exception.
 
-Be warned that fuzzy locators can be significantly slower than strict locators. If speed is a concern, it's recommended you stick with explicitly specifying the locator type via the array syntax.
+Be warned that fuzzy locators can be significantly slower than strict locators.
+Especially if you use Selenium WebDriver with `wait` (aka implicit wait) option.
+In the example above if you set `wait` to 5 seconds and use XPath string as fuzzy locator,
+`submitForm` method will wait for 5 seconds at each step.
+That means 5 seconds finding the form by ID, another 5 seconds finding by CSS
+until it finally tries to find the form by XPath).
+If speed is a concern, it's recommended you stick with explicitly specifying the locator type via the array syntax.
 
 ### Public Properties
 
@@ -193,8 +209,9 @@ $this->getModule('WebDriver')->webDriver->getKeyboard()->sendKeys('hello, webdri
 
 {% endhighlight %}
 
-### Methods
 
+
+### Actions
 
 #### _findElements
 
@@ -268,7 +285,8 @@ $this->getModule('WebDriver')->_saveScreenshot(codecept_output_dir().'screenshot
 #### acceptPopup
  
 Accepts the active JavaScript native popup window, as created by `window.alert`|`window.confirm`|`window.prompt`.
-Don't confuse popups with modal windows, as created by [various libraries](http://jster.net/category/windows-modals-popups).
+Don't confuse popups with modal windows,
+as created by [various libraries](http://jster.net/category/windows-modals-popups).
 
 
 #### amOnPage
@@ -735,7 +753,8 @@ $I->executeInSelenium(function(\Facebook\WebDriver\Remote\RemoteWebDriver $webdr
 
 {% endhighlight %}
 
-This runs in the context of the [RemoteWebDriver class](https://github.com/facebook/php-webdriver/blob/master/lib/remote/RemoteWebDriver.php).
+This runs in the context of the
+[RemoteWebDriver class](https://github.com/facebook/php-webdriver/blob/master/lib/remote/RemoteWebDriver.php).
 Try not to use this command on a regular basis.
 If Codeception lacks a feature you need, please implement it and submit a patch.
 
@@ -863,7 +882,8 @@ $aLinks = $I->grabMultiple('a', 'href');
 #### grabTextFrom
  
 Finds and returns the text contents of the given element.
-If a fuzzy locator is used, the element is found using CSS, XPath, and by matching the full page source by regular expression.
+If a fuzzy locator is used, the element is found using CSS, XPath,
+and by matching the full page source by regular expression.
 
 {% highlight php %}
 
@@ -940,7 +960,8 @@ Moves forward in history.
 #### moveMouseOver
  
 Move mouse over the first element matched by the given locator.
-If the second and third parameters are given, then the mouse is moved to an offset of the element's top-left corner.
+If the second and third parameters are given,
+then the mouse is moved to an offset of the element's top-left corner.
 Otherwise, the mouse is moved to the center of the element.
 
 {% highlight php %}
@@ -963,7 +984,8 @@ $I->moveMouseOver(['css' => '.checkout'], 20, 50);
 Pauses test execution in debug mode.
 To proceed test press "ENTER" in console.
 
-This method is useful while writing tests, since it allows you to inspect the current page in the middle of a test case.
+This method is useful while writing tests,
+since it allows you to inspect the current page in the middle of a test case.
 
 
 #### pressKey
@@ -1030,7 +1052,8 @@ $I->resizeWindow(800, 600);
 #### scrollTo
  
 Move to the middle of the given element matched by the given locator.
-Extra shift, calculated from the top-left corner of the element, can be set by passing $offsetX and $offsetY parameters.
+Extra shift, calculated from the top-left corner of the element,
+can be set by passing $offsetX and $offsetY parameters.
 
 {% highlight php %}
 
@@ -1049,7 +1072,7 @@ $I->scrollTo(['css' => '.checkout'], 20, 50);
  
 Checks that the current page contains the given string (case insensitive).
 
-You can specify a specific HTML element (via CSS or XPath) as the second 
+You can specify a specific HTML element (via CSS or XPath) as the second
 parameter to only search within that element.
 
 {% highlight php %}
@@ -1312,7 +1335,8 @@ $I->seeInPageSource('<link rel="apple-touch-icon"');
 
 #### seeInPopup
  
-Checks that the active JavaScript popup, as created by `window.alert`|`window.confirm`|`window.prompt`, contains the given string.
+Checks that the active JavaScript popup,
+as created by `window.alert`|`window.confirm`|`window.prompt`, contains the given string.
 
  * `param` $text
 
@@ -1425,6 +1449,17 @@ Provide an array for the second argument to select multiple options:
 
 <?php
 $I->selectOption('Which OS do you use?', array('Windows','Linux'));
+?>
+
+{% endhighlight %}
+
+Or provide an associative array for the second argument to specifically define which selection method should be used:
+
+{% highlight php %}
+
+<?php
+$I->selectOption('Which OS do you use?', array('text' => 'Windows')); // Only search by text 'Windows'
+$I->selectOption('Which OS do you use?', array('value' => 'windows')); // Only search by value 'windows'
 ?>
 
 {% endhighlight %}
@@ -1735,7 +1770,8 @@ $I->click('#agree_button');
 #### waitForElementChange
  
 Waits up to $timeout seconds for the given element to change.
-Element "change" is determined by a callback function which is called repeatedly until the return value evaluates to true.
+Element "change" is determined by a callback function which is called repeatedly
+until the return value evaluates to true.
 
 {% highlight php %}
 
@@ -1829,4 +1865,4 @@ $I->waitForText('foo', 30, '.title'); // secs
  * `param null` $selector
  * `throws`  \Exception
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/WebDriver.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.2/src/Codeception/Module/WebDriver.php">Help us to improve documentation. Edit module reference</a></div>

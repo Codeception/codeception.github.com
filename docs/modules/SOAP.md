@@ -5,9 +5,9 @@ title: SOAP - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Module/SOAP.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/SOAP.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/SOAP.md"><strong>2.1</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/SOAP.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/SOAP.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Module/SOAP.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/SOAP.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/SOAP.md"><strong>2.2</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/SOAP.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/SOAP.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/SOAP.md">1.8</a></div>
 
-
+# SOAP
 
 
 Module for testing SOAP WSDL web services.
@@ -38,7 +38,13 @@ If you use PHP SoapServer with framework, try to block call to this method in te
 * xmlRequest - last SOAP request (DOMDocument)
 * xmlResponse - last SOAP response (DOMDocument)
 
+### Conflicts
 
+Conflicts with REST module
+
+
+
+### Actions
 
 #### dontSeeSoapResponseContainsStructure
  
@@ -249,4 +255,4 @@ $I->sendSoapRequest('UpdateUser', \Codeception\Utils\Soap::request()->user
  * `param` $request
  * `param` $body
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/SOAP.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.2/src/Codeception/Module/SOAP.php">Help us to improve documentation. Edit module reference</a></div>

@@ -34,7 +34,6 @@ $I->amOnPage('/');
 $I->click('Sign Up');
 $I->submitForm('#signup', ['username' => 'MilesDavis', 'email' => 'miles@davis.com']);
 $I->see('Thank you for Signing Up!');
-?>
 
 {% endhighlight %}
 
@@ -72,7 +71,6 @@ $I->submitForm('#signup', ['username' => 'MilesDavis', 'email' => 'miles@davis.c
 $I->see('Thank you for Signing Up!');
 $I->seeEmailSent('miles@davis.com', 'Thank you for registration');
 $I->seeInDatabase('users', ['email' => 'miles@davis.com']);
-?>
 
 {% endhighlight %}
 
@@ -111,7 +109,6 @@ function testSavingUser()
     $this->assertEquals('Miles Davis', $user->getFullName());
     $this->unitTester->seeInDatabase('users', ['name' => 'Miles', 'surname' => 'Davis']);
 }
-?>
 
 {% endhighlight %}
 

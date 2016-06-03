@@ -17,39 +17,13 @@ Probably the first test you would want to run would be signing in. In order to w
 {% highlight php %}
 
 <?php
-$I = new AcceptanceTester($scenario);
-$I->wantTo('sign in');
 $I->amOnPage('/login');
 $I->fillField('username', 'davert');
 $I->fillField('password', 'qwerty');
 $I->click('LOGIN');
 $I->see('Welcome, Davert!');
-?>
 
 {% endhighlight %}
-
-This scenario can probably be read by non-technical people. Codeception can even 'naturalize' this scenario, converting it into plain English:
-
-{% highlight bash %}
-
-I WANT TO SIGN IN
-I am on page '/login'
-I fill field 'username', 'davert'
-I fill field 'password', 'qwerty'
-I click 'LOGIN'
-I see 'Welcome, Davert!'
-
-{% endhighlight %}
-
-Such transformations can be done by command:
-
-{% highlight bash %}
-
-$ php codecept.phar generate:scenarios
-
-{% endhighlight %}
-
-Generated scenarios will be stored in your ___output__ directory in text files.
 
 **This scenario can be performed either by a simple PHP Browser or by a browser with Selenium WebDriver**. We will start writing our first acceptance tests with a PhpBrowser.
 
@@ -76,53 +50,26 @@ modules:
 
 {% endhighlight %}
 
-We should start by creating a 'Cept' file in the __tests/acceptance__ directory. Let's call it __SigninCept.php__. We will write the first lines into it.
+We should start by creating a 'Cept' file in the `tests/acceptance` directory. Let's call it `SigninCept.php`. We will write the first lines into it.
 
 {% highlight php %}
 
 <?php
 $I = new AcceptanceTester($scenario);
-$I->wantTo('sign in with valid account');
-?>
+$I->wantTo('sign in');
 
 {% endhighlight %}
 
-The `wantTo` section describes your scenario in brief. There are additional comment methods that are useful to make a Codeception scenario a BDD Story. If you have ever written a BDD scenario in Gherkin, you can write a classic feature story:
-
-{% highlight bash %}
-
-As an Account Holder
-I want to withdraw cash from an ATM
-So that I can get money when the bank is closed
-
-{% endhighlight %}
-
-in Codeception style:
-
-{% highlight php %}
-
-<?php
-$I = new AcceptanceTester($scenario);
-$I->am('Account Holder'); 
-$I->wantTo('withdraw cash from an ATM');
-$I->lookForwardTo('get money when the bank is closed');
-?>
-
-{% endhighlight %}
-
-After we have described the story background, let's start writing a scenario.
-
-The `$I` object is used to write all interactions. The methods of the `$I` object are taken from the `PhpBrowser` module. We will briefly describe it here:
+The `$I` object is used to write all interactions. The methods of the `$I` object are taken from the `PhpBrowser` module. We will briefly describe them here:
 
 {% highlight php %}
 
 <?php
 $I->amOnPage('/login');
-?>
 
 {% endhighlight %}
 
-We assume that all `am` actions should describe the starting environment. The `amOnPage` action sets the starting point of a test to the __/login__ page.
+We assume that all actions starting with `am` and `have` describe the initial environment. The `amOnPage` action sets the starting point of a test to the `/login` page.
 
 With the `PhpBrowser` you can click the links and fill the forms. That will probably be the majority of your actions.
 
@@ -140,7 +87,6 @@ $I->click('#login a');
 $I->click('//a[@id=login]');
 // Using context as second argument
 $I->click('Login', '.nav');
-?>
 
 {% endhighlight %}
 
@@ -159,24 +105,16 @@ Codeception tries to locate element either by its text, name, CSS or XPath. You 
 // By specifying locator type
 $I->click(['link' => 'Login']);
 $I->click(['class' => 'btn']);
-?>
 
 {% endhighlight %}
 
-Before clicking the link you can perform a check if the link really exists on 
-a page. This can be done by the `seeLink` action.
+There is a special class [`Codeception\Util\Locator`](http://codeception.com/docs/reference/Locator) which may help you to generate complex XPath locators. For instance, it can easily allow you to click an element on a last row of a table:
 
 {% highlight php %}
 
-<?php
-// checking that link actually exists
-$I->seeLink('Login');
-$I->seeLink('Login','/login');
-$I->seeLink('#login a','/login');
-?>
+$I->click('Edit' , \Codeception\Util\Locator::elementAt('//table/tr', -1));
 
 {% endhighlight %}
-
 
 #### Forms
 
@@ -213,7 +151,6 @@ $I->fillField('Name', 'Miles');
 $I->fillField('user[email]','miles@davis.com');
 $I->selectOption('Gender','Male');
 $I->click('Update');
-?>
 
 {% endhighlight %}
 
@@ -230,7 +167,6 @@ $I->submitForm('#update_form', array('user' => array(
      'email' => 'Davis',
      'gender' => 'm'
 )));
-?>
 
 {% endhighlight %}
 
@@ -253,7 +189,6 @@ $I->submitForm('#update_form', array('user' => array(
      'gender' => 'm',
 	 'submitButton' => 'Update'
 )));
-?>
 
 {% endhighlight %}
 
@@ -272,10 +207,9 @@ $I->see('Thank you, Miles');
 // the element with 'notice' class.
 $I->see('Thank you, Miles', '.notice');
 // Or using XPath locators
-$I->see('Thank you, Miles', "descendant-or-self::*[contains(concat(' ', normalize-space(@class), ' '), ' notice ')]");
+$I->see('Thank you, Miles', "//table/tr[2]");
 // We check this message is not on page.
 $I->dontSee('Form is filled incorrectly');
-?>
 
 {% endhighlight %}
 
@@ -286,7 +220,6 @@ You can check that specific element exists (or not) on a page
 <?php
 $I->seeElement('.notice');
 $I->dontSeeElement('.error');
-?>
 
 {% endhighlight %}
 
@@ -299,7 +232,6 @@ $I->seeInCurrentUrl('/user/miles');
 $I->seeCheckboxIsChecked('#agree');
 $I->seeInField('user[name]', 'Miles');
 $I->seeLink('Login');
-?>
 
 {% endhighlight %}
 
@@ -313,11 +245,26 @@ Sometimes you don't want the test to be stopped when an assertion fails. Maybe y
 $I->canSeeInCurrentUrl('/user/miles');
 $I->canSeeCheckboxIsChecked('#agree');
 $I->cantSeeInField('user[name]', 'Miles');
-?>
 
 {% endhighlight %}
 
 Each failed assertion will be shown in test results. Still, a failed assertion won't stop the test.
+
+#### Comments
+
+Within a long scenario you should describe what actions you are going to perform and what results to achieve.
+Commands like `amGoingTo`, `expect`, `expectTo` help you in making tests more descriptive.
+
+{% highlight php %}
+
+<?php
+$I->amGoingTo('submit user form with invalid values');
+$I->fillField('user[email]', 'miles');
+$I->click('Update');
+$I->expect('the form is not submitted');
+$I->see('Form is filled incorrectly');
+
+{% endhighlight %}
 
 #### Grabbers
 
@@ -333,7 +280,6 @@ $I->click('Login');
 $I->fillField('email', 'miles@davis.com');
 $I->fillField('password', $password);
 $I->click('Log in!');
-?>
 
 {% endhighlight %}
 
@@ -345,24 +291,6 @@ Grabbers allow you to get a single value from the current page with commands.
 $token = $I->grabTextFrom('.token');
 $password = $I->grabTextFrom("descendant::input/descendant::*[@id = 'password']");
 $api_key = $I->grabValueFrom('input[name=api]');
-?>
-
-{% endhighlight %}
-
-#### Comments
-
-Within a long scenario you should describe what actions you are going to perform and what results to achieve.
-Commands like `amGoingTo`, `expect`, `expectTo` help you in making tests more descriptive.
-
-{% highlight php %}
-
-<?php
-$I->amGoingTo('submit user form with invalid values');
-$I->fillField('user[email]', 'miles');
-$I->click('Update');
-$I->expect('the form is not submitted');
-$I->see('Form is filled incorrectly');
-?>
 
 {% endhighlight %}
 
@@ -376,7 +304,6 @@ Actions for cookies:
 $I->setCookie('auth', '123345');
 $I->grabCookie('auth');
 $I->seeCookie('auth');
-?>
 
 {% endhighlight %}
 
@@ -387,7 +314,6 @@ Actions for checking page title:
 <?php
 $I->seeInTitle('Login');
 $I->dontSeeInTitle('Register');
-?>
 
 {% endhighlight %}
 
@@ -400,7 +326,6 @@ $I->seeCurrentUrlEquals('/login');
 $I->seeCurrentUrlMatches('~$/users/(\d+)~');
 $I->seeInCurrentUrl('user/1');
 $user_id = $I->grabFromCurrentUrl('~$/user/(\d+)/~');
-?>
 
 {% endhighlight %}
 
@@ -435,10 +360,8 @@ In this case `seeElement` won't just check that the element exists on a page, bu
 
 <?php 
 $I->seeElement('#modal'); 
-?>
 
 {% endhighlight %}
-
 
 #### Wait
 
@@ -451,46 +374,12 @@ For example:
 <?php
 $I->waitForElement('#agree_button', 30); // secs
 $I->click('#agree_button');
-?>
 
 {% endhighlight %}
 
 In this case we are waiting for agree button to appear and then clicking it. If it didn't appear for 30 seconds, test will fail. There are other `wait` methods you may use.
 
 See Codeception's [WebDriver module documentation](http://codeception.com/docs/modules/WebDriver) for the full reference.
-
-### Session Snapshots
-
-It's often needed to persist user session between tests.
-If you need to authorize user for each test you can do so by filling Login form in the beginning of each test. 
-Running those steps take time, and in case of Selenium tests (which are slow by themselves) can be this time can be significant. 
-Codeception allows you to share cookies between tests, so once logged in user could stay authorized for other tests.
-
-In demonstration purposes let's write a support function `test_login` and use it in test: 
-
-{% highlight php %}
-
-<?php
-function test_login($I)
-{
-     // if snapshot exists - skipping login
-     if ($I->loadSessionSnapshot('login')) return;
-     // logging in
-     $I->amOnPage('/login');
-     $I->fillField('name', 'jon');
-     $I->fillField('password', '123345');
-     $I->click('Login');
-     // saving snapshot
-     $I->saveSessionSnapshot('login');
-}
-// in test:
-$I = new AcceptanceTester($scenario);
-test_login($I);
-?>
-
-{% endhighlight %}
-
-Instead of writing `test_login` function shown above it is recommended to implement it inside `AcceptanceTester` class.   
 
 ### Multi Session Testing 
 
@@ -499,8 +388,6 @@ Codeception allows you to execute actions in concurrent sessions. The most obvio
 {% highlight php %}
 
 <?php
-$I = new AcceptanceTester($scenario);
-$I->wantTo('try multi session');
 $I->amOnPage('/messages');
 $nick = $I->haveFriend('nick');
 $nick->does(function(AcceptanceTester $I) {
@@ -511,15 +398,50 @@ $nick->does(function(AcceptanceTester $I) {
 });
 $I->wait(3);
 $I->see('Hello all!', '.message');
-?>
 
 {% endhighlight %}
 
 In this case we did some actions in second window with `does` command on a friend object.
 
+Sometimes you may want to close a web page before the end of the test. For such cases you may use leave(). You can also specify roles for friend : 
+
+{% highlight php %}
+
+<?php
+$nickAdmin = $I->haveFriend('nickAdmin', adminStep::class);
+$nickAdmin->does(function(adminStep $I) {
+    // Admin does ...
+});
+$nickAdmin->leave();
+
+{% endhighlight %}
+
+### Cloud Testing
+
+Selenium WeDdriver allows to execute tests in real browsers on different platforms. Some environments are hard to be reproduced manually, testing Internet Explorer 6-8 on Windows XP may be a hard thing, especially if you don't have Windows XP installed. This is where Cloud Testing services come to help you. Services such as [SauceLabs](https://saucelabs.com), [BrowserStack](https://www.browserstack.com/) and [others](http://codeception.com/docs/modules/WebDriver#Cloud-Testing) can create virtual machine on demand and set up Selenium Server and desired browser. Tests are executed on a remote machine in a cloud, to access local files cloud testing service provides special application called **Tunnel**. Tunnel operates on secured protocol and allows browser executed in a cloud to connect to local web server. 
+
+Cloud Testing services work with standard WebDriver protocol. This makes setting up cloud testing relly easy. You just need to set [configuration into WebDriver module](http://codeception.com/docs/modules/WebDriver#Cloud-Testing): 
+
+* specify host to connect (depends on cloud provider)
+* authentication details (to use your account)
+* browser
+* os
+
+We recommend to use [params](http://codeception.com/docs/06-ModulesAndHelpers#Dynamic-Configuration-With-Params) to provide authorization credentials.
+
+It should be mentioned that Cloud Testing services are not free. You should investigate their pricing model and choose one that fits your needs. They also may work painfully slow If ping between local server and cloud is too high. This may lead to random failures in acceptance tests.
+
+### AngularJS Testing
+
+In modern era of Single Page Applications browser replaces the server in creating user interface. Unlike traditional web applications, web pages are not reloded on user actions. All interactions with a server is done in javascrpt with XHR requests. However, testing Single Page Applications can be a hard task. There is could be no information of application state: is it completed rendering or not. What is possible to do in this case is to use more `wait*` methods or execute javascript that checks appliacation state.
+
+For applications built with AngularJS v1.x framework we implemented [AngularJS module](http://codeception.com/docs/modules/AngularJS) which is based on Protactor (an official tool for testing Angular apps). Under the hood it pauses step execution before previous actions is completed and uses AngularJS API to check application state.
+
+AngularJS module extends WebDriver so all config options from it is available.
+
 ### Cleaning Things Up
 
-While testing, your actions may change the data on the site. Tests will fail if trying to create or update the same data twice. To avoid this problem, your database should be repopulated for each test. Codeception provides a `Db` module for that purpose. It will load a database dump after each passed test. To make repopulation work, create an sql dump of your database and put it into the __/tests/_data__ directory. Set the database connection and path to the dump in the global Codeception config.
+While testing, your actions may change the data on the site. Tests will fail if trying to create or update the same data twice. To avoid this problem, your database should be repopulated for each test. Codeception provides a `Db` module for that purpose. It will load a database dump after each passed test. To make repopulation work, create an sql dump of your database and put it into the `tests/_data` directory. Set the database connection and path to the dump in the global Codeception config.
 
 {% highlight yaml %}
 
@@ -544,11 +466,10 @@ Codeception modules can print valuable information while running. Just execute t
 
 <?php
 codecept_debug($I->grabTextFrom('#name'));
-?>
 
 {% endhighlight %}
 
-On each fail, the snapshot of the last shown page will be stored in the __tests/_output__ directory. PhpBrowser will store HTML code and WebDriver will save the screenshot of a page.
+On each fail, the snapshot of the last shown page will be stored in the `tests/_output` directory. PhpBrowser will store HTML code and WebDriver will save the screenshot of a page.
 
 Sometimes you may want to inspect a web page opened by a running test. For such cases you may use [pauseExecution](http://codeception.com/docs/modules/WebDriver#pauseExecution) method of WebDriver module.
 
