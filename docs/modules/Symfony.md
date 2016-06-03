@@ -1,54 +1,96 @@
 ---
 layout: doc
-title: Laravel4 - Codeception - Documentation
+title: Symfony - Codeception - Documentation
 ---
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Module/Laravel4.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Laravel4.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Laravel4.md"><strong>2.1</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Laravel4.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Laravel4.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Module/Symfony.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Symfony.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Symfony.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Symfony.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Symfony.md">1.8</a></div>
+
+# Symfony
 
 
-
-
-
-This module allows you to run functional tests for Laravel 4.
-It should **not** be used for acceptance tests.
+This module uses Symfony Crawler and HttpKernel to emulate requests and test response.
 
 ### Demo Project
 
-<https://github.com/Codeception/sample-l4-app>
-
-### Example
-
-    modules:
-        enabled:
-            - Laravel4
+<https://github.com/Codeception/symfony-demo>
 
 ### Status
 
-* Maintainer: **Jan-Henk Gerritsen**
+* Maintainer: **raistlin**
 * Stability: **stable**
 
 ### Config
 
-* cleanup: `boolean`, default `true` - all db queries will be run in transaction, which will be rolled back at the end of test.
-* unit: `boolean`, default `true` - Laravel will run in unit testing mode.
-* environment: `string`, default `testing` - When running in unit testing mode, we will set a different environment.
-* start: `string`, default `bootstrap/start.php` - Relative path to start.php config file.
-* root: `string`, default ` ` - Root path of our application.
-* filters: `boolean`, default: `false` - enable or disable filters for testing.
+#### Symfony 2.x
 
-### API
+* app_path: 'app' - specify custom path to your app dir, where bootstrap cache and kernel interface is located.
+* environment: 'local' - environment used for load kernel
+* debug: true - turn on/off debug mode
+* em_service: 'doctrine.orm.entity_manager' - use the stated EntityManager to pair with Doctrine Module.
+* cache_router: 'false' - enable router caching between tests in order to [increase performance](http://lakion.com/blog/how-did-we-speed-up-sylius-behat-suite-with-blackfire)
+* rebootable_client: 'true' - reboot client's kernel before each request
 
-* app - `Illuminate\Foundation\Application` instance
-* client - `\Symfony\Component\BrowserKit\Client` instance
+#### Example (`functional.suite.yml`) - Symfony 2.x Directory Structure
+
+{% highlight yaml %}
+   modules:
+       - Symfony:
+           app_path: 'app/front'
+           environment: 'local_test'
+
+{% endhighlight %}
+
+#### Symfony 3.x Directory Structure
+
+* app_path: 'app' - specify custom path to your app dir, where the kernel interface is located.
+* var_path: 'var' - specify custom path to your var dir, where bootstrap cache is located.
+* environment: 'local' - environment used for load kernel
+* em_service: 'doctrine.orm.entity_manager' - use the stated EntityManager to pair with Doctrine Module.
+* debug: true - turn on/off debug mode
+* cache_router: 'false' - enable router caching between tests in order to [increase performance](http://lakion.com/blog/how-did-we-speed-up-sylius-behat-suite-with-blackfire)
+* rebootable_client: 'true' - reboot client's kernel before each request
+
+#### Example (`functional.suite.yml`) - Symfony 3 Directory Structure
+
+    modules:
+       enabled:
+          - Symfony:
+              app_path: 'app/front'
+              var_path: 'var'
+              environment: 'local_test'
+
+
+### Public Properties
+
+* kernel - HttpKernel instance
+* client - current Crawler instance
 
 ### Parts
 
-* ORM - include only haveRecord/grabRecord/seeRecord/dontSeeRecord actions
+* services - allows to use Symfony DIC only with WebDriver or PhpBrowser modules.
+
+Usage example:
+
+{% highlight yaml %}
+
+class_name: AcceptanceTester
+modules:
+    enabled:
+        - Symfony:
+            part: SERVICES
+        - Doctrine2:
+            depends: Symfony
+        - WebDriver:
+            url: http://your-url.com
+            browser: phantomjs
+
+{% endhighlight %}
 
 
 
+### Actions
 
 #### _findElements
 
@@ -65,10 +107,10 @@ Use it in Helpers or GroupObject or Extension classes:
 {% highlight php %}
 
 <?php
-$els = $this->getModule('Laravel4')->_findElements('.items');
-$els = $this->getModule('Laravel4')->_findElements(['name' => 'username']);
+$els = $this->getModule('Symfony')->_findElements('.items');
+$els = $this->getModule('Symfony')->_findElements(['name' => 'username']);
 
-$editLinks = $this->getModule('Laravel4')->_findElements(['link' => 'Edit']);
+$editLinks = $this->getModule('Symfony')->_findElements(['link' => 'Edit']);
 // now you can iterate over $editLinks and check that all them have valid hrefs
 
 {% endhighlight %}
@@ -93,7 +135,7 @@ Use it in Helpers when you want to retrieve response of request performed by ano
 // in Helper class
 public function seeResponseContains($text)
 {
-   $this->assertContains($text, $this->getModule('Laravel4')->_getResponseContent(), "response contains");
+   $this->assertContains($text, $this->getModule('Symfony')->_getResponseContent(), "response contains");
 }
 ?>
 
@@ -115,7 +157,7 @@ Useful for testing multi-step forms on a specific step.
 <?php
 // in Helper class
 public function openCheckoutFormStep2($orderId) {
-    $this->getModule('Laravel4')->_loadPage('POST', '/checkout/step2', ['order' => $orderId]);
+    $this->getModule('Symfony')->_loadPage('POST', '/checkout/step2', ['order' => $orderId]);
 }
 ?>
 
@@ -142,7 +184,7 @@ Returns a string with response body.
 <?php
 // in Helper class
 public function createUserByApi($name) {
-    $userData = $this->getModule('Laravel4')->_request('POST', '/api/v1/users', ['name' => $name]);
+    $userData = $this->getModule('Symfony')->_request('POST', '/api/v1/users', ['name' => $name]);
     $user = json_decode($userData);
     return $user->id;
 }
@@ -171,7 +213,7 @@ Saves page source of to a file
 
 {% highlight php %}
 
-$this->getModule('Laravel4')->_savePageSource(codecept_output_dir().'page.html');
+$this->getModule('Symfony')->_savePageSource(codecept_output_dir().'page.html');
 
 {% endhighlight %}
  * `param` $filename
@@ -183,33 +225,6 @@ Authenticates user for HTTP_AUTH
 
  * `param` $username
  * `param` $password
-
-
-#### amLoggedAs
- 
-Set the currently logged in user for the application.
-Takes either `UserInterface` instance or array of credentials.
-
- * `param`  \Illuminate\Auth\UserInterface|array $user
- * `param`  string $driver
- * `return` void
- * `[Part]` framework
-
-
-#### amOnAction
- 
-Opens web page by action name
-
-{% highlight php %}
-
-<?php
-$I->amOnAction('PostsController * `index');` 
-?>
-
-{% endhighlight %}
-
- * `param` $action
- * `param array` $params
 
 
 #### amOnPage
@@ -237,11 +252,12 @@ Opens web page using route name and parameters.
 
 <?php
 $I->amOnRoute('posts.create');
+$I->amOnRoute('posts.show', array('id' => 34));
 ?>
 
 {% endhighlight %}
 
- * `param` $route
+ * `param` $routeName
  * `param array` $params
 
 
@@ -260,16 +276,6 @@ $I->attachFile('input[ * `type="file"]',`  'prices.xls');
 
  * `param` $field
  * `param` $filename
-
-
-#### callArtisan
- 
-Calls an Artisan command and returns output as a string
-
- * `param string` $command The name of the command as displayed in the artisan command list
- * `param array` $parameters An associative array of command arguments
-
- * `return` string
 
 
 #### checkOption
@@ -322,6 +328,27 @@ $I->click(['link' => 'Login']);
  * `param` $context
 
 
+#### deleteHeader
+ 
+Deletes the header with the passed name.  Subsequent requests
+will not have the deleted header in its request.
+
+Example:
+{% highlight php %}
+
+<?php
+$I->haveHttpHeader('X-Requested-With', 'Codeception');
+$I->amOnPage('test-headers.php');
+// ...
+$I->deleteHeader('X-Requested-With');
+$I->amOnPage('some-other-page.php');
+?>
+
+{% endhighlight %}
+
+ * `param string` $name the name of the header to delete.
+
+
 #### dontSee
  
 Checks that the current page doesn't contain the text specified (case insensitive).
@@ -352,11 +379,6 @@ For checking the raw source code, use `seeInSource()`.
 
  * `param`      $text
  * `param null` $selector
-
-
-#### dontSeeAuthentication
- 
-Check that user is not authenticated
 
 
 #### dontSeeCheckboxIsChecked
@@ -582,24 +604,6 @@ $I->dontSeeOptionIsSelected('#form input[name=payment]', 'Visa');
 
 
 
-#### dontSeeRecord
- 
-Checks that record does not exist in database.
-
-{% highlight php %}
-
-<?php
-$I->dontSeeRecord('users', array('name' => 'davert'));
-?>
-
-{% endhighlight %}
-
- * `param` $tableName
- * `param array` $attributes
- * `[Part]` orm
- * `[Part]` framework
-
-
 #### fillField
  
 Fills a text field or textarea with the given string.
@@ -615,13 +619,6 @@ $I->fillField(['name' => 'email'], 'jon * `mail.com');`
 
  * `param` $field
  * `param` $value
-
-
-#### getApplication
- 
-Provides access the Laravel application object.
-
- * `return` \Illuminate\Foundation\Application
 
 
 #### grabAttributeFrom
@@ -701,49 +698,39 @@ $aLinks = $I->grabMultiple('a', 'href');
  * `return` string[]
 
 
-#### grabRecord
- 
-Retrieves record from database
-
-{% highlight php %}
-
-<?php
-$category = $I->grabRecord('users', array('name' => 'davert'));
-?>
-
-{% endhighlight %}
-
- * `param` $tableName
- * `param array` $attributes
- * `[Part]` ORM
- * `[Part]` framework
-
-
 #### grabService
  
-Return an instance of a class from the IoC Container.
-(http://laravel.com/docs/ioc)
+Grabs a service from Symfony DIC container.
+Recommended to use for unit testing.
 
-Example
 {% highlight php %}
 
 <?php
-// In Laravel
-App::bind('foo', function($app)
-{
-    return new FooBar;
-});
-
-// Then in test
-$service = $I->grabService('foo');
-
-// Will return an instance of FooBar, also works for singletons.
+$em = $I->grabService('doctrine');
 ?>
 
 {% endhighlight %}
 
- * `param`  string $class
- * `[Part]` framework
+ * `param` $service
+ * `[Part]` services
+
+
+#### grabServiceFromContainer
+ 
+Grabs a service from Symfony DIC container.
+Recommended to use for unit testing.
+
+{% highlight php %}
+
+<?php
+$em = $I->grabServiceFromContainer('doctrine');
+?>
+
+{% endhighlight %}
+
+ * `param` $service
+ * `[Part]` services
+ * `deprecated`  Use grabService instead
 
 
 #### grabTextFrom
@@ -773,38 +760,29 @@ $value = $I->grabTextFrom('~<input value=(.*?)]~sgi'); // match with a regex
  * `return` array|mixed|null|string
 
 
-#### haveDisabledFilters
+#### haveHttpHeader
  
-Disable Laravel filters for next requests.
+Sets the HTTP header to the passed value - which is used on
+subsequent HTTP requests through PhpBrowser.
 
-
-#### haveEnabledFilters
- 
-Enable Laravel filters for next requests.
-
-
-#### haveRecord
- 
-Inserts record into the database.
-
+Example:
 {% highlight php %}
 
 <?php
-$user_id = $I->haveRecord('users', array('name' => 'Davert'));
+$I->setHeader('X-Requested-With', 'Codeception');
+$I->amOnPage('test-headers.php');
 ?>
 
 {% endhighlight %}
 
- * `param` $tableName
- * `param array` $attributes
- * `[Part]` orm
- * `[Part]` framework
+ * `param string` $name the name of the request header
+ * `param string` $value the value to set it to for subsequent
+       requests
 
 
-#### logout
+#### invalidateCachedRouter
  
-Logs user out
- * `[Part]` framework
+Invalidate previously cached routes.
 
 
 #### moveBack
@@ -812,6 +790,37 @@ Logs user out
 Moves back in history.
 
  * `param int` $numberOfSteps (default value 1)
+
+
+#### persistService
+ 
+Get service $serviceName and add it to the lists of persistent services.
+If $isPermanent then service becomes persistent between tests
+
+ * `param string`  $serviceName
+ * `param boolean` $isPermanent
+
+
+#### rebootClientKernel
+ 
+Reboot client's kernel.
+Can be used to manually reboot kernel when 'rebootable_client' => false
+
+{% highlight php %}
+
+<?php
+...
+perform some requests
+...
+$I->rebootClientKernel();
+...
+perform other requests
+...
+
+?>
+
+{% endhighlight %}
+
 
 
 #### resetCookie
@@ -858,12 +867,6 @@ For checking the raw source code, use `seeInSource()`.
  * `param null` $selector
 
 
-#### seeAuthentication
- 
-Checks that user is authenticated
- * `[Part]` framework
-
-
 #### seeCheckboxIsChecked
  
 Checks that the specified checkbox is checked.
@@ -898,34 +901,20 @@ $I->seeCookie('PHPSESSID');
  * `param array` $params
 
 
-#### seeCurrentActionIs
- 
-Checks that current url matches action
-
-{% highlight php %}
-
-<?php
-$I->seeCurrentActionIs('PostsController * `index');` 
-?>
-
-{% endhighlight %}
-
- * `param` $action
- * `param array` $params
-
-
 #### seeCurrentRouteIs
  
-Checks that current url matches route
+Checks that current url matches route.
 
 {% highlight php %}
 
 <?php
 $I->seeCurrentRouteIs('posts.index');
+$I->seeCurrentRouteIs('posts.show', array('id' => 8));
 ?>
 
 {% endhighlight %}
- * `param` $route
+
+ * `param` $routeName
  * `param array` $params
 
 
@@ -986,60 +975,27 @@ $I->seeElement(['css' => 'form input'], ['name' => 'login']);
  * `return` 
 
 
-#### seeFormErrorMessage
+#### seeEmailIsSent
  
-Assert that specific form error message is set in the view.
+Checks if any email were sent by last request
 
-Useful for validation messages and generally messages array
- e.g.
- return `Redirect::to('register')->withErrors($validator);`
+ * `throws`  \LogicException
 
-Example of Usage
+
+#### seeInCurrentRoute
+ 
+Checks that current url matches route.
+Unlike seeCurrentRouteIs, this can matches without exact route parameters
 
 {% highlight php %}
 
 <?php
-$I->seeFormErrorMessage('username', 'Invalid Username');
-?>
-
-{% endhighlight %}
- * `param string` $key
- * `param string` $errorMessage
-
-
-#### seeFormErrorMessages
- 
-Assert that specific form error messages are set in the view.
-
-Useful for validation messages and generally messages array
- e.g.
- return `Redirect::to('register')->withErrors($validator);`
-
-Example of Usage
-
-{% highlight php %}
-
-<?php
-$I->seeFormErrorMessages(array('username'=>'Invalid Username'));
-?>
-
-{% endhighlight %}
- * `param array` $bindings
-
-
-#### seeFormHasErrors
- 
-Assert that form errors are bound to the View.
-
-{% highlight php %}
-
-<?php
-$I->seeFormHasErrors();
+$I->seeCurrentRouteMatches('my_blog_pages');
 ?>
 
 {% endhighlight %}
 
- * `return` bool
+ * `param` $routeName
 
 
 #### seeInCurrentUrl
@@ -1153,24 +1109,6 @@ $I->seeInFormFields('//form[ * `id=my-form]',`  $form);
  * `param` $params
 
 
-#### seeInSession
- 
-Assert that a session variable exists.
-
-{% highlight php %}
-
-<?php
-$I->seeInSession('key');
-$I->seeInSession('key', 'value');
-?>
-
-{% endhighlight %}
-
- * `param`  string|array $key
- * `param`  mixed $value
- * `return` void
-
-
 #### seeInSource
  
 Checks that the current page contains the given string in its
@@ -1260,85 +1198,12 @@ $I->seeOptionIsSelected('#form input[name=payment]', 'Visa');
 Asserts that current page has 404 response status code.
 
 
-#### seeRecord
- 
-Checks that record exists in database.
-
-{% highlight php %}
-
-<?php
-$I->seeRecord('users', array('name' => 'davert'));
-?>
-
-{% endhighlight %}
-
- * `param` $tableName
- * `param array` $attributes
- * `[Part]` orm
- * `[Part]` framework
-
-
 #### seeResponseCodeIs
  
 Checks that response code is equal to value provided.
 
  * `param` $code
 
-
-
-#### seeSessionErrorMessage
- 
-Assert that Session has error messages
-The seeSessionHasValues cannot be used, as Message bag Object is returned by Laravel4
-
-Useful for validation messages and generally messages array
- e.g.
- return `Redirect::to('register')->withErrors($validator);`
-
-Example of Usage
-
-{% highlight php %}
-
-<?php
-$I->seeSessionErrorMessage(array('username'=>'Invalid Username'));
-?>
-
-{% endhighlight %}
- * `param array` $bindings
- * `deprecated` 
-
-
-#### seeSessionHasErrors
- 
-Assert that the session has errors bound.
-
-{% highlight php %}
-
-<?php
-$I->seeSessionHasErrors();
-?>
-
-{% endhighlight %}
-
- * `return` bool
- * `deprecated` 
-
-
-#### seeSessionHasValues
- 
-Assert that the session has a given list of values.
-
-{% highlight php %}
-
-<?php
-$I->seeSessionHasValues(['key1', 'key2']);
-$I->seeSessionHasValues(['key1' => 'value1', 'key2' => 'value2']);
-?>
-
-{% endhighlight %}
-
- * `param`  array $bindings
- * `return` void
 
 
 #### selectOption
@@ -1361,6 +1226,17 @@ Provide an array for the second argument to select multiple options:
 
 <?php
 $I->selectOption('Which OS do you use?', array('Windows','Linux'));
+?>
+
+{% endhighlight %}
+
+Or provide an associative array for the second argument to specifically define which selection method should be used:
+
+{% highlight php %}
+
+<?php
+$I->selectOption('Which OS do you use?', array('text' => 'Windows')); // Only search by text 'Windows'
+$I->selectOption('Which OS do you use?', array('value' => 'windows')); // Only search by value 'windows'
 ?>
 
 {% endhighlight %}
@@ -1424,11 +1300,6 @@ $I->sendAjaxRequest('PUT', '/posts/7', array('title' => 'new title'));
  * `param` $method
  * `param` $uri
  * `param` $params
-
-
-#### setApplication
- 
- * `param` $app
 
 
 #### setCookie
@@ -1675,4 +1546,11 @@ $I->uncheckOption('#notify');
 
  * `param` $option
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/Laravel4.php">Help us to improve documentation. Edit module reference</a></div>
+
+#### unpersistService
+ 
+Remove service $serviceName from the lists of persistent services.
+
+ * `param string` $serviceName
+
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.2/src/Codeception/Module/Symfony.php">Help us to improve documentation. Edit module reference</a></div>

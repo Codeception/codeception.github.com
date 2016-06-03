@@ -9,7 +9,7 @@ In this chapter we will explain how you can extend and customize file structure 
 
 ## One Runner for Multiple Applications
 
-In case your project consists of several applications (frontend, admin, api) or you use Symfony2 framework with its bundles, you may be interested in having all tests for all applications (bundles) to be executed in one runner.
+In case your project consists of several applications (frontend, admin, api) or you use Symfony framework with its bundles, you may be interested in having all tests for all applications (bundles) to be executed in one runner.
 In this case you will get one report that covers the whole project.
 
 Place `codeception.yml` file into root folder of your project and specify paths to other `codeception.yml` configs you want to include.
@@ -41,7 +41,7 @@ To create test suites with namespaces you can add `--namespace` option to bootst
 
 {% highlight bash %}
 
-$ php codecept.phar bootstrap --namespace frontend
+php codecept bootstrap --namespace frontend
 
 {% endhighlight %}
 
@@ -62,7 +62,7 @@ Once each of your applications (bundles) has its own namespace and different Hel
 
 {% highlight bash %}
 
-$ php codecept.phar run
+php codecept run
 
 {% endhighlight %}
 
@@ -79,7 +79,7 @@ By default, one `RunFailed` Extension is already enabled in your global `codecep
 It allows you to rerun failed tests with `-g failed` option:
    
 {% highlight php %}
- codecept.phar run -g failed
+ codecept run -g failed
 
 {% endhighlight %}
 
@@ -201,6 +201,31 @@ Passed configuration is accessible via `config` property: `$this->config['param'
 
 Check out a very basic extension [Notifier](https://github.com/Codeception/Notifier).
 
+### Custom Commands
+
+You can add your own commands to codeception.
+
+Your custom commands have to implement the interface Codeception\CustomCommandInterface,
+because there has to be a function to get the name of the command.
+
+You have to register your command in the file `codeception.yml` 
+
+{% highlight yaml %}
+
+extensions:
+    commands: [Project\Command\MyCustomCommand]
+
+{% endhighlight %}
+
+If you want to activate the Command globally, because you use more then one {% highlight yaml %}
+codeception.yml
+{% endhighlight %} file, then
+you have to register your command in {% highlight yaml %}
+codeception.dist.yml
+{% endhighlight %} in the root folder of your project.
+
+Please see a [complete example](https://gist.github.com/sd-tm/37d5f9bca871c72648cb)
+
 ## Group Objects
 
 Group Objects are extensions listening to events of a tests belonging to a specific group.
@@ -255,7 +280,7 @@ class Admin extends \Codeception\GroupObject
 
 {% endhighlight %}
 
-A group class can be created with `php codecept.phar generate:group groupname` command.
+A group class can be created with `php codecept generate:group groupname` command.
 Group class will be stored in `tests/_support/Group` directory.
 
 A group class can be enabled just like you enable extension class. In file `codeception.yml`:
@@ -269,6 +294,27 @@ extensions:
 
 Now Admin group class will listen to all events of tests that belong to the `admin` group.
 
+## Custom Reporters
+
+In order to customize output you can use Extensions, as it is done in [SimpleOutput Extension](https://github.com/Codeception/Codeception/blob/master/ext%2FSimpleOutput.php).
+But what if you need to change output format of XML or JSON results triggered with `--xml` or `--json` options?
+Codeception uses printers from PHPUnit and overrides some of them. If you need to customize one of standard reporters you can override them too.
+If you are thinking on implementing your own reporter you should add `reporters` section to `codeception.yml` and override one of standard printer classes to your own:
+
+{% highlight yaml %}
+
+reporters: 
+    xml: Codeception\PHPUnit\Log\JUnit
+    html: Codeception\PHPUnit\ResultPrinter\HTML
+    tap: PHPUnit_Util_Log_TAP
+    json: PHPUnit_Util_Log_JSON
+    report: Codeception\PHPUnit\ResultPrinter\Report
+
+{% endhighlight %}
+
+All reporters implement [PHPUnit_Framework_TestListener](https://phpunit.de/manual/current/en/extending-phpunit.html#extending-phpunit.PHPUnit_Framework_TestListener) interface.
+It is recommended to read the code of original reporter before overriding it.
+
 ## Conclusion
 
 Each feature mentioned above may dramatically help when using Codeception to automate testing of large projects, although some features may require advanced knowledge of PHP. There is no "best practice" or "use cases" when we talk about groups, extensions, or other powerful features of Codeception. If you see you have a problem that can be solved using these extensions, then give them a try.
@@ -277,4 +323,4 @@ Each feature mentioned above may dramatically help when using Codeception to aut
 
 
 * **Next Chapter: [Data >](/docs/09-Data)**
-* **Previous Chapter: [< AdvancedUsage](/docs/07-AdvancedUsage)**
+* **Previous Chapter: [< BDD](/docs/07-BDD)**

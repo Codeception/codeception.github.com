@@ -3,7 +3,7 @@ layout: doc
 title: 11-Codecoverage - Codeception - Documentation
 ---
 
-## Code Coverage
+# Code Coverage
 
 At some point you want to review which parts of your application are tested well and which are not.
 Just for this case the [CodeCoverage](http://en.wikipedia.org/wiki/Code_coverage) is used. When you execute your tests to collect coverage report,
@@ -171,5 +171,5 @@ It's never been easier to setup local and remote code coverage. Just one config 
 
 
 
-* **Next Chapter: [ParallelExecution >](/docs/12-ParallelExecution)**
+* **Next Chapter: [ContinuousIntegration >](/docs/12-ContinuousIntegration)**
 * **Previous Chapter: [< WebServices](/docs/10-WebServices)**

@@ -5,9 +5,9 @@ title: WebDriver - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Module/WebDriver.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/WebDriver.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/WebDriver.md"><strong>2.1</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/WebDriver.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/WebDriver.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Module/WebDriver.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/WebDriver.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/WebDriver.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/WebDriver.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/WebDriver.md">1.8</a></div>
 
-
+# WebDriver
 
 
 New generation Selenium WebDriver module.
@@ -191,6 +191,11 @@ For example, here's the heuristic used for the `submitForm` method:
 4. Throw an `ElementNotFound` exception.
 
 Be warned that fuzzy locators can be significantly slower than strict locators.
+Especially if you use Selenium WebDriver with `wait` (aka implicit wait) option.
+In the example above if you set `wait` to 5 seconds and use XPath string as fuzzy locator,
+`submitForm` method will wait for 5 seconds at each step.
+That means 5 seconds finding the form by ID, another 5 seconds finding by CSS
+until it finally tries to find the form by XPath).
 If speed is a concern, it's recommended you stick with explicitly specifying the locator type via the array syntax.
 
 ### Public Properties
@@ -204,8 +209,9 @@ $this->getModule('WebDriver')->webDriver->getKeyboard()->sendKeys('hello, webdri
 
 {% endhighlight %}
 
-### Methods
 
+
+### Actions
 
 #### _findElements
 
@@ -1447,6 +1453,17 @@ $I->selectOption('Which OS do you use?', array('Windows','Linux'));
 
 {% endhighlight %}
 
+Or provide an associative array for the second argument to specifically define which selection method should be used:
+
+{% highlight php %}
+
+<?php
+$I->selectOption('Which OS do you use?', array('text' => 'Windows')); // Only search by text 'Windows'
+$I->selectOption('Which OS do you use?', array('value' => 'windows')); // Only search by value 'windows'
+?>
+
+{% endhighlight %}
+
  * `param` $select
  * `param` $option
 
@@ -1848,4 +1865,4 @@ $I->waitForText('foo', 30, '.title'); // secs
  * `param null` $selector
  * `throws`  \Exception
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/WebDriver.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.2/src/Codeception/Module/WebDriver.php">Help us to improve documentation. Edit module reference</a></div>

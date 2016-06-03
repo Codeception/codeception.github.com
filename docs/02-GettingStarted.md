@@ -29,7 +29,7 @@ When you change configuration, actor classes are rebuilt automatically. If Actor
 
 {% highlight bash %}
 
-$ php codecept.phar build
+php codecept build
 
 {% endhighlight %}
 
@@ -44,27 +44,44 @@ We can do that by running the following command:
 
 {% highlight bash %}
 
-$ php codecept.phar generate:cept acceptance Signin
+php codecept generate:cept acceptance Signin
 
 {% endhighlight %}
 
-A Scenario always starts with Actor class initialization. After that, writing a scenario is just like typing `$I->` and choosing a proper action from the auto-completion list.
+A Scenario always starts with Actor class initialization. After that, writing a scenario is just like typing `$I->` and choosing a proper action from the auto-completion list. Let's log in to our website.
 
 {% highlight php %}
 
 <?php
 $I = new AcceptanceTester($scenario);
+$I->wantTo('login to website');
 ?>
 
 {% endhighlight %}
 
-Let's log in to our website. We assume that we have a 'login' page where we are getting authenticated by providing a username and password. Then we are sent to a user page, where we see the text `Hello, %username%`. Let's look at how this scenario is written in Codeception.
+The `wantTo` section describes your scenario in brief. There are additional comment methods that are useful to describe context of a scenario:
 
 {% highlight php %}
 
 <?php
 $I = new AcceptanceTester($scenario);
-$I->wantTo('log in as regular user');
+$I->am('user'); // actor's role
+$I->wantTo('login to website'); // feature to test
+$I->lookForwardTo('access all website features'); // result to achieve
+
+{% endhighlight %}
+
+After we have described the story background, let's start writing a scenario.
+
+We assume that we have a 'login' page where we are getting authenticated by providing a username and password. Then we are sent to a user page, where we see the text `Hello, %username%`. Let's look at how this scenario is written in Codeception.
+
+{% highlight php %}
+
+<?php
+$I = new AcceptanceTester($scenario);
+$I->am('user');
+$I->wantTo('login to website');
+$I->lookForwardTo('access all website features');
 $I->amOnPage('/login');
 $I->fillField('Username','davert');
 $I->fillField('Password','qwerty');
@@ -73,6 +90,30 @@ $I->see('Hello, davert');
 ?>
 
 {% endhighlight %}
+
+This scenario can probably be read by non-technical people. If you just remove all special chars like braces, arrows and `$`, this test transforms into plain English text:
+
+{% highlight yaml %}
+I am user
+I wantTo login to website
+I lookForwardTo access all website features
+I amOnPage '/login'
+I fillField 'Username','davert'
+I fillField 'Password','qwerty'
+I click 'Login'
+I see 'Hello, davert'
+
+{% endhighlight %}
+
+Codeception generate this text represenation from PHP code by executing:
+
+{% highlight bash %}
+
+php codecept generate:scenarios
+
+{% endhighlight %}
+
+Generated scenarios will be stored in your `_output` directory in text files.
 
 Before we execute this test, we should make sure that the website is running on a local web server. Let's open the `tests/acceptance.suite.yml` file and replace the URL with the URL of your web application:
 
@@ -91,7 +132,7 @@ After we configured the URL we can run this test with the `run` command:
 
 {% highlight bash %}
 
-$ php codecept.phar run
+php codecept run
 
 {% endhighlight %}
 
@@ -100,13 +141,7 @@ Here is the output we should see:
 {% highlight bash %}
 
 Acceptance Tests (1) -------------------------------
-Trying log in as regular user (SigninCept.php)   Ok
-----------------------------------------------------
-
-Functional Tests (0) -------------------------------
-----------------------------------------------------
-
-Unit Tests (0) -------------------------------------
+✔ SigninCept: Login to website
 ----------------------------------------------------
 
 Time: 1 second, Memory: 21.00Mb
@@ -119,7 +154,7 @@ Let's get a detailed output:
 
 {% highlight bash %}
 
-$ php codecept.phar run acceptance --steps
+php codecept run acceptance --steps
 
 {% endhighlight %}
 
@@ -128,14 +163,18 @@ We should see a step-by-step report on the performed actions.
 {% highlight bash %}
 
 Acceptance Tests (1) -------------------------------
-Trying to log in as regular user (SigninCept.php)
-Scenario:
-* I am on page "/login"
-* I fill field "Username" "davert"
-* I fill field "Password" "qwerty"
-* I click "Login"
-* I see "Hello, davert"
-  OK
+SigninCept: Login to website
+Signature: SigninCept.php
+Test: tests/acceptance/SigninCept.php
+Scenario --
+ I am user
+ I look forward to access all website features
+ I am on page "/login"
+ I fill field "Username" "davert"
+ I fill field "Password" "qwerty"
+ I click "Login"
+ I see "Hello, davert"
+ OK
 ----------------------------------------------------  
 
 Time: 0 seconds, Memory: 21.00Mb
@@ -198,15 +237,19 @@ Such Cest file can be created by running a generator:
 
 {% highlight bash %}
 
-$ php codecept.phar generate:cest acceptance PageCrud
+php codecept generate:cest acceptance PageCrud
 
 {% endhighlight %}
 
 Learn more about [Cest format](http://codeception.com/docs/07-AdvancedUsage#Cest-Classes) in Advanced Testing section.
 
+## BDD
+
+Codeception allows to execute user stories in Gherkin format in a similar manner as it is done in Cucumber or Behat. Please refer to [BDD chapter of guides](http://codeception.com/docs/07-BDD) to learn more.
+
 ## Configuration
 
-Codeception has a global configuration in `codeception.yml` and a config for each suite. We also support `.dist` configuration files. If you have several developers in a project, put shared settings into `codeception.dist.yml` and personal settings into `codeception.yml`. The same goes for suite configs. For example, the `unit.suite.yml` will be merged with `unit.suite.dist.yml`. 
+Codeception has a global configuration in `codeception.yml` and a config for    each suite. We also support `.dist` configuration files. If you have several developers in a project, put shared settings into `codeception.dist.yml` and personal settings into `codeception.yml`. The same goes for suite configs. For example, the `unit.suite.yml` will be merged with `unit.suite.dist.yml`. 
 
 ## Running Tests
 
@@ -214,7 +257,7 @@ Tests can be started with the `run` command.
 
 {% highlight bash %}
 
-$ php codecept.phar run
+php codecept run
 
 {% endhighlight %}
 
@@ -222,7 +265,7 @@ With the first argument you can run tests from one suite.
 
 {% highlight bash %}
 
-$ php codecept.phar run acceptance
+php codecept run acceptance
 
 {% endhighlight %}
 
@@ -230,7 +273,7 @@ To run exactly one test, add a second argument. Provide a local path to the test
 
 {% highlight bash %}
 
-$ php codecept.phar run acceptance SigninCept.php
+php codecept run acceptance SigninCept.php
 
 {% endhighlight %}
 
@@ -238,7 +281,7 @@ Alternatively you can provide the full path to test file:
 
 {% highlight bash %}
 
-$ php codecept.phar run tests/acceptance/SigninCept.php
+php codecept run tests/acceptance/SigninCept.php
 
 {% endhighlight %}
 
@@ -246,7 +289,7 @@ You can execute one test from a test class (for Cest or Test formats)
 
 {% highlight bash %}
 
-$ php codecept.phar run tests/acceptance/SignInCest.php:anonymousLogin
+php codecept run tests/acceptance/SignInCest.php:anonymousLogin
 
 {% endhighlight %}
 
@@ -254,7 +297,7 @@ You can provide a directory path as well:
 
 {% highlight bash %}
 
-$ php codecept.phar run tests/acceptance/backend
+php codecept run tests/acceptance/backend
 
 {% endhighlight %}
 
@@ -268,7 +311,7 @@ To generate JUnit XML output, you can provide the `--xml` option, and `--html` f
 
 {% highlight bash %}
 
-$ php codecept.phar run --steps --xml --html
+php codecept run --steps --xml --html
 
 {% endhighlight %}
 
@@ -278,7 +321,7 @@ To learn all available options, run the following command:
 
 {% highlight bash %}
 
-$ php codecept.phar help run
+php codecept help run
 
 {% endhighlight %}
 
@@ -295,6 +338,7 @@ There are plenty of useful Codeception commands:
 * `generate:cest` *suite* *filename* - Generates a sample Cest test
 * `generate:test` *suite* *filename* - Generates a sample PHPUnit Test with Codeception hooks
 * `generate:phpunit` *suite* *filename* - Generates a classic PHPUnit Test
+* `generate:feature` *suite* *filename* - Generates Gherkin feature file
 * `generate:suite` *suite* *actor* - Generates a new suite with the given Actor class name
 * `generate:scenarios` *suite* - Generates text files containing scenarios from tests
 * `generate:helper` *filename* - Generates a sample Helper File

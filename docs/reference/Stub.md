@@ -9,7 +9,7 @@ title: Stub - Codeception - Documentation
 
 
 
-#### *public static* magicMethods#### *public static* atLeastOnce($params = null) 
+#### *public static* magicMethods#### * static* atLeastOnce($params = null) 
 
 Checks if a method has been invoked at least one
 time.
@@ -36,9 +36,9 @@ $user->getName();
 
  * `return`  StubMarshaler
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L695)
+[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Stub.php#L695)
 
-#### *public static* consecutive() 
+#### * static* consecutive() 
 
 Stubbing a method call to return a list of values in the specified order.
 
@@ -56,9 +56,9 @@ $user->getName(); //amy
 
  * `return`  ConsecutiveMap
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L764)
+[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Stub.php#L764)
 
-#### *public static* construct($class, $constructorParams = null, $params = null, $testCase = null) 
+#### * static* construct($class, $constructorParams = null, $params = null, $testCase = null) 
 
 Instantiates a class instance by running constructor.
 Parameters for constructor passed as second argument
@@ -103,9 +103,9 @@ Stub::construct('User', array(), array('save' => true }));
 
  * `return`  object
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L286)
+[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Stub.php#L286)
 
-#### *public static* constructEmpty($class, $constructorParams = null, $params = null, $testCase = null) 
+#### * static* constructEmpty($class, $constructorParams = null, $params = null, $testCase = null) 
 
 Instantiates a class instance by running constructor with all methods replaced with dummies.
 Parameters for constructor passed as second argument
@@ -150,9 +150,9 @@ Stub::constructEmpty('User', array(), array('save' => true }));
 
  * `return`  object
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L338)
+[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Stub.php#L338)
 
-#### *public static* constructEmptyExcept($class, $method, $constructorParams = null, $params = null, $testCase = null) 
+#### * static* constructEmptyExcept($class, $method, $constructorParams = null, $params = null, $testCase = null) 
 
 Instantiates a class instance by running constructor with all methods replaced with dummies, except one.
 Parameters for constructor passed as second argument
@@ -198,9 +198,9 @@ Stub::constructEmptyExcept('User', 'save', array(), array('save' => true }));
 
  * `return`  object
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L395)
+[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Stub.php#L395)
 
-#### *public static* copy($obj, $params = null) 
+#### * static* copy($obj, $params = null) 
 
 Clones an object and redefines it's properties (even protected and private)
 
@@ -209,9 +209,9 @@ Clones an object and redefines it's properties (even protected and private)
 
  * `return`  mixed
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L240)
+[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Stub.php#L240)
 
-#### *public static* exactly($count, $params = null) 
+#### * static* exactly($count, $params = null) 
 
 Checks if a method has been invoked a certain amount
 of times.
@@ -242,9 +242,9 @@ $user->getName();
 
  * `return`  StubMarshaler
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L731)
+[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Stub.php#L731)
 
-#### *public static* factory($class, $num = null, $params = null) 
+#### * static* factory($class, $num = null, $params = null) 
 
 Creates $num instances of class through `Stub::make`.
 
@@ -254,9 +254,9 @@ Creates $num instances of class through `Stub::make`.
 
  * `return`  array
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L94)
+[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Stub.php#L94)
 
-#### *public static* make($class, $params = null, $testCase = null) 
+#### * static* make($class, $params = null, $testCase = null) 
 
 Instantiates a class without executing a constructor.
 Properties and methods can be set as a second parameter.
@@ -300,9 +300,9 @@ Stub::make('User', array('save' => true }));
  * `return`  object - mock
  * `throws`  \RuntimeException when class does not exist
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L45)
+[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Stub.php#L45)
 
-#### *public static* makeEmpty($class, $params = null, $testCase = null) 
+#### * static* makeEmpty($class, $params = null, $testCase = null) 
 
 Instantiates class having all methods replaced with dummies.
 Constructor is not triggered.
@@ -346,9 +346,9 @@ Stub::makeEmpty('User', array('save' => true }));
 
  * `return`  object
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L214)
+[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Stub.php#L214)
 
-#### *public static* makeEmptyExcept($class, $method, $params = null, $testCase = null) 
+#### * static* makeEmptyExcept($class, $method, $params = null, $testCase = null) 
 
 Instantiates class having all methods replaced with dummies except one.
 Constructor is not triggered.
@@ -393,9 +393,9 @@ Stub::makeEmptyExcept('User', 'save', array('isValid' => true }));
 
  * `return`  object
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L142)
+[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Stub.php#L142)
 
-#### *public static* never($params = null) 
+#### * static* never($params = null) 
 
 Checks if a method never has been invoked
 
@@ -415,9 +415,9 @@ $user->someMethod();
 
  * `return`  StubMarshaler
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L630)
+[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Stub.php#L630)
 
-#### *public static* once($params = null) 
+#### * static* once($params = null) 
 
 Checks if a method has been invoked exactly one
 time.
@@ -445,9 +445,9 @@ $this->assertEquals('Davert', $userName);
 
  * `return`  StubMarshaler
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L663)
+[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Stub.php#L663)
 
-#### *public static* update($mock, array $params) 
+#### * static* update($mock, array $params) 
 
 Replaces properties of current stub
 
@@ -457,6 +457,6 @@ Replaces properties of current stub
  * `return`  mixed
  * `throws`  \LogicException
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php#L499)
+[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Stub.php#L499)
 
-<p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Stub.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Stub.php">Help us to improve documentation. Edit module reference</a></div>

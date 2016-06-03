@@ -5,9 +5,9 @@ title: Laravel5 - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Module/Laravel5.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Laravel5.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Laravel5.md"><strong>2.1</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Laravel5.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Laravel5.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Module/Laravel5.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Laravel5.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Laravel5.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Laravel5.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Laravel5.md">1.8</a></div>
 
-
+# Laravel5
 
 
 
@@ -66,6 +66,8 @@ by adding the following lines of code to your suite `_bootstrap.php` file:
 
 
 
+
+### Actions
 
 #### _findElements
 
@@ -342,27 +344,25 @@ $I->click(['link' => 'Login']);
  * `param` $context
 
 
-#### createModel
+#### deleteHeader
  
-Use Laravel's model factory to create a model.
-Can only be used with Laravel 5.1 and later.
+Deletes the header with the passed name.  Subsequent requests
+will not have the deleted header in its request.
 
+Example:
 {% highlight php %}
 
 <?php
-$I->createModel('App\User');
-$I->createModel('App\User', ['name' => 'John Doe']);
-$I->createModel('App\User', [], 'admin');
-$I->createModel('App\User', [], 'admin', 3);
+$I->haveHttpHeader('X-Requested-With', 'Codeception');
+$I->amOnPage('test-headers.php');
+// ...
+$I->deleteHeader('X-Requested-With');
+$I->amOnPage('some-other-page.php');
 ?>
 
 {% endhighlight %}
 
- * `see`  http://laravel.com/docs/5.1/testing#model-factories
- * `param string` $model
- * `param array` $attributes
- * `param string` $name
- * `param int` $times
+ * `param string` $name the name of the header to delete.
 
 
 #### disableEvents
@@ -701,16 +701,18 @@ $I->dontSeeOptionIsSelected('#form input[name=payment]', 'Visa');
 #### dontSeeRecord
  
 Checks that record does not exist in database.
+You can pass the name of a database table or the class name of an Eloquent model as the first argument.
 
 {% highlight php %}
 
 <?php
 $I->dontSeeRecord('users', array('name' => 'davert'));
+$I->dontSeeRecord('App\User', array('name' => 'davert'));
 ?>
 
 {% endhighlight %}
 
- * `param` $tableName
+ * `param string` $table
  * `param array` $attributes
  * `[Part]` orm
 
@@ -832,17 +834,21 @@ $aLinks = $I->grabMultiple('a', 'href');
 #### grabRecord
  
 Retrieves record from database
+If you pass the name of a database table as the first argument, this method returns an array.
+You can also pass the class name of an Eloquent model, in that case this method returns an Eloquent model.
 
 {% highlight php %}
 
 <?php
-$category = $I->grabRecord('users', array('name' => 'davert'));
+$record = $I->grabRecord('users', array('name' => 'davert')); // returns array
+$record = $I->grabRecord('App\User', array('name' => 'davert')); // returns Eloquent model
 ?>
 
 {% endhighlight %}
 
- * `param` $tableName
+ * `param string` $table
  * `param array` $attributes
+ * `return` array|EloquentModel
  * `[Part]` orm
 
 
@@ -898,53 +904,58 @@ $value = $I->grabTextFrom('~<input value=(.*?)]~sgi'); // match with a regex
  * `return` array|mixed|null|string
 
 
-#### haveModel
+#### have
+__not documented__
+
+
+#### haveHttpHeader
+ 
+Sets the HTTP header to the passed value - which is used on
+subsequent HTTP requests through PhpBrowser.
+
+Example:
+{% highlight php %}
+
+<?php
+$I->setHeader('X-Requested-With', 'Codeception');
+$I->amOnPage('test-headers.php');
+?>
+
+{% endhighlight %}
+
+ * `param string` $name the name of the request header
+ * `param string` $value the value to set it to for subsequent
+       requests
+
+
+#### haveMultiple
 __not documented__
 
 
 #### haveRecord
  
 Inserts record into the database.
+If you pass the name of a database table as the first argument, this method returns an integer ID.
+You can also pass the class name of an Eloquent model, in that case this method returns an Eloquent model.
 
 {% highlight php %}
 
 <?php
-$user_id = $I->haveRecord('users', array('name' => 'Davert'));
+$user_id = $I->haveRecord('users', array('name' => 'Davert')); // returns integer
+$user = $I->haveRecord('App\User', array('name' => 'Davert')); // returns Eloquent model
 ?>
 
 {% endhighlight %}
 
- * `param` $tableName
+ * `param string` $table
  * `param array` $attributes
+ * `return` integer|EloquentModel
  * `[Part]` orm
 
 
 #### logout
  
 Logout user.
-
-
-#### makeModel
- 
-Use Laravel's model factory to make a model.
-Can only be used with Laravel 5.1 and later.
-
-{% highlight php %}
-
-<?php
-$I->makeModel('App\User');
-$I->makeModel('App\User', ['name' => 'John Doe']);
-$I->makeModel('App\User', [], 'admin');
-$I->makeModel('App\User', [], 'admin', 3);
-?>
-
-{% endhighlight %}
-
- * `see`  http://laravel.com/docs/5.1/testing#model-factories
- * `param string` $model
- * `param array` $attributes
- * `param string` $name
- * `param int` $times
 
 
 #### moveBack
@@ -1419,16 +1430,18 @@ Asserts that current page has 404 response status code.
 #### seeRecord
  
 Checks that record exists in database.
+You can pass the name of a database table or the class name of an Eloquent model as the first argument.
 
 {% highlight php %}
 
 <?php
 $I->seeRecord('users', array('name' => 'davert'));
+$I->seeRecord('App\User', array('name' => 'davert'));
 ?>
 
 {% endhighlight %}
 
- * `param` $tableName
+ * `param string` $table
  * `param array` $attributes
  * `[Part]` orm
 
@@ -1478,6 +1491,17 @@ Provide an array for the second argument to select multiple options:
 
 <?php
 $I->selectOption('Which OS do you use?', array('Windows','Linux'));
+?>
+
+{% endhighlight %}
+
+Or provide an associative array for the second argument to specifically define which selection method should be used:
+
+{% highlight php %}
+
+<?php
+$I->selectOption('Which OS do you use?', array('text' => 'Windows')); // Only search by text 'Windows'
+$I->selectOption('Which OS do you use?', array('value' => 'windows')); // Only search by value 'windows'
 ?>
 
 {% endhighlight %}
@@ -1792,4 +1816,4 @@ $I->uncheckOption('#notify');
 
  * `param` $option
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/Laravel5.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.2/src/Codeception/Module/Laravel5.php">Help us to improve documentation. Edit module reference</a></div>

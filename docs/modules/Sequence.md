@@ -5,9 +5,9 @@ title: Sequence - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Module/Sequence.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Sequence.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Sequence.md"><strong>2.1</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Sequence.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Sequence.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Module/Sequence.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Sequence.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Sequence.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Sequence.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Sequence.md">1.8</a></div>
 
-
+# Sequence
 
 
 Sequence solves data cleanup issue in alternative way.
@@ -26,10 +26,9 @@ You can get back to previously generated sequence using that id:
 {% highlight php %}
 
 <?php
-'post'.sq(1); // post_521fbc63021eb
-'post'.sq(2); // post_521fbc6302266
-'post'.sq(1); // post_521fbc63021eb
-?>
+sq('post1'); // post1_521fbc63021eb
+sq('post2'); // post2_521fbc6302266
+sq('post1'); // post1_521fbc63021eb
 
 {% endhighlight %}
 
@@ -40,11 +39,10 @@ Example:
 <?php
 $I->wantTo('create article');
 $I->click('New Article');
-$I->fillField('Title', 'Article'.sq('name'));
+$I->fillField('Title', sq('Article'));
 $I->fillField('Body', 'Demo article with Lorem Ipsum');
 $I->click('save');
-$I->see('Article'.sq('name') ,'#articles')
-?>
+$I->see(sq('Article') ,'#articles')
 
 {% endhighlight %}
 
@@ -55,7 +53,7 @@ Populating Database:
 <?php
 
 for ($i = 0; $i<10; $i++) {
-     $I->haveInDatabase('users', array('login' => 'user'.sq($i), 'email' => 'user'.sq($i).'@email.com');
+     $I->haveInDatabase('users', array('login' => sq("user$i"), 'email' => sq("user$i").'@email.com');
 }
 ?>
 
@@ -70,22 +68,53 @@ class UserTest
 {
     public function createUser(AcceptanceTester $I)
     {
-        $I->createUser('email' . sqs('user') . '@mailserver.com', sqs('login'), sqs('pwd'));
+        $I->createUser(sqs('user') . '@mailserver.com', sqs('login'), sqs('pwd'));
     }
 
     public function checkEmail(AcceptanceTester $I)
     {
-        $I->seeInEmailTo('email' . sqs('user') . '@mailserver.com', sqs('login'));
+        $I->seeInEmailTo(sqs('user') . '@mailserver.com', sqs('login'));
     }
 
     public function removeUser(AcceptanceTester $I)
     {
-        $I->removeUser('email' . sqs('user') . '@mailserver.com');
+        $I->removeUser(sqs('user') . '@mailserver.com');
     }
 }
 ?>
 
 {% endhighlight %}
 
+#### Config
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/Sequence.php">Help us to improve documentation. Edit module reference</a></div>
+By default produces unique string with param as a prefix:
+
+{% highlight yaml %}
+sq('user') => 'user_876asd8as87a'
+
+{% endhighlight %}
+
+This behavior can be configured using `prefix` config param.
+
+Old style sequences:
+
+{% highlight yaml %}
+
+Sequence:
+    prefix: '_'
+
+{% endhighlight %}
+
+Using id param inside prefix:
+
+{% highlight yaml %}
+
+Sequence:
+    prefix: '{id}.'
+
+{% endhighlight %}
+
+
+### Actions
+
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.2/src/Codeception/Module/Sequence.php">Help us to improve documentation. Edit module reference</a></div>

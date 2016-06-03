@@ -76,6 +76,8 @@ class AcceptanceTester extends \Codeception\Actor
 
 The most important part is `_generated\AcceptanceTesterActions` trait, which is used as a proxy for enabled modules. It knows which module executes which action and passes parameters into it. This trait was created by running `codecept build` and is regenerated each time module or configuration changes.
 
+### Authorization
+
 It is recommended to put widely used actions inside an Actor class. A good example of such case may be `login` action which probably be actively involved in acceptance or functional testing.
 
 {% highlight php %}
@@ -114,6 +116,41 @@ $I->login('miles', '123456');
 
 However, implementing all actions for a reuse in one actor class may lead to breaking the [Single Responsibility Principle](http://en.wikipedia.org/wiki/Single_responsibility_principle). 
 
+### Session Snapshot
+
+If you need to authorize user for each test you can do so by filling Login form in the beginning of each test. 
+Running those steps take time, and in case of Selenium tests (which are slow by themselves) can be this time can be significant.
+
+Codeception allows you to share cookies between tests, so once logged in user could stay authorized for other tests.
+
+Let's improve code of our `login` method by making it executed only once for the first login and then restore the session from cookies.  
+
+{% highlight php %}
+
+<?php
+    public function login($name, $password)
+    {
+        $I = $this;
+        // if snapshot exists - skipping login
+        if ($I->loadSessionSnapshot('login')) {
+            return;
+        }
+        // logging in
+        $I->amOnPage('/login');
+        $I->submitForm('#loginForm', [
+            'login' => $name, 
+            'password' => $password
+        ]);
+        $I->see($name, '.navbar');
+         // saving snapshot
+        $I->saveSessionSnapshot('login');
+    }
+?>
+
+{% endhighlight %}
+
+Please note that session restoration only works for `WebDriver` and `PhpBrowser` modules (modules implementing `Codeception\Lib\Interfaces\SessionSnapshot`) 
+
 ## StepObjects
 
 If `login` method defined in Actor class may be used in 90% of your tests,
@@ -123,7 +160,7 @@ Lets create an Admin StepObject with generator, by specifying test suite, and pa
 
 {% highlight bash %}
 
-$ php codecept.phar generate:stepobject acceptance Admin
+php codecept generate:stepobject acceptance Admin
 
 {% endhighlight %}
 
@@ -131,7 +168,7 @@ You will be asked to enter action names, but it's optional. Enter one at a time,
 
 {% highlight bash %}
 
-$ php codecept.phar generate:stepobject acceptance Admin
+php codecept generate:stepobject acceptance Admin
 Add action to StepObject class (ENTER to exit): loginAsAdmin
 Add action to StepObject class (ENTER to exit):
 StepObject was created in /tests/acceptance/_support/Step/Acceptance/Admin.php
@@ -224,7 +261,7 @@ Codeception can generate a PageObject class for you with command:
 
 {% highlight bash %}
 
-$ php codecept.phar generate:pageobject Login
+php codecept generate:pageobject Login
 
 {% endhighlight %}
 
@@ -345,368 +382,6 @@ class UserCest
 
 The dependency injection container can construct any object that require any known class type. For instance, `Page\Login` required `AcceptanceTester`, and so it was injected into `Page\Login` constructor, and PageObject was created and passed into method arguments. You should specify explicitly the types of required objects for Codeception to know what objects should be created for a test. Dependency Injection will be described in the next chapter.
 
-## Helpers
-
-In the examples above we only grouped actions into one. What happens when we need to create a custom action? 
-In this case it's a good idea to define missing actions or assertion commands in custom modules, which are called Helpers. They can be found in the `tests/_support/Helper` directory.
-
-<div class="alert alert-info">
-We already know how to create a custom login method in AcceptanceTester class. We used actions from standard modules and combined them to make it easier for a user to log in. Helpers allow us to create **new actions** unrelated to standard modules (or using their internals).  
-</div>
-
-
-{% highlight php %}
-
-<?php
-namespace Helper;
-// here you can define custom functions for FunctionalTester
-
-class Functional extends \Codeception\Module
-{
-}
-?>
-
-{% endhighlight %}
-
-As for actions, everything is quite simple. Every action you define is a public function. Write any public method, run the `build` command, and you will see the new function added into the FunctionalTester class.
-
-
-<div class="alert alert-info">
-Public methods prefixed by `_` are treated as hidden and won't be added to your Actor class.
-</div>
-
-Assertions can be a bit tricky. First of all, it's recommended to prefix all your assert actions with `see` or `dontSee`.
-
-Name your assertions like this:
-
-{% highlight php %}
-
-<?php
-$I->seePageReloaded();
-$I->seeClassIsLoaded($classname);
-$I->dontSeeUserExist($user);
-?>
-
-{% endhighlight %}
-And then use them in your tests:
-
-{% highlight php %}
-
-<?php
-$I->seePageReloaded();
-$I->seeClassIsLoaded('FunctionalTester');
-$I->dontSeeUserExist($user);
-?>
-
-{% endhighlight %}
-
-You can define asserts by using assertXXX methods in modules. Not all PHPUnit assert methods are included in modules, but you can use PHPUnit static methods from the `PHPUnit_Framework_Assert` class to leverage all of them.
-
-{% highlight php %}
-
-<?php
-
-function seeClassExist($class)
-{
-    $this->assertTrue(class_exists($class));
-    // or
-    \PHPUnit_Framework_Assert::assertTrue(class_exists($class));
-}
-?>
-
-{% endhighlight %}
-
-In your helpers you can use these assertions:
-
-{% highlight php %}
-
-<?php
-
-function seeCanCheckEverything($thing)
-{
-    $this->assertTrue(isset($thing), "this thing is set");
-    $this->assertFalse(empty($any), "this thing is not empty");
-    $this->assertNotNull($thing, "this thing is not null");
-    $this->assertContains("world", $thing, "this thing contains 'world'");
-    $this->assertNotContains("bye", $thing, "this thing doesn`t contain 'bye'");
-    $this->assertEquals("hello world", $thing, "this thing is 'Hello world'!");
-    // ...
-}
-?>
-
-{% endhighlight %}
-
-### Resolving Collisions
-
-What happens if you have two modules that contain the same named actions?
-Codeception allows you to override actions by changing the module order.
-The action from the second module will be loaded and the action from the first one will be ignored.
-The order of the modules can be defined in the suite config.
-
-However, some of modules may conflict with each other. In order to avoid confusion which module is used in the first place, Framework modules, PhpBrowser, and WebDriver can't be used together. The `_conflicts` method of a module is used to specify which class or interface it conflicts with. Codeception will throw an exception if there will be a module enabled which matches the provided criteria.
-
-### Accessing Other Modules
-
-It's possible that you will need to access internal data or functions from other modules. For example, for your module you might need to access responses or internal actions of modules.
-
-Modules can interact with each other through the `getModule` method. Please note that this method will throw an exception if the required module was not loaded.
-
-Let's imagine that we are writing a module that reconnects to a database. It's supposed to use the dbh connection value from the Db module.
-
-{% highlight php %}
-
-<?php
-
-function reconnectToDatabase() {
-    $dbh = $this->getModule('Db')->dbh;
-    $dbh->close();
-    $dbh->open();
-}
-?>
-
-{% endhighlight %}
-
-By using the `getModule` function, you get access to all of the public methods and properties of the requested module. The `dbh` property was defined as public specifically to be available to other modules.
-
-Modules may also contain methods that are exposed for use in helper classes. Those methods start with `_` prefix and are not available in Actor classes, so can be accessed only from modules and extensions.
-
-You should use them to write your own actions using module internals.
-   
-{% highlight php %}
-
-<?php
-function seeNumResults($num)
-{
-    // retrieving webdriver session
-    /**@var $table \Facebook\WebDriver\WebDriverElement */
-    $elements = $this->getModule('WebDriver')->_findElements('#result');
-    $this->assertNotEmpty($elements);
-    $table = reset($elements);
-    $this->assertEquals('table', $table->getTagName());
-    $results = $table->findElements('tr');
-    // asserting that table contains exactly $num rows
-    $this->assertEquals($num, count($results));
-}
-?>
-
-{% endhighlight %}
-
-In this example we use API of <a href="https://github.com/facebook/php-webdriver">facebook/php-webdriver</a> library, a Selenium WebDriver client a module is build on. 
-You can also access `webDriver` property of a module to get access to `Facebook\WebDriver\RemoteWebDriver` instance for direct Selenium interaction.
- 
-### Hooks
-
-Each module can handle events from the running test. A module can be executed before the test starts, or after the test is finished. This can be useful for bootstrap/cleanup actions.
-You can also define special behavior for when the test fails. This may help you in debugging the issue.
-For example, the PhpBrowser module saves the current webpage to the `tests/_output` directory when a test fails.
-
-All hooks are defined in `\Codeception\Module` and are listed here. You are free to redefine them in your module.
-
-{% highlight php %}
-
-<?php
-
-    // HOOK: used after configuration is loaded
-    public function _initialize() {
-    }
-
-    // HOOK: on every Actor class initialization
-    public function _cleanup() {
-    }
-
-    // HOOK: before each suite
-    public function _beforeSuite($settings = array()) {
-    }
-
-    // HOOK: after suite
-    public function _afterSuite() {
-    }    
-
-    // HOOK: before each step
-    public function _beforeStep(\Codeception\Step $step) {
-    }
-
-    // HOOK: after each step
-    public function _afterStep(\Codeception\Step $step) {
-    }
-
-    // HOOK: before test
-    public function _before(\Codeception\TestCase $test) {
-    }
-
-    // HOOK: after test
-    public function _after(\Codeception\TestCase $test) {
-    }
-
-    // HOOK: on fail
-    public function _failed(\Codeception\TestCase $test, $fail) {
-    }
-?>
-
-{% endhighlight %}
-
-Please note that methods with a `_` prefix are not added to the Actor class. This allows them to be defined as public but used only for internal purposes.
-
-### Debug
-
-As we mentioned, the `_failed` hook can help in debugging a failed test. You have the opportunity to save the current test's state and show it to the user, but you are not limited to this.
-
-Each module can output internal values that may be useful during debug.
-For example, the PhpBrowser module prints the response code and current URL every time it moves to a new page.
-Thus, modules are not black boxes. They are trying to show you what is happening during the test. This makes debugging your tests less painful.
-
-To display additional information, use the `debug` and `debugSection` methods of the module.
-Here is an example of how it works for PhpBrowser:
-
-{% highlight php %}
-
-<?php
-    $this->debugSection('Request', $params);
-    $this->client->request($method, $uri, $params);
-    $this->debug('Response Code: ' . $this->client->getStatusCode());
-?>    
-
-{% endhighlight %}
-
-This test, running with the PhpBrowser module in debug mode, will print something like this:
-
-{% highlight bash %}
-
-I click "All pages"
-* Request (GET) http://localhost/pages {}
-* Response code: 200
-
-{% endhighlight %}
-
-
-
-### Configuration
-
-Modules and Helpers can be configured from the suite config file, or globally from `codeception.yml`.
-
-Mandatory parameters should be defined in the `$requiredFields` property of the class. Here is how it is done in the Db module:
-
-{% highlight php %}
-
-<?php
-class Db extends \Codeception\Module 
-{
-    protected $requiredFields = ['dsn', 'user', 'password'];
-?>
-
-{% endhighlight %}
-
-The next time you start the suite without setting one of these values, an exception will be thrown. 
-
-For optional parameters, you should set default values. The `$config` property is used to define optional parameters as well as their values. In the WebDriver module we use default Selenium Server address and port. 
-
-{% highlight php %}
-
-<?php
-class WebDriver extends \Codeception\Module
-{
-    protected $requiredFields = ['browser', 'url'];    
-    protected $config = ['host' => '127.0.0.1', 'port' => '4444'];
-?>    
-
-{% endhighlight %}
-
-The host and port parameter can be redefined in the suite config. Values are set in the `modules:config` section of the configuration file.
-
-{% highlight yaml %}
-
-modules:
-    enabled:
-        - WebDriver:
-            url: 'http://mysite.com/'
-            browser: 'firefox'
-        - Db:
-            cleanup: false
-            repopulate: false
-
-{% endhighlight %}
-
-Optional and mandatory parameters can be accessed through the `$config` property. Use `$this->config['parameter']` to get its value. 
-
-### Dynamic Configuration
-
-If you want to reconfigure a module at runtime, you can use the `_reconfigure` method of the module.
-You may call it from a helper class and pass in all the fields you want to change.
-
-{% highlight php %}
-
-<?php
-$this->getModule('WebDriver')->_reconfigure(array('browser' => 'chrome'));
-?>
-
-{% endhighlight %}
-
-At the end of a test, all your changes will be rolled back to the original config values.
-
-### Additional options
-
-Another option to extend standard module functionality is to create a helper inherited from the module.
-
-{% highlight php %}
-
-<?php
-namespace Helper;
-
-class MyExtendedSelenium extends \Codeception\Module\WebDriver  {
-}
-?>
-
-{% endhighlight %}
-
-In this helper you replace implemented methods with your own implementation.
-You can also replace `_before` and `_after` hooks, which might be an option when you need to customize starting and stopping of a testing session.
-
-If some of the methods of the parent class should not be used in a child module, you can disable them. Codeception has several options for this:
-
-{% highlight php %}
-
-<?php
-namespace Helper;
-
-class MyExtendedSelenium extends \Codeception\Module\WebDriver 
-{
-    // disable all inherited actions
-    public static $includeInheritedActions = false;
-
-    // include only "see" and "click" actions
-    public static $onlyActions = array('see','click');
-
-    // exclude "seeElement" action
-    public static $excludeActions = array('seeElement');
-}
-?>
-
-{% endhighlight %}
-
-Setting `$includeInheritedActions` to false adds the ability to create aliases for parent methods.
- It allows you to resolve conflicts between modules. Let's say we want to use the `Db` module with our `SecondDbHelper`
- that actually inherits from `Db`. How can we use `seeInDatabase` methods from both modules? Let's find out.
-
-{% highlight php %}
-
-<?php
-namespace Helper;
-
-class SecondDb extends \Codeception\Module\Db 
-{
-    public static $includeInheritedActions = false;
-
-    public function seeInSecondDb($table, $data)
-    {
-        $this->seeInDatabase($table, $data);
-    }
-}
-?>
-
-{% endhighlight %}
-
-Setting `$includeInheritedActions` to false won't include the methods from parent classes into the generated Actor.
-Still, you can use inherited methods in your helper class.
 
 ## Conclusion
 
@@ -716,4 +391,4 @@ There are lots of ways to create reusable and readable tests. Group common actio
 
 
 * **Next Chapter: [AdvancedUsage >](/docs/07-AdvancedUsage)**
-* **Previous Chapter: [< UnitTests](/docs/05-UnitTests)**
+* **Previous Chapter: [< ModulesAndHelpers](/docs/06-ModulesAndHelpers)**

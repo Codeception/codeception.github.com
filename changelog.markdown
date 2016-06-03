@@ -7,10 +7,49 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.2.0
+
+* **Gherkin format support**. <strong>[Announcement]</strong>(https://github.com/Codeception/Codeception/pull/2750#issue-129899745)
+* **Core Test Format Refactorings** Codeception becomes true multiformat testing platform. Format requires a <strong>[Loader]</strong>(https://github.com/Codeception/Codeception/blob/master/src/Codeception/Test/Loader/LoaderInterface.php) and class extending <strong>[Test]</strong>(https://github.com/Codeception/Codeception/blob/master/src/Codeception/Test/Test.php) class, implementing <strong>[TestInterface]</strong>(https://github.com/Codeception/Codeception/blob/master/src/Codeception/TestInterface.php).
+    * *Breaking* `Codeception\TestCase` replaced with `Codeception\TestInterface` in code and in module signatures.
+    * *Breaking* Cept/Cest classes are no longer extending `PHPUnit_Framework_TestCase`, so they don't have `expectException`, `getMock`, etc.
+    * Reduced stack trace for scenario-driven test formats. Codeception tests implement `PHPUnit_Framework_Test` instead of extending heavy `PHPUnit_Framework_TestCase` class.
+* *Breaking* **Conflicts API implemented** Frameworks + PhpBrowser + WebDriver can't be used together unless only non-conflicting part is used. <strong>[Announcement]</strong>(http://codeception.com/03-05-2016/codeception-2.2.-upcoming-features.html#conflicts)
+* **Examples** as an alternative to Data Providers. <strong>[Announcement]</strong>(http://codeception.com/03-10-2016/even-more-features-of-codeception.html#examples)
+* **Params** loading from yml, env files or environment. <strong>[Announcement]</strong>(http://codeception.com/03-05-2016/codeception-2.2.-upcoming-features.html#params)
+* **Test dependencies** with `<strong><a href="https://github.com/depends">@depends</a></strong>` annotation. <strong>[Announcement]</strong>(http://codeception.com/03-05-2016/codeception-2.2.-upcoming-features.html#test-dependencies)
+* **Custom Commands** inject your own commands as as simple as extension. <strong>[Announcement]</strong>(http://codeception.com/03-10-2016/even-more-features-of-codeception.html#custom-commands)
+* `codecept dry-run` command added to show scenario steps without executing them.
+* *Breaking* <strong>[Dbh]</strong> module removed
+* *Breaking* <strong>[Laravel4]</strong> module removed
+* *Breaking* <strong>[Symfony]</strong> public property `container` removed
+* *Breaking* <strong>[Asserts]</strong> removed deprecated `assertLessThen` and `assertGreaterThen`
+* *Breaking* mocks created with `Codeception\Util\Stub` are not verified in Cests. See <a href="https://github.com/Codeception/Codeception/issues/3005">#3005</a>
+* *Breaking* <strong>[REST]</strong> `grabAttributeFrom` renamed to `grabAttributeFromXmlElement` to avoid conflicts
+* <strong>[WebDriver]</strong> allows getting current browser and capabilities in test. <strong>[Announcement]</strong>(http://codeception.com/03-10-2016/even-more-features-of-codeception.html#Getting-current-browser-and-capabilities-in-tests)
+* <strong>[AngularJS]</strong> module added. Extends WebDriver module for AngularJS testing. <strong>[Announcement]</strong>(http://codeception.com/03-10-2016/even-more-features-of-codeception.html#angularjs)
+* <strong>[DataFactory]</strong> module added. Performs data generation using FactoryMuffin library <strong>[Announcement]</strong>(http://codeception.com/03-10-2016/even-more-features-of-codeception.html#datafactory)
+* <strong>[Redis]</strong> Module rewritten using Predis library as driver by <strong><a href="https://github.com/marcverney">@marcverney</a></strong>
+* <strong>[Symfony]</strong> module Symfony2 renamed to Symfony
+* <strong>[Phalcon]</strong> Merged `Phalcon1` and `Phalcon2` modules into one `Phalcon` due the fact that Phalcon Framework v1.3.x no longer supported at all
+* <strong>[Asserts]</strong> More `assert*` methods from PHPUnit added
+* <strong>[Asserts]</strong> Added `expectException` method
+* <strong>[WebDriver]</strong><strong>[Frameworks]</strong><strong>[PhpBrowser]</strong> `selectOption` can receive option as strict locator to exactly match option by text or by value. Use `['value' => 'myvalue']` or `['text' => 'optiontext']` to select a proper option. By <strong><a href="https://github.com/gdscei">@gdscei</a></strong> and <strong><a href="https://github.com/davertmik">@davertmik</a></strong> See <a href="https://github.com/Codeception/Codeception/issues/3003">#3003</a>
+* Added config option to disable modules using `modules: disabled:`.
+* <strong>[Sequence]</strong> Changed the prefix value. Generated sequences to include id inside a prefix: `sq('user1') => 'user1_876asd8as87a'. Added `prefix` config option.
+* Deprecation errors won't fail tests but will be printed.
+* Official [Docker image](https://hub.docker.com/r/codeception/codeception/) introduced by <strong><a href="https://github.com/schmunk42">@schmunk42</a></strong>
+
+#### 2.1.10
+
+* <strong>[Db]</strong> Added missing support for LIKE condition to SqlSrv driver
+
 #### 2.1.9
 
 * PHPUnit 5.4 compatibility for creating mocks using `Codeception\Util\Stub` by <strong><a href="https://github.com/davertmik">@davertmik</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/3093">#3093</a> and <a href="https://github.com/Codeception/Codeception/issues/3080">#3080</a>
 * Updated dependencies to support Symfony 3.1
+* <strong>[Laravel5]</strong> Fixed issue where non-existing services were called in _before and _after methods. See <a href="https://github.com/Codeception/Codeception/issues/3028">#3028</a>.
+* Fix self-update command to update only to stable versions by <strong><a href="https://github.com/MAXakaWIZARD">@MAXakaWIZARD</a></strong>
 * Added `settings: backup_global` to config, to disable backup_global option of PHPUnit by <strong><a href="https://github.com/mkeasling">@mkeasling</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/3045">#3045</a>. Fixes <a href="https://github.com/Codeception/Codeception/issues/3044">#3044</a>
 * <strong>[PhpBrowser]</strong><strong>[Frameworks]</strong> `see` matches UTF-8 text case-insensitively by <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>. Fixes <a href="https://github.com/Codeception/Codeception/issues/3114">#3114</a>
 * Fixed page object generation with namespaces by <strong><a href="https://github.com/eugene">@eugene</a></strong>-manuilov and <strong><a href="https://github.com/Naktibalda">@Naktibalda</a></strong>. See <a href="https://github.com/Codeception/Codeception/issues/3126">#3126</a> Fixes <a href="https://github.com/Codeception/Codeception/issues/3012">#3012</a>

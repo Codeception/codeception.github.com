@@ -5,9 +5,9 @@ title: Filesystem - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Module/Filesystem.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Filesystem.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Filesystem.md"><strong>2.1</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Filesystem.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Filesystem.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Module/Filesystem.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Filesystem.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Filesystem.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Filesystem.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Filesystem.md">1.8</a></div>
 
-
+# Filesystem
 
 
 Module for testing local filesystem.
@@ -21,6 +21,8 @@ Fork it to extend the module for FTP, Amazon S3, others.
 
 Module was developed to test Codeception itself.
 
+
+### Actions
 
 #### amInPath
  
@@ -210,6 +212,13 @@ $I->seeNumberNewLines(5);
  * `param int` $number New lines
 
 
+#### seeThisFileMatches
+ 
+Checks that contents of currently opened file matches $regex
+
+ * `param` $regex
+
+
 #### writeToFile
  
 Saves contents to file
@@ -217,4 +226,4 @@ Saves contents to file
  * `param` $filename
  * `param` $contents
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/Filesystem.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.2/src/Codeception/Module/Filesystem.php">Help us to improve documentation. Edit module reference</a></div>

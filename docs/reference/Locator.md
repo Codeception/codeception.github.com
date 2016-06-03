@@ -13,7 +13,7 @@ Please check them before writing complex functional or acceptance tests.
 
 
 
-#### *public static* combine($selector1, $selector2) 
+#### * static* combine($selector1, $selector2) 
 
 Applies OR operator to any number of CSS or XPath selectors.
 You can mix up CSS and XPath selectors here.
@@ -49,9 +49,9 @@ As a result the Locator will produce a mixed XPath value that will be used in fi
  * `throws`  \Exception
  * `return`  string
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php#L46)
+[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Locator.php#L46)
 
-#### *public static* contains($element, $text) 
+#### * static* contains($element, $text) 
 
 Locates an element containing a text inside.
 Either CSS or XPath locator can be passed, however they will be converted to XPath.
@@ -67,9 +67,9 @@ Locator::contains('div[ * `contenteditable=true]',`  'hello world');
  * `param` $text
  * `return`  string
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php#L199)
+[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Locator.php#L199)
 
-#### *public static* elementAt($element, $position) 
+#### * static* elementAt($element, $position) 
 
 Locates element at position.
 Either CSS or XPath locator can be passed as locator,
@@ -88,9 +88,9 @@ Locator::elementAt('table#grind>tr', -2); // previous than last row
  * `param` $position xpath index
  * `return`  mixed
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php#L221)
+[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Locator.php#L221)
 
-#### *public static* find($element, array $attributes) 
+#### * static* find($element, array $attributes) 
 
 Finds element by it's attribute(s)
 
@@ -101,9 +101,9 @@ Finds element by it's attribute(s)
 
  * `return`  string
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php#L137)
+[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Locator.php#L137)
 
-#### *public static* firstElement($element) 
+#### * static* firstElement($element) 
 
 Locates first element of group elements.
 Either CSS or XPath locator can be passed as locator,
@@ -118,9 +118,9 @@ Locator::firstElement('//table/tr');
  * `param` $element
  * `return`  mixed
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php#L247)
+[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Locator.php#L247)
 
-#### *public static* href($url) 
+#### * static* href($url) 
 
 Matches the *a* element with given URL
 
@@ -138,41 +138,41 @@ $I->see('Log In', Locator::href('/login.php'));
  * `param` $url
  * `return`  string
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php#L73)
+[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Locator.php#L73)
 
-#### *public static* humanReadableString($selector) 
+#### * static* humanReadableString($selector) 
 
 Transforms strict locator, \Facebook\WebDriver\WebDriverBy into a string represenation
 
  * `param` $selector
  * `return`  string
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php#L275)
+[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Locator.php#L275)
 
-#### *public static* isCSS($selector) 
+#### * static* isCSS($selector) 
 
  * `param` $selector
  * `return`  bool
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php#L154)
+[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Locator.php#L154)
 
-#### *public static* isID($id) 
+#### * static* isID($id) 
 
 Checks that string and CSS selector for element by ID
 
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php#L181)
+[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Locator.php#L181)
 
-#### *public static* isXPath($locator) 
+#### * static* isXPath($locator) 
 
 Checks that locator is an XPath
 
  * `param` $locator
  * `return`  bool
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php#L170)
+[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Locator.php#L170)
 
-#### *public static* lastElement($element) 
+#### * static* lastElement($element) 
 
 Locates last element of group elements.
 Either CSS or XPath locator can be passed as locator,
@@ -187,9 +187,9 @@ Locator::lastElement('//table/tr');
  * `param` $element
  * `return`  mixed
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php#L264)
+[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Locator.php#L264)
 
-#### *public static* option($value) 
+#### * static* option($value) 
 
 Matches option by text
 
@@ -197,9 +197,9 @@ Matches option by text
 
  * `return`  string
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php#L109)
+[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Locator.php#L109)
 
-#### *public static* tabIndex($index) 
+#### * static* tabIndex($index) 
 
 Matches the element with given tab index
 
@@ -221,6 +221,6 @@ $I->click('Login');
  * `param` $index
  * `return`  string
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php#L97)
+[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Locator.php#L97)
 
-<p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Locator.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Locator.php">Help us to improve documentation. Edit module reference</a></div>

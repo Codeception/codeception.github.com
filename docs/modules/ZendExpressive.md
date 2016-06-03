@@ -5,9 +5,9 @@ title: ZendExpressive - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Module/ZendExpressive.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/ZendExpressive.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/ZendExpressive.md"><strong>2.1</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/ZendExpressive.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/ZendExpressive.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Module/ZendExpressive.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/ZendExpressive.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/ZendExpressive.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/ZendExpressive.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/ZendExpressive.md">1.8</a></div>
 
-
+# ZendExpressive
 
 
 This module allows you to run tests inside Zend Expressive.
@@ -30,6 +30,8 @@ Uses `config/container.php` file by default.
 * client - BrowserKit client
 
 
+
+### Actions
 
 #### _findElements
 
@@ -248,6 +250,27 @@ $I->click(['link' => 'Login']);
 
  * `param` $link
  * `param` $context
+
+
+#### deleteHeader
+ 
+Deletes the header with the passed name.  Subsequent requests
+will not have the deleted header in its request.
+
+Example:
+{% highlight php %}
+
+<?php
+$I->haveHttpHeader('X-Requested-With', 'Codeception');
+$I->amOnPage('test-headers.php');
+// ...
+$I->deleteHeader('X-Requested-With');
+$I->amOnPage('some-other-page.php');
+?>
+
+{% endhighlight %}
+
+ * `param string` $name the name of the header to delete.
 
 
 #### dontSee
@@ -626,6 +649,26 @@ $value = $I->grabTextFrom('~<input value=(.*?)]~sgi'); // match with a regex
  * `return` array|mixed|null|string
 
 
+#### haveHttpHeader
+ 
+Sets the HTTP header to the passed value - which is used on
+subsequent HTTP requests through PhpBrowser.
+
+Example:
+{% highlight php %}
+
+<?php
+$I->setHeader('X-Requested-With', 'Codeception');
+$I->amOnPage('test-headers.php');
+?>
+
+{% endhighlight %}
+
+ * `param string` $name the name of the request header
+ * `param string` $value the value to set it to for subsequent
+       requests
+
+
 #### moveBack
  
 Moves back in history.
@@ -1000,6 +1043,17 @@ $I->selectOption('Which OS do you use?', array('Windows','Linux'));
 
 {% endhighlight %}
 
+Or provide an associative array for the second argument to specifically define which selection method should be used:
+
+{% highlight php %}
+
+<?php
+$I->selectOption('Which OS do you use?', array('text' => 'Windows')); // Only search by text 'Windows'
+$I->selectOption('Which OS do you use?', array('value' => 'windows')); // Only search by value 'windows'
+?>
+
+{% endhighlight %}
+
  * `param` $select
  * `param` $option
 
@@ -1305,4 +1359,4 @@ $I->uncheckOption('#notify');
 
  * `param` $option
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/ZendExpressive.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.2/src/Codeception/Module/ZendExpressive.php">Help us to improve documentation. Edit module reference</a></div>

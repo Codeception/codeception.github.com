@@ -1,18 +1,17 @@
 ---
 layout: doc
-title: Phalcon2 - Codeception - Documentation
+title: Phalcon - Codeception - Documentation
 ---
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Module/Phalcon2.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Phalcon2.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Phalcon2.md"><strong>2.1</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Phalcon2.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Phalcon2.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Module/Phalcon.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Phalcon.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Phalcon.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Phalcon.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Phalcon.md">1.8</a></div>
 
-
+# Phalcon
 
 
 This module provides integration with [Phalcon framework](http://www.phalconphp.com/) (2.x).
 Please try it and leave your feedback.
-The module is based on the Phalcon1 module.
 
 ### Demo Project
 
@@ -28,7 +27,7 @@ The module is based on the Phalcon1 module.
 
     modules:
         enabled:
-            - Phalcon2:
+            - Phalcon:
                 bootstrap: 'app/config/bootstrap.php'
                 cleanup: true
                 savepoints: true
@@ -36,9 +35,10 @@ The module is based on the Phalcon1 module.
 ### Config
 
 The following configurations are required for this module:
-* boostrap: the path of the application bootstrap file</li>
-* cleanup: cleanup database (using transactions)</li>
-* savepoints: use savepoints to emulate nested transactions</li>
+
+* bootstrap: the path of the application bootstrap file
+* cleanup: cleanup database (using transactions)
+* savepoints: use savepoints to emulate nested transactions
 
 The application bootstrap file must return Application object but not call its handle() method.
 
@@ -67,6 +67,8 @@ return new \Phalcon\Mvc\Application($di);
 
 
 
+### Actions
+
 #### _findElements
 
 *hidden API method, expected to be used from Helper classes*
@@ -82,10 +84,10 @@ Use it in Helpers or GroupObject or Extension classes:
 {% highlight php %}
 
 <?php
-$els = $this->getModule('Phalcon2')->_findElements('.items');
-$els = $this->getModule('Phalcon2')->_findElements(['name' => 'username']);
+$els = $this->getModule('Phalcon')->_findElements('.items');
+$els = $this->getModule('Phalcon')->_findElements(['name' => 'username']);
 
-$editLinks = $this->getModule('Phalcon2')->_findElements(['link' => 'Edit']);
+$editLinks = $this->getModule('Phalcon')->_findElements(['link' => 'Edit']);
 // now you can iterate over $editLinks and check that all them have valid hrefs
 
 {% endhighlight %}
@@ -110,7 +112,7 @@ Use it in Helpers when you want to retrieve response of request performed by ano
 // in Helper class
 public function seeResponseContains($text)
 {
-   $this->assertContains($text, $this->getModule('Phalcon2')->_getResponseContent(), "response contains");
+   $this->assertContains($text, $this->getModule('Phalcon')->_getResponseContent(), "response contains");
 }
 ?>
 
@@ -132,7 +134,7 @@ Useful for testing multi-step forms on a specific step.
 <?php
 // in Helper class
 public function openCheckoutFormStep2($orderId) {
-    $this->getModule('Phalcon2')->_loadPage('POST', '/checkout/step2', ['order' => $orderId]);
+    $this->getModule('Phalcon')->_loadPage('POST', '/checkout/step2', ['order' => $orderId]);
 }
 ?>
 
@@ -159,7 +161,7 @@ Returns a string with response body.
 <?php
 // in Helper class
 public function createUserByApi($name) {
-    $userData = $this->getModule('Phalcon2')->_request('POST', '/api/v1/users', ['name' => $name]);
+    $userData = $this->getModule('Phalcon')->_request('POST', '/api/v1/users', ['name' => $name]);
     $user = json_decode($userData);
     return $user->id;
 }
@@ -188,7 +190,7 @@ Saves page source of to a file
 
 {% highlight php %}
 
-$this->getModule('Phalcon2')->_savePageSource(codecept_output_dir().'page.html');
+$this->getModule('Phalcon')->_savePageSource(codecept_output_dir().'page.html');
 
 {% endhighlight %}
  * `param` $filename
@@ -300,6 +302,27 @@ $I->click(['link' => 'Login']);
 
  * `param` $link
  * `param` $context
+
+
+#### deleteHeader
+ 
+Deletes the header with the passed name.  Subsequent requests
+will not have the deleted header in its request.
+
+Example:
+{% highlight php %}
+
+<?php
+$I->haveHttpHeader('X-Requested-With', 'Codeception');
+$I->amOnPage('test-headers.php');
+// ...
+$I->deleteHeader('X-Requested-With');
+$I->amOnPage('some-other-page.php');
+?>
+
+{% endhighlight %}
+
+ * `param string` $name the name of the header to delete.
 
 
 #### dontSee
@@ -727,6 +750,26 @@ $value = $I->grabTextFrom('~<input value=(.*?)]~sgi'); // match with a regex
  * `param` $field
 
  * `return` array|mixed|null|string
+
+
+#### haveHttpHeader
+ 
+Sets the HTTP header to the passed value - which is used on
+subsequent HTTP requests through PhpBrowser.
+
+Example:
+{% highlight php %}
+
+<?php
+$I->setHeader('X-Requested-With', 'Codeception');
+$I->amOnPage('test-headers.php');
+?>
+
+{% endhighlight %}
+
+ * `param string` $name the name of the request header
+ * `param string` $value the value to set it to for subsequent
+       requests
 
 
 #### haveInSession
@@ -1214,6 +1257,17 @@ $I->selectOption('Which OS do you use?', array('Windows','Linux'));
 
 {% endhighlight %}
 
+Or provide an associative array for the second argument to specifically define which selection method should be used:
+
+{% highlight php %}
+
+<?php
+$I->selectOption('Which OS do you use?', array('text' => 'Windows')); // Only search by text 'Windows'
+$I->selectOption('Which OS do you use?', array('value' => 'windows')); // Only search by value 'windows'
+?>
+
+{% endhighlight %}
+
  * `param` $select
  * `param` $option
 
@@ -1519,4 +1573,4 @@ $I->uncheckOption('#notify');
 
  * `param` $option
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.1/src/Codeception/Module/Phalcon2.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.2/src/Codeception/Module/Phalcon.php">Help us to improve documentation. Edit module reference</a></div>

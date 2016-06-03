@@ -12,7 +12,7 @@ Autoloader, which is fully compatible with PSR-4,
 and can be used to autoload your `Helper`, `Page`, and `Step` classes.
 
 
-#### *public static* addNamespace($prefix, $base_dir, $prepend = null) 
+#### * static* addNamespace($prefix, $base_dir, $prepend = null) 
 
 Adds a base directory for a namespace prefix.
 
@@ -38,22 +38,22 @@ Autoload::addNamespace('app\Codeception', '/path/to/controllers');
                      this causes it to be searched first rather than last.
  * `return`  void
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Autoload.php#L45)
+[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Autoload.php#L45)
 
-#### *public static* load($class) 
+#### * static* load($class) 
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Autoload.php#L88)
+[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Autoload.php#L88)
 
-#### *public static* register($namespace, $suffix, $path) 
-
- * `deprecated`  Use self::addNamespace() instead.
-
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Autoload.php#L75)
-
-#### *public static* registerSuffix($suffix, $path) 
+#### * static* register($namespace, $suffix, $path) 
 
  * `deprecated`  Use self::addNamespace() instead.
 
-[See source](https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Autoload.php#L83)
+[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Autoload.php#L75)
 
-<p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/blob/2.1/src/Codeception/Util/Autoload.php">Help us to improve documentation. Edit module reference</a></div>
+#### * static* registerSuffix($suffix, $path) 
+
+ * `deprecated`  Use self::addNamespace() instead.
+
+[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Autoload.php#L83)
+
+<p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Autoload.php">Help us to improve documentation. Edit module reference</a></div>
