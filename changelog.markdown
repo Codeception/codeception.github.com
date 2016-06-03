@@ -7,6 +7,10 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.2.1
+
+* PHPUnit 5.4 and PHPUnit/php-code-coverage 4.0 compatibility.
+
 #### 2.2.0
 
 * **Gherkin format support**. [Announcement](https://github.com/Codeception/Codeception/pull/2750#issue-129899745)
