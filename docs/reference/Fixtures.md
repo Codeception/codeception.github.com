@@ -22,21 +22,21 @@ Fixtures::get('user1');
 
 
 
-add 
-*static* 
+### add 
 
+*static*
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Fixtures.php#L20)
 
-cleanup 
-*static* 
+### cleanup 
 
+*static*
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Fixtures.php#L34)
 
-get 
-*static* 
+### get 
 
+*static*
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Fixtures.php#L25)
 

@@ -13,9 +13,9 @@ Please check them before writing complex functional or acceptance tests.
 
 
 
-combine 
-*static* 
+### combine 
 
+*static*
 
 Applies OR operator to any number of CSS or XPath selectors.
 You can mix up CSS and XPath selectors here.
@@ -53,9 +53,9 @@ As a result the Locator will produce a mixed XPath value that will be used in fi
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Locator.php#L46)
 
-contains 
-*static* 
+### contains 
 
+*static*
 
 Locates an element containing a text inside.
 Either CSS or XPath locator can be passed, however they will be converted to XPath.
@@ -73,9 +73,9 @@ Locator::contains('div[ * `contenteditable=true]',`  'hello world');
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Locator.php#L199)
 
-elementAt 
-*static* 
+### elementAt 
 
+*static*
 
 Locates element at position.
 Either CSS or XPath locator can be passed as locator,
@@ -96,9 +96,9 @@ Locator::elementAt('table#grind>tr', -2); // previous than last row
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Locator.php#L221)
 
-find 
-*static* 
+### find 
 
+*static*
 
 Finds element by it's attribute(s)
 
@@ -111,9 +111,9 @@ Finds element by it's attribute(s)
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Locator.php#L137)
 
-firstElement 
-*static* 
+### firstElement 
 
+*static*
 
 Locates first element of group elements.
 Either CSS or XPath locator can be passed as locator,
@@ -130,9 +130,9 @@ Locator::firstElement('//table/tr');
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Locator.php#L247)
 
-href 
-*static* 
+### href 
 
+*static*
 
 Matches the *a* element with given URL
 
@@ -152,9 +152,9 @@ $I->see('Log In', Locator::href('/login.php'));
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Locator.php#L73)
 
-humanReadableString 
-*static* 
+### humanReadableString 
 
+*static*
 
 Transforms strict locator, \Facebook\WebDriver\WebDriverBy into a string represenation
 
@@ -163,27 +163,27 @@ Transforms strict locator, \Facebook\WebDriver\WebDriverBy into a string represe
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Locator.php#L275)
 
-isCSS 
-*static* 
+### isCSS 
 
+*static*
 
  * `param` $selector
  * `return`  bool
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Locator.php#L154)
 
-isID 
-*static* 
+### isID 
 
+*static*
 
 Checks that string and CSS selector for element by ID
 
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Locator.php#L181)
 
-isXPath 
-*static* 
+### isXPath 
 
+*static*
 
 Checks that locator is an XPath
 
@@ -192,9 +192,9 @@ Checks that locator is an XPath
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Locator.php#L170)
 
-lastElement 
-*static* 
+### lastElement 
 
+*static*
 
 Locates last element of group elements.
 Either CSS or XPath locator can be passed as locator,
@@ -211,9 +211,9 @@ Locator::lastElement('//table/tr');
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Locator.php#L264)
 
-option 
-*static* 
+### option 
 
+*static*
 
 Matches option by text
 
@@ -223,9 +223,9 @@ Matches option by text
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Locator.php#L109)
 
-tabIndex 
-*static* 
+### tabIndex 
 
+*static*
 
 Matches the element with given tab index
 

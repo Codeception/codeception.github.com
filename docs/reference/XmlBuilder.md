@@ -75,11 +75,11 @@ Export:
 [Source code](https://github.com/Codeception/Codeception/blob/master/src/Codeception/Util/XmlBuilder.php)
 
 
-__construct 
+### __construct 
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/XmlBuilder.php#L80)
 
-__get 
+### __get 
 
 Appends child node
 
@@ -89,11 +89,11 @@ Appends child node
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/XmlBuilder.php#L93)
 
-__toString 
+### __toString 
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/XmlBuilder.php#L165)
 
-attr 
+### attr 
 
 Sets attribute for current node
 
@@ -104,13 +104,13 @@ Sets attribute for current node
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/XmlBuilder.php#L120)
 
-getDom 
+### getDom 
 
  * `return`  \DOMDocument
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/XmlBuilder.php#L173)
 
-parent 
+### parent 
 
 Traverses to parent
 
@@ -118,7 +118,7 @@ Traverses to parent
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/XmlBuilder.php#L131)
 
-parents 
+### parents 
 
 Traverses to parent with $name
 
@@ -129,7 +129,7 @@ Traverses to parent with $name
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/XmlBuilder.php#L145)
 
-val 
+### val 
 
  * `param` $val
 
