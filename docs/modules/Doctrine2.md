@@ -93,7 +93,7 @@ Example:
 
 <?php
 $email = $I->grabFromRepository('User', 'email', array('name' => 'davert'));
-
+?>
 
 {% endhighlight %}
 
@@ -175,7 +175,7 @@ Example:
 $I->seeInRepository('User', array('name' => 'davert'));
 $I->seeInRepository('User', array('name' => 'davert', 'Company' => array('name' => 'Codegyre')));
 $I->seeInRepository('Client', array('User' => array('Company' => array('name' => 'Codegyre')));
-
+?>
 
 {% endhighlight %}
 

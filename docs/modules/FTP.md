@@ -114,7 +114,7 @@ Erases directory contents on the FTP/SFTP server
 
 <?php
 $I->cleanDir('logs');
-
+?>
 
 {% endhighlight %}
 
@@ -137,7 +137,7 @@ Deletes directory with all subdirectories on the remote FTP/SFTP server
 
 <?php
 $I->deleteDir('vendor');
-
+?>
 
 {% endhighlight %}
 
@@ -152,7 +152,7 @@ Deletes a file on the remote FTP/SFTP system
 
 <?php
 $I->deleteFile('composer.lock');
-
+?>
 
 {% endhighlight %}
 
@@ -190,7 +190,7 @@ Checks If opened file doesn't contain `text` in it
 <?php
 $I->openFile('composer.json');
 $I->dontSeeInThisFile('codeception/codeception');
-
+?>
 
 {% endhighlight %}
 
@@ -205,7 +205,7 @@ Grabber method to return current working directory
 
 <?php
 $pwd = $I->grabDirectory();
-
+?>
 
 {% endhighlight %}
 
@@ -221,7 +221,7 @@ Grabber method for returning file/folders count in directory
 <?php
 $count = $I->grabFileCount();
 $count = $I->grabFileCount('TEST', false); // Include . .. .thumbs.db
-
+?>
 
 {% endhighlight %}
 
@@ -239,7 +239,7 @@ Grabber method for returning file/folders listing in an array
 <?php
 $files = $I->grabFileList();
 $count = $I->grabFileList('TEST', false); // Include . .. .thumbs.db
-
+?>
 
 {% endhighlight %}
 
@@ -256,7 +256,7 @@ Grabber method to return last modified timestamp
 
 <?php
 $time = $I->grabFileModified('test.txt');
-
+?>
 
 {% endhighlight %}
 
@@ -272,7 +272,7 @@ Grabber method to return file size
 
 <?php
 $size = $I->grabFileSize('test.txt');
-
+?>
 
 {% endhighlight %}
 
@@ -293,7 +293,7 @@ to anonymous user if not provided.
 
 <?php
 $I->loginAs('user','password');
-
+?>
 
 {% endhighlight %}
 
@@ -309,7 +309,7 @@ Create a directory on the server
 
 <?php
 $I->makeDir('vendor');
-
+?>
 
 {% endhighlight %}
 
@@ -328,7 +328,7 @@ Usage:
 <?php
 $I->openFile('composer.json');
 $I->seeInThisFile('codeception/codeception');
-
+?>
 
 {% endhighlight %}
 
@@ -343,7 +343,7 @@ Rename/Move directory on the FTP/SFTP server
 
 <?php
 $I->renameDir('vendor', 'vendor_old');
-
+?>
 
 {% endhighlight %}
 
@@ -359,7 +359,7 @@ Rename/Move file on the FTP/SFTP server
 
 <?php
 $I->renameFile('composer.lock', 'composer_old.lock');
-
+?>
 
 {% endhighlight %}
 
@@ -379,7 +379,7 @@ Matching is done after removing "\r" chars from file content.
 <?php
 $I->openFile('process.pid');
 $I->seeFileContentsEqual('3192');
-
+?>
 
 {% endhighlight %}
 
@@ -395,7 +395,7 @@ DOES NOT OPEN the file when it's exists
 
 <?php
 $I->seeFileFound('UserModel.php','app/models');
-
+?>
 
 {% endhighlight %}
 
@@ -412,7 +412,7 @@ DOES NOT OPEN the file when it's exists
 
 <?php
 $I->seeFileFoundMatches('/^UserModel_([0-9]{6}).php$/','app/models');
-
+?>
 
 {% endhighlight %}
 
@@ -431,7 +431,7 @@ Usage:
 <?php
 $I->openFile('composer.json');
 $I->seeInThisFile('codeception/codeception');
-
+?>
 
 {% endhighlight %}
 
@@ -449,7 +449,7 @@ Usage:
 <?php
 $I->openFile('composer.json');
 $I->seeNumberNewLines(5);
-
+?>
 
 {% endhighlight %}
 
@@ -472,7 +472,7 @@ Overwrites current file on server if exists.
 
 <?php
 $I->writeToFile('composer.json', 'some data here');
-
+?>
 
 {% endhighlight %}
 

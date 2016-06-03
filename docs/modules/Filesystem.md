@@ -40,7 +40,7 @@ Erases directory contents
 
 <?php
 $I->cleanDir('logs');
-
+?>
 
 {% endhighlight %}
 
@@ -55,7 +55,7 @@ Copies directory with all contents
 
 <?php
 $I->copyDir('vendor','old_vendor');
-
+?>
 
 {% endhighlight %}
 
@@ -71,7 +71,7 @@ Deletes directory with all subdirectories
 
 <?php
 $I->deleteDir('vendor');
-
+?>
 
 {% endhighlight %}
 
@@ -86,7 +86,7 @@ Deletes a file
 
 <?php
 $I->deleteFile('composer.lock');
-
+?>
 
 {% endhighlight %}
 
@@ -115,7 +115,7 @@ Checks If opened file doesn't contain `text` in it
 <?php
 $I->openFile('composer.json');
 $I->dontSeeInThisFile('codeception/codeception');
-
+?>
 
 {% endhighlight %}
 
@@ -133,7 +133,7 @@ Usage:
 <?php
 $I->openFile('composer.json');
 $I->seeInThisFile('codeception/codeception');
-
+?>
 
 {% endhighlight %}
 
@@ -152,7 +152,7 @@ Matching is done after removing "\r" chars from file content.
 <?php
 $I->openFile('process.pid');
 $I->seeFileContentsEqual('3192');
-
+?>
 
 {% endhighlight %}
 
@@ -168,7 +168,7 @@ Opens a file when it's exists
 
 <?php
 $I->seeFileFound('UserModel.php','app/models');
-
+?>
 
 {% endhighlight %}
 
@@ -187,7 +187,7 @@ Usage:
 <?php
 $I->openFile('composer.json');
 $I->seeInThisFile('codeception/codeception');
-
+?>
 
 {% endhighlight %}
 
@@ -205,7 +205,7 @@ Usage:
 <?php
 $I->openFile('composer.json');
 $I->seeNumberNewLines(5);
-
+?>
 
 {% endhighlight %}
 

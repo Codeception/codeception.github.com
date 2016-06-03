@@ -60,7 +60,7 @@ Checks XML response doesn't contain XPath locator
 
 <?php
 $I->dontSeeSoapResponseContainsXPath('//root/user[ * `id=1]');` 
-
+?>
 
 {% endhighlight %}
 
@@ -158,7 +158,7 @@ Example:
 <?php
 
 $I->seeSoapResponseContainsStructure("<query><name></name></query>");
-
+?>
 
 {% endhighlight %}
 
@@ -177,7 +177,7 @@ Checks XML response with XPath locator
 
 <?php
 $I->seeSoapResponseContainsXPath('//root/user[ * `id=1]');` 
-
+?>
 
 {% endhighlight %}
 
@@ -196,7 +196,7 @@ Example:
 {% highlight php %}
 
 <?php
-$I->seeSoapResponseEquals("<?xml version="1.0" encoding="UTF-8"<SOAP-ENV:Envelope><SOAP-ENV:Body><result>1</result></SOAP-ENV:Envelope>");
+$I->seeSoapResponseEquals("<?xml version="1.0" encoding="UTF-8"?><SOAP-ENV:Envelope><SOAP-ENV:Body><result>1</result></SOAP-ENV:Envelope>");
 
 $dom = new \DOMDocument();
 $dom->load($file);
@@ -225,7 +225,7 @@ $I->seeSoapRequestIncludes(\Codeception\Utils\Soap::response()->result->val(1));
 $dom = new \DDOMDocument();
 $dom->load('template.xml');
 $I->seeSoapRequestIncludes($dom);
-
+?>
 
 {% endhighlight %}
 

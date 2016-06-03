@@ -30,6 +30,7 @@ Random data provided by [Faker](https://github.com/fzaninotto/Faker) library.
 
 {% highlight php %}
 
+<?php
 use League\FactoryMuffin\Faker\Facade as Faker;
 
 $fm->define(User::class)->setDefinitions([
@@ -84,7 +85,7 @@ In this case you can define factories from a Helper class with `_define` method.
 
 {% highlight php %}
 
-
+<?php
 public function _beforeSuite()
 {
      $factory = $this->getModule('DataFactory');

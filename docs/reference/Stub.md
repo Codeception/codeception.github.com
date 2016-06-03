@@ -9,7 +9,9 @@ title: Stub - Codeception - Documentation
 
 
 
-#### *public static* magicMethods#### * static* atLeastOnce($params = null) 
+#### *public static* magicMethodsatLeastOnce 
+*static* 
+
 
 Checks if a method has been invoked at least one
 time.
@@ -28,7 +30,7 @@ $user = Stub::make(
 );
 $user->getName();
 $user->getName();
-
+?>
 
 {% endhighlight %}
 
@@ -38,7 +40,9 @@ $user->getName();
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Stub.php#L695)
 
-#### * static* consecutive() 
+consecutive 
+*static* 
+
 
 Stubbing a method call to return a list of values in the specified order.
 
@@ -50,7 +54,7 @@ $user->getName(); //david
 $user->getName(); //emma
 $user->getName(); //sam
 $user->getName(); //amy
-
+?>
 
 {% endhighlight %}
 
@@ -58,7 +62,9 @@ $user->getName(); //amy
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Stub.php#L764)
 
-#### * static* construct($class, $constructorParams = null, $params = null, $testCase = null) 
+construct 
+*static* 
+
 
 Instantiates a class instance by running constructor.
 Parameters for constructor passed as second argument
@@ -70,7 +76,7 @@ Even protected and private properties can be set.
 <?php
 Stub::construct('User', array('autosave' => false));
 Stub::construct('User', array('autosave' => false), array('name' => 'davert'));
-
+?>
 
 {% endhighlight %}
 
@@ -80,7 +86,7 @@ Accepts either name of class or object of that class
 
 <?php
 Stub::construct(new User, array('autosave' => false), array('name' => 'davert'));
-
+?>
 
 {% endhighlight %}
 
@@ -92,7 +98,7 @@ and it's return value or callback function as parameter
 <?php
 Stub::construct('User', array(), array('save' => function () { return true; }));
 Stub::construct('User', array(), array('save' => true }));
-
+?>
 
 {% endhighlight %}
 
@@ -105,7 +111,9 @@ Stub::construct('User', array(), array('save' => true }));
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Stub.php#L286)
 
-#### * static* constructEmpty($class, $constructorParams = null, $params = null, $testCase = null) 
+constructEmpty 
+*static* 
+
 
 Instantiates a class instance by running constructor with all methods replaced with dummies.
 Parameters for constructor passed as second argument
@@ -117,7 +125,7 @@ Even protected and private properties can be set.
 <?php
 Stub::constructEmpty('User', array('autosave' => false));
 Stub::constructEmpty('User', array('autosave' => false), array('name' => 'davert'));
-
+?>
 
 {% endhighlight %}
 
@@ -127,7 +135,7 @@ Accepts either name of class or object of that class
 
 <?php
 Stub::constructEmpty(new User, array('autosave' => false), array('name' => 'davert'));
-
+?>
 
 {% endhighlight %}
 
@@ -139,7 +147,7 @@ and it's return value or callback function as parameter
 <?php
 Stub::constructEmpty('User', array(), array('save' => function () { return true; }));
 Stub::constructEmpty('User', array(), array('save' => true }));
-
+?>
 
 {% endhighlight %}
 
@@ -152,7 +160,9 @@ Stub::constructEmpty('User', array(), array('save' => true }));
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Stub.php#L338)
 
-#### * static* constructEmptyExcept($class, $method, $constructorParams = null, $params = null, $testCase = null) 
+constructEmptyExcept 
+*static* 
+
 
 Instantiates a class instance by running constructor with all methods replaced with dummies, except one.
 Parameters for constructor passed as second argument
@@ -164,7 +174,7 @@ Even protected and private properties can be set.
 <?php
 Stub::constructEmptyExcept('User', 'save');
 Stub::constructEmptyExcept('User', 'save', array('autosave' => false), array('name' => 'davert'));
-
+?>
 
 {% endhighlight %}
 
@@ -174,7 +184,7 @@ Accepts either name of class or object of that class
 
 <?php
 Stub::constructEmptyExcept(new User, 'save', array('autosave' => false), array('name' => 'davert'));
-
+?>
 
 {% endhighlight %}
 
@@ -186,7 +196,7 @@ and it's return value or callback function as parameter
 <?php
 Stub::constructEmptyExcept('User', 'save', array(), array('save' => function () { return true; }));
 Stub::constructEmptyExcept('User', 'save', array(), array('save' => true }));
-
+?>
 
 {% endhighlight %}
 
@@ -200,7 +210,9 @@ Stub::constructEmptyExcept('User', 'save', array(), array('save' => true }));
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Stub.php#L395)
 
-#### * static* copy($obj, $params = null) 
+copy 
+*static* 
+
 
 Clones an object and redefines it's properties (even protected and private)
 
@@ -211,7 +223,9 @@ Clones an object and redefines it's properties (even protected and private)
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Stub.php#L240)
 
-#### * static* exactly($count, $params = null) 
+exactly 
+*static* 
+
 
 Checks if a method has been invoked a certain amount
 of times.
@@ -233,7 +247,7 @@ $user = Stub::make(
 $user->getName();
 $user->getName();
 $user->getName();
-
+?>
 
 {% endhighlight %}
 
@@ -244,7 +258,9 @@ $user->getName();
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Stub.php#L731)
 
-#### * static* factory($class, $num = null, $params = null) 
+factory 
+*static* 
+
 
 Creates $num instances of class through `Stub::make`.
 
@@ -256,7 +272,9 @@ Creates $num instances of class through `Stub::make`.
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Stub.php#L94)
 
-#### * static* make($class, $params = null, $testCase = null) 
+make 
+*static* 
+
 
 Instantiates a class without executing a constructor.
 Properties and methods can be set as a second parameter.
@@ -267,7 +285,7 @@ Even protected and private properties can be set.
 <?php
 Stub::make('User');
 Stub::make('User', array('name' => 'davert'));
-
+?>
 
 {% endhighlight %}
 
@@ -277,7 +295,7 @@ Accepts either name of class or object of that class
 
 <?php
 Stub::make(new User, array('name' => 'davert'));
-
+?>
 
 {% endhighlight %}
 
@@ -289,7 +307,7 @@ and it's return value or callback function as parameter
 <?php
 Stub::make('User', array('save' => function () { return true; }));
 Stub::make('User', array('save' => true }));
-
+?>
 
 {% endhighlight %}
 
@@ -302,7 +320,9 @@ Stub::make('User', array('save' => true }));
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Stub.php#L45)
 
-#### * static* makeEmpty($class, $params = null, $testCase = null) 
+makeEmpty 
+*static* 
+
 
 Instantiates class having all methods replaced with dummies.
 Constructor is not triggered.
@@ -314,7 +334,7 @@ Even protected and private properties can be set.
 <?php
 Stub::makeEmpty('User');
 Stub::makeEmpty('User', array('name' => 'davert'));
-
+?>
 
 {% endhighlight %}
 
@@ -324,7 +344,7 @@ Accepts either name of class or object of that class
 
 <?php
 Stub::makeEmpty(new User, array('name' => 'davert'));
-
+?>
 
 {% endhighlight %}
 
@@ -336,7 +356,7 @@ and it's return value or callback function as parameter
 <?php
 Stub::makeEmpty('User', array('save' => function () { return true; }));
 Stub::makeEmpty('User', array('save' => true }));
-
+?>
 
 {% endhighlight %}
 
@@ -348,7 +368,9 @@ Stub::makeEmpty('User', array('save' => true }));
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Stub.php#L214)
 
-#### * static* makeEmptyExcept($class, $method, $params = null, $testCase = null) 
+makeEmptyExcept 
+*static* 
+
 
 Instantiates class having all methods replaced with dummies except one.
 Constructor is not triggered.
@@ -360,7 +382,7 @@ Even protected and private properties can be set.
 <?php
 Stub::makeEmptyExcept('User', 'save');
 Stub::makeEmptyExcept('User', 'save', array('name' => 'davert'));
-
+?>
 
 {% endhighlight %}
 
@@ -370,7 +392,7 @@ Accepts either name of class or object of that class
 
 <?php
 * Stub::makeEmptyExcept(new User, 'save');
-
+?>
 
 {% endhighlight %}
 
@@ -382,7 +404,7 @@ and it's return value or callback function as parameter
 <?php
 Stub::makeEmptyExcept('User', 'save', array('isValid' => function () { return true; }));
 Stub::makeEmptyExcept('User', 'save', array('isValid' => true }));
-
+?>
 
 {% endhighlight %}
 
@@ -395,7 +417,9 @@ Stub::makeEmptyExcept('User', 'save', array('isValid' => true }));
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Stub.php#L142)
 
-#### * static* never($params = null) 
+never 
+*static* 
+
 
 Checks if a method never has been invoked
 
@@ -407,7 +431,7 @@ exception.
 <?php
 $user = Stub::make('User', array('getName' => Stub::never(), 'someMethod' => function() {}));
 $user->someMethod();
-
+?>
 
 {% endhighlight %}
 
@@ -417,7 +441,9 @@ $user->someMethod();
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Stub.php#L630)
 
-#### * static* once($params = null) 
+once 
+*static* 
+
 
 Checks if a method has been invoked exactly one
 time.
@@ -437,7 +463,7 @@ $user = Stub::make(
 );
 $userName = $user->getName();
 $this->assertEquals('Davert', $userName);
-
+?>
 
 {% endhighlight %}
 
@@ -447,7 +473,9 @@ $this->assertEquals('Davert', $userName);
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Stub.php#L663)
 
-#### * static* update($mock, array $params) 
+update 
+*static* 
+
 
 Replaces properties of current stub
 
