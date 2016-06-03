@@ -179,7 +179,7 @@ Inserts an SQL record into a database. This record will be erased after the test
 
 <?php
 $I->haveInDatabase('users', array('name' => 'miles', 'email' => 'miles * `davis.com'));` 
-?>
+
 
 {% endhighlight %}
 
@@ -214,7 +214,7 @@ Asserts that the given number of records were found in the database.
 
 <?php
 $I->seeNumRecords(1, 'users', ['name' => 'davert'])
-?>
+
 
 {% endhighlight %}
 

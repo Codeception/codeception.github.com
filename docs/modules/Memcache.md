@@ -58,7 +58,7 @@ Example:
 
 <?php
 $users_count = $I->grabValueFromMemcached('users_count');
-?>
+
 
 {% endhighlight %}
 

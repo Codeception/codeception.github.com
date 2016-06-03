@@ -54,7 +54,7 @@ Thus, newly generated tests will look like this:
 <?php use frontend\AcceptanceTester;
 $I = new AcceptanceTester($scenario);
 //...
-?>
+
 
 {% endhighlight %}
 
@@ -152,7 +152,7 @@ class MyCustomExtension extends \Codeception\Extension
 
     public function print(\Codeception\Event\PrintResultEvent $e) {}
 }
-?>
+
 
 {% endhighlight %}  
 
@@ -236,7 +236,7 @@ When a test is added to a group:
 <?php 
 $scenario->group('admin');
 $I = new AcceptanceTester($scenario);
-?>
+
 
 {% endhighlight %}
 
@@ -276,7 +276,7 @@ class Admin extends \Codeception\GroupObject
         // ...
     }
 }
-?>
+
 
 {% endhighlight %}
 

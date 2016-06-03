@@ -206,7 +206,7 @@ Example:
 // match the first `user.id` in json
 $firstUserId = $I->grabDataFromResponseByJsonPath('$..users[0].id');
 $I->sendPUT('/user', array('id' => $firstUserId[0], 'name' => 'davert'));
-?>
+
 
 {% endhighlight %}
 
@@ -240,7 +240,7 @@ Example:
 <?php
 $user_id = $I->grabResponse();
 $I->sendPUT('/user', array('id' => $user_id, 'name' => 'davert'));
-?>
+
 
 {% endhighlight %}
 
@@ -269,7 +269,7 @@ Sets HTTP header valid for all next requests. Use `deleteHeader` to unset it
 <?php
 $I->haveHttpHeader('Content-Type', 'application/json');
 // all next requests will contain this header
-?>
+
 
 {% endhighlight %}
 
@@ -300,7 +300,7 @@ You can check that you didn't accidentally sent the same header twice.
 
 <?php
 $I->seeHttpHeaderOnce('Cache-Control');
-?>>
+>
 
 {% endhighlight %}
 
@@ -345,7 +345,7 @@ $I->seeResponseContainsJson(array('name' => 'john'));
 // response {user: john, profile: { email: john * `gmail.com`  }}
 $I->seeResponseContainsJson(array('email' => 'john * `gmail.com'));` 
 
-?>
+
 
 {% endhighlight %}
 
@@ -422,7 +422,7 @@ $I->seeResponseJsonMatchesJsonPath('$.store.book[*].author');
 $I->seeResponseJsonMatchesJsonPath('$.store.book[0].author');
 // at least one item in store has price
 $I->seeResponseJsonMatchesJsonPath('$.store..price');
-?>
+
 
 {% endhighlight %}
 
@@ -469,7 +469,7 @@ $I->seeResponseJsonMatchesXpath('//store/book/author');
 $I->seeResponseJsonMatchesXpath('//store/book[1]/author');
 // at least one item in store has price
 $I->seeResponseJsonMatchesXpath('/store//price');
-?>
+
 
 {% endhighlight %}
  * `[Part]` json
@@ -498,7 +498,7 @@ $I->seeResponseMatchesJsonType([
 // narrow down matching with JsonPath:
 // {"users": [{ "name": "davert"}, {"id": 1}]}
 $I->seeResponseMatchesJsonType(['name' => 'string'], '$.users[0]');
-?>
+
 
 {% endhighlight %}
 
@@ -521,7 +521,7 @@ $I->seeResponseMatchesJsonType([
      'user_id' => 'integer|string', // multiple types
      'company' => ['name' => 'string']
 ]);
-?>
+
 
 {% endhighlight %}
 
@@ -551,7 +551,7 @@ $I->seeResponseMatchesJsonType([
 $I->seeResponseMatchesJsonType([
      'user_id' => 'string:>0', // works with strings as well
 }
-?>
+
 
 {% endhighlight %}
 
@@ -587,7 +587,7 @@ Example:
 
 <?php
 $I->seeXmlResponseIncludes("<result>1</result>");
-?>
+
 
 {% endhighlight %}
 

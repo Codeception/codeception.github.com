@@ -16,6 +16,7 @@ Probably the first test you would want to run would be signing in. In order to w
 
 {% highlight php %}
 
+<?php
 $I->amOnPage('/login');
 $I->fillField('username', 'davert');
 $I->fillField('password', 'qwerty');
@@ -56,7 +57,6 @@ We should start by creating a 'Cept' file in the `tests/acceptance` directory. L
 <?php
 $I = new AcceptanceTester($scenario);
 $I->wantTo('sign in');
-?>
 
 {% endhighlight %}
 
@@ -66,7 +66,6 @@ The `$I` object is used to write all interactions. The methods of the `$I` objec
 
 <?php
 $I->amOnPage('/login');
-?>
 
 {% endhighlight %}
 
@@ -88,7 +87,6 @@ $I->click('#login a');
 $I->click('//a[@id=login]');
 // Using context as second argument
 $I->click('Login', '.nav');
-?>
 
 {% endhighlight %}
 
@@ -107,7 +105,6 @@ Codeception tries to locate element either by its text, name, CSS or XPath. You 
 // By specifying locator type
 $I->click(['link' => 'Login']);
 $I->click(['class' => 'btn']);
-?>
 
 {% endhighlight %}
 
@@ -154,7 +151,6 @@ $I->fillField('Name', 'Miles');
 $I->fillField('user[email]','miles@davis.com');
 $I->selectOption('Gender','Male');
 $I->click('Update');
-?>
 
 {% endhighlight %}
 
@@ -171,7 +167,6 @@ $I->submitForm('#update_form', array('user' => array(
      'email' => 'Davis',
      'gender' => 'm'
 )));
-?>
 
 {% endhighlight %}
 
@@ -194,7 +189,6 @@ $I->submitForm('#update_form', array('user' => array(
      'gender' => 'm',
 	 'submitButton' => 'Update'
 )));
-?>
 
 {% endhighlight %}
 
@@ -216,7 +210,6 @@ $I->see('Thank you, Miles', '.notice');
 $I->see('Thank you, Miles', "//table/tr[2]");
 // We check this message is not on page.
 $I->dontSee('Form is filled incorrectly');
-?>
 
 {% endhighlight %}
 
@@ -227,7 +220,6 @@ You can check that specific element exists (or not) on a page
 <?php
 $I->seeElement('.notice');
 $I->dontSeeElement('.error');
-?>
 
 {% endhighlight %}
 
@@ -240,7 +232,6 @@ $I->seeInCurrentUrl('/user/miles');
 $I->seeCheckboxIsChecked('#agree');
 $I->seeInField('user[name]', 'Miles');
 $I->seeLink('Login');
-?>
 
 {% endhighlight %}
 
@@ -254,7 +245,6 @@ Sometimes you don't want the test to be stopped when an assertion fails. Maybe y
 $I->canSeeInCurrentUrl('/user/miles');
 $I->canSeeCheckboxIsChecked('#agree');
 $I->cantSeeInField('user[name]', 'Miles');
-?>
 
 {% endhighlight %}
 
@@ -273,7 +263,6 @@ $I->fillField('user[email]', 'miles');
 $I->click('Update');
 $I->expect('the form is not submitted');
 $I->see('Form is filled incorrectly');
-?>
 
 {% endhighlight %}
 
@@ -291,7 +280,6 @@ $I->click('Login');
 $I->fillField('email', 'miles@davis.com');
 $I->fillField('password', $password);
 $I->click('Log in!');
-?>
 
 {% endhighlight %}
 
@@ -303,7 +291,6 @@ Grabbers allow you to get a single value from the current page with commands.
 $token = $I->grabTextFrom('.token');
 $password = $I->grabTextFrom("descendant::input/descendant::*[@id = 'password']");
 $api_key = $I->grabValueFrom('input[name=api]');
-?>
 
 {% endhighlight %}
 
@@ -317,7 +304,6 @@ Actions for cookies:
 $I->setCookie('auth', '123345');
 $I->grabCookie('auth');
 $I->seeCookie('auth');
-?>
 
 {% endhighlight %}
 
@@ -328,7 +314,6 @@ Actions for checking page title:
 <?php
 $I->seeInTitle('Login');
 $I->dontSeeInTitle('Register');
-?>
 
 {% endhighlight %}
 
@@ -341,7 +326,6 @@ $I->seeCurrentUrlEquals('/login');
 $I->seeCurrentUrlMatches('~$/users/(\d+)~');
 $I->seeInCurrentUrl('user/1');
 $user_id = $I->grabFromCurrentUrl('~$/user/(\d+)/~');
-?>
 
 {% endhighlight %}
 
@@ -376,10 +360,8 @@ In this case `seeElement` won't just check that the element exists on a page, bu
 
 <?php 
 $I->seeElement('#modal'); 
-?>
 
 {% endhighlight %}
-
 
 #### Wait
 
@@ -392,7 +374,6 @@ For example:
 <?php
 $I->waitForElement('#agree_button', 30); // secs
 $I->click('#agree_button');
-?>
 
 {% endhighlight %}
 
@@ -406,6 +387,7 @@ Codeception allows you to execute actions in concurrent sessions. The most obvio
 
 {% highlight php %}
 
+<?php
 $I->amOnPage('/messages');
 $nick = $I->haveFriend('nick');
 $nick->does(function(AcceptanceTester $I) {
@@ -416,30 +398,27 @@ $nick->does(function(AcceptanceTester $I) {
 });
 $I->wait(3);
 $I->see('Hello all!', '.message');
-?>
 
 {% endhighlight %}
 
 In this case we did some actions in second window with `does` command on a friend object.
 
 Sometimes you may want to close a web page before the end of the test. For such cases you may use leave(). You can also specify roles for friend : 
+
 {% highlight php %}
 
 <?php
-
 $nickAdmin = $I->haveFriend('nickAdmin', adminStep::class);
 $nickAdmin->does(function(adminStep $I) {
     // Admin does ...
 });
 $nickAdmin->leave();
-?>
 
 {% endhighlight %}
 
-
 ### Cloud Testing
 
-Selenium Webdriver allows to execute tests in real browsers on different platforms. Some environments are hard to be reproduced manually, testing Internet Explorer 6-8 on Windows XP may be a hard thing, especially if you don't have Windows XP installed. This is where Cloud Testing services come to help you. Services such as [SauceLabs](https://saucelabs.com), [BrowserStack](https://www.browserstack.com/) and [others](http://codeception.com/docs/modules/WebDriver#Cloud-Testing) can create virtual machine on demand and set up Selenium Server and desired browser. Tests are executed on a remote machine in a cloud, to access local files cloud testing service provides special application called **Tunnel**. Tunnel operates on secured protocol and allows browser executed in a cloud to connect to local web server. 
+Selenium WeDdriver allows to execute tests in real browsers on different platforms. Some environments are hard to be reproduced manually, testing Internet Explorer 6-8 on Windows XP may be a hard thing, especially if you don't have Windows XP installed. This is where Cloud Testing services come to help you. Services such as [SauceLabs](https://saucelabs.com), [BrowserStack](https://www.browserstack.com/) and [others](http://codeception.com/docs/modules/WebDriver#Cloud-Testing) can create virtual machine on demand and set up Selenium Server and desired browser. Tests are executed on a remote machine in a cloud, to access local files cloud testing service provides special application called **Tunnel**. Tunnel operates on secured protocol and allows browser executed in a cloud to connect to local web server. 
 
 Cloud Testing services work with standard WebDriver protocol. This makes setting up cloud testing relly easy. You just need to set [configuration into WebDriver module](http://codeception.com/docs/modules/WebDriver#Cloud-Testing): 
 
@@ -487,7 +466,6 @@ Codeception modules can print valuable information while running. Just execute t
 
 <?php
 codecept_debug($I->grabTextFrom('#name'));
-?>
 
 {% endhighlight %}
 

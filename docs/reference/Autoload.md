@@ -28,7 +28,7 @@ Autoload::addNamespace('app\Codeception', '/path/to/helpers');
 Autoload::addNamespace('', '/path/to/pageobjects');
 
 Autoload::addNamespace('app\Codeception', '/path/to/controllers');
-?>
+
 
 {% endhighlight %}
 

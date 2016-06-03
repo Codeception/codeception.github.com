@@ -88,7 +88,7 @@ class RoboFile extends \Robo\Tasks
 {
     // define public methods as commands
 }
-?>
+
 
 {% endhighlight %}
 
@@ -121,7 +121,7 @@ class Robofile extends \Robo\Tasks
 
     }
 }
-?>
+
 
 {% endhighlight %}
 
@@ -184,7 +184,7 @@ Tasks from `\Codeception\Task\SplitTestsByGroups` will generate non-intersecting
             ->groupsTo('tests/_log/p')
             ->run();
     }    
-?>
+
 
 {% endhighlight %}
 
@@ -218,7 +218,7 @@ Let's try to execute tests from the second group:
 
 {% highlight bash %}
 
-$ php codecept.phar run functional -g p2
+$ php codecept run functional -g p2
 
 {% endhighlight %}
 
@@ -242,7 +242,7 @@ As it was mentioned, Robo has `ParallelExec` task to spawn background processes.
         }
         return $parallel->run();
     }
-?>    
+    
 
 {% endhighlight %}
 
@@ -320,7 +320,7 @@ Now, we should update our `parallelRun` method to use corresponding environment:
         }
         return $parallel->run();
     }
-?>    
+    
 
 {% endhighlight %}
 
@@ -348,7 +348,7 @@ We should not rely on console output when running our tests. In case of `paralle
         $merge->into("/tests/_log/result.xml")
             ->run();
     }
-?>
+
 
 {% endhighlight %}
 
@@ -368,7 +368,7 @@ To create one command to rule them all we can define new public method `parallel
         $this->parallelMergeResults();
         return $result;
     }
-?>
+
 
 {% endhighlight %}
 

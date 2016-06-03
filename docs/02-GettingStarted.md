@@ -55,7 +55,7 @@ A Scenario always starts with Actor class initialization. After that, writing a 
 <?php
 $I = new AcceptanceTester($scenario);
 $I->wantTo('login to website');
-?>
+
 
 {% endhighlight %}
 
@@ -87,7 +87,6 @@ $I->fillField('Username','davert');
 $I->fillField('Password','qwerty');
 $I->click('Login');
 $I->see('Hello, davert');
-?>
 
 {% endhighlight %}
 
@@ -229,7 +228,6 @@ class PageCrudCest
        // todo: write test
     }
 }
-?>
 
 {% endhighlight %}
 

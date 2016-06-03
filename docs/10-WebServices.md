@@ -11,7 +11,7 @@ You should start by creating a new test suite, (which was not provided by the `b
 
 {% highlight bash %}
 
-$ php codecept.phar generate:suite api
+$ php codecept generate:suite api
 
 {% endhighlight %}
 
@@ -66,7 +66,7 @@ Once we have configured our new testing suite, we can create the first sample te
 
 {% highlight bash %}
 
-$ php codecept.phar generate:cept api CreateUser
+$ php codecept generate:cept api CreateUser
 
 {% endhighlight %}
 
@@ -83,7 +83,7 @@ $I->sendPOST('/users', ['name' => 'davert', 'email' => 'davert@codeception.com']
 $I->seeResponseCodeIs(200);
 $I->seeResponseIsJson();
 $I->seeResponseContains('{"result":"ok"}');
-?>
+
 
 {% endhighlight %}
 
@@ -104,7 +104,7 @@ $I->seeResponseContainsJson([
       'status' => 'inactive'
   ]
 ]);
-?>
+
 
 {% endhighlight %}
 
@@ -122,7 +122,7 @@ class Api extends \Codeception\Module
     $this->assertRegExp('~^<!DOCTYPE HTML(.*?)<html>.*?<\/html>~m', $response);
   }
 }
-?>
+
 
 {% endhighlight %}
 
@@ -143,7 +143,7 @@ $I->sendGET('/users');
 $I->seeResponseIsJson();
 $I->seeResponseJsonMatchesJsonPath('$[0].user.login');
 $I->seeResponseJsonMatchesXpath('//user/login');
-?>
+
 
 {% endhighlight %}
 
@@ -163,7 +163,7 @@ $I->seeResponseMatchesJsonType([
     'created_at' => 'string:date',
     'is_active' => 'boolean'
 ]);
-?>
+
 
 {% endhighlight %}
 
@@ -191,7 +191,7 @@ $I->seeXmlResponseIncludes(XmlUtils::toXml(
       'status' => 'inactive'
   ]
 ));
-?>
+
 
 {% endhighlight %}
 
@@ -225,7 +225,7 @@ SOAP request may contain application specific information, like authentication o
 
 <?php
 $I->haveSoapHeader('Auth', array('username' => 'Miles', 'password' => '123456'));
-?>
+
 
 {% endhighlight %}
 will produce this XML header
@@ -247,7 +247,7 @@ Use `sendSoapRequest` method to define the body of your request.
 
 <?php
 $I->sendSoapRequest('CreateUser', '<name>Miles Davis</name><email>miles@davis.com</email>');
-?>
+
 
 {% endhighlight %}
 
@@ -269,11 +269,11 @@ And here is the list of sample assertions that can be used with SOAP.
 {% highlight php %}
 
 <?php
-$I->seeSoapResponseEquals('<?xml version="1.0"?><error>500</error>');
+$I->seeSoapResponseEquals('<?xml version="1.0"<error>500</error>');
 $I->seeSoapResponseIncludes('<result>1</result>');
 $I->seeSoapResponseContainsStructure('<user><name></name><email></email>');
 $I->seeSoapResponseContainsXPath('//result/user/name[@id=1]');
-?>
+
 
 {% endhighlight %}
 
@@ -294,7 +294,7 @@ $I->seeSoapResponseIncludes(Xml::build()
   ->result->val('Ok')
     ->user->attr('id', 1)
 );
-?>
+
 
 {% endhighlight %}
 
@@ -314,7 +314,7 @@ class Api extends \Codeception\Module {
     $this->assertTrue($response->schemaValidate($schema));
   }
 }
-?>
+
 
 {% endhighlight %}
 

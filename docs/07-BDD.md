@@ -89,7 +89,7 @@ Feature file is written in Gherkin format. Codeception can generate a feature fi
 We will assume that we will use scenarios in feature files for acceptance tests, so feature files to be placed in `acceptance` suite directory:
 
 {% highlight php %}
- codecept.phar g:feature acceptance checkout
+ codecept g:feature acceptance checkout
 
 {% endhighlight %}
 

@@ -20,7 +20,6 @@ $I->amOnPage('/');
 $I->see('Hello');
 $I->seeInDatabase('users', ['id' => 1]);
 $I->seeFileFound('running.lock');
-?>
 
 {% endhighlight %}
 
@@ -70,7 +69,7 @@ class AcceptanceTester extends \Codeception\Actor
     */
 
 }
-?>
+
 
 {% endhighlight %}
 
@@ -99,7 +98,7 @@ class AcceptanceTester extends \Codeception\Actor
         $I->see($name, '.navbar');
     } 
 }
-?>
+
 
 {% endhighlight %}
 
@@ -110,7 +109,7 @@ Now you can use `login` method inside your tests:
 <?php
 $I = new AcceptanceTester($scenario);
 $I->login('miles', '123456');
-?>
+
 
 {% endhighlight %}
 
@@ -145,7 +144,7 @@ Let's improve code of our `login` method by making it executed only once for the
          // saving snapshot
         $I->saveSessionSnapshot('login');
     }
-?>
+
 
 {% endhighlight %}
 
@@ -189,7 +188,7 @@ class Admin extends \AcceptanceTester
         $I = $this;
     }
 }
-?>
+
 
 {% endhighlight %}
 
@@ -213,7 +212,7 @@ class Member extends \AcceptanceTester
         $I->click('Login');
     }
 }
-?>
+
 
 {% endhighlight %}
 
@@ -226,7 +225,7 @@ use Step\Acceptance\Admin as AdminTester;
 
 $I = new AdminTester($scenario);
 $I->loginAsAdmin();
-?>
+
 
 {% endhighlight %}
 
@@ -244,7 +243,7 @@ class UserCest
         $I->see('Admin Profile', 'h1');        
     }
 }
-?>
+
 
 {% endhighlight %}
 
@@ -282,7 +281,7 @@ class Login
     public static $passwordField = '#mainForm input[name=password]';
     public static $loginButton = '#mainForm input[type=submit]';
 }
-?>
+
 
 {% endhighlight %}
 
@@ -300,7 +299,7 @@ $I->fillField(LoginPage::$usernameField, 'bill evans');
 $I->fillField(LoginPage::$passwordField, 'debby');
 $I->click(LoginPage::$loginButton);
 $I->see('Welcome, bill');
-?>
+
 
 {% endhighlight %}
 As you see, you can freely change markup of your login page, and all the tests interacting with this page will have their locators updated according to properties of LoginPage class.
@@ -342,7 +341,7 @@ class Login
         return $this;
     }    
 }
-?>
+
 
 {% endhighlight %}
 
@@ -358,7 +357,7 @@ $loginPage = new LoginPage($I);
 $loginPage->login('bill evans', 'debby');
 $I->amOnPage('/profile');
 $I->see('Bill Evans Profile', 'h1');
-?>
+
 
 {% endhighlight %}
 
@@ -376,7 +375,7 @@ class UserCest
         $I->see('Bill Evans Profile', 'h1');        
     }
 }
-?>
+
 
 {% endhighlight %}
 

@@ -38,7 +38,7 @@ $app['debug'] = true;
 $app['exception_handler']->disable();
 
 return $app; // optionally
-?>
+
 
 {% endhighlight %}
 
@@ -100,7 +100,7 @@ public function seeResponseContains($text)
 {
    $this->assertContains($text, $this->getModule('Silex')->_getResponseContent(), "response contains");
 }
-?>
+
 
 {% endhighlight %}
 
@@ -122,7 +122,7 @@ Useful for testing multi-step forms on a specific step.
 public function openCheckoutFormStep2($orderId) {
     $this->getModule('Silex')->_loadPage('POST', '/checkout/step2', ['order' => $orderId]);
 }
-?>
+
 
 {% endhighlight %}
 
@@ -151,7 +151,7 @@ public function createUserByApi($name) {
     $user = json_decode($userData);
     return $user->id;
 }
-?>
+
 
 {% endhighlight %}
 Does not load the response into the module so you can't interact with response page (click, fill forms).
@@ -216,7 +216,7 @@ Attaches a file relative to the Codeception data directory to the given file upl
 <?php
 // file is stored in 'tests/_data/prices.xls'
 $I->attachFile('input[ * `type="file"]',`  'prices.xls');
-?>
+
 
 {% endhighlight %}
 
@@ -232,7 +232,7 @@ Ticks a checkbox. For radio buttons, use the `selectOption` method instead.
 
 <?php
 $I->checkOption('#agree');
-?>
+
 
 {% endhighlight %}
 
@@ -266,7 +266,7 @@ $I->click('//form/*[ * `type=submit]');`
 $I->click('Logout', '#nav');
 // using strict locator
 $I->click(['link' => 'Login']);
-?>
+
 
 {% endhighlight %}
 
@@ -288,7 +288,7 @@ $I->amOnPage('test-headers.php');
 // ...
 $I->deleteHeader('X-Requested-With');
 $I->amOnPage('some-other-page.php');
-?>
+
 
 {% endhighlight %}
 
@@ -336,7 +336,7 @@ Check that the specified checkbox is unchecked.
 <?php
 $I->dontSeeCheckboxIsChecked('#agree'); // I suppose user didn't agree to terms
 $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user didn't check the first checkbox in form.
-?>
+
 
 {% endhighlight %}
 
@@ -363,7 +363,7 @@ Unlike `dontSeeInCurrentUrl`, this only matches the full URL.
 <?php
 // current url is not root
 $I->dontSeeCurrentUrlEquals('/');
-?>
+
 
 {% endhighlight %}
 
@@ -379,7 +379,7 @@ Checks that current url doesn't match the given regular expression.
 <?php
 // to match root url
 $I->dontSeeCurrentUrlMatches('~$/users/(\d+)~');
-?>
+
 
 {% endhighlight %}
 
@@ -398,7 +398,7 @@ $I->dontSeeElement('.error');
 $I->dontSeeElement('//form/input[1]');
 $I->dontSeeElement('input', ['name' => 'login']);
 $I->dontSeeElement('input', ['value' => '123456']);
-?>
+
 
 {% endhighlight %}
 
@@ -414,7 +414,7 @@ Checks that the current URI doesn't contain the given string.
 
 <?php
 $I->dontSeeInCurrentUrl('/users/');
-?>
+
 
 {% endhighlight %}
 
@@ -435,7 +435,7 @@ $I->dontSeeInField('form input[type=hidden]','hidden_value');
 $I->dontSeeInField('#searchform input','Search');
 $I->dontSeeInField('//form/*[ * `name=search]','Search');` 
 $I->dontSeeInField(['name' => 'search'], 'Search');
-?>
+
 
 {% endhighlight %}
 
@@ -455,7 +455,7 @@ $I->dontSeeInFormFields('form[name=myform]', [
      'input1' => 'non-existent value',
      'input2' => 'other non-existent value',
 ]);
-?>
+
 
 {% endhighlight %}
 
@@ -471,7 +471,7 @@ $I->dontSeeInFormFields('.form-class', [
          'And this value shouldn\'t be set',
      ],
 ]);
-?>
+
 
 {% endhighlight %}
 
@@ -484,7 +484,7 @@ $I->dontSeeInFormFields('#form-id', [
      'checkbox1' => true,        // fails if checked
      'checkbox2' => false,       // fails if unchecked
 ]);
-?>
+
 
 {% endhighlight %}
 
@@ -525,7 +525,7 @@ If the second parameter is given, only links with a matching "href" attribute wi
 <?php
 $I->dontSeeLink('Logout'); // I suppose user is not logged in
 $I->dontSeeLink('Checkout now', '/store/cart.php');
-?>
+
 
 {% endhighlight %}
 
@@ -541,7 +541,7 @@ Checks that the given option is not selected.
 
 <?php
 $I->dontSeeOptionIsSelected('#form input[name=payment]', 'Visa');
-?>
+
 
 {% endhighlight %}
 
@@ -559,7 +559,7 @@ Fills a text field or textarea with the given string.
 <?php
 $I->fillField("//input[ * `type='text']",`  "Hello World!");
 $I->fillField(['name' => 'email'], 'jon * `mail.com');` 
-?>
+
 
 {% endhighlight %}
 
@@ -583,7 +583,7 @@ Fails if element is not found.
 
 <?php
 $I->grabAttributeFrom('#tooltip', 'title');
-?>
+
 
 {% endhighlight %}
 
@@ -613,7 +613,7 @@ If no parameters are provided, the full URI is returned.
 <?php
 $user_id = $I->grabFromCurrentUrl('~$/user/(\d+)/~');
 $uri = $I->grabFromCurrentUrl();
-?>
+
 
 {% endhighlight %}
 
@@ -642,7 +642,7 @@ $aLinkText = $I->grabMultiple('a');
 
 // would return ['#first', '#second', '#third']
 $aLinks = $I->grabMultiple('a', 'href');
-?>
+
 
 {% endhighlight %}
 
@@ -660,7 +660,7 @@ Example
 
 <?php
 $I->grabService('session');
-?>
+
 
 {% endhighlight %}
 
@@ -679,7 +679,7 @@ and by matching the full page source by regular expression.
 $heading = $I->grabTextFrom('h1');
 $heading = $I->grabTextFrom('descendant-or-self::h1');
 $value = $I->grabTextFrom('~<input value=(.*?)]~sgi'); // match with a regex
-?>
+
 
 {% endhighlight %}
 
@@ -705,7 +705,7 @@ Example:
 <?php
 $I->setHeader('X-Requested-With', 'Codeception');
 $I->amOnPage('test-headers.php');
-?>
+
 
 {% endhighlight %}
 
@@ -775,7 +775,7 @@ Checks that the specified checkbox is checked.
 $I->seeCheckboxIsChecked('#agree'); // I suppose user agreed to terms
 $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user agreed to terms, If there is only one checkbox in form.
 $I->seeCheckboxIsChecked('//form/input[ * `type=checkbox`  and  * `name=agree]');` 
-?>
+
 
 {% endhighlight %}
 
@@ -791,7 +791,7 @@ You can set additional cookie params like `domain`, `path` as array passed in la
 
 <?php
 $I->seeCookie('PHPSESSID');
-?>
+
 
 {% endhighlight %}
 
@@ -809,7 +809,7 @@ Unlike `seeInCurrentUrl`, this only matches the full URL.
 <?php
 // to match root url
 $I->seeCurrentUrlEquals('/');
-?>
+
 
 {% endhighlight %}
 
@@ -825,7 +825,7 @@ Checks that the current URL matches the given regular expression.
 <?php
 // to match root url
 $I->seeCurrentUrlMatches('~$/users/(\d+)~');
-?>
+
 
 {% endhighlight %}
 
@@ -847,7 +847,7 @@ $I->seeElement('input', ['value' => '123456']);
 
 // strict locator in first arg, attributes in second
 $I->seeElement(['css' => 'form input'], ['name' => 'login']);
-?>
+
 
 {% endhighlight %}
 
@@ -867,7 +867,7 @@ Checks that current URI contains the given string.
 $I->seeInCurrentUrl('home');
 // to match: /users/1
 $I->seeInCurrentUrl('/users/');
-?>
+
 
 {% endhighlight %}
 
@@ -888,7 +888,7 @@ $I->seeInField('form input[type=hidden]','hidden_value');
 $I->seeInField('#searchform input','Search');
 $I->seeInField('//form/*[ * `name=search]','Search');` 
 $I->seeInField(['name' => 'search'], 'Search');
-?>
+
 
 {% endhighlight %}
 
@@ -908,7 +908,7 @@ $I->seeInFormFields('form[name=myform]', [
      'input1' => 'value',
      'input2' => 'other value',
 ]);
-?>
+
 
 {% endhighlight %}
 
@@ -928,7 +928,7 @@ $I->seeInFormFields('.form-class', [
          'another checked value',
      ],
 ]);
-?>
+
 
 {% endhighlight %}
 
@@ -941,7 +941,7 @@ $I->seeInFormFields('#form-id', [
      'checkbox1' => true,        // passes if checked
      'checkbox2' => false,       // passes if unchecked
 ]);
-?>
+
 
 {% endhighlight %}
 
@@ -959,7 +959,7 @@ $form = [
 $I->submitForm('//form[ * `id=my-form]',`  $form, 'submitButton');
 // $I->amOnPage('/path/to/form-page') may be needed
 $I->seeInFormFields('//form[ * `id=my-form]',`  $form);
-?>
+
 
 {% endhighlight %}
 
@@ -990,7 +990,7 @@ Checks that the page title contains the given string.
 
 <?php
 $I->seeInTitle('Blog - Post #1');
-?>
+
 
 {% endhighlight %}
 
@@ -1008,7 +1008,7 @@ Give a full URL as the second parameter to match links with that exact URL.
 <?php
 $I->seeLink('Logout'); // matches <a href="#">Logout</a>
 $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
-?>
+
 
 {% endhighlight %}
 
@@ -1025,7 +1025,7 @@ Checks that there are a certain number of elements matched by the given locator 
 <?php
 $I->seeNumberOfElements('tr', 10);
 $I->seeNumberOfElements('tr', [0,10]); //between 0 and 10 elements
-?>
+
 
 {% endhighlight %}
  * `param` $selector
@@ -1042,7 +1042,7 @@ Checks that the given option is selected.
 
 <?php
 $I->seeOptionIsSelected('#form input[name=payment]', 'Visa');
-?>
+
 
 {% endhighlight %}
 
@@ -1074,7 +1074,7 @@ Selects an option in a select tag or in radio button group.
 $I->selectOption('form select[name=account]', 'Premium');
 $I->selectOption('form input[name=payment]', 'Monthly');
 $I->selectOption('//form/select[ * `name=account]',`  'Monthly');
-?>
+
 
 {% endhighlight %}
 
@@ -1084,7 +1084,7 @@ Provide an array for the second argument to select multiple options:
 
 <?php
 $I->selectOption('Which OS do you use?', array('Windows','Linux'));
-?>
+
 
 {% endhighlight %}
 
@@ -1095,7 +1095,7 @@ Or provide an associative array for the second argument to specifically define w
 <?php
 $I->selectOption('Which OS do you use?', array('text' => 'Windows')); // Only search by text 'Windows'
 $I->selectOption('Which OS do you use?', array('value' => 'windows')); // Only search by value 'windows'
-?>
+
 
 {% endhighlight %}
 
@@ -1169,7 +1169,7 @@ You can set additional cookie params like `domain`, `path`, `expires`, `secure` 
 
 <?php
 $I->setCookie('PHPSESSID', 'el4ukv0kqbvoirg7nkp4dncpk3');
-?>
+
 
 {% endhighlight %}
 
@@ -1398,7 +1398,7 @@ Unticks a checkbox.
 
 <?php
 $I->uncheckOption('#notify');
-?>
+
 
 {% endhighlight %}
 

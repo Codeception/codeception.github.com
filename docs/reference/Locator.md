@@ -24,7 +24,7 @@ You can mix up CSS and XPath selectors here.
 use \Codeception\Util\Locator;
 
 $I->see('Title', Locator::combine('h1','h2','h3'));
-?>
+
 
 {% endhighlight %}
 
@@ -37,7 +37,7 @@ You can also combine CSS selector with XPath locator:
 use \Codeception\Util\Locator;
 
 $I->fillField(Locator::combine('form input[type=text]','//form/textarea[2]'), 'qwerty');
-?>
+
 
 {% endhighlight %}
 
@@ -130,7 +130,7 @@ Matches the *a* element with given URL
 use \Codeception\Util\Locator;
 
 $I->see('Log In', Locator::href('/login.php'));
-?>
+
 
 {% endhighlight %}
 
@@ -213,7 +213,7 @@ use \Codeception\Util\Locator;
 $I->fillField(Locator::tabIndex(1), 'davert');
 $I->fillField(Locator::tabIndex(2) , 'qwerty');
 $I->click('Login');
-?>
+
 
 {% endhighlight %}
 

@@ -28,7 +28,7 @@ $user = Stub::make(
 );
 $user->getName();
 $user->getName();
-?>
+
 
 {% endhighlight %}
 
@@ -50,7 +50,7 @@ $user->getName(); //david
 $user->getName(); //emma
 $user->getName(); //sam
 $user->getName(); //amy
-?>
+
 
 {% endhighlight %}
 
@@ -70,7 +70,7 @@ Even protected and private properties can be set.
 <?php
 Stub::construct('User', array('autosave' => false));
 Stub::construct('User', array('autosave' => false), array('name' => 'davert'));
-?>
+
 
 {% endhighlight %}
 
@@ -80,7 +80,7 @@ Accepts either name of class or object of that class
 
 <?php
 Stub::construct(new User, array('autosave' => false), array('name' => 'davert'));
-?>
+
 
 {% endhighlight %}
 
@@ -92,7 +92,7 @@ and it's return value or callback function as parameter
 <?php
 Stub::construct('User', array(), array('save' => function () { return true; }));
 Stub::construct('User', array(), array('save' => true }));
-?>
+
 
 {% endhighlight %}
 
@@ -117,7 +117,7 @@ Even protected and private properties can be set.
 <?php
 Stub::constructEmpty('User', array('autosave' => false));
 Stub::constructEmpty('User', array('autosave' => false), array('name' => 'davert'));
-?>
+
 
 {% endhighlight %}
 
@@ -127,7 +127,7 @@ Accepts either name of class or object of that class
 
 <?php
 Stub::constructEmpty(new User, array('autosave' => false), array('name' => 'davert'));
-?>
+
 
 {% endhighlight %}
 
@@ -139,7 +139,7 @@ and it's return value or callback function as parameter
 <?php
 Stub::constructEmpty('User', array(), array('save' => function () { return true; }));
 Stub::constructEmpty('User', array(), array('save' => true }));
-?>
+
 
 {% endhighlight %}
 
@@ -164,7 +164,7 @@ Even protected and private properties can be set.
 <?php
 Stub::constructEmptyExcept('User', 'save');
 Stub::constructEmptyExcept('User', 'save', array('autosave' => false), array('name' => 'davert'));
-?>
+
 
 {% endhighlight %}
 
@@ -174,7 +174,7 @@ Accepts either name of class or object of that class
 
 <?php
 Stub::constructEmptyExcept(new User, 'save', array('autosave' => false), array('name' => 'davert'));
-?>
+
 
 {% endhighlight %}
 
@@ -186,7 +186,7 @@ and it's return value or callback function as parameter
 <?php
 Stub::constructEmptyExcept('User', 'save', array(), array('save' => function () { return true; }));
 Stub::constructEmptyExcept('User', 'save', array(), array('save' => true }));
-?>
+
 
 {% endhighlight %}
 
@@ -233,7 +233,7 @@ $user = Stub::make(
 $user->getName();
 $user->getName();
 $user->getName();
-?>
+
 
 {% endhighlight %}
 
@@ -267,7 +267,7 @@ Even protected and private properties can be set.
 <?php
 Stub::make('User');
 Stub::make('User', array('name' => 'davert'));
-?>
+
 
 {% endhighlight %}
 
@@ -277,7 +277,7 @@ Accepts either name of class or object of that class
 
 <?php
 Stub::make(new User, array('name' => 'davert'));
-?>
+
 
 {% endhighlight %}
 
@@ -289,7 +289,7 @@ and it's return value or callback function as parameter
 <?php
 Stub::make('User', array('save' => function () { return true; }));
 Stub::make('User', array('save' => true }));
-?>
+
 
 {% endhighlight %}
 
@@ -314,7 +314,7 @@ Even protected and private properties can be set.
 <?php
 Stub::makeEmpty('User');
 Stub::makeEmpty('User', array('name' => 'davert'));
-?>
+
 
 {% endhighlight %}
 
@@ -324,7 +324,7 @@ Accepts either name of class or object of that class
 
 <?php
 Stub::makeEmpty(new User, array('name' => 'davert'));
-?>
+
 
 {% endhighlight %}
 
@@ -336,7 +336,7 @@ and it's return value or callback function as parameter
 <?php
 Stub::makeEmpty('User', array('save' => function () { return true; }));
 Stub::makeEmpty('User', array('save' => true }));
-?>
+
 
 {% endhighlight %}
 
@@ -360,7 +360,7 @@ Even protected and private properties can be set.
 <?php
 Stub::makeEmptyExcept('User', 'save');
 Stub::makeEmptyExcept('User', 'save', array('name' => 'davert'));
-?>
+
 
 {% endhighlight %}
 
@@ -370,7 +370,7 @@ Accepts either name of class or object of that class
 
 <?php
 * Stub::makeEmptyExcept(new User, 'save');
-?>
+
 
 {% endhighlight %}
 
@@ -382,7 +382,7 @@ and it's return value or callback function as parameter
 <?php
 Stub::makeEmptyExcept('User', 'save', array('isValid' => function () { return true; }));
 Stub::makeEmptyExcept('User', 'save', array('isValid' => true }));
-?>
+
 
 {% endhighlight %}
 
@@ -407,7 +407,7 @@ exception.
 <?php
 $user = Stub::make('User', array('getName' => Stub::never(), 'someMethod' => function() {}));
 $user->someMethod();
-?>
+
 
 {% endhighlight %}
 
@@ -437,7 +437,7 @@ $user = Stub::make(
 );
 $userName = $user->getName();
 $this->assertEquals('Davert', $userName);
-?>
+
 
 {% endhighlight %}
 

@@ -53,7 +53,7 @@ $I->haveInDatabase('posts', [
 ]);
 $I->amOnPage('/posts');
 $I->see('Top 10 Testing Frameworks');
-?>
+
 
 {% endhighlight %}
 
@@ -63,11 +63,12 @@ If you want to check that a table record was created use [`seeInDatabase`](http:
 
 {% highlight php %}
 
+<?php
 $I->amOnPage('/posts/1');
 $I->fillField('comment', 'This is nice!');
 $I->click('Submit');
 $I->seeInDatabase('comments', ['body' => 'This is nice!']);
-?>
+
 
 {% endhighlight %}
 
@@ -110,7 +111,7 @@ $I->seeRecord('posts', ['id' => $id]);
 $I->click('Delete');
 // record was deleted
 $I->dontSeeRecord('posts', ['id' => $id]); 
-?>
+
 
 {% endhighlight %}
 

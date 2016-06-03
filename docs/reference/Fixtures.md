@@ -16,7 +16,7 @@ Really basic class to store data in global array and use it in Cests/Tests.
 Fixtures::add('user1', ['name' => 'davert']);
 Fixtures::get('user1');
 
-?>
+
 
 {% endhighlight %}
 

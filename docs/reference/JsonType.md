@@ -27,7 +27,7 @@ $jsonType->matches([
 $jsonType->matches([
   'id' => 'string',
 ])); // => `id: 1` is not of type string
-?>
+
 
 {% endhighlight %}
 
@@ -67,7 +67,7 @@ JsonType::addCustomFilter('/len\((.*?)\)/', function($value, $len) {
   return strlen($value) == $len;
 });
 // use it as 'string:len(5)'
-?>
+
 
 {% endhighlight %}
 

@@ -24,7 +24,6 @@ $I->fillField('Password', 'Davis');
 $I->click('Enter');
 $I->see('Hello, Miles', 'h1');
 // $I->seeEmailIsSent() - special for Symfony2
-?>
 
 {% endhighlight %}
 
@@ -179,9 +178,8 @@ Therefore we can open a web page with `amOnPage` command.
 {% highlight php %}
 
 <?php
-$I = new FunctionalTester;
+$I = new FunctionalTester($scenario);
 $I->amOnPage('/login');
-?>
 
 {% endhighlight %}
 
@@ -197,7 +195,6 @@ $I->click('Logout', '.nav');
 $I->click('a.logout');
 // click with strict locator
 $I->click(['class' => 'logout']);
-?>
 
 {% endhighlight %}
 
@@ -211,7 +208,6 @@ $I->submitForm('form#login', ['name' => 'john', 'password' => '123456']);
 $I->fillField('#login input[name=name]', 'john');
 $I->fillField('#login input[name=password]', '123456');
 $I->click('Submit', '#login');
-?>
 
 {% endhighlight %}
 
@@ -223,7 +219,6 @@ And do assertions:
 $I->see('Welcome, john');
 $I->see('Logged in successfully', '.notice');
 $I->seeCurrentUrlEquals('/profile/john');
-?>
 
 {% endhighlight %}
 
@@ -246,7 +241,6 @@ class Functional extends \Codeception\Module
         $service->doSomething();
     }
 }
-?>
 
 {% endhighlight %}
 

@@ -19,7 +19,7 @@ $I->amOnPage('/');
 $I->see('Hello');
 $I->seeInDatabase('users', array('id' => 1));
 $I->seeFileFound('running.lock');
-?>
+
 
 {% endhighlight %}
 
@@ -135,7 +135,7 @@ namespace Helper;
 class Functional extends \Codeception\Module
 {
 }
-?>
+
 
 {% endhighlight %}
 
@@ -156,7 +156,7 @@ Name your assertions like this:
 $I->seePageReloaded();
 $I->seeClassIsLoaded($classname);
 $I->dontSeeUserExist($user);
-?>
+
 
 {% endhighlight %}
 And then use them in your tests:
@@ -167,7 +167,7 @@ And then use them in your tests:
 $I->seePageReloaded();
 $I->seeClassIsLoaded('FunctionalTester');
 $I->dontSeeUserExist($user);
-?>
+
 
 {% endhighlight %}
 
@@ -181,7 +181,7 @@ function seeClassExist($class)
 {
     $this->assertTrue(class_exists($class));
 }
-?>
+
 
 {% endhighlight %}
 
@@ -201,7 +201,7 @@ function seeCanCheckEverything($thing)
     $this->assertEquals("hello world", $thing, "this thing is 'Hello world'!");
     // ...
 }
-?>
+
 
 {% endhighlight %}
 
@@ -222,7 +222,7 @@ function reconnectToDatabase() {
     $dbh->close();
     $dbh->open();
 }
-?>
+
 
 {% endhighlight %}
 
@@ -247,7 +247,7 @@ function seeNumResults($num)
     // asserting that table contains exactly $num rows
     $this->assertEquals($num, count($results));
 }
-?>
+
 
 {% endhighlight %}
 
@@ -265,7 +265,7 @@ namespace Helper;
 
 class MyExtendedSelenium extends \Codeception\Module\WebDriver  {
 }
-?>
+
 
 {% endhighlight %}
 
@@ -290,7 +290,7 @@ class MyExtendedSelenium extends \Codeception\Module\WebDriver
     // exclude "seeElement" action
     public static $excludeActions = ['seeElement'];
 }
-?>
+
 
 {% endhighlight %}
 
@@ -312,7 +312,7 @@ class SecondDb extends \Codeception\Module\Db
         $this->seeInDatabase($table, $data);
     }
 }
-?>
+
 
 {% endhighlight %}
 
@@ -365,7 +365,7 @@ All hooks are defined in `\Codeception\Module` and are listed here. You are free
     // HOOK: on fail
     public function _failed(\Codeception\TestInterface $test, $fail) {
     }
-?>
+
 
 {% endhighlight %}
 
@@ -388,7 +388,7 @@ Here is an example of how it works for PhpBrowser:
     $this->debugSection('Request', $params);
     $this->client->request($method, $uri, $params);
     $this->debug('Response Code: ' . $this->client->getStatusCode());
-?>    
+    
 
 {% endhighlight %}
 
@@ -415,7 +415,7 @@ Mandatory parameters should be defined in the `$requiredFields` property of the 
 class Db extends \Codeception\Module 
 {
     protected $requiredFields = ['dsn', 'user', 'password'];
-?>
+
 
 {% endhighlight %}
 
@@ -430,7 +430,7 @@ class WebDriver extends \Codeception\Module
 {
     protected $requiredFields = ['browser', 'url'];    
     protected $config = ['host' => '127.0.0.1', 'port' => '4444'];
-?>    
+    
 
 {% endhighlight %}
 
@@ -521,7 +521,7 @@ You may call it from a helper class and pass in all the fields you want to chang
 
 <?php
 $this->getModule('WebDriver')->_reconfigure(array('browser' => 'chrome'));
-?>
+
 
 {% endhighlight %}
 

@@ -79,7 +79,7 @@ and (optionally) a routing key
 $I->pushToExchange('exchange.emails', 'thanks');
 $I->pushToExchange('exchange.emails', new AMQPMessage('Thanks!'));
 $I->pushToExchange('exchange.emails', new AMQPMessage('Thanks!'), 'severity');
-?>
+
 
 {% endhighlight %}
 
@@ -97,7 +97,7 @@ Sends message to queue
 <?php
 $I->pushToQueue('queue.jobs', 'create user');
 $I->pushToQueue('queue.jobs', new AMQPMessage('create'));
-?>
+
 
 {% endhighlight %}
 
@@ -117,7 +117,7 @@ Checks if message containing text received.
 <?php
 $I->pushToQueue('queue.emails', 'Hello, davert');
 $I->seeMessageInQueueContainsText('queue.emails','davert');
-?>
+
 
 {% endhighlight %}
 

@@ -61,7 +61,6 @@ class ExampleTest extends \Codeception\Test\Unit
     {
     }
 }
-?>
 
 {% endhighlight %}
 
@@ -108,7 +107,6 @@ class UserTest extends \Codeception\Test\Unit
         $this->assertTrue($user->validate(['username']));           
     }
 }
-?>
 
 {% endhighlight %}
 
@@ -149,7 +147,6 @@ function testSavingUser()
     $this->assertEquals('Miles Davis', $user->getFullName());
     $this->tester->seeInDatabase('users', ['name' => 'Miles', 'surname' => 'Davis']);
 }
-?>
 
 {% endhighlight %}
 
@@ -192,7 +189,6 @@ function testUserNameCanBeChanged()
     $this->tester->seeRecord('users', ['name' => 'bill']);
     $this->tester->dontSeeRecord('users', ['name' => 'miles']);
 }
-?>
 
 {% endhighlight %}
 
@@ -234,7 +230,6 @@ function testUserNameCanBeChanged()
     $this->tester->seeInRepository('Acme\DemoBundle\Entity\User', ['name' => 'bill']);
     $this->tester->dontSeeInRepository('Acme\DemoBundle\Entity\User', ['name' => 'miles']);
 }
-?>
 
 {% endhighlight %}
 
@@ -253,7 +248,6 @@ We already demonstrated this case in previous code piece where we accessed Entit
 <?php
 /** @var Doctrine\ORM\EntityManager */
 $em = $this->getModule('Doctrine2')->em;
-?>
 
 {% endhighlight %}
 
@@ -264,7 +258,6 @@ If you use `Symfony` module, here is the way you can access Symfony container:
 <?php
 /** @var Symfony\Component\DependencyInjection\Container */
 $container = $this->getModule('Symfony')->container;
-?>
 
 {% endhighlight %}
 
@@ -307,7 +300,6 @@ class UserTest extends \Codeception\Test\Unit
         });
     }
 }
-?>        
 
 {% endhighlight %}
 
@@ -321,7 +313,7 @@ Also you may add [Codeception\Verify](https://github.com/Codeception/Verify) for
 
 <?php
 verify($user->getName())->equals('john');
-?>
+
 
 {% endhighlight %}
 
@@ -352,7 +344,6 @@ class UserCest
         $t->seeInDatabase('users', ['name' => 'Miles', 'surname' => 'Davis']);
     }
 }
-?>
 
 {% endhighlight %}
 
@@ -384,6 +375,7 @@ To check your code for exception you can use `expectException` method from `Asse
 
 {% highlight php %}
 
+<?php
 $t->expectException(new Exception, {
    throw new Exception; 
 });
@@ -401,7 +393,6 @@ In this example we instantiate object without calling a constructor and replace 
 <?php
 $user = Stub::make('User', ['getName' => 'john']);
 $name = $user->getName(); // 'john'
-?>
 
 {% endhighlight %}
 

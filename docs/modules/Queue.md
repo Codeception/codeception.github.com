@@ -134,7 +134,7 @@ Add a message to a queue/tube
 
 <?php
 $I->addMessageToQueue('this is a messages', 'default');
-?>
+
 
 {% endhighlight %}
 
@@ -150,7 +150,7 @@ Clear all messages of the queue/tube
 
 <?php
 $I->clearQueue('default');
-?>
+
 
 {% endhighlight %}
 
@@ -165,7 +165,7 @@ Check if a queue/tube is NOT empty of all messages
 
 <?php
 $I->dontSeeEmptyQueue('default');
-?>
+
 
 {% endhighlight %}
 
@@ -180,7 +180,7 @@ Check if a queue/tube does NOT exist on the queueing server.
 
 <?php
 $I->dontSeeQueueExists('default');
-?>
+
 
 {% endhighlight %}
 
@@ -195,7 +195,7 @@ Check if a queue/tube does NOT have a given current number of messages
 
 <?php
 $I->dontSeeQueueHasCurrentCount('default', 10);
-?>
+
 
 {% endhighlight %}
 
@@ -211,7 +211,7 @@ Check if a queue/tube does NOT have a given total number of messages
 
 <?php
 $I->dontSeeQueueHasTotalCount('default', 10);
-?>
+
 
 {% endhighlight %}
 
@@ -227,7 +227,7 @@ Grabber method to get the current number of messages on the queue/tube (pending/
 
 <?php
     $I->grabQueueCurrentCount('default');
-?>
+
 
 {% endhighlight %}
  * `param string` $queue Queue Name
@@ -243,7 +243,7 @@ Grabber method to get the total number of messages on the queue/tube
 
 <?php
     $I->grabQueueTotalCount('default');
-?>
+
 
 {% endhighlight %}
 
@@ -260,7 +260,7 @@ Grabber method to get the list of queues/tubes on the server
 
 <?php
 $queues = $I->grabQueues();
-?>
+
 
 {% endhighlight %}
 
@@ -275,7 +275,7 @@ Check if a queue/tube is empty of all messages
 
 <?php
 $I->seeEmptyQueue('default');
-?>
+
 
 {% endhighlight %}
 
@@ -290,7 +290,7 @@ Check if a queue/tube exists on the queueing server.
 
 <?php
 $I->seeQueueExists('default');
-?>
+
 
 {% endhighlight %}
 
@@ -305,7 +305,7 @@ Check if a queue/tube has a given current number of messages
 
 <?php
 $I->seeQueueHasCurrentCount('default', 10);
-?>
+
 
 {% endhighlight %}
 
@@ -321,7 +321,7 @@ Check if a queue/tube has a given total number of messages
 
 <?php
 $I->seeQueueHasTotalCount('default', 10);
-?>
+
 
 {% endhighlight %}
 

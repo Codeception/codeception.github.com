@@ -40,7 +40,7 @@ This will produce this XML
 
 {% highlight xml %}
 
-<?xml version="1.0"?>
+<?xml version="1.0"
 <users>
    <user>
        1

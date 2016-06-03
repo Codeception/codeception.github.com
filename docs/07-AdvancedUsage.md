@@ -16,7 +16,7 @@ You can create Cest file by running the command:
 
 {% highlight bash %}
 
-$ php codecept.phar generate:cest suitename CestName
+$ php codecept generate:cest suitename CestName
 
 {% endhighlight %}
 
@@ -40,7 +40,7 @@ class BasicCest
     {    
     }
 }
-?>
+
 
 {% endhighlight %}
 
@@ -68,7 +68,7 @@ class BasicCest
         $I->seeInCurrentUrl('/account');
     }
 }
-?>
+
 
 {% endhighlight %}
 
@@ -115,7 +115,7 @@ class SignUpCest
         ]);
     }
 }
-?>
+
 
 {% endhighlight %}
 
@@ -147,7 +147,7 @@ class MathTest extends \Codeception\TestCase\Test
         $this->assertEquals(1, $this->math->subtract(3, 2));
     }
 }
-?>
+
 
 {% endhighlight %}
 
@@ -171,7 +171,7 @@ class UserCest
         $I->see('Profile of Bill','h1');
     }
 }
-?>
+
 
 {% endhighlight %}
 
@@ -281,7 +281,7 @@ class ModeratorCest {
         $I->click('Ban');
     }
 }
-?>
+
 
 {% endhighlight %}
 
@@ -344,7 +344,7 @@ You can generate a new file with environment configuration using `generate:envir
 
 {% highlight bash %}
 
-$ php codecept.phar g:env chrome
+$ php codecept g:env chrome
 
 {% endhighlight %}
 
@@ -365,7 +365,7 @@ You can easily switch between those configs by running tests with `--env` option
 
 {% highlight bash %}
 
-$ php codecept.phar run acceptance --env phantom
+$ php codecept run acceptance --env phantom
 
 {% endhighlight %}
 
@@ -373,7 +373,7 @@ To run tests in all 3 browsers, just list all the environments:
 
 {% highlight bash %}
 
-$ php codecept.phar run acceptance --env phantom --env chrome --env firefox
+$ php codecept run acceptance --env phantom --env chrome --env firefox
 
 {% endhighlight %}
 
@@ -383,7 +383,7 @@ It's also possible to merge multiple environments into one configuration by usin
 
 {% highlight bash %}
 
-$ php codecept.phar run acceptance --env dev,phantom --env dev,chrome --env dev,firefox
+$ php codecept run acceptance --env dev,phantom --env dev,chrome --env dev,firefox
 
 {% endhighlight %}
 
@@ -410,7 +410,7 @@ class UserCest
         // I do something
     }
 }
-?>
+
 
 {% endhighlight %}
 
@@ -421,7 +421,7 @@ For Cept you should use simple comments
 <?php
 // @env firefox
 // @env phantom
-?>
+
 
 {% endhighlight %}
 
@@ -450,7 +450,7 @@ $scenario->current('browser');
 
 // capabilities (if WebDriver module enabled)
 $scenario->current('capabilities');
-?>
+
 
 {% endhighlight %}
 
@@ -495,7 +495,7 @@ class ModeratorCest {
         // bans user
     }
 }
-?>
+
 
 {% endhighlight %}
 
@@ -519,7 +519,7 @@ You can run the console with the following command:
 
 {% highlight bash %}
 
-$ php codecept.phar console suitename
+$ php codecept console suitename
 
 {% endhighlight %}
 
@@ -529,14 +529,14 @@ And a special hint: show your boss how you can nicely manipulate web pages with 
 
 ## Running from different folders
 
-If you have several projects with Codeception tests, you can use single `codecept.phar` file to run all of your tests.
+If you have several projects with Codeception tests, you can use single `codecept` file to run all of your tests.
 You can pass `-c` option to any Codeception command, excluding `bootstrap`, to execute Codeception in another directory.
 
 {% highlight bash %}
 
-$ php codecept.phar run -c ~/projects/ecommerce/
-$ php codecept.phar run -c ~/projects/drupal/
-$ php codecept.phar generate:cept acceptance CreateArticle -c ~/projects/drupal/
+$ php codecept run -c ~/projects/ecommerce/
+$ php codecept run -c ~/projects/drupal/
+$ php codecept generate:cept acceptance CreateArticle -c ~/projects/drupal/
 
 {% endhighlight %}
 
@@ -544,7 +544,7 @@ To create a project in directory different from the current one, just provide it
 
 {% highlight bash %}
 
-$ php codecept.phar bootstrap ~/projects/drupal/
+$ php codecept bootstrap ~/projects/drupal/
 
 {% endhighlight %}
 
@@ -556,7 +556,7 @@ There are several ways to execute bunch of tests. You can run tests from specifi
 
 {% highlight bash %}
 
-$ php codecept.phar run tests/acceptance/admin
+$ php codecept run tests/acceptance/admin
 
 {% endhighlight %}
 
@@ -564,7 +564,7 @@ Or execute one (or several) specific groups of tests:
 
 {% highlight bash %}
 
-$ php codecept.phar run -g admin -g editor
+$ php codecept run -g admin -g editor
 
 {% endhighlight %}
 
@@ -581,7 +581,7 @@ For Tests and Cests you can use `@group` annotation to add a test to the group.
 public function testAdminUser()
 {    
 }
-?>
+
 
 {% endhighlight %}
 
@@ -594,7 +594,7 @@ For Cept files, use pseudo-annotations in comments:
 // @group editor
 $I = new AcceptanceTester($scenario);
 $I->wantToTest('admin area');
-?>
+
 
 {% endhighlight %}
 
