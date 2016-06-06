@@ -52,7 +52,7 @@ There is `WebDriver` module for acceptance testing, modules for all popular PHP 
 
 ### Module Conflicts
 
-Modules may conflict with each other. If a module implements `Codeception\Lib\Interfaces\ConflictsWithModule` it might declare a conflict rule to be used with other modules. For instance, WebDriver condlicts with all modules implementing `Codeception\Lib\Interfaces\Web` interface.
+Modules may conflict with each other. If a module implements `Codeception\Lib\Interfaces\ConflictsWithModule` it might declare a conflict rule to be used with other modules. For instance, WebDriver conflicts with all modules implementing `Codeception\Lib\Interfaces\Web` interface.
 
 {% highlight php %}
 
