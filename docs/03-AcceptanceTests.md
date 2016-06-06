@@ -420,7 +420,7 @@ $nickAdmin->leave();
 
 Selenium WeDdriver allows to execute tests in real browsers on different platforms. Some environments are hard to be reproduced manually, testing Internet Explorer 6-8 on Windows XP may be a hard thing, especially if you don't have Windows XP installed. This is where Cloud Testing services come to help you. Services such as [SauceLabs](https://saucelabs.com), [BrowserStack](https://www.browserstack.com/) and [others](http://codeception.com/docs/modules/WebDriver#Cloud-Testing) can create virtual machine on demand and set up Selenium Server and desired browser. Tests are executed on a remote machine in a cloud, to access local files cloud testing service provides special application called **Tunnel**. Tunnel operates on secured protocol and allows browser executed in a cloud to connect to local web server. 
 
-Cloud Testing services work with standard WebDriver protocol. This makes setting up cloud testing relly easy. You just need to set [configuration into WebDriver module](http://codeception.com/docs/modules/WebDriver#Cloud-Testing): 
+Cloud Testing services work with standard WebDriver protocol. This makes setting up cloud testing really easy. You just need to set [configuration into WebDriver module](http://codeception.com/docs/modules/WebDriver#Cloud-Testing): 
 
 * specify host to connect (depends on cloud provider)
 * authentication details (to use your account)
