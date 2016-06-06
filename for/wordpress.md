@@ -47,11 +47,9 @@ Edit the `codeception.yml` file to match your local WordPress setup and point th
 If you are using the `WPLoader` module in your tests take care to create a dedicated database for it and not to use the same database the `Db` or `WPDb` modules might use.  
 The use of the modules defined in the WPBrowser package is not tied to this bootstrap though so feel free to set up Codeception in any other way.
 
-## WordPress Unit Tests
-Most references to "WordPress unit tests" imply a reference to [PhpUnit](https://phpunit.de/ "PHPUnit – The PHP Testing Framework") powered tests where, but, a local WordPress instance is loaded in the same scope as the tests before the test methods are executed.  
-So "WordPress" as WordPress is loaded before the tests and "unit tests" as the subject under test is a single class or a group of tightly related functions that can be thought about as a unit.  
-By default WPBrowser creates the `wpunit` suite to keep these tests separate from "real" unit tests stored in the `unit` suite.  
-The `wpunit` suite includes the `WPLoader` module: this takes care of loading, installing and configuring a fresh WordPress installation before each test method runs.  
+## Integration Tests
+Most references to "WordPress unit tests" imply a reference to [PhpUnit](https://phpunit.de/ "PHPUnit – The PHP Testing Framework") powered tests where, but, a local WordPress instance is loaded in the same scope as the tests before the test methods are executed; by default WPBrowser creates the `integration` suite to store this kind of tests.  
+The `integration` suite includes the `WPLoader` module: it takes care of loading, installing and configuring a fresh WordPress installation before each test method runs.  
 To handle the heavy lifting the module requires some information about the local WordPress installation: in the `codeception.yml` file configure it to match your local setup; with reference to the example above the module configuration might be:
 
 ```yaml
@@ -72,14 +70,15 @@ modules:
                 - acme-plugin/plugin.php
 ```
 
-The module is wrapping and augmenting the [WordPress PHPUnit automated testing suite](https://make.wordpress.org/core/handbook/testing/automated-testing/phpunit/) and to generate a test case that uses Codeception and the methods provided by the Core testing suite you can use the `wpcept` command again:
+The module is wrapping and augmenting the [WordPress Core automated testing suite](https://make.wordpress.org/core/handbook/testing/automated-testing/phpunit/) and to generate a test case that uses Codeception and the methods provided by the Core testing suite you can use the `wpcept` command again:
 
 ```bash
-wpcept generate:wpunit wpunit "Acme\SomeClass"
+wpcept generate:wpunit integration "Acme\SomeClass"
 ```
 
-The generated test case extends the `Codeception\TestCase\WPTestCase` class and it exposes all the mehtods defined by `Codeception\TestCase\Test` test case and the Core suite `WP_UnitTestCase`.  
-Additional test method generation possibilities are available to cover the primitive test cases offered in the Core testing suite: `wpajax`, `wprest`, `wpcanonical`, `wpxmlrpc`.  
+The generated test case extends the `WPTestCase` class and it exposes all the mehtods defined by `Codeception\Test\Unit` test case and the Core suite `\WP_UnitTestCase`.  
+Additional test method generation possibilities are available to cover the primitive test cases offered in the Core testing suite using `wpajax`, `wprest`, `wpcanonical`, `wpxmlrpc` as arguments for the `generate` sub-command.  
+
 Any database interaction is wrapped in a transaction to guarantee isolation between tests.
 
 <div class="alert alert-warning">
@@ -88,21 +87,10 @@ Any database interaction is wrapped in a transaction to guarantee isolation betw
 </div>
 
 ## WordPress Functional Tests
-Functional tests are meant to test complex interactions between a WordPress theme or plugin components, requests handling or a filter triggered chain of events.  
-A WordPress unit test might test the behaviour of a post insertion handling class in isolation where a functional test might verify the behaviour of said class when part of a chain of classes handling a post insertion request.  
-Similarly to WordPress Unit Tests the `functional` suite should include the `WPLoader` module to have WordPress running in the same scope as the test methods and the configuration is the same.
-Since the difference is subtle in infrastructure terms the command to generate a functional test is the same used to generate a WordPress unit test:
-
-```bash
-wpcept generate:wpunit functional "PostInsertionHandling"
-```
-
-## Acceptance Tests
-
-To test a WordPress theme or plugin functionalities using its UI you should simulate the user interaction with a browser both in the site front-end and back-end.  
-You can use the `PHPBrowser`, `WebDriver` and `Db` modules defined by Codeception but the WPBrowser package extends those modules in the `WPBrowser`, `WPWebDriver` and `WPDb` modules to add WordPress specific methods to each.  
-The `WPBrowser` module does not support JavaScript in the same way the `PHPBrowser` module doesn't and the `WPWebDriver` module drives a real browser in the same way the `WebDriver` does.  
-The modules require some WordPress specific parameters to work:
+Functional tests are meant to test requests handling and end-to-end interactions.  
+WPBrowser will scaffold functional tests to use the `WPBrowser`, `WPDb` and `Filesystem` modules.  
+While the latter is the one defined by the Codeception suite `WPBrowser` and `WPDb` modules extend the Codeception `PHPBrowser` and `Db` modules with WordPress specific methods.  
+The modules will require some WordPress specific setup parameters:
 
 ```yaml
 modules:
@@ -121,6 +109,29 @@ modules:
             cleanup: true
             url: 'http://wordpress.dev'
             tablePrefix: wp_
+```
+
+To generate a functional test use the default `codecept` commmand.
+
+```bash
+codecept generate:cept functional "PostInsertion"
+```
+
+<div class="alert alert-warning">
+  <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+  Continue to <a href="http://codeception.com/docs/04-FunctionalTests">Functional Teseting Guide &raquo;</a>.
+</div>
+
+## Acceptance Tests
+
+To test a WordPress theme or plugin functionalities using its UI you should simulate the user interaction with a browser both in the site front-end and back-end.  
+You can use the `WebDriver` and `Db` modules defined by Codeception but the WPBrowser package extends those modules in the `WPWebDriver` and `WPDb` modules to add WordPress specific methods to each.  
+The `WPWebDriver` module drives a real browser in the same way the `WebDriver` does.  
+The modules require some WordPress specific parameters to work:
+
+```yaml
+modules:
+    enabled:
         WPWebDriver:
             url: 'http://wordpress.dev'
             browser: phantomjs
@@ -139,7 +150,7 @@ The `WPDb` module allows for quick interactions with the WordPress database API 
 $I->haveManyPostsInDatabase(10, ['post_type' => 'custom_post_type']);
 $transient = $I->grabTransientFromDatabase('some_transient');
 ```
-The `WPBrowser` and `WPWebDriver` methods wrap complex interactions with the WordPress UI into sugar methods like:
+`WPWebDriver` methods wrap complex interactions with the WordPress UI into sugar methods like:
 
 ```php
 $I->loginAsAdmin();
@@ -165,7 +176,7 @@ composer exec codecept gherkin:snippets
 
 In the same manner features can be set up as functional tests.
 
-Methods defined in WPBrowser `WPBrowser`, `WPWebDriver` and `WPDb` modules can offer a base to implement the steps:
+Methods defined in WPBrowser `WPWebDriver` and `WPDb` modules can offer a base to implement the steps:
 
 ```php
 /**
