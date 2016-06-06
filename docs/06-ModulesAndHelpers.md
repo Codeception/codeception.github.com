@@ -48,7 +48,7 @@ By default Codeception auto rebuilds Actions trait on each change of suite confi
 
 Codeception has many bundled modules which will help you run tests for different purposes and different environments. The idea of modules is to share common actions so developers and QA engineers could concentrate on testing and not on reinventing the wheel. Each module provides methods for testing its part, by combining modules you can get powerful setup to test application at all levels.
 
-There is `WebDriver` module for acceptance testing, modules for all popular PHP frameworks, `PHPBrowser` to emulate browser execution, `REST` for testing APIs, and more. Modules are considered to be the most valuable part of Codeception. They are constanly improving to provide the best testing experience, and be flexible to satisfy everyone's needs.
+There is `WebDriver` module for acceptance testing, modules for all popular PHP frameworks, `PHPBrowser` to emulate browser execution, `REST` for testing APIs, and more. Modules are considered to be the most valuable part of Codeception. They are constantly improving to provide the best testing experience, and be flexible to satisfy everyone's needs.
 
 ### Module Conflicts
 
