@@ -42,14 +42,14 @@ Scaffold the tests using the latter
 wpcept bootstrap
 ```
 
-The command creates the `tests` directory and scaffold the `acceptance`, `functional`, `wpunit` and `unit` suites creating a `tests` sub-directory and a configuration file for each.  
+The command creates the `tests` directory and scaffold the `acceptance`, `functional`, `integration` and `unit` suites creating a `tests` sub-directory and a configuration file for each.  
 Edit the `codeception.yml` file to match your local WordPress setup and point the modules to the local WordPress installation folder, the local WordPress URL and so on.  
 If you are using the `WPLoader` module in your tests take care to create a dedicated database for it and not to use the same database the `Db` or `WPDb` modules might use.  
 The use of the modules defined in the WPBrowser package is not tied to this bootstrap though so feel free to set up Codeception in any other way.
 
 ## Integration Tests
-Most references to "WordPress unit tests" imply a reference to [PhpUnit](https://phpunit.de/ "PHPUnit – The PHP Testing Framework") powered tests where, but, a local WordPress instance is loaded in the same scope as the tests before the test methods are executed; by default WPBrowser creates the `integration` suite to store this kind of tests.  
-The `integration` suite includes the `WPLoader` module: it takes care of loading, installing and configuring a fresh WordPress installation before each test method runs.  
+Commonly "WordPress unit tests" are not related to classical unit tests but to integration tests. The difference is that unit tests are supposed to test a class methods in complete isolation, while integration tests check how components work inside WordPress. That's why, to prepare WordPress for testing, you should enable `WPLoader` module into `integration.suite.yml`.  
+The `WPLoader` module: it takes care of loading, installing and configuring a fresh WordPress installation before each test method runs.  
 To handle the heavy lifting the module requires some information about the local WordPress installation: in the `codeception.yml` file configure it to match your local setup; with reference to the example above the module configuration might be:
 
 ```yaml
