@@ -13,7 +13,6 @@ sidebar: |
   ## Reference
 
   * [WPBrowser modules library](https://github.com/lucatume/wp-browser) 
-  * ["I'd like this" Demo WordPress plugin](https://github.com/lucatume/idlikethis)
 
 ---
 
