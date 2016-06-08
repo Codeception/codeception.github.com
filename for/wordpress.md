@@ -12,7 +12,12 @@ sidebar: |
 
   ## Reference
 
-  * [WPBrowser modules library](https://github.com/lucatume/wp-browser) 
+  * [WPBrowser modules library](https://github.com/lucatume/wp-browser)
+  * [Tools and Tutorials](http://theaveragedev.com)
+
+  ---
+
+  Written by [**Luca Tumedei**](https://github.com/lucatume)
 
 ---
 
@@ -146,12 +151,14 @@ As the `WebDriver` module the `WPWebDriver` module require a Selenium or Phantom
 The `WPDb` module allows for quick interactions with the WordPress database API like quick generation of multiple posts, database value fetching and more:
 
 ```php
+<?php
 $I->haveManyPostsInDatabase(10, ['post_type' => 'custom_post_type']);
 $transient = $I->grabTransientFromDatabase('some_transient');
 ```
 `WPWebDriver` methods wrap complex interactions with the WordPress UI into sugar methods like:
 
 ```php
+<?php
 $I->loginAsAdmin();
 $I->amOnPluginsPage();
 $I->activatePlugin('acme-plugin');
@@ -178,6 +185,7 @@ In the same manner features can be set up as functional tests.
 Methods defined in WPBrowser `WPWebDriver` and `WPDb` modules can offer a base to implement the steps:
 
 ```php
+<?php
 /**
  * @Given I login as administrator
  */
