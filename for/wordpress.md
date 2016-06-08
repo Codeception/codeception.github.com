@@ -53,7 +53,7 @@ To handle the heavy lifting the module requires some information about the local
 
 ```yaml
 modules:
-    enabled:
+    config:
         WPLoader:
             wpRootFolder: /var/www/wordpress
             dbName: wordpress-tests
