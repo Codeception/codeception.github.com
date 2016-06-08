@@ -1,0 +1,369 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link rel="shortcut icon" href="/images/faviconnew.ico?3" />
+
+<link rel="apple-touch-icon" href="/images/safari_60.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/images/safari_76.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/images/safari_120.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/images/safari_152.png">
+
+<meta http-equiv="content-type" content="text/html; charset=windows-1251" />
+<meta name="description" content="" />
+
+
+<title>Фотографії на стіні спільноти | 755 фотографій | ВКонтактi</title>
+
+<noscript><meta http-equiv="refresh" content="0; URL=/badbrowser.php"></noscript>
+
+<script type="text/javascript">
+var vk = {
+  ads_rotate_interval: 120000,
+  al: parseInt('4') || 4,
+  id: 0,
+  intnat: '' ? true : false,
+  host: 'vk.com',
+  lang: 1,
+  rtl: parseInt('') || 0,
+  version: 19350,
+  stDomains: 0,
+  zero: false,
+  contlen: 6851,
+  loginscheme: 'https',
+  ip_h: '8789c6c62a000e6227',
+  vc_h: 'ab50ec214d17cd86d6fc002275317daa',
+  navPrefix: '/',
+  dt: parseInt('0') || 0,
+  fs: parseInt('11') || 11,
+  ts: 1465427551,
+  tz: 10800,
+  pd: 0,
+  pads: 1,
+  vcost: 7,
+  time: [2016, 6, 9, 2, 12, 31],
+  sampleUser: -1, spentLastSendTS: new Date().getTime()
+};
+
+window.locDomain = vk.host.match(/[a-zA-Z]+\.[a-zA-Z]+\.?$/)[0];
+var _ua = navigator.userAgent.toLowerCase();
+if (/opera/i.test(_ua) || !/msie 6/i.test(_ua) || document.domain != locDomain) document.domain = locDomain;
+var ___htest = (location.toString().match(/#(.*)/) || {})[1] || '', ___to;
+if (vk.al != 1 && ___htest.length && ___htest.substr(0, 1) == vk.navPrefix) {
+  if (vk.al != 3 || vk.navPrefix != '!') {
+    ___to = ___htest.replace(/^(\/|!)/, '');
+    if (___to.match(/^([^\?]*\.php|login|mobile)([^a-z0-9\.]|$)/)) ___to = '';
+    location.replace(location.protocol + '//' + location.host + '/' + ___to);
+  }
+}
+
+var StaticFiles = {
+  'common.js' : {v: 1132},
+  'common.css': {v: 514},
+  'ie6.css'   : {v: 26},
+  'ie7.css'   : {v: 18}
+  ,'lang1_0.js':{v:4805},'photos.js':{v:83},'photos.css':{v:88},'photoview.js':{v:399},'photoview.css':{v:197},'page.css':{v:791},'page.js':{v:944}
+}
+var abp;
+</script>
+
+<script type="text/javascript" src="/js/3rdparty/rbadman-html5.js" async></script>
+
+<link rel="stylesheet" type="text/css" href="/css/al/common.css?514" />
+<!--[if lte IE 6]><style type="text/css" media="screen">/* <![CDATA[ */ @import url(/css/al/ie6.css?26); /* ]]> */</style><![endif]-->
+<!--[if IE 7]><style type="text/css" media="screen">/* <![CDATA[ */ @import url(/css/al/ie7.css?18); /* ]]> */</style><![endif]-->
+<link type="text/css" rel="stylesheet" href="/css/al/photos.css?88"></link><link type="text/css" rel="stylesheet" href="/css/al/photoview.css?197"></link><link type="text/css" rel="stylesheet" href="/css/al/page.css?791"></link><script type="text/javascript" src="/js/loader_nav19350_1.js"></script><script type="text/javascript" src="/js/al/common.js?1132_196"></script><script type="text/javascript" src="/js/lang1_0.js?4805"></script><script type="text/javascript" src="/js/lib/px.js?ch=1"></script><script type="text/javascript" src="/js/lib/px.js?ch=2"></script><link rel="alternate" media="only screen and (max-width: 640px)" href="http://m.vk.com/photo-76505534_401427985" /><link rel="alternate" href="android-app://com.vkontakte.android/vkontakte/m.vk.com/photo-76505534_401427985" /><script type="text/javascript" src="/js/al/photos.js?83"></script><script type="text/javascript" src="/js/al/photoview.js?399"></script><script type="text/javascript" src="/js/al/page.js?944"></script><style>#page_header .back, #page_header .left, #page_header .right, #top_logo_down {background-image: url(/images/hatf_vk.gif);}
+.is_2x #page_header .back, .is_2x #page_header .left, .is_2x #page_header .right, .is_2x #top_logo_down {background-image: url(/images/hatf_vk_2x.gif);}</style>
+
+</head>
+
+<body onresize="onBodyResize()" class="is_rtl font_default pads ">
+  <div id="system_msg" class="fixed"></div>
+  <div id="utils"></div>
+
+  <div id="layer_bg" class="fixed"></div><div id="layer_wrap" class="scroll_fix_wrap fixed"><div id="layer"></div></div>
+  <div id="box_layer_bg" class="fixed"></div><div id="box_layer_wrap" class="scroll_fix_wrap fixed"><div id="box_layer"><div id="box_loader"><div class="loader"></div><div class="back"></div></div></div></div>
+
+  <div id="stl_left"></div><div id="stl_side"></div>
+
+  <script type="text/javascript">domStarted();</script>
+
+  <div class="scroll_fix_wrap" id="page_wrap"><div id="reg_bar" class="top_info_wrap fixed">
+  <div class="scroll_fix">
+    <div id="reg_bar_content">
+      Приєднуйтесь, щоб завжди залишатися в контакті з друзями та близькими
+      <div class="button_blue" id="reg_bar_button"><a class="button_link" href="/join" onclick="return !showBox('join.php', {act: 'box', from: nav.strLoc}, {}, event)"><button id="reg_bar_btn"><span id="reg_bar_with_arr">Зареєструватися</span></button></a></div>
+    </div>
+  </div>
+</div>
+<div><div class="scroll_fix">
+  <div id="page_layout" style="width: 791px;">
+    <div id="page_header" class="p_head p_head_l1">
+      <div class="back"></div>
+      <div class="left"></div>
+      <div class="right"></div>
+      <div class="content">
+        <div id="top_nav" class="head_nav">
+  <div id="top_logo_down" class="fl_l"></div>
+  <a id="top_home_link" class="top_home_link fl_l" href="/" onmousedown="addClass('top_logo_down','tld_d');" onclick="return nav.go(this, event);"></a>
+  <div id="top_links">
+    <div class="fl_r" id="top_menu_wrap" style="">
+      <a id="top_reg_link" class="fl_r top_nav_link" href="/join" style="" onclick="return !showBox('join.php', {act: 'box', from: nav.strLoc}, {}, event)" onmousedown="tnActive(this)">реєстрацiя</a>
+      <a id="top_switch_lang" class="fl_r top_nav_link"  style="display: none;" onclick="ajax.post('al_index.php', {act: 'change_lang', lang_id: 3, hash: ''});" onmousedown="tnActive(this)">Switch to English</a>
+    </div>
+    <a class="fl_l top_nav_link" href="" id="top_back_link" onclick="return nav.go(this, event, {back: true})" onmousedown="tnActive(this)"></a>
+  </div>
+</div>
+      </div>
+    </div>
+
+    <div id="side_bar" class="fl_l" style="">
+      <div id="quick_login">
+  <form method="POST" name="login" id="quick_login_form" action="https://login.vk.com/?act=login" onsubmit="if (vklogin) {return true} else {quick_login();return false;}">
+    <input type="hidden" name="act" value="login" />
+    <input type="hidden" name="role" value="al_frame" />
+    <input type="hidden" name="expire" id="quick_expire_input" value="" />
+    <input type="hidden" name="captcha_sid" id="quick_captcha_sid" value="" />
+    <input type="hidden" name="captcha_key" id="quick_captcha_key" value="" />
+    <input type="hidden" name="_origin" value="http://vk.com" />
+    <input type="hidden" name="ip_h" value="8789c6c62a000e6227" />
+    <input type="hidden" name="lg_h" value="b3fe719a9c70da604c" />
+    <div class="label">Телефон або email</div>
+    <div class="labeled"><input type="text" name="email" class="text" id="quick_email" /></div>
+    <div class="label">Пароль</div>
+    <div class="labeled"><input type="password" name="pass" class="text" id="quick_pass" onkeyup="toggle('quick_expire', !!this.value);toggle('quick_forgot', !this.value)" /></div>
+    <input type="submit" class="submit" />
+  </form>
+  <button class="flat_button button_wide button_big" id="quick_login_button">Увійти</button>
+  <button class="flat_button button_wide button_big" id="quick_reg_button" style="" onclick="top.showBox('join.php', {act: 'box', from: nav.strLoc})">Реєстрацiя</button>
+  <div class="clear forgot"><a id="quick_forgot" href="/restore" target="_top">Забули пароль?</a><div class="checkbox ta_l" id="quick_expire" onclick="checkbox(this);ge('quick_expire_input').value=isChecked(this)?1:'';"><div></div>Чужий комп&#39;ютер</div></div>
+</div>
+    </div>
+
+    <div id="page_body" class="fl_r" style="width: 631px;">
+      <div id="header_wrap2">
+        <div id="header_wrap1">
+          <div id="header" style="display: none">
+            <h1 id="title"></h1>
+          </div>
+        </div>
+      </div>
+      <div id="wrap_between"></div>
+      <div id="wrap3"><div id="wrap2">
+  <div id="wrap1">
+    <div id="content"><div class="t_bar photos_tabs clear_fix">
+  <ul class="t0"><li class="">
+  <a href="/albums-76505534" onclick="return checkEvent(event);" onmousedown="if ((window.PhotosAdd || nav).go(this, event) === false) (window.PhotosAdd || window.photos || window.friendsphotos).activeTab(this);">
+    <b class="tl1"><b></b></b>
+    <b class="tl2"></b>
+    <b class="tab_word"><nobr>Фотографії спільноти</nobr></b>
+  </a>
+</li><li class="active_link">
+  <a href="/album-76505534_00" onclick="return checkEvent(event);" onmousedown="if ((window.PhotosAdd || nav).go(this, event) === false) (window.PhotosAdd || window.photos || window.friendsphotos).activeTab(this);">
+    <b class="tl1"><b></b></b>
+    <b class="tl2"></b>
+    <b class="tab_word"><nobr>Фотографії на стіні спільноти</nobr></b>
+  </a>
+</li></ul>
+</div><div class="photos_album_page">
+  <div class="summary_wrap" style="">
+    <div class="summary"><a class="fl_r sort_rev_icon" onmouseover="showTooltip(this, {text: 'Відобразити у зворотньому порядку'})" href="/album-76505534_00?rev=1" onclick="return nav.go(this, event)"></a>У альбомі 755 фотографій<span class="divide">|</span><span><a href="/album-76505534_00?act=comments" onclick="return nav.go(this, event)">Коментарi до альбому</a></span></div>
+  </div>
+  <div id="photos_container" class="clear_fix"></div>
+  <a id="photos_load_more" onclick="photos.load()" style=""><span>Показати більше фотографій</span>
+    <div id="photos_more_progress" class="progress"></div>
+  </a>
+</div></div>
+  </div>
+</div></div>
+    </div>
+
+    <div id="footer_wrap" class="fl_r" style="width: 661px;">
+      <div id="bottom_nav">
+  <a class="bnav_a" href="/about">про сайт</a>
+  <a class="bnav_a" href="/support?act=home" onclick="return nav.go(this, event);" style="display: none;">допомога</a>
+  <a class="bnav_a" href="/terms">правила</a>
+  <a class="bnav_a" href="/ads">реклама</a>
+  <a class="bnav_a" href="/people">люди</a><a class="bnav_a" href="/communities">спільноти</a>
+  <a class="bnav_a" href="/dev">розробникам</a>
+  <a class="bnav_a" href="/jobs" style="display: none;">вакансії</a>
+</div>
+<div id="footer" class="clear">
+  <div class="copy_lang"><a href="/about">ВКонтактi</a> &copy; 2016 <a class="bnav_lang" onclick="ajax.post('al_index.php', {act: 'change_lang', lang_id: 3, hash: 'be1951e157dbd1a7a9'})">English</a><a class="bnav_lang" onclick="ajax.post('al_index.php', {act: 'change_lang', lang_id: 0, hash: 'be1951e157dbd1a7a9'})">Русский</a><a class="bnav_lang" onclick="ajax.post('al_index.php', {act: 'change_lang', lang_id: 1, hash: 'be1951e157dbd1a7a9'})">Українська</a><a class="bnav_lang" onclick="if (vk.al) { showBox('lang.php', {act: 'lang_dialog', all: 1}, {params: {dark: true, bodyStyle: 'padding: 0px'}, noreload: true}); } else { changeLang(1); } return false;">усі мови »</a></div>
+  
+  <div>
+    
+    
+  </div>
+</div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div></div><noscript><div style="position:absolute;left:-10000px;">
+<img src="//top-fwz1.mail.ru/counter?id=2579437;pid=0;js=na" style="border:0;" height="1" width="1" />
+</div></noscript></div>
+  <div class="progress" id="global_prg"></div>
+
+  <script type="text/javascript">
+    if (parent && parent != window && (browser.msie || browser.opera || browser.mozilla || browser.chrome || browser.safari || browser.iphone)) {
+      document.getElementsByTagName('body')[0].innerHTML = '';
+    } else {
+      domReady();
+      updateMoney(0);
+gSearch.init();
+if (window.qArr && qArr[5]) qArr[5] = [5, "у товарах", "", "goods", 0x00000100];
+if (browser.iphone || browser.ipad || browser.ipod) {
+  setStyle(bodyNode, {webkitTextSizeAdjust: 'none'});
+}var qf = ge('quick_login_form'), ql = ge('quick_login'), qe = ge('quick_email'), qp = ge('quick_pass');
+var qlb = ge('quick_login_button'), prgBtn = qlb;
+
+var qinit = function() {
+  setTimeout(function() {
+    ql.insertBefore(ce('div', {innerHTML: '<iframe class="upload_frame" id="quick_login_frame" name="quick_login_frame"></iframe>'}), qf);
+    qf.target = 'quick_login_frame';
+  }, 1);
+}
+
+if (window.top && window.top != window) {
+  window.onload = qinit;
+} else {
+  setTimeout(qinit, 0);
+}
+
+qf.onsubmit = function() {
+  if (!ge('quick_login_frame')) return false;
+  if (!trim(qe.value)) {
+    notaBene(qe);
+    return false;
+  } else if (!trim(qp.value)) {
+    notaBene(qp);
+    return false;
+  }
+  lockButton(window.__qfBtn = prgBtn);
+  prgBtn = qlb;
+  clearTimeout(__qlTimer);
+  __qlTimer = setTimeout(loginSubmitError, 30000);
+  domFC(domPS(qf)).onload = function() {
+    clearTimeout(__qlTimer);
+    __qlTimer = setTimeout(loginSubmitError, 2500);
+  }
+  return true;
+}
+
+window.loginSubmitError = function() {
+  showFastBox('Попередження', 'Не вдається пройти авторизацію по захищеному з&#39;єднанню. Найчастіше це відбувається, коли на Вашому комп&#39;ютері встановлена &#8203;&#8203;неправильна поточна дата і час. Будь ласка, перевірте налаштування дати і часу в системі і перезавантажте браузер.');
+}
+window.focusLoginInput = function() {
+  scrollToTop(0);
+  notaBene('quick_email');
+}
+window.changeQuickRegButton = function(noShow) {
+  if (noShow) {
+    hide('top_reg_link', 'quick_reg_button');
+    show('top_search_link');
+  } else {
+    hide('top_search_link');
+    show('top_reg_link', 'quick_reg_button');
+  }
+  toggle('top_switch_lang', noShow && window.langConfig && window.langConfig.id != 3);
+}
+window.submitQuickLoginForm = function(email, pass, opts) {
+  setQuickLoginData(email, pass, opts);
+  if (opts && opts.prg) prgBtn = opts.prg;
+  if (qf.onsubmit()) qf.submit();
+}
+window.setQuickLoginData = function(email, pass, opts) {
+  if (email !== undefined) ge('quick_email').value = email;
+  if (pass !== undefined) ge('quick_pass').value = pass;
+  var params = opts && opts.params || {};
+  for (var i in params) {
+    var el = ge('quick_login_' + i);
+    if (el) {
+      val(el, params[i]);
+    } else {
+      qf.appendChild(ce('input', {type: 'hidden', name: i, id: 'quick_login_' + i, value: params[i]}));
+    }
+  }
+}
+
+if (qlb) {
+  qlb.onclick = function() { if (qf.onsubmit()) qf.submit(); };
+}
+
+if (browser.opera_mobile) show('quick_expire');
+
+if (1) {
+  hide('support_link_td');
+}
+var ts_input = ge('ts_input'), oldFF = browser.mozilla && parseInt(browser.version) < 8;
+if (browser.mozilla && !oldFF) {
+  setStyle(ts_input, {padding: (vk.rtl ? '3px 20px 6px 40px' : '3px 41px 6px 20px')});
+}
+placeholderSetup(ts_input, {back: false, reload: true});
+if (browser.opera || browser.msie || browser.mozilla) {
+  setStyle(ts_input, {padding: (vk.rtl ? '4px 20px 5px 40px' : '4px 41px 5px 20px')});
+} else if (browser.chrome || browser.safari) {
+  setStyle(ts_input, {padding: (vk.rtl ? '4px 21px 5px 40px' : '4px 40px 5px 21px')});
+}
+
+TopSearch.init();
+if (browser.msie8 || browser.msie7) {
+  var st = {border: '1px solid #a6b6c6'};
+  if (hasClass(ge('ts_wrap'), 'vk')) {
+    if (vk.rtl) st.left = '1px';
+    else st.right = '0px';
+  } else {
+    if (vk.rtl) st.right = '146px';
+    else st.left = '146px';
+  }
+  setStyle(ge('ts_cont_wrap'), st);
+}
+window.tsHintsEnabled = 1;;shortCurrency();
+handlePageParams({"id":0,"pads":1,"loc":"photo-76505534_401427985","wrap_page":1,"width":791,"width_dec":160,"width_dec_footer":130,"body_class":"is_rtl font_default pads ","counters":"","pvbig":0,"pvdark":1});showBackLink('albums-76505534', 'Фотографії спільноти');addEvent(document, 'click', onDocumentClick);cur.pvPreloaded = "<div class=\"photo_row\" id=\"photo_row-76505534_338149840\"><a href=\"\/photo-76505534_338149840\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338149840', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1ceca\/uSsvSD5HNFQ.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338149854\"><a href=\"\/photo-76505534_338149854\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338149854', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1ced1\/8CZd3d1io1M.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338149877\"><a href=\"\/photo-76505534_338149877\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338149877', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1ceda\/t6hGKg8B2q4.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338149893\"><a href=\"\/photo-76505534_338149893\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338149893', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1cee3\/2svV8I_Skm4.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338149928\"><a href=\"\/photo-76505534_338149928\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338149928', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1ceec\/GItDWSZnhKk.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338149964\"><a href=\"\/photo-76505534_338149964\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338149964', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1cef5\/f_jBHhvP9Lg.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338149980\"><a href=\"\/photo-76505534_338149980\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338149980', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1cefe\/0hN5737QHBg.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338150002\"><a href=\"\/photo-76505534_338150002\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338150002', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1cf07\/EYYGHVwqHqA.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338150017\"><a href=\"\/photo-76505534_338150017\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338150017', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1cf10\/kS2HPjpizB4.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338150075\"><a href=\"\/photo-76505534_338150075\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338150075', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1cf19\/npcTRVEB4yA.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338150102\"><a href=\"\/photo-76505534_338150102\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338150102', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1cf22\/Yof5XHnM1yA.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338150132\"><a href=\"\/photo-76505534_338150132\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338150132', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1cf2b\/s9m-wfxS6So.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338150171\"><a href=\"\/photo-76505534_338150171\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338150171', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1cf34\/GglbSJ7r7f8.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338150210\"><a href=\"\/photo-76505534_338150210\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338150210', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1cf3d\/qx7vvABBo4g.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338150230\"><a href=\"\/photo-76505534_338150230\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338150230', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1cf46\/ZvlKAp8Pu-w.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338150297\"><a href=\"\/photo-76505534_338150297\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338150297', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1cf4f\/fGO04FHAV4Q.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338150321\"><a href=\"\/photo-76505534_338150321\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338150321', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1cf58\/uMhLg1DOZ1M.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338150339\"><a href=\"\/photo-76505534_338150339\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338150339', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1cf61\/xr_K8qQgX_A.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338150361\"><a href=\"\/photo-76505534_338150361\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338150361', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1cf6a\/YavmWwzGHeY.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338150417\"><a href=\"\/photo-76505534_338150417\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338150417', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1cf73\/BJFA2e4KLEw.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338150440\"><a href=\"\/photo-76505534_338150440\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338150440', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1cf7c\/MUnM0VSXl7E.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338150498\"><a href=\"\/photo-76505534_338150498\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338150498', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1cf85\/LuCYOYnPnyw.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338150526\"><a href=\"\/photo-76505534_338150526\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338150526', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1cf8e\/xftKZapua78.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338150558\"><a href=\"\/photo-76505534_338150558\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338150558', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1cf97\/UrfRw_MgYxY.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338150639\"><a href=\"\/photo-76505534_338150639\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338150639', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1cfa0\/58Uyni91zJo.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338150668\"><a href=\"\/photo-76505534_338150668\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338150668', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1cfa9\/TWfFqHe92w4.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338150692\"><a href=\"\/photo-76505534_338150692\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338150692', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1cfb2\/qTJw-pf5BqU.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338150722\"><a href=\"\/photo-76505534_338150722\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338150722', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1cfbb\/tjXxh0tKXrA.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338150758\"><a href=\"\/photo-76505534_338150758\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338150758', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1cfc4\/BWwqSBbb9tM.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338150882\"><a href=\"\/photo-76505534_338150882\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338150882', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1cfcd\/Kyt9yf15czA.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338150930\"><a href=\"\/photo-76505534_338150930\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338150930', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1cfd6\/dy_4rUcyyUU.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338150971\"><a href=\"\/photo-76505534_338150971\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338150971', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1cfdf\/SRU8WfWCMYk.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338151023\"><a href=\"\/photo-76505534_338151023\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338151023', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1cfe8\/c0xZwK1ixeE.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338151525\"><a href=\"\/photo-76505534_338151525\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338151525', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1cff1\/qOsG5yPgEyQ.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338151547\"><a href=\"\/photo-76505534_338151547\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338151547', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1cffa\/Cp6Yy4H-tqc.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338151699\"><a href=\"\/photo-76505534_338151699\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338151699', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d003\/irkIbC68nf0.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338151733\"><a href=\"\/photo-76505534_338151733\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338151733', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d00c\/9qXMtV65fic.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338151756\"><a href=\"\/photo-76505534_338151756\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338151756', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d015\/_yMmSwmTngI.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338151987\"><a href=\"\/photo-76505534_338151987\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338151987', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d01e\/Q7qa8X_mMrI.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338152261\"><a href=\"\/photo-76505534_338152261\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338152261', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d027\/stOqW1oXsd0.jpg\" \/>\n<\/a><\/div>";extend(cur, {"postTo":-76505534,"offset":40,"count":755,"totalCount":755,"moreFrom":"album-76505534_00","moreOpts":null,"reorderHash":"813d8372a5bd946bec"});
+
+cur.lang = extend(cur.lang || {}, {
+  photos_deleting_album: 'Видалення альбому',
+  photos_sure_del_album: 'Ви впевненi, що бажаєте видалити альбом?',
+  photos_stop_uploading: 'Перервати завантаження',
+  photos_uploading_warning: 'Завантаження фотографій ще триває. Ви впевнені, що хочете покинути сторінку і перервати завантаження?'
+});
+
+if (vk.version) {
+  addEvent(window, 'load', photos.initScroll);
+} else {
+  photos.initScroll();
+}
+var preload = [80,"<div class=\"photo_row\" id=\"photo_row-76505534_338152284\"><a href=\"\/photo-76505534_338152284\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338152284', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d030\/CjZW1py3nPk.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338152333\"><a href=\"\/photo-76505534_338152333\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338152333', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d039\/rC7c6x-xd8Q.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338154310\"><a href=\"\/photo-76505534_338154310\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338154310', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d082\/1oCkokufoW4.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338152504\"><a href=\"\/photo-76505534_338152504\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338152504', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d042\/SRbHyXdVxIQ.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338152560\"><a href=\"\/photo-76505534_338152560\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338152560', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d04b\/s8-pdLhvUGQ.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338152573\"><a href=\"\/photo-76505534_338152573\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338152573', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d054\/EHUwo3Gx4I4.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338152665\"><a href=\"\/photo-76505534_338152665\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338152665', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d05d\/VnLVxjVX5TY.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338152745\"><a href=\"\/photo-76505534_338152745\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338152745', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d066\/lozDer1CGuU.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338153674\"><a href=\"\/photo-76505534_338153674\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338153674', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d06f\/RdG2yjVvgeo.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338154343\"><a href=\"\/photo-76505534_338154343\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338154343', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d08b\/BpsBy6m5v7o.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338154387\"><a href=\"\/photo-76505534_338154387\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338154387', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d094\/x7tAiYm0iWo.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338154409\"><a href=\"\/photo-76505534_338154409\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338154409', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d0b1\/OHmLajmQ_uU.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338154432\"><a href=\"\/photo-76505534_338154432\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338154432', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d0c4\/-lvTiNLbx5c.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338154469\"><a href=\"\/photo-76505534_338154469\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338154469', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d0cd\/e-FxYeJucNc.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338154501\"><a href=\"\/photo-76505534_338154501\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338154501', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d0d6\/GRCatxqcBGQ.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338154502\"><a href=\"\/photo-76505534_338154502\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338154502', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d0df\/u8fVNI0Dliw.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338154571\"><a href=\"\/photo-76505534_338154571\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338154571', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d0f2\/yqlYq6lKIkY.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338154720\"><a href=\"\/photo-76505534_338154720\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338154720', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d10b\/sz_fZNTcWL4.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338154763\"><a href=\"\/photo-76505534_338154763\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338154763', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d114\/eKa0DTKBwL8.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338154800\"><a href=\"\/photo-76505534_338154800\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338154800', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d11d\/V-36jo1kc4Q.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338154832\"><a href=\"\/photo-76505534_338154832\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338154832', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d126\/C_vAY2uox1o.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338154878\"><a href=\"\/photo-76505534_338154878\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338154878', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d12f\/EtNGVGHQ21M.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338154902\"><a href=\"\/photo-76505534_338154902\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338154902', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d138\/xJ-buJ6Swtw.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338155000\"><a href=\"\/photo-76505534_338155000\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338155000', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d141\/Eai7pficVQ4.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338155020\"><a href=\"\/photo-76505534_338155020\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338155020', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d14a\/tNb0WmTkaE8.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338155042\"><a href=\"\/photo-76505534_338155042\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338155042', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d153\/S-PhpRzGrkY.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338155078\"><a href=\"\/photo-76505534_338155078\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338155078', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d15c\/dauKIJFJYCw.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338155109\"><a href=\"\/photo-76505534_338155109\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338155109', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d165\/FDwoT2tU31c.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338155188\"><a href=\"\/photo-76505534_338155188\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338155188', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d16e\/1EoXdrgoptQ.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338155231\"><a href=\"\/photo-76505534_338155231\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338155231', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d177\/f3WYAC1P--E.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338155257\"><a href=\"\/photo-76505534_338155257\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338155257', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d180\/rsLT1vHSeTc.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338155300\"><a href=\"\/photo-76505534_338155300\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338155300', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d189\/tlyGCz-h0PQ.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338155330\"><a href=\"\/photo-76505534_338155330\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338155330', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d192\/YScOUmgi-qw.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338155359\"><a href=\"\/photo-76505534_338155359\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338155359', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d19b\/JTw8SVvJOPo.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338155383\"><a href=\"\/photo-76505534_338155383\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338155383', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d1a4\/bL9YaMffIrs.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338155410\"><a href=\"\/photo-76505534_338155410\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338155410', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d1ad\/wwItUWdKL5w.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338155439\"><a href=\"\/photo-76505534_338155439\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338155439', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d1b6\/vIuKCt9Uais.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338155501\"><a href=\"\/photo-76505534_338155501\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338155501', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d1bf\/kvx6-X6Vc5A.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338155530\"><a href=\"\/photo-76505534_338155530\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338155530', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d1c8\/-IW33giwSr4.jpg\" \/>\n<\/a><\/div><div class=\"photo_row\" id=\"photo_row-76505534_338155567\"><a href=\"\/photo-76505534_338155567\" ontouchstart=\"event.cancelBubble = true;\" ontouchmove=\"cancelEvent(event);\" onclick=\"if (cur.cancelClick) return (cur.cancelClick = false); return showPhoto('-76505534_338155567', 'album-76505534_00', {img: this, root: 1}, event)\">\n  <img class=\"photo_row_img\" src=\"http:\/\/cs614827.vk.me\/v614827808\/1d1d1\/D-nXdgcEEns.jpg\" \/>\n<\/a><\/div>"];
+
+ajax.preload(cur.moreFrom, extend({offset: cur.offset, part: 1}, cur.moreOpts || {}), preload);
+
+photos.registerDragZone({
+  on: function() {
+    addClass(ge('photos_upload_area'), 'photos_upload_area_enter');
+    if (ge('lite_photo_uploader')) setStyle(ge('lite_photo_uploader'), {width: '1px', height: '1px'});
+  },
+  un: function() {
+    removeClass(ge('photos_upload_area'), 'photos_upload_area_enter');
+    if (ge('lite_photo_uploader')) setStyle(ge('lite_photo_uploader'), {width: '100%', height: '100%'});
+  },
+  drop: function(files) {
+    if (cur.uplId !== undefined && window.Upload && Upload.checked && Upload.checked[cur.uplId]) {
+      Upload.onFileApiSend(cur.uplId, files);
+    } else {
+      photos.onUploadSelect(files);
+    }
+  }
+});
+ajax.preload('al_photos.php', {"act":"show","list":"album-76505534_00","photo":"-76505534_401427985","module":"photos"}, ["album-76505534_00",755,643.000000,[{"id":"-76505534_400965200","base":"http:\/\/cs628819.vk.me\/v628819808\/","commcount":0,"commshown":0,"comments":"","date":"8 лютого 2016","tags":[0],"tagged":[],"album":"Фотографії на стіні спільноти","author":"<a href=\"\/gonzo_photography\" class=\"group_link\">gonzo<\/a>","author_photo":"http:\/\/cs620222.vk.me\/v620222808\/136f5\/lW9qgoENtkE.jpg","author_href":"\/gonzo_photography","likes":0,"actions":[],"desc":"","hash":"842df2a836c583ddb6","o_src":"http:\/\/cs628819.vk.me\/v628819808\/3d5b4\/U7L9-7HIENQ.jpg","o_":["3d5b4\/U7L9-7HIENQ",130,87],"p_src":"http:\/\/cs628819.vk.me\/v628819808\/3d5b5\/x-NrZ-0H9vI.jpg","p_":["3d5b5\/x-NrZ-0H9vI",200,133],"q_src":"http:\/\/cs628819.vk.me\/v628819808\/3d5b6\/3XXIp4hO3_U.jpg","q_":["3d5b6\/3XXIp4hO3_U",320,213],"r_src":"http:\/\/cs628819.vk.me\/v628819808\/3d5b7\/cHdjWtE0Ycc.jpg","r_":["3d5b7\/cHdjWtE0Ycc",510,340],"w_src":"http:\/\/cs628819.vk.me\/v628819808\/3d5b3\/LtjhblySsO0.jpg","w_":["3d5b3\/LtjhblySsO0",1800,1200],"x_src":"http:\/\/cs628819.vk.me\/v628819808\/3d5b0\/_vEIdkglEtE.jpg","x_":["3d5b0\/_vEIdkglEtE",604,403],"y_src":"http:\/\/cs628819.vk.me\/v628819808\/3d5b1\/ptSGAJ9cnnM.jpg","y_":["3d5b1\/ptSGAJ9cnnM",807,538],"z_src":"http:\/\/cs628819.vk.me\/v628819808\/3d5b2\/WcrcDeHt1v4.jpg","z_":["3d5b2\/WcrcDeHt1v4",1280,853]},{"id":"-76505534_401422976","base":"http:\/\/cs631526.vk.me\/v631526808\/","commcount":0,"commshown":0,"comments":"","date":"11 лютого 2016","tags":[0],"tagged":[],"album":"Фотографії на стіні спільноти","author":"<a href=\"\/gonzo_photography\" class=\"group_link\">gonzo<\/a>","author_photo":"http:\/\/cs620222.vk.me\/v620222808\/136f5\/lW9qgoENtkE.jpg","author_href":"\/gonzo_photography","likes":2,"actions":[],"desc":"","hash":"9e830e10146b695961","o_src":"http:\/\/cs631526.vk.me\/v631526808\/128c5\/FSrVhcJWY4E.jpg","o_":["128c5\/FSrVhcJWY4E",130,87],"p_src":"http:\/\/cs631526.vk.me\/v631526808\/128c6\/mo8fKtIECpk.jpg","p_":["128c6\/mo8fKtIECpk",200,133],"q_src":"http:\/\/cs631526.vk.me\/v631526808\/128c7\/eZ1yEq7RMJ8.jpg","q_":["128c7\/eZ1yEq7RMJ8",320,213],"r_src":"http:\/\/cs631526.vk.me\/v631526808\/128c8\/_884-RQ1InQ.jpg","r_":["128c8\/_884-RQ1InQ",510,340],"w_src":"http:\/\/cs631526.vk.me\/v631526808\/128c4\/kFbiivhApy0.jpg","w_":["128c4\/kFbiivhApy0",1800,1200],"x_src":"http:\/\/cs631526.vk.me\/v631526808\/128c1\/eik_Hj-Zd3I.jpg","x_":["128c1\/eik_Hj-Zd3I",604,403],"y_src":"http:\/\/cs631526.vk.me\/v631526808\/128c2\/E0B34qLH5bM.jpg","y_":["128c2\/E0B34qLH5bM",807,538],"z_src":"http:\/\/cs631526.vk.me\/v631526808\/128c3\/QPqqcUDXG5c.jpg","z_":["128c3\/QPqqcUDXG5c",1280,853]},{"id":"-76505534_401422977","base":"http:\/\/cs631526.vk.me\/v631526808\/","commcount":0,"commshown":0,"comments":"","date":"11 лютого 2016","tags":[0],"tagged":[],"album":"Фотографії на стіні спільноти","author":"<a href=\"\/gonzo_photography\" class=\"group_link\">gonzo<\/a>","author_photo":"http:\/\/cs620222.vk.me\/v620222808\/136f5\/lW9qgoENtkE.jpg","author_href":"\/gonzo_photography","likes":1,"actions":[],"desc":"","hash":"796ed6269953d47f48","o_src":"http:\/\/cs631526.vk.me\/v631526808\/128f7\/C1EUbkmsCC4.jpg","o_":["128f7\/C1EUbkmsCC4",130,87],"p_src":"http:\/\/cs631526.vk.me\/v631526808\/128f8\/VMZwfn-QtrI.jpg","p_":["128f8\/VMZwfn-QtrI",200,133],"q_src":"http:\/\/cs631526.vk.me\/v631526808\/128f9\/O_rwNRTdulg.jpg","q_":["128f9\/O_rwNRTdulg",320,213],"r_src":"http:\/\/cs631526.vk.me\/v631526808\/128fa\/nq5TvFvLJA0.jpg","r_":["128fa\/nq5TvFvLJA0",510,340],"w_src":"http:\/\/cs631526.vk.me\/v631526808\/128f6\/y7BRauL2tRI.jpg","w_":["128f6\/y7BRauL2tRI",1800,1200],"x_src":"http:\/\/cs631526.vk.me\/v631526808\/128f3\/hC5Ecw5S0Q8.jpg","x_":["128f3\/hC5Ecw5S0Q8",604,403],"y_src":"http:\/\/cs631526.vk.me\/v631526808\/128f4\/cKYspI8xWXk.jpg","y_":["128f4\/cKYspI8xWXk",807,538],"z_src":"http:\/\/cs631526.vk.me\/v631526808\/128f5\/aVrTWASuYBw.jpg","z_":["128f5\/aVrTWASuYBw",1280,853]},{"id":"-76505534_401422978","base":"http:\/\/cs631526.vk.me\/v631526808\/","commcount":0,"commshown":0,"comments":"","date":"11 лютого 2016","tags":[0],"tagged":[],"album":"Фотографії на стіні спільноти","author":"<a href=\"\/gonzo_photography\" class=\"group_link\">gonzo<\/a>","author_photo":"http:\/\/cs620222.vk.me\/v620222808\/136f5\/lW9qgoENtkE.jpg","author_href":"\/gonzo_photography","likes":4,"actions":[],"desc":"","hash":"01b21ac020ca54b71f","o_src":"http:\/\/cs631526.vk.me\/v631526808\/128ed\/sGYl3Uga6vo.jpg","o_":["128ed\/sGYl3Uga6vo",130,87],"p_src":"http:\/\/cs631526.vk.me\/v631526808\/128ee\/tue4vwP63Oo.jpg","p_":["128ee\/tue4vwP63Oo",200,133],"q_src":"http:\/\/cs631526.vk.me\/v631526808\/128ef\/NZaytbn0VXw.jpg","q_":["128ef\/NZaytbn0VXw",320,213],"r_src":"http:\/\/cs631526.vk.me\/v631526808\/128f0\/3o4aB6dNXJ8.jpg","r_":["128f0\/3o4aB6dNXJ8",510,340],"w_src":"http:\/\/cs631526.vk.me\/v631526808\/128ec\/5wHJZRJkydU.jpg","w_":["128ec\/5wHJZRJkydU",1800,1200],"x_src":"http:\/\/cs631526.vk.me\/v631526808\/128e9\/TpiTPwp4urc.jpg","x_":["128e9\/TpiTPwp4urc",604,403],"y_src":"http:\/\/cs631526.vk.me\/v631526808\/128ea\/xnHhMvNTToE.jpg","y_":["128ea\/xnHhMvNTToE",807,538],"z_src":"http:\/\/cs631526.vk.me\/v631526808\/128eb\/4KGtfxOlsUc.jpg","z_":["128eb\/4KGtfxOlsUc",1280,853]},{"id":"-76505534_401427985","base":"http:\/\/cs631526.vk.me\/v631526808\/","commcount":0,"commshown":0,"comments":"","date":"12 лютого 2016","tags":[0],"tagged":[],"album":"Фотографії на стіні спільноти","author":"<a href=\"\/gonzo_photography\" class=\"group_link\">gonzo<\/a>","author_photo":"http:\/\/cs620222.vk.me\/v620222808\/136f5\/lW9qgoENtkE.jpg","author_href":"\/gonzo_photography","likes":18,"actions":[],"desc":"","hash":"16906a91f40f24314d","o_src":"http:\/\/cs631526.vk.me\/v631526808\/12914\/wCr04DRnfBk.jpg","o_":["12914\/wCr04DRnfBk",130,87],"p_src":"http:\/\/cs631526.vk.me\/v631526808\/12915\/m-_SoLVQ_c0.jpg","p_":["12915\/m-_SoLVQ_c0",200,133],"q_src":"http:\/\/cs631526.vk.me\/v631526808\/12916\/niUYzo4E99k.jpg","q_":["12916\/niUYzo4E99k",320,213],"r_src":"http:\/\/cs631526.vk.me\/v631526808\/12917\/xxcOVJ-AUjk.jpg","r_":["12917\/xxcOVJ-AUjk",510,340],"w_src":"http:\/\/cs631526.vk.me\/v631526808\/12913\/BkjGPbVoxzs.jpg","w_":["12913\/BkjGPbVoxzs",1800,1200],"x_src":"http:\/\/cs631526.vk.me\/v631526808\/12910\/zNKn79igXi8.jpg","x_":["12910\/zNKn79igXi8",604,403],"y_src":"http:\/\/cs631526.vk.me\/v631526808\/12911\/k2kE_rP1RoM.jpg","y_":["12911\/k2kE_rP1RoM",807,538],"z_src":"http:\/\/cs631526.vk.me\/v631526808\/12912\/X4twhiRQN2s.jpg","z_":["12912\/X4twhiRQN2s",1280,853]},{"id":"-76505534_401427987","base":"http:\/\/cs631526.vk.me\/v631526808\/","commcount":0,"commshown":0,"comments":"","date":"12 лютого 2016","tags":[0],"tagged":[],"album":"Фотографії на стіні спільноти","author":"<a href=\"\/gonzo_photography\" class=\"group_link\">gonzo<\/a>","author_photo":"http:\/\/cs620222.vk.me\/v620222808\/136f5\/lW9qgoENtkE.jpg","author_href":"\/gonzo_photography","likes":7,"actions":[],"desc":"","hash":"8bad3d37c8e54d5197","o_src":"http:\/\/cs631526.vk.me\/v631526808\/12964\/0rzqYhHsHfk.jpg","o_":["12964\/0rzqYhHsHfk",130,87],"p_src":"http:\/\/cs631526.vk.me\/v631526808\/12965\/wSNo5dWeqUM.jpg","p_":["12965\/wSNo5dWeqUM",200,133],"q_src":"http:\/\/cs631526.vk.me\/v631526808\/12966\/yrkgkvwzoGc.jpg","q_":["12966\/yrkgkvwzoGc",320,213],"r_src":"http:\/\/cs631526.vk.me\/v631526808\/12967\/FMrY_wys7rs.jpg","r_":["12967\/FMrY_wys7rs",510,340],"w_src":"http:\/\/cs631526.vk.me\/v631526808\/12963\/1Rp3sSz3IOI.jpg","w_":["12963\/1Rp3sSz3IOI",1800,1200],"x_src":"http:\/\/cs631526.vk.me\/v631526808\/12960\/JBmhnUQQ8Yw.jpg","x_":["12960\/JBmhnUQQ8Yw",604,403],"y_src":"http:\/\/cs631526.vk.me\/v631526808\/12961\/X6iKvZicAa4.jpg","y_":["12961\/X6iKvZicAa4",807,538],"z_src":"http:\/\/cs631526.vk.me\/v631526808\/12962\/JaO7FMSX_dQ.jpg","z_":["12962\/JaO7FMSX_dQ",1280,853]},{"id":"-76505534_401427990","base":"http:\/\/cs631526.vk.me\/v631526808\/","commcount":0,"commshown":0,"comments":"","date":"12 лютого 2016","tags":[0],"tagged":[],"album":"Фотографії на стіні спільноти","author":"<a href=\"\/gonzo_photography\" class=\"group_link\">gonzo<\/a>","author_photo":"http:\/\/cs620222.vk.me\/v620222808\/136f5\/lW9qgoENtkE.jpg","author_href":"\/gonzo_photography","likes":13,"actions":[],"desc":"","hash":"c99caa86116d93bc80","o_src":"http:\/\/cs631526.vk.me\/v631526808\/12950\/bvT4aTfjy3E.jpg","o_":["12950\/bvT4aTfjy3E",130,87],"p_src":"http:\/\/cs631526.vk.me\/v631526808\/12951\/mYv0ZL7RMdQ.jpg","p_":["12951\/mYv0ZL7RMdQ",200,134],"q_src":"http:\/\/cs631526.vk.me\/v631526808\/12952\/sOq_78nkwws.jpg","q_":["12952\/sOq_78nkwws",320,214],"r_src":"http:\/\/cs631526.vk.me\/v631526808\/12953\/v4TSuWEiaWQ.jpg","r_":["12953\/v4TSuWEiaWQ",510,341],"w_src":"http:\/\/cs631526.vk.me\/v631526808\/1294f\/NYqLcMY-ZFI.jpg","w_":["1294f\/NYqLcMY-ZFI",1793,1200],"x_src":"http:\/\/cs631526.vk.me\/v631526808\/1294c\/sXdSIdr96cY.jpg","x_":["1294c\/sXdSIdr96cY",604,404],"y_src":"http:\/\/cs631526.vk.me\/v631526808\/1294d\/3Q7WpxNrsqo.jpg","y_":["1294d\/3Q7WpxNrsqo",807,540],"z_src":"http:\/\/cs631526.vk.me\/v631526808\/1294e\/TZesWsnBy7M.jpg","z_":["1294e\/TZesWsnBy7M",1280,857]},{"id":"-76505534_401427992","base":"http:\/\/cs631526.vk.me\/v631526808\/","commcount":0,"commshown":0,"comments":"","date":"12 лютого 2016","tags":[0],"tagged":[],"album":"Фотографії на стіні спільноти","author":"<a href=\"\/gonzo_photography\" class=\"group_link\">gonzo<\/a>","author_photo":"http:\/\/cs620222.vk.me\/v620222808\/136f5\/lW9qgoENtkE.jpg","author_href":"\/gonzo_photography","likes":5,"actions":[],"desc":"","hash":"debf038e9300e48b4e","o_src":"http:\/\/cs631526.vk.me\/v631526808\/12946\/Kcs4w18Co8c.jpg","o_":["12946\/Kcs4w18Co8c",130,87],"p_src":"http:\/\/cs631526.vk.me\/v631526808\/12947\/8tRAuz9b1Qk.jpg","p_":["12947\/8tRAuz9b1Qk",200,133],"q_src":"http:\/\/cs631526.vk.me\/v631526808\/12948\/kxmGgKSOJRM.jpg","q_":["12948\/kxmGgKSOJRM",320,213],"r_src":"http:\/\/cs631526.vk.me\/v631526808\/12949\/l-8Ermvu-Z4.jpg","r_":["12949\/l-8Ermvu-Z4",510,340],"w_src":"http:\/\/cs631526.vk.me\/v631526808\/12945\/31SVziv5rdk.jpg","w_":["12945\/31SVziv5rdk",1800,1200],"x_src":"http:\/\/cs631526.vk.me\/v631526808\/12942\/lZ4kta_h07A.jpg","x_":["12942\/lZ4kta_h07A",604,403],"y_src":"http:\/\/cs631526.vk.me\/v631526808\/12943\/pox3oYXMvXI.jpg","y_":["12943\/pox3oYXMvXI",807,538],"z_src":"http:\/\/cs631526.vk.me\/v631526808\/12944\/_OPe-5qWhew.jpg","z_":["12944\/_OPe-5qWhew",1280,853]},{"id":"-76505534_401427994","base":"http:\/\/cs631526.vk.me\/v631526808\/","commcount":0,"commshown":0,"comments":"","date":"12 лютого 2016","tags":[0],"tagged":[],"album":"Фотографії на стіні спільноти","author":"<a href=\"\/gonzo_photography\" class=\"group_link\">gonzo<\/a>","author_photo":"http:\/\/cs620222.vk.me\/v620222808\/136f5\/lW9qgoENtkE.jpg","author_href":"\/gonzo_photography","likes":3,"actions":[],"desc":"","hash":"af8229c3b5a89ae68c","o_src":"http:\/\/cs631526.vk.me\/v631526808\/1295a\/Lx01IAyGqOs.jpg","o_":["1295a\/Lx01IAyGqOs",130,87],"p_src":"http:\/\/cs631526.vk.me\/v631526808\/1295b\/grSx9DuhTjI.jpg","p_":["1295b\/grSx9DuhTjI",200,133],"q_src":"http:\/\/cs631526.vk.me\/v631526808\/1295c\/kAfA0t6hMW4.jpg","q_":["1295c\/kAfA0t6hMW4",320,213],"r_src":"http:\/\/cs631526.vk.me\/v631526808\/1295d\/oKADUewS0Jc.jpg","r_":["1295d\/oKADUewS0Jc",510,340],"w_src":"http:\/\/cs631526.vk.me\/v631526808\/12959\/0QMN_NJQtj0.jpg","w_":["12959\/0QMN_NJQtj0",1800,1200],"x_src":"http:\/\/cs631526.vk.me\/v631526808\/12956\/gGF5NjuTjmU.jpg","x_":["12956\/gGF5NjuTjmU",604,403],"y_src":"http:\/\/cs631526.vk.me\/v631526808\/12957\/yjUOtB1AbrQ.jpg","y_":["12957\/yjUOtB1AbrQ",807,538],"z_src":"http:\/\/cs631526.vk.me\/v631526808\/12958\/RA42P6iTzu4.jpg","z_":["12958\/RA42P6iTzu4",1280,853]},{"id":"-76505534_401697552","base":"http:\/\/cs631529.vk.me\/v631529808\/","commcount":0,"commshown":0,"comments":"","date":"13 лютого 2016","tags":[0],"tagged":[],"album":"Фотографії на стіні спільноти","author":"<a href=\"\/gonzo_photography\" class=\"group_link\">gonzo<\/a>","author_photo":"http:\/\/cs620222.vk.me\/v620222808\/136f5\/lW9qgoENtkE.jpg","author_href":"\/gonzo_photography","likes":10,"actions":[],"desc":"","hash":"a25d254359ec9bfe68","o_src":"http:\/\/cs631529.vk.me\/v631529808\/10bb0\/_hlgXjpjwsA.jpg","o_":["10bb0\/_hlgXjpjwsA",130,87],"p_src":"http:\/\/cs631529.vk.me\/v631529808\/10bb1\/b7YG6538m4M.jpg","p_":["10bb1\/b7YG6538m4M",200,133],"q_src":"http:\/\/cs631529.vk.me\/v631529808\/10bb2\/DkRAlAp14Y8.jpg","q_":["10bb2\/DkRAlAp14Y8",320,213],"r_src":"http:\/\/cs631529.vk.me\/v631529808\/10bb3\/uO5oeC9DzuE.jpg","r_":["10bb3\/uO5oeC9DzuE",510,340],"w_src":"http:\/\/cs631529.vk.me\/v631529808\/10baf\/jhdWqXm1xLE.jpg","w_":["10baf\/jhdWqXm1xLE",1800,1200],"x_src":"http:\/\/cs631529.vk.me\/v631529808\/10bac\/y801oQpvONo.jpg","x_":["10bac\/y801oQpvONo",604,403],"y_src":"http:\/\/cs631529.vk.me\/v631529808\/10bad\/jiXvO3wjjQ4.jpg","y_":["10bad\/jiXvO3wjjQ4",807,538],"z_src":"http:\/\/cs631529.vk.me\/v631529808\/10bae\/L82Vd3dKcdo.jpg","z_":["10bae\/L82Vd3dKcdo",1280,853]}],{"captionlimit":2048,"commlimit":16384,"lang":{"wall_reply_to_post":"Коментувати..","wall_more_replies":["","ще %s коментар","ще %s коментарі","ще %s коментарів"],"wall_all_replies":"усі коментарі","wall_M_replies_of_N":["","%s коментар з {link}{all}{\/link}","%s останні коментарі з {link}{all}{\/link}","%s останніх коментарів з {link}{all}{\/link}"],"wall_reply_as_group":"від імені спільноти","photos_X_comms":["","%s коментар","%s коментарі","%s коментарів"],"photos_onthisphoto":"На цiй фотографії","photos_yourcomment":"Ваш коментар","photos_reply_emoji_hint":"Використовуйте TAB, щоб швидше відкривати смайли","photos_tagperson":"Позначити людину","photos_select_tag_area":"Виділіть область, де зображено людину, і її буде підписано на фотографії.","photos_typename":"Введіть ім&#39;я","photos_tags_me":"Я","photos_confirm_tag":"Підтвердити","photos_delete_tag":"Видалити позначку","photos_load_to_profile":"Розмістити на мою сторінку","photos_load_to_dialog":"Зробити обкладинкою бесіди","photos_in_closed_album":"Коментарі до цієї фотографії приховано налаштуваннями приватності.","photos_edit":"Дії","photos_rotate":"Повернути:","photos_album_name":"Альбом:","photos_author":"Автор:","photos_added":"Додана","photos_i_like":"Мені подобається","photos_download_hq":"Завантажити оригінал на диск","photos_larger":"Збільшити фотографію","photos_smaller":"Зменшити фотографію","photos_photo_num_of_N":"Фотографія %s із {count}","photos_view_one_photo":"Перегляд фотографії","photos_show_prev_comments":["","Показати попередній %s коментар","Показати попередні %s коментарі","Показати попередні %s коментарів"],"photos_edit_desc":"Редагувати опис","photos_edit_desc_intro":"Введіть опис","photos_share_from_view":"Поділитися","photos_report":"Поскаржитися","photos_send_to_fr":"Надіслати другу","photos_save_to_alb":"Зберегти до себе в альбом","photos_repeat_album":"Переглянути ще раз","photos_place_label":"Місце:","photos_edit_add_place":"Вказати місце","photos_fullscreen":"На весь экран","photos_slideshow":"Показ слайдів","photos_seconds":["","%s секунда","%s секунди","%s секунд"],"global_add_media":"Прикріпити","dont_attach":"Не прикріплювати","profile_mention_not_found":"Сторінку не знайдено","profile_mention_start_typing":"Почніть вводити ім&#39;я друга або назву спільноти","photos_pv_act_save":"Зберегти собі","photos_pv_act_save_saved":"Збережено","photos_pv_act_delete":"Видалити","photos_pv_act_rotate_cw":"Повернути праворуч","photos_pv_act_rotate_ccw":"Повернути ліворуч","photos_pv_act_move_to_album":"Перемістити до альбому","photos_pv_act_to_avatar":"Зробити фотографією профілю","photos_pv_act_open_original":"Відкрити оригінал","photos_pv_act_set_place":"Вказати місце","photos_pv_act_photoeditor":"Фоторедактор","photos_album_to_cover":"Зробити обкладинкою альбому","photos_move_to_album_success":"Фотографія перенесена в альбом {album}"},"maxtags":35,"hash":"163c1e0a78d619b8e0","reasons":[[0,"Це спам"],[6,"Образа"],[5,"Матеріал для дорослих"],[4,"Пропаганда наркотиків"],[1,"Дитяча порнографія"],[3,"Насильство \/ екстремізм"]]}]);
+showPhoto('-76505534_401427985', 'album-76505534_00', {root: 1, noHistory: 1})
+;(function (d, w) {
+var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true;
+ts.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//top-fwz1.mail.ru/js/code.js";
+var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window);
+    }
+  </script>
+</body>
+
+</html>

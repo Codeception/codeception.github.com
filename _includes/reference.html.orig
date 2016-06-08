@@ -1,5 +1,0 @@
-<<<<<<< HEAD
-<li><a href="/docs/reference/Autoload">Autoload</a></li><li><a href="/docs/reference/Commands">Commands</a></li><li><a href="/docs/reference/Configuration">Configuration</a></li><li><a href="/docs/reference/Fixtures">Fixtures</a></li><li><a href="/docs/reference/Functions">Functions</a></li><li><a href="/docs/reference/JsonType">JsonType</a></li><li><a href="/docs/reference/Locator">Locator</a></li><li><a href="/docs/reference/Stub">Stub</a></li><li><a href="/docs/reference/XmlBuilder">XmlBuilder</a></li>
-=======
-<li><a href="/docs/reference/Autoload">Autoload</a></li><li><a href="/docs/reference/Commands">Commands</a></li><li><a href="/docs/reference/Configuration">Configuration</a></li><li><a href="/docs/reference/Fixtures">Fixtures</a></li><li><a href="/docs/reference/Functions">Functions</a></li><li><a href="/docs/reference/JsonType">JsonType</a></li><li><a href="/docs/reference/Locator">Locator</a></li><li><a href="/docs/reference/Stub">Stub</a></li><li><a href="/docs/reference/XmlBuilder">XmlBuilder</a></li>
->>>>>>> master
