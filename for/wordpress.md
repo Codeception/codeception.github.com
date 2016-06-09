@@ -14,6 +14,7 @@ sidebar: |
 
   * [WPBrowser modules library](https://github.com/lucatume/wp-browser)
   * [Tools and Tutorials](http://theaveragedev.com)
+  * [WordPress demo plugin](https://github.com/lucatume/idlikethis)
 
   ---
 
