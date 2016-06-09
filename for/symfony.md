@@ -122,7 +122,7 @@ This will create `tests` dir inside `src/AppBundle`.
 
 ### Functional Testing
 
-There is no need to use `WebTestCase` to write functional tests. Symfony functional tests aew written in the same manner as acceptance tests but are executed inside a framework. Codeception has `Symfony` module for it. It is a good idea to separate functional and unit tests so it is recommended to create a new test suite for AppBundle
+There is no need to use `WebTestCase` to write functional tests. Symfony functional tests are written in the same manner as acceptance tests but are executed inside a framework. Codeception has `Symfony` module for it. It is a good idea to separate functional and unit tests so it is recommended to create a new test suite for AppBundle
 
 ```
 php bin/codecept g:suite functional -c src/AppBundle
