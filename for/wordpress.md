@@ -6,9 +6,9 @@ sidebar: |
 
   ## Codeception Tests
 
-  * Combine **all testing levels** (acceptance, functional, unit)
-  * use WordPress defined functions, constants, classes and methods in any test
-  * can be written in **BDD** format with Gherkin
+  * Combine **all testing levels** (acceptance, functional, integration, unit)
+  * Use WordPress defined functions, constants, classes and methods in any test
+  * Can be written in **BDD** format with Gherkin
 
   ## Reference
 
