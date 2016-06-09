@@ -18,11 +18,7 @@ sidebar: |
 ---
 
 ## Setup
-
-With Codeception you can create [Unit](http://codeception.com/docs/05-UnitTests), [Functional](http://codeception.com/docs/04-FunctionalTests) and [Api](http://codeception.com/docs/10-WebServices) tests, but the present documentation will covers only how to start with  [Acceptance](http://codeception.com/docs/03-AcceptanceTests) tests in Joomla and Joomla Extensions in order to  check the UI and work of a system as a whole. 
-
-### Project Setup
-Create a Joomla website in your local webserver.
+Create a Joomla website in your local web server.
 
 Go to the folder where your website is located and run:
 
@@ -30,23 +26,27 @@ Go to the folder where your website is located and run:
 composer require codeception/codeception --dev
 ```
 
-Codeception should be installed globally for a project. To start please run
+Then run:
 
 ```
 vendor/bin/codecept bootstrap --empty
 ```
 
-which creates `codeception.yml` and `tests` directory. There are no test suites in `tests` directory. 
+Previous command will have createed `codeception.yml` and `tests` directory.
 
 ### Acceptance Testing
 
-For UI testing you will have to create first suite for acceptance tests:
+#### Using headless browser
+
+To test the User Interface of a Joomla Template or an Extension (plugin, module, component, language pack,...) you should simulate the user interaction with a browser.
+
+For UI testing you will the first step will be to create an  acceptance tests suite:
 
 ```
 vendor/bin/codecept generate:suite acceptance
 ```
 
-This will create `acceptance.suite.yml` and `acceptance` folder inside `tests`. Acceptance tests should be configured to work with Selenium WebDriver to test application inside a real browser. 
+This will create `acceptance.suite.yml` and `acceptance` folder inside `tests`. 
 
 ```yaml
 class_name: AcceptanceTester
@@ -57,13 +57,13 @@ modules:
         - \Helper\Acceptance          
 ```
 
-Acceptance tests should be described in Cest format. Run code generator 
+Acceptance tests should be described in Cest format. Run Cest test generator to generate your very first test `tests/acceptance/AdminLoginCest.php`: 
 
 ```
 vendor/bin/codecept generate:cest acceptance AdminLoginCest
 ```
 
-to generate very first test `tests/acceptance/AdminLoginCest.php`. Each method of a class (except `_before` and `_after`) is a test. Tests use `$I` object (instance of `AcceptanceTester` class) to perform actions on a webpage. 
+Each method of a Cest class (except `_before` and `_after`) is a test. Tests use `$I` object (instance of `AcceptanceTester` class) to perform actions on a webpage. 
 
 Modify your `tests/acceptance/AdminLoginCest.php` using the following example code:
 
@@ -76,39 +76,109 @@ class AdminLoginCest
     {
         $I->amOnPage('/administrator/index.php');
         $I->comment('Fill Username Text Field');
-        $I->fillField(['id' => 'mod-login-username'], 'admin');
+        $I->fillField('#mod-login-username', 'admin');
         $I->comment('Fill Password Text Field');
-        $I->fillField(['id' => 'mod-login-password'], 'admin');
+        $I->fillField('#mod-login-password', 'admin');
         $I->comment('I click Login button');
         $I->click('Log in');
-        $I->comment('I wait to see Administrator Control Panel');
+        $I->comment('I see Administrator Control Panel');
+        $I->see('Control Panel', '.page-title');
     }
 }
 ```
 
-To generate method stubs for `AcceptanceTester`.
+To generate method stubs for `AcceptanceTester` run:
 
 ```
 vendor/bin/codecept build
 ```
 
-Now you are able to run your first test. Type:
+Now you are able to run your first test:
 
 
 ```
 vendor/bin/codecept run acceptance
 ```
 
-Previous execution was done using a headless browser. If you want to run your test on a real browser like Firefox you are required to use the Codeception Webdriver Module.
+Or, try this command to see the execution step by step:
 
-To learn more about testing over real browsers use the [Joomla Browser](http://codeception.com/addons#joomla-browserhttpsgithubcomjoomla-projectsjoomla-browser) Codeception Module. You can find an example of useage at the [Weblinks Joomla Official supported extension](https://github.com/joomla-extensions/weblinks#tests).
+```
+vendor/bin/codecept run acceptance --steps
+```
+
+#### Using a real browser
+
+Previous execution was done using a headless browser: PHPBrowser.  This is the fastest way to run User Interface tests since it doesn’t require running an actual browser. Instead, uses a PHP web scraper, which acts like a browser (it sends a request, then receives and parses the response). Read more about PHPBrowser at [http://codeception.com/docs/03-AcceptanceTests#PHP-Browser](http://codeception.com/docs/03-AcceptanceTests#PHP-Browser).
+
+If you prefer to run your test on a real browser like Firefox you are required to use the Codeception Webdriver Module. Unlike PHPBrowser it will allow you to test the visibility of elements or test javascript interactions (but the test execution will be considerably slower).
+
+The Joomla Community provides an extended Webdriver Codeception Module called [Joomla-Browser](http://codeception.com/addons#Joomla-Browser). With Joomla-Browser you can execute, with one command, common joomla actions like: install Joomla, do Adminitrator Login, publish a module, and many more. See the full list at [Joomla Browser Documentation](https://github.com/joomla-projects/joomla-browser#joomla-browser-codeception-module).
+
+In the following example we are going to refactor our previous "administrator login test" by using Joomla-Browser and executing it in a Firefox browser:
+
+First, install Joomla-browser:
+
+```bash
+composer require joomla-projects/joomla-browser --dev
+```
+
+Modify your acceptance.suite.yml file like as follows:
+
+```yaml
+class_name: AcceptanceTester
+modules:
+    enabled:
+        - JoomlaBrowser
+        - AcceptanceHelper
+    config:
+        JoomlaBrowser:
+            url: 'http://localhost/tests/joomla-cms3'     # the url that points to the joomla installation at /tests/system/joomla-cms
+            browser: 'firefox'
+            window_size: 1024x768
+            capabilities:
+              unexpectedAlertBehaviour: 'accept'
+            username: 'admin'                      # UserName for the Administrator
+            password: 'admin'                      # Password for the Administrator
+            database host: 'localhost'             # place where the Application is Hosted #server Address
+            database user: 'root'                  # MySQL Server user ID, usually root
+            database password: ''                  # MySQL Server password, usually empty or root
+            database name: 'testjoomla'            # DB Name, at the Server
+            database type: 'mysqli'                # type in lowercase one of the options: MySQL\MySQLi\PDO
+            database prefix: 'jos_'                # DB Prefix for tables
+            install sample data: 'No'              # Do you want to Download the Sample Data Along with Joomla Installation, then keep it Yes
+            sample data: 'Default English (GB) Sample Data'    # Default Sample Data
+            admin email: 'admin@mydomain.com'      # email Id of the Admin
+            language: 'English (United Kingdom)'   # Language in which you want the Application to be Installed
+            joomla folder: 'home/.../path to Joomla Folder' # Path to Joomla installation where we execute the tests
+
+```
+
+Modify your previous `tests/acceptance/AdminLoginCest.php` using the following example code:
+
+```php
+<?php
+
+class AdminLoginCest
+{
+    public function login(AcceptanceTester $I)
+    {
+        $I->doAdministratorLogin();
+    }
+}
+```
+
+Run the test:
+
+```
+vendor/bin/codecept run acceptance --steps
+```
+
+**Important note**, in order to run the previous test you need to have [Selenium](http://docs.seleniumhq.org/download/) running in your system. If you are new to Selenium, you can find an example of useage at the [Weblinks Joomla Official supported extension](https://github.com/joomla-extensions/weblinks#tests). Just follow the "running the tests" instructions to learn how to easily lauch Selenium in your system.
 
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
   Continue to <a href="http://codeception.com/docs/03-AcceptanceTests">Acceptance Testing Guide &raquo;</a>
 </div>
-
-To run the tests you will need firefox browser, [selenium server running](http://codeception.com/docs/modules/WebDriver#Selenium). If this requirements met acceptance tests can be executed as
 
 
 
