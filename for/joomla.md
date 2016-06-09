@@ -15,6 +15,10 @@ sidebar: |
   * [Joomla Browser](http://codeception.com/addons#joomla-browserhttpsgithubcomjoomla-projectsjoomla-browser) 
   * [Demo Tested Extension](https://github.com/joomla-extensions/weblinks#tests)
 
+  ---
+
+  Written by [**Javier Gomez**](https://github.com/javigomez)
+
 ---
 
 ## Setup
