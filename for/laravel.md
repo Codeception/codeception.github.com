@@ -120,7 +120,7 @@ modules:
         - WebDriver:
             url: 'https://localhost/' # put your local url
             browser: firefox
-        - Laravel5
+        - Laravel5:
             part: ORM
             cleanup: false # can't wrap into transaction
         - \Helper\Acceptance            
