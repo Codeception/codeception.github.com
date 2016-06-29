@@ -610,6 +610,22 @@ $I->dontSeeOptionIsSelected('#form input[name=payment]', 'Visa');
 
 
 
+#### dontSeeResponseCodeIs
+ 
+Checks that response code is equal to value provided.
+
+{% highlight php %}
+
+<?php
+$I->dontSeeResponseCodeIs(200);
+
+// recommended \Codeception\Util\HttpCode
+$I->dontSeeResponseCodeIs(\Codeception\Util\HttpCode::OK);
+
+{% endhighlight %}
+ * `param` $code
+
+
 #### executeInGuzzle
  
 Low-level API method.
@@ -1120,8 +1136,17 @@ Asserts that current page has 404 response status code.
  
 Checks that response code is equal to value provided.
 
- * `param` $code
+{% highlight php %}
 
+<?php
+$I->seeResponseCodeIs(200);
+
+// recommended \Codeception\Util\HttpCode
+$I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK);
+
+{% endhighlight %}
+
+ * `param` $code
 
 
 #### selectOption

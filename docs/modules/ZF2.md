@@ -25,12 +25,32 @@ Uses `tests/application.config.php` config file by default.
 
 * config: relative path to config file (default: `tests/application.config.php`)
 
-### API
+### Public Properties
 
 * application -  instance of `\Zend\Mvc\ApplicationInterface`
 * db - instance of `\Zend\Db\Adapter\AdapterInterface`
 * client - BrowserKit client
 
+### Parts
+
+* services - allows to use grabServiceFromContainer with WebDriver or PhpBrowser modules.
+
+Usage example:
+
+{% highlight yaml %}
+
+class_name: AcceptanceTester
+modules:
+    enabled:
+        - ZF2:
+            part: services
+        - Doctrine2:
+            depends: ZF2
+        - WebDriver:
+            url: http://your-url.com
+            browser: phantomjs
+
+{% endhighlight %}
 
 
 ### Actions
@@ -547,6 +567,22 @@ $I->dontSeeOptionIsSelected('#form input[name=payment]', 'Visa');
 
 
 
+#### dontSeeResponseCodeIs
+ 
+Checks that response code is equal to value provided.
+
+{% highlight php %}
+
+<?php
+$I->dontSeeResponseCodeIs(200);
+
+// recommended \Codeception\Util\HttpCode
+$I->dontSeeResponseCodeIs(\Codeception\Util\HttpCode::OK);
+
+{% endhighlight %}
+ * `param` $code
+
+
 #### fillField
  
 Fills a text field or textarea with the given string.
@@ -655,6 +691,7 @@ $em = $I->grabServiceFromContainer('Doctrine\ORM\EntityManager');
 {% endhighlight %}
 
  * `param` $service
+ * `[Part]` services
 
 
 #### grabTextFrom
@@ -1067,8 +1104,17 @@ Asserts that current page has 404 response status code.
  
 Checks that response code is equal to value provided.
 
- * `param` $code
+{% highlight php %}
 
+<?php
+$I->seeResponseCodeIs(200);
+
+// recommended \Codeception\Util\HttpCode
+$I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK);
+
+{% endhighlight %}
+
+ * `param` $code
 
 
 #### selectOption

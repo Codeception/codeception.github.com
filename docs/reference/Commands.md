@@ -31,6 +31,16 @@ Create new test suite. Requires suite name and actor name
 
 ## GherkinSnippets
 
+Generates code snippets for matched feature files in a suite.
+Code snuppets are expected to be implemtned in Actor or PageOjects
+
+Usage:
+
+* `codecept gherkin:snippets acceptance` - snippets from all feature of acceptance tests
+* `codecept gherkin:snippets acceptance/feature/users` - snippets from `feature/users` dir of acceptance tests
+* `codecept gherkin:snippets acceptance user_account.feature` - snippets from a single feature file
+* `codecept gherkin:snippets acceptance/feature/users/user_accout.feature` - snippets from feature file in a dir
+
 
 
 ## Console
@@ -232,6 +242,14 @@ Cleans `output` directory
 
 
 ## GherkinSteps
+
+Prints all steps from all Gherkin contexts for a specific suite
+
+{% highlight yaml %}
+codecept gherkin:steps acceptance
+
+{% endhighlight %}
+
 
 
 

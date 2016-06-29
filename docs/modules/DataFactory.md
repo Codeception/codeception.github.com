@@ -63,7 +63,7 @@ modules:
 
 (you can also use Laravel5 and Phalcon).
 
-In this example factories are loaded from `tests/_support/factories` directory.
+In this example factories are loaded from `tests/_support/factories` directory. Please note that this directory is relative from the codeception.yml file (so for Yii2 it would be codeception/_support/factories).
  * You should create this directory manually and create PHP files in it with factories definitions following [official documentation](https://github.com/thephpleague/factory-muffin#usage).
 
 In cases you want to use data from database inside your factory definitions you can define them in Helper.
@@ -134,12 +134,11 @@ In case your ORM expects a related record itself (Doctrine) then you should use 
 {% endhighlight %}
 
 
-
 ### Actions
 
 #### have
  
-Generates and saves a record,
+Generates and saves a record,.
 
 {% highlight php %}
 
@@ -152,12 +151,13 @@ Returns an instance of created user.
 
  * `param` $name
  * `param array` $extraAttrs
+
  * `return` object
 
 
 #### haveMultiple
  
-Generates and saves a record multiple times
+Generates and saves a record multiple times.
 
 {% highlight php %}
 
@@ -169,6 +169,7 @@ $I->haveMultiple('User', 10, ['is_active' => true]); // create 10 active users
  * `param` $name
  * `param` $times
  * `param array` $extraAttrs
+
  * `return` \object[]
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.2/src/Codeception/Module/DataFactory.php">Help us to improve documentation. Edit module reference</a></div>

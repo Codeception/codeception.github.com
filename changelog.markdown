@@ -7,6 +7,33 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.2.2
+
+* Parameters can be applied to global `codeception.yml` config. See [#3255](https://github.com/Codeception/Codeception/issues/3255) Thanks to **[LeRondPoint](https://github.com/LeRondPoint)**
+* Fixed loading of parameters from `.env.*` files. See [#3224](https://github.com/Codeception/Codeception/issues/3224). By **[smotesko](https://github.com/smotesko)**
+* Better failure diff messages by **[k0pernikus](https://github.com/k0pernikus)**
+* UTF-8 improvements (replaced with custom `ucfirst`, `strtoupper` => `mb_strtoupper`) by **[Naktibalda](https://github.com/Naktibalda)**. See [#3211](https://github.com/Codeception/Codeception/issues/3211)
+* Print execution time of non-successful tests by **[Naktibalda](https://github.com/Naktibalda)**. Fixes [#3274](https://github.com/Codeception/Codeception/issues/3274)
+* [WebDriver][PhpBrowser][Frameworks] Fixed created files on failure. Fixes [#3207](https://github.com/Codeception/Codeception/issues/3207)
+* [Frameworks][PhpBrowser] Adjacent forms submit improvements by **[dizzy7](https://github.com/dizzy7)**. Fixes [#2331](https://github.com/Codeception/Codeception/issues/2331)
+* **[WebDriver]** Fixed adjacent `selectOption` with similar options by **[eXorus](https://github.com/eXorus)**. Fixes [#3246](https://github.com/Codeception/Codeception/issues/3246)
+* **[DataFactory]** fixed loading factories from relative paths. Fixes [#3208](https://github.com/Codeception/Codeception/issues/3208)
+* *Test\Gherkin* Added JUnit reporter [#3273](https://github.com/Codeception/Codeception/issues/3273)
+* *Test\Unit* Dependencies can pass and receive values the same way as it is done in PHPUnit. Fixes [#3213](https://github.com/Codeception/Codeception/issues/3213)
+* **[Symfony]** Fixed failing tests when the profiler is disabled by **[dizzy7](https://github.com/dizzy7)**. See [#3223](https://github.com/Codeception/Codeception/issues/3223)
+* **[REST]** Added `Codecepion\Util\HttpCode` util class with HTTP code constants. See [class reference](https://github.com/Codeception/Codeception/blob/2.2/docs/reference/HttpCode.md)
+* **[REST]** Support simple key-value format for file uploads. See [#3244](https://github.com/Codeception/Codeception/issues/3244)
+* Bugfix with duplicate instances in the modules container [#3219](https://github.com/Codeception/Codeception/issues/3219) by **[dizzy7](https://github.com/dizzy7)**
+* **[REST]** Added `deleteHeader` method by **[Naktibalda](https://github.com/Naktibalda)**. Fixes [#3161](https://github.com/Codeception/Codeception/issues/3161)
+* **[Yii1]** `init` part added to avoid conflicts with `WebDriver`
+* `generate:snippets` can accept second parameter to generate snippets from a specific file or folder.
+* **[Db]** Added `grabNumRecords` method by **[tocsick](https://github.com/tocsick)**. See [#3175](https://github.com/Codeception/Codeception/issues/3175)
+* Fixed group events fire twice [#3112](https://github.com/Codeception/Codeception/issues/3112). By **[jstaudenmaier](https://github.com/jstaudenmaier)**
+* **[ZF2]** Added services part which can be used to `grabServiceFromContainer` when conflicting module is used by **[Naktibalda](https://github.com/Naktibalda)**.
+* Improved Examples to be Traversable; Fixed console output for complex data structures.
+* **[Laravel5]** Added `haveBinding`, `haveSingleton`, `haveContextualBinding` and `haveInstance` methods. By **[janhenkgerritsen](https://github.com/janhenkgerritsen)**. See [#2904](https://github.com/Codeception/Codeception/issues/2904).
+* + changes from 2.1.11
+
 #### 2.2.1
 
 * PHPUnit 5.4 and PHPUnit/php-code-coverage 4.0 compatibility.
@@ -25,7 +52,10 @@ title: Codeception Changelog
 * **Custom Commands** inject your own commands as as simple as extension. [Announcement](http://codeception.com/03-10-2016/even-more-features-of-codeception.html#custom-commands)
 * `codecept dry-run` command added to show scenario steps without executing them.
 * *Breaking* **[Dbh]** module removed
-* *Breaking* **[Laravel4]** module removed
+* *Breaking* **[Laravel4]** module removed. See [#2866](https://github.com/Codeception/Codeception/issues/2866)
+* *Breaking* **[Laravel5]** Removed `createModel` method, use `have` method instead. See [#2866](https://github.com/Codeception/Codeception/issues/2866)
+* *Breaking* **[Laravel5]** Removed `makeModel` method. See [#2866](https://github.com/Codeception/Codeception/issues/2866)
+* *Breaking* **[Laravel5]** Renamed `haveModel` method to `have`. See [#2866](https://github.com/Codeception/Codeception/issues/2866)
 * *Breaking* **[Symfony]** public property `container` removed
 * *Breaking* **[Asserts]** removed deprecated `assertLessThen` and `assertGreaterThen`
 * *Breaking* mocks created with `Codeception\Util\Stub` are not verified in Cests. See [#3005](https://github.com/Codeception/Codeception/issues/3005)
@@ -34,6 +64,8 @@ title: Codeception Changelog
 * **[AngularJS]** module added. Extends WebDriver module for AngularJS testing. [Announcement](http://codeception.com/03-10-2016/even-more-features-of-codeception.html#angularjs)
 * **[DataFactory]** module added. Performs data generation using FactoryMuffin library [Announcement](http://codeception.com/03-10-2016/even-more-features-of-codeception.html#datafactory)
 * **[Redis]** Module rewritten using Predis library as driver by **[marcverney](https://github.com/marcverney)**
+* **[Laravel5]** Added a `haveMultiple` method to create more than one model per call. See [#2866](https://github.com/Codeception/Codeception/issues/2866)
+* **[Laravel5]** [Lumen] The `haveRecord`, `seeRecord`, `dontSeeRecord` and `grabRecord` methods now also accept Eloquent model class names instead of only database table names. See [#2866](https://github.com/Codeception/Codeception/issues/2866)
 * **[Symfony]** module Symfony2 renamed to Symfony
 * **[Phalcon]** Merged `Phalcon1` and `Phalcon2` modules into one `Phalcon` due the fact that Phalcon Framework v1.3.x no longer supported at all
 * **[Asserts]** More `assert*` methods from PHPUnit added
@@ -44,8 +76,18 @@ title: Codeception Changelog
 * Deprecation errors won't fail tests but will be printed.
 * Official [Docker image](https://hub.docker.com/r/codeception/codeception/) introduced by **[schmunk42](https://github.com/schmunk42)**
 
+#### 2.1.11
+
+* **[Yii1]** Improved Yii connector. AR metadata is cleaned up between requests. `regenerateId` of session is disabled.
+* [REST][InnerBrowser] redirect is not triggered when Location header is set but response code is not 3xx. By **[Naktibalda](https://github.com/Naktibalda)**. Fixes [#3171](https://github.com/Codeception/Codeception/issues/3171).
+* [PhpBrowser][Frameworks] checkboxes can be located by label by **[dizzy7](https://github.com/dizzy7)**. See [#3237](https://github.com/Codeception/Codeception/issues/3237)
+* [PhpBrowser][Frameworks] field can be matched by its trimmed label value. See [#3209](https://github.com/Codeception/Codeception/issues/3209). By **[dizzy7](https://github.com/dizzy7)**
+* **[WebDriver]** fixed URL matching in WebDriver::seeLink
+* [WebDriver][InnerBrowser] Improved error messages of `seeLink` and `dontSeeLink`
+
 #### 2.1.10
 
+* PHPUnit version locked to <5.4
 * **[Db]** Added missing support for LIKE condition to SqlSrv driver
 
 #### 2.1.9

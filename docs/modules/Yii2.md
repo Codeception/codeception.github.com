@@ -552,6 +552,22 @@ $I->dontSeeRecord('app\models\User', array('name' => 'davert'));
  * `[Part]` orm
 
 
+#### dontSeeResponseCodeIs
+ 
+Checks that response code is equal to value provided.
+
+{% highlight php %}
+
+<?php
+$I->dontSeeResponseCodeIs(200);
+
+// recommended \Codeception\Util\HttpCode
+$I->dontSeeResponseCodeIs(\Codeception\Util\HttpCode::OK);
+
+{% endhighlight %}
+ * `param` $code
+
+
 #### fillField
  
 Fills a text field or textarea with the given string.
@@ -1093,8 +1109,17 @@ $I->seeRecord('app\models\User', array('name' => 'davert'));
  
 Checks that response code is equal to value provided.
 
- * `param` $code
+{% highlight php %}
 
+<?php
+$I->seeResponseCodeIs(200);
+
+// recommended \Codeception\Util\HttpCode
+$I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK);
+
+{% endhighlight %}
+
+ * `param` $code
 
 
 #### selectOption

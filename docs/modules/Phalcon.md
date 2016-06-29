@@ -596,6 +596,22 @@ $I->dontSeeRecord('Phosphorum\Models\Categories', ['name' => 'Testing']);
  * `param array` $attributes Model attributes
 
 
+#### dontSeeResponseCodeIs
+ 
+Checks that response code is equal to value provided.
+
+{% highlight php %}
+
+<?php
+$I->dontSeeResponseCodeIs(200);
+
+// recommended \Codeception\Util\HttpCode
+$I->dontSeeResponseCodeIs(\Codeception\Util\HttpCode::OK);
+
+{% endhighlight %}
+ * `param` $code
+
+
 #### fillField
  
 Fills a text field or textarea with the given string.
@@ -1212,8 +1228,17 @@ $I->seeRecord('Phosphorum\Models\Categories', ['name' => 'Testing']);
  
 Checks that response code is equal to value provided.
 
- * `param` $code
+{% highlight php %}
 
+<?php
+$I->seeResponseCodeIs(200);
+
+// recommended \Codeception\Util\HttpCode
+$I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK);
+
+{% endhighlight %}
+
+ * `param` $code
 
 
 #### seeSessionHasValues

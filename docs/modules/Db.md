@@ -91,8 +91,9 @@ DELETE FROM `Order`;
 {% endhighlight %}
 ### Query generation
 
-seeInDatabase, dontSeeInDatabase, seeNumRecords and grabFromDatabase methods accept arrays as criteria.
-WHERE condition is generated using item key as a field name and item value as a field value.
+seeInDatabase, dontSeeInDatabase, seeNumRecords, grabFromDatabase and grabNumRecords methods
+accept arrays as criteria. WHERE condition is generated using item key as a field name and
+item value as a field value.
 
 Example:
 {% highlight php %}
@@ -169,6 +170,16 @@ $mail = $I->grabFromDatabase('users', 'email', array('name' => 'Davert'));
  * `param string` $column
  * `param array` $criteria
 
+
+
+#### grabNumRecords
+ 
+Returns the number of rows in a database
+
+ * `param string` $table    Table name
+ * `param array`  $criteria Search criteria [Optional]
+
+ * `return` int
 
 
 #### haveInDatabase
