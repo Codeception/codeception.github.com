@@ -136,6 +136,10 @@ Run shell scripts on events - before/after suites/environments/full test run
 
 The Codeception extension for supporting parameter notation in Gherkin scenario.
 
+#### [SecureShell](https://github.com/edno/codeception-secureshell)
+
+The Codeception module for SSH commands, SFTP access and SSH tunnels
+
 ---
 
 ## IDE Plugins
