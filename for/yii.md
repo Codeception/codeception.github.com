@@ -198,7 +198,7 @@ composer exec codecept g:cest acceptance MyNewScenarioCest
 
 Advanced template also has Codeception preinstalled with examples of unit, functional, and acceptance tests. However, you won't find `tests` folder in a root of application. This because every application `frontend`, `backend`, and their `common` has their own tests. This is done to have tests and source to be placed in a same location. To run all tests from all application at once, you should execute `codecept run` from a project root. Global `codeception.yml` config was written to include tests from all applications.
 
-!()[/images/yii-advenced-tests.png]
+![](/images/yii-advanced-tests.png)
 
 Tests also include namespaces for testcase classes and testers to avoid conflicts between tests from different applications.
 
