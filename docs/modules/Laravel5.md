@@ -15,6 +15,10 @@ This module allows you to run functional tests for Laravel 5.
 It should **not** be used for acceptance tests.
 See the Acceptance tests section below for more details.
 
+As of Codeception 2.2 this module only works for Laravel 5.1 and later releases.
+If you want to test a Laravel 5.0 application you have to use Codeception 2.1.
+You can also upgrade your Laravel application to 5.1, for more details check the Laravel Upgrade Guide at <https://laravel.com/docs/master/upgrade>.
+
 ### Demo project
 <https://github.com/janhenkgerritsen/codeception-laravel5-sample>
 
@@ -33,13 +37,15 @@ See the Acceptance tests section below for more details.
 ### Config
 
 * cleanup: `boolean`, default `true` - all db queries will be run in transaction, which will be rolled back at the end of test.
+* run_database_migrations: `boolean`, default `false` - enable to run database migrations before each test.
 * environment_file: `string`, default `.env` - The .env file to load for the tests.
 * bootstrap: `string`, default `bootstrap/app.php` - Relative path to app.php config file.
 * root: `string`, default `` - Root path of our application.
 * packages: `string`, default `workbench` - Root path of application packages (if any).
 * disable_exception_handling: `boolean`, default `true` - disable Laravel exception handling
 * disable_middleware: `boolean`, default `false` - disable all middleware.
-* disable_events: `boolean`, default `false` - disable all events.
+* disable_events: `boolean`, default `false` - disable events (does not disable model events).
+* disable_model_events: `boolean`, default `false` - disable model events.
 * url: `string`, default `` - The application URL.
 
 ### API
@@ -294,6 +300,23 @@ $I->attachFile('input[ * `type="file"]',`  'prices.xls');
  * `param` $filename
 
 
+#### callArtisan
+ 
+Call an Artisan command.
+
+{% highlight php %}
+
+<?php
+$I->callArtisan('command:name');
+$I->callArtisan('command:name', ['parameter' => 'value']);
+?>
+
+{% endhighlight %}
+
+ * `param string` $command
+ * `param array` $parameters
+
+
 #### checkOption
  
 Ticks a checkbox. For radio buttons, use the `selectOption` method instead.
@@ -368,6 +391,8 @@ $I->amOnPage('some-other-page.php');
 #### disableEvents
  
 Disable events for the next requests.
+This method does not disable model events.
+To disable model events you have to use the disableModelEvents() method.
 
 {% highlight php %}
 
@@ -399,6 +424,19 @@ Disable middleware for the next requests.
 
 <?php
 $I->disableMiddleware();
+?>
+
+{% endhighlight %}
+
+
+#### disableModelEvents
+ 
+Disable model events for the next requests.
+
+{% highlight php %}
+
+<?php
+$I->disableModelEvents();
 ?>
 
 {% endhighlight %}

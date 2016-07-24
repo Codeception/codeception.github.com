@@ -22,11 +22,11 @@ $jsonType = new JsonType(['name' => 'davert', 'id' => 1]);
 $jsonType->matches([
   'name' => 'string:!empty',
   'id' => 'integer:>0|string:>0',
-])); // => true
+]); // => true
 
 $jsonType->matches([
   'id' => 'string',
-])); // => `id: 1` is not of type string
+]); // => `id: 1` is not of type string
 ?>
 
 {% endhighlight %}
