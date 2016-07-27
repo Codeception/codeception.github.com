@@ -207,12 +207,37 @@ Tests also include namespaces for testcase classes and testers to avoid conflict
   Learn more about <a href="http://codeception.com/docs/08-Customization#One-Runner-for-Multiple-Applications">testing multiple applications &raquo;</a>
 </div>
 
-## Configuration
+## Manual Setup && Configuration
 
-It is important to understand how Yii2 module is configured to run the application. The only required parameter for Yii2 is `configFile`. This file with configuration for test environment of Yii application. It should be stored merge original application config overriding `id` value and provide different database for testing: 
+
+To start you need to install Codeception via Composer
+
+```
+composer require "codeception/codecepton" --dev
+```
+
+Create basic test suites
+
+```
+composer exec codecept bootstrap
+```
+
+Enable module Yii2 for functional tests inside `functional.suite.yml`: 
+
+```yml
+# fucntional.suite.yml
+modules:
+    enabled:
+        - Yii2:
+            configFile: #insert path to config file
+```
+
+
+The only required parameter for Yii2 module is `configFile`. This file with configuration for test configuration of Yii application. It should merge original application config overriding `id` value and provide different database for testing: 
 
 ```php
 <?php
+// config/test.php
 $config =  yii\helpers\ArrayHelper::merge(
     require(__DIR__ . '/main.php'),
     require(__DIR__ . '/main-local.php'),
@@ -228,7 +253,13 @@ $config =  yii\helpers\ArrayHelper::merge(
 return $config;
 ```
 
-It is important to override database configuration so running tests won't affect your development or production database. Test config is recommended to store in `config` folder of application. A relative path to it from `codeception.yml` is required. In basic and advanced applications `configFile` is defined in global configuration file:
+Test config is recommended to store in `config` folder of application. You should provide path to test config relatively to `codeception.yml` file.
+
+Please also make sure that `YII_ENV` constant is set to `test` as it is done in `tests/_bootstrap.php` file of basic and advanced app templates.
+
+Once you configured functional tests it should be easy to create setup for unit and acceptance tests, as it is described in this guide.
+
+In basic and advanced application templates `configFile` is defined in global configuration file:
 
 ```yml
 # inside codeception.yml
@@ -239,5 +270,3 @@ modules:
 ```
 
 This way we don't need to provide test config for each defined suite.
-
-Please also make sure that `YII_ENV` constant is set to `test` as it is done in `tests/_bootstrap.php` file of basic and advanced app templates.
