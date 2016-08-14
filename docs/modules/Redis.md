@@ -21,13 +21,27 @@ to interact with a Redis server.
 
 * **`host`** (`string`, default `'127.0.0.1'`) - The Redis host
 * **`port`** (`int`, default `6379`) - The Redis port
-* **`database`** (`int`, no default) - The Redis database. Needs to be explicitely specified.
+* **`database`** (`int`, no default) - The Redis database. Needs to be explicitly specified.
 * **`cleanupBefore`**: (`string`, default `'suite'`) - Whether/when to flush the database:
     * `suite`: at the beginning of every suite
     * `test`: at the beginning of every test
     * Any other value: never
 
+#### Example (`unit.suite.yml`)
+
+{% highlight yaml %}
+
+   modules:
+       - Redis:
+           host: '127.0.0.1'
+           port: 6379
+           database: 0
+           cleanupBefore: 'test'
+
+{% endhighlight %}
+
 ### Public Properties
+
 * **driver** - Contains the Predis client/driver
 
 @author Marc Verney <marc@marcverney.net>
@@ -50,19 +64,25 @@ provided $value
 Examples:
 
 {% highlight php %}
-?start_inline=1
+
+<?php
 // With only one argument, only checks the key does not exist
 $I->dontSeeInRedis('example:string');
+
 // Checks a String does not exist or its value is not the one provided
 $I->dontSeeInRedis('example:string', 'life');
+
 // Checks a List does not exist or its value is not the one provided (order of elements is compared).
-$I->dontSeeInRedis('example:list', ['riri', 'fifi', 'loulou'])
+$I->dontSeeInRedis('example:list', ['riri', 'fifi', 'loulou']);
+
 // Checks a Set does not exist or its value is not the one provided (order of members is ignored).
-$I->dontSeeInRedis('example:set', ['riri', 'fifi', 'loulou'])
+$I->dontSeeInRedis('example:set', ['riri', 'fifi', 'loulou']);
+
 // Checks a ZSet does not exist or its value is not the one provided (scores are required, order of members is compared)
-$I->dontSeeInRedis('example:zset', ['riri' => 1, 'fifi' => 2, 'loulou' => 3])
+$I->dontSeeInRedis('example:zset', ['riri' => 1, 'fifi' => 2, 'loulou' => 3]);
+
 // Checks a Hash does not exist or its value is not the one provided (order of members is ignored).
-$I->dontSeeInRedis('example:hash', ['riri' => true, 'fifi' => 'Dewey', 'loulou' => 2])
+$I->dontSeeInRedis('example:hash', ['riri' => true, 'fifi' => 'Dewey', 'loulou' => 2]);
 
 {% endhighlight %}
 
@@ -78,21 +98,28 @@ Asserts that a given key does not contain a given item
 Examples:
 
 {% highlight php %}
-?start_inline=1
+
+<?php
 // Strings: performs a substring search
-$I->dontSeeRedisKeyContains('example:string', 'bar') // true for foobar
+$I->dontSeeRedisKeyContains('string', 'bar');
+
 // Lists
-$I->dontSeeRedisKeyContains('example:list', 'poney')
+$I->dontSeeRedisKeyContains('example:list', 'poney');
+
 // Sets
-$I->dontSeeRedisKeyContains('example:set', 'cat')
+$I->dontSeeRedisKeyContains('example:set', 'cat');
+
 // ZSets: check whether the zset has this member
-$I->dontSeeRedisKeyContains('example:zset', 'jordan')
+$I->dontSeeRedisKeyContains('example:zset', 'jordan');
+
 // ZSets: check whether the zset has this member with this score
-$I->dontSeeRedisKeyContains('example:zset', 'jordan', 23)
+$I->dontSeeRedisKeyContains('example:zset', 'jordan', 23);
+
 // Hashes: check whether the hash has this field
-$I->dontSeeRedisKeyContains('example:hash', 'magic')
+$I->dontSeeRedisKeyContains('example:hash', 'magic');
+
 // Hashes: check whether the hash has this field with this value
-$I->dontSeeRedisKeyContains('example:hash', 'magic', 32)
+$I->dontSeeRedisKeyContains('example:hash', 'magic', 32);
 
 {% endhighlight %}
 
@@ -111,25 +138,34 @@ Returns the value of a given key
 Examples:
 
 {% highlight php %}
-?start_inline=1
+
+<?php
 // Strings
-$I->grabFromRedis('example:string')
+$I->grabFromRedis('string');
+
 // Lists: get all members
-$I->grabFromRedis('example:list')
+$I->grabFromRedis('example:list');
+
 // Lists: get a specific member
-$I->grabFromRedis('example:list', 2)
+$I->grabFromRedis('example:list', 2);
+
 // Lists: get a range of elements
-$I->grabFromRedis('example:list', 2, 4)
+$I->grabFromRedis('example:list', 2, 4);
+
 // Sets: get all members
-$I->grabFromRedis('example:set')
+$I->grabFromRedis('example:set');
+
 // ZSets: get all members
-$I->grabFromRedis('example:zset')
+$I->grabFromRedis('example:zset');
+
 // ZSets: get a range of members
-$I->grabFromRedis('example:zset', 3, 12)
+$I->grabFromRedis('example:zset', 3, 12);
+
 // Hashes: get all fields of a key
-$I->grabFromRedis('example:hash')
+$I->grabFromRedis('example:hash');
+
 // Hashes: get a specific field of a key
-$I->grabFromRedis('example:hash', 'foo')
+$I->grabFromRedis('example:hash', 'foo');
 
 {% endhighlight %}
 
@@ -151,17 +187,22 @@ If $key already exists:
 Examples:
 
 {% highlight php %}
-?start_inline=1
+
+<?php
 // Strings: $value must be a scalar
-$I->haveInRedis('example:string', 'Obladi Oblada')
+$I->haveInRedis('string', 'Obladi Oblada');
+
 // Lists: $value can be a scalar or an array
-$I->haveInRedis('example:list', ['riri', 'fifi', 'loulou'])
+$I->haveInRedis('list', ['riri', 'fifi', 'loulou']);
+
 // Sets: $value can be a scalar or an array
-$I->haveInRedis('example:set', ['riri', 'fifi', 'loulou'])
+$I->haveInRedis('set', ['riri', 'fifi', 'loulou']);
+
 // ZSets: $value must be an associative array with scores
-$I->haveInRedis('example:set', ['riri' => 1, 'fifi' => 2, 'loulou' => 3])
+$I->haveInRedis('set', ['riri' => 1, 'fifi' => 2, 'loulou' => 3]);
+
 // Hashes: $value must be an associative array
-$I->haveInRedis('example:hash', ['obladi' => 'oblada'])
+$I->haveInRedis('hash', ['obladi' => 'oblada']);
 
 {% endhighlight %}
 
@@ -174,24 +215,30 @@ $I->haveInRedis('example:hash', ['obladi' => 'oblada'])
 
 #### seeInRedis
  
-Asserts that a key exists, and optionaly that it has the provided $value
+Asserts that a key exists, and optionally that it has the provided $value
 
 Examples:
 
 {% highlight php %}
-?start_inline=1
+
+<?php
 // With only one argument, only checks the key exists
 $I->seeInRedis('example:string');
+
 // Checks a String exists and has the value "life"
 $I->seeInRedis('example:string', 'life');
+
 // Checks the value of a List. Order of elements is compared.
-$I->seeInRedis('example:list', ['riri', 'fifi', 'loulou'])
+$I->seeInRedis('example:list', ['riri', 'fifi', 'loulou']);
+
 // Checks the value of a Set. Order of members is ignored.
-$I->seeInRedis('example:set', ['riri', 'fifi', 'loulou'])
+$I->seeInRedis('example:set', ['riri', 'fifi', 'loulou']);
+
 // Checks the value of a ZSet. Scores are required. Order of members is compared.
-$I->seeInRedis('example:zset', ['riri' => 1, 'fifi' => 2, 'loulou' => 3])
+$I->seeInRedis('example:zset', ['riri' => 1, 'fifi' => 2, 'loulou' => 3]);
+
 // Checks the value of a Hash. Order of members is ignored.
-$I->seeInRedis('example:hash', ['riri' => true, 'fifi' => 'Dewey', 'loulou' => 2])
+$I->seeInRedis('example:hash', ['riri' => true, 'fifi' => 'Dewey', 'loulou' => 2]);
 
 {% endhighlight %}
 
@@ -207,21 +254,28 @@ Asserts that a given key contains a given item
 Examples:
 
 {% highlight php %}
-?start_inline=1
+
+<?php
 // Strings: performs a substring search
-$I->seeRedisKeyContains('example:string', 'bar') // true for foobar
+$I->seeRedisKeyContains('example:string', 'bar');
+
 // Lists
-$I->seeRedisKeyContains('example:list', 'poney')
+$I->seeRedisKeyContains('example:list', 'poney');
+
 // Sets
-$I->seeRedisKeyContains('example:set', 'cat')
+$I->seeRedisKeyContains('example:set', 'cat');
+
 // ZSets: check whether the zset has this member
-$I->seeRedisKeyContains('example:zset', 'jordan')
+$I->seeRedisKeyContains('example:zset', 'jordan');
+
 // ZSets: check whether the zset has this member with this score
-$I->seeRedisKeyContains('example:zset', 'jordan', 23)
+$I->seeRedisKeyContains('example:zset', 'jordan', 23);
+
 // Hashes: check whether the hash has this field
-$I->seeRedisKeyContains('example:hash', 'magic')
+$I->seeRedisKeyContains('example:hash', 'magic');
+
 // Hashes: check whether the hash has this field with this value
-$I->seeRedisKeyContains('example:hash', 'magic', 32)
+$I->seeRedisKeyContains('example:hash', 'magic', 32);
 
 {% endhighlight %}
 
@@ -242,7 +296,8 @@ Every argument that follows the $command name will be passed to it.
 Examples:
 
 {% highlight php %}
-?start_inline=1
+
+<?php
 $I->sendCommandToRedis('incr', 'example:string');
 $I->sendCommandToRedis('strLen', 'example:string');
 $I->sendCommandToRedis('lPop', 'example:list');
