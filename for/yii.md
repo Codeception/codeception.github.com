@@ -213,7 +213,7 @@ Tests also include namespaces for testcase classes and testers to avoid conflict
 To start you need to install Codeception via Composer
 
 ```
-composer require "codeception/codecepton" --dev
+composer require "codeception/codeception" --dev
 ```
 
 Create basic test suites
