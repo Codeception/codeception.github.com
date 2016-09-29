@@ -7,6 +7,36 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.2.5
+
+* Support for PhpUnit 5.x.
+* **[Lumen]** Major refactoring of Lumen module. See [[#3533](https://github.com/Codeception/Codeception/issues/3533)](https://github.com/Codeception/Codeception/pull/3533). By **[janhenkgerritsen](https://github.com/janhenkgerritsen)**
+* **[Laravel5]** Removed calls to `Auth::logout()`, `Session::flush()` and `Cache::flush()` from after hook. See [#3493](https://github.com/Codeception/Codeception/issues/3493). By **[janhenkgerritsen](https://github.com/janhenkgerritsen)**
+* **[Memcache]** Updated `Memcache::seeInMemcached` to check if the key exists alone or with the desired value. By **[sergeyklay](https://github.com/sergeyklay)**
+* **[Memcache]** Added `Memcache::haveInMemcached`. By **[sergeyklay](https://github.com/sergeyklay)**
+* **[Memcache]** Fixed `Memcache::dontSeeInMemcached`. By **[sergeyklay](https://github.com/sergeyklay)**
+* **[ZF2]** Zend Framework 3 Support. Made `init_autoloader` optional, because ZF3 uses composer for autoloading [#3525](https://github.com/Codeception/Codeception/issues/3525). By **[Naktibalda](https://github.com/Naktibalda)**
+* **[ZF2]** Fixed accessing Doctrine Entity Manager when client is not initialized. By **[chris1312](https://github.com/chris1312)**. See [#3524](https://github.com/Codeception/Codeception/issues/3524)
+* **[Yii2]** Allow to load fixtures from `_fixtures` method of a testcase. [See reference](http://codeception.com/docs/modules/Yii2#Fixtures). Fixes usage of nested transactions [#3520](https://github.com/Codeception/Codeception/issues/3520). By **[kalyabin](https://github.com/kalyabin)** and **[davertmik](https://github.com/davertmik)**
+* **[Yii1]** Fix private property accessible; allows to change urlManager class to subclass of CUrlManager. See **[3287](https://github.com/3287)**. By **[amashigeseiji](https://github.com/amashigeseiji)**
+* Escaped tags in debug output by **[Naktibalda](https://github.com/Naktibalda)**. See [#3507](https://github.com/Codeception/Codeception/issues/3507). Fixes [#3495](https://github.com/Codeception/Codeception/issues/3495)
+* Fixed [#3410](https://github.com/Codeception/Codeception/issues/3410): Wrong subSteps rendering in HTML ResultPrinter by **[niclopez](https://github.com/niclopez)**
+* **[WebDriver]** Improved exception message thrown when click('name') does not match any element [#3546](https://github.com/Codeception/Codeception/issues/3546) by **[Naktibalda](https://github.com/Naktibalda)**. Fixes [#3528](https://github.com/Codeception/Codeception/issues/3528)
+* **[SOAP]** Removed conflict with REST module. `seeResponseCodeIs` is deprecated in favor of `seeSoapResponseCodeIs` by **[eXorus](https://github.com/eXorus)**. See [#3512](https://github.com/Codeception/Codeception/issues/3512). Fixes [#3512](https://github.com/Codeception/Codeception/issues/3512)
+* Fixed [#3472](https://github.com/Codeception/Codeception/issues/3472): group Files not working with a non-empty data provider by **[eXorus](https://github.com/eXorus)**
+* **[REST]** Disabled resetting server parameters in _before. Fixed REST+Laravel usage: [#3263](https://github.com/Codeception/Codeception/issues/3263). See [#3539](https://github.com/Codeception/Codeception/issues/3539). By **[janhenkgerritsen](https://github.com/janhenkgerritsen)**
+* **[REST]** Improved output of failed JsonType assertions [#3480](https://github.com/Codeception/Codeception/issues/3480). By **[Naktibalda](https://github.com/Naktibalda)**. Fixes [#2858](https://github.com/Codeception/Codeception/issues/2858)
+* **[REST]** Requests are added to browser history [#3446](https://github.com/Codeception/Codeception/issues/3446). Fixes regression [#3197](https://github.com/Codeception/Codeception/issues/3197). By **[Naktibalda](https://github.com/Naktibalda)**
+* **[REST]** application/json header check made case insensitive. Fixes [#3516](https://github.com/Codeception/Codeception/issues/3516). By **[Naktibalda](https://github.com/Naktibalda)**
+* Fix bug in Coverage Filter related to relative filepaths [#3518](https://github.com/Codeception/Codeception/issues/3518). By **[sbacic](https://github.com/sbacic)**
+* **[Db]** PostgreSQL: fixed a problem when sequences are not a standard format (ie. table_id_seq). See [#3506](https://github.com/Codeception/Codeception/issues/3506). By **[alexjeen](https://github.com/alexjeen)**
+* **[Symfony]** Persist doctrine.dbal.backend_connection if Doctrine2 module is used [#3500](https://github.com/Codeception/Codeception/issues/3500). Fixes [#3479](https://github.com/Codeception/Codeception/issues/3479). By **[Naktibalda](https://github.com/Naktibalda)**
+* **[Doctrine2]** Using `Doctrine\ORM\EntityManagerInterface` as valid em instance [#3467](https://github.com/Codeception/Codeception/issues/3467). Fixes [#3459](https://github.com/Codeception/Codeception/issues/3459). By **[akbwm](https://github.com/akbwm)**
+* **[MongoDb]** Fixes `mongorestore` command syntax and adds --quiet option to config
+* **[Facebook]** Replaced `facebook/php-sdk-v4` library with `facebook/graph-sdk`.
+* Fixed [#3433](https://github.com/Codeception/Codeception/issues/3433) detection of relative path when `codeception.yml` is not in project root. See [#3434](https://github.com/Codeception/Codeception/issues/3434). By **[loren](https://github.com/loren)**-osborn
+* Handle deprecation messages according to `error_level` setting [#3460](https://github.com/Codeception/Codeception/issues/3460). Fixes [#3424](https://github.com/Codeception/Codeception/issues/3424). By **[Naktibalda](https://github.com/Naktibalda)**.
+
 #### 2.2.4
 
 * Improved using complex params, nested params can be set using dot (`.`). See [#3339](https://github.com/Codeception/Codeception/issues/3339)

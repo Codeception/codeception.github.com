@@ -99,13 +99,13 @@ Grabs a data from collection
 {% highlight php %}
 
 <?php
-$cursor = $I->grabFromCollection('users', array('name' => 'miles'));
+$user = $I->grabFromCollection('users', array('name' => 'miles'));
 
 {% endhighlight %}
 
  * `param` $collection
  * `param array` $criteria
- * `return` \MongoCursor
+ * `return` array
 
 
 #### haveInCollection

@@ -259,7 +259,7 @@ php codecept run
 
 {% endhighlight %}
 
-With the first argument you can run tests from one suite.
+With the first argument you can run all tests from one suite.
 
 {% highlight bash %}
 
@@ -267,7 +267,7 @@ php codecept run acceptance
 
 {% endhighlight %}
 
-To run exactly one test, add a second argument. Provide a local path to the test, from the suite directory.
+To limit tests run to a single class, add a second argument. Provide a local path to the test class, from the suite directory.
 
 {% highlight bash %}
 
@@ -283,15 +283,15 @@ php codecept run tests/acceptance/SigninCept.php
 
 {% endhighlight %}
 
-You can execute one test from a test class (for Cest or Test formats)
+You can further filter which tests are run by appending a method name to the class, separated by a colon (for Cest or Test formats):
 
 {% highlight bash %}
 
-php codecept run tests/acceptance/SignInCest.php:anonymousLogin
+php codecept run tests/acceptance/SignInCest.php:^anonymousLogin$
 
 {% endhighlight %}
 
-You can provide a directory path as well:
+You can provide a directory path as well. This will execute all tests from the backend dir:
 
 {% highlight bash %}
 
@@ -299,7 +299,13 @@ php codecept run tests/acceptance/backend
 
 {% endhighlight %}
 
-This will execute all tests from the backend dir.
+Using regular expressions, you can even run many different test methods from the same directory or class. For example, this will execute all tests from the backend dir beginning with the word login:
+
+{% highlight bash %}
+
+php codecept run tests/acceptance/backend:^login
+
+{% endhighlight %}
 
 To execute a group of tests that are not stored in the same directory, you can organize them in [groups](http://codeception.com/docs/07-AdvancedUsage#Groups).
 

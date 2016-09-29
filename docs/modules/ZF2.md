@@ -10,9 +10,9 @@ title: ZF2 - Codeception - Documentation
 # ZF2
 
 
-This module allows you to run tests inside Zend Framework 2.
+This module allows you to run tests inside Zend Framework 2 and Zend Framework 3.
 
-File `init_autoloader` in project's root is required.
+File `init_autoloader` in project's root is required by Zend Framework 2.
 Uses `tests/application.config.php` config file by default.
 
 Note: services part and Doctrine integration is not compatible with ZF3 yet
