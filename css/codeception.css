@@ -259,6 +259,15 @@ ul.navbar-nav {
 	margin: 0 -15px;
 }
 
+.navbar-nav .dropdown-menu, .navbar-nav .dropdown-menu a {
+	color: #999;
+}
+
+.navbar-nav .dropdown-menu a:hover {
+	background-color: inherit;
+	color: #fff;
+}
+
 .row.home{
 	padding-top:225px;
 }
@@ -387,6 +396,7 @@ ul.navbar-nav {
 
 	body #home-hero h1{
 		padding-top:0px;
+		font-size: 60px;
 	}
 }
 
@@ -573,4 +583,11 @@ ul.navbar-nav {
 
 .carousel-control.right {
 	background: none !important;
+}
+
+/**
+ * Bootstrap override
+ */
+.navbar-collapse {
+	max-height: none;
 }
