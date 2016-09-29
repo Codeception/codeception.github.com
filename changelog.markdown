@@ -10,7 +10,7 @@ title: Codeception Changelog
 #### 2.2.5
 
 * Support for PhpUnit 5.x.
-* **[Lumen]** Major refactoring of Lumen module. See [[#3533](https://github.com/Codeception/Codeception/issues/3533)](https://github.com/Codeception/Codeception/pull/3533). By **[janhenkgerritsen](https://github.com/janhenkgerritsen)**
+* **[Lumen]** Major refactoring of Lumen module. See [#3533](https://github.com/Codeception/Codeception/pull/3533). By **[janhenkgerritsen](https://github.com/janhenkgerritsen)**
 * **[Laravel5]** Removed calls to `Auth::logout()`, `Session::flush()` and `Cache::flush()` from after hook. See [#3493](https://github.com/Codeception/Codeception/issues/3493). By **[janhenkgerritsen](https://github.com/janhenkgerritsen)**
 * **[Memcache]** Updated `Memcache::seeInMemcached` to check if the key exists alone or with the desired value. By **[sergeyklay](https://github.com/sergeyklay)**
 * **[Memcache]** Added `Memcache::haveInMemcached`. By **[sergeyklay](https://github.com/sergeyklay)**
