@@ -140,6 +140,10 @@ The Codeception extension for supporting parameter notation in Gherkin scenario.
 
 The Codeception module for SSH commands, SFTP access and SSH tunnels
 
+#### [TestRail](https://github.com/bookitcom/codeception-testrail)
+
+Integration with [TestRail TestCase Management](http://www.gurock.com/testrail/) 
+
 ---
 
 ## IDE Plugins
