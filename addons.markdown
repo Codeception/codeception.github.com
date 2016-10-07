@@ -59,6 +59,11 @@ This module will let you test emails using simple SMTP connection, with any prov
 
 Integrates Mockery into Codeception tests.
 
+#### [Slim 3](https://github.com/herloct/codeception-slim-module)
+
+This module allows you to run tests inside Slim 3 Microframework.
+Based on ZendExpressive Module.
+
 #### [Symfony1](https://github.com/Codeception/symfony1module)
 
 Module for symfony 1.x framework (deprecated in Codeception 2.1)
