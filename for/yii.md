@@ -37,7 +37,7 @@ composer exec codecept run
 
 Unit tests are located in `tests/unit` directory and are supposed to contain all kind of unit and integration testing.
 
-Each test case extends `Codeception\Test\Unit` class, which is stndard Codeception format for unit testing. 
+Each test case extends `Codeception\Test\Unit` class, which is standard Codeception format for unit testing. 
  It is pretty hard to develop completely isolated unit tests in Yii, so an application is bootstrapped before each test case. Tests are configured in `tests/unit.suite.yml` file with Yii2 module enabled:
 
 ```yaml
@@ -103,8 +103,8 @@ $I->see('Subject cannot be blank');
 $I->see('Body cannot be blank');
 ```
 
-This way you not only test the ContactForm on a site but actual output of applicaiton that user sees.
-Codeception provides standard set of actions like `amOnPage`, `submitForm`, `see` for testing. Yii2 module provdes special methods, like `amLoggedInAs` (for fast authentication), `haveRecord`, `seeRecord`, `seeEmailIsSent` and others. They all are listed in [module reference](http://codeception.com/docs/modules/Yii2).
+This way you not only test the ContactForm on a site but actual output of application that user sees.
+Codeception provides standard set of actions like `amOnPage`, `submitForm`, `see` for testing. Yii2 module provides special methods, like `amLoggedInAs` (for fast authentication), `haveRecord`, `seeRecord`, `seeEmailIsSent` and others. They all are listed in [module reference](http://codeception.com/docs/modules/Yii2).
 
 Functional tests should be written inside [Cest files](http://codeception.com/docs/07-AdvancedUsage#Cest-Classes), which is a scenario-driven test format of Codeception. You can easily create a new test by running:
 
