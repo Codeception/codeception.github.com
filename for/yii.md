@@ -35,7 +35,7 @@ composer exec codecept run
 
 ### Unit Tests
 
-Unit tests are located in `tests/unit` directory and are supposed to contain all kind of unit and intgration testing.
+Unit tests are located in `tests/unit` directory and are supposed to contain all kind of unit and integration testing.
 
 Each test case extends `Codeception\Test\Unit` class, which is stndard Codeception format for unit testing. 
  It is pretty hard to develop completely isolated unit tests in Yii, so an application is bootstrapped before each test case. Tests are configured in `tests/unit.suite.yml` file with Yii2 module enabled:
