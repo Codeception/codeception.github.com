@@ -225,7 +225,7 @@ composer exec codecept bootstrap
 Enable module Yii2 for functional tests inside `functional.suite.yml`: 
 
 ```yml
-# fucntional.suite.yml
+# functional.suite.yml
 modules:
     enabled:
         - Yii2:
