@@ -104,7 +104,7 @@ I see 'Hello, davert'
 
 {% endhighlight %}
 
-Codeception generate this text represenation from PHP code by executing:
+Codeception generates this text representation from PHP code by executing:
 
 {% highlight bash %}
 
@@ -127,7 +127,7 @@ modules:
 
 {% endhighlight %}
 
-After we configured the URL we can run this test with the `run` command:
+After configuring the URL we can run this test with the `run` command:
 
 {% highlight bash %}
 
@@ -135,7 +135,7 @@ php codecept run
 
 {% endhighlight %}
 
-Here is the output we should see:
+This is the output we should see:
 
 {% highlight bash %}
 
@@ -182,8 +182,7 @@ OK (1 test, 1 assertions)
 
 {% endhighlight %}
 
-This simple test can be extended to a complete scenario of site usage. 
-So by emulating the user's actions you can test any of your websites.
+This simple test can be extended to a complete scenario of site usage therefore, by emulating the user's actions, you can test any of your websites.
 
 Give it a try!
 

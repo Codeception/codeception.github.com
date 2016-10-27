@@ -21,7 +21,7 @@ Please try it and leave your feedback.
 
 * Maintainer: **Serghei Iakovlev**
 * Stability: **stable**
-* Contact: sadhooklay@gmail.com
+* Contact: serghei@phalconphp.com
 
 ### Example
 

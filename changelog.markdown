@@ -7,10 +7,43 @@ title: Codeception Changelog
 
 # Changelog
 
-#### 2.2.5
+#### 2.2.6 (October 2016)
+
+* Ability to update config on run with `--override` (`-o`) option. Usage Examples:
+    * `codecept run -o "settings: shuffle: true"`: enable shuffle
+    * `codecept run -o "settings: lint: false"`: disable linting
+* **[WebDriver]** **HTML report to include screenshots of failed tests.** See [#3602](https://github.com/Codeception/Codeception/issues/3602)
+* [PhpBrowser][Frameworks] HTML report to include HTML of failed tests. See [#3602](https://github.com/Codeception/Codeception/issues/3602)
+* **[Apc]** **Module added** to interact with the Alternative PHP Cache (APC) using either APCu or APC extension. By **[sergeyklay](https://github.com/sergeyklay)**
+* **[Laravel5]** Add `run_database_seeder` configuration option. See [#3625](https://github.com/Codeception/Codeception/issues/3625) and [#3630](https://github.com/Codeception/Codeception/issues/3630). By **[Bouhnosaure](https://github.com/Bouhnosaure)**
+* **[Laravel5]** Add `database_migrations_path` configuration option. See [#3628](https://github.com/Codeception/Codeception/issues/3628). By **[janhenkgerritsen](https://github.com/janhenkgerritsen)**
+* [Laravel5][Lumen] Fixed issue that caused the `have` and `haveMultiple` methods not being available when using the ORM part of the modules. See [#3587](https://github.com/Codeception/Codeception/issues/3587). By **[janhenkgerritsen](https://github.com/janhenkgerritsen)**
+* [PhpBrowser][Frameworks] Fixed clicking on a button inside the link
+* [PhpBrowser][Frameworks] Click on the first clickable item when clickBySelector is used
+* [PhpBrowser][Frameworks] Anchor is no longer sent to server
+* Removed tags from `see`/`dontSee` output and friends output
+* `--` separates options from arguments in `codecept run` by **[Naktibalda](https://github.com/Naktibalda)**. Fixes [#3614](https://github.com/Codeception/Codeception/issues/3614). See [#3615](https://github.com/Codeception/Codeception/issues/3615)
+* Fixed terminating run process with Ctrl-C for PHP 7.0. Disabled graceful termination
+* **[Yii2]** fixed Yii2 logging complex data by **[svoboda2010](https://github.com/svoboda2010)** Fixes [#3452](https://github.com/Codeception/Codeception/issues/3452)
+* **[Yii2]** `cleanup` set to true by default (as it was documented but not enabled).
+* **[Yii2]** Close db connections when running `haveFixtures` by **[Ni](https://github.com/Ni)**-san. Fixes [#3456](https://github.com/Codeception/Codeception/issues/3456). See [#3586](https://github.com/Codeception/Codeception/issues/3586)
+* **[Yii2]** Fixed loading fixtures from `_fixtures` method in testcase by **[iRipVanWinkle](https://github.com/iRipVanWinkle)**. See [#3565](https://github.com/Codeception/Codeception/issues/3565)
+* **[MongoDb]** Added support for [mongofill](https://github.com/mongofill/mongofill), an alternative Mongo client in pure PHP. By **[hlogeon](https://github.com/hlogeon)** at [#3641](https://github.com/Codeception/Codeception/issues/3641)
+* **[MongoDb]** Fixed data import using mongotype dump type by **[hlogeon](https://github.com/hlogeon)** [#3637](https://github.com/Codeception/Codeception/issues/3637)
+* Fixed [#3392](https://github.com/Codeception/Codeception/issues/3392) by normalizing namespace loading classes in DI getterby **[Mitrichius](https://github.com/Mitrichius)** at [#3633](https://github.com/Codeception/Codeception/issues/3633)
+* **[Symfony]** Fixed [#3608](https://github.com/Codeception/Codeception/issues/3608)  `[PHPUnit_Framework_Exception] implode()` while printing debug for security roles by **[Prazmok](https://github.com/Prazmok)**.
+* **[Yii1]** Fix domain regex [#3581](https://github.com/Codeception/Codeception/issues/3581) to return correct value by **[amashigeseiji](https://github.com/amashigeseiji)** See [#3597](https://github.com/Codeception/Codeception/issues/3597)
+* **[WebDriver]** Improved tests stability when Selenium server is gone [#3534](https://github.com/Codeception/Codeception/issues/3534) by **[eXorus](https://github.com/eXorus)**. Fixes [#3531](https://github.com/Codeception/Codeception/issues/3531)
+* **[WebDriver]** Tests are errored when Selenium server can't be connected. See [#3603](https://github.com/Codeception/Codeception/issues/3603)
+* MetaSteps are printed even with disabled xdebug by **[niclopez](https://github.com/niclopez)**. See [#3600](https://github.com/Codeception/Codeception/issues/3600)
+* **[WebDriver]** submit button in `submitForm` can be located by name or strict locator by **[imjoehaines](https://github.com/imjoehaines)**. See [#3560](https://github.com/Codeception/Codeception/issues/3560)
+* [SOAP][REST] removed module conflict by **[eXorus](https://github.com/eXorus)**.
+* Fixed [#3571](https://github.com/Codeception/Codeception/issues/3571): error handler to call `registerDeprecationErrorHandler` method and `register_shutdown_function` on first SuiteEvent only. By **[positronium](https://github.com/positronium)**. See [#3572](https://github.com/Codeception/Codeception/issues/3572)
+
+#### 2.2.5 (September 2016)
 
 * Support for PhpUnit 5.x.
-* **[Lumen]** Major refactoring of Lumen module. See [#3533](https://github.com/Codeception/Codeception/pull/3533). By **[janhenkgerritsen](https://github.com/janhenkgerritsen)**
+* **[Lumen]** Major refactoring of Lumen module. See [#3533](https://github.com/Codeception/Codeception/issues/3533). By **[janhenkgerritsen](https://github.com/janhenkgerritsen)**
 * **[Laravel5]** Removed calls to `Auth::logout()`, `Session::flush()` and `Cache::flush()` from after hook. See [#3493](https://github.com/Codeception/Codeception/issues/3493). By **[janhenkgerritsen](https://github.com/janhenkgerritsen)**
 * **[Memcache]** Updated `Memcache::seeInMemcached` to check if the key exists alone or with the desired value. By **[sergeyklay](https://github.com/sergeyklay)**
 * **[Memcache]** Added `Memcache::haveInMemcached`. By **[sergeyklay](https://github.com/sergeyklay)**
@@ -18,7 +51,7 @@ title: Codeception Changelog
 * **[ZF2]** Zend Framework 3 Support. Made `init_autoloader` optional, because ZF3 uses composer for autoloading [#3525](https://github.com/Codeception/Codeception/issues/3525). By **[Naktibalda](https://github.com/Naktibalda)**
 * **[ZF2]** Fixed accessing Doctrine Entity Manager when client is not initialized. By **[chris1312](https://github.com/chris1312)**. See [#3524](https://github.com/Codeception/Codeception/issues/3524)
 * **[Yii2]** Allow to load fixtures from `_fixtures` method of a testcase. [See reference](http://codeception.com/docs/modules/Yii2#Fixtures). Fixes usage of nested transactions [#3520](https://github.com/Codeception/Codeception/issues/3520). By **[kalyabin](https://github.com/kalyabin)** and **[davertmik](https://github.com/davertmik)**
-* **[Yii1]** Fix private property accessible; allows to change urlManager class to subclass of CUrlManager. See **[#3287](https://github.com/Codeception/Codeception/issues/3287)**. By **[amashigeseiji](https://github.com/amashigeseiji)**
+* **[Yii1]** Fix private property accessible; allows to change urlManager class to subclass of CUrlManager. See **[3287](https://github.com/3287)**. By **[amashigeseiji](https://github.com/amashigeseiji)**
 * Escaped tags in debug output by **[Naktibalda](https://github.com/Naktibalda)**. See [#3507](https://github.com/Codeception/Codeception/issues/3507). Fixes [#3495](https://github.com/Codeception/Codeception/issues/3495)
 * Fixed [#3410](https://github.com/Codeception/Codeception/issues/3410): Wrong subSteps rendering in HTML ResultPrinter by **[niclopez](https://github.com/niclopez)**
 * **[WebDriver]** Improved exception message thrown when click('name') does not match any element [#3546](https://github.com/Codeception/Codeception/issues/3546) by **[Naktibalda](https://github.com/Naktibalda)**. Fixes [#3528](https://github.com/Codeception/Codeception/issues/3528)
@@ -37,7 +70,7 @@ title: Codeception Changelog
 * Fixed [#3433](https://github.com/Codeception/Codeception/issues/3433) detection of relative path when `codeception.yml` is not in project root. See [#3434](https://github.com/Codeception/Codeception/issues/3434). By **[loren](https://github.com/loren)**-osborn
 * Handle deprecation messages according to `error_level` setting [#3460](https://github.com/Codeception/Codeception/issues/3460). Fixes [#3424](https://github.com/Codeception/Codeception/issues/3424). By **[Naktibalda](https://github.com/Naktibalda)**.
 
-#### 2.2.4
+#### 2.2.4 (August 2016)
 
 * Improved using complex params, nested params can be set using dot (`.`). See [#3339](https://github.com/Codeception/Codeception/issues/3339)
 * **[Yii2]** Mailer mock is now configured with options that make sense for it. Fixes [#3382](https://github.com/Codeception/Codeception/issues/3382)
@@ -56,7 +89,7 @@ title: Codeception Changelog
 * **[Db]** Error is thrown if SQLite memory is used. [#3319](https://github.com/Codeception/Codeception/issues/3319)
 * **[Frameworks]** `REQUEST_TIME` server variable to be set on request. By **[gimler](https://github.com/gimler)**. Fixes [#3374](https://github.com/Codeception/Codeception/issues/3374)
 
-#### 2.2.3
+#### 2.2.3 (July 2016)
 
 * **[Yii2]** Improvements:
     * Added `init` part to initialize Yii app for unit and acceptance testing.

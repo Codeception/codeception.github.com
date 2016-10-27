@@ -1488,6 +1488,26 @@ $I->submitForm('#my-form', [
 ]);
 
 {% endhighlight %}
+
+The `$button` parameter can be either a string, an array or an instance
+of Facebook\WebDriver\WebDriverBy. When it is a string, the
+button will be found by its "name" attribute. If $button is an
+array then it will be treated as a strict selector and a WebDriverBy
+will be used verbatim.
+
+For example, given the following HTML:
+
+{% highlight html %}
+
+<input type="submit" name="submitButton" value="Submit" />
+
+{% endhighlight %}
+
+`$button` could be any one of the following:
+  - 'submitButton'
+  - ['name' => 'submitButton']
+  - WebDriverBy::name('submitButton')
+
  * `param` $selector
  * `param` $params
  * `param` $button
