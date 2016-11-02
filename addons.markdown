@@ -89,6 +89,10 @@ Codeception extensions are developed by third-party contributors and can enhance
 
 Extensions should be installed via **Composer**.
 
+#### [DataProvider](https://github.com/edno/codeception-dataprovider)
+
+DataProvider implementation for Cest Format.
+
 #### [Allure Codeception Adapter](https://github.com/allure-framework/allure-codeception)
 
 This is a Codeception adapter for [Allure Framework](https://github.com/allure-framework).
