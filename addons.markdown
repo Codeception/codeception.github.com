@@ -31,6 +31,10 @@ Official CakePHP 3 module for Codeception.
 
 Integrate Codeception to CakePHP v2.* projects
 
+#### [Config](https://github.com/JustBlackBird/codeception-config-module)
+
+Loads params from Codeception config and pass them to test scenarios.
+
 #### [Date/Time](https://github.com/nathanmac/datetime-codeception-module)
 
 This module provides additional helpers for your test to help with date and time comparisons.
