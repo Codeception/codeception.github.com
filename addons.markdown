@@ -63,6 +63,10 @@ This module will let you test emails using simple SMTP connection, with any prov
 
 Integrates Mockery into Codeception tests.
 
+#### [Nette](https://github.com/Arachne/Codeception)
+
+Module for Nette framework.
+
 #### [Slim 3](https://github.com/herloct/codeception-slim-module)
 
 This module allows you to run tests inside Slim 3 Microframework.
