@@ -17,6 +17,14 @@ Webception is a deployable web-application that allows you to run all your Codec
 
 You can access multiple test suites and decide which tests to include in a run. It allows you start, stop and restart the process whilst watching the test results in the Console.
 
+## Chrome Extensions
+
+#### (Codeception Test Tools)[https://chrome.google.com/webstore/detail/codeception-testtools/jhaegbojocomemkcnmnpmoobbmnkijik] 
+
+![](https://lh3.googleusercontent.com/ha92txqVyDNbSxT3fzt7Qo7jEfzyg7BfRnYFOBzak44v2QJ292dKVxIfxc_O-gfmp_dVd94-dg=s640-h400-e365-rw)
+
+Google Chrome extension to generate Codeception acceptance tests while using your app. [GitHub](https://github.com/mpociot/codeception-testtools)
+
 ## Modules
 
 #### [Amazon S3 Filesystem](https://github.com/polevaultweb/s3-filesystem)
@@ -157,13 +165,6 @@ The Codeception module for SSH commands, SFTP access and SSH tunnels
 
 Integration with [TestRail TestCase Management](http://www.gurock.com/testrail/) 
 
----
-
-## IDE Plugins
-
-#### [PHPStorm Command Line Tool](https://github.com/tiger-seo/codeception-phpstorm-commandlinetool)
-
-Codeception CLI tool description for PhpStorm.
 
 
 
