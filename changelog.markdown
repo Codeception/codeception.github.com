@@ -19,25 +19,17 @@ codecept config:validate acceptance
 This should help you next time you get messed with YAML formatting.
 
 * Gherkin improvements:
-  * multiple step definitions per method allowed (Fixes [#3670](https://github.com/Codeception/Codeception/issues/3670))
-
-  ```php
-  /**
-    * **[When](https://github.com/When)** I have no orders
-    * **[Then](https://github.com/Then)** I have empty bucket
-    */
-  public function haveEmptyBucket()
-  ```
-
+  * multiple step definitions per method allowed (Fixes [#3670](https://github.com/Codeception/Codeception/issues/3670)).  
   * regex validation for Gherkin steps; throws exception if invalid regex passed. Fixes [#3676](https://github.com/Codeception/Codeception/issues/3676)  
   * currency chars supported in placeholders:
 
   $,€,£ and other signs can be used before or after a number inside Gherkin scenario. This char will be ignored inside a PHP variable, so you receive only number.
 
-  ```gherkin
-  When I have 100$ => $num === 100
-  And I have $100 => $num === 100
-  ```
+```gherkin
+When I have 100$ => $num === 100
+And I have $100 => $num === 100
+```
+
   * escaped strings can now be passed into placeholders. Fixes [#3676](https://github.com/Codeception/Codeception/issues/3676).
 
 * Codeception is tested with latest verision of HHVM
@@ -46,12 +38,13 @@ This should help you next time you get messed with YAML formatting.
   * Extensions can be loaded per suite and per environment.
   * Extensions configs can be done inside `enabled` section (as it is for modules):
 
-  ```yaml
-  extensions:
-      enabled:
-          Codeception\Extension\Recorder:
-              delete_successful: false
-  ```
+```yaml
+extensions:
+  enabled:
+      Codeception\Extension\Recorder:
+          delete_successful: false
+```
+
 * **Added dataprovider to Cest** format by **[endo](https://github.com/endo)**. See [updated documentation](http://codeception.com/docs/07-AdvancedUsage#Examples).
 * Params loader refactored. Using `vlucas/phpdotenv` to parse .env files. Please install it if you don't have it yet.
 * Improved `generate:suite` command to generate actor file for suite.
