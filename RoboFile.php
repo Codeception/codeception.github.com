@@ -31,8 +31,6 @@ class RoboFile extends \Robo\Tasks
 
   /**
    * builds docs for specific branch
-   * @param  [type] $branch [description]
-   * @return [type]         [description]
    */
   function docsBranch($branch)
   {
