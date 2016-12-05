@@ -27,9 +27,9 @@ $I->dontSeeResponseCodeIs(HttpCode::NOT_FOUND);
 
 
 
-### getDescription 
+#### getDescription()
 
-*static*
+ *public static* getDescription($code) 
 
 Returns string with HTTP code and its description
 
@@ -42,8 +42,8 @@ HttpCode::getDescription(401); // '401 (Unauthorized)'
 {% endhighlight %}
 
  * `param` $code
- * `return`  mixed
+ * `return` mixed
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/HttpCode.php#L155)
 
-<p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/HttpCode.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/blob/2.2/src//Codeception/Util/HttpCode.php">Help us to improve documentation. Edit module reference</a></div>

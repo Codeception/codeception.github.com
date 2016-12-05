@@ -44,7 +44,7 @@ By default all available methods are loaded, but you can specify parts to select
 #### Example (`functional.suite.yml`)
 
 {% highlight yaml %}
-yml
+
 class_name: FunctionalTester
 modules:
   enabled:
@@ -56,7 +56,7 @@ modules:
 #### Example (`unit.suite.yml`)
 
 {% highlight yaml %}
-yml
+
 class_name: UnitTester
 modules:
   enabled:
@@ -70,7 +70,7 @@ modules:
 #### Example (`acceptance.suite.yml`)
 
 {% highlight yaml %}
-yml
+
 class_name: AcceptanceTester
 modules:
     enabled:
@@ -108,6 +108,20 @@ public function _fixtures()
 {
     return ['posts' => PostsFixture::className()]
 }
+
+{% endhighlight %}
+
+### URL
+This module provide to use native URL formats of Yii2 for all codeception commands that use url for work.
+This commands allows input like:
+
+{% highlight php %}
+
+<?php
+$I->amOnPage(['site/view','page'=>'about']);
+$I->amOnPage('index-test.php?site/index');
+$I->amOnPage('http://localhost/index-test.php?site/index');
+$I->sendAjaxPostRequest(['/user/update', 'id' => 1], ['UserForm[name]' => 'G.Hopper');
 
 {% endhighlight %}
 
@@ -279,20 +293,19 @@ Requires `user` component to be enabled and configured.
 
 #### amOnPage
  
-Converting $page to valid Yii 2 URL
-
-Allows input like:
+Opens the page for the given relative URI.
 
 {% highlight php %}
 
 <?php
-$I->amOnPage(['site/view','page'=>'about']);
-$I->amOnPage('index-test.php?site/index');
-$I->amOnPage('http://localhost/index-test.php?site/index');
+// opens front page
+$I->amOnPage('/');
+// opens /register page
+$I->amOnPage('/register');
 
 {% endhighlight %}
 
- * `param` $page string|array parameter for \yii\web\UrlManager::createUrl()
+ * `param` $page
 
 
 #### amOnRoute
@@ -402,9 +415,10 @@ Give a locator as the second parameter to match a specific region.
 {% highlight php %}
 
 <?php
-$I->dontSee('Login');                    // I can suppose user is already logged in
-$I->dontSee('Sign Up','h1');             // I can suppose it's not a signup page
-$I->dontSee('Sign Up','//body/h1');      // with XPath
+$I->dontSee('Login');                         // I can suppose user is already logged in
+$I->dontSee('Sign Up','h1');                  // I can suppose it's not a signup page
+$I->dontSee('Sign Up','//body/h1');           // with XPath
+$I->dontSee('Sign Up', ['css' => 'body h1']); // with strict CSS locator
 
 {% endhighlight %}
 
@@ -920,13 +934,13 @@ Signature is the same as for `fixtures()` method of `yii\test\FixtureTrait`
 {% highlight php %}
 
 <?php
-$I->haveFixtures(,
+$I->haveFixtures([
     'posts' => PostsFixture::className(),
     'user' => [
         'class' => UserFixture::className(),
-        'dataFile' => ' * `tests/_data/models/user.php'` 
+        'dataFile' => ' * `tests/_data/models/user.php',` 
      ],
-);
+]);
 
 {% endhighlight %}
 
@@ -998,9 +1012,10 @@ parameter to only search within that element.
 {% highlight php %}
 
 <?php
-$I->see('Logout');                 // I can suppose user is logged in
-$I->see('Sign Up', 'h1');          // I can suppose it's a signup page
-$I->see('Sign Up', '//body/h1');   // with XPath
+$I->see('Logout');                        // I can suppose user is logged in
+$I->see('Sign Up', 'h1');                 // I can suppose it's a signup page
+$I->see('Sign Up', '//body/h1');          // with XPath
+$I->see('Sign Up', ['css' => 'body h1']); // with strict CSS locator
 
 {% endhighlight %}
 
