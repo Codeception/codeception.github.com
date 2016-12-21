@@ -4,6 +4,11 @@ title: "Writing Better Tests: Expectation vs Implementation"
 date: 2016-12-21 01:03:50
 ---
 
+*Written by Michael Bodnarchuk @davert.
+
+Thanks to Nick Palamarchuk for the review and ideas.*
+
+
 ![](/images/car_test.jpg)
 
 What makes a meaningful test? This question should always be asked. No matter we write your tests first or tests after, they may stay in a project for years and it is pretty important them to test the things that really matters. Badly written tests can slow us down by constantly failing on each implementation change, and such tests can be written no matter you follow TDD or not. The idea of a test is to ensure that software works and not to freeze it at specific point.
@@ -73,5 +78,3 @@ Overusing mocks also makes tests longer. Lines of test code you write doesn't al
 
 So the actionable advice here is to think **what is important to you: a behavior or a result** (no matter how it is achieved). Try to **discover what is stable and what is not, rely on stable parts, and use public interfaces**. Thanks for reading. 
 
-*Written by Michael Bodnarchuk @davert.
-Thanks to Nick Palamarchuk for the review and ideas.*
