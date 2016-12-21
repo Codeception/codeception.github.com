@@ -55,7 +55,7 @@ $filesystem->mkdir($path, 0700)->willReturn(true);
 This is the mock that expects `mkdir` to be called with a specific parameters and to return an expected result. 
 But is that stable to changes? What if at some point `mkdir` gets deprecated in favor of `mkdirPlus`, what if a method signature changes? 
 
-Well, in this current case we can be sure that this method won't be changed. The reason is simple: it's Symfony, it's LTS, and its API is stable. However can you say that for internal classes of your application? That they are 100% documented and won't change its behavior in future. 
+Well, in this current case we can be sure that this method won't be changed. The reason is simple: it's Symfony, it's LTS, and its API is stable. But can you say that about internal classes of your application? That they are 100% documented and they won't change their behavior in future. 
 
 When we change the implementation of `Module->make()` it still fits expected specification ('it should create a folder given a valid path'), but the test fails. This happens because the test pretend to know too much. In similar manner a strict master doesn't just ask apprentice to do the job. He thinks he knows better how to do it and provides him with a detailed instructions. He doesn't care of the outcome but apprentice should understand the basics: disobedience will be prosecuted.
 
