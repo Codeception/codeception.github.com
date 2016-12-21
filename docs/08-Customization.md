@@ -106,9 +106,7 @@ For instance, you can enable the Logger extension to log the test execution with
 extensions:
     enabled:
         - Codeception\Extension\RunFailed # default extension
-        - Codeception\Extension\Logger # enabled extension
-    config:
-        Codeception\Extension\Logger:
+        - Codeception\Extension\Logger: # enabled extension
             max_files: 5 # logger configuration
 
 {% endhighlight %}
@@ -193,7 +191,7 @@ Extensions have some basic methods you can use:
 Once you've implemented a simple extension class, you can require it in `tests/_bootstrap.php`,
 load it with Composer's autoloader defined in `composer.json`, or store the class inside `tests/_support`dir.
 
-You can then enable it in `codeception.yml`:
+You can then enable it in `codeception.yml`
 
 {% highlight yaml %}
 
@@ -201,6 +199,8 @@ extensions:
     enabled: [MyCustomExtension]
 
 {% endhighlight %}
+
+Extensions can also be enabled per suite inside suite configs (like `acceptance.suite.yml`) and for a specific environment. 
 
 ### Configuring Extension
 
