@@ -72,3 +72,6 @@ By making a test bound to implementation we are copying parts of that implementa
 Overusing mocks also makes tests longer. Lines of test code you write doesn't always convert to software quality. Actually, from the software developer experience the true is quite the contrary: the more code you write the more bugs you may introduce. And your tests are just the same as production code: they will evolve with your software and they needs to be maintained.
 
 So the actionable advice here is to think **what is important to you: a behavior or a result** (no matter how it is achieved). Try to **discover what is stable and what is not, rely on stable parts, and use public interfaces**. Thanks for reading. 
+
+*Written by Michael Bodnarchuk @davert.
+Thanks to Nick Palamarchuk for the review and ideas.*
