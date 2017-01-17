@@ -38,13 +38,6 @@ Checks that haystack contains needle
  * `param string` $message
 
 
-#### assertCount
- 
- * `param` $expectedCount
- * `param` $actual
- * `param` $description
-
-
 #### assertEmpty
  
 Checks that variable is empty.

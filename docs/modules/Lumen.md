@@ -25,27 +25,16 @@ Please try it and leave your feedback.
 
 ### Config
 
-* cleanup: `boolean`, default `true` - all database queries will be run in a transaction,
-  which will be rolled back at the end of each test.
-* bootstrap: `string`, default `bootstrap/app.php` - relative path to app.php config file.
-* root: `string`, default `` - root path of the application.
-* packages: `string`, default `workbench` - root path of application packages (if any).
-* url: `string`, default `http://localhost` - the application URL
+* cleanup: `boolean`, default `true` - all db queries will be run in transaction, which will be rolled back at the end of test.
+* bootstrap: `string`, default `bootstrap/app.php` - Relative path to app.php config file.
+* root: `string`, default `` - Root path of our application.
+* packages: `string`, default `workbench` - Root path of application packages (if any).
 
 ### API
 
-* app - `\Laravel\Lumen\Application`
-* config - `array`
+* app - `Illuminate\Foundation\Application` instance
+* client - `BrowserKit` client
 
-### Parts
-
-* ORM - only include the database methods of this module:
-    * have
-    * haveMultiple
-    * haveRecord
-    * grabRecord
-    * seeRecord
-    * dontSeeRecord
 
 
 ### Actions
@@ -187,11 +176,12 @@ Authenticates user for HTTP_AUTH
 
 #### amLoggedAs
  
-Set the authenticated user for the next request.
-This will not persist between multiple requests.
+Set the currently logged in user for the application.
+Takes either an object that implements the User interface or
+an array of credentials.
 
- * `param`  \Illuminate\Contracts\Auth\Authenticatable
- * `param`  string|null $driver The authentication driver for Lumen <= 5.1.*, guard name for Lumen >= 5.2
+ * `param`  \Illuminate\Contracts\Auth\User|array $user
+ * `param`  string $driver
  * `return` void
 
 
@@ -324,10 +314,9 @@ Give a locator as the second parameter to match a specific region.
 {% highlight php %}
 
 <?php
-$I->dontSee('Login');                         // I can suppose user is already logged in
-$I->dontSee('Sign Up','h1');                  // I can suppose it's not a signup page
-$I->dontSee('Sign Up','//body/h1');           // with XPath
-$I->dontSee('Sign Up', ['css' => 'body h1']); // with strict CSS locator
+$I->dontSee('Login');                    // I can suppose user is already logged in
+$I->dontSee('Sign Up','h1');             // I can suppose it's not a signup page
+$I->dontSee('Sign Up','//body/h1');      // with XPath
 
 {% endhighlight %}
 
@@ -351,7 +340,7 @@ For checking the raw source code, use `seeInSource()`.
 
 #### dontSeeAuthentication
  
-Check that user is not authenticated.
+Check that user is not authenticated
 
 
 #### dontSeeCheckboxIsChecked
@@ -596,22 +585,6 @@ $I->dontSeeRecord('App\User', array('name' => 'davert'));
  * `[Part]` orm
 
 
-#### dontSeeResponseCodeIs
- 
-Checks that response code is equal to value provided.
-
-{% highlight php %}
-
-<?php
-$I->dontSeeResponseCodeIs(200);
-
-// recommended \Codeception\Util\HttpCode
-$I->dontSeeResponseCodeIs(\Codeception\Util\HttpCode::OK);
-
-{% endhighlight %}
- * `param` $code
-
-
 #### fillField
  
 Fills a text field or textarea with the given string.
@@ -786,28 +759,6 @@ $value = $I->grabTextFrom('~<input value=(.*?)]~sgi'); // match with a regex
  * `return` array|mixed|null|string
 
 
-#### have
- 
-Use Lumen's model factory to create a model.
-Can only be used with Lumen 5.1 and later.
-
-{% highlight php %}
-
-<?php
-$I->have('App\User');
-$I->have('App\User', ['name' => 'John Doe']);
-$I->have('App\User', [], 'admin');
-?>
-
-{% endhighlight %}
-
- * `see`  https://lumen.laravel.com/docs/master/testing#model-factories
- * `param string` $model
- * `param array` $attributes
- * `param string` $name
- * `[Part]` orm
-
-
 #### haveHttpHeader
  
 Sets the HTTP header to the passed value - which is used on
@@ -826,29 +777,6 @@ $I->amOnPage('test-headers.php');
  * `param string` $name the name of the request header
  * `param string` $value the value to set it to for subsequent
        requests
-
-
-#### haveMultiple
- 
-Use Laravel's model factory to create multiple models.
-Can only be used with Lumen 5.1 and later.
-
-{% highlight php %}
-
-<?php
-$I->haveMultiple('App\User', 10);
-$I->haveMultiple('App\User', 10, ['name' => 'John Doe']);
-$I->haveMultiple('App\User', 10, [], 'admin');
-?>
-
-{% endhighlight %}
-
- * `see`  https://lumen.laravel.com/docs/master/testing#model-factories
- * `param string` $model
- * `param int` $times
- * `param array` $attributes
- * `param string` $name
- * `[Part]` orm
 
 
 #### haveRecord
@@ -870,6 +798,11 @@ $user = $I->haveRecord('App\User', array('name' => 'Davert')); // returns Eloque
  * `param array` $attributes
  * `return` integer|EloquentModel
  * `[Part]` orm
+
+
+#### logout
+ 
+Logs user out
 
 
 #### moveBack
@@ -899,10 +832,9 @@ parameter to only search within that element.
 {% highlight php %}
 
 <?php
-$I->see('Logout');                        // I can suppose user is logged in
-$I->see('Sign Up', 'h1');                 // I can suppose it's a signup page
-$I->see('Sign Up', '//body/h1');          // with XPath
-$I->see('Sign Up', ['css' => 'body h1']); // with strict CSS locator
+$I->see('Logout');                 // I can suppose user is logged in
+$I->see('Sign Up', 'h1');          // I can suppose it's a signup page
+$I->see('Sign Up', '//body/h1');   // with XPath
 
 {% endhighlight %}
 
@@ -926,7 +858,7 @@ For checking the raw source code, use `seeInSource()`.
 
 #### seeAuthentication
  
-Checks that user is authenticated.
+Checks that user is authenticated
 
 
 #### seeCheckboxIsChecked
@@ -1131,6 +1063,15 @@ $I->seeInFormFields('//form[ * `id=my-form]',`  $form);
  * `param` $params
 
 
+#### seeInSession
+ 
+Assert that the session has a given list of values.
+
+ * `param`  string|array $key
+ * `param`  mixed $value
+ * `return` void
+
+
 #### seeInSource
  
 Checks that the current page contains the given string in its
@@ -1243,17 +1184,16 @@ $I->seeRecord('App\User', array('name' => 'davert'));
  
 Checks that response code is equal to value provided.
 
-{% highlight php %}
-
-<?php
-$I->seeResponseCodeIs(200);
-
-// recommended \Codeception\Util\HttpCode
-$I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK);
-
-{% endhighlight %}
-
  * `param` $code
+
+
+
+#### seeSessionHasValues
+ 
+Assert that the session has a given list of values.
+
+ * `param`  array $bindings
+ * `return` void
 
 
 #### selectOption
@@ -1350,11 +1290,6 @@ $I->sendAjaxRequest('PUT', '/posts/7', array('title' => 'new title'));
  * `param` $method
  * `param` $uri
  * `param` $params
-
-
-#### setApplication
- 
- * `param \Laravel\Lumen\Application` $app
 
 
 #### setCookie

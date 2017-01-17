@@ -12,15 +12,9 @@ Autoloader, which is fully compatible with PSR-4,
 and can be used to autoload your `Helper`, `Page`, and `Step` classes.
 
 
-#### __construct()
+### addNamespace 
 
- *private* __construct() 
-
-[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Autoload.php#L18)
-
-#### addNamespace()
-
- *public static* addNamespace($prefix, $base_dir, $prepend = null) 
+*static*
 
 Adds a base directory for a namespace prefix.
 
@@ -44,46 +38,30 @@ Autoload::addNamespace('app\Codeception', '/path/to/controllers');
  * `param string` $base_dir A base directory for class files in the namespace.
  * `param bool` $prepend If true, prepend the base directory to the stack instead of appending it;
                      this causes it to be searched first rather than last.
- * `return` void
+ * `return`  void
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Autoload.php#L45)
 
-#### load()
+### load 
 
- *public static* load($class) 
+*static*
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Autoload.php#L88)
 
-#### loadMappedFile()
+### register 
 
- *protected static* loadMappedFile($prefix, $relative_class) 
+*static*
 
-Load the mapped file for a namespace prefix and relative class.
-
- * `param string` $prefix The namespace prefix.
- * `param string` $relative_class The relative class name.
- * `return` mixed Boolean false if no mapped file can be loaded, or the name of the mapped file that was loaded.
-
-[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Autoload.php#L136)
-
-#### register()
-
- *public static* register($namespace, $suffix, $path) 
- * `deprecated` Use self::addNamespace() instead.
+ * `deprecated`  Use self::addNamespace() instead.
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Autoload.php#L75)
 
-#### registerSuffix()
+### registerSuffix 
 
- *public static* registerSuffix($suffix, $path) 
- * `deprecated` Use self::addNamespace() instead.
+*static*
+
+ * `deprecated`  Use self::addNamespace() instead.
 
 [See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Autoload.php#L83)
 
-#### requireFile()
-
- *protected static* requireFile($file) 
-
-[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Autoload.php#L156)
-
-<p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/blob/2.2/src//Codeception/Util/Autoload.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Autoload.php">Help us to improve documentation. Edit module reference</a></div>

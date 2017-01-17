@@ -21,7 +21,7 @@ If test fails stores last shown page in 'output' dir.
 
 * Maintainer: **davert**
 * Stability: **stable**
-* Contact: codeception@codeception.com
+* Contact: davert.codecept@mailican.com
 * Works with [Guzzle](http://guzzlephp.org/)
 
 *Please review the code of non-stable modules and provide patches if you have issues.*
@@ -363,10 +363,9 @@ Give a locator as the second parameter to match a specific region.
 {% highlight php %}
 
 <?php
-$I->dontSee('Login');                         // I can suppose user is already logged in
-$I->dontSee('Sign Up','h1');                  // I can suppose it's not a signup page
-$I->dontSee('Sign Up','//body/h1');           // with XPath
-$I->dontSee('Sign Up', ['css' => 'body h1']); // with strict CSS locator
+$I->dontSee('Login');                    // I can suppose user is already logged in
+$I->dontSee('Sign Up','h1');             // I can suppose it's not a signup page
+$I->dontSee('Sign Up','//body/h1');      // with XPath
 
 {% endhighlight %}
 
@@ -611,22 +610,6 @@ $I->dontSeeOptionIsSelected('#form input[name=payment]', 'Visa');
 
 
 
-#### dontSeeResponseCodeIs
- 
-Checks that response code is equal to value provided.
-
-{% highlight php %}
-
-<?php
-$I->dontSeeResponseCodeIs(200);
-
-// recommended \Codeception\Util\HttpCode
-$I->dontSeeResponseCodeIs(\Codeception\Util\HttpCode::OK);
-
-{% endhighlight %}
- * `param` $code
-
-
 #### executeInGuzzle
  
 Low-level API method.
@@ -818,10 +801,9 @@ parameter to only search within that element.
 {% highlight php %}
 
 <?php
-$I->see('Logout');                        // I can suppose user is logged in
-$I->see('Sign Up', 'h1');                 // I can suppose it's a signup page
-$I->see('Sign Up', '//body/h1');          // with XPath
-$I->see('Sign Up', ['css' => 'body h1']); // with strict CSS locator
+$I->see('Logout');                 // I can suppose user is logged in
+$I->see('Sign Up', 'h1');          // I can suppose it's a signup page
+$I->see('Sign Up', '//body/h1');   // with XPath
 
 {% endhighlight %}
 
@@ -1138,17 +1120,8 @@ Asserts that current page has 404 response status code.
  
 Checks that response code is equal to value provided.
 
-{% highlight php %}
-
-<?php
-$I->seeResponseCodeIs(200);
-
-// recommended \Codeception\Util\HttpCode
-$I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK);
-
-{% endhighlight %}
-
  * `param` $code
+
 
 
 #### selectOption

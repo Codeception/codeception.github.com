@@ -32,12 +32,15 @@ If you use PHP SoapServer with framework, try to block call to this method in te
 ### Configuration
 
 * endpoint *required* - soap wsdl endpoint
-* SOAPAction - replace SOAPAction HTTP header (Set to '' to SOAP 1.2)
 
 ### Public Properties
 
 * xmlRequest - last SOAP request (DOMDocument)
 * xmlResponse - last SOAP response (DOMDocument)
+
+### Conflicts
+
+Conflicts with REST module
 
 
 
@@ -136,11 +139,6 @@ Will produce header:
 
 
 #### seeResponseCodeIs
- 
- * `deprecated`  use seeSoapResponseCodeIs instead
-
-
-#### seeSoapResponseCodeIs
  
 Checks response code from server.
 
