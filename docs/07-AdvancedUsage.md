@@ -212,7 +212,7 @@ Data is defined via the `@example` annotation, using JSON or Doctrine-style nota
 
 <div class="alert alert-notice">
 If you use JSON notation please keep in mind that all string keys
-and values should be enclosed in doble quotes " according to JSON standard.
+and values should be enclosed in double quotes " according to JSON standard.
 </div>
 
 You can pass key-value data as an example and use it in tests as well:
@@ -254,6 +254,7 @@ These examples can be written using Doctrine-style annotation syntax as well:
 {% endhighlight %}
 
 You can also use the `@dataprovider` annotation for creating dynamic examples, using a protected method for providing example data:
+
 {% highlight php %}
 
 <?php
@@ -286,6 +287,7 @@ Alternatively, the `@dataprovider` can also be a public method starting with `_`
 
 {% highlight php %}
 
+<?php
    /**
     * @dataprovider _pageProvider
     */
@@ -693,27 +695,35 @@ Feature: Admin area
 ### Group Files
 
 Groups can be defined in global or suite configuration files.
-Tests for groups can be specified as an array or as a path to a file containing a list of groups:
+Tests for groups can be specified as an array of file names or directories containing them:
 
 {% highlight yaml %}
 
 groups:
   # add 2 tests to db group
   db: [tests/unit/PersistTest.php, tests/unit/DataTest.php]
-
-  # add list of tests to slow group
-  slow: tests/_data/slow
+  
+  # add all tests from a directory to api group
+  api: [tests/functional/api]
 
 {% endhighlight %}
 
-For instance, you can create a file with the list of the slowest tests, and run them inside their own group.
-Group file is a plain text file with test names on separate lines:
+A list of tests for the group can be passed from a Group file. It should be defined in plain text with test names on separate lines:
 
 {% highlight bash %}
 
 tests/unit/DbTest.php
 tests/unit/UserTest.php:create
 tests/unit/UserTest.php:update
+
+{% endhighlight %}
+A group file can be included by its relative filename:
+
+{% highlight yaml %}
+
+groups:
+  # requiring a group file
+  slow: tests/_data/slow.txt
 
 {% endhighlight %}
 
@@ -729,7 +739,8 @@ groups:
 
 {% endhighlight %}
 
-This will load all found `p*` files in `tests/_data` as groups.
+This will load all found `p*` files in `tests/_data` as groups. Group names will be as follows p1,p2,...,pN.
+
 
 ## Conclusion
 

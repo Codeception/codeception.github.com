@@ -7,6 +7,10 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.2.8
+
+* **[Laravel5]** Added `seeNumRecords` and `grabNumRecords` methods. See [#3816](https://github.com/Codeception/Codeception/issues/3816). By **[dmoreno](https://github.com/dmoreno)**
+
 #### 2.2.7
 
 * **Config validation** with `codecept config:validate` command. Use it:
@@ -20,16 +24,17 @@ This should help you next time you get messed with YAML formatting.
 
 * Gherkin improvements:
   * multiple step definitions per method allowed (Fixes [#3670](https://github.com/Codeception/Codeception/issues/3670)).  
-  * regex validation for Gherkin steps; throws exception if invalid regex passed. Fixes [#3676](https://github.com/Codeception/Codeception/issues/3676)
-  * escaped strings can now be passed into placeholders. Fixes [#3676](https://github.com/Codeception/Codeception/issues/3676).
+  * regex validation for Gherkin steps; throws exception if invalid regex passed. Fixes [#3676](https://github.com/Codeception/Codeception/issues/3676)  
   * currency chars supported in placeholders:
-  
+
   $,€,£ and other signs can be used before or after a number inside Gherkin scenario. This char will be ignored inside a PHP variable, so you receive only number.
 
 ```gherkin
 When I have 100$ => $num === 100
 And I have $100 => $num === 100
 ```
+
+  * escaped strings can now be passed into placeholders. Fixes [#3676](https://github.com/Codeception/Codeception/issues/3676).
 
 * Codeception is tested with latest verision of HHVM
 * Extensions loader refactored:
