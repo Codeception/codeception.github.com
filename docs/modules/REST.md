@@ -78,6 +78,27 @@ Adds HTTP authentication via username/password.
  * `[Part]` xml
 
 
+#### deleteHeader
+ 
+Deletes the header with the passed name.  Subsequent requests
+will not have the deleted header in its request.
+
+Example:
+{% highlight php %}
+
+<?php
+$I->haveHttpHeader('X-Requested-With', 'Codeception');
+$I->sendGET('test-headers.php');
+// ...
+$I->deleteHeader('X-Requested-With');
+$I->sendPOST('some-other-page.php');
+?>
+
+{% endhighlight %}
+
+ * `param string` $name the name of the header to delete.
+
+
 #### dontSeeHttpHeader
  
 Checks over the given HTTP header and (optionally)
@@ -92,6 +113,16 @@ its value, asserting that are not there
 #### dontSeeResponseCodeIs
  
 Checks that response code is not equal to provided value.
+
+{% highlight php %}
+
+<?php
+$I->dontSeeResponseCodeIs(200);
+
+// preferred to use \Codeception\Util\HttpCode
+$I->dontSeeResponseCodeIs(\Codeception\Util\HttpCode::OK);
+
+{% endhighlight %}
 
  * `[Part]` json
  * `[Part]` xml
@@ -312,6 +343,16 @@ $I->seeHttpHeaderOnce('Cache-Control');
 #### seeResponseCodeIs
  
 Checks response code equals to provided value.
+
+{% highlight php %}
+
+<?php
+$I->seeResponseCodeIs(200);
+
+// preferred to use \Codeception\Util\HttpCode
+$I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK);
+
+{% endhighlight %}
 
  * `[Part]` json
  * `[Part]` xml
@@ -715,9 +756,29 @@ Sends UNLINK request to given uri.
  
 Enables automatic redirects to be followed by the client
 
+{% highlight php %}
+
+<?php
+$I->startFollowingRedirects();
+
+{% endhighlight %}
+
+ * `[Part]` xml
+ * `[Part]` json
+
 
 #### stopFollowingRedirects
  
 Prevents automatic redirects to be followed by the client
+
+{% highlight php %}
+
+<?php
+$I->stopFollowingRedirects();
+
+{% endhighlight %}
+
+ * `[Part]` xml
+ * `[Part]` json
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.2/src/Codeception/Module/REST.php">Help us to improve documentation. Edit module reference</a></div>

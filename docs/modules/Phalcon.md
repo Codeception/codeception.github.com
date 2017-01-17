@@ -10,37 +10,44 @@ title: Phalcon - Codeception - Documentation
 # Phalcon
 
 
-This module provides integration with [Phalcon framework](http://www.phalconphp.com/) (2.x).
+This module provides integration with [Phalcon framework](http://www.phalconphp.com/) (3.x).
 Please try it and leave your feedback.
 
 ### Demo Project
 
-<https://github.com/phalcon/forum>
+<https://github.com/Codeception/phalcon-demo>
 
 ### Status
 
 * Maintainer: **Serghei Iakovlev**
 * Stability: **stable**
-* Contact: sadhooklay@gmail.com
-
-### Example
-
-    modules:
-        enabled:
-            - Phalcon:
-                bootstrap: 'app/config/bootstrap.php'
-                cleanup: true
-                savepoints: true
+* Contact: serghei@phalconphp.com
 
 ### Config
 
 The following configurations are required for this module:
 
-* bootstrap: the path of the application bootstrap file
-* cleanup: cleanup database (using transactions)
-* savepoints: use savepoints to emulate nested transactions
+* bootstrap: `string`, default `app/config/bootstrap.php` - relative path to app.php config file
+* cleanup: `boolean`, default `true` - all database queries will be run in a transaction,
+  which will be rolled back at the end of each test
+* savepoints: `boolean`, default `true` - use savepoints to emulate nested transactions
 
 The application bootstrap file must return Application object but not call its handle() method.
+
+### API
+
+* di - `Phalcon\Di\Injectable` instance
+* client - `BrowserKit` client
+
+### Parts
+
+By default all available methods are loaded, but you can specify parts to select only needed
+actions and avoid conflicts.
+
+* `orm` - include only `haveRecord/grabRecord/seeRecord/dontSeeRecord` actions.
+* `services` - allows to use `grabServiceFromContainer` and `addServiceToContainer`.
+
+Usage example:
 
 Sample bootstrap (`app/config/bootstrap.php`):
 
@@ -56,15 +63,21 @@ return new \Phalcon\Mvc\Application($di);
 
 {% endhighlight %}
 
-### API
+{% highlight yaml %}
 
-* di - `Phalcon\Di\Injectable` instance
-* client - `BrowserKit` client
+class_name: AcceptanceTester
+modules:
+    enabled:
+        - Phalcon:
+            part: services
+            bootstrap: 'app/config/bootstrap.php'
+            cleanup: true
+            savepoints: true
+        - WebDriver:
+            url: http://your-url.com
+            browser: phantomjs
 
-### Parts
-
-* ORM - include only haveRecord/grabRecord/seeRecord/dontSeeRecord actions
-
+{% endhighlight %}
 
 
 ### Actions
@@ -196,6 +209,29 @@ $this->getModule('Phalcon')->_savePageSource(codecept_output_dir().'page.html');
  * `param` $filename
 
 
+#### addServiceToContainer
+ 
+Registers a service in the services container and resolve it. This record will be erased after the test.
+Recommended to use for unit testing.
+
+{% highlight php %}
+
+<?php
+$filter = $I->addServiceToContainer('filter', ['className' => '\Phalcon\Filter']);
+$filter = $I->addServiceToContainer('answer', function () {
+     return rand(0, 1) ? 'Yes' : 'No';
+}, true);
+?>
+
+{% endhighlight %}
+
+ * `param string` $name
+ * `param mixed` $definition
+ * `param boolean` $shared
+ * `return` mixed|null
+ * `[Part]` services
+
+
 #### amHttpAuthenticated
  
 Authenticates user for HTTP_AUTH
@@ -233,8 +269,8 @@ $I->amOnRoute('posts.create');
 
 {% endhighlight %}
 
- * `param` $routeName
- * `param array` $params
+ * `param string` $routeName
+ * `param array`  $params
 
 
 #### attachFile
@@ -333,9 +369,10 @@ Give a locator as the second parameter to match a specific region.
 {% highlight php %}
 
 <?php
-$I->dontSee('Login');                    // I can suppose user is already logged in
-$I->dontSee('Sign Up','h1');             // I can suppose it's not a signup page
-$I->dontSee('Sign Up','//body/h1');      // with XPath
+$I->dontSee('Login');                         // I can suppose user is already logged in
+$I->dontSee('Sign Up','h1');                  // I can suppose it's not a signup page
+$I->dontSee('Sign Up','//body/h1');           // with XPath
+$I->dontSee('Sign Up', ['css' => 'body h1']); // with strict CSS locator
 
 {% endhighlight %}
 
@@ -587,13 +624,30 @@ Checks that record does not exist in database.
 {% highlight php %}
 
 <?php
-$I->dontSeeRecord('Phosphorum\Models\Categories', ['name' => 'Testing']);
+$I->dontSeeRecord('App\Models\Categories', ['name' => 'Testing']);
 ?>
 
 {% endhighlight %}
 
  * `param string` $model Model name
  * `param array` $attributes Model attributes
+ * `[Part]` orm
+
+
+#### dontSeeResponseCodeIs
+ 
+Checks that response code is equal to value provided.
+
+{% highlight php %}
+
+<?php
+$I->dontSeeResponseCodeIs(200);
+
+// recommended \Codeception\Util\HttpCode
+$I->dontSeeResponseCodeIs(\Codeception\Util\HttpCode::OK);
+
+{% endhighlight %}
+ * `param` $code
 
 
 #### fillField
@@ -618,7 +672,7 @@ $I->fillField(['name' => 'email'], 'jon * `mail.com');`
 Provides access the Phalcon application object.
 
  * `see`  \Codeception\Lib\Connector\Phalcon::getApplication
- * `return` \Phalcon\Mvc\Application|\Phalcon\Mvc\Micro|\Phalcon\Cli\Console
+ * `return` \Phalcon\Application|\Phalcon\Mvc\Micro
 
 
 #### grabAttributeFrom
@@ -705,24 +759,35 @@ Retrieves record from database
 {% highlight php %}
 
 <?php
-$category = $I->grabRecord('Phosphorum\Models\Categories', ['name' => 'Testing']);
+$category = $I->grabRecord('App\Models\Categories', ['name' => 'Testing']);
 ?>
 
 {% endhighlight %}
 
  * `param string` $model Model name
- * `param array` $attributes Model attributes
+ * `param array`  $attributes Model attributes
  * `[Part]` orm
 
 
-#### grabServiceFromDi
+#### grabServiceFromContainer
  
 Resolves the service based on its configuration from Phalcon's DI container
 Recommended to use for unit testing.
 
  * `param string` $service    Service name
  * `param array`  $parameters Parameters [Optional]
+ * `[Part]` services
 
+
+#### grabServiceFromDi
+ 
+Alias for `grabServiceFromContainer`.
+
+Note: Deprecated. Will be removed in Codeception 2.3.
+
+ * `param string` $service    Service name
+ * `param array`  $parameters Parameters [Optional]
+ * `[Part]` services
 
 
 #### grabTextFrom
@@ -787,8 +852,8 @@ Inserts record into the database.
 {% highlight php %}
 
 <?php
-$user_id = $I->haveRecord('Phosphorum\Models\Users', ['name' => 'Phalcon']);
-$I->haveRecord('Phosphorum\Models\Categories', ['name' => 'Testing']');
+$user_id = $I->haveRecord('App\Models\Users', ['name' => 'Phalcon']);
+$I->haveRecord('App\Models\Categories', ['name' => 'Testing']');
 ?>
 
 {% endhighlight %}
@@ -800,22 +865,15 @@ $I->haveRecord('Phosphorum\Models\Categories', ['name' => 'Testing']');
 
 #### haveServiceInDi
  
-Registers a service in the services container and resolve it. This record will be erased after the test.
-Recommended to use for unit testing.
+Alias for `addServiceToContainer`.
 
-{% highlight php %}
-
-<?php
-$filter = $I->haveServiceInDi('filter', ['className' => '\Phalcon\Filter']);
-?>
-
-{% endhighlight %}
+Note: Deprecated. Will be removed in Codeception 2.3.
 
  * `param string` $name
  * `param mixed` $definition
  * `param boolean` $shared
-
  * `return` mixed|null
+ * `[Part]` services
 
 
 #### moveBack
@@ -845,9 +903,10 @@ parameter to only search within that element.
 {% highlight php %}
 
 <?php
-$I->see('Logout');                 // I can suppose user is logged in
-$I->see('Sign Up', 'h1');          // I can suppose it's a signup page
-$I->see('Sign Up', '//body/h1');   // with XPath
+$I->see('Logout');                        // I can suppose user is logged in
+$I->see('Sign Up', 'h1');                 // I can suppose it's a signup page
+$I->see('Sign Up', '//body/h1');          // with XPath
+$I->see('Sign Up', ['css' => 'body h1']); // with strict CSS locator
 
 {% endhighlight %}
 
@@ -1199,21 +1258,31 @@ Checks that record exists in database.
 {% highlight php %}
 
 <?php
-$I->seeRecord('Phosphorum\Models\Categories', ['name' => 'Testing']);
+$I->seeRecord('App\Models\Categories', ['name' => 'Testing']);
 ?>
 
 {% endhighlight %}
 
  * `param string` $model Model name
- * `param array` $attributes Model attributes
+ * `param array`  $attributes Model attributes
+ * `[Part]` orm
 
 
 #### seeResponseCodeIs
  
 Checks that response code is equal to value provided.
 
- * `param` $code
+{% highlight php %}
 
+<?php
+$I->seeResponseCodeIs(200);
+
+// recommended \Codeception\Util\HttpCode
+$I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK);
+
+{% endhighlight %}
+
+ * `param` $code
 
 
 #### seeSessionHasValues

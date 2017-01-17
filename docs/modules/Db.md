@@ -56,7 +56,7 @@ if you run into problems loading dumps and cleaning databases.
 * password *required* - password
 * dump - path to database dump
 * populate: true - whether the the dump should be loaded before the test suite is started
-* cleanup: true - whether the dump should be reloaded after each test
+* cleanup: true - whether the dump should be reloaded before each test
 * reconnect: false - whether the module should reconnect to the database before each test
 
 ### Example
@@ -91,8 +91,9 @@ DELETE FROM `Order`;
 {% endhighlight %}
 ### Query generation
 
-seeInDatabase, dontSeeInDatabase, seeNumRecords and grabFromDatabase methods accept arrays as criteria.
-WHERE condition is generated using item key as a field name and item value as a field value.
+seeInDatabase, dontSeeInDatabase, seeNumRecords, grabFromDatabase and grabNumRecords methods
+accept arrays as criteria. WHERE condition is generated using item key as a field name and
+item value as a field value.
 
 Example:
 {% highlight php %}
@@ -169,6 +170,16 @@ $mail = $I->grabFromDatabase('users', 'email', array('name' => 'Davert'));
  * `param string` $column
  * `param array` $criteria
 
+
+
+#### grabNumRecords
+ 
+Returns the number of rows in a database
+
+ * `param string` $table    Table name
+ * `param array`  $criteria Search criteria [Optional]
+
+ * `return` int
 
 
 #### haveInDatabase

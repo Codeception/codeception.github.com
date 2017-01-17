@@ -133,6 +133,7 @@ you should use a tunnel application provided by a service.
 * `capabilities` - Sets Selenium2 [desired capabilities](https://github.com/SeleniumHQ/selenium/wiki/DesiredCapabilities). Should be a key-value array.
 * `connection_timeout` - timeout for opening a connection to remote selenium server (30 seconds by default).
 * `request_timeout` - timeout for a request to return something from remote selenium server (30 seconds by default).
+* `pageload_timeout` - amount of time to wait for a page load to complete before throwing an error (default 0 seconds).
 * `http_proxy` - sets http proxy server url for testing a remote server.
 * `http_proxy_port` - sets http proxy server port
 * `debug_log_entries` - how many selenium entries to print with `debugWebDriverLogs` or on fail (15 by default).
@@ -455,9 +456,10 @@ Give a locator as the second parameter to match a specific region.
 {% highlight php %}
 
 <?php
-$I->dontSee('Login');                    // I can suppose user is already logged in
-$I->dontSee('Sign Up','h1');             // I can suppose it's not a signup page
-$I->dontSee('Sign Up','//body/h1');      // with XPath
+$I->dontSee('Login');                         // I can suppose user is already logged in
+$I->dontSee('Sign Up','h1');                  // I can suppose it's not a signup page
+$I->dontSee('Sign Up','//body/h1');           // with XPath
+$I->dontSee('Sign Up', ['css' => 'body h1']); // with strict CSS locator
 
 {% endhighlight %}
 
@@ -1009,7 +1011,7 @@ $I->pressKey('#name', array('ctrl', 'a'), \Facebook\WebDriver\WebDriverKeys::DEL
 {% endhighlight %}
 
  * `param` $element
- * `param` $char Can be char or array with modifier. You can provide several chars.
+ * `param` $char string|array Can be char or array with modifier. You can provide several chars.
  * `throws`  \Codeception\Exception\ElementNotFound
 
 
@@ -1078,9 +1080,10 @@ parameter to only search within that element.
 {% highlight php %}
 
 <?php
-$I->see('Logout');                 // I can suppose user is logged in
-$I->see('Sign Up', 'h1');          // I can suppose it's a signup page
-$I->see('Sign Up', '//body/h1');   // with XPath
+$I->see('Logout');                        // I can suppose user is logged in
+$I->see('Sign Up', 'h1');                 // I can suppose it's a signup page
+$I->see('Sign Up', '//body/h1');          // with XPath
+$I->see('Sign Up', ['css' => 'body h1']); // with strict CSS locator
 
 {% endhighlight %}
 
@@ -1641,6 +1644,26 @@ $I->submitForm('#my-form', [
 ]);
 
 {% endhighlight %}
+
+The `$button` parameter can be either a string, an array or an instance
+of Facebook\WebDriver\WebDriverBy. When it is a string, the
+button will be found by its "name" attribute. If $button is an
+array then it will be treated as a strict selector and a WebDriverBy
+will be used verbatim.
+
+For example, given the following HTML:
+
+{% highlight html %}
+
+<input type="submit" name="submitButton" value="Submit" />
+
+{% endhighlight %}
+
+`$button` could be any one of the following:
+  - 'submitButton'
+  - ['name' => 'submitButton']
+  - WebDriverBy::name('submitButton')
+
  * `param` $selector
  * `param` $params
  * `param` $button
@@ -1848,7 +1871,9 @@ $I->waitForJS("return $.active == 0;", 60);
 #### waitForText
  
 Waits up to $timeout seconds for the given string to appear on the page.
-Can also be passed a selector to search in.
+
+Can also be passed a selector to search in, be as specific as possible when using selectors.
+waitForText() will only watch the first instance of the matching selector / text provided.
 If the given text doesn't appear, a timeout exception is thrown.
 
 {% highlight php %}
