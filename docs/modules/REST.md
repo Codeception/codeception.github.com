@@ -150,7 +150,15 @@ Opposite to seeResponseContainsJson
  
 Opposite to seeResponseJsonMatchesJsonPath
 
- * `param array` $jsonPath
+ * `param string` $jsonPath
+ * `[Part]` json
+
+
+#### dontSeeResponseJsonMatchesXpath
+ 
+Opposite to seeResponseJsonMatchesXpath
+
+ * `param string` $xpath
  * `[Part]` json
 
 
@@ -159,7 +167,7 @@ Opposite to seeResponseJsonMatchesJsonPath
 Opposite to `seeResponseMatchesJsonType`.
 
  * `[Part]` json
- * `see`  seeResponseMatchesJsonType
+@see seeResponseMatchesJsonType
  * `param` $jsonType jsonType structure
  * `param null` $jsonPath optionally set specific path to structure with JsonPath
  * `Available since` 2.1.3
@@ -193,7 +201,7 @@ Checks wheather XML response does not match XPath
 {% highlight php %}
 
 <?php
-$I->dontSeeXmlResponseMatchesXpath('//root/user[ * `id=1]');` 
+$I->dontSeeXmlResponseMatchesXpath('//root/user[@id=1]');
 
 {% endhighlight %}
  * `[Part]` xml
@@ -216,8 +224,8 @@ Element is matched by either CSS or XPath
 Deprecated since 2.0.9 and removed since 2.1.0
 
  * `param` $path
- * `throws`  ModuleException
- * `deprecated` 
+@throws ModuleException
+@deprecated
 
 
 #### grabDataFromResponseByJsonPath
@@ -244,7 +252,7 @@ $I->sendPUT('/user', array('id' => $firstUserId[0], 'name' => 'davert'));
  * `param string` $jsonPath
  * `return` array Array of matching items
  * `Available since` 2.0.9
- * `throws`  \Exception
+@throws \Exception
  * `[Part]` json
 
 
@@ -380,11 +388,11 @@ Examples:
 {% highlight php %}
 
 <?php
-// response: {name: john, email: john * `gmail.com}` 
+// response: {name: john, email: john@gmail.com}
 $I->seeResponseContainsJson(array('name' => 'john'));
 
-// response {user: john, profile: { email: john * `gmail.com`  }}
-$I->seeResponseContainsJson(array('email' => 'john * `gmail.com'));` 
+// response {user: john, profile: { email: john@gmail.com }}
+$I->seeResponseContainsJson(array('email' => 'john@gmail.com'));
 
 ?>
 
@@ -467,6 +475,7 @@ $I->seeResponseJsonMatchesJsonPath('$.store..price');
 
 {% endhighlight %}
 
+ * `param string` $jsonPath
  * `[Part]` json
  * `Available since` 2.0.9
 
@@ -513,6 +522,7 @@ $I->seeResponseJsonMatchesXpath('/store//price');
 ?>
 
 {% endhighlight %}
+ * `param string` $xpath
  * `[Part]` json
  * `Available since` 2.0.9
 
@@ -582,10 +592,10 @@ This is how filters can be used:
 {% highlight php %}
 
 <?php
-// {'user_id': 1, 'email' => 'davert * `codeception.com'}` 
+// {'user_id': 1, 'email' => 'davert@codeception.com'}
 $I->seeResponseMatchesJsonType([
      'user_id' => 'string:>0:<1000', // multiple filters can be used
-     'email' => 'string:regex(~\ * `~)'`  // we just check that  * ``  char is included
+     'email' => 'string:regex(~\@~)' // we just check that @ char is included
 ]);
 
 // {'user_id': '1'}
@@ -643,7 +653,7 @@ Checks wheather XML response matches XPath
 {% highlight php %}
 
 <?php
-$I->seeXmlResponseMatchesXpath('//root/user[ * `id=1]');` 
+$I->seeXmlResponseMatchesXpath('//root/user[@id=1]');
 
 {% endhighlight %}
  * `[Part]` xml
@@ -688,9 +698,9 @@ Sends LINK request to given uri.
  * `param`       $url
  * `param array` $linkEntries (entry is array with keys "uri" and "link-param")
 
- * `link`  http://tools.ietf.org/html/rfc2068#section-19.6.2.4
+@link http://tools.ietf.org/html/rfc2068#section-19.6.2.4
 
- * `author`  samva.ua * `gmail.com` 
+@author samva.ua@gmail.com
  * `[Part]` json
  * `[Part]` xml
 
@@ -746,8 +756,8 @@ Sends UNLINK request to given uri.
 
  * `param`       $url
  * `param array` $linkEntries (entry is array with keys "uri" and "link-param")
- * `link`  http://tools.ietf.org/html/rfc2068#section-19.6.2.4
- * `author`  samva.ua * `gmail.com` 
+@link http://tools.ietf.org/html/rfc2068#section-19.6.2.4
+@author samva.ua@gmail.com
  * `[Part]` json
  * `[Part]` xml
 

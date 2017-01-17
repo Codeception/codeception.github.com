@@ -194,7 +194,7 @@ $I->dontSeeInThisFile('codeception/codeception');
 
 {% endhighlight %}
 
- * `param` $text
+ * `param string` $text
 
 
 #### grabDirectory
@@ -383,7 +383,7 @@ $I->seeFileContentsEqual('3192');
 
 {% endhighlight %}
 
- * `param` $text
+ * `param string` $text
 
 
 #### seeFileFound
@@ -435,7 +435,7 @@ $I->seeInThisFile('codeception/codeception');
 
 {% endhighlight %}
 
- * `param` $text
+ * `param string` $text
 
 
 #### seeNumberNewLines
@@ -460,7 +460,7 @@ $I->seeNumberNewLines(5);
  
 Checks that contents of currently opened file matches $regex
 
- * `param` $regex
+ * `param string` $regex
 
 
 #### writeToFile

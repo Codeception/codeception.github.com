@@ -56,7 +56,7 @@ Checks XML response doesn't contain XPath locator
 {% highlight php %}
 
 <?php
-$I->dontSeeSoapResponseContainsXPath('//root/user[ * `id=1]');` 
+$I->dontSeeSoapResponseContainsXPath('//root/user[@id=1]');
 ?>
 
 {% endhighlight %}
@@ -137,7 +137,7 @@ Will produce header:
 
 #### seeResponseCodeIs
  
- * `deprecated`  use seeSoapResponseCodeIs instead
+@deprecated use seeSoapResponseCodeIs instead
 
 
 #### seeSoapResponseCodeIs
@@ -178,7 +178,7 @@ Checks XML response with XPath locator
 {% highlight php %}
 
 <?php
-$I->seeSoapResponseContainsXPath('//root/user[ * `id=1]');` 
+$I->seeSoapResponseContainsXPath('//root/user[@id=1]');
 ?>
 
 {% endhighlight %}

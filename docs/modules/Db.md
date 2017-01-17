@@ -145,7 +145,7 @@ Provide table name and column values.
 {% highlight php %}
 
 <?php
-$I->dontSeeInDatabase('users', array('name' => 'Davert', 'email' => 'davert * `mail.com'));` 
+$I->dontSeeInDatabase('users', array('name' => 'Davert', 'email' => 'davert@mail.com'));
 
 {% endhighlight %}
 Fails if such user was found.
@@ -189,7 +189,7 @@ Inserts an SQL record into a database. This record will be erased after the test
 {% highlight php %}
 
 <?php
-$I->haveInDatabase('users', array('name' => 'miles', 'email' => 'miles * `davis.com'));` 
+$I->haveInDatabase('users', array('name' => 'miles', 'email' => 'miles@davis.com'));
 ?>
 
 {% endhighlight %}
@@ -208,7 +208,7 @@ Provide table name and column values.
 {% highlight php %}
 
 <?php
-$I->seeInDatabase('users', array('name' => 'Davert', 'email' => 'davert * `mail.com'));` 
+$I->seeInDatabase('users', array('name' => 'Davert', 'email' => 'davert@mail.com'));
 
 {% endhighlight %}
 Fails if no such user found.

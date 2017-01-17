@@ -90,7 +90,7 @@ Examples:
 
 <?php
 // Array
-$I->haveInApc('users', ['name' => 'miles', 'email' => 'miles * `davis.com']);` 
+$I->haveInApc('users', ['name' => 'miles', 'email' => 'miles@davis.com']);
 
 // Object
 $I->haveInApc('user', UserRepository::findFirst());

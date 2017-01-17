@@ -29,7 +29,7 @@ Module was developed to test Codeception itself.
 Enters a directory In local filesystem.
 Project root directory is used by default
 
- * `param` $path
+ * `param string` $path
 
 
 #### cleanDir
@@ -44,7 +44,7 @@ $I->cleanDir('logs');
 
 {% endhighlight %}
 
- * `param` $dirname
+ * `param string` $dirname
 
 
 #### copyDir
@@ -59,8 +59,8 @@ $I->copyDir('vendor','old_vendor');
 
 {% endhighlight %}
 
- * `param` $src
- * `param` $dst
+ * `param string` $src
+ * `param string` $dst
 
 
 #### deleteDir
@@ -75,7 +75,7 @@ $I->deleteDir('vendor');
 
 {% endhighlight %}
 
- * `param` $dirname
+ * `param string` $dirname
 
 
 #### deleteFile
@@ -90,7 +90,7 @@ $I->deleteFile('composer.lock');
 
 {% endhighlight %}
 
- * `param` $filename
+ * `param string` $filename
 
 
 #### deleteThisFile
@@ -102,7 +102,7 @@ Deletes a file
  
 Checks if file does not exist in path
 
- * `param` $filename
+ * `param string` $filename
  * `param string` $path
 
 
@@ -119,7 +119,7 @@ $I->dontSeeInThisFile('codeception/codeception');
 
 {% endhighlight %}
 
- * `param` $text
+ * `param string` $text
 
 
 #### openFile
@@ -137,7 +137,7 @@ $I->seeInThisFile('codeception/codeception');
 
 {% endhighlight %}
 
- * `param` $filename
+ * `param string` $filename
 
 
 #### seeFileContentsEqual
@@ -156,7 +156,7 @@ $I->seeFileContentsEqual('3192');
 
 {% endhighlight %}
 
- * `param` $text
+ * `param string` $text
 
 
 #### seeFileFound
@@ -172,7 +172,7 @@ $I->seeFileFound('UserModel.php','app/models');
 
 {% endhighlight %}
 
- * `param` $filename
+ * `param string` $filename
  * `param string` $path
 
 
@@ -191,7 +191,7 @@ $I->seeInThisFile('codeception/codeception');
 
 {% endhighlight %}
 
- * `param` $text
+ * `param string` $text
 
 
 #### seeNumberNewLines
@@ -216,14 +216,14 @@ $I->seeNumberNewLines(5);
  
 Checks that contents of currently opened file matches $regex
 
- * `param` $regex
+ * `param string` $regex
 
 
 #### writeToFile
  
 Saves contents to file
 
- * `param` $filename
- * `param` $contents
+ * `param string` $filename
+ * `param string` $contents
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.2/src/Codeception/Module/Filesystem.php">Help us to improve documentation. Edit module reference</a></div>

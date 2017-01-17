@@ -83,7 +83,7 @@ PhpBrowser and Framework modules return `Symfony\Component\DomCrawler\Crawler` i
  
 Uri of currently opened page.
  * `return` string
- * `throws`  ModuleException
+@throws ModuleException
 
 
 #### _getUrl
@@ -91,7 +91,7 @@ Uri of currently opened page.
 *hidden API method, expected to be used from Helper classes*
  
 Returns URL of a host.
- * `throws`  ModuleConfigException
+@throws ModuleConfigException
 
 
 #### _savePageSource
@@ -206,7 +206,7 @@ $I->appendField('#myTextField', 'appended');
 
  * `param string` $field
  * `param string` $value
- * `throws`  \Codeception\Exception\ElementNotFound
+@throws \Codeception\Exception\ElementNotFound
 
 
 #### attachFile
@@ -217,7 +217,7 @@ Attaches a file relative to the Codeception data directory to the given file upl
 
 <?php
 // file is stored in 'tests/_data/prices.xls'
-$I->attachFile('input[ * `type="file"]',`  'prices.xls');
+$I->attachFile('input[@type="file"]', 'prices.xls');
 ?>
 
 {% endhighlight %}
@@ -268,7 +268,7 @@ $I->click('Submit');
 // CSS button
 $I->click('#form input[type=submit]');
 // XPath
-$I->click('//form/*[ * `type=submit]');` 
+$I->click('//form/*[@type=submit]');
 // link in context
 $I->click('Logout', '#nav');
 // using strict locator
@@ -281,17 +281,61 @@ $I->click(['link' => 'Login']);
  * `param` $context
 
 
+#### clickWithLeftButton
+ 
+Performs click with the left mouse button on an element.
+If the first parameter `null` then the offset is relative to the actual mouse position.
+If the second and third parameters are given,
+then the mouse is moved to an offset of the element's top-left corner.
+Otherwise, the mouse is moved to the center of the element.
+
+{% highlight php %}
+
+<?php
+$I->clickWithLeftButton(['css' => '.checkout']);
+$I->clickWithLeftButton(null, 20, 50);
+$I->clickWithLeftButton(['css' => '.checkout'], 20, 50);
+?>
+
+{% endhighlight %}
+
+ * `param string` $cssOrXPath css or xpath of the web element (body by default).
+ * `param int` $offsetX
+ * `param int` $offsetY
+
+@throws \Codeception\Exception\ElementNotFound
+
+
 #### clickWithRightButton
  
 Performs contextual click with the right mouse button on an element.
+If the first parameter `null` then the offset is relative to the actual mouse position.
+If the second and third parameters are given,
+then the mouse is moved to an offset of the element's top-left corner.
+Otherwise, the mouse is moved to the center of the element.
 
- * `param` $cssOrXPath
- * `throws`  \Codeception\Exception\ElementNotFound
+{% highlight php %}
+
+<?php
+$I->clickWithRightButton(['css' => '.checkout']);
+$I->clickWithRightButton(null, 20, 50);
+$I->clickWithRightButton(['css' => '.checkout'], 20, 50);
+?>
+
+{% endhighlight %}
+
+ * `param string` $cssOrXPath css or xpath of the web element (body by default).
+ * `param int`    $offsetX
+ * `param int`    $offsetY
+
+@throws \Codeception\Exception\ElementNotFound
 
 
 #### debugWebDriverLogs
  
 Print out latest Selenium Logs in debug mode
+
+ * `param TestInterface` $test
 
 
 #### dontSee
@@ -440,7 +484,7 @@ $I->dontSeeInField('Body','Type your comment here');
 $I->dontSeeInField('form textarea[name=body]','Type your comment here');
 $I->dontSeeInField('form input[type=hidden]','hidden_value');
 $I->dontSeeInField('#searchform input','Search');
-$I->dontSeeInField('//form/*[ * `name=search]','Search');` 
+$I->dontSeeInField('//form/*[@name=search]','Search');
 $I->dontSeeInField(['name' => 'search'], 'Search');
 ?>
 
@@ -569,7 +613,7 @@ $I->dontSeeOptionIsSelected('#form input[name=payment]', 'Visa');
 Performs a double-click on an element matched by CSS or XPath.
 
  * `param` $cssOrXPath
- * `throws`  \Codeception\Exception\ElementNotFound
+@throws \Codeception\Exception\ElementNotFound
 
 
 #### dragAndDrop
@@ -633,8 +677,8 @@ Fills a text field or textarea with the given string.
 {% highlight php %}
 
 <?php
-$I->fillField("//input[ * `type='text']",`  "Hello World!");
-$I->fillField(['name' => 'email'], 'jon * `mail.com');` 
+$I->fillField("//input[@type='text']", "Hello World!");
+$I->fillField(['name' => 'email'], 'jon@mail.com');
 ?>
 
 {% endhighlight %}
@@ -757,7 +801,7 @@ If a fuzzy locator is used, the field is found by field name, CSS, and XPath.
 <?php
 $name = $I->grabValueFrom('Name');
 $name = $I->grabValueFrom('input[name=username]');
-$name = $I->grabValueFrom('descendant-or-self::form/descendant::input[ * `name`  = 'username']');
+$name = $I->grabValueFrom('descendant-or-self::form/descendant::input[@name = 'username']');
 $name = $I->grabValueFrom(['name' => 'username']);
 ?>
 
@@ -808,6 +852,7 @@ Moves forward in history.
 #### moveMouseOver
  
 Move mouse over the first element matched by the given locator.
+If the first parameter null then the page is used.
 If the second and third parameters are given,
 then the mouse is moved to an offset of the element's top-left corner.
 Otherwise, the mouse is moved to the center of the element.
@@ -815,6 +860,8 @@ Otherwise, the mouse is moved to the center of the element.
 {% highlight php %}
 
 <?php
+$I->moveMouseOver(['css' => '.checkout']);
+$I->moveMouseOver(null, 20, 50);
 $I->moveMouseOver(['css' => '.checkout'], 20, 50);
 ?>
 
@@ -824,7 +871,7 @@ $I->moveMouseOver(['css' => '.checkout'], 20, 50);
  * `param int` $offsetX
  * `param int` $offsetY
 
- * `throws`  \Codeception\Exception\ElementNotFound
+@throws \Codeception\Exception\ElementNotFound
 
 
 #### pauseExecution
@@ -850,7 +897,7 @@ For special keys use key constants from WebDriverKeys class.
 $I->pressKey('#page','a'); // => olda
 $I->pressKey('#page',array('ctrl','a'),'new'); //=> new
 $I->pressKey('#page',array('shift','111'),'1','x'); //=> old!!!1x
-$I->pressKey('descendant-or-self::*[ * `id='page']','u');`  //=> oldu
+$I->pressKey('descendant-or-self::*[@id='page']','u'); //=> oldu
 $I->pressKey('#name', array('ctrl', 'a'), \Facebook\WebDriver\WebDriverKeys::DELETE); //=>''
 ?>
 
@@ -858,7 +905,7 @@ $I->pressKey('#name', array('ctrl', 'a'), \Facebook\WebDriver\WebDriverKeys::DEL
 
  * `param` $element
  * `param` $char string|array Can be char or array with modifier. You can provide several chars.
- * `throws`  \Codeception\Exception\ElementNotFound
+@throws \Codeception\Exception\ElementNotFound
 
 
 #### reloadPage
@@ -960,7 +1007,7 @@ Checks that the specified checkbox is checked.
 <?php
 $I->seeCheckboxIsChecked('#agree'); // I suppose user agreed to terms
 $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user agreed to terms, If there is only one checkbox in form.
-$I->seeCheckboxIsChecked('//form/input[ * `type=checkbox`  and  * `name=agree]');` 
+$I->seeCheckboxIsChecked('//form/input[@type=checkbox and @name=agree]');
 ?>
 
 {% endhighlight %}
@@ -1039,7 +1086,7 @@ $I->seeElement(['css' => 'form input'], ['name' => 'login']);
 
  * `param` $selector
  * `param array` $attributes
- * `return` 
+@return
 
 
 #### seeElementInDOM
@@ -1087,7 +1134,7 @@ $I->seeInField('Body','Type your comment here');
 $I->seeInField('form textarea[name=body]','Type your comment here');
 $I->seeInField('form input[type=hidden]','hidden_value');
 $I->seeInField('#searchform input','Search');
-$I->seeInField('//form/*[ * `name=search]','Search');` 
+$I->seeInField('//form/*[@name=search]','Search');
 $I->seeInField(['name' => 'search'], 'Search');
 ?>
 
@@ -1157,9 +1204,9 @@ $form = [
      'checkbox1' => true,
      // ...
 ];
-$I->submitForm('//form[ * `id=my-form]',`  $form, 'submitButton');
+$I->submitForm('//form[@id=my-form]', $form, 'submitButton');
 // $I->amOnPage('/path/to/form-page') may be needed
-$I->seeInFormFields('//form[ * `id=my-form]',`  $form);
+$I->seeInFormFields('//form[@id=my-form]', $form);
 ?>
 
 {% endhighlight %}
@@ -1287,7 +1334,7 @@ Selects an option in a select tag or in radio button group.
 <?php
 $I->selectOption('form select[name=account]', 'Premium');
 $I->selectOption('form input[name=payment]', 'Monthly');
-$I->selectOption('//form/select[ * `name=account]',`  'Monthly');
+$I->selectOption('//form/select[@name=account]', 'Monthly');
 ?>
 
 {% endhighlight %}
@@ -1426,9 +1473,9 @@ $form = [
      'checkbox1' => true,
      // ...
 ];
-$I->submitForm('//form[ * `id=my-form]',`  $form, 'submitButton');
+$I->submitForm('//form[@id=my-form]', $form, 'submitButton');
 // $I->amOnPage('/path/to/form-page') may be needed
-$I->seeInFormFields('//form[ * `id=my-form]',`  $form);
+$I->seeInFormFields('//form[@id=my-form]', $form);
 ?>
 
 {% endhighlight %}
@@ -1606,7 +1653,11 @@ $I->uncheckOption('#notify');
 
 
 #### unselectOption
-__not documented__
+ 
+Unselect an option in the given select box.
+
+ * `param` $select
+ * `param` $option
 
 
 #### wait
@@ -1614,7 +1665,7 @@ __not documented__
 Wait for $timeout seconds.
 
  * `param int` $timeout secs
- * `throws`  \Codeception\Exception\TestRuntimeException
+@throws \Codeception\Exception\TestRuntimeException
 
 
 #### waitForElement
@@ -1633,7 +1684,7 @@ $I->click('#agree_button');
 
  * `param` $element
  * `param int` $timeout seconds
- * `throws`  \Exception
+@throws \Exception
 
 
 #### waitForElementChange
@@ -1656,7 +1707,7 @@ $I->waitForElementChange('#menu', function(WebDriverElement $el) {
  * `param` $element
  * `param \Closure` $callback
  * `param int` $timeout seconds
- * `throws`  \Codeception\Exception\ElementNotFound
+@throws \Codeception\Exception\ElementNotFound
 
 
 #### waitForElementNotVisible
@@ -1674,7 +1725,7 @@ $I->waitForElementNotVisible('#agree_button', 30); // secs
 
  * `param` $element
  * `param int` $timeout seconds
- * `throws`  \Exception
+@throws \Exception
 
 
 #### waitForElementVisible
@@ -1693,7 +1744,7 @@ $I->click('#agree_button');
 
  * `param` $element
  * `param int` $timeout seconds
- * `throws`  \Exception
+@throws \Exception
 
 
 #### waitForJS
@@ -1734,6 +1785,6 @@ $I->waitForText('foo', 30, '.title'); // secs
  * `param string` $text
  * `param int` $timeout seconds
  * `param null` $selector
- * `throws`  \Exception
+@throws \Exception
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.2/src/Codeception/Module/AngularJS.php">Help us to improve documentation. Edit module reference</a></div>
