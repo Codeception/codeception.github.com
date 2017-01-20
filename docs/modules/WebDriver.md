@@ -126,7 +126,7 @@ you should use a tunnel application provided by a service.
 * `browser` *required* - Browser to launch.
 * `host` - Selenium server host (127.0.0.1 by default).
 * `port` - Selenium server port (4444 by default).
-* `restart` - Set to false (default) to share browser session between tests, or set to true to create a separate session for each test.
+* `restart` - Set to false (default) to share browser window between tests, or set to true to create a separate window for each test.
 * `window_size` - Initial window size. Set to `maximize` or a dimension in the format `640x480`.
 * `clear_cookies` - Set to false to keep cookies, or set to true (default) to delete all cookies between tests.
 * `wait` - Implicit wait (default 0 seconds).
@@ -486,6 +486,20 @@ $I->clickWithRightButton(['css' => '.checkout'], 20, 50);
 @throws \Codeception\Exception\ElementNotFound
 
 
+#### closeTab
+ 
+Closes current browser tab and switches to previous active tab.
+
+{% highlight php %}
+
+<?php
+$I->closeTab();
+
+{% endhighlight %}
+
+Can't be used with PhantomJS
+
+
 #### debugWebDriverLogs
  
 Print out latest Selenium Logs in debug mode
@@ -610,6 +624,7 @@ $I->dontSeeElement('input', ['value' => '123456']);
 Opposite of `seeElementInDOM`.
 
  * `param` $selector
+ * `param array` $attributes
 
 
 #### dontSeeInCurrentUrl
@@ -1029,6 +1044,23 @@ $I->moveMouseOver(['css' => '.checkout'], 20, 50);
 @throws \Codeception\Exception\ElementNotFound
 
 
+#### openNewTab
+ 
+Opens a new browser tab (wherever it is possible) and switches to it.
+
+{% highlight php %}
+
+<?php
+$I->openNewTab();
+
+{% endhighlight %}
+Tab is opened by using `window.open` javascript in a browser.
+Please note, that adblock can restrict creating such tabs.
+
+Can't be used with PhantomJS
+
+
+
 #### pauseExecution
  
 Pauses test execution in debug mode.
@@ -1257,6 +1289,7 @@ $I->seeElementInDOM('//form/input[type=hidden]');
 {% endhighlight %}
 
  * `param` $selector
+ * `param array` $attributes
 
 
 #### seeInCurrentUrl
@@ -1390,6 +1423,8 @@ Checks that the active JavaScript popup,
 as created by `window.alert`|`window.confirm`|`window.prompt`, contains the given string.
 
  * `param` $text
+
+@throws \Codeception\Exception\ModuleException
 
 
 #### seeInSource
@@ -1743,6 +1778,46 @@ $I->switchToIFrame();
  * `param string|null` $name
 
 
+#### switchToNextTab
+ 
+Switches to next browser tab.
+An offset can be specified.
+
+{% highlight php %}
+
+<?php
+// switch to next tab
+$I->switchToNextTab();
+// switch to 2nd next tab
+$I->switchToNextTab(2);
+
+{% endhighlight %}
+
+Can't be used with PhantomJS
+
+ * `param int` $offset 1
+
+
+#### switchToPreviousTab
+ 
+Switches to next browser tab.
+An offset can be specified.
+
+{% highlight php %}
+
+<?php
+// switch to previous tab
+$I->switchToNextTab();
+// switch to 2nd previous tab
+$I->switchToNextTab(-2);
+
+{% endhighlight %}
+
+Can't be used with PhantomJS
+
+ * `param int` $offset 1
+
+
 #### switchToWindow
  
 Switch to another window identified by name.
@@ -1768,7 +1843,9 @@ $I->switchToWindow();
 
 {% endhighlight %}
 
-If the window has no name, the only way to access it is via the `executeInSelenium()` method, like so:
+If the window has no name, match it by switching to next active tab using `switchToNextTab` method.
+
+Or use native Selenium functions to get access to all opened windows:
 
 {% highlight php %}
 
@@ -1790,6 +1867,8 @@ $I->executeInSelenium(function (\Facebook\WebDriver\Remote\RemoteWebDriver $webd
 Enters text into a native JavaScript prompt popup, as created by `window.prompt`.
 
  * `param` $keys
+
+@throws \Codeception\Exception\ModuleException
 
 
 #### uncheckOption

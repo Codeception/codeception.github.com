@@ -9,8 +9,48 @@ title: Codeception Changelog
 
 #### 2.2.8
 
+* **[WebDriver]** Added tab actions (not supported in PhantomJS):
+  * `openNewTab` opens a new tab and switches to it
+  * `closeTab` closes a tab and switches to previous
+  * `switchToNextTab` switches to next tab 
+  * `switchToPreviousTab` switches to previous tab
+* **[WebDriver]** Added actions to click element by coordinates. Via **[gimler](https://github.com/gimler)**
+  * `clickWithLeftButton` clicks element with offset
+  * `clickWithRightButton` right clicks on element with offset 
+* **[WebDriver]** Added `js_error_logging` option to print JS logs in console and in HTML report by **[ngraf](https://github.com/ngraf)**. See [#3821](https://github.com/Codeception/Codeception/issues/3821)
+* **[WebDriver]** Improvements to `seeInField` by **[gimler](https://github.com/gimler)**. See [#3905](https://github.com/Codeception/Codeception/issues/3905)
+  * support option text in seeInField not only value
+  * fix bug match with and without whitespaces
+  * fix bug seeInField not working after selectOption
+* **[Wedriver]** `pageload_timeout` config option added. The amount of time to wait for a page load to complete before throwing an error. This patch allows to reduce issues from phantomjs random freezing. See [#3874](https://github.com/Codeception/Codeception/issues/3874). Thanks to **[oprudkyi](https://github.com/oprudkyi)**
+* **[WebDriver]** `checkOption` can check option by name [#3852](https://github.com/Codeception/Codeception/issues/3852). By **[gimler](https://github.com/gimler)**
+* **[WebDriver]** Fixed clicking numerical links, like `<a href='/'>222</a>` (DOM Exception 12 errors). See [#3865](https://github.com/Codeception/Codeception/issues/3865). By **[gimler](https://github.com/gimler)**
+* [PhpBrowser][Frameworks] Fixed [#3824](https://github.com/Codeception/Codeception/issues/3824) when submitForm used wrong value for `select` by **[JorisVanEijden](https://github.com/JorisVanEijden)**
 * **[Laravel5]** Added `seeNumRecords` and `grabNumRecords` methods. See [#3816](https://github.com/Codeception/Codeception/issues/3816). By **[dmoreno](https://github.com/dmoreno)**
-
+* Improved `@depends` to work with `@dataprovider`. Fixes [#3862](https://github.com/Codeception/Codeception/issues/3862). Thanks **[edno](https://github.com/edno)**
+* Fixed relative paths for screenshots in HTML report. Fixes [#3857](https://github.com/Codeception/Codeception/issues/3857)
+* Improved error description when injecting invalid classes by **[timtkachenko](https://github.com/timtkachenko)**
+* Improved `--override` option to support deep configs. See [#3820](https://github.com/Codeception/Codeception/issues/3820)
+* **[Yii2]** Clear unloaded fixtures after test. Closes [#3794](https://github.com/Codeception/Codeception/issues/3794)
+* **[PhpBrowser]** Ensure sessions have independent cookies by **[insightfuls](https://github.com/insightfuls)**. Fixes [#3911](https://github.com/Codeception/Codeception/issues/3911)
+* Implemented load params from php files by **[arrilot](https://github.com/arrilot)**. See [#3914](https://github.com/Codeception/Codeception/issues/3914)
+* **[Yii2]** Fixes [#3916](https://github.com/Codeception/Codeception/issues/3916): Don't try to start transaction when working with non-transactional DBs by **[samdark](https://github.com/samdark)**.
+* **[REST]** Removed broken xdebug_remote functionality by **[Naktibalda](https://github.com/Naktibalda)**. Fixes [#3883](https://github.com/Codeception/Codeception/issues/3883)
+* Added graceful termination by Ctrl-C in PHP 7.1 by **[AdrianSkierniewski](https://github.com/AdrianSkierniewski)**. See [#3907](https://github.com/Codeception/Codeception/issues/3907)
+* **[Db]** Disconnect after initializing when using reconnect, fixes [#3903](https://github.com/Codeception/Codeception/issues/3903). By **[insightfuls](https://github.com/insightfuls)**
+* **[Phalcon]** Fixed handling `$_SERVER` with Phalcon Connector by **[sergeyklay](https://github.com/sergeyklay)**
+* Avoid notice when checking width of terminal on Windows by **[ashnazg](https://github.com/ashnazg)**. See [#3893](https://github.com/Codeception/Codeception/issues/3893)
+* **[Filesystem]** `dontSeeFileFound` searches in path by **[Naktibalda](https://github.com/Naktibalda)**. Fixes [#3877](https://github.com/Codeception/Codeception/issues/3877)
+* [PhpBrowser][Frameworks] `grabValueFrom` to work after `fillField` by **[wumouse](https://github.com/wumouse)**. Fix [#3866](https://github.com/Codeception/Codeception/issues/3866)
+* **[Db]** Oci driver to cleans up views [#3881](https://github.com/Codeception/Codeception/issues/3881), and result set improvements [#3840](https://github.com/Codeception/Codeception/issues/3840) by **[ashnazg](https://github.com/ashnazg)**.
+* **[Yii2]** Close transaction created by the controller-action on interruption. See [#3834](https://github.com/Codeception/Codeception/issues/3834). By **[alex20465](https://github.com/alex20465)**
+* **[Yii2]** Fixed using `part: init` with other modules like WebDriver. See [#3876](https://github.com/Codeception/Codeception/issues/3876). By **[margori](https://github.com/margori)**
+* **[REST]** Implemented `dontSeeResponseJsonMatchesXpath` method by **[Naktibalda](https://github.com/Naktibalda)**. Closes [#3843](https://github.com/Codeception/Codeception/issues/3843)
+* **[REST]** Convert array having single element to XML correctly. Fixes [#3827](https://github.com/Codeception/Codeception/issues/3827) by **[Naktibalda](https://github.com/Naktibalda)**
+* Linter to check `exec` function to be enabled before using it. By **[Naktibalda](https://github.com/Naktibalda)**. See [#3886](https://github.com/Codeception/Codeception/issues/3886)
+* Fixed [#3922](https://github.com/Codeception/Codeception/issues/3922): division by zero in steps output on small terminal windows.
+* Improved getting terminal width from ENV variable (bash). Fixes [#3788](https://github.com/Codeception/Codeception/issues/3788) by **[schmunk42](https://github.com/schmunk42)** 
+ 
 #### 2.2.7
 
 * **Config validation** with `codecept config:validate` command. Use it:
