@@ -10,13 +10,13 @@ title: Codeception Changelog
 #### 2.2.8
 
 * **[WebDriver]** Added tab actions (not supported in PhantomJS):
-  * `openNewTab` opens a new tab and switches to it
-  * `closeTab` closes a tab and switches to previous
-  * `switchToNextTab` switches to next tab 
-  * `switchToPreviousTab` switches to previous tab
+  * [openNewTab](http://codeception.com/docs/modules/WebDriver#openNewTab) opens a new tab and switches to it
+  * [closeTab](http://codeception.com/docs/modules/WebDriver#closeTab) closes a tab and switches to previous
+  * [switchToNextTab](http://codeception.com/docs/modules/WebDriver#switchToNextTab) switches to next tab 
+  * [switchToPreviousTab](http://codeception.com/docs/modules/WebDriver#switchToPreviousTab) switches to previous tab
 * **[WebDriver]** Added actions to click element by coordinates. Via **[gimler](https://github.com/gimler)**
-  * `clickWithLeftButton` clicks element with offset
-  * `clickWithRightButton` right clicks on element with offset 
+  * [clickWithLeftButton](http://codeception.com/docs/modules/WebDriver#clickWithLeftButton) clicks element with offset
+  * [clickWithRightButton](http://codeception.com/docs/modules/WebDriver#clickWithRightButton) right clicks on element with offset 
 * **[WebDriver]** Added `js_error_logging` option to print JS logs in console and in HTML report by **[ngraf](https://github.com/ngraf)**. See [#3821](https://github.com/Codeception/Codeception/issues/3821)
 * **[WebDriver]** Improvements to `seeInField` by **[gimler](https://github.com/gimler)**. See [#3905](https://github.com/Codeception/Codeception/issues/3905)
   * support option text in seeInField not only value
