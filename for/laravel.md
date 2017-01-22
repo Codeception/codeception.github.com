@@ -145,7 +145,7 @@ modules:
         - REST:
             url: /api/v1
             depends: Laravel5
-        - \ApiBundle\Helper\Api
+        - \Helper\Api
     config:
         - Laravel5:
             environment_file: .env.testing
