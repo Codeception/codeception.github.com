@@ -24,17 +24,20 @@ sidebar: |
 
 ## Install
 
-Install latest stable Codeception via Composer:
-
-```bash
-composer require codeception/codeception --dev
-```
-
-Install latest stable WPBrowser package via Composer:
+Install latest stable WPBrowser package via Composer (WPBrowser will install Codeception for you):
 
 ```bash
 composer require lucatume/wp-browser --dev
 ```
+
+If a dependency resolution issue arises and you have previously installed `codeception/codeception` try removing it and requiring just `lucatume/wp-browser`:
+
+```bash
+composer remove codeception/codeception --dev
+composer require lucatume/wp-browser --dev
+```
+
+WPBrowser will install the latest version of Codeception for you.
 
 ## Setup
 
