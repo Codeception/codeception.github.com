@@ -51,6 +51,10 @@ This module provides additional helpers for your test to help with date and time
 
 Module for Doctrine 1.x ORM (deprecated in Codeception 2.1)
 
+#### [HttpMock](https://github.com/mcustiel/codeception-http-mock)
+
+Module and extension to use HttpMock to mock external services when running Codeception tests.
+
 #### [IM](https://github.com/nathanmac/im-codeception-module)
 
 This module allows the testing against external messaging services as well as triggering notifications via your tests, currently supports HipChat messaging service.
