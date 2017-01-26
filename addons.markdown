@@ -125,6 +125,9 @@ Extension for automatically starting and stopping PhantomJS when running tests.
 
 Extension that enables working with multiple dabatase backends and safe switching between them. It provides equivalant service as the Db module and more. Use v1.x for codeception v2.0 and v2.x for codeception v2.1.
 
+#### [MultiDb](https://github.com/iamdevice/codeception-multidb)
+Extension for work with multiple databases and switch between them. Based on original Db module. Make for codeception v.2.2
+
 #### [DrushDb](https://github.com/pfaocle/DrushDb)
 
 DrushDb is a Codeception extension to populate and cleanup test **Drupal** sites during test runs using Drush aliases and the sql-sync command.
