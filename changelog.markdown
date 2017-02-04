@@ -10,11 +10,11 @@ title: Codeception Changelog
 #### 2.2.9
 
 * **[Laravel5]** **Laravel 5.4 support** by **[janhenkgerritsen](https://github.com/janhenkgerritsen)**
-* **[WebDriver]** Added `performOn` to wait for element, and run actions inside it. See [complete reference](http://codeception.com/docs/modules/WebDriver#performOn). [#3986](https://github.com/Codeception/Codeception/issues/3986)
+* **[WebDriver]** Added [performOn](http://codeception.com/docs/modules/WebDriver#performOn) method to wait for an element and run sequence of actions inside it. [#3986](https://github.com/Codeception/Codeception/issues/3986)
 * **[WebDriver]** Improved error messages for `wait*` methods by **[disc](https://github.com/disc)**. See [#3983](https://github.com/Codeception/Codeception/issues/3983)
 * **[REST]** Binary responses support by **[spikyjt](https://github.com/spikyjt)** [#3993](https://github.com/Codeception/Codeception/issues/3993) [#3985](https://github.com/Codeception/Codeception/issues/3985)
-  * `seeBinaryResponseEquals` assert that binary response matches a hash
-  * `seeBinaryResponseEquals` assert that binary response doesn't match a hash
+  * [seeBinaryResponseEquals](http://codeception.com/docs/modules/REST#seeBinaryResponseEquals) assert that binary response matches a hash
+  * [dontSeeBinaryResponseEquals](http://codeception.com/docs/modules/REST#dontSeeBinaryResponseEquals) assert that binary response doesn't match a hash
   * hide binary response on debug
 * **[Laravel5]** module fix error for applications that do not use a database. See [#3954](https://github.com/Codeception/Codeception/issues/3954) by **[janhenkgerritsen](https://github.com/janhenkgerritsen)**. Fixed [#3942](https://github.com/Codeception/Codeception/issues/3942)  
 * **[Laravel5]** database seeders to be executed inside a transaction. See [#3954](https://github.com/Codeception/Codeception/issues/3954) by **[janhenkgerritsen](https://github.com/janhenkgerritsen)**. Fixed [#3948](https://github.com/Codeception/Codeception/issues/3948) by **[janhenkgerritsen](https://github.com/janhenkgerritsen)**
@@ -27,13 +27,13 @@ title: Codeception Changelog
 #### 2.2.8
 
 * **[WebDriver]** Added tab actions (not supported in PhantomJS):
-  * `openNewTab` opens a new tab and switches to it
-  * `closeTab` closes a tab and switches to previous
-  * `switchToNextTab` switches to next tab 
-  * `switchToPreviousTab` switches to previous tab
+  * [openNewTab](http://codeception.com/docs/modules/WebDriver#openNewTab) opens a new tab and switches to it
+  * [closeTab](http://codeception.com/docs/modules/WebDriver#closeTab) closes a tab and switches to previous
+  * [switchToNextTab](http://codeception.com/docs/modules/WebDriver#switchToNextTab) switches to next tab 
+  * [switchToPreviousTab](http://codeception.com/docs/modules/WebDriver#switchToPreviousTab) switches to previous tab
 * **[WebDriver]** Added actions to click element by coordinates. Via **[gimler](https://github.com/gimler)**
-  * `clickWithLeftButton` clicks element with offset
-  * `clickWithRightButton` right clicks on element with offset 
+  * [clickWithLeftButton](http://codeception.com/docs/modules/WebDriver#clickWithLeftButton) clicks element with offset
+  * [clickWithRightButton](http://codeception.com/docs/modules/WebDriver#clickWithRightButton) right clicks on element with offset 
 * **[WebDriver]** Added `js_error_logging` option to print JS logs in console and in HTML report by **[ngraf](https://github.com/ngraf)**. See [#3821](https://github.com/Codeception/Codeception/issues/3821)
 * **[WebDriver]** Improvements to `seeInField` by **[gimler](https://github.com/gimler)**. See [#3905](https://github.com/Codeception/Codeception/issues/3905)
   * support option text in seeInField not only value

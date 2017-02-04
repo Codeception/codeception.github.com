@@ -58,60 +58,6 @@ To use this module with Composer you need <em>"videlalvaro/php-amqplib": "*"</em
 
 ### Actions
 
-#### bindQueueToExchange
- 
-Binds a queue to an exchange
-
-This is an alias of method `queue_bind` of `PhpAmqpLib\Channel\AMQPChannel`.
-
-{% highlight php %}
-
-<?php
-$I->bindQueueToExchange(
-    'nameOfMyQueueToBind', // name of the queue
-    'transactionTracking.transaction', // exchange name to bind to
-    'your.routing.key' // Optionally, provide a binding key
-    //.. see the original method for more options
-)
-
-{% endhighlight %}
-
-
-#### declareExchange
- 
-Declares an exchange
-
-This is an alias of method `exchange_declare` of `PhpAmqpLib\Channel\AMQPChannel`.
-
-{% highlight php %}
-
-<?php
-$I->declareExchange(
-    'nameOfMyExchange', // exchange name
-    'topic' // exchange type
-    //.. see the original method for more options
-)
-
-{% endhighlight %}
-
-
-#### declareQueue
- 
-Declares a queue
-
-This is an alias of method `queue_declare` of `PhpAmqpLib\Channel\AMQPChannel`.
-
-{% highlight php %}
-
-<?php
-$I->declareQueue(
-    'nameOfMyQueue', // exchange name
-    //.. see the original method for more options
-)
-
-{% endhighlight %}
-
-
 #### grabMessageFromQueue
  
 Takes last message from queue.
@@ -184,6 +130,51 @@ $I->pushToQueue('queue.jobs', new AMQPMessage('create'));
  * `param` $queue
  * `param` $message string|AMQPMessage
 
+
+#### declareExchange
+
+Declares an exchange. This is an alias of method `exchange_declare` of `PhpAmqpLib\Channel\AMQPChannel`.
+
+{% highlight php %}
+
+<?php
+$I->declareExchange(
+   'nameOfMyExchange', // exchange name
+   'topic' // exchange type
+   //.. see the original method for more options
+)
+
+{% endhighlight %}
+
+#### declareQueue
+
+Declares a queue. This is an alias of method `queue_declare` of `PhpAmqpLib\Channel\AMQPChannel`.
+
+{% highlight php %}
+
+<?php
+$I->declareQueue(
+    'nameOfMyQueue', // exchange name
+    //.. see the original method for more options
+)
+
+{% endhighlight %}
+
+#### bindQueueToExchange
+
+Binds a queue to an exchange. This is an alias of method `queue_bind` of `PhpAmqpLib\Channel\AMQPChannel`.
+
+{% highlight php %}
+
+<?php
+$I->bindQueueToExchange(
+    'nameOfMyQueueToBind', // name of the queue
+    'transactionTracking.transaction', // exchange name to bind to
+    'your.routing.key' // Optionally, provide a binding key
+  //.. see the original method for more options
+)
+
+{% endhighlight %}
 
 #### seeMessageInQueueContainsText
  

@@ -97,27 +97,6 @@ $I->sendPOST('some-other-page.php');
 {% endhighlight %}
 
  * `param string` $name the name of the header to delete.
- * `[Part]` json
- * `[Part]` xml
-
-
-#### dontSeeBinaryResponseEquals
- 
-Checks if the hash of a binary response is not the same as provided.
-
-{% highlight php %}
-
-<?php
-$I->dontSeeBinaryResponseEquals("8c90748342f19b195b9c6b4eff742ded");
-?>
-
-{% endhighlight %}
-Opposite to `seeBinaryResponseEquals`
-
- * `param` $hash the hashed data response expected
- * `param` $algo the hash algorithm to use. Default md5.
- * `[Part]` json
- * `[Part]` xml
 
 
 #### dontSeeHttpHeader
@@ -335,49 +314,6 @@ $I->haveHttpHeader('Content-Type', 'application/json');
 
  * `param` $name
  * `param` $value
- * `[Part]` json
- * `[Part]` xml
-
-
-#### seeBinaryResponseEquals
- 
-Checks if the hash of a binary response is exactly the same as provided.
-Parameter can be passed as any hash string supported by hash(), with an
-optional second parameter to specify the hash type, which defaults to md5.
-
-Example: Using md5 hash key
-
-{% highlight php %}
-
-<?php
-$I->seeBinaryResponseEquals("8c90748342f19b195b9c6b4eff742ded");
-?>
-
-{% endhighlight %}
-
-Example: Using md5 for a file contents
-
-{% highlight php %}
-
-<?php
-$fileData = file_get_contents("test_file.jpg");
-$I->seeBinaryResponseEquals(md5($fileData));
-?>
-
-{% endhighlight %}
-Example: Using sha256 hsah
-
-{% highlight php %}
-
-<?php
-$fileData = '/9j/2wBDAAMCAgICAgMCAgIDAwMDBAYEBAQEBAgGBgUGCQgKCgkICQkKDA8MCgsOCwkJDRENDg8QEBEQCgwSExIQEw8QEBD/yQALCAABAAEBAREA/8wABgAQEAX/2gAIAQEAAD8A0s8g/9k='; // very small jpeg
-$I->seeBinaryResponseEquals(hash("sha256", base64_decode($fileData)), 'sha256');
-?>
-
-{% endhighlight %}
-
- * `param` $hash the hashed data response expected
- * `param` $algo the hash algorithm to use. Default md5.
  * `[Part]` json
  * `[Part]` xml
 
