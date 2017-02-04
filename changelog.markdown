@@ -22,7 +22,8 @@ title: Codeception Changelog
 * Added crap4j report support. Use `--coverage-crap4j` option and `codeception/c3` 2.0.10 
 * [PhpBrowser][Frameworks] If form has no id, use action attribute as identifier by **[Naktibalda](https://github.com/Naktibalda)**. Fixes [#3953](https://github.com/Codeception/Codeception/issues/3953)
 * Fixed test coloring output when a Feature title has some special chars in it like `/` or `-`
-* **[REST]** Added missing **[part](https://github.com/part)** `json` and `xml` to `deleteHeader` by **[freezy](https://github.com/freezy)**-sk 
+* **[REST]** Added missing part `json` and `xml` to `deleteHeader` by **[freezy](https://github.com/freezy)**-sk 
+* **[AMQP]** added `declareExchange`, `declareQueue`, `bindQueueToExchange` methods by **[erikverheij](https://github.com/erikverheij)**. See [#3988](https://github.com/Codeception/Codeception/issues/3988)
 
 #### 2.2.8
 
