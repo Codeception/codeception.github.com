@@ -702,13 +702,6 @@ $I->fillField(['name' => 'email'], 'jon@mail.com');
  * `param` $value
 
 
-#### getVisibleText
- 
-Grabs all visible text from the current page.
-
- * `return` string
-
-
 #### grabAttributeFrom
  
 Grabs the value of the given attribute value from the given element.
@@ -913,6 +906,57 @@ To proceed test press "ENTER" in console.
 
 This method is useful while writing tests,
 since it allows you to inspect the current page in the middle of a test case.
+
+
+#### performOn
+ 
+Waits for element and runs a sequence of actions inside its context.
+Actions can be defined with array, callback, or `Codeception\Util\ActionSequence` instance.
+
+Actions as array are recommended for simple to combine "waitForElement" with assertions;
+`waitForElement($el)` and `see('text', $el)` can be simplified to:
+
+{% highlight php %}
+
+<?php
+$I->performOn($el, ['see' => 'text']);
+
+{% endhighlight %}
+
+List of actions can be pragmatically build using `Codeception\Util\ActionSequence`:
+
+{% highlight php %}
+
+<?php
+$I->performOn('.model', ActionSequence::build()
+    ->see('Warning')
+    ->see('Are you sure you want to delete this?')
+    ->click('Yes')
+);
+
+{% endhighlight %}
+
+Actions executed from array or ActionSequence will print debug output for actions, and adds an action name to
+exception on failure.
+
+Whenever you need to define more actions a callback can be used. A WebDriver module is passed for argument:
+
+{% highlight php %}
+
+<?php
+$I->performOn('.rememberMe', function (WebDriver $I) {
+     $I->see('Remember me next time');
+     $I->seeElement('#LoginForm_rememberMe');
+     $I->dontSee('Login');
+});
+
+{% endhighlight %}
+
+In 3rd argument you can set number a seconds to wait for element to appear
+
+ * `param` $element
+ * `param` $actions
+ * `param int` $timeout
 
 
 #### pressKey
@@ -1652,9 +1696,9 @@ An offset can be specified.
 
 <?php
 // switch to previous tab
-$I->switchToPreviousTab();
+$I->switchToNextTab();
 // switch to 2nd previous tab
-$I->switchToPreviousTab(2);
+$I->switchToNextTab(-2);
 
 {% endhighlight %}
 
