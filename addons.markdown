@@ -91,7 +91,7 @@ Module for symfony 1.x framework (deprecated in Codeception 2.1)
 #### [Remote File Attachment](https://github.com/phmLabs/codeception-module-attachfileremote)
 This module helps to upload files when using webdriver via remote connection.
 
-#### [VisualCeption](https://github.com/DigitalProducts/codeception-module-visualception)
+#### [VisualCeption](https://github.com/Codeception/VisualCeption)
 
 Visual regression tests integrated in Codeception. This module can be used to compare the current representation of a website element with an expected. It was written on the shoulders of codeception and integrates in a very easy way.
 
