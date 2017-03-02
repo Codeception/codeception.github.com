@@ -172,6 +172,10 @@ The Codeception module for SSH commands, SFTP access and SSH tunnels
 
 Integration with [TestRail TestCase Management](http://www.gurock.com/testrail/) 
 
+#### [Gherkin-Dependsload](https://github.com/labbots/codeception-gherkin-dependsload)
+
+The Codeception extension for Gherkin features to load and execute dependent scenarios. This extension provides `@dependsload` annotation which lets adding dependencies to gherkin scenarios.
+
 
 
 
