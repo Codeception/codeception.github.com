@@ -106,6 +106,9 @@ An extension of Codeception own PhpBrowser and Db modules to allow for easy and 
 #### [MultiDb](https://github.com/iamdevice/codeception-multidb)
 Extension for work with multiple databases and switch between them. Based on original Db module. Make for codeception v.2.2
 
+#### [Mountebank](https://github.com/meare/codeception-mountebank)
+Stub and mock external services with [mountebank](http://www.mbtest.org/).
+
 ## Extensions
 
 Codeception extensions are developed by third-party contributors and can enhance test execution flow, by listening to internal events. [Read more about extensions](http://codeception.com/docs/08-Customization#Extension-classes).
