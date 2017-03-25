@@ -299,6 +299,10 @@ codecept gherkin:steps acceptance
 
 
 
+## Completion
+
+
+
 ## GenerateCest
 
 Generates Cest (scenario-driven object-oriented test) file:

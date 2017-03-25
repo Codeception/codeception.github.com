@@ -7,14 +7,61 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.2.10
+
+* Prefer local composer installation if available. Solves issues with incompatibility between locally and globally installed or packaged in phar file Codeception dependencies. Fix by **[Naktibalda](https://github.com/Naktibalda)** See [#3997](https://github.com/Codeception/Codeception/issues/3997)
+* Added console completion by **[gdscei](https://github.com/gdscei)**. See [documentation](http://codeception.com/docs/07-AdvancedUsage#Shell-autocompletion)
+* **[WebDriver]** Fixed compatibility with `facebook/webdriver` 1.4.0 by **[Naktibalda](https://github.com/Naktibalda)**. See [#4076](https://github.com/Codeception/Codeception/issues/4076) Fixes [#4073](https://github.com/Codeception/Codeception/issues/4073)
+* Run a suite by its path [#4079](https://github.com/Codeception/Codeception/issues/4079)
+   
+```
+codecept run tests/unit
+```   
+Improves recent [PHPStorm integration](https://blog.jetbrains.com/phpstorm/2017/03/codeception-support-comes-to-phpstorm-2017-1/). Codeception tests can be started by running a suite directory.
+   
+* **[WebDriver]** Fixed using `performOn` with `ActionSequence`; supporting multiple actions of same kind. [#4066](https://github.com/Codeception/Codeception/issues/4066) by **[davertmik](https://github.com/davertmik)**. Fixes [#4044](https://github.com/Codeception/Codeception/issues/4044)
+* **[Laravel5]** Added `haveApplicationHandler` and `clearApplicationHandlers` methods. See [#4068](https://github.com/Codeception/Codeception/issues/4068). By **[janhenkgerritsen](https://github.com/janhenkgerritsen)**
+* **[Laravel5]** Close all Laravel DB connections after test execution. Fixes [#4031](https://github.com/Codeception/Codeception/issues/4031) by **[rmblstrp](https://github.com/rmblstrp)**
+* **[Laravel5]** Update Laravel5 `database_migrations_path` to by null by default by **[timbroder](https://github.com/timbroder)**. Fixes [#3990](https://github.com/Codeception/Codeception/issues/3990)
+* **[DataFactory]** Add `cleanup` option to skip auto cleanup. By **[alexpts](https://github.com/alexpts)**. See [#3996](https://github.com/Codeception/Codeception/issues/3996)
+* Fixed printScenarioFail with multiple feature scenarios by **[gimler](https://github.com/gimler)**. See [#3868](https://github.com/Codeception/Codeception/issues/3868) 
+* Fixed generating JUnit XML when Selenium server can’t be connected. Closes [#3653](https://github.com/Codeception/Codeception/issues/3653) by **[Naktibalda](https://github.com/Naktibalda)**
+* Fixes running local suites (under tests folder) and included suite mixed (via include path). See [#4063](https://github.com/Codeception/Codeception/issues/4063)
+* **[Db]** Run the last statement in dump file even if it doesn't end with delimiter. [#4071](https://github.com/Codeception/Codeception/issues/4071) by **[Naktibalda](https://github.com/Naktibalda)**. Fixes [#4059](https://github.com/Codeception/Codeception/issues/4059)
+* **[Memcache]** Fixed calling flush on null by **[Jurigag](https://github.com/Jurigag)**. See [#4074](https://github.com/Codeception/Codeception/issues/4074)
+* **[Yii2]** Fixtures behavior compatibility with `yii2-codeception` by **[leandrogehlen](https://github.com/leandrogehlen)**. See [#4016](https://github.com/Codeception/Codeception/issues/4016)
+* `g:suite` allows generate suites with uppercase names. Fixes [#4072](https://github.com/Codeception/Codeception/issues/4072)
+* Enabled incomplete/skipped/risky/warning settings for logger. See [#3890](https://github.com/Codeception/Codeception/issues/3890). By **[mario](https://github.com/mario)**-naether 
+
+```yaml
+settings:
+    report_useless_tests: false
+    disallow_test_output: false
+    be_strict_about_changes_to_global_state: false
+    log_incomplete_skipped: false
+```
+* **[WebDriver]** Fixed double coverage cookie check by **[boboldehampsink](https://github.com/boboldehampsink)**. See [#2923](https://github.com/Codeception/Codeception/issues/2923) [#4020](https://github.com/Codeception/Codeception/issues/4020)
+* **[WebDriver]** Fixed `switchToIframe` regression from 2.2.9 by **[lcobucci](https://github.com/lcobucci)**. PR [#4000](https://github.com/Codeception/Codeception/issues/4000)
+* Speed improvement for group lookup by **[pitpit](https://github.com/pitpit)**. See [#4025](https://github.com/Codeception/Codeception/issues/4025)
+* Added parse error to `TestParseException` in PHP7 by **[Naktibalda](https://github.com/Naktibalda)**. See [#4007](https://github.com/Codeception/Codeception/issues/4007)
+* Auto injection for `Codeception\Test\Unit` format [#4070](https://github.com/Codeception/Codeception/issues/4070). Allows to customize injection of support objects into a testcase:  
+
+```php
+<?php
+public function _inject(UnitTester $unit)
+{
+    $this->i = $unit;
+}
+```
+
 #### 2.2.9
 
 * **[Laravel5]** **Laravel 5.4 support** by **[janhenkgerritsen](https://github.com/janhenkgerritsen)**
-* **[WebDriver]** Added [performOn](http://codeception.com/docs/modules/WebDriver#performOn) method to wait for an element and run sequence of actions inside it. [#3986](https://github.com/Codeception/Codeception/issues/3986)
+* **[WebDriver]** Added `performOn` to wait for element, and run actions inside it. See [complete reference](http://codeception.com/docs/modules/WebDriver#performOn). [#3986](https://github.com/Codeception/Codeception/issues/3986)
 * **[WebDriver]** Improved error messages for `wait*` methods by **[disc](https://github.com/disc)**. See [#3983](https://github.com/Codeception/Codeception/issues/3983)
 * **[REST]** Binary responses support by **[spikyjt](https://github.com/spikyjt)** [#3993](https://github.com/Codeception/Codeception/issues/3993) [#3985](https://github.com/Codeception/Codeception/issues/3985)
-  * [seeBinaryResponseEquals](http://codeception.com/docs/modules/REST#seeBinaryResponseEquals) assert that binary response matches a hash
-  * [dontSeeBinaryResponseEquals](http://codeception.com/docs/modules/REST#dontSeeBinaryResponseEquals) assert that binary response doesn't match a hash
+  * `seeBinaryResponseEquals` assert that binary response matches a hash
+  * `seeBinaryResponseEquals` assert that binary response doesn't match a hash
   * hide binary response on debug
 * **[Laravel5]** module fix error for applications that do not use a database. See [#3954](https://github.com/Codeception/Codeception/issues/3954) by **[janhenkgerritsen](https://github.com/janhenkgerritsen)**. Fixed [#3942](https://github.com/Codeception/Codeception/issues/3942)  
 * **[Laravel5]** database seeders to be executed inside a transaction. See [#3954](https://github.com/Codeception/Codeception/issues/3954) by **[janhenkgerritsen](https://github.com/janhenkgerritsen)**. Fixed [#3948](https://github.com/Codeception/Codeception/issues/3948) by **[janhenkgerritsen](https://github.com/janhenkgerritsen)**
@@ -22,19 +69,18 @@ title: Codeception Changelog
 * Added crap4j report support. Use `--coverage-crap4j` option and `codeception/c3` 2.0.10 
 * [PhpBrowser][Frameworks] If form has no id, use action attribute as identifier by **[Naktibalda](https://github.com/Naktibalda)**. Fixes [#3953](https://github.com/Codeception/Codeception/issues/3953)
 * Fixed test coloring output when a Feature title has some special chars in it like `/` or `-`
-* **[REST]** Added missing part `json` and `xml` to `deleteHeader` by **[freezy](https://github.com/freezy)**-sk 
-* **[AMQP]** added `declareExchange`, `declareQueue`, `bindQueueToExchange` methods by **[erikverheij](https://github.com/erikverheij)**. See [#3988](https://github.com/Codeception/Codeception/issues/3988)
+* **[REST]** Added missing **[part](https://github.com/part)** `json` and `xml` to `deleteHeader` by **[freezy](https://github.com/freezy)**-sk 
 
 #### 2.2.8
 
 * **[WebDriver]** Added tab actions (not supported in PhantomJS):
-  * [openNewTab](http://codeception.com/docs/modules/WebDriver#openNewTab) opens a new tab and switches to it
-  * [closeTab](http://codeception.com/docs/modules/WebDriver#closeTab) closes a tab and switches to previous
-  * [switchToNextTab](http://codeception.com/docs/modules/WebDriver#switchToNextTab) switches to next tab 
-  * [switchToPreviousTab](http://codeception.com/docs/modules/WebDriver#switchToPreviousTab) switches to previous tab
+  * `openNewTab` opens a new tab and switches to it
+  * `closeTab` closes a tab and switches to previous
+  * `switchToNextTab` switches to next tab 
+  * `switchToPreviousTab` switches to previous tab
 * **[WebDriver]** Added actions to click element by coordinates. Via **[gimler](https://github.com/gimler)**
-  * [clickWithLeftButton](http://codeception.com/docs/modules/WebDriver#clickWithLeftButton) clicks element with offset
-  * [clickWithRightButton](http://codeception.com/docs/modules/WebDriver#clickWithRightButton) right clicks on element with offset 
+  * `clickWithLeftButton` clicks element with offset
+  * `clickWithRightButton` right clicks on element with offset 
 * **[WebDriver]** Added `js_error_logging` option to print JS logs in console and in HTML report by **[ngraf](https://github.com/ngraf)**. See [#3821](https://github.com/Codeception/Codeception/issues/3821)
 * **[WebDriver]** Improvements to `seeInField` by **[gimler](https://github.com/gimler)**. See [#3905](https://github.com/Codeception/Codeception/issues/3905)
   * support option text in seeInField not only value
@@ -310,7 +356,6 @@ extensions:
 * **[Sequence]** Changed the prefix value. Generated sequences to include id inside a prefix: `sq('user1') => 'user1_876asd8as87a'. Added `prefix` config option.
 * Deprecation errors won't fail tests but will be printed.
 * Official [Docker image](https://hub.docker.com/r/codeception/codeception/) introduced by **[schmunk42](https://github.com/schmunk42)**
-
 #### 2.1.11
 
 * **[Yii1]** Improved Yii connector. AR metadata is cleaned up between requests. `regenerateId` of session is disabled.
@@ -566,9 +611,7 @@ extensions:
 * Official extensions moved to `ext` dir; Base Extension class renamed to `Codeception\Extension`
 * Duplicate environment options won't cause Codeception to run environment tests twice
 * **[Phalcon1]** `haveServiceInDi` method implemented by **[sergeyklay](https://github.com/sergeyklay)**
-* **[Db]** `seeNumRecords` method added by **[sergeyklay](https://github.com/sergeyklay)**
-
-#### 2.0.15
+* **[Db]** `seeNumRecords` method added by **[sergeyklay](https://github.com/sergeyklay)**#### 2.0.15
 
 * **[Phalcon1]** Fixed getting has more than one field by **[sergeyklay](https://github.com/sergeyklay)** [#2010](https://github.com/Codeception/Codeception/issues/2010).
 * [PhpBrowser][Frameworks] Compute relative URIs against the effective request URI when there is a redirect. [#2058](https://github.com/Codeception/Codeception/issues/2058) [#2057](https://github.com/Codeception/Codeception/issues/2057)
