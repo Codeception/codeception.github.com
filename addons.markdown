@@ -79,6 +79,10 @@ Integrates Mockery into Codeception tests.
 
 Module for Nette framework.
 
+#### [PhireMock](https://github.com/mcustiel/phiremock-codeception-extension)
+
+Extension and module to mock http request to external services during acceptance testing with Codeception.
+
 #### [Slim 3](https://github.com/herloct/codeception-slim-module)
 
 This module allows you to run tests inside Slim 3 Microframework.
