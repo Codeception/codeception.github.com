@@ -39,6 +39,10 @@ Official CakePHP 3 module for Codeception.
 
 Integrate Codeception to CakePHP v2.* projects
 
+#### [Composer Project](https://github.com/TypistTech/codeception-composer-project-module)
+
+Create throw away composer projects for Codeception tests
+
 #### [Config](https://github.com/JustBlackBird/codeception-config-module)
 
 Loads params from Codeception config and pass them to test scenarios.
