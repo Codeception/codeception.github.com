@@ -105,7 +105,7 @@ Visual regression tests integrated in Codeception. This module can be used to co
 
 #### [CSS Regression](https://github.com/mendicm/css-regression)
 
-CSS / Visual regression tests integrated in Codeception. This module can be used to compare the current representation of a website element with an expected based on a reference image. This module does not require any JavaScript injections in your website and works with viewport screenshots (chromedriver).
+CSS / Visual regression tests integrated in Codeception. This module can be used to compare the current representation of a website element with an expected based on a reference image. This module does not require any JavaScript injections in your website and works with viewport screenshots (chromedriver). Compatible with WebDriver and AngularJS modules.
 
 #### [WordPress Browser and Database](https://github.com/lucatume/wp-browser)
 
