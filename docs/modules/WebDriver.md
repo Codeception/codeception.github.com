@@ -16,9 +16,12 @@ New generation Selenium WebDriver module.
 
 #### Selenium
 
+To run Selenium Server you will need Java and Chrome or Firefox browser installed.
+
 1. Download [Selenium Server](http://docs.seleniumhq.org/download/)
-2. Launch the daemon: `java -jar selenium-server-standalone-2.xx.xxx.jar`
-3. Configure this module (in acceptance.suite.yml) by setting url and browser:
+2. For Chrome browser install [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/getting-started), for Firefox browser install [GeckoDriver](https://github.com/mozilla/geckodriver).
+3. Launch the server: `java -jar selenium-server-standalone-3.xx.xxx.jar`. To locate Chromedriver binary use `-Dwebdriver.chrome.driver=./chromedriver` option. For Geckodriver use `-Dwebdriver.gecko.driver=`.
+4. Configure this module (in acceptance.suite.yml) by setting url and browser:
 
 {% highlight yaml %}
 
@@ -26,7 +29,7 @@ New generation Selenium WebDriver module.
        enabled:
           - WebDriver:
              url: 'http://localhost/'
-             browser: firefox
+             browser: chrome
 
 {% endhighlight %}
 
@@ -49,6 +52,18 @@ It allows you to run Selenium tests on a server without a GUI installed.
              browser: phantomjs
 
 {% endhighlight %}
+
+##### Headless Selenium in Docker
+
+Docker can ship Selenium Server with all its dependencies and browsers inside a single container.
+Running tests inside Docker is as easy as pulling [official selenium image](https://github.com/SeleniumHQ/docker-selenium) and starting a container with Chrome:
+
+{% highlight yaml %}
+docker run --net=host selenium/standalone-chrome
+
+{% endhighlight %}
+
+By using `--net=host` we allow selenium to access local websites.
 
 ### Cloud Testing
 
@@ -130,7 +145,7 @@ you should use a tunnel application provided by a service.
 * `window_size` - Initial window size. Set to `maximize` or a dimension in the format `640x480`.
 * `clear_cookies` - Set to false to keep cookies, or set to true (default) to delete all cookies between tests.
 * `wait` - Implicit wait (default 0 seconds).
-* `capabilities` - Sets Selenium2 [desired capabilities](https://github.com/SeleniumHQ/selenium/wiki/DesiredCapabilities). Should be a key-value array.
+* `capabilities` - Sets Selenium [desired capabilities](https://github.com/SeleniumHQ/selenium/wiki/DesiredCapabilities). Should be a key-value array.
 * `connection_timeout` - timeout for opening a connection to remote selenium server (30 seconds by default).
 * `request_timeout` - timeout for a request to return something from remote selenium server (30 seconds by default).
 * `pageload_timeout` - amount of time to wait for a page load to complete before throwing an error (default 0 seconds).
@@ -154,11 +169,6 @@ Example (`acceptance.suite.yml`)
                  firefox_profile: '~/firefox-profiles/codeception-profile.zip.b64'
 
 {% endhighlight %}
-
-#### Status
-
-Stability: **stable**
-Based on [facebook php-webdriver](https://github.com/facebook/php-webdriver)
 
 ### Usage
 
