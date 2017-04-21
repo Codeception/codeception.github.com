@@ -4,8 +4,6 @@ title: "Writing Better Tests: Obtaining Specification"
 date: 2017-04-21 01:03:50
 ---
 
-# Writing Better Tests: Obtaining Specification
-
 When you start implement testing in your development process you should always ask: which tests are important for this project. And there is no general answer to this question. "Test everything, everywhere" is not a good solution as well, by writing more and more lines of code you won't stable software. Tests should be driven by specification, and specification comes from your business. Depending on that you should choose which areas are more important to cover with tests and which are less.
 
 [Part 1: Expectation vs Implementation](http://codeception.com/12-21-2016/writing-better-tests-expectation-vs-implementation.html)
