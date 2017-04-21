@@ -35,4 +35,4 @@ So learn what is important in your business. What brings you money. What are the
 *Written by Michael Bodnarchuk*
 
 
-<p style="background: rgba(255,255,0,0.3)">We provide <a href=" http://sdclabs.com/codeception?utm_source=codeception.com&utm_medium=post&utm_term=link&utm_campaign=reference">consulting services on Codeception and automated testing in general</a></p>
+<p style="background: rgba(255,255,0,0.3)">We provide <a href=" http://sdclabs.com/codeception?utm_source=codeception.com&utm_medium=post&utm_term=link&utm_campaign=reference">consulting services</a> on Codeception and automated testing in general.</p>
