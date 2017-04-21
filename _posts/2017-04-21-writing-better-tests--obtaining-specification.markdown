@@ -18,9 +18,9 @@ That's right for this type of applications you should revert your testing pyrami
 
 If UI/UX is a part of your business, concentrate on acceptance (browser) tests. But if you run banking application, ecommerce solution, ERP or CRM, UI is not that important. Those applications include complex domain logic and internal quality is much more important than visual part.
 
-What if user by a bug creates 3 extra todos in To-Do app? Well, it doesn't look nice but not a big deal. But what if user by a bug withdraws from ATM 3 times more money they own? That's a real problem. In case, you **deal with money or real** things it is critically important to test all the business processes. Test all possible scenarios, all edge cases, make the domain to be 100% covered with tests.
-
 ![](/images/test-layers.png)
+
+What if user by a bug creates 3 extra todos in To-Do app? Well, it doesn't look nice but not a big deal. But what if user by a bug withdraws from ATM 3 times more money they own? That's a real problem. In case, you **deal with money or real** things it is critically important to test all the business processes. Test all possible scenarios, all edge cases, make the domain to be 100% covered with tests.
 
 That brings us to key idea of this post. There are two kinds of IT products:
 
