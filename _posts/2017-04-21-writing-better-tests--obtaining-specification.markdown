@@ -30,7 +30,7 @@ That brings us to key idea of this post. There are two kinds of IT products:
 And depending on the kind of software you work on you have different priorities.
 This also answers a question: "do I need BDD for my project". In case, you are automating traditional business, you need to translate all business processes into a code, and you need ubiquitous languages for that. In case, you are building a new business, a startup, you probably don't need that layer of complexity as presumably founders already speak the IT language.
 
-So learn what is important in your business. What brings you money. What are the risks? Cover that part at first and think from business side and not from technical. This is how a business would understand the real value of automated tests.
+So learn what is important in your business. What brings you money. What are the risks. Cover that part at first and think from business side and not from technical. This is how a business would understand the real value of automated tests.
 
 *Written by Michael Bodnarchuk*
 
