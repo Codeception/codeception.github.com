@@ -75,6 +75,10 @@ Codeception module to test email using Mailtrap.io
 
 This module will let you test emails using simple SMTP connection, with any provider that supports IMAP
 
+#### [Markup Validator](https://github.com/Kolyunya/codeception-markup-validator)
+
+A module which validates the markup (HTML, XHTML, etc.) of web documents. Works out of the box, requires no complex configuration to get started. Yet fully configurable and extendable if something special is needed.
+
 #### [Mockery](https://github.com/Codeception/MockeryModule)
 
 Integrates Mockery into Codeception tests.
