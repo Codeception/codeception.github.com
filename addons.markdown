@@ -5,6 +5,10 @@ title: Addons
 
 # Addons
 
+
+{% include extensions.md %}
+
+
 ## Applications 
 
 #### [WebCeption](https://github.com/jayhealey/Webception)
@@ -15,14 +19,11 @@ You can access multiple test suites and decide which tests to include in a run. 
 
 ## Chrome Extensions
 
-
 #### [Codeception Test Tools](https://chrome.google.com/webstore/detail/codeception-testtools/jhaegbojocomemkcnmnpmoobbmnkijik)
 
 ![](https://lh3.googleusercontent.com/ha92txqVyDNbSxT3fzt7Qo7jEfzyg7BfRnYFOBzak44v2QJ292dKVxIfxc_O-gfmp_dVd94-dg=s640-h400-e365-rw)
 
 Google Chrome extension to generate Codeception acceptance tests while using your app. [GitHub](https://github.com/mpociot/codeception-testtools)
-
-
 
 ## Modules
 
