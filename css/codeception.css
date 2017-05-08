@@ -350,6 +350,13 @@ ul.navbar-nav {
 
 
 @media screen and (max-width : 992px) {
+
+	body .dropdown-modules li a {
+		float: none;
+		clear: none;
+		width: 100%;
+	}
+
 	body #home-hero h1{
 		padding-top:75px;
 	}
@@ -398,6 +405,8 @@ ul.navbar-nav {
 		background-color: inherit;
 		color: #fff;
 	}
+
+
 }
 
 @media screen and (min-width: 1030px) {
