@@ -3,16 +3,12 @@ layout: doc
 title: Addons
 ---
 
-
-<div id="official">
-  {% include extensions.md %}
-</div>
-
-
-
-
-
 # Addons
+
+
+
+{% include extensions.md %}
+
 
 ## Applications 
 
