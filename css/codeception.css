@@ -139,6 +139,20 @@ body .page {
 	border-radius: 5px;
 }
 
+body .post {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    font-size: 1.3em;
+    line-height: 1.6;
+    color: #444;
+}
+
+body .page .post p {
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;
+}
+
+
 body .page p {
 	margin-top: 0.75em;
 	margin-bottom: 0.75em;
@@ -684,3 +698,4 @@ ul.navbar-nav {
         content: '3 .col-md-4';
     }
 }
+

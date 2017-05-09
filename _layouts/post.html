@@ -5,7 +5,9 @@ layout: page
 <p class="lead">
   Published on {{ page.date | date: "%B %d, %Y" }}
 </p>
-{{ content }}
+<div class="post">
+  {{ content }}
+</div>
 <div class="alert alert-info">
   <a href="http://www.reddit.com/submit" onclick="window.location = 'http://www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false" style="float: right"><img src="http://www.reddit.com/static/spreddit7.gif" alt="submit to reddit" border="0" /></a>
   <!-- Розмістіть цей тег там, де необхідно розмістити кнопку +1 -->
