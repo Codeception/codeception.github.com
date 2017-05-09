@@ -1,0 +1,144 @@
+---
+layout: bootstrap
+title: Addons
+---
+
+
+
+
+<div class="container">
+
+  <h1>Addons</h1>
+
+
+  <div class="row">
+  
+
+    <div class="col-md-6">
+      <div class="page">
+
+        <h2><a href="https://chrome.google.com/webstore/detail/codeception-testtools/jhaegbojocomemkcnmnpmoobbmnkijik">Codeception Test Tools <small>Chrome Extension</small></a></h2>
+
+        <img src="https://lh3.googleusercontent.com/ha92txqVyDNbSxT3fzt7Qo7jEfzyg7BfRnYFOBzak44v2QJ292dKVxIfxc_O-gfmp_dVd94-dg=s640-h400-e365-rw" alt="">
+
+        <p>
+  Google Chrome extension to generate Codeception acceptance tests while using your app.
+    <br>
+        <a href="https://github.com/mpociot/codeception-testtools">GitHub</a>        
+        </p>
+       
+
+      </div>
+      
+    </div>   
+
+
+    <div class="col-md-6">
+      <div class="page">
+
+        <h2><a href="https://github.com/jayhealey/Webception">WebCeption <small>Web Runner</small> </a></h2>
+
+        <img src="https://camo.githubusercontent.com/e39e74ae363de8c250837ed04c54f71935f96194/687474703a2f2f692e696d6775722e636f6d2f6e53734d4649532e676966" alt="" style="background-size: contain">
+
+        <p>
+  Webception is a deployable web-application that allows you to run all your Codeception tests in the browser.
+
+  You can access multiple test suites and decide which tests to include in a run. It allows you start, stop and restart the process whilst watching the test results in the Console.
+        
+        </p>
+       
+
+      </div>
+      
+
+    </div>  
+
+  </div>
+
+
+  <div class="row">    
+    <h2 class="text-center">Community Modules</h2>
+
+<div class="alert alert-warning">To publish your own module <a href="https://github.com/Codeception/codeception.github.com/edit/master/_data/modules.yml">add it to the list</a> on GitHub and send a Pull Request.</div>
+
+  </div>
+    <div class="grid" data-columns>
+
+
+        <!-- Card Projects -->
+
+{% for module in site.data.modules %}
+  <div class="card module"     {% if module.color %}
+    style="background: {{module.color}};"
+    {% endif %}>
+  <a href="{{module.link}}" target="_blank" 
+  >
+
+  {% if module.image %}
+  <span class="card-image" style="background-image: url({{ module.image }}); ">
+    <span class="card-title">      
+      {{module.name}}
+    </span>
+  </span>
+  {% else %}
+    <span class="card-title">
+    {{module.name}}
+    </span>  
+  {% endif %}
+
+  <div class="card-content">
+    <p>
+      {{module.description | markdownify }}
+    </p>
+  </div>
+
+
+</a>
+</div>
+{% endfor %}
+</div>
+
+  <div class="row">    
+      <h2 class="text-center">Community Extensions</h2>
+
+        <div class="alert alert-warning">To publish your own extension <a href="https://github.com/Codeception/codeception.github.com/edit/master/_data/extensions.yml">add it to the list</a> on GitHub and send a Pull Request.</div>
+
+    <div class="grid" data-columns>
+
+
+        <!-- Card Projects -->
+
+{% for extension in site.data.extensions %}
+  <div class="card extension"     {% if extension.color %}
+    style="background: {{extension.color}};"
+    {% endif %}>
+  <a href="{{extension.link}}" target="_blank"
+  >
+
+  {% if extension.image %}
+  <span class="card-image" style="background-image: url({{ extension.image }}); ">
+    <span class="card-title">      
+      {{extension.name}}
+    </span>
+  </span>
+  {% else %}
+    <span class="card-title">
+    {{extension.name}}
+    </span>  
+  {% endif %}
+
+  <div class="card-content">
+    
+      {{extension.description | markdownify }}
+  </div>
+
+
+</a></div>
+{% endfor %}
+</div>
+
+
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/salvattore/1.0.9/salvattore.min.js"></script>
+
