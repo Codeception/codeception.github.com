@@ -433,11 +433,11 @@ ul.navbar-nav {
 	outline: none;
 }
 
-.card {
+.feature {
 	padding: 3em;
 
 }
-.card .check {
+.feature .check {
 	float: left;
 	font-size: 70px;
 	color: #666;
@@ -454,12 +454,12 @@ ul.navbar-nav {
 	border-left: 7px solid #fff;  
 	
 }
-.card>p {
+.feature>p {
 	display: table;
 	font-size: 1.2em;
 }
 
-.card code {
+.feature code {
 	padding: 0;
 	color: #666;
 	display: inline-block;
