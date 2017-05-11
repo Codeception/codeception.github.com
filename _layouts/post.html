@@ -19,6 +19,9 @@ layout: bootstrap
 
 <p class="lead">
   Published on {{ page.date | date: "%B %d, %Y" }}
+  {% if page.author %}
+  <br>by <strong>{{ page.author }}</strong>
+  {% endif %}
 </p>
 <div class="post">
   {{ content }}
