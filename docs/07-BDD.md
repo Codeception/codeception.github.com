@@ -58,8 +58,8 @@ And my order amount is $1600
 
 As we can see this simple story highlights core concepts that are called *contracts*. We should fulfill those contracts to model software correctly. But how we can verify that those contracts are being satisfied? [Cucumber](http://cucumber.io) introduced a special language for such stories called **Gherkin**. Same story transformed to Gherkin will look like this:
 
-{% highlight yaml %}
-gherkin
+{% highlight gherkin %}
+
 Feature: checkout process
   In order to buy products
   As a customer
@@ -88,15 +88,16 @@ Whenever you start writing a story you are describing a specific feature of an a
 Feature file is written in Gherkin format. Codeception can generate a feature file for you. 
 We will assume that we will use scenarios in feature files for acceptance tests, so feature files to be placed in `acceptance` suite directory:
 
-{% highlight php %}
- codecept g:feature acceptance checkout
+{% highlight bash %}
+
+php codecept g:feature acceptance checkout
 
 {% endhighlight %}
 
 Generated template will look like this:
 
-{% highlight yaml %}
-gherkin
+{% highlight gherkin %}
+
 Feature: checkout
   In order to ...
   As a ...
@@ -108,7 +109,8 @@ Feature: checkout
 
 This template can be fulfilled by setting actor and goals:
 
-{% highlight yaml %}
+{% highlight gherkin %}
+
 Feature: checkout
   In order to buy product
   As a customer
@@ -122,8 +124,8 @@ Next, we will describe this feature by writing examples for it
 
 Scenarios are live examples of feature usage. Inside a feature file it should be written inside a *Feature* block. Each scenario should contain its title:
 
-{% highlight yaml %}
-gherkin
+{% highlight gherkin %}
+
 Feature: checkout
   In order to buy product
   As a customer
@@ -135,8 +137,8 @@ Scenario: order several products
 
 Scenarios are written in step-by-step manner using Given-When-Then approach. At start, scenario should describe its context with **Given** keyword:
 
-{% highlight yaml %}
-gherkin
+{% highlight gherkin %}
+
   Given I have product with $600 price in my cart 
   And I have product with $1000 price in my cart
 
@@ -146,16 +148,16 @@ Here we also use word **And** to extend the Given and not to repeat it in each l
 
 This is how we described the initial conditions. Next, we perform some action. We use **When** keyword for it:
 
-{% highlight yaml %}
-gherkin
+{% highlight gherkin %}
+
   When I go to checkout process 
 
 {% endhighlight %}
 
 And in the end we are verifying our expectation using **Then** keyword. The action changed the initial given state, and produced some results. Let's check that those results are what we actually expect.
 
-{% highlight yaml %}
-gherkin
+{% highlight gherkin %}
+
   Then I should see that total number of products is 2
   And my order amount is $1600
 
@@ -257,7 +259,8 @@ Steps are defined in Context files. Default context is an actor class, i.e. for 
 
 To list all defined steps run `gherkin:steps` command:
 
-{% highlight yaml %}
+{% highlight bash %}
+
 codecept gherkin:steps
 
 {% endhighlight %}
@@ -350,7 +353,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iShouldSeeThatTotalNumberOfProductsIs($num1)
      {
-        $this->see($num2, '.products-count');
+        $this->see($num1, '.products-count');
      }
      
     /**
@@ -399,8 +402,8 @@ Let's improve our BDD suite by using the advanced features of Gherkin language.
 
 If a group of scenarios have the same initial steps, let's that for dashboard we need always need to be logged in as administrator. We can use *Background* section to do the required preparations and not to repeat same steps across scenarios. 
 
-{% highlight yaml %}
-gherkin
+{% highlight gherkin %}
+
 Feature: Dashboard
   In order to view current state of business
   As an owner
@@ -418,8 +421,8 @@ Steps in background are defined the same way as in scenarios.
 
 Scenarios can become more descriptive when you represent repeating data as tables. Instead of writing several steps "I have product with :num1 $ price in my cart" we can have one step with multiple values in it.
 
-{% highlight yaml %}
-gherkin
+{% highlight gherkin %}
+
   Given i have products in my cart
     | name         | category    | price  |
     | Harry Potter | Books       | 5      |
@@ -455,8 +458,8 @@ Inside a step definition data is stored in argument passed as `\Behat\Gherkin\No
 
 In case scenarios represent the same logic but differ on data, we can use *Scenario Outline* to provide different examples for the same behavior. Scenario outline is just like a basic scenario with some values replaced with placeholders, which are filled from a table. Each set of values is executed as a different test.
 
-{% highlight yaml %}
-gherkin
+{% highlight gherkin %}
+
   Scenario Outline: order discount
     Given I have product with price <price>$ in my cart 
     And discount for orders greater than $20 is 10 %
@@ -478,8 +481,8 @@ gherkin
 
 Text values inside a scenarios can be set inside a `"""` block:
 
-{% highlight yaml %}
-gherkin
+{% highlight gherkin %}
+
   Then i see in file "codeception.yml"
 """
 paths:
@@ -516,7 +519,8 @@ This string is passed as a standard PHP string parameter
 Gherkin scenarios and features can contain tags marked with `@`. Tags are equal to groups in Codeception.
 This way if you define a feature with `@important` tag, you can execute it inside `important` group by running:
 
-{% highlight yaml %}
+{% highlight bash %}
+
 codecept run -g important
 
 {% endhighlight %}

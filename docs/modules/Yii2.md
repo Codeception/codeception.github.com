@@ -864,6 +864,15 @@ $aLinks = $I->grabMultiple('a', 'href');
  * `return` string[]
 
 
+#### grabPageSource
+ 
+Grabs current page source code.
+
+@throws ModuleException if no page was opened.
+
+ * `return` string Current page source code.
+
+
 #### grabRecord
  
 Retrieves record from database
@@ -943,6 +952,24 @@ $I->haveFixtures([
 ]);
 
 {% endhighlight %}
+
+Note: if you need to load fixtures before the test (probably before the cleanup transaction is started;
+`cleanup` options is `true` by default), you can specify fixtures with _fixtures method of a testcase
+{% highlight php %}
+
+<?php
+// inside Cest file or Codeception\TestCase\Unit
+public function _fixtures(){
+    return [
+        'user' => [
+            'class' => UserFixture::className(),
+            'dataFile' => codecept_data_dir() . 'user.php'
+        ]
+    ];
+}
+
+{% endhighlight %}
+instead of defining `haveFixtures` in Cest `_before`
 
  * `param` $fixtures
  * `[Part]` fixtures

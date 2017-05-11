@@ -7,6 +7,46 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.2.11
+
+* **[WebDriver]** Added `_restart` method to restart browser with a new configuration. 
+* **[WebDriver]** Added `_findClickable` to public API so can be used from helpers. By **[tiger](https://github.com/tiger)**-seo
+* **[WebDriver]** `seeLink` compares relative links correctly [#4182](https://github.com/Codeception/Codeception/issues/4182)
+* **[Webdriver]** fixed attachFile messages when the file does not exist by **[Naktibalda](https://github.com/Naktibalda)**
+* Fixed setting paths in environments and using `--override` options. By **[kusnir](https://github.com/kusnir)**. See [#4143](https://github.com/Codeception/Codeception/issues/4143)
+* **[Yii1]** Allow to set only host in `url` config. [#4172](https://github.com/Codeception/Codeception/issues/4172) by **[SG5](https://github.com/SG5)**. 
+* **[Yii1]** Allow to make requests end with slash. [#4190](https://github.com/Codeception/Codeception/issues/4190) by **[SG5](https://github.com/SG5)**
+* **[Yii2]** Allows use `InitDbFixture` feature [#4201](https://github.com/Codeception/Codeception/issues/4201)
+* **[Yii2]** Add missing YII2 lifecycle events. [#4187](https://github.com/Codeception/Codeception/issues/4187)
+* Don't run test if exception was thrown in `_before` of a module [#4197](https://github.com/Codeception/Codeception/issues/4197) by **[Naktibalda](https://github.com/Naktibalda)**
+* **[Mongo]** Fixed parsing dbname. See [#4186](https://github.com/Codeception/Codeception/issues/4186) by **[retnek](https://github.com/retnek)**
+* **[Mongo]** Improved legacy driver check by **[retnek](https://github.com/retnek)**. See [#4178](https://github.com/Codeception/Codeception/issues/4178)
+* [WebDriver][PhpBrowser][Frameworks] Added `grabPageSource` method by **[Kolyunya](https://github.com/Kolyunya)** 
+* [PhpBrowser][REST] Add DELETE method to supported form data request methods in Guzzle6 by
+* [PhpBrowser][REST] Restore request headers in multi-session testing. Fixes [#4157](https://github.com/Codeception/Codeception/issues/4157) 
+* Recorder Extension: Replace non-alphanumeric characters with underscores by **[tiger](https://github.com/tiger)**-seo. Fixes Recorder on Windows
+* **[REST]** Documented different ways to upload files
+* Fixed `$scenario->current('name')` [#4154](https://github.com/Codeception/Codeception/issues/4154) by **[Naktibalda](https://github.com/Naktibalda)**
+* **[AMQP]** Documented parameters of `declareQueue`, `declareExchange` by **[Naktibalda](https://github.com/Naktibalda)**
+* **[Doctrine2]** Safe prefix aliases for `buildAssociationQuery` by **[jfxninja](https://github.com/jfxninja)**. See [#4195](https://github.com/Codeception/Codeception/issues/4195)
+* Fixed output of failed step by **[Naktibalda](https://github.com/Naktibalda)** [#4135](https://github.com/Codeception/Codeception/issues/4135) http://phptest.club/t/seeelement-wierd-fail-message/1470
+* **[WebDriver]** fixed `friend->leave` method. Clearing base element on closing session. Fixes [#4098](https://github.com/Codeception/Codeception/issues/4098)
+* **[Symfony]** Make symfony bootstrap.php.cache optional for php version > 7 by **[patrickjahns](https://github.com/patrickjahns)**
+* Gherkin: Command `gherkin:snippets` to generate stub function name for non-english features. By **[kuntashov](https://github.com/kuntashov)** 
+* Gherkin: Steps with PyString and with inline string argument considered the same. Fixes [#4121](https://github.com/Codeception/Codeception/issues/4121) by **[kuntashov](https://github.com/kuntashov)**
+* **[Db]** `Oci::cleanup()` should be able to drop objects with case sensitive name. By **[pavelkovar](https://github.com/pavelkovar)** 
+* **[Db]** loadDump reports sql statement which caused error, fixes regression from 2.2.10. See [#4120](https://github.com/Codeception/Codeception/issues/4120). By **[Naktibalda](https://github.com/Naktibalda)**.
+* **[Asserts]** Add delta parameter to `assertEquals()` `assertNotEquals()` methods by **[spideyfusion](https://github.com/spideyfusion)** 
+* **[Yii2]** Removed check and notification for environment other than `test` by **[samdark](https://github.com/samdark)**
+* **[Yii2]** Unload fixtures only if `cleanup` configuration equals true. [#4207](https://github.com/Codeception/Codeception/issues/4207) by **[Faryshta](https://github.com/Faryshta)** 
+* **[ZF2]** Removed `session_write_close()` from ZF2 module by **[tasselchof](https://github.com/tasselchof)**. Fixes [#4112](https://github.com/Codeception/Codeception/issues/4112)
+* Fixed textual representation of can't steps by **[Naktibalda](https://github.com/Naktibalda)**
+* **[Lumen]** Added IoC methods from Laravel5 module: `haveBinding`, `haveSingleton`, `haveContextualBinding`, `haveInstance`, `haveApplicationHandler`, `clearApplicationHandlers`. By **[kt81](https://github.com/kt81)**
+* **[Lumen]** Clear facade cache only when facade exists. Same change as [#3124](https://github.com/Codeception/Codeception/issues/3124) for refactored Lumen module by **[kt81](https://github.com/kt81)**
+* **[ZendExpressive]** Support Zend Expressive 2.0 by **[Naktibalda](https://github.com/Naktibalda)**
+* **[Doctrine2]** `haveFakeRepository` updated to work with Doctrine >= 2.5.7 by **[laszlo](https://github.com/laszlo)**-karpati [#4212](https://github.com/Codeception/Codeception/issues/4212)
+* Command `bootstrap` adds `support/_generated` to gitignore. By **[Naktibalda](https://github.com/Naktibalda)**
+
 #### 2.2.10
 
 * Prefer local composer installation if available. Solves issues with incompatibility between locally and globally installed or packaged in phar file Codeception dependencies. Fix by **[Naktibalda](https://github.com/Naktibalda)** See [#3997](https://github.com/Codeception/Codeception/issues/3997)
