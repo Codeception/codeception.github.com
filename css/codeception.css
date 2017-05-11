@@ -139,17 +139,22 @@ body .page {
 	border-radius: 5px;
 }
 
+body .fixed {
+	margin: auto;
+  max-width: 800px;	
+}
+
 body .post {
     margin-top: 1.5em;
     margin-bottom: 1.5em;
     font-size: 1.3em;
-    line-height: 1.6;
+    line-height: 1.5;
     color: #444;
 }
 
 body .page .post p {
-	margin-top: 1.5em;
-	margin-bottom: 1.5em;
+	margin-top: 1.3em;
+	margin-bottom: 1.3em;
 }
 
 
