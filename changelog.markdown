@@ -7,6 +7,27 @@ title: Codeception Changelog
 
 # Changelog
 
+## 2.3.0
+
+* **PHPUnit 6.x** support [#4142](https://github.com/Codeception/Codeception/issues/4142) by **[MontealegreLuis](https://github.com/MontealegreLuis)**. Class aliases are used, so PHPUnit 4.x and 5.x (for PHP <7) are still supported as well.  
+* Suite customization. [Announcement](/05-22-2017/codeception-2-3.html#configuration-improvements)
+* Installation Templates. [Announcement](/05-22-2017/codeception-2-3.html#installation-templates) 
+* DotReporter introduced. Use it with 
+```
+codecept run --ext DotReporter
+```
+* `--ext` parameter added to load extensions dynamically.
+* Db Populator [Announcement](/05-22-2017/codeception-2-3.html#db-populator) by **[brutuscat](https://github.com/brutuscat)**
+* **[Db]** New configuration defaults, cleanups are disabled: `cleanup: false`, `populate: false`. Enable them to load dumps between tests. 
+* **[Redis]** New configuration defaults, cleanups are disabled: `cleanupBefore: 'never'` by **[hchonan](https://github.com/hchonan)** 
+* Command `generate:phpunit` removed.
+* Bootstrap `_bootstrap.php` files are disabled by default.#### 2.2.12
+
+* Don't skip other tests after a failed test [#4226](https://github.com/Codeception/Codeception/issues/4226) by **[Naktibalda](https://github.com/Naktibalda)**
+* **[REST]** `seeResponseContainsJson` doesn't crash when json response is not an array by **[Naktibalda](https://github.com/Naktibalda)**
+* **[PhpBrowser]** Fixed redirecting to schemaless url by **[Naktibalda](https://github.com/Naktibalda)** [#4218](https://github.com/Codeception/Codeception/issues/4218)
+* **[Doctrine2]** Added `grabEntityFromRepository`, `grabEntitiesFromRepository` methods by **[maximelebastard](https://github.com/maximelebastard)** 
+
 #### 2.2.11
 
 * **[WebDriver]** Added `_restart` method to restart browser with a new configuration. 

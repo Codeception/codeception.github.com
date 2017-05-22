@@ -1,6 +1,10 @@
 - name: Allure Codeception Adapter
   link: http://github.com/allure-framework/allure-codeception
   description: This is a Codeception adapter for [Allure Framework](http://allure.qatools.ru)
+  
+- name: Docker Selenium Chrome
+  link: https://github.com/teamneusta/codeception-docker-chrome
+  description: Docker Selenium Chrome for Codeception is a extension to integrate automatic selenium with chrome in your codeception tests.
 
 - name: PhpBuiltinServer
   link: http://github.com/tiger-seo/PhpBuiltinServer

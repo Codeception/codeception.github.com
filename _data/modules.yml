@@ -1,6 +1,10 @@
 - name: Amazon S3 Filesystem
   link: https://github.com/polevaultweb/s3-filesystem
   description: An Amazon S3 Filesystem module.
+  
+- name: BrowserMob
+  link: https://github.com/edno/codeception-browsermob
+  description: Codeception module for BrowserMob Proxy.
 
 - name: CakePHP
   image: https://pbs.twimg.com/profile_images/736902911993774080/p5C2_6xM.jpg

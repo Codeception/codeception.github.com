@@ -34,7 +34,7 @@ For example, in `tests/acceptance.suite.yml` we should see:
 
 {% highlight yaml %}
 
-class_name: AcceptanceTester
+actor: AcceptanceTester
 modules:
     enabled:
         - PhpBrowser:
