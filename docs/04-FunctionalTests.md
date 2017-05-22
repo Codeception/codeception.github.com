@@ -69,7 +69,7 @@ Example of `functional.suite.yml`
 
 {% highlight yaml %}
 
-class_name: FunctionalTester
+actor: FunctionalTester
 modules:
     enabled:
         - Symfony
@@ -92,7 +92,7 @@ The [Laravel5](http://codeception.com/docs/modules/Laravel5) module is included 
 
 {% highlight yaml %}
 
-class_name: FunctionalTester
+actor: FunctionalTester
 modules:
     enabled:
         - Laravel5
@@ -114,7 +114,7 @@ To use it with Yii include `Yii1` module into config:
 
 {% highlight yaml %}
 
-class_name: FunctionalTester
+actor: FunctionalTester
 modules:
     enabled:
         - Yii1
@@ -131,7 +131,7 @@ Use [the ZF2 module](http://codeception.com/docs/modules/ZF2) to run functional 
 
 {% highlight yaml %}
 
-class_name: FunctionalTester
+actor: FunctionalTester
 modules:
     enabled:
         - ZF2
@@ -149,7 +149,7 @@ Example of `functional.suite.yml`
 
 {% highlight yaml %}
 
-class_name: FunctionalTester
+actor: FunctionalTester
 modules:
     enabled:
         - ZF1
@@ -167,7 +167,7 @@ and provide the path to this bootstrap file:
 
 {% highlight yaml %}
 
-class_name: FunctionalTester
+actor: FunctionalTester
 modules:
     enabled:
         - Phalcon:
@@ -270,7 +270,7 @@ The error reporting level can be set in the suite configuration file:
 
 {% highlight yaml %}
 
-class_name: FunctionalTester
+actor: FunctionalTester
 modules:
     enabled:
         - Yii1

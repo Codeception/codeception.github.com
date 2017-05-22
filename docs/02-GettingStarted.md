@@ -25,7 +25,7 @@ By default, AcceptanceTester relies on PhpBrowser module, which is set in the `t
 
 {% highlight yaml %}
 
-class_name: AcceptanceTester
+actor: AcceptanceTester
 modules:
     enabled:
         - PhpBrowser:
@@ -133,7 +133,7 @@ Let's open the `tests/acceptance.suite.yml` file and replace the URL with the UR
 
 {% highlight yaml %}
 
-class_name: AcceptanceTester
+actor: AcceptanceTester
 modules:
     enabled:
         - PhpBrowser:
@@ -201,11 +201,6 @@ This simple test can be extended to a complete scenario of site usage, therefore
 by emulating the user's actions, you can test any of your websites.
 
 Give it a try!
-
-## Bootstrap
-
-Each suite has its own bootstrap file. It's located in the suite directory and is named `_bootstrap.php`. It will be executed before the test suite.
-There is also a global bootstrap file located in the `tests` directory. It can be used to include additional files.
 
 ## Cept, Cest and Test Formats
 
@@ -363,7 +358,6 @@ There are plenty of useful Codeception commands:
 * `generate:cept` *suite* *filename* - Generates a sample Cept scenario
 * `generate:cest` *suite* *filename* - Generates a sample Cest test
 * `generate:test` *suite* *filename* - Generates a sample PHPUnit Test with Codeception hooks
-* `generate:phpunit` *suite* *filename* - Generates a classic PHPUnit Test
 * `generate:feature` *suite* *filename* - Generates Gherkin feature file
 * `generate:suite` *suite* *actor* - Generates a new suite with the given Actor class name
 * `generate:scenarios` *suite* - Generates text files containing scenarios from tests

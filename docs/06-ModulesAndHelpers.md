@@ -31,7 +31,7 @@ For example, in `tests/functional.suite.yml` we should see:
 
 {% highlight yaml %}
 
-class_name: FunctionalTester
+actor: FunctionalTester
 modules:
     enabled:
         - PhpBrowser:
@@ -130,7 +130,7 @@ you can enable just the JSON part of this module:
 
 {% highlight yaml %}
 
-class_name: ApiTester
+actor: ApiTester
 modules:
     enabled:
         - REST:

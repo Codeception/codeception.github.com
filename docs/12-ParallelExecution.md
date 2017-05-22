@@ -373,7 +373,7 @@ We can define different databases for different processes. This can be done usin
 
 {% highlight yaml %}
 
-class_name: AcceptanceTester
+actor: AcceptanceTester
 modules:
     enabled:
         - Db:

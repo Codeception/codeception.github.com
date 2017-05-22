@@ -346,7 +346,7 @@ We need to add some new lines to `acceptance.suite.yml`:
 
 {% highlight yaml %}
 
-class_name: AcceptanceTester
+actor: AcceptanceTester
 modules:
     enabled:
         - WebDriver

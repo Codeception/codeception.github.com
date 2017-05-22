@@ -25,7 +25,7 @@ Configure modules in `api.suite.yml`:
 
 {% highlight yaml %}
 
-class_name: ApiTester
+actor: ApiTester
 modules:
     enabled:
         - REST:
@@ -38,7 +38,7 @@ The REST module will connect to `PhpBrowser` according to this configuration. De
 
 {% highlight yaml %}
 
-class_name: ApiTester
+actor: ApiTester
 modules:
     enabled:
         - REST:
@@ -53,7 +53,7 @@ API tests can be functional and be executed using Symfony, Laravel5, Zend, or an
 
 {% highlight yaml %}
 
-class_name: ApiTester
+actor: ApiTester
 modules:
     enabled:
         - REST:
@@ -216,7 +216,7 @@ Let's configure `SOAP` module to be used with `PhpBrowser`:
 
 {% highlight yaml %}
 
-class_name: ApiTester
+actor: ApiTester
 modules:
     enabled:
     - SOAP:

@@ -5,7 +5,7 @@ title: Cli - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Module/Cli.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Cli.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/Cli.md"><strong>2.2</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Cli.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Cli.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Cli.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module/Cli.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Cli.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/Cli.md">2.2</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Cli.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Cli.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Cli.md">1.8</a></div>
 
 # Cli
 
@@ -56,7 +56,36 @@ Checks that output from last executed command contains text
  * `param` $text
 
 
-#### seeShellOutputMatches
-__not documented__
+#### seeResultCodeIs
+ 
+Checks result code
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.2/src/Codeception/Module/Cli.php">Help us to improve documentation. Edit module reference</a></div>
+{% highlight php %}
+
+<?php
+$I->seeResultCodeIs(0);
+
+{% endhighlight %}
+
+ * `param` $code
+
+
+#### seeResultCodeIsNot
+ 
+Checks result code
+
+{% highlight php %}
+
+<?php
+$I->seeResultCodeIsNot(0);
+
+{% endhighlight %}
+
+ * `param` $code
+
+
+#### seeShellOutputMatches
+ 
+ * `param` $regex
+
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.3/src/Codeception/Module/Cli.php">Help us to improve documentation. Edit module reference</a></div>
