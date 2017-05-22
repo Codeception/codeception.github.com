@@ -4,6 +4,12 @@ title: Codeception Builds
 ---
 
 
+## 2.3
+*Requires: PHP 5.4 and higher + CURL*
+
+* **[Download Latest 2.3 Release](http://codeception.com/releases/2.3.0/codecept.phar)**
+* [2.3.0](http://codeception.com/releases/2.3.0/codecept.phar), [for PHP 5.4 or 5.5](http://codeception.com/releases/2.3.0/php54/codecept.phar)
+
 ## 2.2
 *Requires: PHP 5.4 and higher + CURL*
 
