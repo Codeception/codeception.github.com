@@ -7,6 +7,14 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.2.12
+
+* Don't skip other tests after a failed test [#4226](https://github.com/Codeception/Codeception/issues/4226) by **[Naktibalda](https://github.com/Naktibalda)**
+* **[REST]** `seeResponseContainsJson` doesn't crash when json response is not an array by **[Naktibalda](https://github.com/Naktibalda)**
+* **[PhpBrowser]** Fixed redirecting to schemaless url by **[Naktibalda](https://github.com/Naktibalda)** [#4218](https://github.com/Codeception/Codeception/issues/4218)
+* **[Doctrine2]** Added `grabEntityFromRepository`, `grabEntitiesFromRepository` methods by **[maximelebastard](https://github.com/maximelebastard)**
+* **[REST]** Don't fail dontSee*JsonPath assertions when response is scalar value. Closes [#4237](https://github.com/Codeception/Codeception/issues/4237) by **[Naktibalda](https://github.com/Naktibalda)** 
+
 #### 2.2.11
 
 * **[WebDriver]** Added `_restart` method to restart browser with a new configuration. 
