@@ -4,7 +4,7 @@ title: Quick Start Codeception
 ---
 
 </div></div>
-<div class="hero" style="background-image: url(/images/backgrounds/quickstart.jpg); ">
+<div class="hero" style="background-image: url(/images/backgrounds/quickstart.jpg); height: 50vh; ">
 
   <div class="wide">
   <div class="container-fluid">
@@ -29,63 +29,164 @@ title: Quick Start Codeception
 <div class="container-fluid">
 <div class="row">
   <div class="col-xs-12 col-lg-8">
-  <div class="page">
-    <p class="lead">Codeception PHP Testing Framework is designed to work just out of the box.
-      This means its installation requires minimal steps and no external dependencies
-      preinstalled (except PHP, of course). Only one configuration step should
-      be taken and you are ready to test your web application from an eye of
-      actual user.</p>
-      <p>
-        <strong class="text-info text-uppercase">Requirements: PHP5.3, CURL enabled</strong>
-      </p>
-      </div>
 
     <div class="panel panel-info">
-      <div class="panel-heading"><h4 class="panel-title">1. Download</h4></div>
+      <div class="panel-heading">
+
+<a href="/install" style="float: right">Alternative Installations &raquo;</a>
+      <h4 class="panel-title">1. Install</h4></div>
       <div class="panel-body">
           <div class="">
             <p class="lead">Install via Composer</p>
-            <pre>$ composer require "codeception/codeception"  <span class="text-muted">// ./vendor/bin/codecept</span></pre>
-            <p><code class="text-muted">$ alias codecept='./vendor/bin/codecept'</code></p>
+            <div class="highlight">
+              
+            <pre>composer require "codeception/codeception" --dev</pre>
+            </div>
+                      <p>
+      Execute it as
+
+          <code>./vendor/bin/codecept</code></p>
           </div>
 <hr>
 
-<p class="lead">Install PHAR locally</p>
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        Install Phar Executable for PHP 7.x
+        </a>
+      </h4>
+      </div>
 
-<!-- phar -->
-<pre>$ wget http://codeception.com/codecept.phar<a href="/thanks" style="float:right" target="_blank">download <span class="glyphicon glyphicon-download"></span></a></pre>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 
-<!-- phar php54 -->
-<pre>$ wget http://codeception.com/php54/codecept.phar <span class="text-muted">// PHP 5.4 and 5.5</span><a href="/thanks_php54" style="float:right" target="_blank">download <span class="glyphicon glyphicon-download"></span></a></pre>
-<p><code class="text-muted">$ alias codecept='codecept.phar'</code></p>
-    <div>
+<div class="row">
+  <div class="col-md-3">
+      
+    <a href="/thanks" class="btn btn-success btn-expand">Download Phar Executable</a>    
+  </div>
+  <div class="col-md-9">
+
+<div class="highlight">
+<pre>wget http://codeception.com/codecept.phar<a href="/thanks" style="float:right" target="_blank">download <span class="glyphicon glyphicon-download"></span></a></pre>  
+</div>    
+
+  </div>
+
+</div>
+          <p>
+      Execute it as
+
+          <code>php codecept.phar</code></p>
+
+
+      </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        Install Phar for PHP 5.x
+        </a>
+      </h4>
+      </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+
+<div class="row">
+  <div class="col-md-3">
+    <a href="/thanks_php5" target="_blank" class="btn btn-success btn-expand">Download Phar Executable</a>    
+  </div>
+  <div class="col-md-9">
+
+<div class="highlight">
+<pre>wget http://codeception.com/php5/codecept.phar<a href="/thanks_php5" style="float:right" target="_blank">download <span class="glyphicon glyphicon-download"></span></a></pre>  
+</div>    
+
+  </div>
+</div>
+          <p>
+      Execute it as
+
+          <code>php codecept.phar</code></p>
+
     </div>
 
-<hr>
-          <p class="lead">Install PHAR globally</p>
+  </div>
+
+    <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+        Install Phar Globally
+        </a>
+      </h4>
+      </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+
+  <div class="highlight">
+    
           <pre>sudo curl -LsS http://codeception.com/codecept.phar -o /usr/local/bin/codecept</pre>
           <pre>sudo chmod a+x /usr/local/bin/codecept</pre>
-          <p><code class="text-muted">$ codecept</code></p>
+  </div>
+          <p>
+      Execute it as
 
-<hr>
-<p><a href="/install">Alternative Installations</a></p>
+          <code>codecept</code></p>
+
+
+    </div>
+    </div>
+
+</div>
+
+<a class="" role="button" data-toggle="collapse" href="#phar-global" aria-expanded="false" aria-controls="collapseExample">
+  
+</a>
+
             
 
           <!-- <p>Use <code>codecept</code> instead of codecept.phar in this case.</p> -->
         </div> <!-- /.panel-body -->
       </div> <!-- /.panel -->
+      </div> <!-- /.col -->
+
+<div class="col-sm-12 col-lg-4">
+<h3>Quick Start For</h3>
+{% include for.html %}
+
+</div>
+</div>
+</div>
+<div class="row">
+
+<div class="col-sm-12 col-lg-6">
+
+
+
 
       <div class="panel panel-info">
-        <div class="panel-heading"><h4 class="panel-title">2. Install</h4></div>
+        <div class="panel-heading"><h4 class="panel-title">2. Setup</h4></div>
         <div class="panel-body">
           <p>Execute:</p>
-          <div>
+          <div class="highlight">
             <p>
               <pre>codecept bootstrap</pre>
             </p>
           </div>
-          <p class="text-muted">This creates
-            <b>codeception.yml</b> file and <b>tests</b> directory.</p>
+          <p class="text-muted">This creates configuration file
+            <b>codeception.yml</b> and <b>tests</b> directory and default test suites.
+            Acceptance, functional, unit test suites are created as well.
+            </p>
+
+<a class="btn btn-primary" role="button" data-toggle="collapse" href="#bootstrap-demo" aria-expanded="false" aria-controls="collapseExample">
+  See Demo
+</a>
+
+<p class="collapse" id="bootstrap-demo"><img src="/images/codecept_bootstrap.gif" alt=""></p>
+
+
               </div> <!-- /.panel-body -->
             </div> <!-- /.panel -->
 
@@ -94,46 +195,25 @@ title: Quick Start Codeception
           <div class="panel-body">
             <p>Generate your first acceptance test. Acceptance tests emulate behavior
               of a real user visiting your site.</p>
-              <div>
+              <div class="highlight">
                 <p>
-                  <pre>codecept generate:cept acceptance Welcome</pre>
+                  <pre>codecept generate:cest acceptance First</pre>
                 </p>
               </div>
               <p class="text-muted">Codeception scenario tests are called Cepts.</p>
                 </div> <!-- /.panel-body -->
               </div> <!-- /.panel -->
 
-<div class="panel panel-info">
-  <div class="panel-heading">
-    <h4 class="panel-title">4. Write Basic Test</h4>
-  </div>
-  <div class="panel-body">
-    <p>It's now time to write your first test. Edit the file we've just created
-      <b>tests/acceptance/WelcomeCept.php</b>
-    </p>
-    <div>
-{% highlight php %}
-<?php
-  $I = new AcceptanceTester($scenario);
-  $I->wantTo('ensure that frontpage works');
-  $I->amOnPage('/');
-  $I->see('Home');
-?>
-{% endhighlight %}
-    </div>
-    <p class="text-muted">It will check that your frontpage contains the word <b>Home</b> in it.</p>
-      </div> <!-- /.panel-body -->
-    </div> <!-- /.panel -->
 
 <div class="panel panel-info">
-<div class="panel-heading"><h4 class="panel-title">5. Configure Acceptance Tests</h4></div>
+<div class="panel-heading"><h4 class="panel-title">4. Configure Acceptance Tests</h4></div>
 <div class="panel-body">
   <p>Please make sure your local
-    <b>dev server</b>is running. &nbsp;Put application URL into:&nbsp;
+    <b>developemt server</b> is running. &nbsp;Put application URL into:&nbsp;
     <b>tests/acceptance.suite.yml</b>&nbsp;</p>
-    <div>
+    <div class="highlight">
 <pre>
-class_name: AcceptanceTester
+actor: AcceptanceTester
 modules:
     enabled:
         - PhpBrowser:
@@ -144,13 +224,39 @@ modules:
       </div> <!-- /.panel-body -->
     </div> <!-- /.panel -->
 
+    <div class="panel panel-info">
+  <div class="panel-heading">
+    <h4 class="panel-title">5. Write a Basic Test</h4>
+  </div>
+  <div class="panel-body">
+    <p>It's now time to write your first test. Edit the file we've just created
+      <b>tests/acceptance/FirstCest.php</b>
+    </p>
+    <div>
+{% highlight php %}
+<?php
+class FirstCest 
+{
+    public function frontpageWorks(AcceptanceTester $I)
+    {
+        $I->amOnPage('/');
+        $I->see('Home');  
+    }
+}
+{% endhighlight %}
+    </div>
+    <p class="text-muted">It will check that your frontpage contains the word <b>Home</b> in it.</p>
+      </div> <!-- /.panel-body -->
+    </div> <!-- /.panel -->
+
+
 <div class="panel panel-info">
   <div class="panel-heading"><h4 class="panel-title">6. Run!</h4></div>
   <div class="panel-body">
-    <p>Codeception are executed with 'run' command</p>
-    <div>
+    <p>Tests are executed with 'run' command</p>
+    <div class="highlight">
       <p>
-        <pre>codecept run</pre>
+        <pre>codecept run --steps</pre>
       </p>
     </div>
     <p class="text-muted">This will execute our Welcome test with
@@ -160,45 +266,88 @@ modules:
       <b>WebDriver</b> module.</p>
         </div> <!-- /.panel-body -->
       </div> <!-- /.panel -->
-</div> <!-- /.col -->
-<div class="col-sm-12 col-lg-4">
-<h3>Quick Start For</h3>
-{% include for.html %}
-
-</div>
 
 </div> <!-- /.row -->
 
-  <div class="row">
-<div class="col-sm-12 col-lg-8">
-<div class="panel panel-success">
-<div class="panel-heading">If you did everything right and your app has "Home" text on frontpage you
-  will see this in output</div>
-  <div class="panel-body">
-<pre>
-Acceptance Tests (1) -------------------------------
-&#10003; <b>WelcomeCept: Ensure that frontpage works</b>
+<div class="col-sm-12 col-lg-6">
+<div class="page">
+  
+<h3>Simplified Setup</h3>
 
-Functional Tests -----------------------------------
-Unit Tests -----------------------------------------
+<p>Use predefined installation templates for common use cases. 
+Run them instead of <code>bootstrap</code> command.
+</p>
 
-Time: 1 second, Memory: 21.00Mb
-<b>OK (1 test, 1 assertions)</b></pre>
-  </div> <!-- /.panel-body -->
-</div> <!-- /.panel -->
+<h4>Acceptance Testing (only)</h4>
+
+<div class="highlight">
+  <pre>codecept init acceptance</pre>
 </div>
 
-<div class="col-sm-12 col-lg-4">
+<a class="btn btn-primary" role="button" data-toggle="collapse" href="#acceptance-demo" aria-expanded="false" aria-controls="collapseExample">
+  See Demo
+</a> <a href="/docs/03-AcceptanceTests" class="btn btn-secondary">Acceptance Testing Guide &raquo;</a>
 
-<p>Follow the Acceptance Testing chapter to learn how to test your
-  web application by clicking links, filling forms, as your regular users
-  do.</p>
+<p class="collapse" id="acceptance-demo"><img src="/images/codecept_acceptance.gif" alt=""></p>
+
+<hr>
+
+<h4>REST API Testing (only)</h4>
+
+<div class="highlight">
+  <pre>codecept init api</pre>
+</div>
+
+
+<a class="btn btn-primary" role="button" data-toggle="collapse" href="#api-demo" aria-expanded="false" aria-controls="collapseExample">
+  See Demo
+</a>
+
+ <a href="/docs/10-WebServices#REST" class="btn btn-secondary">REST API Testing Guide &raquo;</a>
+
+<p class="collapse" id="api-demo"><img src="/images/codecept_api.gif" alt=""></p>
+
+<hr>
+
+<h4>Unit Testing (only)</h4>
+
+<div class="highlight">
+  <pre>codecept init unit</pre>
+</div>
+
+<a class="btn btn-primary" role="button" data-toggle="collapse" href="#unit-demo" aria-expanded="false" aria-controls="collapseExample">
+  See Demo
+</a>
+
+<a href="/docs/05-UnitTests" class="btn btn-secondary">Unit Testing Guide &raquo;</a>
+
+<p class="collapse" id="unit-demo"><img src="/images/codecept_unit.gif" alt=""></p>
+
+</div>
+
+</div>
+</div>
+
+  <div class="row">
+<div class="col-sm-12 col-lg-6">
+<div class="panel panel-success">
+<img src="/images/codecept_run.gif" style="width:100%;" alt="">
+</div>
+</div>
+<div class="col-sm-12 col-lg-6">
+
+<div class="page">
+
+<h4>&raquo; Next!</h4>
+
+<p>Read Codeception Guides to learn how to use it.</p>
   <div class="list-group">
-    <a class="list-group-item" href="/docs/02-GettingStarted">A Complete Getting Started Guide</a>
-    <a class="list-group-item active" href="/docs/03-AcceptanceTests">Continue with Acceptance Tests</a>
+    <a class="list-group-item active" href="/docs/02-GettingStarted">A Complete Getting Started Guide</a>
+    <a class="list-group-item" href="/docs/03-AcceptanceTests">Continue with Acceptance Tests</a>
     <a class="list-group-item" href="/docs/01-Introduction">The difference &nbsp;between Acceptance Tests and Unit Tests</a>
   </div>
 </div>
+  </div>
   </div>
 </div>
 </div>

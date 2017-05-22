@@ -70,6 +70,10 @@ body #home-hero h1 {
 	top:-7px;
 }
 
+body .panel>.panel-collapse {
+	padding: 10px;
+}
+
 .maintainer a {
 	color: #fff;
 }
@@ -141,20 +145,24 @@ body .page {
 
 body .fixed {
 	margin: auto;
-  max-width: 800px;	
+  max-width: 1000px;	
 }
 
 body .post {
     margin-top: 1.5em;
     margin-bottom: 1.5em;
     font-size: 1.3em;
-    line-height: 1.5;
+    line-height: 1.4;
     color: #444;
 }
 
 body .page .post p {
-	margin-top: 1.3em;
-	margin-bottom: 1.3em;
+	margin-top: 0;
+	margin-bottom: 1em;
+}
+
+body .page .post h2, body .page .post h3, body .page .post h4, body .page .post h5, body .page .post ul {
+	margin-bottom: 1em;
 }
 
 
