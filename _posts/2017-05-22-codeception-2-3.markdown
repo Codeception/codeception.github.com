@@ -70,7 +70,7 @@ A good option if you have a single suite.
 
 #### Suite Paths
 
-The suite can have its custom path (specified by `path`). From config above expects unit tests to be placed into the root directory, where codeception.yml is located (`path: tests: .` and `path: ``)
+The suite can have its custom path (specified by `path`). From config above expects unit tests to be placed into the root directory, where codeception.yml is located.
 
 ![selection_201](https://cloud.githubusercontent.com/assets/220264/25978631/1cda7ba6-36cc-11e7-9db1-035b13cab3d4.png)
 
@@ -93,7 +93,7 @@ suites:
                 - Asserts
 ```
 
-In this case, UnitTester won't be created, as well as `_generated/UnitActions`. However, such suites won't be able to have Cest and Cept files generated.
+In this case, UnitTester won't be created, as well as `_generated/UnitActions`. However, such suites won't be able to use Cest and Cept files.
 
 #### Naming Changes
 
@@ -117,7 +117,7 @@ codecept run --ext Recorder
 
 or by providing a full class name
 
-```
+```bash
 codecept run --ext "Codeception\Extension\Recorder"
 ```
 
@@ -148,7 +148,7 @@ In Codeception 2.3 we recommend to specify a command to load a database in `popu
           populator: 'mysql -u $user $dbname < tests/_data/dump.sql'
 ```
 
-This approach is system-dependent, you can't use the same config on Windows and Nix systems, but is much faster. Thanks [Mauro Asprea @brutuscat](https://github.com/brutuscat) for this feature.
+This approach is system-dependent, you can't use the same config on Windows and Nix systems, but is much faster. Thanks to [Mauro Asprea @brutuscat](https://github.com/brutuscat) for this feature.
 
 ### Db module defaults
 
@@ -161,5 +161,5 @@ See complete [changelog](http://codeception.com/changelog) for all notable chang
 
 ---
 
-P.S. Codeception is seeking for Symfony module maintainer. If you use Codeception with Symfony and you'd like to improve it, please contact us at `team@codeception.com`. 
+P.S. **Codeception is seeking for Symfony module maintainer**. If you use Codeception with Symfony and you'd like to improve it, please contact us at `team@codeception.com`. 
 Maintainer responsibilities are: review issues, pull requests, update symfony demo app and so on. Take a part in project development and make open source brighter! 
