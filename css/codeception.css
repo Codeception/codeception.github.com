@@ -166,6 +166,10 @@ body .page .post h2, body .page .post h3, body .page .post h4, body .page .post 
 }
 
 
+body .page .post h2 {
+	border-bottom: 2px solid #45414B;
+}
+
 body .page p {
 	margin-top: 0.75em;
 	margin-bottom: 0.75em;
