@@ -7,7 +7,11 @@ title: Codeception Changelog
 
 # Changelog
 
-## 2.3.0
+#### 2.3.1
+
+* Updated composer constraints to include PHPUnit 6.x
+
+#### 2.3.0
 
 * **PHPUnit 6.x** support [#4142](https://github.com/Codeception/Codeception/issues/4142) by **[MontealegreLuis](https://github.com/MontealegreLuis)**. Class aliases are used, so PHPUnit 4.x and 5.x (for PHP <7) are still supported as well.  
 * Suite customization. [Announcement](/05-22-2017/codeception-2-3.html#configuration-improvements)
@@ -21,7 +25,9 @@ codecept run --ext DotReporter
 * **[Db]** New configuration defaults, cleanups are disabled: `cleanup: false`, `populate: false`. Enable them to load dumps between tests. 
 * **[Redis]** New configuration defaults, cleanups are disabled: `cleanupBefore: 'never'` by **[hchonan](https://github.com/hchonan)** 
 * Command `generate:phpunit` removed.
-* Bootstrap `_bootstrap.php` files are disabled by default.#### 2.2.12
+* Bootstrap `_bootstrap.php` files are disabled by default.
+
+#### 2.2.12
 
 * Don't skip other tests after a failed test [#4226](https://github.com/Codeception/Codeception/issues/4226) by **[Naktibalda](https://github.com/Naktibalda)**
 * **[REST]** `seeResponseContainsJson` doesn't crash when json response is not an array by **[Naktibalda](https://github.com/Naktibalda)**
