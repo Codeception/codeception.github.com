@@ -44,6 +44,8 @@ codecept init unit
 
 But the best thing about installation templates that they can be created by anyone! They can be placed inside a separate package and loaded by `init` command. A template class should be placed into `Codeception\Template` namespace and then it can be autoloaded. Installation templates are pretty simple, learn how to build your own by taking a look at [Acceptance template as an example](https://github.com/Codeception/Codeception/blob/master/src/Codeception/Template/Acceptance.php#L67).
 
+We have added Installation templates to [Customization](http://codeception.com/docs/08-Customization#Installation-Templates) guide and added a reference to [Codeception\InitTemplate](http://codeception.com/docs/reference/InitTemplate) class.
+
 ## Configuration Improvements
 
 #### Suites Inside Main Config

@@ -151,17 +151,13 @@ body .fixed {
 body .post {
     margin-top: 1.5em;
     margin-bottom: 1.5em;
-    font-size: 1.3em;
+    font-size: 1.1em;
     line-height: 1.4;
     color: #444;
 }
 
 body .page .post p {
 	margin-top: 0;
-	margin-bottom: 1em;
-}
-
-body .page .post h2, body .page .post h3, body .page .post h4, body .page .post h5, body .page .post ul {
 	margin-bottom: 1em;
 }
 
@@ -716,3 +712,12 @@ ul.navbar-nav {
     }
 }
 
+@media (max-width: 768px) {
+	html, body {
+	width: auto !important;
+	overflow-x: hidden !important;
+	}
+	body .wide>div {
+		margin: 0;
+	}
+}
