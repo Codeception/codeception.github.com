@@ -65,7 +65,7 @@ return new \Phalcon\Mvc\Application($di);
 
 {% highlight yaml %}
 
-actor: AcceptanceTester
+class_name: AcceptanceTester
 modules:
     enabled:
         - Phalcon:
@@ -1651,4 +1651,4 @@ $I->uncheckOption('#notify');
 
  * `param` $option
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.3/src/Codeception/Module/Phalcon.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.2/src/Codeception/Module/Phalcon.php">Help us to improve documentation. Edit module reference</a></div>

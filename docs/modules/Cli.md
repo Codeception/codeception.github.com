@@ -56,36 +56,7 @@ Checks that output from last executed command contains text
  * `param` $text
 
 
-#### seeResultCodeIs
- 
-Checks result code
-
-{% highlight php %}
-
-<?php
-$I->seeResultCodeIs(0);
-
-{% endhighlight %}
-
- * `param` $code
-
-
-#### seeResultCodeIsNot
- 
-Checks result code
-
-{% highlight php %}
-
-<?php
-$I->seeResultCodeIsNot(0);
-
-{% endhighlight %}
-
- * `param` $code
-
-
 #### seeShellOutputMatches
- 
- * `param` $regex
+__not documented__
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.3/src/Codeception/Module/Cli.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.2/src/Codeception/Module/Cli.php">Help us to improve documentation. Edit module reference</a></div>

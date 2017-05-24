@@ -394,7 +394,7 @@ codecept init Acceptance --path acceptance_tests
 You will be asked several questions and then config files will be generated and all necessary directories will be created.
 Learn from the examples above to build a custom Installation Template. Here are the basic rules you should follow:
 
-* Templates should be inherited from [Codeception\InitTemplate](http://codeception.com/docs/reference/InitTemplate) class and implement `setup` method.
+* Templates should be inherited from [`Codeception\InitTemplate`](http://codeception.com/docs/reference/InitTemplate) class and implement `setup` method.
 * Template class should be placed in `Codeception\Template` namespace so Codeception could locate them by class name
 * Use methods like `say`, `saySuccess`, `sayWarning`, `sayError`, `ask`, to interact with a user.
 * Use `createDirectoryFor`, `createEmptyDirectory` methods to create directories
