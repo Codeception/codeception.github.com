@@ -73,7 +73,7 @@ Requires module container (to provide access between modules of suite) and confi
 
  * `param TestInterface` $test
 
-[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module.php#L257)
+[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module.php#L253)
 
 #### _afterStep()
 
@@ -83,7 +83,7 @@ Requires module container (to provide access between modules of suite) and confi
 
  * `param Step` $step
 
-[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module.php#L239)
+[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module.php#L235)
 
 #### _afterSuite()
 
@@ -91,7 +91,7 @@ Requires module container (to provide access between modules of suite) and confi
 
 **HOOK** executed after suite
 
-[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module.php#L221)
+[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module.php#L217)
 
 #### _before()
 
@@ -101,7 +101,7 @@ Requires module container (to provide access between modules of suite) and confi
 
  * `param TestInterface` $test
 
-[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module.php#L248)
+[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module.php#L244)
 
 #### _beforeStep()
 
@@ -111,7 +111,7 @@ Requires module container (to provide access between modules of suite) and confi
 
  * `param Step` $step
 
-[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module.php#L230)
+[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module.php#L226)
 
 #### _beforeSuite()
 
@@ -121,13 +121,7 @@ Requires module container (to provide access between modules of suite) and confi
 
  * `param array` $settings
 
-[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module.php#L214)
-
-#### _cleanup()
-
- *public* _cleanup() 
-
-[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module.php#L205)
+[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module.php#L210)
 
 #### _failed()
 
@@ -138,7 +132,7 @@ Requires module container (to provide access between modules of suite) and confi
  * `param TestInterface` $test
  * `param \Exception` $fail
 
-[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module.php#L267)
+[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module.php#L263)
 
 #### _getConfig()
 
@@ -149,7 +143,7 @@ Get config values or specific config item.
  * `param null` $key
  * `return` array|mixed|null
 
-[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module.php#L342)
+[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module.php#L338)
 
 #### _getName()
 
@@ -610,7 +604,7 @@ Print debug message to the screen.
 
  * `param` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module.php#L276)
+[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module.php#L272)
 
 #### debugSection()
 
@@ -621,7 +615,7 @@ Print debug message with a title
  * `param` $title
  * `param` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module.php#L287)
+[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module.php#L283)
 
 #### fail()
 
@@ -650,7 +644,7 @@ $this->getModule('WebDriver')->_findElements('.items');
  * `return` Module
  * `throws` ModuleException
 
-[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module.php#L328)
+[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module.php#L324)
 
 #### getModules()
 
@@ -659,7 +653,7 @@ $this->getModule('WebDriver')->_findElements('.items');
 Get all enabled modules
  * `return` array
 
-[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module.php#L311)
+[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module.php#L307)
 
 #### hasModule()
 
@@ -670,7 +664,7 @@ Checks that module is enabled.
  * `param` $name
  * `return` bool
 
-[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module.php#L301)
+[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module.php#L297)
 
 #### onReconfigure()
 
@@ -684,7 +678,7 @@ HOOK to be executed when config changes with `_reconfigure`.
 
  *protected* scalarizeArray($array) 
 
-[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module.php#L353)
+[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module.php#L349)
 
 #### validateConfig()
 
