@@ -29,7 +29,9 @@ composer require codeception/codeception --dev
 
 ## Setup
 
-It is recommended to have unit and functional testing set up per each bundle and acceptance tests for set globally. Unit and Functional tests will check that each bundle work as expected while acceptance tests will check the UI and work of a system as a whole. 
+From Symfony 4 onwards there will be a top-level `tests` directory instead of a separate `Tests` directory in each bundle.
+So to save you from reconfiguration in the future, it is recommended place unit, functional, and acceptance test files
+into `/tests`.
 
 ### Project Setup
 
@@ -110,36 +112,26 @@ php bin/codecept gherkin:snippets
   Continue to <a href="http://codeception.com/docs/07-BDD">Behavior Driven Development Guide &raquo;</a>
 </div>
 
-## Bundle Setup
+## Functional Testing
 
-Each bundle should have its own Codeception setup. To have test configuration for `AppBundle` you should run:
-
-```
-php bin/codecept bootstrap --empty src/AppBundle --namespace AppBundle
-```
-
-This will create `tests` dir inside `src/AppBundle`. 
-
-### Functional Testing
-
-There is no need to use `WebTestCase` to write functional tests. Symfony functional tests are written in the same manner as acceptance tests but are executed inside a framework. Codeception has `Symfony` module for it. It is a good idea to separate functional and unit tests so it is recommended to create a new test suite for AppBundle
+There is no need to use `WebTestCase` to write functional tests. Symfony functional tests are written in the same manner as acceptance tests but are executed inside a framework. Codeception has the [Symfony Module](http://codeception.com/docs/modules/Symfony) for it. To create a functional test suite, run:
 
 ```
-php bin/codecept g:suite functional -c src/AppBundle
+php bin/codecept g:suite functional
 ```
 
-Functional tests are written in the same manner as acceptance tests. They also use scenario and `$I` actor object. The only difference is how they are executed. To run tests as Symfony test you should enable corresponding module in functional suite configureation file `src/Appundle/tests/functional.suite.yml`. Probably you want Doctrine to be included as well. Then you should use this configuration:
+Functional tests are written in the same manner as acceptance tests. They also use scenario and `$I` actor object. The only difference is how they are executed. To run tests as Symfony test you should enable corresponding module in functional suite configuration file `tests/functional.suite.yml`. Probably you want Doctrine to be included as well. Then you should use this configuration:
 
 ```yaml
 class_name: FunctionalTester
 modules:
     enabled:
         - Symfony:
-            app_path: '../../app'
-            var_path: '../../app'
+            app_path: 'app'
+            var_path: 'app'
         - Doctrine2:
             depends: Symfony
-        - \AppBundle\Helper\Functional
+        - \Helper\Functional
 ```
 
 <div class="alert alert-warning">
@@ -154,13 +146,13 @@ modules:
 
 ### API Tests
 
-API Tests are done at functional testing level but instead of testing HTML responses on user actions, they test requests and responses via protocols like REST or SOAP. To create api tests for `ApiBundle` bundle you should create a suite for them
+API Tests are done at functional testing level but instead of testing HTML responses on user actions, they test requests and responses via protocols like REST or SOAP. To create api tests, you should create a suite for them:
 
 ```
-php bin/codecept g:suite api -c src/ApiBundle
+php bin/codecept g:suite api
 ```
 
-You will need to enable `REST`, `Symfony` and `Doctrine` module in `src/ApiBundle/tests/api.suite.yml`:
+You will need to enable `REST`, `Symfony` and `Doctrine` module in `tests/api.suite.yml`:
 
 ```yaml
 class_name: ApiTester
@@ -171,11 +163,11 @@ modules:
             depends: Symfony
         - Doctrine2:
             depends: Symfony
-        - \ApiBundle\Helper\Api
+        - \Helper\Api
     config:
         - Symfony:
-            app_path: '../../app'
-            var_path: '../../app'
+            app_path: 'app'
+            var_path: 'app'
 
 ```
 
@@ -190,22 +182,22 @@ Symfony module actions like `amOnPage` or `see` should not be available for test
 
 ### Unit Testing
 
-You should put your unit tests for AppBundle into `src/AppBundle/tests/unit`. It is done to not mix them with functional and API tests. To start unit test suite for `AppBundle` shoule be created:
+Create a unit test suite with:
 
 ```
-php bin/codecept g:suite unit -c src/AppBundle
+php bin/codecept g:suite unit
 ```
 
-Codeception is powered by PHPUnit so unit and integration test work in a similar manner. To genereate a plain PHPUnit test for `Foo` class inside `AppBundle` please run
+Codeception is powered by PHPUnit so unit and integration test work in a similar manner. To genereate a plain PHPUnit test for `Foo` class, run:
 
 ```
-php bin/codecept g:phpunit unit Foo -c src/AppBundle
+php bin/codecept g:phpunit unit Foo
 ```
 
 This generates a standard test inherited from `PHPUnit_Framework_TestCase`. For integration tests you may use Codeception-enhanced format which allows accessing services DI container, Doctrine, and others. You will need to enable Doctrine2 and Symfony module in `unit.suite.yml` config. Such integration test is extending `Codeception\Test\Unit` class and created by running:
 
 ```
-php bin/codecept g:test unit Foo -c src/AppBundle
+php bin/codecept g:test unit Foo
 ```
 
 Actions of Symfony and Doctrine2 modules will be accessible from `$this->tester` inside a test of `Codeception\Test\Unit`.
@@ -214,15 +206,3 @@ Actions of Symfony and Doctrine2 modules will be accessible from `$this->tester`
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
   Continue to <a href="http://codeception.com/docs/05-UnitTests">Unit Testing Guide &raquo;</a>.
 </div>
-
-
-### Running it all together
-
-Codeception allows to execute all tests with different configurations in one runner. To execute all tests at once with `codecept run` you should include bundle configurations into global configuration file `codeception.yml` in the root of a project:
-
-```yaml
-include:
-    - src/*Bundle
-```
-
-Then running codeception tests from root directory will execute tests from all bundles as well as acceptance tests.
