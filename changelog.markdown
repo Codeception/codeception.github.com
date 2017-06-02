@@ -7,6 +7,14 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.3.3
+
+* Fixed running with `--coverage`, `--xml`, `--html` options without parameters (Symfony Console 3.3 compatibility).
+* Removed `files` section from `composer.json` (regression from 2.3.2) to avoid unintentionally loading shim files. Fixes [Yii migration issue](https://github.com/yiisoft/yii2/issues/14226).
+* **[WebDriver]** `saveScreenshot` allows to save screenshots with no name passed in. See [#4263](https://github.com/Codeception/Codeception/issues/4263) by **[eXorus](https://github.com/eXorus)**
+* [REST][PhpBrowser] Fixed [#4287](https://github.com/Codeception/Codeception/issues/4287), using empty values for headers by **[tobiastom](https://github.com/tobiastom)**.
+* Phar `self-update` downloads php5.4 build if php version <7.0. Fixes [#4269](https://github.com/Codeception/Codeception/issues/4269)
+
 #### 2.3.2
 
 * **[Db]** Fixed: Database has been cleaned up between tests even with `cleanup: false`.  

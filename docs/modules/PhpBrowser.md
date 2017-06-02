@@ -1285,7 +1285,7 @@ Alias to `haveHttpHeader`
 
 #### submitForm
  
-Submits the given form on the page, optionally with the given form
+Submits the given form on the page, with the given form
 values.  Pass the form field's values as an array in the second
 parameter.
 
