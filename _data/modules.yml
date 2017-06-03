@@ -105,3 +105,8 @@
 - name: Mountebank
   link: https://github.com/meare/codeception-mountebank
   description: Stub and mck external services with mountebank
+  
+- name: Yandex
+  link: https://github.com/portrino/codeception-yandex-module
+  description: Validation of structured data via yandex API
+  image: https://de.wikipedia.org/wiki/Yandex#/media/File:Yandex_logo_en.svg
