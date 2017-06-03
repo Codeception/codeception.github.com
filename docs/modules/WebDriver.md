@@ -953,7 +953,7 @@ If no parameters are provided, the full URI is returned.
 {% highlight php %}
 
 <?php
-$user_id = $I->grabFromCurrentUrl('~$/user/(\d+)/~');
+$user_id = $I->grabFromCurrentUrl('~^/user/(\d+)/~');
 $uri = $I->grabFromCurrentUrl();
 ?>
 
@@ -1058,8 +1058,6 @@ Takes a screenshot of the current window and saves it to `tests/_output/debug`.
 $I->amOnPage('/user/edit');
 $I->makeScreenshot('edit_page');
 // saved to: tests/_output/debug/edit_page.png
-$I->makeScreenshot();
-// saved to: tests/_output/debug/2017-05-26_14-24-11_4b3403665fea6.png
 ?>
 
 {% endhighlight %}

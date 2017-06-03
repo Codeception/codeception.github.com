@@ -111,7 +111,7 @@ $user = $I->grabEntityFromRepository('User', array('id' => '1234'));
  * `Available since` 1.1
  * `param` $entity
  * `param array` $params
- * `return` object
+ * `return` array
 
 
 #### grabFromRepository
