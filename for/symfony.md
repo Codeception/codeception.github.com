@@ -6,8 +6,8 @@ sidebar: |
 
   ## Features
 
-  * Access Symfony services through the dependecy injection container: `$I->grabService('my_service');`
-  * Use Doctrine to access the database (in combination with Codeception's [Doctrine2 Module](http://codeception.com/docs/modules/Doctrine2)): `$I->seeInRepository('AppBundle:User', array('name' => 'davert'));`
+  * Access Symfony services through the dependecy injection container: `$I->grabService(...)`
+  * Use Doctrine to access the database (in combination with Codeception's [Doctrine2 Module](http://codeception.com/docs/modules/Doctrine2)): `$I->seeInRepository(...);`
   * Assert that emails would have been sent: `$I->seeEmailIsSent();`
   * It's possible to have different Codeception setups for each Symfony bundle.
   * Tests are wrapped into Doctrine transaction to speed them up.
