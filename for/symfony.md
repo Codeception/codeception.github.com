@@ -31,8 +31,8 @@ composer require codeception/codeception --dev
 
 ## Setup
 
-From Symfony 4 onwards there will be a top-level `tests` directory instead of a separate `Tests` directory in each bundle.
-So to save you from reconfiguration in the future, it is recommended place unit, functional, and acceptance test files
+From Symfony 4 onwards there will be a top-level `tests` directory, instead of a separate `Tests` directory in each bundle.
+So to save you from reconfiguration in the future, it is recommended to place unit, functional, and acceptance test files
 into `/tests`.
 
 ### Project Setup
