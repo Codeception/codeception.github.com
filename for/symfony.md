@@ -7,9 +7,9 @@ sidebar: |
   ## Features
 
   * Access Symfony services through the dependecy injection container: `$I->grabService(...)`
-  * Use Doctrine to test against the database: `$I->seeInRepository(...);`
-  * Assert that emails would have been sent: `$I->seeEmailIsSent();`
-  * It's possible to have different Codeception setups for each Symfony bundle.
+  * Use Doctrine to test against the database: `$I->seeInRepository(...)`
+  * Assert that emails would have been sent: `$I->seeEmailIsSent()`
+  * Different setups for each bundle.
   * Tests are wrapped into Doctrine transaction to speed them up.
   * Symfony Router can be cached between requests to speed up testing.
 
