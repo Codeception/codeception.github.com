@@ -37,13 +37,13 @@ into `/tests`.
 
 ### Project Setup
 
-Codeception should be installed globally for a project. To start please run
+Codeception should be installed globally for a project. To start, please run
 
 ```
 php bin/codecept bootstrap --empty
 ```
 
-which creates `codeception.yml` and `tests` directory. There are no test suites in `tests` directory. 
+This will create `codeception.yml` and the `/tests` directory. There are no test suites inside `tests` yet. 
 
 ### Acceptance Testing
 
