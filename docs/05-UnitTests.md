@@ -16,7 +16,7 @@ __To say it again: you don't need to install PHPUnit to run its tests. Codecepti
 
 ## Creating Test
 
-Create a test using `geenrate:test` command with a suite and test names as parameters: 
+Create a test using `generate:test` command with a suite and test names as parameters: 
 
 {% highlight bash %}
 
