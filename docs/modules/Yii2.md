@@ -18,8 +18,7 @@ It initializes Yii framework in test environment and provides actions for functi
 * `configFile` *required* - the path to the application config file. File should be configured for test environment and return configuration array.
 * `entryUrl` - initial application url (default: http://localhost/index-test.php).
 * `entryScript` - front script title (like: index-test.php). If not set - taken from entryUrl.
-* `transaction` - (default: true) wrap all database connection inside a transaction and roll it back after the test. Should be disabled for acceptance testing..
-* `cleanup` - (default: true) cleanup fixtures after the test
+* `cleanup` - (default: true) wrap all database connection inside a transaction and roll it back after the test. Should be disabled for acceptance testing..
 
 You can use this module by setting params in your functional.suite.yml:
 
@@ -81,8 +80,7 @@ modules:
         - Yii2:
             configFile: 'config/test.php'
             part: ORM # allow to use AR methods
-            transaction: false # don't wrap test in transaction
-            cleanup: false # don't cleanup the fixtures
+            cleanup: false # don't wrap test in transaction
             entryScript: index-test.php
 
 {% endhighlight %}
@@ -99,7 +97,7 @@ $I->haveFixtures(['posts' => PostsFixture::className()]);
 
 {% endhighlight %}
 
-or, if you need to load fixtures before the test, you
+or, if you need to load fixtures before the test (probably before the cleanup transaction is started), you
 can specify fixtures with `_fixtures` method of a testcase:
 
 {% highlight php %}
@@ -307,7 +305,7 @@ $I->amOnPage('/register');
 
 {% endhighlight %}
 
- * `param string` $page
+ * `param` $page
 
 
 #### amOnRoute
@@ -321,19 +319,9 @@ $I->amOnRoute('site/view', ['page' => 'about']);
 
 
 
-#### assertArraySubset
- 
-Checks that array contains subset.
-
- * `param array`  $subset
- * `param array`  $array
- * `param bool`   $strict
- * `param string` $message
-
-
 #### attachFile
  
-Attaches a file relative to the Codeception `_data` directory to the given file upload field.
+Attaches a file relative to the Codeception data directory to the given file upload field.
 
 {% highlight php %}
 
@@ -448,8 +436,8 @@ But will ignore strings like:
 
 For checking the raw source code, use `seeInSource()`.
 
- * `param string` $text
- * `param string` $selector optional
+ * `param`      $text
+ * `param null` $selector
 
 
 #### dontSeeCheckboxIsChecked
@@ -492,7 +480,7 @@ $I->dontSeeCurrentUrlEquals('/');
 
 {% endhighlight %}
 
- * `param string` $uri
+ * `param` $uri
 
 
 #### dontSeeCurrentUrlMatches
@@ -508,7 +496,7 @@ $I->dontSeeCurrentUrlMatches('~$/users/(\d+)~');
 
 {% endhighlight %}
 
- * `param string` $uri
+ * `param` $uri
 
 
 #### dontSeeElement
@@ -550,7 +538,7 @@ $I->dontSeeInCurrentUrl('/users/');
 
 {% endhighlight %}
 
- * `param string` $uri
+ * `param` $uri
 
 
 #### dontSeeInField
@@ -661,8 +649,8 @@ $I->dontSeeLink('Checkout now', '/store/cart.php');
 
 {% endhighlight %}
 
- * `param string` $text
- * `param string` $url optional
+ * `param` $text
+ * `param null` $url
 
 
 #### dontSeeOptionIsSelected
@@ -827,7 +815,7 @@ $uri = $I->grabFromCurrentUrl();
 
 {% endhighlight %}
 
- * `param string` $uri optional
+ * `param null` $uri
 
 
 
@@ -996,7 +984,7 @@ Example:
 {% highlight php %}
 
 <?php
-$I->haveHttpHeader('X-Requested-With', 'Codeception');
+$I->setHeader('X-Requested-With', 'Codeception');
 $I->amOnPage('test-headers.php');
 ?>
 
@@ -1072,8 +1060,8 @@ But will *not* be true for strings like:
 
 For checking the raw source code, use `seeInSource()`.
 
- * `param string` $text
- * `param string` $selector optional
+ * `param`      $text
+ * `param null` $selector
 
 
 #### seeCheckboxIsChecked
@@ -1124,7 +1112,7 @@ $I->seeCurrentUrlEquals('/');
 
 {% endhighlight %}
 
- * `param string` $uri
+ * `param` $uri
 
 
 #### seeCurrentUrlMatches
@@ -1140,7 +1128,7 @@ $I->seeCurrentUrlMatches('~$/users/(\d+)~');
 
 {% endhighlight %}
 
- * `param string` $uri
+ * `param` $uri
 
 
 #### seeElement
@@ -1202,13 +1190,13 @@ $I->seeInCurrentUrl('/users/');
 
 {% endhighlight %}
 
- * `param string` $uri
+ * `param` $uri
 
 
 #### seeInField
  
-Checks that the given input field or textarea *equals* (i.e. not just contains) the given value.
-Fields are matched by label text, the "name" attribute, CSS, or XPath.
+Checks that the given input field or textarea contains the given value.
+For fuzzy locators, fields are matched by label text, the "name" attribute, CSS, and XPath.
 
 {% highlight php %}
 
@@ -1343,8 +1331,8 @@ $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
 
 {% endhighlight %}
 
- * `param string` $text
- * `param string` $url optional
+ * `param`      $text
+ * `param null` $url
 
 
 #### seeNumberOfElements
@@ -1355,12 +1343,14 @@ Checks that there are a certain number of elements matched by the given locator 
 
 <?php
 $I->seeNumberOfElements('tr', 10);
-$I->seeNumberOfElements('tr', [0,10]); // between 0 and 10 elements
+$I->seeNumberOfElements('tr', [0,10]); //between 0 and 10 elements
 ?>
 
 {% endhighlight %}
  * `param` $selector
- * `param mixed` $expected int or int[]
+ * `param mixed` $expected :
+- string: strict number
+- array: range of numbers [0,10]
 
 
 #### seeOptionIsSelected
@@ -1534,7 +1524,7 @@ $I->setCookie('PHPSESSID', 'el4ukv0kqbvoirg7nkp4dncpk3');
 
 #### submitForm
  
-Submits the given form on the page, with the given form
+Submits the given form on the page, optionally with the given form
 values.  Pass the form field's values as an array in the second
 parameter.
 

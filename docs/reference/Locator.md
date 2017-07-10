@@ -73,7 +73,7 @@ Locator::contains('div[@contenteditable=true]', 'hello world');
  * `param` $text
  * `return` string
 
-[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Util/Locator.php#L274)
+[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Util/Locator.php#L257)
 
 #### elementAt()
 
@@ -99,7 +99,7 @@ Locator::elementAt('table#grind>tr', -2); // previous than last row
  * `param int` $position xpath index
  * `return` mixed
 
-[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Util/Locator.php#L300)
+[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Util/Locator.php#L283)
 
 #### find()
 
@@ -142,7 +142,7 @@ Locator::firstElement('//table/tr');
  * `param` $element
  * `return` mixed
 
-[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Util/Locator.php#L330)
+[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Util/Locator.php#L313)
 
 #### href()
 
@@ -174,7 +174,7 @@ Transforms strict locator, \Facebook\WebDriver\WebDriverBy into a string represe
  * `param` $selector
  * `return` string
 
-[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Util/Locator.php#L363)
+[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Util/Locator.php#L346)
 
 #### isCSS()
 
@@ -205,7 +205,7 @@ Checks that a string is valid CSS class
  * `param` $class
  * `return` bool
 
-[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Util/Locator.php#L252)
+[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Util/Locator.php#L235)
 
 #### isID()
 
@@ -216,13 +216,7 @@ Checks that a string is valid CSS ID
  * `param` $id
  * `return` bool
 
-[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Util/Locator.php#L241)
-
-#### isPrecise()
-
- *public static* isPrecise($locator) 
-
-[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Util/Locator.php#L217)
+[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Util/Locator.php#L224)
 
 #### isXPath()
 
@@ -264,7 +258,7 @@ Locator::lastElement('//table/tr');
  * `param` $element
  * `return` mixed
 
-[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Util/Locator.php#L351)
+[See source](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Util/Locator.php#L334)
 
 #### option()
 
