@@ -32,6 +32,16 @@ Project root directory is used by default
  * `param string` $path
 
 
+#### assertArraySubset
+ 
+Checks that array contains subset.
+
+ * `param array`  $subset
+ * `param array`  $array
+ * `param bool`   $strict
+ * `param string` $message
+
+
 #### cleanDir
  
 Erases directory contents

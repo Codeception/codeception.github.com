@@ -78,6 +78,16 @@ Adds HTTP authentication via username/password.
  * `[Part]` xml
 
 
+#### assertArraySubset
+ 
+Checks that array contains subset.
+
+ * `param array`  $subset
+ * `param array`  $array
+ * `param bool`   $strict
+ * `param string` $message
+
+
 #### deleteHeader
  
 Deletes the header with the passed name.  Subsequent requests
@@ -217,7 +227,7 @@ Parameter can be passed either as XmlBuilder, DOMDocument, DOMNode, XML string, 
 
 #### dontSeeXmlResponseMatchesXpath
  
-Checks wheather XML response does not match XPath
+Checks whether XML response does not match XPath
 
 {% highlight php %}
 
@@ -365,7 +375,7 @@ $I->seeBinaryResponseEquals(md5($fileData));
 ?>
 
 {% endhighlight %}
-Example: Using sha256 hsah
+Example: Using sha256 hash
 
 {% highlight php %}
 
@@ -640,7 +650,7 @@ $I->seeResponseMatchesJsonType([
 
 {% endhighlight %}
 
-You can also apply filters to check values. Filter can be applied with `:` char after the type declatation.
+You can also apply filters to check values. Filter can be applied with `:` char after the type declaration.
 
 Here is the list of possible filters:
 
@@ -712,7 +722,7 @@ $I->seeXmlResponseIncludes("<result>1</result>");
 
 #### seeXmlResponseMatchesXpath
  
-Checks wheather XML response matches XPath
+Checks whether XML response matches XPath
 
 {% highlight php %}
 
