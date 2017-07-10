@@ -57,6 +57,16 @@ tests will run much faster and will be isolated from each other.
 
 ### Actions
 
+#### assertArraySubset
+ 
+Checks that array contains subset.
+
+ * `param array`  $subset
+ * `param array`  $array
+ * `param bool`   $strict
+ * `param string` $message
+
+
 #### dontSeeInRepository
  
 Flushes changes to database and performs `findOneBy()` call for current repository.
@@ -111,7 +121,7 @@ $user = $I->grabEntityFromRepository('User', array('id' => '1234'));
  * `Available since` 1.1
  * `param` $entity
  * `param array` $params
- * `return` array
+ * `return` object
 
 
 #### grabFromRepository

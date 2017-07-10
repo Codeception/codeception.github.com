@@ -254,7 +254,7 @@ $I->amOnPage('/register');
 
 {% endhighlight %}
 
- * `param` $page
+ * `param string` $page
 
 
 #### amOnRoute
@@ -273,9 +273,19 @@ $I->amOnRoute('posts.create');
  * `param array`  $params
 
 
+#### assertArraySubset
+ 
+Checks that array contains subset.
+
+ * `param array`  $subset
+ * `param array`  $array
+ * `param bool`   $strict
+ * `param string` $message
+
+
 #### attachFile
  
-Attaches a file relative to the Codeception data directory to the given file upload field.
+Attaches a file relative to the Codeception `_data` directory to the given file upload field.
 
 {% highlight php %}
 
@@ -390,8 +400,8 @@ But will ignore strings like:
 
 For checking the raw source code, use `seeInSource()`.
 
- * `param`      $text
- * `param null` $selector
+ * `param string` $text
+ * `param string` $selector optional
 
 
 #### dontSeeCheckboxIsChecked
@@ -434,7 +444,7 @@ $I->dontSeeCurrentUrlEquals('/');
 
 {% endhighlight %}
 
- * `param` $uri
+ * `param string` $uri
 
 
 #### dontSeeCurrentUrlMatches
@@ -450,7 +460,7 @@ $I->dontSeeCurrentUrlMatches('~$/users/(\d+)~');
 
 {% endhighlight %}
 
- * `param` $uri
+ * `param string` $uri
 
 
 #### dontSeeElement
@@ -485,7 +495,7 @@ $I->dontSeeInCurrentUrl('/users/');
 
 {% endhighlight %}
 
- * `param` $uri
+ * `param string` $uri
 
 
 #### dontSeeInField
@@ -596,8 +606,8 @@ $I->dontSeeLink('Checkout now', '/store/cart.php');
 
 {% endhighlight %}
 
- * `param` $text
- * `param null` $url
+ * `param string` $text
+ * `param string` $url optional
 
 
 #### dontSeeOptionIsSelected
@@ -718,7 +728,7 @@ $uri = $I->grabFromCurrentUrl();
 
 {% endhighlight %}
 
- * `param null` $uri
+ * `param string` $uri optional
 
 
 
@@ -835,7 +845,7 @@ Example:
 {% highlight php %}
 
 <?php
-$I->setHeader('X-Requested-With', 'Codeception');
+$I->haveHttpHeader('X-Requested-With', 'Codeception');
 $I->amOnPage('test-headers.php');
 ?>
 
@@ -933,8 +943,8 @@ But will *not* be true for strings like:
 
 For checking the raw source code, use `seeInSource()`.
 
- * `param`      $text
- * `param null` $selector
+ * `param string` $text
+ * `param string` $selector optional
 
 
 #### seeCheckboxIsChecked
@@ -999,7 +1009,7 @@ $I->seeCurrentUrlEquals('/');
 
 {% endhighlight %}
 
- * `param` $uri
+ * `param string` $uri
 
 
 #### seeCurrentUrlMatches
@@ -1015,7 +1025,7 @@ $I->seeCurrentUrlMatches('~$/users/(\d+)~');
 
 {% endhighlight %}
 
- * `param` $uri
+ * `param string` $uri
 
 
 #### seeElement
@@ -1057,13 +1067,13 @@ $I->seeInCurrentUrl('/users/');
 
 {% endhighlight %}
 
- * `param` $uri
+ * `param string` $uri
 
 
 #### seeInField
  
-Checks that the given input field or textarea contains the given value.
-For fuzzy locators, fields are matched by label text, the "name" attribute, CSS, and XPath.
+Checks that the given input field or textarea *equals* (i.e. not just contains) the given value.
+Fields are matched by label text, the "name" attribute, CSS, or XPath.
 
 {% highlight php %}
 
@@ -1216,8 +1226,8 @@ $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
 
 {% endhighlight %}
 
- * `param`      $text
- * `param null` $url
+ * `param string` $text
+ * `param string` $url optional
 
 
 #### seeNumberOfElements
@@ -1228,14 +1238,12 @@ Checks that there are a certain number of elements matched by the given locator 
 
 <?php
 $I->seeNumberOfElements('tr', 10);
-$I->seeNumberOfElements('tr', [0,10]); //between 0 and 10 elements
+$I->seeNumberOfElements('tr', [0,10]); // between 0 and 10 elements
 ?>
 
 {% endhighlight %}
  * `param` $selector
- * `param mixed` $expected :
-- string: strict number
-- array: range of numbers [0,10]
+ * `param mixed` $expected int or int[]
 
 
 #### seeOptionIsSelected
@@ -1428,7 +1436,7 @@ $I->setCookie('PHPSESSID', 'el4ukv0kqbvoirg7nkp4dncpk3');
 
 #### submitForm
  
-Submits the given form on the page, optionally with the given form
+Submits the given form on the page, with the given form
 values.  Pass the form field's values as an array in the second
 parameter.
 
