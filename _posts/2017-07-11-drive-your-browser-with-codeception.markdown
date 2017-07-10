@@ -1,13 +1,13 @@
 ---
 layout: post
 title: "Drive your Browser Tests with Codeception"
-date: 2017-07-09 01:03:50
+date: 2017-07-11 01:03:50
 ---
 
 In last few weeks Codeception received updates aimed to empower acceptance testing. 
 We try to make PHP a better place for browser tests. As you know, QA engineers often prefer other languages like Java or Python for test automation. But PHP is not that bad by itself, it is simpler, it is faster in most cases, it has great IDEs. And for sure, we have Codeception. With it you can write the most complex acceptance tests in a simple scenario-driven manner.
 
-So what was add in the last release? 
+So what was added in the last release? 
 
 ## RunProcess
 
@@ -89,7 +89,11 @@ If you use [BrowserStack](https://www.browserstack.com/) you can use this featur
 public function _before(TestInterface $test)
 {
     $webDriver = $this->getModule('WebDriver');
-    $webDriver->_reconfigure(['name' => $test->getMetadata->getName()]);
+    $name = $test->getMetadata()->getName();
+    $webDriver->_capabilities(function($currentCapabilities) use ($name) {
+        $currentCapabilities['name'] = $name;
+        return new DesiredCapabilities($currentCapabilities);
+    });    
     $webDriver->_initializeSession();
 }
 ```
