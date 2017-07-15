@@ -73,19 +73,13 @@ composer exec codecept g:cest functional Login
 
 ## Unit Tests
 
-Codeception is powered by PHPUnit so unit and integration test work in a similar manner. To genereate a plain PHPUnit test for `Foo\Bar` class 
-
-```
-composer exec codecept g:phpunit unit "Foo\Bar"
-```
-
-This generates a standard test inherited from `PHPUnit_Framework_TestCase`. For integration tests you may use Codeception-enhanced format which allows accessing services from DI container, use Eloquent, Data Factories. To have it create a unit test extending `Codeception\Test\Unit` class:
+Codeception is powered by PHPUnit so unit and integration test work in a similar manner. To genereate a unit test run:
 
 ```
 composer exec codecept g:test unit "Foo\Bar"
 ```
-
-You will need to enable Laravel5 module in `unit.suite.yml` to have its methods inside `$this->tester` object.
+This generates `Codeception\Test\Unit` testcase which is inherited from PHPUnit but provides a module access.
+Enable Laravel5 module in `unit.suite.yml` to have its methods inside a testcase. They are available injected into `$this->tester` property of a testcase.
 
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
