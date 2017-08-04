@@ -46,6 +46,7 @@ CommandHandler takes a command, calls the infrastructure services, and sends the
 Also, mocks comes with their price. While integration test is really similar to the actual business code, unit test is bloated with mock definitions. It will get hard to maintain and support it really soon:
 
 ```php
+<?php
 // is that a business logic test?
 // but no business inside of it
 $eventDispatcher = $this->createMock(EventDispatcher::class);
@@ -80,6 +81,7 @@ We can use [StartDiscussionHandler](https://github.com/flarum/core/blob/master/s
 For integration tests, we need to initialize Application with its Dependency Injection Container. Then, we fetch `StartDiscussionHandler` out of it:
 
 ```php
+<?php
 protected function _before()
 {
     // initialize Flarum app
@@ -93,6 +95,7 @@ protected function _before()
 When the handler is prepared we can write the first basic test:
 
 ```php
+<?php
 public function testAdminCanStartADiscussion()
 {
     // ARRANGE: create command object with all required params
