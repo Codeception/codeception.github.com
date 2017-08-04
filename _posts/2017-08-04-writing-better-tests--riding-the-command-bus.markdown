@@ -4,6 +4,8 @@ title: "Writing Better Tests: Riding The Command Bus"
 date: 2017-08-04 01:03:50
 ---
 
+![](/images/command_bus.jpg)
+
 Before writing any line of test code we should think of how meaningful this test would be. The best code is the code you never write, you know. So if you ever begin to think of which parts of the application you should cover with tests.
 
 * [Part 1: Expectation vs Implementation](http://codeception.com/12-21-2016/writing-better-tests-expectation-vs-implementation.html)
