@@ -2,6 +2,7 @@
 layout: post
 title: "Writing Better Tests: Riding The Command Bus"
 date: 2017-08-04 01:03:50
+author: Michael Bodnarchuk @davert
 ---
 
 ![](/images/command_bus.jpg)
