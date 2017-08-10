@@ -24,7 +24,7 @@ php codecept generate:test unit Example
 
 {% endhighlight %}
 
-It create a new `ExampleTest` file located in the `tests/unit` directory.
+It creates a new `ExampleTest` file located in the `tests/unit` directory.
 
 As always, you can run the newly created test with this command:
 

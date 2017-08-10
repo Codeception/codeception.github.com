@@ -99,7 +99,7 @@ public function _before(TestInterface $test)
      $name = $test->getMetadata()->getName();
      $this->getModule('WebDriver')->_capabilities(function($currentCapabilities) use ($name) {
          $currentCapabilities['name'] = $name;
-         return new DesiredCapabilities($currentCapabilities);
+         return $currentCapabilities;
      });
 }
 
@@ -361,16 +361,6 @@ $I->appendField('#myTextField', 'appended');
  * `param string` $field
  * `param string` $value
 @throws \Codeception\Exception\ElementNotFound
-
-
-#### assertArraySubset
- 
-Checks that array contains subset.
-
- * `param array`  $subset
- * `param array`  $array
- * `param bool`   $strict
- * `param string` $message
 
 
 #### attachFile
@@ -1959,7 +1949,7 @@ Unselect an option in the given select box.
  
 Wait for $timeout seconds.
 
- * `param int` $timeout secs
+ * `param int|float` $timeout secs
 @throws \Codeception\Exception\TestRuntimeException
 
 

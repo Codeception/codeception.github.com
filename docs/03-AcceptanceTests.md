@@ -447,9 +447,7 @@ $I->seeElement('#modal');
 {% endhighlight %}
 
 While WebDriver duplicates the functionality of PhpBrowser, it has its limitations: It can't check headers since browsers don't provide APIs for that. 
-WebDriver also adds browser-specific functionality.
-
-### Browser Tests
+WebDriver also adds browser-specific functionality:
 
 
 
