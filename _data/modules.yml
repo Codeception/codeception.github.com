@@ -1,6 +1,12 @@
 - name: Amazon S3 Filesystem
   link: https://github.com/polevaultweb/s3-filesystem
   description: An Amazon S3 Filesystem module.
+
+- name: HighlightCeption
+  image: https://user-images.githubusercontent.com/6382002/29250010-0bdb3cf6-803b-11e7-92af-f666caf497e4.png
+  link: https://github.com/hyperia-sk/highlight-ception
+  description: Highlight text or element by codeception
+  color: "#FFF5C4"
   
 - name: BrowserMob
   link: https://github.com/edno/codeception-browsermob
