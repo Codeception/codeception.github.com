@@ -1,8 +1,3 @@
-- name: Progress Reporter
-  link: https://github.com/fr05t1k/codeception-progress-reporter
-  description: The reporter with a progress bar
-  image: /images/extensions/codeception-progress-reporter.png
-
 - name: Allure Codeception Adapter
   link: http://github.com/allure-framework/allure-codeception
   description: This is a Codeception adapter for [Allure Framework](http://allure.qatools.ru)
@@ -18,6 +13,11 @@
 - name: Phantoman
   link: http://github.com/site5/phantoman
   description: Extension for automatically starting and stopping PhantomJS when running tests.
+  
+- name: Progress Reporter
+  link: https://github.com/fr05t1k/codeception-progress-reporter
+  description: The reporter with a progress bar
+  image: /images/extensions/codeception-progress-reporter.png  
 
 - name: MultiDb
   link: http://github.com/redmatter/Codeception-MultiDb
