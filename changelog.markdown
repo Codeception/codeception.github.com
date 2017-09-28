@@ -7,6 +7,29 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.3.6
+
+* **Laravel 5.5 compatibility**. Laravel5 module documentation updated.
+* [Doctrine2][DataFactory] Fixes using Doctrine2 with DataFactory module. See [#4529](https://github.com/Codeception/Codeception/issues/4529). Fix by **[samusenkoiv](https://github.com/samusenkoiv)**
+* **[REST]** Fixed JsonType crash when key 0 is not an array. Fixes [#4517](https://github.com/Codeception/Codeception/issues/4517) by **[Naktibalda](https://github.com/Naktibalda)**  
+* [PhpBrowser][Frameworks] `haveHttpHeader` enhanced to handle special characters. [#4541](https://github.com/Codeception/Codeception/issues/4541) by **[bnpatel1990](https://github.com/bnpatel1990)**
+* **[WebDriver]** Delete all cookies before loading session snapshot. Fix by **[eXorus](https://github.com/eXorus)**. See [#4487](https://github.com/Codeception/Codeception/issues/4487)
+* Added `suite_namespace` config option to suite config. Allows to set custom namespace for tests per suite. [#4525](https://github.com/Codeception/Codeception/issues/4525) by **[pohnean](https://github.com/pohnean)**
+* **[Db]** Module enhancements by **[eXorus](https://github.com/eXorus)**:
+  * added `updateInDatabase` method
+  * added hidden `_insertInDatabase` to insert record without cleanup  
+* **[Yii2]** Set transaction also in `backupConfig` when initializing yii2 module
+* **[Yii2]** Unload fixtures after rolling back database transaction. By **[devonliu02](https://github.com/devonliu02)**  ([#4497](https://github.com/Codeception/Codeception/issues/4497))
+* **[Yii2]** Use `andWhere` instead of `where` in Yii module's `findRecord()` by **[SamMousa](https://github.com/SamMousa)**. See [#4482](https://github.com/Codeception/Codeception/issues/4482)
+* **[REST]** Added `amNTLMAuthenticated` for NTLM authentication using PhpBrowser. By **[Tenzian](https://github.com/Tenzian)** 
+* Inject exception file and line number frame into stack trace in case it is missing. By **[rhl-jfm](https://github.com/rhl-jfm)** at [#4491](https://github.com/Codeception/Codeception/issues/4491))
+* `Extension\RunFailed`. Added `fail-group` parameter to customize name of a failed group. By @ maxgorovenko
+* Added `\Codeception\Util\Fixtures::exists()` method by **[eXorus](https://github.com/eXorus)**
+* Added line number to `TestParseException` exception message by **[gaainf](https://github.com/gaainf)**. See [#4446](https://github.com/Codeception/Codeception/issues/4446)
+* Fixed `init` command: create the `_generated` folder before writing a `.gitignore` file there by **[nstapelbroek](https://github.com/nstapelbroek)**. See [#4449](https://github.com/Codeception/Codeception/issues/4449)
+* Better failure messages for `@dataProvider` by **[sh41](https://github.com/sh41)**. See [#4439](https://github.com/Codeception/Codeception/issues/4439)
+* Fixed aliasing issue with `Codeception/Verify` by **[ddinchev](https://github.com/ddinchev)**
+
 #### 2.3.5
 
 * Fixed HTML report with unencoded HTML code by **[mpgo13](https://github.com/mpgo13)**. See [#3819](https://github.com/Codeception/Codeception/issues/3819) [#4423](https://github.com/Codeception/Codeception/issues/4423)
@@ -22,7 +45,7 @@ title: Codeception Changelog
 * **[WebDriver]** Make `wait` accept fractional amount of seconds to wait for less than a second. By **[gvlasov](https://github.com/gvlasov)**
 * **[Laravel5]** Changing params loader to use `$_SERVER` global instead of `$_ENV`. See [#4401](https://github.com/Codeception/Codeception/issues/4401) by **[EricTendian](https://github.com/EricTendian)**
 * **[Mongo]** Fixes `haveInCollection` using `__toString`. See [#4442](https://github.com/Codeception/Codeception/issues/4442) by **[samusenkoiv](https://github.com/samusenkoiv)**
-* Dereferencing vairables for Steps output. Fixes [#4402](https://github.com/Codeception/Codeception/issues/4402) by **[alambe](https://github.com/alambe)**
+* Dereferencing variables for Steps output. Fixes [#4402](https://github.com/Codeception/Codeception/issues/4402) by **[alambe](https://github.com/alambe)**
 * **[Symfony]** Load persistent services before loading profiler. See [#4437](https://github.com/Codeception/Codeception/issues/4437) by **[samusenkoiv](https://github.com/samusenkoiv)**
 
 #### 2.3.4

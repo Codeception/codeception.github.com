@@ -11,29 +11,12 @@ title: Laravel5 - Codeception - Documentation
 
 
 
-This module allows you to run functional tests for Laravel 5.
+This module allows you to run functional tests for Laravel 5.1+
 It should **not** be used for acceptance tests.
 See the Acceptance tests section below for more details.
 
-As of Codeception 2.2 this module only works for Laravel 5.1 and later releases.
-If you want to test a Laravel 5.0 application you have to use Codeception 2.1.
-You can also upgrade your Laravel application to 5.1, for more details check the Laravel Upgrade Guide
-at <https://laravel.com/docs/master/upgrade>.
-
 ### Demo project
-<https://github.com/janhenkgerritsen/codeception-laravel5-sample>
-
-### Status
-
-* Maintainer: **Jan-Henk Gerritsen**
-* Stability: **stable**
-
-### Example
-
-    modules:
-        enabled:
-            - Laravel5:
-                environment_file: .env.testing
+<https://github.com/codeception/codeception-laravel5-sample>
 
 ### Config
 
@@ -54,6 +37,31 @@ at <https://laravel.com/docs/master/upgrade>.
 * disable_model_events: `boolean`, default `false` - disable model events.
 * url: `string`, default `` - the application URL.
 
+#### Example #1 (`functional.suite.yml`)
+
+Enabling module:
+
+{% highlight yaml %}
+yml
+modules:
+    enabled:
+        - Laravel5
+
+{% endhighlight %}
+
+#### Example #2 (`functional.suite.yml`)
+
+Enabling module with custom .env file
+
+{% highlight yaml %}
+yml
+modules:
+    enabled:
+        - Laravel5:
+            environment_file: .env.testing
+
+{% endhighlight %}
+
 ### API
 
 * app - `Illuminate\Foundation\Application`
@@ -72,17 +80,23 @@ at <https://laravel.com/docs/master/upgrade>.
 ### Acceptance tests
 
 You should not use this module for acceptance tests.
-If you want to use Laravel functionality with your acceptance tests,
-for example to do test setup, you can initialize the Laravel functionality
-by adding the following lines of code to the `_bootstrap.php` file of your test suite:
+If you want to use Eloquent within your acceptance tests (paired with WebDriver) enable only
+ORM part of this module:
 
-    require 'bootstrap/autoload.php';
-    $app = require 'bootstrap/app.php';
-    $app->loadEnvironmentFrom('.env.testing');
-    $app->instance('request', new \Illuminate\Http\Request);
-    $app->make('Illuminate\Contracts\Http\Kernel')->bootstrap();
+#### Example (`acceptance.suite.yml`)
 
+{% highlight yaml %}
 
+modules:
+    enabled:
+        - WebDriver:
+            browser: chrome
+            url: http://127.0.0.1:8000
+        - Laravel5:
+            part: ORM
+            environment_file: .env.testing
+
+{% endhighlight %}
 
 
 ### Actions
@@ -866,7 +880,7 @@ You can set additional cookie params like `domain`, `path` in array passed as la
 
 #### grabFromCurrentUrl
  
-Executes the given regular expression against the current URI and returns the first match.
+Executes the given regular expression against the current URI and returns the first capturing group.
 If no parameters are provided, the full URI is returned.
 
 {% highlight php %}
@@ -1105,6 +1119,19 @@ Example:
 <?php
 $I->haveHttpHeader('X-Requested-With', 'Codeception');
 $I->amOnPage('test-headers.php');
+?>
+
+{% endhighlight %}
+
+To use special chars in Header Key use HTML Character Entities:
+Example:
+Header with underscore - 'Client_Id'
+should be represented as - 'Client&#x0005F;Id' or 'Client&#95;Id'
+
+{% highlight php %}
+
+<?php
+$I->haveHttpHeader('Client&#95;Id', 'Codeception');
 ?>
 
 {% endhighlight %}

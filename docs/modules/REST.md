@@ -78,6 +78,28 @@ Adds HTTP authentication via username/password.
  * `[Part]` xml
 
 
+#### amNTLMAuthenticated
+ 
+Adds NTLM authentication via username/password.
+Requires client to be Guzzle >=6.3.0
+Out of scope for functional modules.
+
+Example:
+{% highlight php %}
+
+<?php
+$I->amNTLMAuthenticated('jon_snow', 'targaryen');
+?>
+
+{% endhighlight %}
+
+ * `param` $username
+ * `param` $password
+@throws ModuleException
+ * `[Part]` json
+ * `[Part]` xml
+
+
 #### deleteHeader
  
 Deletes the header with the passed name.  Subsequent requests
