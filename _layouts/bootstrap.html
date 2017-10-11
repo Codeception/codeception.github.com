@@ -35,7 +35,7 @@
 <body>{% capture guides %}{% include guides.html %}{% endcapture %}
     {% capture modules %}{% include modules.html %}{% endcapture %}
     {% capture reference %}{% include reference.html %}{% endcapture %}
-    <nav class="navbar nav-custom navbar-inverse">
+    <nav class="navbar nav-custom navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -45,12 +45,16 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a href="/" class="navbar-brand"><img src="/images/toplogo.png" alt="codeception"/></a>
-            </div>
-            <div class="collapse navbar-collapse menu ">
                 <ul class="nav navbar-nav navbar-left">
                     <li><a href="/quickstart">Quick Start</a></li>  
-                    <li><a href="http://sdclabs.com/codeception?utm_source=codeception.com&utm_medium=top_menu&utm_term=link&utm_campaign=reference" style="background: rgba(255,255,2555,0.1);">Commercial Services</a></li>                  
-                </ul>
+                    <li><a href="http://sdclabs.com/codeception?utm_source=codeception.com&utm_medium=top_menu&utm_term=link&utm_campaign=reference" class="promo">
+                    <span class="no-small">Enterprise</span> Support</a></li>
+                    <li><a href="http://sdclabs.com/trainings?utm_source=codeception.com&utm_medium=top_menu&utm_term=link&utm_campaign=reference" class="promo">Trainings</a></li>
+
+                </ul>                
+            </div>
+
+            <div class="collapse navbar-collapse menu ">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Docs
@@ -212,7 +216,8 @@
                     <li><a href="/install">Installation</a></li>
                     <li><a href="/credits">Credits</a></li>
                     <li><a href="/changelog">Releases</a></li>
-                    <li><a href="http://sdclabs.com/codeception?utm_source=codeception.com&utm_medium=bottom_menu&utm_term=link&utm_campaign=reference" >Commercial Services</a></li>                  
+                    <li><a href="http://sdclabs.com/codeception?utm_source=codeception.com&utm_medium=bottom_menu&utm_term=link&utm_campaign=reference" >Official Support</a></li>
+                    <li><a href="http://sdclabs.com/trainings?utm_source=codeception.com&utm_medium=bottom_menu&utm_term=link&utm_campaign=reference" >Trainings</a></li>                  
                     <li><a href="https://github.com/Codeception/Codeception/blob/master/LICENSE">License</a></li>
                 </ul>
 

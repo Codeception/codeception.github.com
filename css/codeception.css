@@ -6,10 +6,12 @@ body {
 	word-wrap: break-word; /* IE */
 	overflow-wrap: break-word; /* CSS3 */
 	font-family: "Shanti", "Helvetica Neue",Helvetica,Arial,sans-serif;  
+	margin-top: 50px;
 }
 
 body .wide {
 	margin: 0 auto;
+	margin-top: 20px;
 	max-width: 1600px;
 }
 body .wide>div {
@@ -21,6 +23,11 @@ body .navbar.nav-custom {
 	border-bottom:1px solid #1D3E55;
 	border:0px;
 	border-radius:0px;
+}
+
+body .navbar .promo {
+	background: rgba(255,255,2555,0.1);	
+  border-left: 1px solid #008693;	
 }
 
 body .navbar-brand img{
@@ -381,6 +388,14 @@ ul.navbar-nav {
 
 
 @media screen and (max-width : 992px) {
+
+	body .no-small {
+		display: none;
+	}
+
+	body .navbar-header ul.nav>li {
+		float: left;
+	}
 
 	body .dropdown-modules li a {
 		float: none;
