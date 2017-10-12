@@ -6,7 +6,7 @@ body {
 	word-wrap: break-word; /* IE */
 	overflow-wrap: break-word; /* CSS3 */
 	font-family: "Shanti", "Helvetica Neue",Helvetica,Arial,sans-serif;  
-	margin-top: 50px;
+	margin-top: 70px;
 }
 
 body .wide {
@@ -435,6 +435,10 @@ ul.navbar-nav {
 
 	.menu li {
 		clear: both;
+	}
+
+	body {
+		margin-top: 40px;
 	}
 
 	body #home-hero h1{
