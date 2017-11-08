@@ -1,5 +1,9 @@
 language: ruby
 cache: bundler
+
+before_script:
+  - bundle install
+  
 script: 
   - bundle exec jekyll algolia push
 rvm:
