@@ -15,9 +15,3 @@ algolia:
   record_css_selector: '.page'  
   excluded_files:
     - index.html
-    - slides
-    - _posts/2012-*
-    - _posts/2013-*
-    - _posts/2014-*
-    - docs-1.8/*
-    - docs-2.0/*
