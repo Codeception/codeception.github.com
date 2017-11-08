@@ -24,7 +24,9 @@
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <script src="/js/jquery.toc.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="/js/contributors.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/algolia.js" type="text/javascript" charset="utf-8"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.2.0/list.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>    
 
     <!-- Other -->
     <link title="Codeception Blog" type="application/rss+xml" rel="alternate" href="/rss.xml">
@@ -311,6 +313,29 @@ $(document).ready(function(){
         </aside>
 
 </div>
+
+<script>
+  window.ALGOLIA_CONFIG = {
+    'applicationId': '{{ site.algolia.application_id }}',
+    'indexName': '{{ site.algolia.index_name }}',
+    'apiKey': '{{ site.algolia.read_only_api_key }}',
+    'baseurl': '{{ site.baseurl }}'
+  }
+</script>
+<script id="algolia__template" type="text/template">
+{% raw %}
+  <div class="algolia__result">
+    <a class="algolia__result-link" href="{{ full_url }}#algolia:{{ css_selector }}">{{{ _highlightResult.title.value }}}</a>
+    {{#posted_at}}
+    <div class="algolia__result-date">{{ posted_at_readable }}</div>
+    {{/posted_at}}
+    <div class="algolia__result-text">{{{ _highlightResult.text.value }}}</div>
+  </div>
+{% endraw %}
+</script>
+<script id="algolia__template--no-results" type="text/template">
+  No results found.
+</script>
 
 </body>
 </html>
