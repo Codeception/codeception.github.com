@@ -295,6 +295,13 @@ ul.navbar-collapse {
 
 ul.navbar-nav {
 	margin: 0 -15px;
+
+}
+
+@media (max-width: 767px) {
+	.navbar-nav .open .dropdown-menu .row{
+		max-height: 40vh;
+	}
 }
 
 .row.home{

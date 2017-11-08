@@ -4,7 +4,7 @@ title: Quick Start Codeception
 ---
 
 </div></div>
-<div class="hero" style="background-image: url(/images/backgrounds/quickstart.jpg); height: 50vh; ">
+<div class="hero" style="background-image: url(/images/backgrounds/quickstart.jpg); height: 50vh; min-height: 400px; ">
 
   <div class="wide">
   <div class="container-fluid">
@@ -49,97 +49,7 @@ title: Quick Start Codeception
           </div>
 <hr>
 
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingOne">
-      <h4 class="panel-title">
-        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        Install Phar Executable for PHP 7.x
-        </a>
-      </h4>
-      </div>
-
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-
-<div class="row">
-  <div class="col-md-3">
-      
-    <a href="/thanks" class="btn btn-success btn-expand">Download Phar Executable</a>    
-  </div>
-  <div class="col-md-9">
-
-<div class="highlight">
-<pre>wget http://codeception.com/codecept.phar<a href="/thanks" style="float:right" target="_blank">download <span class="glyphicon glyphicon-download"></span></a></pre>  
-</div>    
-
-  </div>
-
-</div>
-          <p>
-      Execute it as
-
-          <code>php codecept.phar</code></p>
-
-
-      </div>
-  </div>
-
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingTwo">
-      <h4 class="panel-title">
-        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-        Install Phar for PHP 5.x
-        </a>
-      </h4>
-      </div>
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-
-<div class="row">
-  <div class="col-md-3">
-    <a href="/thanks_php5" target="_blank" class="btn btn-success btn-expand">Download Phar Executable</a>    
-  </div>
-  <div class="col-md-9">
-
-<div class="highlight">
-<pre>wget http://codeception.com/php5/codecept.phar<a href="/thanks_php5" style="float:right" target="_blank">download <span class="glyphicon glyphicon-download"></span></a></pre>  
-</div>    
-
-  </div>
-</div>
-          <p>
-      Execute it as
-
-          <code>php codecept.phar</code></p>
-
-    </div>
-
-  </div>
-
-    <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingThree">
-      <h4 class="panel-title">
-        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-        Install Phar Globally
-        </a>
-      </h4>
-      </div>
-    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-
-  <div class="highlight">
-    
-          <pre>sudo curl -LsS http://codeception.com/codecept.phar -o /usr/local/bin/codecept</pre>
-          <pre>sudo chmod a+x /usr/local/bin/codecept</pre>
-  </div>
-          <p>
-      Execute it as
-
-          <code>codecept</code></p>
-
-
-    </div>
-    </div>
-
-</div>
+{% include phar.html %}
 
 <a class="" role="button" data-toggle="collapse" href="#phar-global" aria-expanded="false" aria-controls="collapseExample">
   
