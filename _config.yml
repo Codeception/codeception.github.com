@@ -12,7 +12,9 @@ algolia:
   application_id: 'G160Y1N5OT'
   index_name:     'codeception'  
   read_only_api_key: 'c264188100c4fb7017c4f5702a7d4b8d'
-  record_css_selector: '.page'  
+  record_css_selector: '.page'
+  allowed_extensions:
+    - .markdown  
   excluded_files:
     - index.html
     - docs-2.0
