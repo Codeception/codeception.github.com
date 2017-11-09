@@ -6,7 +6,7 @@ layout: bootstrap
   <div class="col-sm-3 col-lg-3">
 
 
-    <input type="text" class="algolia__input js-algolia__input" autocomplete="off" name="query" placeholder="Search..." />
+    <input type="text" class="algolia__input js-algolia__input" autocomplete="off" name="query" placeholder="Search in docs..." />
 
 
    <div id="searchable">
@@ -47,7 +47,18 @@ layout: bootstrap
       <div>
 
         <div id="page">
-          {{ content }}
+
+
+          <div class="algolia__search-content js-algolia__search-content">
+            <h1 class="page-title">Search</h1>
+            <div class="posts algolia__results"></div>
+          </div>
+
+          <div class="algolia__initial-content js-algolia__initial-content">
+
+            {{ content }}
+
+          </div>
         </div>
         <div class="alert alert-success">
 Let us help you take Codeception further. We offer a number of paid services that can help you and your organization get the most out of Codeception Enterprise. Software testing & test automation development and outsourcing.
