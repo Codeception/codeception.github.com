@@ -115,3 +115,8 @@
 - name: Yandex
   link: https://github.com/portrino/codeception-yandex-module
   description: Validation of structured data via yandex API
+  
+- name: Appium Driver
+  link: https://github.com/tajawal/codeception-appium
+  description: Appium Driver to interact with appium server - iOS/Android Mobile Testing Automation.
+
