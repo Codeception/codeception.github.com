@@ -80,7 +80,7 @@ modules:
 The module is wrapping and augmenting the [WordPress Core automated testing suite](https://make.wordpress.org/core/handbook/testing/automated-testing/phpunit/) and to generate a test case that uses Codeception and the methods provided by the Core testing suite you can use the generation command provided by the package:
 
 ```bash
-codecept generate:wpunit integration "Acme\SomeClass"
+codecept generate:wpunit wpunit "Acme\SomeClass"
 ```
 
 The generated test case extends the `WPTestCase` class and it exposes all the mehtods defined by `Codeception\Test\Unit` test case and the Core suite `\WP_UnitTestCase`.  
