@@ -9,7 +9,6 @@ sidebar: |
   * Access Symfony services through the dependecy injection container: `$I->grabService(...)`
   * Use Doctrine to test against the database: `$I->seeInRepository(...)`
   * Assert that emails would have been sent: `$I->seeEmailIsSent()`
-  * Different setups for each bundle.
   * Tests are wrapped into Doctrine transaction to speed them up.
   * Symfony Router can be cached between requests to speed up testing.
 
@@ -32,7 +31,7 @@ composer require codeception/codeception --dev
 ## Setup
 
 From Symfony 4 onwards there will be a top-level `tests` directory, instead of a separate `Tests` directory in each bundle.
-So to save you from reconfiguration in the future, it is recommended to place unit, functional, and acceptance test files
+It is recommended to place unit, functional, and acceptance test files
 into `tests`.
 
 ### Project Setup
@@ -129,8 +128,8 @@ class_name: FunctionalTester
 modules:
     enabled:
         - Symfony:
-            app_path: 'app'
-            var_path: 'app'
+            app_path: 'src'
+            environment: 'test'
         - Doctrine2:
             depends: Symfony
         - \Helper\Functional
@@ -168,8 +167,8 @@ modules:
         - \Helper\Api
     config:
         - Symfony:
-            app_path: 'app'
-            var_path: 'app'
+            app_path: 'src'
+            environment: 'test'
 
 ```
 
@@ -191,12 +190,6 @@ php bin/codecept g:suite unit
 ```
 
 Codeception is powered by PHPUnit so unit and integration test work in a similar manner. To genereate a plain PHPUnit test for `Foo` class, run:
-
-```
-php bin/codecept g:phpunit unit Foo
-```
-
-This generates a standard test inherited from `PHPUnit_Framework_TestCase`. For integration tests you may use Codeception-enhanced format which allows accessing services DI container, Doctrine, and others. You will need to enable Doctrine2 and Symfony module in `unit.suite.yml` config. Such integration test is extending `Codeception\Test\Unit` class and created by running:
 
 ```
 php bin/codecept g:test unit Foo
