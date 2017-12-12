@@ -40,8 +40,8 @@ title: Codeception Changelog
 * Fixed undefined `argv` warnings, added check for `register_argc_argv`. Fixes [#4595](https://github.com/Codeception/Codeception/issues/4595) by **[Naktibalda](https://github.com/Naktibalda)**
 * Added `init` command to `codecept.phar` by **[Naktibalda](https://github.com/Naktibalda)**.
 
-And many thanks to our awesome contributors! **Thanks to **[VolCh](https://github.com/VolCh)** for upgrading to Symfony 4**, thanks **[Naktibalda](https://github.com/Naktibalda)** for edgecase patches and reviews and
-thanks to **[carusogabriel](https://github.com/carusogabriel)** for tests refactoring. 
+And many thanks to our awesome contributors! Thanks to **[VolCh](https://github.com/VolCh)** for upgrading to Symfony 4, thanks **[Naktibalda](https://github.com/Naktibalda)** for patches and reviews and
+thanks to **[carusogabriel](https://github.com/carusogabriel)** for refactoring tests. 
 
 #### 2.3.6
 
