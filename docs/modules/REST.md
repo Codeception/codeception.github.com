@@ -49,6 +49,33 @@ Conflicts with SOAP module
 
 ### Actions
 
+#### amAWSAuthenticated
+ 
+Allows to send REST request using AWS Authorization
+Only works with PhpBrowser
+Example
+Config -
+
+modules:
+     enabled:
+         - REST:
+             aws:
+                 key: accessKey
+                 secret: accessSecret
+                 service: awsService
+                 region: awsRegion
+
+{% highlight php %}
+
+<?php
+$I->amAWSAuthenticated();
+?>
+
+{% endhighlight %}
+ * `param array` $additionalAWSConfig
+@throws ModuleException
+
+
 #### amBearerAuthenticated
  
 Adds Bearer authentication via access token.

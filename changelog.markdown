@@ -7,6 +7,42 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.3.7
+
+* **Symfony 4 support** implemented by **[VolCh](https://github.com/VolCh)**.
+  * Dependencies updated to support Symfony 4.x components.
+  * **[Symfony]** Support for Symfony Flex directory and namespace structure
+  * [Demo application](https://github.com/Codeception/symfony-demo) was updated to Symfony 4.0
+* **[Db]** `seeInDatabse`, `dontSeeInDatabase`, `grabFromDatabase` and other methods to support SQL comparison operators: `<`, `>`, `>=`, `<=`, `!=`, `like`. Thanks **[susgo](https://github.com/susgo)** and **[Naktibalda](https://github.com/Naktibalda)**.
+* **[Db]** Fixed quoting around schema identifiers in MSSQL by **[Naktibalda](https://github.com/Naktibalda)**. See [#4542](https://github.com/Codeception/Codeception/issues/4542).
+* **[Db]** Added SSL options for connection. Thanks **[kossi84](https://github.com/kossi84)**
+* **[Db]** Fix getting Database name from DSN in MSSQL by **[yesdevnull](https://github.com/yesdevnull)**.
+* **[PhpBrowser]** Fixed setting `User-Agent` in config via `headers`. Fixed [#4576](https://github.com/Codeception/Codeception/issues/4576) by **[Naktibalda](https://github.com/Naktibalda)**.
+* **[WebDriver]** Implemented `dontSeeInPopup` by **[kpascal](https://github.com/kpascal)**.
+* **[WebDriver]** Allow to click a button located by its `title` attribute. See [#4586](https://github.com/Codeception/Codeception/issues/4586) by **[gimler](https://github.com/gimler)**.
+* **[Silex]** `app` property added to public API. Thanks **[sky003](https://github.com/sky003)**
+* **[Yii2]** Pass DB to Yii application as early as possible to reuse old connection. By **[SilverFire](https://github.com/SilverFire)**. See [#4601](https://github.com/Codeception/Codeception/issues/4601)
+* **[Yii2]** Resetting global event handlers after a test. See [#4621](https://github.com/Codeception/Codeception/issues/4621) by **[SamMousa](https://github.com/SamMousa)**
+* **[Yii2]** Recreate request object to reset headers and cookies before each request. Fixes [#4587](https://github.com/Codeception/Codeception/issues/4587) by **[erickskrauch](https://github.com/erickskrauch)** 
+* **[MongoDb]** Allowing `.tgz` files to be accepted for database dumps. [#4611](https://github.com/Codeception/Codeception/issues/4611) by **[Lukazar](https://github.com/Lukazar)**
+* [PhpBrowser][Frameworks] Fixed usage of `see` when source code contains `<=` JS operator. By **[tobias-kuendig](https://github.com/tobias-kuendig)** Fixes [#4509](https://github.com/Codeception/Codeception/issues/4509).
+* **[Queue]** Added configuration parameter `endpoint` for AmazonSQS by **[gitis](https://github.com/gitis)**.
+* Fixed signature error in `DummyCodeCoverage::stop` See [#4665](https://github.com/Codeception/Codeception/issues/4665) by **[network-spy](https://github.com/network-spy)**
+* Throw exception if `exit(0)` was accidentally called. Fixes false-positive test reports. See [#4604](https://github.com/Codeception/Codeception/issues/4604) by Fenikkusu. 
+* Fixed using `path: tests: .` in configuration. Fixes [#4432](https://github.com/Codeception/Codeception/issues/4432) by **[marcovtwout](https://github.com/marcovtwout)**
+* Fixed suite name containing slash in remote code coverage. [#4612](https://github.com/Codeception/Codeception/issues/4612) by **[bscheshirwork](https://github.com/bscheshirwork)**
+* Improved generated actions file by removing redundant `use` section. [#4614](https://github.com/Codeception/Codeception/issues/4614) by **[bscheshirwork](https://github.com/bscheshirwork)**
+* Don't skip last test if some test has missing dependency by **[Naktibalda](https://github.com/Naktibalda)**. Fixes [#4598](https://github.com/Codeception/Codeception/issues/4598)
+* Improved PHP 7.2 compatibility by **[FanchTheSystem](https://github.com/FanchTheSystem)**. See [#4557](https://github.com/Codeception/Codeception/issues/4557)
+* Implemented `Descriptor::getTestSignatureUnique` to create unique names for tests. See [#4673](https://github.com/Codeception/Codeception/issues/4673) by **[Tenzian](https://github.com/Tenzian)**. Fixes [#4672](https://github.com/Codeception/Codeception/issues/4672)
+* Fixed `setExpectedException()` default value for PHPUnit 5.7.23 by **[MilesChou](https://github.com/MilesChou)**. See [#4566](https://github.com/Codeception/Codeception/issues/4566) 
+* Fixed printing wrong failed step by **[eXorus](https://github.com/eXorus)**. See [#4654](https://github.com/Codeception/Codeception/issues/4654)
+* Fixed undefined `argv` warnings, added check for `register_argc_argv`. Fixes [#4595](https://github.com/Codeception/Codeception/issues/4595) by **[Naktibalda](https://github.com/Naktibalda)**
+* Added `init` command to `codecept.phar` by **[Naktibalda](https://github.com/Naktibalda)**.
+
+And many thanks to our awesome contributors! **Thanks to **[VolCh](https://github.com/VolCh)** for upgrading to Symfony 4**, thanks **[Naktibalda](https://github.com/Naktibalda)** for edgecase patches and reviews and
+thanks to **[carusogabriel](https://github.com/carusogabriel)** for tests refactoring. 
+
 #### 2.3.6
 
 * **Laravel 5.5 compatibility**. Laravel5 module documentation updated.

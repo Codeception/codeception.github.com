@@ -49,6 +49,10 @@ return $app; // optionally
           - Silex:
              app: 'app/bootstrap.php'
 
+### Public Properties
+
+* app - `Silex\Application` instance received from bootstrap file
+
 Class Silex
 @package Codeception\Module
 

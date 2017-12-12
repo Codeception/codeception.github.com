@@ -28,7 +28,7 @@ If the number of invocations is 0 it will throw an exception in verify.
 $user = Stub::make(
     'User',
     array(
-        'getName' => Stub::atLeastOnce(function() { return 'Davert';}),
+        'getName' => Stub::atLeastOnce(function() { return 'Davert'; }),
         'someMethod' => function() {}
     )
 );
@@ -114,7 +114,7 @@ and it's return value or callback function as parameter
 
 <?php
 Stub::construct('User', array(), array('save' => function () { return true; }));
-Stub::construct('User', array(), array('save' => true }));
+Stub::construct('User', array(), array('save' => true));
 ?>
 
 {% endhighlight %}
@@ -162,7 +162,7 @@ and it's return value or callback function as parameter
 
 <?php
 Stub::constructEmpty('User', array(), array('save' => function () { return true; }));
-Stub::constructEmpty('User', array(), array('save' => true }));
+Stub::constructEmpty('User', array(), array('save' => true));
 ?>
 
 {% endhighlight %}
@@ -210,7 +210,7 @@ and it's return value or callback function as parameter
 
 <?php
 Stub::constructEmptyExcept('User', 'save', array(), array('save' => function () { return true; }));
-Stub::constructEmptyExcept('User', 'save', array(), array('save' => true }));
+Stub::constructEmptyExcept('User', 'save', array(), array('save' => true));
 ?>
 
 {% endhighlight %}
@@ -259,7 +259,7 @@ exception.
 $user = Stub::make(
     'User',
     array(
-        'getName' => Stub::exactly(3, function() { return 'Davert';}),
+        'getName' => Stub::exactly(3, function() { return 'Davert'; }),
         'someMethod' => function() {}
     )
 );
@@ -374,7 +374,7 @@ and it's return value or callback function as parameter
 
 <?php
 Stub::make('User', array('save' => function () { return true; }));
-Stub::make('User', array('save' => true }));
+Stub::make('User', array('save' => true));
 ?>
 
 {% endhighlight %}
@@ -422,7 +422,7 @@ and it's return value or callback function as parameter
 
 <?php
 Stub::makeEmpty('User', array('save' => function () { return true; }));
-Stub::makeEmpty('User', array('save' => true }));
+Stub::makeEmpty('User', array('save' => true));
 ?>
 
 {% endhighlight %}
@@ -469,7 +469,7 @@ and it's return value or callback function as parameter
 
 <?php
 Stub::makeEmptyExcept('User', 'save', array('isValid' => function () { return true; }));
-Stub::makeEmptyExcept('User', 'save', array('isValid' => true }));
+Stub::makeEmptyExcept('User', 'save', array('isValid' => true));
 ?>
 
 {% endhighlight %}
@@ -533,7 +533,7 @@ exception.
 $user = Stub::make(
     'User',
     array(
-        'getName' => Stub::once(function() { return 'Davert';}),
+        'getName' => Stub::once(function() { return 'Davert'; }),
         'someMethod' => function() {}
     )
 );
