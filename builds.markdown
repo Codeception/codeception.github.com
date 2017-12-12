@@ -7,7 +7,8 @@ title: Codeception Builds
 ## 2.3
 *Requires: PHP 5.4 and higher + CURL*
 
-* **[Download Latest 2.3 Release](http://codeception.com/releases/2.3.7/codecept.phar)**
+* **[Download Latest 2.3 Release](http://codeception.com/releases/2.3.8/codecept.phar)**
+* [2.3.8](http://codeception.com/releases/2.3.8/codecept.phar), [for PHP 5.4 - 5.6](http://codeception.com/releases/2.3.8/php54/codecept.phar)
 * [2.3.7](http://codeception.com/releases/2.3.7/codecept.phar), [for PHP 5.4 - 5.6](http://codeception.com/releases/2.3.7/php54/codecept.phar)
 * [2.3.6](http://codeception.com/releases/2.3.6/codecept.phar), [for PHP 5.4 - 5.6](http://codeception.com/releases/2.3.6/php54/codecept.phar)
 * [2.3.5](http://codeception.com/releases/2.3.5/codecept.phar), [for PHP 5.4 - 5.6](http://codeception.com/releases/2.3.5/php54/codecept.phar)
