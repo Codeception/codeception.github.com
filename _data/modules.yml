@@ -1,3 +1,9 @@
+- name: Codecept UnitTest generator
+  image: https://user-images.githubusercontent.com/6382002/33774260-0aaacebc-dc3b-11e7-8a97-34265a4818cc.png
+  link: https://github.com/hyperia-sk/codecept-unittest-generator
+  description: Generate PHPUnit tests from annotations.
+  color: "#FFF5C4"
+
 - name: Amazon S3 Filesystem
   link: https://github.com/polevaultweb/s3-filesystem
   description: An Amazon S3 Filesystem module.
