@@ -126,7 +126,6 @@ modules:
 
 {% endhighlight %}
 
-
 ### Actions
 
 #### _findElements
@@ -677,7 +676,6 @@ $I->grabAttributeFrom('#tooltip', 'title');
 ?>
 
 {% endhighlight %}
-
 
  * `param` $cssOrXpath
  * `param` $attribute

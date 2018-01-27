@@ -19,7 +19,6 @@ This module requires packages installed:
 
 {
  "league/factory-muffin": "^3.0",
- "league/factory-muffin-faker": "^1.0"
 }
 
 {% endhighlight %}
@@ -132,7 +131,6 @@ In case your ORM expects a related record itself (Doctrine) then you should use 
 'user' => 'entity|User'
 
 {% endhighlight %}
-
 
 ### Actions
 

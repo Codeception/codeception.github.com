@@ -44,7 +44,6 @@ To use this module with Composer you need <em>"php-amqplib/php-amqplib": "~2.4"<
 
 * connection - AMQPStreamConnection - current connection
 
-
 ### Actions
 
 #### bindQueueToExchange

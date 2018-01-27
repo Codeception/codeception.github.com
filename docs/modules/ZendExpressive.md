@@ -30,7 +30,6 @@ Uses `config/container.php` file by default.
 * client - BrowserKit client
 
 
-
 ### Actions
 
 #### _findElements
@@ -574,7 +573,6 @@ $I->grabAttributeFrom('#tooltip', 'title');
 ?>
 
 {% endhighlight %}
-
 
  * `param` $cssOrXpath
  * `param` $attribute

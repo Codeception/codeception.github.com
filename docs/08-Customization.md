@@ -29,7 +29,6 @@ settings:
 
 {% endhighlight %}
 
-
 You should also specify the path to the `log` directory, where the reports and logs will be saved.
 
 <div class="alert alert-notice">
@@ -74,7 +73,6 @@ Where `unit` is the name of suite and the `-c` option specifies the path to the 
 In this example we will assume that there is `frontend/codeception.yml` configuration file
 and that we will execute the unit tests for only that app.
 
-
 ## Extension
 
 Codeception has limited capabilities to extend its core features.
@@ -110,7 +108,6 @@ based on the [Symfony Event Dispatcher](http://symfony.com/doc/current/component
 Here are the events and event classes. The events are listed in the order in which they happen during execution.
 All listed events are available as constants in `Codeception\Events` class.
 
-
 |    Event             |    When?                                |    Triggered by
 |:--------------------:| --------------------------------------- | --------------------------:
 | `suite.before`       | Before suite is executed                | [Suite, Settings](https://github.com/Codeception/Codeception/blob/master/src/Codeception/Event/SuiteEvent.php)
@@ -130,7 +127,6 @@ All listed events are available as constants in `Codeception\Events` class.
 | `test.fail.print`    | When test fails are printed             | [Test, Fail](https://github.com/Codeception/Codeception/blob/master/src/Codeception/Event/FailEvent.php)
 | `result.print.after` | After result was printed                | [Result, Printer](https://github.com/Codeception/Codeception/blob/master/src/Codeception/Event/PrintResultEvent.php)
 
-
 There may be some confusion between `test.start`/`test.before` and `test.after`/`test.end`.
 The start and end events are triggered by PHPUnit, but the before and after events are triggered by Codeception.
 Thus, when you are using classical PHPUnit tests (extended from `PHPUnit\Framework\TestCase`),
@@ -149,7 +145,7 @@ class MyCustomExtension extends \Codeception\Extension
 {
     // list events to listen to
     // Codeception\Events constants used to set the event
-    
+
     public static $events = array(
         Events::SUITE_AFTER  => 'afterSuite',
         Events::SUITE_BEFORE => 'beforeTest',
@@ -198,7 +194,7 @@ extensions:
 {% endhighlight %}
 
 Extensions can also be enabled per suite inside suite configs (like `acceptance.suite.yml`) and for a specific environment.
- 
+
 To enable extension dynamically, execute the `run` command with `--ext` option.
 Provide a class name as a parameter:
 
@@ -209,7 +205,7 @@ codecept run --ext "\My\Extension"
 
 {% endhighlight %}
 
-If a class is in a `Codeception\Extension` namespace you can skip it and provide only a shortname. 
+If a class is in a `Codeception\Extension` namespace you can skip it and provide only a shortname.
 So Recorder extension can be started like this:
 
 {% highlight bash %}
@@ -217,7 +213,6 @@ So Recorder extension can be started like this:
 codecept run --ext Recorder
 
 {% endhighlight %}
-
 
 ### Configuring Extension
 
@@ -269,10 +264,10 @@ When a test is added to a group:
 
 <?php
 /**
- * @group admin 
+ * @group admin
  */
 public function testAdminCreatingNewBlogPost(\AcceptanceTester $I)
-{    
+{
 }
 
 {% endhighlight %}
@@ -317,7 +312,7 @@ class Admin extends \Codeception\GroupObject
 {% endhighlight %}
 
 GroupObjects can also be used to update the module configuration before running a test.
-For instance, for `nocleanup` group we prevent Doctrine2 module from wrapping test into transaction: 
+For instance, for `nocleanup` group we prevent Doctrine2 module from wrapping test into transaction:
 
 {% highlight php %}
 
@@ -347,8 +342,8 @@ Now the Admin group class will listen for all events of tests that belong to the
 
 ## Custom Reporters
 
-Alternative reporters can be implemented as extension. 
-There are [DotReporter](http://codeception.com/extensions#DotReporter) and [SimpleReporter](http://codeception.com/extensions#SimpleReporter) extensions included. 
+Alternative reporters can be implemented as extension.
+There are [DotReporter](http://codeception.com/extensions#DotReporter) and [SimpleReporter](http://codeception.com/extensions#SimpleReporter) extensions included.
 Use them to change output or use them as an example to build your own reporter. They can be easily enabled with `--ext` option
 
 {% highlight bash %}
@@ -381,11 +376,11 @@ interface. It is recommended to read the code of the original reporter before ov
 
 ## Installation Templates
 
-Codeception setup can be customized for the needs of your application. 
-If you build a distributable application and you have a personalized configuration you can build an 
+Codeception setup can be customized for the needs of your application.
+If you build a distributable application and you have a personalized configuration you can build an
 Installation template which will help your users to start testing on their projects.
- 
-Codeception has built-in installation templates for 
+
+Codeception has built-in installation templates for
 
 * [Acceptance tests](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Template/Acceptance.php)
 * [Unit tests](https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Template/Unit.php)

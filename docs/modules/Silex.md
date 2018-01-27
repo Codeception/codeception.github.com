@@ -56,7 +56,6 @@ return $app; // optionally
 Class Silex
 @package Codeception\Module
 
-
 ### Actions
 
 #### _findElements
@@ -607,7 +606,6 @@ $I->grabAttributeFrom('#tooltip', 'title');
 ?>
 
 {% endhighlight %}
-
 
  * `param` $cssOrXpath
  * `param` $attribute

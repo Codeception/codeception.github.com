@@ -19,7 +19,6 @@ Wrapper for basic shell commands and shell output
 
 *Please review the code of non-stable modules and provide patches if you have issues.*
 
-
 ### Actions
 
 #### dontSeeInShellOutput

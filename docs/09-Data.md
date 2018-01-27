@@ -33,13 +33,12 @@ modules:
 
 {% endhighlight %}
 
-
 <div class="alert alert-notice">
 Use <a href="http://codeception.com/docs/06-ModulesAndHelpers#Dynamic-Configuration-With-Params">module parameters</a>
 to set the database credentials from environment variables or from application configuration files.
 </div>
 
-Db module can cleanup database between tests by loading a database dump. This can be done by parsing SQL file and 
+Db module can cleanup database between tests by loading a database dump. This can be done by parsing SQL file and
 executing its commands using current connection
 
 {% highlight yaml %}
@@ -53,13 +52,13 @@ modules:
             dump: tests/_data/your-dump-name.sql
             cleanup: true # reload dump between tests
             populate: true # load dump before all tests
-            
+
 
 {% endhighlight %}
 
  Alternatively an external tool (like mysql client, or pg_restore) can be used. This approach is faster and won't produce parsing errors while loading a dump.
  Use `populator` config option to specify the command. For MySQL it can look like this:
- 
+
 {% highlight yaml %}
 
  modules:
@@ -220,7 +219,6 @@ modules:
 
 {% endhighlight %}
 
-
 ### DataMapper
 
 Doctrine is also a popular ORM, unlike some others it implements the DataMapper pattern and is not bound to any framework.
@@ -246,7 +244,6 @@ modules:
             depends: ZF2
 
 {% endhighlight %}
-
 
 If no framework is used with Doctrine you should provide the `connection_callback` option
 with a valid callback to a function which returns an `EntityManager` instance.

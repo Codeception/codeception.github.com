@@ -257,7 +257,6 @@ $this->getModule('WebDriver')->webDriver->getKeyboard()->sendKeys('hello, webdri
 {% endhighlight %}
 
 
-
 ### Actions
 
 #### _backupSession
@@ -1011,6 +1010,27 @@ $I->dragAndDrop('#drag', '#drop');
  * `param string` $target (CSS ID or XPath)
 
 
+#### executeAsyncJS
+ 
+Executes asynchronous JavaScript.
+A callback should be executed by JavaScript to exit from a script.
+Callback is passed as a last element in `arguments` array.
+Additional arguments can be passed as array in second parameter.
+
+{% highlight yaml %}
+js
+// wait for 1200 milliseconds my running `setTimeout`
+* $I->executeAsyncJS('setTimeout(arguments[0], 1200)');
+
+$seconds = 1200; // or seconds are passed as argument
+$I->executeAsyncJS('setTimeout(arguments[1], arguments[0])', [$seconds]);
+
+{% endhighlight %}
+
+ * `param` $script
+ * `param array` $arguments
+
+
 #### executeInSelenium
  
 Low-level API method.
@@ -1042,11 +1062,15 @@ This example uses jQuery to get a value and assigns that value to a PHP variable
 
 <?php
 $myVar = $I->executeJS('return $("#myField").val()');
-?>
+
+// additional arguments can be passed as array
+// Example shows `Hello World` alert:
+$I->executeJS("window.alert(arguments[0])", ['Hello world']);
 
 {% endhighlight %}
 
  * `param` $script
+ * `param array` $arguments
 
 
 #### fillField
@@ -1078,7 +1102,6 @@ $I->grabAttributeFrom('#tooltip', 'title');
 ?>
 
 {% endhighlight %}
-
 
  * `param` $cssOrXpath
  * `param` $attribute

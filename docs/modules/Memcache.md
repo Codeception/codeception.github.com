@@ -43,7 +43,6 @@ Be sure you don't use the production server to connect.
 * **memcache** - instance of _Memcache_ or _Memcached_ object
 
 
-
 ### Actions
 
 #### clearMemcache

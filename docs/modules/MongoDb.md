@@ -58,7 +58,6 @@ HINT: This module can be used with [Mongofill](https://github.com/mongofill/mong
 * cleanup: true - should the dump be reloaded after each test
 
 
-
 ### Actions
 
 #### dontSeeInCollection
