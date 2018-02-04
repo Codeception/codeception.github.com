@@ -46,7 +46,6 @@ This module requires PHPBrowser or any of Framework modules enabled.
 Conflicts with SOAP module
 
 
-
 ### Actions
 
 #### amAWSAuthenticated

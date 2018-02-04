@@ -47,7 +47,6 @@ Please try it and leave your feedback.
     * seeRecord
     * dontSeeRecord
 
-
 ### Actions
 
 #### _findElements
@@ -662,7 +661,6 @@ $I->grabAttributeFrom('#tooltip', 'title');
 ?>
 
 {% endhighlight %}
-
 
  * `param` $cssOrXpath
  * `param` $attribute

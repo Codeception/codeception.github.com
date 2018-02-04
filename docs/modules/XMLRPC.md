@@ -41,7 +41,6 @@ Otherwise sends raw HTTP requests to url via PHPBrowser.
 @since 1.1.5
 @author tiger.seo@gmail.com
 
-
 ### Actions
 
 #### haveHttpHeader

@@ -54,7 +54,6 @@ tests will run much faster and will be isolated from each other.
 
 * `em` - Entity Manager
 
-
 ### Actions
 
 #### dontSeeInRepository

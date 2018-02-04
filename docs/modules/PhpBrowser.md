@@ -73,7 +73,6 @@ Properties:
 * `client` - Symfony BrowserKit instance.
 
 
-
 ### Actions
 
 #### _findElements
@@ -677,7 +676,6 @@ $I->grabAttributeFrom('#tooltip', 'title');
 ?>
 
 {% endhighlight %}
-
 
  * `param` $cssOrXpath
  * `param` $attribute

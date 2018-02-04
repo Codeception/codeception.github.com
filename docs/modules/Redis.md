@@ -46,7 +46,6 @@ to interact with a Redis server.
 
 @author Marc Verney <marc@marcverney.net>
 
-
 ### Actions
 
 #### cleanup
@@ -170,7 +169,6 @@ $I->grabFromRedis('example:hash', 'foo');
 {% endhighlight %}
 
  * `param string` $key The key name
-
 
 @throws ModuleException if the key does not exist
 

@@ -12,7 +12,6 @@ title: Asserts - Codeception - Documentation
 
 Special module for using asserts in your tests.
 
-
 ### Actions
 
 #### assertArrayHasKey

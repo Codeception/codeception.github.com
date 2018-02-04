@@ -133,7 +133,6 @@ Maintainer: **samdark**
 Stability: **stable**
 
 
-
 ### Actions
 
 #### _findElements
@@ -386,6 +385,13 @@ $I->click(['link' => 'Login']);
 
  * `param` $link
  * `param` $context
+
+
+#### createAndSetCsrfCookie
+ 
+This function creates the CSRF Cookie.
+ * `param string` $val The value of the CSRF token
+ * `return` string[] Returns an array containing the name of the CSRF param and the masked CSRF token.
 
 
 #### deleteHeader
@@ -740,7 +746,6 @@ $I->grabAttributeFrom('#tooltip', 'title');
 
 {% endhighlight %}
 
-
  * `param` $cssOrXpath
  * `param` $attribute
 
@@ -893,7 +898,7 @@ $category = $I->grabRecord('app\models\User', array('name' => 'davert'));
 #### grabSentEmails
  
 Returns array of all sent email messages.
-Each message implements `yii\mail\Message` interface.
+Each message implements `yii\mail\MessageInterface` interface.
 Useful to perform additional checks using `Asserts` module:
 
 {% highlight php %}
@@ -1518,21 +1523,10 @@ $I->sendAjaxRequest('PUT', '/posts/7', array('title' => 'new title'));
 
 #### setCookie
  
-Sets a cookie with the given name and value.
-You can set additional cookie params like `domain`, `path`, `expires`, `secure` in array passed as last argument.
-
-{% highlight php %}
-
-<?php
-$I->setCookie('PHPSESSID', 'el4ukv0kqbvoirg7nkp4dncpk3');
-?>
-
-{% endhighlight %}
-
- * `param` $name
- * `param` $val
- * `param array` $params
-
+Sets a cookie and, if validation is enabled, signs it.
+ * `param string` $name The name of the cookie
+ * `param string` $value The value of the cookie
+ * `param array` $params Additional cookie params like `domain`, `path`, `expires` and `secure`.
 
 
 #### submitForm

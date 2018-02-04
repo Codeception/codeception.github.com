@@ -195,7 +195,6 @@ SELECT COUNT(*) FROM `users` WHERE `name` = 'Davert' AND `email` LIKE 'davert%'
 * driver - contains the Connection Driver
 
 
-
 ### Actions
 
 #### dontSeeInDatabase
@@ -264,7 +263,7 @@ Comparison expressions can be used as well:
 {% highlight php %}
 
 <?php
-$post = $I->grabFromDatabase('posts', ['num_comments >=' => 100']);
+$post = $I->grabFromDatabase('posts', ['num_comments >=' => 100]);
 $user = $I->grabFromDatabase('users', ['email like' => 'miles%']);
 
 {% endhighlight %}
@@ -333,7 +332,6 @@ $I->seeInDatabase('users', ['email like' => 'miles@davis.com']);
 {% endhighlight %}
 
 Supported operators: `<`, `>`, `>=`, `<=`, `!=`, `like`.
-
 
  * `param string` $table
  * `param array` $criteria

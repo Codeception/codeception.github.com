@@ -99,7 +99,6 @@ The module uses the Symfony Profiler to provide additional information and asser
 
 The [Laravel5](http://codeception.com/docs/modules/Laravel5) module is included and requires no configuration:
 
-
 {% highlight yaml %}
 
 # functional.suite.yml
@@ -111,7 +110,6 @@ modules:
         - \Helper\Functional
 
 {% endhighlight %}
-
 
 ### Yii2
 
