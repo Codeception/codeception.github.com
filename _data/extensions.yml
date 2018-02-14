@@ -9,10 +9,6 @@
 - name: PhpBuiltinServer
   link: http://github.com/tiger-seo/PhpBuiltinServer
   description: Extension for starting and stopping built-in PHP server. Works on Windows, Mac, Linux.
-
-- name: Notifier
-  link: https://github.com/Codeception/Notifier
-  description: Shows Ubuntu notifications or sends emails for tests results. 
   
 - name: Phantoman
   link: http://github.com/site5/phantoman
