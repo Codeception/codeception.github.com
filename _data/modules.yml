@@ -59,7 +59,7 @@
 
 - name: MailCatcher
   link: https://github.com/captbaritone/codeception-mailcatcher-module
-  description: This module will let you test emails that are sent during your Codeception acceptance tests. It depends upon you having MailCatcher installed on your development server.
+  description: This module will let you test emails that are sent during your Codeception functional or acceptance tests. It depends upon you having MailCatcher installed on your development server.
   color: "#FFF5C4"
 
 - name: MailSMTP
