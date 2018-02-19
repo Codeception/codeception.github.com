@@ -57,9 +57,9 @@
   link: https://github.com/nathanmac/im-codeception-module
   description: This module allows the testing against external messaging services as well as triggering notifications via your tests, currently supports HipChat messaging service.
 
-- name: MailCatcher
+- name: MailCatcher Module
   link: https://github.com/captbaritone/codeception-mailcatcher-module
-  description: This module will let you test emails that are sent during your Codeception functional or acceptance tests. It depends upon you having MailCatcher installed on your development server.
+  description: MailCatcher is a standalone software which can be configured to catch *any* email sent by your development server, and display it on a webpage. The MailCatcher Module allows you to test the contents of those emails in an acceptance test.
   color: "#FFF5C4"
 
 - name: MailSMTP
