@@ -399,6 +399,19 @@ $I->checkOption('#agree');
  * `param` $option
 
 
+#### clearField
+ 
+lears given field which isn't empty.
+
+`` php
+?php
+I->clearField('#username');
+>
+``
+
+param $field
+
+
 #### click
  
 Perform a click on a link or a button, given by a locator.
