@@ -7,6 +7,38 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.4.0
+
+* **PHPUnit 7.x compatibility**
+* **Dropped PHP 5.4 and PHP 5.5** support (PHP 5.5 still may work)
+* Internal API refactored:
+  * Modern PHP class names used internally
+  * Moved PHPUnit related classes to [codeception/phpunit-wrapper](https://github.com/Codeception/phpunit-wrapper) package.
+* Cest hooks behavior changed (by **[fffilimonov](https://github.com/fffilimonov)**):
+  * `_failed` called when test fails
+  * `_passed` called when tests is successful
+  * `_after` is called for failing and successful tests   
+
+#### 2.3.9
+
+* Added `Codeception\Step\Argument\PasswordArgument` to pass sensitive data into tests:
+
+```php
+<?php
+use \Codeception\Step\Argument\PasswordArgument;
+
+$I->amOnPage('/form/password_argument');
+$I->fillField('password', new PasswordArgument('thisissecret'));
+```
+
+* **[WebDriver]** added `clearField` method to clean up input fields by **[eknej](https://github.com/eknej)** 
+* **[DataFactory]** added `make` method to create instances without saving them to database. But **[ibpavlov](https://github.com/ibpavlov)** 
+* **[REST]** Fixed passing a file to `sendPOST()` without name, size or type parameter. BY **[zebraf1](https://github.com/zebraf1)**
+* **[REST]** Add missing / to relative url from config by **[bscheshirwork](https://github.com/bscheshirwork)** 
+* Fixed HTML Report marks tests as succeeded by **[mpgo13](https://github.com/mpgo13)**
+* `clean` command works recursively with included setups. By **[davidnewcomb](https://github.com/davidnewcomb)** 
+
+
 #### 2.3.8
 
 * `Codeception\Util\Stub` moved to standalone package [Codeception\Stub](https://github.com/Codeception/Stub):

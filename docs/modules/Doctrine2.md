@@ -5,10 +5,9 @@ title: Doctrine2 - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module/Doctrine2.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Doctrine2.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/Doctrine2.md">2.2</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Doctrine2.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Doctrine2.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Doctrine2.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.4/src/Codeception/Module/Doctrine2.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Doctrine2.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.3/docs/modules/Doctrine2.md">2.3</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/Doctrine2.md">2.2</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Doctrine2.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Doctrine2.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Doctrine2.md">1.8</a></div>
 
 # Doctrine2
-
 
 Access the database using [Doctrine2 ORM](http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/).
 
@@ -57,20 +56,18 @@ tests will run much faster and will be isolated from each other.
 ### Actions
 
 #### dontSeeInRepository
- 
+
 Flushes changes to database and performs `findOneBy()` call for current repository.
 
  * `param` $entity
  * `param array` $params
 
-
 #### flushToDatabase
- 
+
 Performs $em->flush();
 
-
 #### grabEntitiesFromRepository
- 
+
 Selects entities from repository.
 It builds query based on array of parameters.
 You can use entity associations to build complex queries.
@@ -90,9 +87,8 @@ $users = $I->grabEntitiesFromRepository('AppBundle:User', array('name' => 'daver
  * `param array` $params
  * `return` array
 
-
 #### grabEntityFromRepository
- 
+
 Selects a single entity from repository.
 It builds query based on array of parameters.
 You can use entity associations to build complex queries.
@@ -112,9 +108,8 @@ $user = $I->grabEntityFromRepository('User', array('id' => '1234'));
  * `param array` $params
  * `return` object
 
-
 #### grabFromRepository
- 
+
 Selects field value from repository.
 It builds query based on array of parameters.
 You can use entity associations to build complex queries.
@@ -135,9 +130,8 @@ $email = $I->grabFromRepository('User', 'email', array('name' => 'davert'));
  * `param array` $params
  * `return` array
 
-
 #### haveFakeRepository
- 
+
 Mocks the repository.
 
 With this action you can redefine any method of any repository.
@@ -160,9 +154,8 @@ which will always return the NULL value.
  * `param` $classname
  * `param array` $methods
 
-
 #### haveInRepository
- 
+
 Persists record into repository.
 This method crates an entity, and sets its properties directly (via reflection).
 Setters of entity won't be executed, but you can create almost any entity and save it to database.
@@ -174,9 +167,8 @@ $I->haveInRepository('Entity\User', array('name' => 'davert'));
 
 {% endhighlight %}
 
-
 #### persistEntity
- 
+
 Adds entity to repository and flushes. You can redefine it's properties with the second parameter.
 
 Example:
@@ -192,9 +184,8 @@ $I->persistEntity($user, array('name' => 'Miles'));
  * `param` $obj
  * `param array` $values
 
-
 #### seeInRepository
- 
+
 Flushes changes to database, and executes a query with parameters defined in an array.
 You can use entity associations to build complex queries.
 

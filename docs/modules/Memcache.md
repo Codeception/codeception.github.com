@@ -5,10 +5,9 @@ title: Memcache - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module/Memcache.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Memcache.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/Memcache.md">2.2</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Memcache.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Memcache.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Memcache.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.4/src/Codeception/Module/Memcache.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Memcache.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.3/docs/modules/Memcache.md">2.3</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/Memcache.md">2.2</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Memcache.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Memcache.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Memcache.md">1.8</a></div>
 
 # Memcache
-
 
 Connects to [memcached](http://www.memcached.org/) using either _Memcache_ or _Memcached_ extension.
 
@@ -42,16 +41,14 @@ Be sure you don't use the production server to connect.
 
 * **memcache** - instance of _Memcache_ or _Memcached_ object
 
-
 ### Actions
 
 #### clearMemcache
- 
+
 Flushes all Memcached data.
 
-
 #### dontSeeInMemcached
- 
+
 Checks item in Memcached doesn't exist or is the same as expected.
 
 Examples:
@@ -71,9 +68,8 @@ $I->dontSeeInMemcached('users_count', 200);
  * `param` $key
  * `param` $value
 
-
 #### grabValueFromMemcached
- 
+
 Grabs value from memcached by key.
 
 Example:
@@ -89,18 +85,16 @@ $users_count = $I->grabValueFromMemcached('users_count');
  * `param` $key
  * `return` array|string
 
-
 #### haveInMemcached
- 
+
 Stores an item `$value` with `$key` on the Memcached server.
 
  * `param string` $key
  * `param mixed` $value
  * `param int` $expiration
 
-
 #### seeInMemcached
- 
+
 Checks item in Memcached exists and the same as expected.
 
 Examples:

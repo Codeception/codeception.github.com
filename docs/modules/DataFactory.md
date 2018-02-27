@@ -5,10 +5,9 @@ title: DataFactory - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module/DataFactory.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/DataFactory.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/DataFactory.md">2.2</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/DataFactory.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/DataFactory.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/DataFactory.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.4/src/Codeception/Module/DataFactory.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/DataFactory.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.3/docs/modules/DataFactory.md">2.3</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/DataFactory.md">2.2</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/DataFactory.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/DataFactory.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/DataFactory.md">1.8</a></div>
 
 # DataFactory
-
 
 DataFactory allows you to easily generate and create test data using [**FactoryMuffin**](https://github.com/thephpleague/factory-muffin).
 DataFactory uses an ORM of your application to define, save and cleanup data. Thus, should be used with ORM or Framework modules.
@@ -19,6 +18,7 @@ This module requires packages installed:
 
 {
  "league/factory-muffin": "^3.0",
+ "league/factory-muffin-faker": "^1.0"
 }
 
 {% endhighlight %}
@@ -135,7 +135,7 @@ In case your ORM expects a related record itself (Doctrine) then you should use 
 ### Actions
 
 #### have
- 
+
 Generates and saves a record,.
 
 {% highlight php %}
@@ -152,9 +152,8 @@ Returns an instance of created user.
 
  * `return` object
 
-
 #### haveMultiple
- 
+
 Generates and saves a record multiple times.
 
 {% highlight php %}

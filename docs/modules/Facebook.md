@@ -5,10 +5,9 @@ title: Facebook - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module/Facebook.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Facebook.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/Facebook.md">2.2</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Facebook.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Facebook.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Facebook.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.4/src/Codeception/Module/Facebook.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Facebook.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.3/docs/modules/Facebook.md">2.3</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/Facebook.md">2.2</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Facebook.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Facebook.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Facebook.md">1.8</a></div>
 
 # Facebook
-
 
 Provides testing for projects integrated with Facebook API.
 Relies on Facebook's tool Test User API.
@@ -88,74 +87,64 @@ $I->see('Welcome, ' . $fbUserFirstName);
 ### Actions
 
 #### grabFacebookTestUserAccessToken
- 
+
 Returns the test user access token.
 
  * `return` string
 
-
 #### grabFacebookTestUserEmail
- 
+
 Returns the test user email.
 
  * `return` string
 
-
 #### grabFacebookTestUserId
- 
+
 Returns the test user id.
 
  * `return` string
 
-
 #### grabFacebookTestUserLoginUrl
- 
+
 Returns URL for test user auto-login.
 
  * `return` string
 
-
 #### grabFacebookTestUserName
- 
+
 Returns the test user name.
 
  * `return` string
 
-
 #### grabFacebookTestUserPassword
 __not documented__
 
-
 #### haveFacebookTestUserAccount
- 
+
 Get facebook test user be created.
 
 *Please, note that the test user is created only at first invoke, unless $renew arguments is true.*
 
  * `param bool` $renew true if the test user should be recreated
 
-
 #### haveTestUserLoggedInOnFacebook
- 
+
 Get facebook test user be logged in on facebook.
 This is done by going to facebook.com
 
 @throws ModuleConfigException
 
-
 #### postToFacebookAsTestUser
- 
+
 Please, note that you must have publish_actions permission to be able to publish to user's feed.
 
  * `param array` $params
-
 
 #### seePostOnFacebookWithAttachedPlace
 
 Please, note that you must have publish_actions permission to be able to publish to user's feed.
 
  * `param string` $placeId Place identifier to be verified against user published posts
-
 
 #### seePostOnFacebookWithMessage
 

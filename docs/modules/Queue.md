@@ -5,11 +5,9 @@ title: Queue - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module/Queue.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Queue.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/Queue.md">2.2</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Queue.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Queue.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Queue.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.4/src/Codeception/Module/Queue.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Queue.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.3/docs/modules/Queue.md">2.3</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/Queue.md">2.2</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Queue.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Queue.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Queue.md">1.8</a></div>
 
 # Queue
-
-
 
 Works with Queue servers.
 
@@ -124,11 +122,10 @@ service.
              'type': 'aws',
              'region': 'us-west-2'
 
-
 ### Actions
 
 #### addMessageToQueue
- 
+
 Add a message to a queue/tube
 
 {% highlight php %}
@@ -142,9 +139,8 @@ $I->addMessageToQueue('this is a messages', 'default');
  * `param string` $message Message Body
  * `param string` $queue Queue Name
 
-
 #### clearQueue
- 
+
 Clear all messages of the queue/tube
 
 {% highlight php %}
@@ -157,9 +153,8 @@ $I->clearQueue('default');
 
  * `param string` $queue Queue Name
 
-
 #### dontSeeEmptyQueue
- 
+
 Check if a queue/tube is NOT empty of all messages
 
 {% highlight php %}
@@ -172,9 +167,8 @@ $I->dontSeeEmptyQueue('default');
 
  * `param string` $queue Queue Name
 
-
 #### dontSeeQueueExists
- 
+
 Check if a queue/tube does NOT exist on the queueing server.
 
 {% highlight php %}
@@ -187,9 +181,8 @@ $I->dontSeeQueueExists('default');
 
  * `param string` $queue Queue Name
 
-
 #### dontSeeQueueHasCurrentCount
- 
+
 Check if a queue/tube does NOT have a given current number of messages
 
 {% highlight php %}
@@ -203,9 +196,8 @@ $I->dontSeeQueueHasCurrentCount('default', 10);
  * `param string` $queue Queue Name
  * `param int` $expected Number of messages expected
 
-
 #### dontSeeQueueHasTotalCount
- 
+
 Check if a queue/tube does NOT have a given total number of messages
 
 {% highlight php %}
@@ -219,9 +211,8 @@ $I->dontSeeQueueHasTotalCount('default', 10);
  * `param string` $queue Queue Name
  * `param int` $expected Number of messages expected
 
-
 #### grabQueueCurrentCount
- 
+
 Grabber method to get the current number of messages on the queue/tube (pending/ready)
 
 {% highlight php %}
@@ -235,9 +226,8 @@ Grabber method to get the current number of messages on the queue/tube (pending/
 
  * `return` int Count
 
-
 #### grabQueueTotalCount
- 
+
 Grabber method to get the total number of messages on the queue/tube
 
 {% highlight php %}
@@ -252,9 +242,8 @@ Grabber method to get the total number of messages on the queue/tube
 
  * `return` int Count
 
-
 #### grabQueues
- 
+
 Grabber method to get the list of queues/tubes on the server
 
 {% highlight php %}
@@ -267,9 +256,8 @@ $queues = $I->grabQueues();
 
  * `return` array List of Queues/Tubes
 
-
 #### seeEmptyQueue
- 
+
 Check if a queue/tube is empty of all messages
 
 {% highlight php %}
@@ -282,9 +270,8 @@ $I->seeEmptyQueue('default');
 
  * `param string` $queue Queue Name
 
-
 #### seeQueueExists
- 
+
 Check if a queue/tube exists on the queueing server.
 
 {% highlight php %}
@@ -297,9 +284,8 @@ $I->seeQueueExists('default');
 
  * `param string` $queue Queue Name
 
-
 #### seeQueueHasCurrentCount
- 
+
 Check if a queue/tube has a given current number of messages
 
 {% highlight php %}
@@ -313,9 +299,8 @@ $I->seeQueueHasCurrentCount('default', 10);
  * `param string` $queue Queue Name
  * `param int` $expected Number of messages expected
 
-
 #### seeQueueHasTotalCount
- 
+
 Check if a queue/tube has a given total number of messages
 
 {% highlight php %}

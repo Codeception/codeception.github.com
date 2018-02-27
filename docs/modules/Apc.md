@@ -5,10 +5,9 @@ title: Apc - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module/Apc.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Apc.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/Apc.md">2.2</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Apc.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Apc.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Apc.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.4/src/Codeception/Module/Apc.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Apc.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.3/docs/modules/Apc.md">2.3</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/Apc.md">2.2</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Apc.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Apc.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Apc.md">1.8</a></div>
 
 # Apc
-
 
 This module interacts with the [Alternative PHP Cache (APC)](http://php.net/manual/en/intro.apcu.php)
 using either _APCu_ or _APC_ extension.
@@ -32,11 +31,10 @@ Performs a cleanup by flushing all values after each test run.
 
 Be sure you don't use the production server to connect.
 
-
 ### Actions
 
 #### dontSeeInApc
- 
+
 Checks item in APC(u) doesn't exist or is the same as expected.
 
 Examples:
@@ -56,14 +54,12 @@ $I->dontSeeInApc('users_count', 200);
  * `param string|string[]` $key
  * `param mixed` $value
 
-
 #### flushApc
- 
+
 Clears the APC(u) cache
 
-
 #### grabValueFromApc
- 
+
 Grabs value from APC(u) by key.
 
 Example:
@@ -78,9 +74,8 @@ $users_count = $I->grabValueFromApc('users_count');
 
  * `param string|string[]` $key
 
-
 #### haveInApc
- 
+
 Stores an item `$value` with `$key` on the APC(u).
 
 Examples:
@@ -109,9 +104,8 @@ $I->haveInApc($entries, null);
  * `param mixed` $value
  * `param int` $expiration
 
-
 #### seeInApc
- 
+
 Checks item in APC(u) exists and the same as expected.
 
 Examples:

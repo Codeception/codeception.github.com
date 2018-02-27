@@ -5,10 +5,9 @@ title: Filesystem - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module/Filesystem.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Filesystem.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/Filesystem.md">2.2</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Filesystem.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Filesystem.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Filesystem.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.4/src/Codeception/Module/Filesystem.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Filesystem.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.3/docs/modules/Filesystem.md">2.3</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/Filesystem.md">2.2</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Filesystem.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Filesystem.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Filesystem.md">1.8</a></div>
 
 # Filesystem
-
 
 Module for testing local filesystem.
 Fork it to extend the module for FTP, Amazon S3, others.
@@ -24,15 +23,14 @@ Module was developed to test Codeception itself.
 ### Actions
 
 #### amInPath
- 
+
 Enters a directory In local filesystem.
 Project root directory is used by default
 
  * `param string` $path
 
-
 #### cleanDir
- 
+
 Erases directory contents
 
 {% highlight php %}
@@ -45,9 +43,8 @@ $I->cleanDir('logs');
 
  * `param string` $dirname
 
-
 #### copyDir
- 
+
 Copies directory with all contents
 
 {% highlight php %}
@@ -61,9 +58,8 @@ $I->copyDir('vendor','old_vendor');
  * `param string` $src
  * `param string` $dst
 
-
 #### deleteDir
- 
+
 Deletes directory with all subdirectories
 
 {% highlight php %}
@@ -76,9 +72,8 @@ $I->deleteDir('vendor');
 
  * `param string` $dirname
 
-
 #### deleteFile
- 
+
 Deletes a file
 
 {% highlight php %}
@@ -91,22 +86,19 @@ $I->deleteFile('composer.lock');
 
  * `param string` $filename
 
-
 #### deleteThisFile
- 
+
 Deletes a file
 
-
 #### dontSeeFileFound
- 
+
 Checks if file does not exist in path
 
  * `param string` $filename
  * `param string` $path
 
-
 #### dontSeeInThisFile
- 
+
 Checks If opened file doesn't contain `text` in it
 
 {% highlight php %}
@@ -120,9 +112,8 @@ $I->dontSeeInThisFile('codeception/codeception');
 
  * `param string` $text
 
-
 #### openFile
- 
+
 Opens a file and stores it's content.
 
 Usage:
@@ -138,9 +129,8 @@ $I->seeInThisFile('codeception/codeception');
 
  * `param string` $filename
 
-
 #### seeFileContentsEqual
- 
+
 Checks the strict matching of file contents.
 Unlike `seeInThisFile` will fail if file has something more than expected lines.
 Better to use with HEREDOC strings.
@@ -157,9 +147,8 @@ $I->seeFileContentsEqual('3192');
 
  * `param string` $text
 
-
 #### seeFileFound
- 
+
 Checks if file exists in path.
 Opens a file when it's exists
 
@@ -174,9 +163,8 @@ $I->seeFileFound('UserModel.php','app/models');
  * `param string` $filename
  * `param string` $path
 
-
 #### seeInThisFile
- 
+
 Checks If opened file has `text` in it.
 
 Usage:
@@ -192,9 +180,8 @@ $I->seeInThisFile('codeception/codeception');
 
  * `param string` $text
 
-
 #### seeNumberNewLines
- 
+
 Checks If opened file has the `number` of new lines.
 
 Usage:
@@ -210,16 +197,14 @@ $I->seeNumberNewLines(5);
 
  * `param int` $number New lines
 
-
 #### seeThisFileMatches
- 
+
 Checks that contents of currently opened file matches $regex
 
  * `param string` $regex
 
-
 #### writeToFile
- 
+
 Saves contents to file
 
  * `param string` $filename

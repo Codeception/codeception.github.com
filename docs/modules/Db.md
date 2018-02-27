@@ -5,10 +5,9 @@ title: Db - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module/Db.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Db.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/Db.md">2.2</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Db.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Db.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Db.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.4/src/Codeception/Module/Db.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Db.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.3/docs/modules/Db.md">2.3</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/Db.md">2.2</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Db.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Db.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Db.md">1.8</a></div>
 
 # Db
-
 
 Access a database.
 
@@ -194,11 +193,10 @@ SELECT COUNT(*) FROM `users` WHERE `name` = 'Davert' AND `email` LIKE 'davert%'
 * dbh - contains the PDO connection
 * driver - contains the Connection Driver
 
-
 ### Actions
 
 #### dontSeeInDatabase
- 
+
 Effect is opposite to ->seeInDatabase
 
 Asserts that there is no record with the given column values in a database.
@@ -227,9 +225,8 @@ Supported operators: `<`, `>`, `>=`, `<=`, `!=`, `like`.
  * `param string` $table
  * `param array` $criteria
 
-
 #### grabColumnFromDatabase
- 
+
 Fetches all values from the column in database.
 Provide table name, desired column and criteria.
 
@@ -246,9 +243,8 @@ $mails = $I->grabColumnFromDatabase('users', 'email', array('name' => 'RebOOter'
 
  * `return` array
 
-
 #### grabFromDatabase
- 
+
 Fetches a single column value from a database.
 Provide table name, desired column and criteria.
 
@@ -263,7 +259,7 @@ Comparison expressions can be used as well:
 {% highlight php %}
 
 <?php
-$post = $I->grabFromDatabase('posts', ['num_comments >=' => 100]);
+$post = $I->grabFromDatabase('posts', ['num_comments >=' => 100']);
 $user = $I->grabFromDatabase('users', ['email like' => 'miles%']);
 
 {% endhighlight %}
@@ -274,10 +270,8 @@ Supported operators: `<`, `>`, `>=`, `<=`, `!=`, `like`.
  * `param string` $column
  * `param array` $criteria
 
-
-
 #### grabNumRecords
- 
+
 Returns the number of rows in a database
 
  * `param string` $table    Table name
@@ -285,9 +279,8 @@ Returns the number of rows in a database
 
  * `return` int
 
-
 #### haveInDatabase
- 
+
 Inserts an SQL record into a database. This record will be erased after the test.
 
 {% highlight php %}
@@ -303,13 +296,11 @@ $I->haveInDatabase('users', array('name' => 'miles', 'email' => 'miles@davis.com
 
  * `return integer` $id
 
-
 #### isPopulated
 __not documented__
 
-
 #### seeInDatabase
- 
+
 Asserts that a row with the given column values exists.
 Provide table name and column values.
 
@@ -336,9 +327,8 @@ Supported operators: `<`, `>`, `>=`, `<=`, `!=`, `like`.
  * `param string` $table
  * `param array` $criteria
 
-
 #### seeNumRecords
- 
+
 Asserts that the given number of records were found in the database.
 
 {% highlight php %}
@@ -353,9 +343,8 @@ $I->seeNumRecords(1, 'users', ['name' => 'davert'])
  * `param string` $table Table name
  * `param array` $criteria Search criteria [Optional]
 
-
 #### updateInDatabase
- 
+
 Update an SQL record into a database.
 
 {% highlight php %}

@@ -5,10 +5,9 @@ title: XMLRPC - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.3/src/Codeception/Module/XMLRPC.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/XMLRPC.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/XMLRPC.md">2.2</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/XMLRPC.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/XMLRPC.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/XMLRPC.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.4/src/Codeception/Module/XMLRPC.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/XMLRPC.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.3/docs/modules/XMLRPC.md">2.3</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/XMLRPC.md">2.2</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/XMLRPC.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/XMLRPC.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/XMLRPC.md">1.8</a></div>
 
 # XMLRPC
-
 
 Module for testing XMLRPC WebService.
 
@@ -44,29 +43,25 @@ Otherwise sends raw HTTP requests to url via PHPBrowser.
 ### Actions
 
 #### haveHttpHeader
- 
+
 Sets HTTP header
 
  * `param string` $name
  * `param string` $value
 
-
 #### seeResponseCodeIs
- 
+
 Checks response code.
 
  * `param` $num
 
-
 #### seeResponseIsXMLRPC
- 
+
 Checks weather last response was valid XMLRPC.
 This is done with xmlrpc_decode function.
 
-
-
 #### sendXMLRPCMethodCall
- 
+
 Sends a XMLRPC method call to remote XMLRPC-server.
 
  * `param string` $methodName
