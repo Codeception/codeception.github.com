@@ -8,6 +8,11 @@ Hello everyone! We'd like to announce the immediate **availability of Codeceptio
 
 This follows up the PHPUnit release and mostly contains **compatibility fixes for PHPUnit 7**. Internal usage of PHPUnit in Codeception was switched to new namespaced class names. This doesn't break any public APIs but can break some setups. That's why this is a minor release with a proper announcement. Please upgrade and unless you have some PHPUnit version conflict you should not experience any issues.
 
+**Upgrade Notice:** If you have tests extending `PHPUnit_Framework_TestCase` (old-style names) you have two options:
+
+* Lock version for PHPUnit in composer.json: `"phpunit/phpunit":"^5.0.0"`
+* Update your codebase to extend tests from `Codeception\Test\Unit` (which won't be changed in future).
+
 Codeception 2.4.0 is a stability release. We **dropped unmaintained PHP 5.4 and PHP 5.5**. But we keep compatibility with PHP 5.6 so if your company still uses PHP 5 (and we understand business reasons) you can install this update too. Codeception is still going to be maintained with PHP 5.6 compatibility in mind. We don't break API just for the sake of clean code. We try to make things reliable. 
 
 In the same Codeception 2.3.9 is released, so if you want to get the latest changes and you still use old PHP, upgrade to this version.
