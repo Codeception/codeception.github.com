@@ -9,6 +9,7 @@ title: SOAP - Codeception - Documentation
 
 # SOAP
 
+
 Module for testing SOAP WSDL web services.
 Send requests and check if response matches the pattern.
 
@@ -38,15 +39,17 @@ If you use PHP SoapServer with framework, try to block call to this method in te
 * xmlRequest - last SOAP request (DOMDocument)
 * xmlResponse - last SOAP response (DOMDocument)
 
+
 ### Actions
 
 #### dontSeeSoapResponseContainsStructure
-
+ 
 Opposite to `seeSoapResponseContainsStructure`
  * `param` $xml
 
-#### dontSeeSoapResponseContainsXPath
 
+#### dontSeeSoapResponseContainsXPath
+ 
 Checks XML response doesn't contain XPath locator
 
 {% highlight php %}
@@ -59,8 +62,9 @@ $I->dontSeeSoapResponseContainsXPath('//root/user[@id=1]');
 
  * `param` $xpath
 
-#### dontSeeSoapResponseEquals
 
+#### dontSeeSoapResponseEquals
+ 
 Checks XML response equals provided XML.
 Comparison is done by canonicalizing both xml`s.
 
@@ -68,16 +72,18 @@ Parameter can be passed either as XmlBuilder, DOMDocument, DOMNode, XML string, 
 
  * `param` $xml
 
-#### dontSeeSoapResponseIncludes
 
+#### dontSeeSoapResponseIncludes
+ 
 Checks XML response does not include provided XML.
 Comparison is done by canonicalizing both xml`s.
 Parameter can be passed either as XmlBuilder, DOMDocument, DOMNode, XML string, or array (if no attributes).
 
  * `param` $xml
 
-#### grabAttributeFrom
 
+#### grabAttributeFrom
+ 
 Finds and returns attribute of element.
 Element is matched by either CSS or XPath
 
@@ -86,8 +92,9 @@ Element is matched by either CSS or XPath
  * `param` $attribute
  * `return` string
 
-#### grabTextContentFrom
 
+#### grabTextContentFrom
+ 
 Finds and returns text contents of element.
 Element is matched by either CSS or XPath
 
@@ -95,8 +102,9 @@ Element is matched by either CSS or XPath
  * `param` $cssOrXPath
  * `return` string
 
-#### haveSoapHeader
 
+#### haveSoapHeader
+ 
 Prepare SOAP header.
 Receives header name and parameters as array.
 
@@ -125,18 +133,21 @@ Will produce header:
  * `param` $header
  * `param array` $params
 
-#### seeResponseCodeIs
 
+#### seeResponseCodeIs
+ 
 @deprecated use seeSoapResponseCodeIs instead
 
-#### seeSoapResponseCodeIs
 
+#### seeSoapResponseCodeIs
+ 
 Checks response code from server.
 
  * `param` $code
 
-#### seeSoapResponseContainsStructure
 
+#### seeSoapResponseContainsStructure
+ 
 Checks XML response contains provided structure.
 Response elements will be compared with XML provided.
 Only nodeNames are checked to see elements match.
@@ -158,8 +169,9 @@ This method does not require path from root to match the structure.
 
  * `param` $xml
 
-#### seeSoapResponseContainsXPath
 
+#### seeSoapResponseContainsXPath
+ 
 Checks XML response with XPath locator
 
 {% highlight php %}
@@ -172,8 +184,9 @@ $I->seeSoapResponseContainsXPath('//root/user[@id=1]');
 
  * `param` $xpath
 
-#### seeSoapResponseEquals
 
+#### seeSoapResponseEquals
+ 
 Checks XML response equals provided XML.
 Comparison is done by canonicalizing both xml`s.
 
@@ -195,8 +208,9 @@ $I->seeSoapRequestIncludes($dom);
 
  * `param` $xml
 
-#### seeSoapResponseIncludes
 
+#### seeSoapResponseIncludes
+ 
 Checks XML response includes provided XML.
 Comparison is done by canonicalizing both xml`s.
 Parameter can be passed either as XmlBuilder, DOMDocument, DOMNode, XML string, or array (if no attributes).
@@ -218,8 +232,9 @@ $I->seeSoapRequestIncludes($dom);
 
  * `param` $xml
 
-#### sendSoapRequest
 
+#### sendSoapRequest
+ 
 Submits request to endpoint.
 
 Requires of api function name and parameters.
@@ -241,4 +256,4 @@ $I->sendSoapRequest('UpdateUser', \Codeception\Utils\Soap::request()->user
  * `param` $request
  * `param` $body
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.3/src/Codeception/Module/SOAP.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.4/src/Codeception/Module/SOAP.php">Help us to improve documentation. Edit module reference</a></div>

@@ -9,6 +9,8 @@ title: FTP - Codeception - Documentation
 
 # FTP
 
+
+
 Works with SFTP/FTP servers.
 
 In order to test the contents of a specific file stored on any remote FTP/SFTP system
@@ -91,18 +93,20 @@ For SFTP, add [phpseclib](http://phpseclib.sourceforge.net/) to require list.
              tmp: 'tests/_data/ftp'
              cleanup: false
 
+
 This module extends the Filesystem module, file contents methods are inherited from this module.
 
 ### Actions
 
 #### amInPath
-
+ 
 Enters a directory on the ftp system - FTP root directory is used by default
 
  * `param` $path
 
-#### cleanDir
 
+#### cleanDir
+ 
 Erases directory contents on the FTP/SFTP server
 
 {% highlight php %}
@@ -115,15 +119,17 @@ $I->cleanDir('logs');
 
  * `param` $dirname
 
-#### copyDir
 
+#### copyDir
+ 
 Currently not supported in this module, overwrite inherited method
 
  * `param` $src
  * `param` $dst
 
-#### deleteDir
 
+#### deleteDir
+ 
 Deletes directory with all subdirectories on the remote FTP/SFTP server
 
 {% highlight php %}
@@ -136,8 +142,9 @@ $I->deleteDir('vendor');
 
  * `param` $dirname
 
-#### deleteFile
 
+#### deleteFile
+ 
 Deletes a file on the remote FTP/SFTP system
 
 {% highlight php %}
@@ -150,27 +157,31 @@ $I->deleteFile('composer.lock');
 
  * `param` $filename
 
-#### deleteThisFile
 
+#### deleteThisFile
+ 
 Deletes a file
 
-#### dontSeeFileFound
 
+#### dontSeeFileFound
+ 
 Checks if file does not exist in path on the remote FTP/SFTP system
 
  * `param` $filename
  * `param string` $path
 
-#### dontSeeFileFoundMatches
 
+#### dontSeeFileFoundMatches
+ 
 Checks if file does not exist in path on the remote FTP/SFTP system, using regular expression as filename.
 DOES NOT OPEN the file when it's exists
 
  * `param` $regex
  * `param string` $path
 
-#### dontSeeInThisFile
 
+#### dontSeeInThisFile
+ 
 Checks If opened file doesn't contain `text` in it
 
 {% highlight php %}
@@ -184,8 +195,9 @@ $I->dontSeeInThisFile('codeception/codeception');
 
  * `param string` $text
 
-#### grabDirectory
 
+#### grabDirectory
+ 
 Grabber method to return current working directory
 
 {% highlight php %}
@@ -198,8 +210,9 @@ $pwd = $I->grabDirectory();
 
  * `return` string
 
-#### grabFileCount
 
+#### grabFileCount
+ 
 Grabber method for returning file/folders count in directory
 
 {% highlight php %}
@@ -215,8 +228,9 @@ $count = $I->grabFileCount('TEST', false); // Include . .. .thumbs.db
  * `param bool` $ignore - suppress '.', '..' and '.thumbs.db'
  * `return` int
 
-#### grabFileList
 
+#### grabFileList
+ 
 Grabber method for returning file/folders listing in an array
 
 {% highlight php %}
@@ -232,8 +246,9 @@ $count = $I->grabFileList('TEST', false); // Include . .. .thumbs.db
  * `param bool` $ignore - suppress '.', '..' and '.thumbs.db'
  * `return` array
 
-#### grabFileModified
 
+#### grabFileModified
+ 
 Grabber method to return last modified timestamp
 
 {% highlight php %}
@@ -247,8 +262,9 @@ $time = $I->grabFileModified('test.txt');
  * `param` $filename
  * `return` bool
 
-#### grabFileSize
 
+#### grabFileSize
+ 
 Grabber method to return file size
 
 {% highlight php %}
@@ -262,8 +278,9 @@ $size = $I->grabFileSize('test.txt');
  * `param` $filename
  * `return` bool
 
-#### loginAs
 
+#### loginAs
+ 
 Change the logged in user mid-way through your test, this closes the
 current connection to the server and initialises and new connection.
 
@@ -282,8 +299,9 @@ $I->loginAs('user','password');
  * `param String` $user
  * `param String` $password
 
-#### makeDir
 
+#### makeDir
+ 
 Create a directory on the server
 
 {% highlight php %}
@@ -296,8 +314,9 @@ $I->makeDir('vendor');
 
  * `param` $dirname
 
-#### openFile
 
+#### openFile
+ 
 Opens a file (downloads from the remote FTP/SFTP system to a tmp directory for processing)
 and stores it's content.
 
@@ -314,8 +333,9 @@ $I->seeInThisFile('codeception/codeception');
 
  * `param` $filename
 
-#### renameDir
 
+#### renameDir
+ 
 Rename/Move directory on the FTP/SFTP server
 
 {% highlight php %}
@@ -329,8 +349,9 @@ $I->renameDir('vendor', 'vendor_old');
  * `param` $dirname
  * `param` $rename
 
-#### renameFile
 
+#### renameFile
+ 
 Rename/Move file on the FTP/SFTP server
 
 {% highlight php %}
@@ -344,8 +365,9 @@ $I->renameFile('composer.lock', 'composer_old.lock');
  * `param` $filename
  * `param` $rename
 
-#### seeFileContentsEqual
 
+#### seeFileContentsEqual
+ 
 Checks the strict matching of file contents.
 Unlike `seeInThisFile` will fail if file has something more than expected lines.
 Better to use with HEREDOC strings.
@@ -362,8 +384,9 @@ $I->seeFileContentsEqual('3192');
 
  * `param string` $text
 
-#### seeFileFound
 
+#### seeFileFound
+ 
 Checks if file exists in path on the remote FTP/SFTP system.
 DOES NOT OPEN the file when it's exists
 
@@ -378,8 +401,9 @@ $I->seeFileFound('UserModel.php','app/models');
  * `param` $filename
  * `param string` $path
 
-#### seeFileFoundMatches
 
+#### seeFileFoundMatches
+ 
 Checks if file exists in path on the remote FTP/SFTP system, using regular expression as filename.
 DOES NOT OPEN the file when it's exists
 
@@ -394,8 +418,9 @@ $I->seeFileFoundMatches('/^UserModel_([0-9]{6}).php$/','app/models');
  * `param` $regex
  * `param string` $path
 
-#### seeInThisFile
 
+#### seeInThisFile
+ 
 Checks If opened file has `text` in it.
 
 Usage:
@@ -411,8 +436,9 @@ $I->seeInThisFile('codeception/codeception');
 
  * `param string` $text
 
-#### seeNumberNewLines
 
+#### seeNumberNewLines
+ 
 Checks If opened file has the `number` of new lines.
 
 Usage:
@@ -428,14 +454,16 @@ $I->seeNumberNewLines(5);
 
  * `param int` $number New lines
 
-#### seeThisFileMatches
 
+#### seeThisFileMatches
+ 
 Checks that contents of currently opened file matches $regex
 
  * `param string` $regex
 
-#### writeToFile
 
+#### writeToFile
+ 
 Saves contents to tmp file and uploads the FTP/SFTP system.
 Overwrites current file on server if exists.
 
@@ -450,4 +478,4 @@ $I->writeToFile('composer.json', 'some data here');
  * `param` $filename
  * `param` $contents
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.3/src/Codeception/Module/FTP.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.4/src/Codeception/Module/FTP.php">Help us to improve documentation. Edit module reference</a></div>
