@@ -17,8 +17,9 @@ title: Codeception Changelog
 * Cest hooks behavior changed (by **[fffilimonov](https://github.com/fffilimonov)**):
   * `_failed` called when test fails
   * `_passed` called when tests is successful
-  * `_after` is called for failing and successful tests
-   #### 2.3.9
+  * `_after` is called for failing and successful tests   
+
+#### 2.3.9
 
 * Added `Codeception\Step\Argument\PasswordArgument` to pass sensitive data into tests:
 
