@@ -223,6 +223,24 @@ $I->submitForm('#update_form', array('user' => array(
 
 {% endhighlight %}
 
+##### Hiding Sensitive Data
+
+If you need to fill in sensitive data (like passwords) and hide it in logs, 
+you can pass instance `\Codeception\Step\Argument\PasswordArgument` with the data which needs to be hidden.
+
+{% highlight php %}
+
+<?php
+<?php
+use \Codeception\Step\Argument\PasswordArgument;
+
+$I->amOnPage('/form/password_argument');
+$I->fillField('password', new PasswordArgument('thisissecret'));
+
+{% endhighlight %}  
+
+`thisissecret` will be filled into a form but it won't be shown in output and logs.
+
 #### Assertions
 
 In the `PhpBrowser` you can test the page contents.

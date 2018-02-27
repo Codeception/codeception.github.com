@@ -177,7 +177,7 @@ In this
 
 {% endhighlight %}
 
-See a reference for static Stub API  
+See a reference for [static Stub API](http://codeception.com/docs/reference/Stub)  
 
 #### Mocks
 
@@ -517,7 +517,7 @@ public function testSingleton()
 ## Conclusion
 
 PHPUnit tests are first-class citizens in test suites. Whenever you need to write and execute unit tests,
-you don't need to install PHPUnit seperately, but use Codeception directly to execute them.
+you don't need to install PHPUnit separately, but use Codeception directly to execute them.
 Some nice features can be added to common unit tests by integrating Codeception modules.
 For most unit and integration testing, PHPUnit tests are enough. They run fast, and are easy to maintain.
 
