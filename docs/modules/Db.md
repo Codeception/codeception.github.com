@@ -9,6 +9,7 @@ title: Db - Codeception - Documentation
 
 # Db
 
+
 Access a database.
 
 The most important function of this module is to clean a database before each test.
@@ -193,10 +194,11 @@ SELECT COUNT(*) FROM `users` WHERE `name` = 'Davert' AND `email` LIKE 'davert%'
 * dbh - contains the PDO connection
 * driver - contains the Connection Driver
 
+
 ### Actions
 
 #### dontSeeInDatabase
-
+ 
 Effect is opposite to ->seeInDatabase
 
 Asserts that there is no record with the given column values in a database.
@@ -225,8 +227,9 @@ Supported operators: `<`, `>`, `>=`, `<=`, `!=`, `like`.
  * `param string` $table
  * `param array` $criteria
 
-#### grabColumnFromDatabase
 
+#### grabColumnFromDatabase
+ 
 Fetches all values from the column in database.
 Provide table name, desired column and criteria.
 
@@ -243,8 +246,9 @@ $mails = $I->grabColumnFromDatabase('users', 'email', array('name' => 'RebOOter'
 
  * `return` array
 
-#### grabFromDatabase
 
+#### grabFromDatabase
+ 
 Fetches a single column value from a database.
 Provide table name, desired column and criteria.
 
@@ -259,7 +263,7 @@ Comparison expressions can be used as well:
 {% highlight php %}
 
 <?php
-$post = $I->grabFromDatabase('posts', ['num_comments >=' => 100']);
+$post = $I->grabFromDatabase('posts', ['num_comments >=' => 100]);
 $user = $I->grabFromDatabase('users', ['email like' => 'miles%']);
 
 {% endhighlight %}
@@ -270,8 +274,10 @@ Supported operators: `<`, `>`, `>=`, `<=`, `!=`, `like`.
  * `param string` $column
  * `param array` $criteria
 
-#### grabNumRecords
 
+
+#### grabNumRecords
+ 
 Returns the number of rows in a database
 
  * `param string` $table    Table name
@@ -279,8 +285,9 @@ Returns the number of rows in a database
 
  * `return` int
 
-#### haveInDatabase
 
+#### haveInDatabase
+ 
 Inserts an SQL record into a database. This record will be erased after the test.
 
 {% highlight php %}
@@ -296,11 +303,13 @@ $I->haveInDatabase('users', array('name' => 'miles', 'email' => 'miles@davis.com
 
  * `return integer` $id
 
+
 #### isPopulated
 __not documented__
 
-#### seeInDatabase
 
+#### seeInDatabase
+ 
 Asserts that a row with the given column values exists.
 Provide table name and column values.
 
@@ -327,8 +336,9 @@ Supported operators: `<`, `>`, `>=`, `<=`, `!=`, `like`.
  * `param string` $table
  * `param array` $criteria
 
-#### seeNumRecords
 
+#### seeNumRecords
+ 
 Asserts that the given number of records were found in the database.
 
 {% highlight php %}
@@ -343,8 +353,9 @@ $I->seeNumRecords(1, 'users', ['name' => 'davert'])
  * `param string` $table Table name
  * `param array` $criteria Search criteria [Optional]
 
-#### updateInDatabase
 
+#### updateInDatabase
+ 
 Update an SQL record into a database.
 
 {% highlight php %}
@@ -359,4 +370,4 @@ $I->updateInDatabase('users', array('isAdmin' => true), array('email' => 'miles@
  * `param array` $data
  * `param array` $criteria
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.3/src/Codeception/Module/Db.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.4/src/Codeception/Module/Db.php">Help us to improve documentation. Edit module reference</a></div>
