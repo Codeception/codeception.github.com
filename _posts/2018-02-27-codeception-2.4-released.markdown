@@ -22,7 +22,7 @@ Previously `_after` hook worked as `_passed` and that behavior was confusing. Th
 
 [See changelog](https://codeception.com/changelog) for the complete list of fixes and improvements.
 
-Thanks to all our contributors to make this release happen!
+Thanks to all our contributors who made this release happen!
 
 ---
 
