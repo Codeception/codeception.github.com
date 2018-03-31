@@ -9,7 +9,7 @@ title: Codeception Changelog
 
 #### 2.4.1
 
-* Fixed `PHP Fatal error:  Uncaught Error: Call to undefined method Codeception\Test\Descriptor::getTestDataSetIndex()` when filtering tests
+* Fixed "Uncaught Error: Call to undefined method Codeception\Test\Descriptor::getTestDataSetIndex()" error when filtering tests.
 * Better support of PHPUnit warning status by **[edno](https://github.com/edno)**:
   * support PHPUnit addWarning()
   * display 'W' instead of success for warning test cases
