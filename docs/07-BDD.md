@@ -90,7 +90,7 @@ We will assume that we will use scenarios in feature files for acceptance tests,
 
 {% highlight bash %}
 
-php codecept g:feature acceptance checkout
+php vendor/bin/codecept g:feature acceptance checkout
 
 {% endhighlight %}
 

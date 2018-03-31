@@ -18,7 +18,7 @@ You can create a Cest file by running the command:
 
 {% highlight bash %}
 
-$ php codecept generate:cest suitename CestName
+$ php vendor/bin/codecept generate:cest suitename CestName
 
 {% endhighlight %}
 
@@ -421,7 +421,7 @@ You can generate a new file with this environment configuration by using the `ge
 
 {% highlight bash %}
 
-$ php codecept g:env chrome
+$ php vendor/bin/codecept g:env chrome
 
 {% endhighlight %}
 
@@ -443,7 +443,7 @@ To run the tests only for PhantomJS you just need to pass `--env phantom` as an 
 
 {% highlight bash %}
 
-$ php codecept run acceptance --env phantom
+$ php vendor/bin/codecept run acceptance --env phantom
 
 {% endhighlight %}
 
@@ -451,7 +451,7 @@ To run the tests in all 3 browsers, list all the environments:
 
 {% highlight bash %}
 
-$ php codecept run acceptance --env phantom --env chrome --env firefox
+$ php vendor/bin/codecept run acceptance --env phantom --env chrome --env firefox
 
 {% endhighlight %}
 
@@ -461,7 +461,7 @@ It's also possible to merge multiple environments into a single configuration by
 
 {% highlight bash %}
 
-$ php codecept run acceptance --env dev,phantom --env dev,chrome --env dev,firefox
+$ php vendor/bin/codecept run acceptance --env dev,phantom --env dev,chrome --env dev,firefox
 
 {% endhighlight %}
 
@@ -598,7 +598,7 @@ You can run the console with the following command:
 
 {% highlight bash %}
 
-$ php codecept console suitename
+$ php vendor/bin/codecept console suitename
 
 {% endhighlight %}
 
@@ -617,9 +617,9 @@ You can pass the `-c` option to any Codeception command (except `bootstrap`), to
 
 {% highlight bash %}
 
-$ php codecept run -c ~/projects/ecommerce/
-$ php codecept run -c ~/projects/drupal/
-$ php codecept generate:cept acceptance CreateArticle -c ~/projects/drupal/
+$ php vendor/bin/codecept run -c ~/projects/ecommerce/
+$ php vendor/bin/codecept run -c ~/projects/drupal/
+$ php vendor/bin/codecept generate:cept acceptance CreateArticle -c ~/projects/drupal/
 
 {% endhighlight %}
 
@@ -627,7 +627,7 @@ To create a project in directory different from the current one, just provide it
 
 {% highlight bash %}
 
-$ php codecept bootstrap ~/projects/drupal/
+$ php vendor/bin/codecept bootstrap ~/projects/drupal/
 
 {% endhighlight %}
 
@@ -641,7 +641,7 @@ There are several ways to execute a bunch of tests. You can run tests from a spe
 
 {% highlight bash %}
 
-$ php codecept run tests/acceptance/admin
+$ php vendor/bin/codecept run tests/acceptance/admin
 
 {% endhighlight %}
 
@@ -649,7 +649,7 @@ You can execute one (or several) specific groups of tests:
 
 {% highlight bash %}
 
-$ php codecept run -g admin -g editor
+$ php vendor/bin/codecept run -g admin -g editor
 
 {% endhighlight %}
 

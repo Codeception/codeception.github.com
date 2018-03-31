@@ -54,7 +54,6 @@ With acceptance tests, you can be confident that users, following all the define
 {% highlight php %}
 
 <?php
-$I = new AcceptanceTester($scenario);
 $I->amOnPage('/');
 $I->click('Sign Up');
 $I->submitForm('#signup', ['username' => 'MilesDavis', 'email' => 'miles@davis.com']);
@@ -80,7 +79,6 @@ Codeception provides connectors to several popular PHP frameworks. You can also 
 {% highlight php %}
 
 <?php
-$I = new FunctionalTester($scenario);
 $I->amOnPage('/');
 $I->click('Sign Up');
 $I->submitForm('#signup', ['username' => 'MilesDavis', 'email' => 'miles@davis.com']);
@@ -116,7 +114,7 @@ function testSavingUser()
     $user->setSurname('Davis');
     $user->save();
     $this->assertEquals('Miles Davis', $user->getFullName());
-    $this->unitTester->seeInDatabase('users', ['name' => 'Miles', 'surname' => 'Davis']);
+    $this->tester->seeInDatabase('users', ['name' => 'Miles', 'surname' => 'Davis']);
 }
 
 {% endhighlight %}

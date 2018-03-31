@@ -36,7 +36,7 @@ At first we need to create build project. Depending on your needs you can set up
 We need to define build steps. The most simple setup may look like this:
 
 {% highlight php %}
- codecept run
+ vendor/bin/codecept run
 
 {% endhighlight %}
 
@@ -53,7 +53,7 @@ But we don't want to analyze console output for each failing build. Especially I
 Now let's update our build step to generate xml:
 
 {% highlight php %}
- codecept run --xml
+ vendor/bin/codecept run --xml
 
 {% endhighlight %}
 
@@ -72,7 +72,7 @@ Now for all builds we will see results trend graph that shows us percentage of p
 To get more details on steps executed you can generate HTML report and use Jenkins to display them.
 
 {% highlight php %}
- codecept run --html
+ vendor/bin/codecept run --html
 
 {% endhighlight %}
 
@@ -103,7 +103,7 @@ As an alternative you can use 3rd-party [TeamCity extension](https://github.com/
 After you create build project you should define build step with Codeception which is
 
 {% highlight php %}
- codecept run --report
+ vendor/bin/codecept run --report
 
 {% endhighlight %}
 
@@ -121,7 +121,7 @@ Travis CI is popular service CI with good GitHub integration. Codeception is sel
 
 {% highlight yaml %}
 
-php codecept run
+php vendor/bin/codecept run
 
 {% endhighlight %}
 

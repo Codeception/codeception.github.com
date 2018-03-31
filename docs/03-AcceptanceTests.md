@@ -69,14 +69,25 @@ modules:
 
 {% endhighlight %}
 
-We should start by creating a 'Cept' file:
+We should start by creating a test with the next command:
+
+{% highlight php %}
+ vendor/bin/codecept g:cest acceptance Signin
+
+{% endhighlight %}
+
+It will be placed into `tests/acceptance` directory.
 
 {% highlight php %}
 
 <?php
-// tests/acceptance/SigninCept.php
-$I = new AcceptanceTester($scenario);
-$I->wantTo('sign in');
+class SigninCest
+{
+    public function tryToTest(AcceptanceTester $I)
+    {
+        $I->wantTo('test my page');
+    }
+}
 
 {% endhighlight %}
 
@@ -230,7 +241,6 @@ you can pass instance `\Codeception\Step\Argument\PasswordArgument` with the dat
 
 {% highlight php %}
 
-<?php
 <?php
 use \Codeception\Step\Argument\PasswordArgument;
 

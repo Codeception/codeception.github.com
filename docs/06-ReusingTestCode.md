@@ -18,7 +18,6 @@ We will get back to this later in this chapter, but for now let's look at the fo
 {% highlight php %}
 
 <?php
-$I = new AcceptanceTester($scenario);
 $I->amOnPage('/');
 $I->see('Hello');
 $I->seeInDatabase('users', ['id' => 1]);
@@ -168,7 +167,7 @@ Lets create an Admin StepObject with the generator:
 
 {% highlight bash %}
 
-php codecept generate:stepobject acceptance Admin
+php vendor/bin/codecept generate:stepobject acceptance Admin
 
 {% endhighlight %}
 
@@ -177,7 +176,7 @@ End with an empty line to continue to StepObject creation.
 
 {% highlight bash %}
 
-php codecept generate:stepobject acceptance Admin
+php vendor/bin/codecept generate:stepobject acceptance Admin
 Add action to StepObject class (ENTER to exit): loginAsAdmin
 Add action to StepObject class (ENTER to exit):
 StepObject was created in /tests/acceptance/_support/Step/Acceptance/Admin.php
@@ -273,7 +272,7 @@ Codeception can generate a PageObject class for you with command:
 
 {% highlight bash %}
 
-php codecept generate:pageobject Login
+php vendor/bin/codecept generate:pageobject Login
 
 {% endhighlight %}
 

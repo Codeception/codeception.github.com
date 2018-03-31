@@ -15,7 +15,7 @@ Create a test using `generate:test` command with a suite and test names as param
 
 {% highlight bash %}
 
-php codecept generate:test unit Example
+php vendor/bin/codecept generate:test unit Example
 
 {% endhighlight %}
 
@@ -25,7 +25,7 @@ As always, you can run the newly created test with this command:
 
 {% highlight bash %}
 
-php codecept run unit ExampleTest
+php vendor/bin/codecept run unit ExampleTest
 
 {% endhighlight %}
 
@@ -33,7 +33,7 @@ Or simply run the whole set of unit tests with:
 
 {% highlight bash %}
 
-php codecept run unit
+php vendor/bin/codecept run unit
 
 {% endhighlight %}
 
@@ -87,15 +87,15 @@ class UserTest extends \Codeception\Test\Unit
 {
     public function testValidation()
     {
-        $user = User::create();
+        $user = new User();
 
-        $user->username = null;
+        $user->setName(null);
         $this->assertFalse($user->validate(['username']));
 
-        $user->username = 'toolooooongnaaaaaaameeee';
+        $user->setName('toolooooongnaaaaaaameeee');
         $this->assertFalse($user->validate(['username']));
 
-        $user->username = 'davert';
+        $user->setName('davert');
         $this->assertTrue($user->validate(['username']));
     }
 }

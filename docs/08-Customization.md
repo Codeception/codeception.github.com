@@ -42,7 +42,7 @@ To create test suites with namespaces you can add `--namespace` option to the bo
 
 {% highlight bash %}
 
-php codecept bootstrap --namespace frontend
+php vendor/bin/codecept bootstrap --namespace frontend
 
 {% endhighlight %}
 
@@ -54,7 +54,7 @@ you can execute all the tests in a single runner. Run the Codeception tests as u
 
 {% highlight bash %}
 
-php codecept run
+php vendor/bin/codecept run
 
 {% endhighlight %}
 
@@ -65,7 +65,7 @@ and you want to get a single report in JUnit and HTML format. The code coverage 
 If you want to run a specific suite from the application you can execute:
 
 {% highlight php %}
- codecept run unit -c frontend
+ vendor/bin/codecept run unit -c frontend
 
 {% endhighlight %}
 
@@ -83,7 +83,7 @@ By default, one `RunFailed` Extension is already enabled in your global `codecep
 It allows you to rerun failed tests by using the `-g failed` option:
 
 {% highlight php %}
- codecept run -g failed
+ vendor/bin/codecept run -g failed
 
 {% endhighlight %}
 
@@ -326,7 +326,7 @@ For instance, for `nocleanup` group we prevent Doctrine2 module from wrapping te
 
 {% endhighlight %}
 
-A group class can be created with `php codecept generate:group groupname` command.
+A group class can be created with `php vendor/bin/codecept generate:group groupname` command.
 Group classes will be stored in the `tests/_support/Group` directory.
 
 A group class can be enabled just like you enable an extension class. In the file `codeception.yml`:

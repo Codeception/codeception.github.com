@@ -73,65 +73,64 @@ try to generate them manually with the `build` command:
 
 {% highlight bash %}
 
-php codecept build
+php vendor/bin/codecept build
 
 {% endhighlight %}
 
-## Writing a Sample Scenario
+## Writing a Sample Test
 
-By default tests are written as narrative scenarios. To make a PHP file a valid scenario, its name should have a `Cept` suffix.
-
-Let's say we have created a file `tests/acceptance/SigninCept.php`
-
-We can do that by running the following command:
+Codeception has its own testing format called Cest (Codecept + Test). 
+To start writing a test we need to create a new Cest file. We can do that by running the following command:
 
 {% highlight bash %}
 
-php codecept generate:cept acceptance Signin
+php vendor/bin/codecept generate:cest acceptance Signin
 
 {% endhighlight %}
 
-A scenario always starts with actor class initialization. After that, writing a scenario is just like typing `$I->`
-and choosing a proper action from the auto-completion list. Let's log in to our website:
+This will generate `SigninCest.php` file inside `tests/acceptance` directory. Let's open it:
 
 {% highlight php %}
 
 <?php
-$I = new AcceptanceTester($scenario); // actor class initialization
-$I->wantTo('login to website');
+class SigninCest
+{
+    function _before(AcceptanceTester $I)
+    {
+    }
+    
+    public function _after(AcceptanceTester $I)
+    {        
+    }
 
+    public function tryToTest(AcceptanceTester $I)
+    {
+       // todo: write test
+    }
+}
 
 {% endhighlight %}
 
-The `wantTo` section describes your scenario in brief. There are additional comment methods that are useful to describe the context of a scenario:
+We have `_before` and `_after` methods to run some common actions before and after a test. And we have a placeholder action `tryToTest` which we need to implement.
+If we try to test a signin process it's a good start to test a successful signin. Let's rename this method to `signInSuccessfully`.
 
-{% highlight php %}
-
-<?php
-$I = new AcceptanceTester($scenario);
-$I->am('user'); // actor's role
-$I->wantTo('login to website'); // feature to test
-$I->lookForwardTo('access website features for logged-in users'); // result to achieve
-
-{% endhighlight %}
-
-After we have described the story background, let's start writing a scenario.
-
-We'll assume that we have a 'login' page where we get authenticated by providing a username and password.
+We'll assume that we have a 'login' page where we get authenticated by providing a username and password. 
 Then we are sent to a user page, where we see the text `Hello, %username%`. Let's look at how this scenario is written in Codeception:
 
 {% highlight php %}
 
 <?php
-$I = new AcceptanceTester($scenario);
-$I->am('user');
-$I->wantTo('login to website');
-$I->lookForwardTo('access website features for logged-in users');
-$I->amOnPage('/login');
-$I->fillField('Username','davert');
-$I->fillField('Password','qwerty');
-$I->click('Login');
-$I->see('Hello, davert');
+class SigninCest
+{
+    public function loginSuccessfully(AcceptanceTester $I)
+    {
+        $I->amOnPage('/login');
+        $I->fillField('Username','davert');
+        $I->fillField('Password','qwerty');
+        $I->click('Login');
+        $I->see('Hello, davert');
+    }
+}
 
 {% endhighlight %}
 
@@ -139,9 +138,6 @@ This scenario can probably be read by non-technical people. If you just remove a
 this test transforms into plain English text:
 
 {% highlight yaml %}
-I am user
-I wantTo login to website
-I lookForwardTo access website features for logged-in users
 I amOnPage '/login'
 I fillField 'Username','davert'
 I fillField 'Password','qwerty'
@@ -154,7 +150,7 @@ Codeception generates this text representation from PHP code by executing:
 
 {% highlight bash %}
 
-php codecept generate:scenarios
+php vendor/bin/codecept generate:scenarios
 
 {% endhighlight %}
 
@@ -178,7 +174,7 @@ After configuring the URL we can run this test with the `run` command:
 
 {% highlight bash %}
 
-php codecept run
+php vendor/bin/codecept run
 
 {% endhighlight %}
 
@@ -187,7 +183,7 @@ This is the output we should see:
 {% highlight bash %}
 
 Acceptance Tests (1) -------------------------------
-✔ SigninCept: Login to website
+✔ SigninCest: sign in successfully
 ----------------------------------------------------
 
 Time: 1 second, Memory: 21.00Mb
@@ -200,7 +196,7 @@ Let's get some detailed output:
 
 {% highlight bash %}
 
-php codecept run acceptance --steps
+php vendor/bin/codecept run acceptance --steps
 
 {% endhighlight %}
 
@@ -209,12 +205,10 @@ We should see a step-by-step report on the performed actions:
 {% highlight bash %}
 
 Acceptance Tests (1) -------------------------------
-SigninCept: Login to website
-Signature: SigninCept.php
-Test: tests/acceptance/SigninCept.php
+SigninCest: Login to website
+Signature: SigninCest.php:signInSuccessfully
+Test: tests/acceptance/SigninCest.php:signInSuccessfully
 Scenario --
- I am user
- I look forward to access website features for logged-in users
  I am on page "/login"
  I fill field "Username" "davert"
  I fill field "Password" "qwerty"
@@ -232,55 +226,42 @@ OK (1 test, 1 assertions)
 This simple test can be extended to a complete scenario of site usage, therefore,
 by emulating the user's actions, you can test any of your websites.
 
-Give it a try!
+To run more tests create a public method for each of them. Include `AcceptanceTester` object as `$I` as a method parameter and use the same `$I->` API you've seen before.
+If your tests share common setup actions put them into `_before` method. 
 
-## Cept, Cest and Test Formats
-
-Codeception supports three test formats. Beside the previously described scenario-based Cept format,
-Codeception can also execute [PHPUnit test files for unit testing](http://codeception.com/docs/05-UnitTests), and Cest format.
-
-**Cest** combines scenario-driven test approach with OOP design. In case you want to group a few testing scenarios into one, you should consider using Cest format.
-In the example below we are testing CRUD actions within a single file but with several tests (one per operation):
+For instance, to test CRUD we want 4 methods to be implemented and all next tests should start at `/task` page:
 
 {% highlight php %}
 
 <?php
-class PageCrudCest
+class TaskCrudCest
 {
     function _before(AcceptanceTester $I)
     {
         // will be executed at the beginning of each test
-        $I->amOnPage('/');
+        $I->amOnPage('/task');
     }
 
-    function createPage(AcceptanceTester $I)
+    function createTask(AcceptanceTester $I)
     {
        // todo: write test
     }
 
-    function viewPage(AcceptanceTester $I)
+    function viewTask(AcceptanceTester $I)
     {
        // todo: write test
     }
 
-    function updatePage(AcceptanceTester $I)
+    function updateTask(AcceptanceTester $I)
     {
         // todo: write test
     }
 
-    function deletePage(AcceptanceTester $I)
+    function deleteTask(AcceptanceTester $I)
     {
        // todo: write test
     }
 }
-
-{% endhighlight %}
-
-Cest files such as this can be created by running a generator:
-
-{% highlight bash %}
-
-php codecept generate:cest acceptance PageCrud
 
 {% endhighlight %}
 
@@ -303,7 +284,7 @@ Tests can be started with the `run` command:
 
 {% highlight bash %}
 
-php codecept run
+php vendor/bin/codecept run
 
 {% endhighlight %}
 
@@ -311,7 +292,7 @@ With the first argument you can run all tests from one suite:
 
 {% highlight bash %}
 
-php codecept run acceptance
+php vendor/bin/codecept run acceptance
 
 {% endhighlight %}
 
@@ -319,7 +300,7 @@ To limit tests run to a single class, add a second argument. Provide a local pat
 
 {% highlight bash %}
 
-php codecept run acceptance SigninCept.php
+php vendor/bin/codecept run acceptance SigninCest.php
 
 {% endhighlight %}
 
@@ -327,7 +308,7 @@ Alternatively you can provide the full path to test file:
 
 {% highlight bash %}
 
-php codecept run tests/acceptance/SigninCept.php
+php vendor/bin/codecept run tests/acceptance/SigninCest.php
 
 {% endhighlight %}
 
@@ -335,7 +316,7 @@ You can further filter which tests are run by appending a method name to the cla
 
 {% highlight bash %}
 
-php codecept run tests/acceptance/SignInCest.php:^anonymousLogin$
+php vendor/bin/codecept run tests/acceptance/SigninCest.php:^anonymousLogin$
 
 {% endhighlight %}
 
@@ -343,7 +324,7 @@ You can provide a directory path as well. This will execute all acceptance tests
 
 {% highlight bash %}
 
-php codecept run tests/acceptance/backend
+php vendor/bin/codecept run tests/acceptance/backend
 
 {% endhighlight %}
 
@@ -352,7 +333,7 @@ For example, this will execute all acceptance tests from the `backend` dir begin
 
 {% highlight bash %}
 
-php codecept run tests/acceptance/backend:^login
+php vendor/bin/codecept run tests/acceptance/backend:^login
 
 {% endhighlight %}
 
@@ -364,7 +345,7 @@ To generate JUnit XML output, you can provide the `--xml` option, and `--html` f
 
 {% highlight bash %}
 
-php codecept run --steps --xml --html
+php vendor/bin/codecept run --steps --xml --html
 
 {% endhighlight %}
 
@@ -374,7 +355,7 @@ To see all the available options, run the following command:
 
 {% highlight bash %}
 
-php codecept help run
+php vendor/bin/codecept help run
 
 {% endhighlight %}
 
@@ -387,7 +368,6 @@ You may print any information inside a test using the `codecept_debug` function.
 
 There are plenty of useful Codeception commands:
 
-* `generate:cept` *suite* *filename* - Generates a sample Cept scenario
 * `generate:cest` *suite* *filename* - Generates a sample Cest test
 * `generate:test` *suite* *filename* - Generates a sample PHPUnit Test with Codeception hooks
 * `generate:feature` *suite* *filename* - Generates Gherkin feature file
