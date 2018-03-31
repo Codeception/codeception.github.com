@@ -7,6 +7,25 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.4.1
+
+* Fixed `PHP Fatal error:  Uncaught Error: Call to undefined method Codeception\Test\Descriptor::getTestDataSetIndex()` when filtering tests
+* Better support of PHPUnit warning status by **[edno](https://github.com/edno)**:
+  * support PHPUnit addWarning()
+  * display 'W' instead of success for warning test cases
+* Fixed Running test with invalid dataprovider by **[okneloper](https://github.com/okneloper)**. Fixed  [#4888](https://github.com/Codeception/Codeception/issues/4888) by **[edno](https://github.com/edno)**
+* **[Yii2]** **Request flow and database transactions refactored** (by **[sammousa](https://github.com/sammousa)**):
+  * **Breaking** Application is no longer available in helpers via `$this->getModule('Yii2'')->app`, now you must use `\Yii::$app` everywhere
+  * Multiple databases are now supported
+  * More reliable application state before and during test execution
+  * Fixtures method is now configurable
+  * Subset of misconfigurations are now detected and informative messages created
+* Fixed using `$settings['path']` in `Codeception\Configuration::suiteSettings()` on Windows by **[olegpro](https://github.com/olegpro)** 
+* **[Laravel5]** Added Laravel 5.4+ (5.1+ backward compatible) support for `callArtisan` method in Laravel5 module. See [#4860](https://github.com/Codeception/Codeception/issues/4860) by **[mohamed-aiman](https://github.com/mohamed-aiman)** 
+* Fixed [#4854](https://github.com/Codeception/Codeception/issues/4854): unnecessary escaping in operation arguments logging by **[nicholascus](https://github.com/nicholascus)**
+* Fixed humanizing steps for utf8 strings by **[nicholascus](https://github.com/nicholascus)**. See [#4850](https://github.com/Codeception/Codeception/issues/4850)
+* Fixed parsing relative urls in `parse_url`. See [#4853](https://github.com/Codeception/Codeception/issues/4853) by **[quantum-x](https://github.com/quantum-x)**
+
 #### 2.4.0
 
 * **PHPUnit 7.x compatibility**
@@ -23,7 +42,9 @@ title: Codeception Changelog
 **Upgrade Notice**: If you face issues with underscore PHPUnit class names (like PHPUnit_Framework_Assert) you have two options:
 
 * Lock version for PHPUnit in composer.json: "phpunit/phpunit":"^5.0.0"
-* Update your codebase and replace underscore PHPUnit class names to namespaced (PHPUnit 6+ API) #### 2.3.9
+* Update your codebase and replace underscore PHPUnit class names to namespaced (PHPUnit 6+ API)
+
+#### 2.3.9
 
 * Added `Codeception\Step\Argument\PasswordArgument` to pass sensitive data into tests:
 
