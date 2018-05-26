@@ -22,6 +22,7 @@ This module uses Symfony Crawler and HttpKernel to emulate requests and test res
 
 * app_path: 'src' - in Symfony 4 Kernel is located inside `src`
 * environment: 'local' - environment used for load kernel
+* kernel_class: 'App\Kernel' - kernel class name
 * em_service: 'doctrine.orm.entity_manager' - use the stated EntityManager to pair with Doctrine Module.
 * debug: true - turn on/off debug mode
 * cache_router: 'false' - enable router caching between tests in order to [increase performance](http://lakion.com/blog/how-did-we-speed-up-sylius-behat-suite-with-blackfire)
@@ -41,6 +42,7 @@ This module uses Symfony Crawler and HttpKernel to emulate requests and test res
 * app_path: 'app' - specify custom path to your app dir, where the kernel interface is located.
 * var_path: 'var' - specify custom path to your var dir, where bootstrap cache is located.
 * environment: 'local' - environment used for load kernel
+* kernel_class: 'AppKernel' - kernel class name
 * em_service: 'doctrine.orm.entity_manager' - use the stated EntityManager to pair with Doctrine Module.
 * debug: true - turn on/off debug mode
 * cache_router: 'false' - enable router caching between tests in order to [increase performance](http://lakion.com/blog/how-did-we-speed-up-sylius-behat-suite-with-blackfire)
@@ -60,6 +62,7 @@ This module uses Symfony Crawler and HttpKernel to emulate requests and test res
 
 * app_path: 'app' - specify custom path to your app dir, where bootstrap cache and kernel interface is located.
 * environment: 'local' - environment used for load kernel
+* kernel_class: 'AppKernel' - kernel class name
 * debug: true - turn on/off debug mode
 * em_service: 'doctrine.orm.entity_manager' - use the stated EntityManager to pair with Doctrine Module.
 * cache_router: 'false' - enable router caching between tests in order to [increase performance](http://lakion.com/blog/how-did-we-speed-up-sylius-behat-suite-with-blackfire)

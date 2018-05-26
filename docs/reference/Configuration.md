@@ -104,7 +104,7 @@ modules:
             dump: tests/_data/dump.sql
 
 {% endhighlight %}
-
+* `extends`: allows you to specify a file (relative to the `codeception.yml` file) that holds some already pre-defined values. This can be used to always use the same configuration for modules or whatever.
 * `extensions`: allows to enable and configure [Codeception extensions](http://codeception.com/docs/08-Customization#Extension), [Group Objects](http://codeception.com/docs/08-Customization#Group-Objects), and [Custom Commands](http://codeception.com/docs/08-Customization#Custom-Commands).
 * `reporters`: allows to [change default reporters](http://codeception.com/docs/08-Customization#Custom-Reporters) of Codeception
 * `coverage`: [CodeCoverage](http://codeception.com/docs/11-Codecoverage#Configuration) settings.
@@ -147,6 +147,7 @@ modules:
 
 {% endhighlight %}
 
+* `extends`: allows you to specify a file (relative to the `*.suite.yml` file) that holds some already pre-defined values. This can be used to always use the same configuration for modules or whatever.
 * `namespace`: default namespace of actor, support classes and tests.
 * `suite_namespace`: default namespace for new tests of this suite (ignores `namespace` option)
 * `env`: override any configuration per [environment](http://codeception.com/docs/07-AdvancedUsage#Environments).

@@ -7,6 +7,35 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.4.2
+
+* Added support for `extends` in the `codeception.yml` and `*.suite.yml` files; by **[johannesschobel](https://github.com/johannesschobel)**.
+ Allows to inherit current config from a provided file. See example for `functional.suite.yml`:
+
+
+```yml
+actor: FunctionalTester
+extends: shared.functional.suite.yml
+modules:
+    enabled:
+        - \App\Modules\X\Tests\Helper\Functional
+```
+
+* **[Yii2]** Restore null check for client in Yii2 by **[wkritzinger](https://github.com/wkritzinger)**. See [#4940](https://github.com/Codeception/Codeception/issues/4940)
+* **[Yii2]** Resetting Yii application in `_after`. By **[SamMousa](https://github.com/SamMousa)**. See [#4928](https://github.com/Codeception/Codeception/issues/4928)
+* **[Yii2]** **Breaking** `$settings['configFile']` now supports absolute paths. In you have defined relative path to config in absolute manner
+* **[WebDriverIO]** Added `deleteSessionSnapshot` by **[vi4o](https://github.com/vi4o)**
+* **[Symfony]** Added support for custom kernel names with `kernel_class` config option. By **[omnilight](https://github.com/omnilight)**.
+* **[Asserts]** Better exception message for `expectException` by **[Slamdunk](https://github.com/Slamdunk)**
+* **[REST]** Decode all non-arrays to array. See [#4946](https://github.com/Codeception/Codeception/issues/4946) by **[Amunak](https://github.com/Amunak)**, fixes [#4944](https://github.com/Codeception/Codeception/issues/4944). 
+* **[ZF2]** Fixed compatibility with ZF2 ServiceManager by **[omnilight](https://github.com/omnilight)**.
+* **[Laravel5]** Fixed memory leak when using Laravel factories inside Codeception. See [#4971](https://github.com/Codeception/Codeception/issues/4971) by **[AdrianSkierniewski](https://github.com/AdrianSkierniewski)**
+* **[Db]** Added support for `null` values in MSSQL driver by **[philek](https://github.com/philek)**
+* Handle absolute paths in ParamsLoader by **[SilverFire](https://github.com/SilverFire)**
+* Fix error on single file test. See [#4986](https://github.com/Codeception/Codeception/issues/4986) by **[mikbox74](https://github.com/mikbox74)** 
+* Upgraded to Codeception/Stub 2.0 by **[Naktibalda](https://github.com/Naktibalda)**, fixed compatibility.
+ 
+
 #### 2.4.1
 
 * Fixed "Uncaught Error: Call to undefined method Codeception\Test\Descriptor::getTestDataSetIndex()" error when filtering tests.
@@ -20,7 +49,8 @@ title: Codeception Changelog
   * More reliable application state before and during test execution
   * Fixtures method is now configurable
   * Subset of misconfigurations are now detected and informative messages created
-* Fixed using `$settings['path']` in `Codeception\Configuration::suiteSettings()` on Windows by **[olegpro](https://github.com/olegpro)** 
+* Fixed using `$settings['path']` in `Codeception\Configuration::suiteSettings()` on Windows by **[olegpro](https://github.com/olegpro)**  
+(starting with `/`), you must change it. **[silverfire](https://github.com/silverfire)**
 * **[Laravel5]** Added Laravel 5.4+ (5.1+ backward compatible) support for `callArtisan` method in Laravel5 module. See [#4860](https://github.com/Codeception/Codeception/issues/4860) by **[mohamed-aiman](https://github.com/mohamed-aiman)** 
 * Fixed [#4854](https://github.com/Codeception/Codeception/issues/4854): unnecessary escaping in operation arguments logging by **[nicholascus](https://github.com/nicholascus)**
 * Fixed humanizing steps for utf8 strings by **[nicholascus](https://github.com/nicholascus)**. See [#4850](https://github.com/Codeception/Codeception/issues/4850)
