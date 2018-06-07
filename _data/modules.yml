@@ -126,3 +126,6 @@
   link: https://github.com/tajawal/codeception-appium
   description: Appium Driver to interact with appium server - iOS/Android Mobile Testing Automation.
 
+- name: Stepler
+  link: https://github.com/nicholascus/codeception-stepler
+  description: Enabling step-by-step console execution in bebugging mode 
