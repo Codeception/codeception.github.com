@@ -156,7 +156,7 @@ $ composer require codeception/codeception
 
 ### Preparing Robo
 
-Intitalizes basic RoboFile in the root of your project
+Initializes basic RoboFile in the root of your project
 
 {% highlight bash %}
 

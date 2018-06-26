@@ -397,6 +397,8 @@ Here is how it is done in the Db module:
 class Db extends \Codeception\Module
 {
     protected $requiredFields = ['dsn', 'user', 'password'];
+    // ...
+}
 
 {% endhighlight %}
 
@@ -412,6 +414,8 @@ class WebDriver extends \Codeception\Module
 {
     protected $requiredFields = ['browser', 'url'];
     protected $config = ['host' => '127.0.0.1', 'port' => '4444'];
+    // ...
+}
 
 {% endhighlight %}
 
