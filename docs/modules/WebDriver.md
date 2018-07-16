@@ -364,7 +364,7 @@ $el = $module->_findClickable($topBar, 'Click Me');
 
 
 {% endhighlight %}
- * `param` $page WebDriver instance or an element to search within
+ * `param RemoteWebDriver` $page WebDriver instance or an element to search within
  * `param` $link a link text or locator to click
  * `return` WebDriverElement
 

@@ -7,6 +7,20 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.4.4
+
+* Recently added `extends` property in the `codeception.yml` and `*.suite.yml` files now support absolute paths; by **[silverfire](https://github.com/silverfire)**
+* Fixed absolute paths handling on Windows in ParamLoader; by **[silverfire](https://github.com/silverfire)**
+* **[Yii2]** Refactored database connection handling by **[SamMousa](https://github.com/SamMousa)**. Database connections should now always be closed after tests no matter how you have opened them or who is holding references to them. See  [#5045](https://github.com/Codeception/Codeception/issues/5045)
+* **[Symfony]** Email handling improved by **[mbohal](https://github.com/mbohal)**. Fixes [#5058](https://github.com/Codeception/Codeception/issues/5058).  
+    * Added optional argument `$expectedCount` to `seeEmailIsSent`
+    * Added `dontSeeEmailIsSent`
+* [Recorder Extension] Added `ignore_steps` option to disable recording of specific steps. By **[sspat](https://github.com/sspat)**.
+* **[WebDriver]** Fixed "No Session Timeout" fatal error by **[davertmik](https://github.com/davertmik)**.
+* **[WebDriver]** Added ability to locate clickable element by its title. See [#5065](https://github.com/Codeception/Codeception/issues/5065) by **[gimler](https://github.com/gimler)**  
+* **[Db]** Add `waitlock` config option for the database session to wait for lock in Oracle. By **[ashnazg](https://github.com/ashnazg)**. See [#5069](https://github.com/Codeception/Codeception/issues/5069)
+* **[REST]** Fixed `seeXmlResponseEquals` by **[Voziv](https://github.com/Voziv)**
+
 #### 2.4.3
 
 * [Create your own test formats](https://codeception.com/docs/07-AdvancedUsage#Formats) (e.g., Cept, Cest, ...); by **[mlambley](https://github.com/mlambley)**

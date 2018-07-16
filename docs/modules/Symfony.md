@@ -476,6 +476,13 @@ $I->dontSeeElement('input', ['value' => '123456']);
  * `param array` $attributes
 
 
+#### dontSeeEmailIsSent
+ 
+Checks that no email was sent. This is an alias for seeEmailIsSent(0).
+
+ * `[Part]` email
+
+
 #### dontSeeInCurrentUrl
  
 Checks that the current URI doesn't contain the given string.
@@ -1031,9 +1038,18 @@ $I->seeElement(['css' => 'form input'], ['name' => 'login']);
 
 #### seeEmailIsSent
  
-Checks if any email were sent by last request
+Checks if the desired number of emails was sent.
+If no argument is provided then at least one email must be sent to satisfy the check.
 
-@throws \LogicException
+{% highlight php %}
+
+<?php
+$I->seeEmailIsSent(2);
+?>
+
+{% endhighlight %}
+
+ * `param null|int` $expectedCount
 
 
 #### seeInCurrentRoute

@@ -20,7 +20,7 @@ Codeception follows simple naming rules to make it easy to remember (as well as 
     <?php
     $I->click('Login');
     $I->fillField('#input-username', 'John Dough');
-    $i->pressKey('#input-remarks', 'foo');
+    $I->pressKey('#input-remarks', 'foo');
     
 {% endhighlight %}
 * **Assertions** always start with "see" or "dontSee". Examples:
@@ -29,9 +29,9 @@ Codeception follows simple naming rules to make it easy to remember (as well as 
     <?php
     $I->see('Welcome');
     $I->seeInTitle('My Company');
-    $i->seeElement('nav');
-    $i->dontSeeElement('#error-message');
-    $i->dontSeeInPageSource('<section class="foo">');
+    $I->seeElement('nav');
+    $I->dontSeeElement('#error-message');
+    $I->dontSeeInPageSource('<section class="foo">');
     
 {% endhighlight %}
 * **Grabbers** just *read* something from the page, but don't process it. The return value of those are meant to be saved as variables and used later. Example:
