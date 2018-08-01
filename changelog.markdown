@@ -7,6 +7,19 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.4.5
+
+* Fixed PHPUnit 7.2 compatibility.
+* Introduced **RunBefore** extension to execute scripts before running tests. See [#5049](https://github.com/Codeception/Codeception/issues/5049) by **[aashmelev](https://github.com/aashmelev)**.  
+* **[Db]** Added two options for MySQL by **[bangertz](https://github.com/bangertz)**
+    * `ssl_cipher` - list of one or more permissible ciphers to use for SSL encryption
+    * `ssl_verify_server_cert` - disables certificate CN verification
+* **[Db]** Always disconnect before connect when `reconnect` is set. By **[ashnazg](https://github.com/ashnazg)**
+* **[Db]** More explicit PDO closing upon destruction and close opened transactions by **[ashnazg](https://github.com/ashnazg)**.
+* [Recorder Extension] Improved error logging by **[OneEyedSpaceFish](https://github.com/OneEyedSpaceFish)**. See [#5101](https://github.com/Codeception/Codeception/issues/5101)
+* **[Lumen]** Fixed file uploads via REST module. By **[retnek](https://github.com/retnek)**.
+* Fixed: function getMetadata() may not exist, results in fatal error. See [#4913](https://github.com/Codeception/Codeception/issues/4913) by **[marcovtwout](https://github.com/marcovtwout)** 
+
 #### 2.4.4
 
 * Recently added `extends` property in the `codeception.yml` and `*.suite.yml` files now support absolute paths; by **[silverfire](https://github.com/silverfire)**

@@ -103,6 +103,37 @@ extensions:
 
 
 
+## RunBefore
+
+[See Source](https://github.com/Codeception/Codeception/blob/2.4/ext/RunBefore.php)
+
+Extension for execution of some processes before running tests.
+
+Processes can be independent and dependent.
+Independent processes run independently of each other.
+Dependent processes run sequentially one by one.
+
+Can be configured in suite config:
+
+```yaml
+# acceptance.suite.yml
+extensions:
+    enabled:
+        - Codeception\Extension\RunBefore:
+            - independent_process_1
+            -
+                - dependent_process_1_1
+                - dependent_process_1_2
+            - independent_process_2
+            -
+                - dependent_process_2_1
+                - dependent_process_2_2
+```
+
+HINT: you can use different configurations per environment.
+
+
+
 ## RunFailed
 
 [See Source](https://github.com/Codeception/Codeception/blob/2.4/ext/RunFailed.php)
