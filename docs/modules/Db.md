@@ -32,7 +32,7 @@ Also available:
 * Oracle
 
 Connection is done by database Drivers, which are stored in the `Codeception\Lib\Driver` namespace.
-[Check out the drivers](https://github.com/Codeception/Codeception/tree/2.4/src/Codeception/Lib/Driver)
+[Check out the drivers](https://github.com/Codeception/Codeception/tree/2.3/src/Codeception/Lib/Driver)
 if you run into problems loading dumps and cleaning databases.
 
 ### Config
@@ -50,7 +50,6 @@ if you run into problems loading dumps and cleaning databases.
 * ssl_ca - path to the SSL certificate authority (MySQL specific, @see http://php.net/manual/de/ref.pdo-mysql.php#pdo.constants.mysql-attr-ssl-ca)
 * ssl_verify_server_cert - disables certificate CN verification (MySQL specific, @see http://php.net/manual/de/ref.pdo-mysql.php)
 * ssl_cipher - list of one or more permissible ciphers to use for SSL encryption (MySQL specific, @see http://php.net/manual/de/ref.pdo-mysql.php#pdo.constants.mysql-attr-cipher)
-* databases - include more database configs and switch between them in tests.
 
 ### Example
 
@@ -70,20 +69,6 @@ if you run into problems loading dumps and cleaning databases.
              ssl_ca: '/path/to/ca-cert.pem'
              ssl_verify_server_cert: false
              ssl_cipher: 'AES256-SHA'
-
-### Example with multi-databases
-
-    modules:
-       enabled:
-          - Db:
-             dsn: 'mysql:host=localhost;dbname=testdb'
-             user: 'root'
-             password: ''
-             databases:
-                db2:
-                   dsn: 'mysql:host=localhost;dbname=testdb2'
-                   user: 'userdb2'
-                   password: ''
 
 ### SQL data dump
 
@@ -184,7 +169,7 @@ Example:
 {% highlight php %}
 
 <?php
-$I->seeInDatabase('users', ['name' => 'Davert', 'email' => 'davert@mail.com']);
+$I->seeInDatabase('users', array('name' => 'Davert', 'email' => 'davert@mail.com'));
 
 
 {% endhighlight %}
@@ -200,7 +185,7 @@ Since version 2.1.9 it's possible to use LIKE in a condition, as shown here:
 {% highlight php %}
 
 <?php
-$I->seeInDatabase('users', ['name' => 'Davert', 'email like' => 'davert%']);
+$I->seeInDatabase('users', array('name' => 'Davert', 'email like' => 'davert%'));
 
 
 {% endhighlight %}
@@ -217,23 +202,6 @@ SELECT COUNT(*) FROM `users` WHERE `name` = 'Davert' AND `email` LIKE 'davert%'
 
 
 ### Actions
-
-#### amConnectedToDatabase
- 
-Make sure you are connected to the right database.
-
-{% highlight php %}
-
-<?php
-$I->seeNumRecords(2, 'users');   //executed on default database
-$I->amConnectedToDatabase('db_books');
-$I->seeNumRecords(30, 'books');  //executed on db_books database
-//All the next queries will be on db_books
-
-{% endhighlight %}
- * `param` $databaseKey
-@throws ModuleConfigException
-
 
 #### dontSeeInDatabase
  
@@ -336,48 +304,6 @@ $I->haveInDatabase('users', array('name' => 'miles', 'email' => 'miles@davis.com
 __not documented__
 
 
-#### performInDatabase
- 
-Can be used with a callback if you don't want to change the current database in your test.
-
-{% highlight php %}
-
-<?php
-$I->seeNumRecords(2, 'users');   //executed on default database
-$I->performInDatabase('db_books', function($I) {
-    $I->seeNumRecords(30, 'books');  //executed on db_books database
-});
-$I->seeNumRecords(2, 'users');  //executed on default database
-
-{% endhighlight %}
-List of actions can be pragmatically built using `Codeception\Util\ActionSequence`:
-
-{% highlight php %}
-
-<?php
-$I->performInDatabase('db_books', ActionSequence::build()
-    ->seeNumRecords(30, 'books')
-);
-
-{% endhighlight %}
-Alternatively an array can be used:
-
-{% highlight php %}
-
-$I->performInDatabase('db_books', ['seeNumRecords' => [30, 'books']]);
-
-{% endhighlight %}
-
-Choose the syntax you like the most and use it,
-
-Actions executed from array or ActionSequence will print debug output for actions, and adds an action name to
-exception on failure.
-
- * `param` $databaseKey
- * `param actions` $actions
-@throws ModuleConfigException
-
-
 #### seeInDatabase
  
 Asserts that a row with the given column values exists.
@@ -440,4 +366,4 @@ $I->updateInDatabase('users', array('isAdmin' => true), array('email' => 'miles@
  * `param array` $data
  * `param array` $criteria
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.5/src/Codeception/Module/Db.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.4/src/Codeception/Module/Db.php">Help us to improve documentation. Edit module reference</a></div>

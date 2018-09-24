@@ -14,6 +14,9 @@ title: Codeception Changelog
   * `amConnectedToDatabase` method added.
   * `performInDatabase` method added.
 * Rerun tests in **[shuffle mode](https://codeception.com/docs/07-AdvancedUsage#Shuffle)** in the same order by setting seed value. By **[SamMousa](https://github.com/SamMousa)**
+* [PhpBrowser][Frameworks] **Breaking Change** `seeLink` now matches the end of a URL, instead of partial matching. By **[Slamdunk](https://github.com/Slamdunk)**
+  * Previous: `$I->seeLink('Delete','/post/1');` matches `<a href="/post/199">Delete</a>`
+  * Now: `$I->seeLink('Delete','/post/1');` does NOT match `<a href="/post/199">Delete</a>` 
 * **[WebDriver]** Keep coverage cookies in `loadSessionSnapshot`. Fix by **[rajras](https://github.com/rajras)** 
 * **[Yii2]** Prevent null pointer exception by **[SilverFire](https://github.com/SilverFire)**. See [#5136](https://github.com/Codeception/Codeception/issues/5136)
 * **[Yii2]** Fixed issue with empty response stream by **[SamMousa](https://github.com/SamMousa)**.
