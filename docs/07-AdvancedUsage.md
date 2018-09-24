@@ -588,6 +588,47 @@ Signature: ModeratorCest:login`
 
 Codeception reorders tests so dependent tests will always be executed before the tests that rely on them.
 
+### Shuffle
+
+By default Codeception runs tests in alphabetic order. 
+To ensure that tests are not depending on each other (unless explicitly declared via `@depends`) you can enable `shuffle` option.
+
+{% highlight yaml %}
+
+# inside codeception.yml
+settings:
+    shuffle: true
+
+{% endhighlight %}
+
+Alternatively, you may run tests in shuffle without changing the config:
+
+{% highlight yaml %}
+codecept run -o "settings: shuffle: true"
+
+{% endhighlight %}
+
+
+Tests will be randomly reordered on each run. When tests executed in shuffle mode a seed value will be printed. 
+Copy this seed value from output to be able to rerun tests in the same order.
+
+{% highlight yaml %}
+$ codecept run 
+Codeception PHP Testing Framework v2.4.5
+Powered by PHPUnit 5.7.27 by Sebastian Bergmann and contributors.
+[Seed] 1872290562
+
+{% endhighlight %}
+
+Pass the copied seed into `--seed` option:  
+
+{% highlight yaml %}
+codecept run --seed 1872290562
+
+{% endhighlight %}  
+
+
+
 ## Interactive Console
 
 The interactive console was added to try Codeception commands before executing them inside a test.

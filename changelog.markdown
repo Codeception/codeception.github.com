@@ -7,6 +7,27 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.5.0
+
+* [**Snapshot testing**](https://codeception.com/docs/09-Data#Testing-Dynamic-Data-with-Snapshots) introduced. Test dynamic data sets by comparing current values with previously saved ones.
+* **[Db]** **Multi database support**. See [#4857](https://github.com/Codeception/Codeception/issues/4857) by **[eXorus](https://github.com/eXorus)**
+  * `amConnectedToDatabase` method added.
+  * `performInDatabase` method added.
+* Rerun tests in **[shuffle mode](https://codeception.com/docs/07-AdvancedUsage#Shuffle)** in the same order by setting seed value. By **[SamMousa](https://github.com/SamMousa)**
+* **[WebDriver]** Keep coverage cookies in `loadSessionSnapshot`. Fix by **[rajras](https://github.com/rajras)** 
+* **[Yii2]** Prevent null pointer exception by **[SilverFire](https://github.com/SilverFire)**. See [#5136](https://github.com/Codeception/Codeception/issues/5136)
+* **[Yii2]** Fixed issue with empty response stream by **[SamMousa](https://github.com/SamMousa)**.
+* **[Yii2]** Fixed `Too many connections` issue [#4926](https://github.com/Codeception/Codeception/issues/4926). By **[roslov](https://github.com/roslov)**
+* **[Yii2]** Fixed [#4769](https://github.com/Codeception/Codeception/issues/4769): `amLoggedInAs()` throws TypeError. By **[SamMousa](https://github.com/SamMousa)**
+* [Recorder Extension] Fixing recorder extension issues caused by phpunit 7.2.7 update by **[OneEyedSpaceFish](https://github.com/OneEyedSpaceFish)**
+* [Logger Extension] Added `codecept_log` function to write to logs from any place. Fixes [#3551](https://github.com/Codeception/Codeception/issues/3551) by **[siad007](https://github.com/siad007)**  
+* **[WebDriver]** Report correct strict locator in error message. When `see()` and `dontSee()` are used with array selector. Fix by **[Naktibalda](https://github.com/Naktibalda)**.
+* **[Phalcon]** Use bind for find record. See [#5158](https://github.com/Codeception/Codeception/issues/5158) by **[Joilson](https://github.com/Joilson)**
+* **[Phalcon]** Add support for nullable fields in `findRecord()` by **[arjanwestdorp](https://github.com/arjanwestdorp)** 
+* Added `memory_limit` to `dry-run` command by **[siad007](https://github.com/siad007)**. Fixes [#5090](https://github.com/Codeception/Codeception/issues/5090)
+* Added ext-curl to the composer require section by **[siad007](https://github.com/siad007)**
+* Make `coverage: show_only_summary` configurable. See [#5142](https://github.com/Codeception/Codeception/issues/5142) by **[Quexer69](https://github.com/Quexer69)**
+* Ensure php extension `mbstring` is available by **[siad007](https://github.com/siad007)**. Fixes [#4575](https://github.com/Codeception/Codeception/issues/4575) 
 #### 2.4.5
 
 * Fixed PHPUnit 7.2 compatibility.
