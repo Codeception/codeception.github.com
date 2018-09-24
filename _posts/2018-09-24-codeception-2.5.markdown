@@ -36,7 +36,7 @@ Let's assume you have such JSON response.
 }
 ```
 
-And you want to check that phone number type is the same on each run.
+And you want to check that phone numbers are the same on each run.
 For this we can use a snapshot.
 
 ```php
@@ -54,7 +54,8 @@ class PhoneNumberSnapshot extends Codeception\Snapshot {
 
     protected function fetchData()
     {
-        return $this->i->grabDataFromResponseByJsonPath('$.phoneNumbers[*].type');
+        // return an array of phone numbers
+        return $this->i->grabDataFromResponseByJsonPath('$.phoneNumbers[*].number');
     }  
 
 }
@@ -108,7 +109,7 @@ These could be a very cool features but they can't be made without your help.
 If you are interested consider sponsoring us:
 
 <p class="text-center">
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSeVJWu2HJTjAE81SLiYJ1xqxAXeNNSCR_GO9R0_4CKka_nFvA/viewform?usp=send_form" class="btn btn-lg btn-warning" role="button">Sponsor Codeception</a></p>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSeVJWu2HJTjAE81SLiYJ1xqxAXeNNSCR_GO9R0_4CKka_nFvA/viewform?usp=send_form" class="btn btn-lg btn-success" role="button">Sponsor Codeception</a></p>
 
 Yes, we also provide [enterprise support](http://sdclabs.com/codeception?utm_source=codeception.com&utm_medium=top_menu&utm_term=link&utm_campaign=reference) and [trainings](http://sdclabs.com/trainings?utm_source=codeception.com&utm_medium=top_menu&utm_term=link&utm_campaign=reference). This is another way you can support the development. Thank you!
 
