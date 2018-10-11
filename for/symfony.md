@@ -159,17 +159,15 @@ You will need to enable `REST`, `Symfony` and `Doctrine` module in `tests/api.su
 class_name: ApiTester
 modules:
     enabled:
+        - Symfony:
+            app_path: 'src'
+            environment: 'test'
         - REST:
             url: /v1
             depends: Symfony
         - Doctrine2:
             depends: Symfony
         - \Helper\Api
-    config:
-        - Symfony:
-            app_path: 'src'
-            environment: 'test'
-
 ```
 
 Symfony module actions like `amOnPage` or `see` should not be available for testing API. This why Symfony module is not enabled but declared with `depends` for REST module. But Symfony module should be configured to load Kernel class from app_path.
