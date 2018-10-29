@@ -410,7 +410,7 @@ Checks that current url doesn't match the given regular expression.
 
 <?php
 // to match root url
-$I->dontSeeCurrentUrlMatches('~$/users/(\d+)~');
+$I->dontSeeCurrentUrlMatches('~^/users/(\d+)~');
 ?>
 
 {% endhighlight %}
@@ -651,7 +651,7 @@ If no parameters are provided, the full URI is returned.
 {% highlight php %}
 
 <?php
-$user_id = $I->grabFromCurrentUrl('~$/user/(\d+)/~');
+$user_id = $I->grabFromCurrentUrl('~^/user/(\d+)/~');
 $uri = $I->grabFromCurrentUrl();
 ?>
 
@@ -888,7 +888,7 @@ Checks that the current URL matches the given regular expression.
 
 <?php
 // to match root url
-$I->seeCurrentUrlMatches('~$/users/(\d+)~');
+$I->seeCurrentUrlMatches('~^/users/(\d+)~');
 ?>
 
 {% endhighlight %}
@@ -1503,4 +1503,4 @@ $I->uncheckOption('#notify');
 
  * `param` $option
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.4/src/Codeception/Module/ZF1.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.5/src/Codeception/Module/ZF1.php">Help us to improve documentation. Edit module reference</a></div>

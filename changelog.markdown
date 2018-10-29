@@ -7,6 +7,33 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.5.1
+
+* Recorder extension improvements by **[OneEyedSpaceFish](https://github.com/OneEyedSpaceFish)**. See [#5177](https://github.com/Codeception/Codeception/issues/5177):
+  * HTML layout improvements
+  * Restructured tests to show nested output
+  * file operation exceptions / log them without throwing exceptions
+  * fix edge cases with file operations (too long wantTo, etc.)
+  * the ability to automatically purge old reports (from previous runs)
+  * display errors in the recorded page rather than saving it as error.png
+  * the ability not to display any Unicode characters if ANSI only output is requested
+  * the ability not to display any colors in output if no-colors is requested
+  * the ability to change colors in the generated list based on configuration
+* **[Db]** Made `_loadDump` unconditional like it was in 2.4. Fixed [#5195](https://github.com/Codeception/Codeception/issues/5195) by **[Naktibala](https://github.com/Naktibala)**
+* **[Db]** Allows to specify more than one dump file. See [#5220](https://github.com/Codeception/Codeception/issues/5220) by **[Fenikkusu](https://github.com/Fenikkusu)**
+* **[WebDriver]** Added `waitForElementClickable` by **[FatBoyXPC](https://github.com/FatBoyXPC)** 
+* Code coverage: added `work_dir` config option to map remote paths to local. See [#5225](https://github.com/Codeception/Codeception/issues/5225) by **[Fenikkusu](https://github.com/Fenikkusu)** 
+* **[Lumen]** Added Lumen 5.5+ support for getRoutes method by **[lendormi](https://github.com/lendormi)**
+* **[Yii2]** Restored `getApplication()` API by **[Slamdunk](https://github.com/Slamdunk)** 
+* **[Yii2]** Added deprecation doc to `getApplication()` by **[Slamdunks](https://github.com/Slamdunks)**
+* **[Doctrine2]** Reloading module on reconfigure to persist new configs. See [#5241](https://github.com/Codeception/Codeception/issues/5241) by **[joelmedeiros](https://github.com/joelmedeiros)**
+* **[Doctrine2]** Rollback all nested transactions created within test by **[Dukecz](https://github.com/Dukecz)**
+* **[DataFactory]** Reloading module on reconfigure to persist new configs. See [#5241](https://github.com/Codeception/Codeception/issues/5241) by **[joelmedeiros](https://github.com/joelmedeiros)**
+* **[Phalcon]** Allows null content in response. By **[Fenikkusu](https://github.com/Fenikkusu)**
+* **[Phalcon]** Added `session` config option to override session class. By **[Fenikkusu](https://github.com/Fenikkusu)**
+* **[Asserts]** Added `expectThrowable()` method by **[burned42](https://github.com/burned42)**
+* Use `*.yaml` for params loading
+
 #### 2.5.0
 
 * [**Snapshot testing**](https://codeception.com/docs/09-Data#Testing-Dynamic-Data-with-Snapshots) introduced. Test dynamic data sets by comparing current values with previously saved ones.

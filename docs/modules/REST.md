@@ -51,10 +51,11 @@ Conflicts with SOAP module
 #### amAWSAuthenticated
  
 Allows to send REST request using AWS Authorization
-Only works with PhpBrowser
-Example
-Config -
 
+Only works with PhpBrowser
+Example Config:
+{% highlight yaml %}
+yml
 modules:
      enabled:
          - REST:
@@ -64,6 +65,8 @@ modules:
                  service: awsService
                  region: awsRegion
 
+{% endhighlight %}
+Code:
 {% highlight php %}
 
 <?php
@@ -483,20 +486,32 @@ $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK);
  
 Checks that the response code is 4xx
 
+ * `[Part]` json
+ * `[Part]` xml
+
 
 #### seeResponseCodeIsRedirection
  
 Checks that the response code 3xx
+
+ * `[Part]` json
+ * `[Part]` xml
 
 
 #### seeResponseCodeIsServerError
  
 Checks that the response code is 5xx
 
+ * `[Part]` json
+ * `[Part]` xml
+
 
 #### seeResponseCodeIsSuccessful
  
 Checks that the response code is 2xx
+
+ * `[Part]` json
+ * `[Part]` xml
 
 
 #### seeResponseContains
@@ -947,4 +962,4 @@ $I->stopFollowingRedirects();
  * `[Part]` xml
  * `[Part]` json
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.4/src/Codeception/Module/REST.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.5/src/Codeception/Module/REST.php">Help us to improve documentation. Edit module reference</a></div>

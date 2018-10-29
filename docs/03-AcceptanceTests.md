@@ -386,9 +386,9 @@ Actions for URLs:
 
 <?php
 $I->seeCurrentUrlEquals('/login');
-$I->seeCurrentUrlMatches('~$/users/(\d+)~');
+$I->seeCurrentUrlMatches('~^/users/(\d+)~');
 $I->seeInCurrentUrl('user/1');
-$user_id = $I->grabFromCurrentUrl('~$/user/(\d+)/~');
+$user_id = $I->grabFromCurrentUrl('~^/user/(\d+)/~');
 
 {% endhighlight %}
 
