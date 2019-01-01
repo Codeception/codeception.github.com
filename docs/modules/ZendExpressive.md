@@ -21,9 +21,11 @@ Uses `config/container.php` file by default.
 
 ### Config
 
-* container: relative path to file which returns Container (default: `config/container.php`)
+* `container` - (default: `config/container.php`) relative path to file which returns Container
+* `recreateApplicationBetweenTests` - (default: false) whether to recreate the whole application before each test
+* `recreateApplicationBetweenRequests` - (default: false) whether to recreate the whole application before each request
 
-### API
+### Public properties
 
 * application -  instance of `\Zend\Expressive\Application`
 * container - instance of `\Interop\Container\ContainerInterface`
@@ -302,7 +304,7 @@ But will ignore strings like:
 For checking the raw source code, use `seeInSource()`.
 
  * `param string` $text
- * `param string` $selector optional
+ * `param array|string` $selector optional
 
 
 #### dontSeeCheckboxIsChecked
@@ -755,7 +757,7 @@ But will *not* be true for strings like:
 For checking the raw source code, use `seeInSource()`.
 
  * `param string` $text
- * `param string` $selector optional
+ * `param array|string` $selector optional
 
 
 #### seeCheckboxIsChecked

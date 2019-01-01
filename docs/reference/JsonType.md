@@ -45,7 +45,7 @@ If non-associative array is passed - the very first element of it will be used f
 
  * `param` $jsonArray array|\Codeception\Util\JsonArray
 
-[See source](https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/JsonType.php#L42)
+[See source](https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/JsonType.php#L43)
 
 #### addCustomFilter()
 
@@ -64,7 +64,6 @@ JsonType::addCustomFilter('slug', function($value) {
 });
 // => use it as 'string:slug'
 
-
 // add custom function to matcher with `len($val)` syntax
 // parameter matching patterns should be valid regex and start with `/` char
 JsonType::addCustomFilter('/len\((.*?)\)/', function($value, $len) {
@@ -75,7 +74,7 @@ JsonType::addCustomFilter('/len\((.*?)\)/', function($value, $len) {
 
 {% endhighlight %}
 
- * `param` $name
+ * `param`          $name
  * `param callable` $callable
 
 [See source](https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/JsonType.php#L76)
@@ -92,7 +91,7 @@ Removes all custom filters
 
  *protected* matchFilter($filter, $value) 
 
-[See source](https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/JsonType.php#L158)
+[See source](https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/JsonType.php#L187)
 
 #### matches()
 

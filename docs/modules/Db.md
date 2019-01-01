@@ -343,10 +343,6 @@ $I->haveInDatabase('users', array('name' => 'miles', 'email' => 'miles@davis.com
  * `return integer` $id
 
 
-#### isPopulated
-__not documented__
-
-
 #### performInDatabase
  
 Can be used with a callback if you don't want to change the current database in your test.

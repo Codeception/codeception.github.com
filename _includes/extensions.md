@@ -86,7 +86,7 @@ extensions:
 
 * `delete_successful` (default: true) - delete screenshots for successfully passed tests  (i.e. log only failed and errored tests).
 * `module` (default: WebDriver) - which module for screenshots to use. Set `AngularJS` if you want to use it with AngularJS module. Generally, the module should implement `Codeception\Lib\Interfaces\ScreenshotSaver` interface.
-* `ignore_steps` (default: []) - array of step names that should not be recorded (given the step passed), * wildcards supported.
+* `ignore_steps` (default: []) - array of step names that should not be recorded (given the step passed), * wildcards supported. Meta steps can also be ignored.
 * `success_color` (default: success) - bootstrap values to be used for color representation for passed tests
 * `failure_color` (default: danger) - bootstrap values to be used for color representation for failed tests
 * `error_color` (default: dark) - bootstrap values to be used for color representation for scenarios where there's an issue occurred while generating a recording
@@ -101,6 +101,21 @@ extensions:
             module: AngularJS # enable for Angular
             delete_successful: false # keep screenshots of successful tests
             ignore_steps: [have, grab*]
+```
+#### Skipping recording of steps with annotations
+
+It is also possible to skip recording of steps for specified tests by using the @skipRecoding annotation.
+
+```php
+/**
+* @skipRecording login
+* @skipRecording amOnUrl
+*\/
+public function testLogin(AcceptanceTester $I)
+{
+    $I->login();
+    $I->amOnUrl('http://codeception.com');
+}
 ```
 
 

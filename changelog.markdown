@@ -7,6 +7,30 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.5.2
+
+* **[ZendExppressive]** Support for Zend Expressive v3 by **[Naktibalda](https://github.com/Naktibalda)** 
+* **[ZendExppressive]** Added options to reload application between tests and between requests by **[Naktibalda](https://github.com/Naktibalda)**
+* **[Symfony]** Fix "already initialized service", "reboot kernel issue" [#5262](https://github.com/Codeception/Codeception/issues/5262) by **[gdmfx](https://github.com/gdmfx)**
+* {Yii2] Prevent NPE [#5259](https://github.com/Codeception/Codeception/issues/5259) by **[SilverFire](https://github.com/SilverFire)**
+* **[Db]** isPopulated method was hidden by renaming to _isPopulated by **[Naktibalda](https://github.com/Naktibalda)**
+* **[Db]** don't clear database for empty dump by **[Slamdunk](https://github.com/Slamdunk)** 
+* **[AMQP]** added methods `seeQueueIsEmpty`, `dontSeeQueueIsEmpty`, `seeNumberOfMessagesInQueue`, `scheduleQueueCleanup` method by **[kardagan](https://github.com/kardagan)**
+* [REST][PhpBrowser][Frameworks] Save page source as .fail.json or .fail.xml depending on content type, by **[freiondrej](https://github.com/freiondrej)** 
+* **[Doctrine2]** Cleanup property works after on reconfigure [#5250](https://github.com/Codeception/Codeception/issues/5250) by **[joelmedeiros](https://github.com/joelmedeiros)**
+* **[JsonType]** Allow to use : in regex filter ([#5273](https://github.com/Codeception/Codeception/issues/5273)) by **[ellisgl](https://github.com/ellisgl)**
+* **[WebDriver]** Print curl error to debug output if WebDriver failed to connect [#5315](https://github.com/Codeception/Codeception/issues/5315) by **[Naktibalda](https://github.com/Naktibalda)**
+* **[Logger]** Ignores empty context and extra fields, by **[siad007](https://github.com/siad007)** 
+* **[Recorder]** Improved steps ignoring in Recorder extension with meta steps and annotations support [#5210](https://github.com/Codeception/Codeception/issues/5210) by **[sspat](https://github.com/sspat)**.
+* `@dataProvider` works with yield/generators [#5271](https://github.com/Codeception/Codeception/issues/5271) by **[burned42](https://github.com/burned42)**
+* Fixed issue ArrayContainsComparator do not Intersect correctly Empty expected nested array [#5303](https://github.com/Codeception/Codeception/issues/5303) by **[malinink](https://github.com/malinink)**
+* Fixed issue of steps with mocked objects [#5163](https://github.com/Codeception/Codeception/issues/5163) by **[dh9325](https://github.com/dh9325)**
+* Added Environment Name To Descriptor Unique Signatures [#5294](https://github.com/Codeception/Codeception/issues/5294) by **[Tenzian](https://github.com/Tenzian)**
+* Run command: Added `--phpunit-xml` option, which produces xml report having the same structure as PhpUnit's [#5004](https://github.com/Codeception/Codeception/issues/5004) by **[Naktibalda](https://github.com/Naktibalda)** 
+* Bootstrap command: Changed namespace shortcut to `-s` [#5275](https://github.com/Codeception/Codeception/issues/5275) by **[Naktibalda](https://github.com/Naktibalda)**
+* Improved the docs; by **[h311ion](https://github.com/h311ion)**, **[gimler](https://github.com/gimler)**, **[picass0](https://github.com/picass0)**, **[josephzidell](https://github.com/josephzidell)**
+
+
 #### 2.5.1
 
 * Recorder extension improvements by **[OneEyedSpaceFish](https://github.com/OneEyedSpaceFish)**. See [#5177](https://github.com/Codeception/Codeception/issues/5177):
@@ -19,7 +43,7 @@ title: Codeception Changelog
   * the ability not to display any Unicode characters if ANSI only output is requested
   * the ability not to display any colors in output if no-colors is requested
   * the ability to change colors in the generated list based on configuration
-* **[Db]** Made `_loadDump` unconditional like it was in 2.4. Fixed [#5195](https://github.com/Codeception/Codeception/issues/5195) by **[Naktibala](https://github.com/Naktibala)**
+* **[Db]** Made `_loadDump` unconditional like it was in 2.4. Fixed [#5195](https://github.com/Codeception/Codeception/issues/5195) by **[Naktibalda](https://github.com/Naktibalda)**
 * **[Db]** Allows to specify more than one dump file. See [#5220](https://github.com/Codeception/Codeception/issues/5220) by **[Fenikkusu](https://github.com/Fenikkusu)**
 * **[WebDriver]** Added `waitForElementClickable` by **[FatBoyXPC](https://github.com/FatBoyXPC)** 
 * Code coverage: added `work_dir` config option to map remote paths to local. See [#5225](https://github.com/Codeception/Codeception/issues/5225) by **[Fenikkusu](https://github.com/Fenikkusu)** 
