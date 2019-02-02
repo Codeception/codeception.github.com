@@ -312,7 +312,6 @@ $mails = $I->grabFromDatabase('users', 'email', array('name' => 'RebOOter'));
  * `param string` $column
  * `param array`  $criteria
 
- * `return` array
 
 
 #### grabNumRecords

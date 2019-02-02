@@ -33,7 +33,7 @@ connection to SFTP uses [phpseclib](http://phpseclib.sourceforge.net/) pulled in
 For SFTP, add [phpseclib](http://phpseclib.sourceforge.net/) to require list.
 {% highlight yaml %}
 "require": {
- "phpseclib/phpseclib": "0.3.6"
+ "phpseclib/phpseclib": "^2.0.14"
 }
 
 {% endhighlight %}

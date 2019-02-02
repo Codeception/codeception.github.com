@@ -104,7 +104,7 @@ extensions:
 ```
 #### Skipping recording of steps with annotations
 
-It is also possible to skip recording of steps for specified tests by using the @skipRecoding annotation.
+It is also possible to skip recording of steps for specified tests by using the @skipRecording annotation.
 
 ```php
 /**

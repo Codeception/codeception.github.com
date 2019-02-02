@@ -7,6 +7,17 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.5.3
+
+* **[Db]** cleanup database if populator is used
+* **[FTP]** Compatibility with phpseclib v2 by **[kardagan](https://github.com/kardagan)**
+* **[JsonType]** Fixed issue [#5230](https://github.com/Codeception/Codeception/issues/5230) Dropped filters after a string:regex by **[ellisgl](https://github.com/ellisgl)**
+* **[Symfony]** Fixed persistent service functionality for Symfony 3 by **[Naktibalda](https://github.com/Naktibalda)**
+* **[ZendExpressive]** Set Cookie header in request by **[Naktibalda](https://github.com/Naktibalda)** 
+* Updated vlucas/phpdotenv package to ^3.0 version by **[KartaviK](https://github.com/KartaviK)**
+* Documentation improvements by **[chrisaligent](https://github.com/chrisaligent)** **[richleland](https://github.com/richleland)** **[SanzhiyevMergen](https://github.com/SanzhiyevMergen)** **[sdlins](https://github.com/sdlins)**
+
+
 #### 2.5.2
 
 * **[ZendExppressive]** Support for Zend Expressive v3 by **[Naktibalda](https://github.com/Naktibalda)** 
