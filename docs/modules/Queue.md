@@ -30,12 +30,10 @@ The following dependencies are needed for the listed queue servers:
 
 ### Status
 
-* Maintainer: **nathanmac**
 * Stability:
     - Iron.io:    **stable**
     - Beanstalkd: **stable**
     - Amazon SQS: **stable**
-* Contact: nathan.macnamara@outlook.com
 
 ### Config
 
