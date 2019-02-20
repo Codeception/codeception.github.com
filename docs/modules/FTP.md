@@ -40,11 +40,9 @@ For SFTP, add [phpseclib](http://phpseclib.sourceforge.net/) to require list.
 
 ### Status
 
-* Maintainer: **nathanmac**
 * Stability:
     - FTP: **stable**
     - SFTP: **stable**
-* Contact: nathan.macnamara@outlook.com
 
 ### Config
 

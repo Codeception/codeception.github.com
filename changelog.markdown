@@ -7,6 +7,11 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.5.4
+
+* Restored compatility with vlucas/phpdotenv v2
+* **[Doctrine]** Fixed cleanup issue [#5326](https://github.com/Codeception/Codeception/issues/5326)
+
 #### 2.5.3
 
 * **[Db]** cleanup database if populator is used
