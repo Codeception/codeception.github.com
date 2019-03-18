@@ -199,3 +199,5 @@ Actions of Symfony and Doctrine2 modules will be accessible from `$this->tester`
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
   Continue to <a href="http://codeception.com/docs/05-UnitTests">Unit Testing Guide &raquo;</a>.
 </div>
+
+[Edit this page on GitHub](https://github.com/Codeception/codeception.github.com/blob/master/for/symfony.md)
