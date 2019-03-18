@@ -30,19 +30,8 @@ composer require codeception/codeception --dev
 
 ## Setup
 
-From Symfony 4 onwards there will be a top-level `tests` directory, instead of a separate `Tests` directory in each bundle.
-It is recommended to place unit, functional, and acceptance test files
-into `tests`.
-
-### Project Setup
-
-Codeception should be installed globally for a project. To start, please run
-
-```
-php bin/codecept bootstrap --empty
-```
-
-This will create `codeception.yml` and the `tests` directory. There are no test suites inside `tests` yet. 
+For Symfony >= 4 there is a top-level `tests` directory, instead of a separate `Tests` directory in each bundle.
+It is recommended to place unit, functional, and acceptance test files into `tests`.
 
 ### Acceptance Testing
 
