@@ -6,6 +6,10 @@
   link: https://github.com/reportportal/agent-php-Codeception
   description: Integration with [ReportPortal.io](http://reportportal.io) AI-powered test automation dashboard
   
+- name: Wiremock Extension
+  description: Allows developers and testers to use WireMock to mock external services when running codeception tests. codeception-wiremock-extension connects to an already running instance of WireMock or can also run automatically a local standalone one. And, it is able to download the version of wiremock you preffer and run it too
+  link: https://github.com/mcustiel/codeception-wiremock-extension  
+  
 - name: Docker Selenium Chrome
   link: https://github.com/teamneusta/codeception-docker-chrome
   description: Docker Selenium Chrome for Codeception is a extension to integrate automatic selenium with chrome in your codeception tests.
