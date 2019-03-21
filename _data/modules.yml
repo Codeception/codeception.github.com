@@ -1,3 +1,7 @@
+- name: FlySystem
+  description: Codeception FlySystem module with several adapters. Provides a set of methods for checking and modifying files on remote storage.
+  link: https://github.com/lamoda/codeception-flysystem
+
 - name: Codecept UnitTest generator
   image: https://user-images.githubusercontent.com/6382002/33774260-0aaacebc-dc3b-11e7-8a97-34265a4818cc.png
   link: https://github.com/hyperia-sk/codecept-unittest-generator
