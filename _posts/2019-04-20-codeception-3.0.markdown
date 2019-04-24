@@ -11,9 +11,9 @@ Maintaining such project that tries to embrace all kind of frameworks and CMSes,
 
 Ok, so what about Codeception 3.0? 
 
-#### Breaking Changes
+### Breaking Changes
 
-##### PHPUnit 8 Support
+#### PHPUnit 8 Support
 
 In 3.0 release we didn't break a lot of stuff. We tried, but probably we just leave that for next major release. 
 So we do not bump supported PHP version. We are still **PHP 5.6+ compatible**, just because testing should be available for everyone. We still support all major frameworks and we keep PHPUnit 6, and PHPUnit 7 compatibility.
@@ -27,7 +27,7 @@ However, keeping all that parts together is hard. So we assume, in 3.0 you can g
 We say thank you to our core contributor **@Naktibalda** to bring PHPUnit 8 support without breaking compatibilitiy.
 That was huge job, and if you look into our `codeception/phpunit-wrapper` project you will understand why.
 
-##### Modules Removed
+#### Modules Removed
 
 We also decided to drop some of old modules, which we hope no one uses. Here they are
 
@@ -40,7 +40,7 @@ We also decided to drop some of old modules, which we hope no one uses. Here the
 
 If you need them, just copy their code from the 2.5 branch and create a custom helper. However, we won't support them any longer. 
 
-##### Changed Defaults
+#### Changed Defaults
 
 If you use multi-session testing and `$I->haveFriend` commands, you will see your tests fail. `Friend` methods no longer included into `Codeception\Actor` class, so you should add them manually. In your `AcceptanceTester` class (or other class which uses multi session testing) include `Codeception\Lib\Actor\Shared` trait:
 
@@ -55,11 +55,11 @@ class AcceptanceTester extends \Codeception\Actor
 
 We also disabled conditional assertions for new setups (as people regularly misuse them), so if you want to use `canSee` methods you will need to enable them. We will take a look on that in next sections of this post.
 
-#### Features
+### Features
 
 M-m-m... Now the most tasty thing. Yes, we wouldn't do the major release without new features. Thanks to sponsorship from **Seravo** we could finish some features we had in our roadmap.
 
-##### Improved Interactive Shell
+#### Improved Interactive Shell
 
 This feature was backported from our friendly project [CodeceptJS](https://codecept.io). 
 It brings a new full featured REPL interface into a test, so you could pause test execution and fire different commands into console. 
@@ -79,7 +79,7 @@ Unlike, previous interactive shell implementation, this one based on `hoa/consol
 
 Learn more about using interactive shell in our [updated Getting Started guide](https://codeception.com/docs/02-GettingStarted#Interactive-Pause)
 
-##### Try & Retry
+#### Try & Retry
 
 Those features were introduced to make browser testing less painful. In the world full of JavaScript and Single Page Applications, you can no longer rely on single `click`, or `fillField` commands. Sometimes you need to retry action few times to make perform it. 
 
