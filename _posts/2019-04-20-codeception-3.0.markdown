@@ -136,7 +136,7 @@ Thanks to **Otto Kekäläinen from [Seravo](https://seravo.com)** for generous d
 
 And a few words from Michael Bodnarchuk, who started Codeception 8 years ago:
 
-As a person who is interested in quality and testing I was interested in answering the question: what needs to be tested at first place. And the best answer I found so far is to get that information from the user feedback. Sometimes, a bug can be found only by a regular user, without causing a stack trace. And what I'd love to see, that users of web site or web applciation could submit such bugreports instantly. That's why I built [Bugira Bugtracker](https://www.bugira.com), my new SaaS product to get bugreports from your users. If you like my projects like Codeception or CodeceptJS, please [try Bugira](https://bugira.com) as well. It will help you to establish better communication with you users and build a better products!
+> As a person who is interested in quality and testing I was interested in answering the question: what needs to be tested at first place. And the best answer I found so far is to get that information from the user feedback. Sometimes, a bug can be found only by a regular user, without causing a stack trace. And what I'd love to see, that users of web site or web applciation could submit such bugreports instantly. That's why I built **[Bugira Bugtracker](https://www.bugira.com), my new SaaS product to get bugreports from your users**. If you like my projects like Codeception or CodeceptJS, please [try Bugira](https://bugira.com) as well. It will help you to establish better communication with you users and build a better products!
 
 
 
