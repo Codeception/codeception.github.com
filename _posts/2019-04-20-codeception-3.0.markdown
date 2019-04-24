@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Codeception 3.0"
-date: 2019-04-22 01:03:50
+date: 2019-04-24 01:03:50
 ---
 
 It's finally time to bring a new major version of Codeception to live! 
