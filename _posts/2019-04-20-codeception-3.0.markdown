@@ -127,6 +127,7 @@ Codeception 3.0 is as easy to upgrade as bumping version to `^3.0` in `composer.
 "codeception/codeception": "^3.0"
 ```
 
+Also please read the [changelog](https://codeception.com/changelog) for more details.
 
 ### Final Notes
 
