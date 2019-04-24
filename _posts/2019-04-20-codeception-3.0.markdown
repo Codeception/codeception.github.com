@@ -5,9 +5,9 @@ date: 2019-04-24 01:03:50
 ---
 
 It's finally time to bring a new major version of Codeception to live! 
-Through years of evolution and constant imorovements we learned a lot and today we think we are bringing to you the best Codeception version so far. We still belive that simplicity of testing is important, that test code should be easy to read, write, and debug. And if you are reading this post you probably already discovered that.
+Through years of evolution and constant improvements we learned a lot and today we think we are bringing to you the best Codeception version so far. We still belove that simplicity of testing is important, that test code should be easy to read, write, and debug. And if you are reading this post you probably already discovered that.
 
-Maintaining such project that tries to embrace all kind of frameworks and CMSes, from Symfony to WordPress, from Laravel to Magento, is challanging, but what we see that people from those communitites send us patches regularly. Probably, our philosophy - separate tests from the framework, share similar solutions via modules, shows the way. And our awesome community continue to improve this project. Hey, just look into our changelog. Even patch releases contain HUGE list of improvements!
+Maintaining such project that tries to embrace all kind of frameworks and CMSes, from Symfony to WordPress, from Laravel to Magento, is challenging, but what we see that people from those communities send us patches regularly. Probably, our philosophy - separate tests from the framework, share similar solutions via modules, shows the way. And our awesome community continue to improve this project. Hey, just look into our changelog. Even patch releases contain HUGE list of improvements!
 
 Ok, so what about Codeception 3.0? 
 
@@ -97,7 +97,7 @@ $I->click('Create');
 This feature was also ported from CodeceptJS but implemented a bit differently. [Learn how to use it](https://codeception.com/docs/03-AcceptanceTests#Retry) in updated Acceptance Testing guide.
 
 What if your site behaves differently in different environments? Like showing the "Cookie" badge depending on region?
-And you need to accept cookies notifications if the badhe is shown? You can do it via `tryTo*` actions:
+And you need to accept cookies notifications if the badge is shown? You can do it via `tryTo*` actions:
 
 ```php
 <?php
@@ -130,13 +130,13 @@ Codeception 3.0 is as easy to upgrade as bumping version to `^3.0` in `composer.
 
 ### Final Notes
 
-Thanks for everyone who have been with us all this years and who helps making Codeception better every day. Again, thanks to **Naktibalda** for taking care of maintainting minor releases and building compatibility bridge.  
+Thanks for everyone who have been with us all this years and who helps making Codeception better every day. Again, thanks to **Naktibalda** for taking care of maintaining minor releases and building compatibility bridge.  
 
 Thanks to **Otto Kekäläinen from [Seravo](https://seravo.com)** for generous donation. 
 
 And a few words from Michael Bodnarchuk, who started Codeception 8 years ago:
 
-> As a person who is interested in quality and testing I was interested in answering the question: what needs to be tested at first place. And the best answer I found so far is to get that information from the user feedback. Sometimes, a bug can be found only by a regular user, without causing a stack trace. And what I'd love to see, that users of web site or web applciation could submit such bugreports instantly. That's why I built **[Bugira Bugtracker](https://www.bugira.com), my new SaaS product to get bugreports from your users**. If you like my projects like Codeception or CodeceptJS, please [try Bugira](https://bugira.com) as well. It will help you to establish better communication with you users and build a better products!
+> As a person who is interested in quality and testing I was interested in answering the question: what needs to be tested at first place. And the best answer I found so far is to get that information from the user feedback. Sometimes, a bug can be found only by a regular user, without causing a stack trace. And what I'd love to see, that users of web site or web application could submit such bugreports instantly. That's why I built **[Bugira Bugtracker](https://www.bugira.com), my new SaaS product to get bugreports from your users**. If you like my projects like Codeception or CodeceptJS, please [try Bugira](https://bugira.com) as well. It will help you to establish better communication with you users and build a better products!
 
 
 
