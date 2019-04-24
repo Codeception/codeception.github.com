@@ -746,3 +746,13 @@ ul.navbar-nav {
 		margin: 0;
 	}
 }
+
+.bugira {
+  background: #50d86d;
+  padding: 5px;
+  color: #000;
+}
+
+.bugira a {
+  color: #333;
+}
