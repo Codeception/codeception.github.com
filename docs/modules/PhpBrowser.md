@@ -5,7 +5,7 @@ title: PhpBrowser - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Module/PhpBrowser.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/PhpBrowser.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.3/docs/modules/PhpBrowser.md">2.3</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/PhpBrowser.md">2.2</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/PhpBrowser.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/PhpBrowser.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/PhpBrowser.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/3.0/src/Codeception/Module/PhpBrowser.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/PhpBrowser.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/3.0/docs/modules/PhpBrowser.md"><strong>3.0</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.5/docs/modules/PhpBrowser.md">2.5</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/PhpBrowser.md">1.8</a></div>
 
 # PhpBrowser
 
@@ -118,7 +118,7 @@ Use it in Helpers when you want to retrieve response of request performed by ano
 // in Helper class
 public function seeResponseContains($text)
 {
-   $this->assertContains($text, $this->getModule('PhpBrowser')->_getResponseContent(), "response contains");
+   $this->assertStringContainsString($text, $this->getModule('PhpBrowser')->_getResponseContent(), "response contains");
 }
 ?>
 
@@ -807,6 +807,24 @@ $I->haveHttpHeader('Client&#95;Id', 'Codeception');
  * `param string` $name the name of the request header
  * `param string` $value the value to set it to for subsequent
        requests
+
+
+#### makeHtmlSnapshot
+ 
+Saves current page's HTML into a temprary file.
+Use this method in debug mode within an interactive pause to get a source code of current page.
+
+{% highlight php %}
+
+<?php
+$I->makePageSnapshot('edit_page');
+// saved to: tests/_output/debug/edit_page.html
+$I->makePageSnapshot();
+// saved to: tests/_output/debug/2017-05-26_14-24-11_4b3403665fea6.html
+
+{% endhighlight %}
+
+ * `param null` $name
 
 
 #### moveBack
@@ -1543,4 +1561,4 @@ $I->uncheckOption('#notify');
 
  * `param` $option
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.5/src/Codeception/Module/PhpBrowser.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/3.0/src/Codeception/Module/PhpBrowser.php">Help us to improve documentation. Edit module reference</a></div>

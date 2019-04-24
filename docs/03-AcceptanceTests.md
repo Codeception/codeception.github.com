@@ -85,7 +85,6 @@ class SigninCest
 {
     public function tryToTest(AcceptanceTester $I)
     {
-        $I->wantTo('test my page');
     }
 }
 
@@ -312,6 +311,21 @@ $I->cantSeeInField('user[name]', 'Miles');
 
 Each failed assertion will be shown in the test results, but it won't stop the test.
 
+Conditional assertions are disabled in bootstrap setup. To enable them you should add corresponding step decorators to suite config:
+
+> If you started project as `codecept init acceptance` they should be already enabled in config
+
+{% highlight yaml %}
+
+# in acceptance.suite.yml 
+# or in codeception.yml inside suites section
+step_drcorators:
+  - \Codeception\Step\ConditionalAssertion
+
+{% endhighlight %} 
+
+Then rebuild actors with `codecept build` command.
+
 #### Comments
 
 Within a long scenario, you should describe what actions you are going to perform and what results should be achieved.
@@ -508,8 +522,6 @@ $I->wait(3); // wait for 3 secs
 
 #### SmartWait
 
-*since 2.3.4 version*
-
 It is possible to wait for elements pragmatically.
 If a test uses element which is not on a page yet, Codeception will wait for few extra seconds before failing.
 This feature is based on [Implicit Wait](http://www.seleniumhq.org/docs/04_webdriver_advanced.jsp#implicit-waits) of Selenium.
@@ -558,6 +570,64 @@ $I->seeNumberOfElements(['css' => 'button.link'], 5); // DISABLED, can wait only
 
 {% endhighlight %}
 
+#### Retry
+
+When it's hard to define condition to wait for, we can retry a command few times until it succeeds.
+For instance, if you try to click while it's animating you can try to do it few times until it freezes.
+Since Codeception 3.0 each action and assertion have an alias prefixed with `retry` which allows to retry a flaky command.
+
+{% highlight php %}
+
+<?php
+$I->retryClick('flaky element');
+$I->retrySee('Something changed');
+
+{% endhighlight %}
+
+Retry can be configured via `$I->retry()` command, where you can set number of retries and interval.
+
+{% highlight php %}
+
+<?php
+// Retry up to 4 sec: 10 times, for 400ms interval 
+$I->retry(10, 400);
+
+{% endhighlight %}
+
+`$I->retry` takes 2 parameters:
+* number of retries (1 by default)
+* interval (200ms by default)
+
+Retries are disabled by default. To enable them you should add retry step decorators to suite config:
+
+> If you started project as `codecept init acceptance` they should be already enabled in config
+
+{% highlight yaml %}
+
+# in acceptance.suite.yml 
+# or in codeception.yml inside suites section
+step_drcorators:
+  - \Codeception\Step\Retry
+
+{% endhighlight %} 
+
+Then add `\Codeception\Lib\Actor\Shared\Retry` trait into `AcceptanceTester` class:
+
+{% highlight php %}
+
+<?php
+class AcceptanceTester extends \Codeception\Actor
+{
+    use _generated\AcceptanceTesterActions;
+    
+    use \Codeception\Lib\Actor\Shared\Retry; 
+}
+
+{% endhighlight %}
+
+Run `codecept build` to recreate actions. New `retry*` actions are available for tests. 
+Keep in mind, that you can change retry policy dynamically for each test.
+
 #### Wait and Act
 
 To combine `waitForElement` with actions inside that element you can use the [performOn](http://codeception.com/docs/modules/WebDriver#performOn) method.
@@ -587,6 +657,53 @@ $I->performOn('.confirm', function(\Codeception\Module\WebDriver $I) {
 {% endhighlight %}
 
 For more options see [`performOn()` reference](http://codeception.com/docs/modules/WebDriver#performOn).
+
+#### A/B Testing
+
+When a web site acts unpredictably you may need to react on that change.
+This happens if site configured for A/B testing, or shows different popups, based on environment.
+
+Since Codeception 3.0 you can have some actions to fail silently, is they are errored.
+Let's say, you open a page and some times there is a popup which should be closed. 
+We may try to hit the "close" button but if this action fails (no popup on page) we just continue the test.
+
+This is how it can be implemented:
+
+{% highlight php %}
+
+<?php
+$I->amOnPage('/');
+$I->tryToClick('x', '.alert'); 
+// continue execution
+
+{% endhighlight %}
+
+You can also use `tryTo` as condition for your tests:
+
+{% highlight php %}
+
+<?php
+if ($I->tryToSeeElement('.alert')) {
+    $I->waitForText('Do you accept cookies?');
+    $I->click('Yes');
+}
+
+{% endhighlight %}
+
+A/B testing is disabled by default. To enable it you should add corresponding step decorators to suite config:
+
+> If you started project as `codecept init acceptance` in Codeception >= 3.0 they should be already enabled in config
+
+{% highlight yaml %}
+
+# in acceptance.suite.yml 
+# or in codeception.yml inside suites section
+step_drcorators:
+  - \Codeception\Step\TryTo
+
+{% endhighlight %} 
+
+Then rebuild actors with `codecept build` command.
 
 ### Multi Session Testing
 
@@ -626,6 +743,20 @@ $nickAdmin->leave();
 
 {% endhighlight %}
 
+Multi session testing is disabled by default. To enable it, add `\Codeception\Lib\Actor\Shared\Friend` into `AcceptancTester`.
+
+{% highlight php %}
+
+<?php
+class AcceptanceTester extends \Codeception\Actor
+{
+    use _generated\AcceptanceTesterActions;
+    
+    use \Codeception\Lib\Actor\Shared\Friend; 
+}
+
+{% endhighlight %}
+
 ### Cloud Testing
 
 Some environments are hard to be reproduced manually, testing Internet Explorer 6-8 on Windows XP may be a hard thing,
@@ -651,22 +782,6 @@ It should be mentioned that Cloud Testing services are not free. You should inve
 and choose one that fits your needs. They also may work painfully slowly if ping times between the local server
 and the cloud is too high. This may lead to random failures in acceptance tests.
 
-### AngularJS Testing
-
-In the modern era of Single Page Applications, the browser replaces the server in creating the user interface.
-Unlike traditional web applications, web pages are not reloaded on user actions.
-All interactions with the server are done in JavaScript with XHR requests.
-However, testing Single Page Applications can be a hard task.
-There could be no information of the application state: e.g. has it completed rendering or not?
-What is possible to do in this case is to use more `wait*` methods or execute JavaScript that checks the application state.
-
-For applications built with the AngularJS v1.x framework,
-we implemented [AngularJS module](http://codeception.com/docs/modules/AngularJS) which is based on Protractor
-(an official tool for testing Angular apps). Under the hood, it pauses step execution
-before the previous actions are completed and use the AngularJS API to check the application state.
-
-The AngularJS module extends WebDriver so that all the configuration options from it are available.
-
 ### Debugging
 
 Codeception modules can print valuable information while running.
@@ -684,9 +799,8 @@ PhpBrowser will store the HTML code and WebDriver will save a screenshot of the 
 
 Additional debugging features by Codeception:
 
-* [pauseExecution](http://codeception.com/docs/modules/WebDriver#pauseExecution) method of WebDriver module allows pausing the test.
-* [Recorder extension](http://codeception.com/addons#CodeceptionExtensionRecorder) allows to record tests step-by-steps and show them in slideshow
-* [Interactive Console](http://codeception.com/docs/07-AdvancedUsage#Interactive-Console) is a REPL that allows to type and check commands for instant feedback.
+* [Interactive Pause](http://codeception.com/docs/02-GettingStarted#Interactive-Pause) is a REPL that allows to type and check commands for instant feedback.
+* [Recorder Extension](http://codeception.com/addons#CodeceptionExtensionRecorder) allows to record tests step-by-steps and show them in slideshow
 
 ### Custom Browser Sessions
 

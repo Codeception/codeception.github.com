@@ -5,7 +5,7 @@ title: SOAP - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Module/SOAP.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/SOAP.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.3/docs/modules/SOAP.md">2.3</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/SOAP.md">2.2</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/SOAP.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/SOAP.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/SOAP.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/3.0/src/Codeception/Module/SOAP.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/SOAP.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/3.0/docs/modules/SOAP.md"><strong>3.0</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.5/docs/modules/SOAP.md">2.5</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/SOAP.md">1.8</a></div>
 
 # SOAP
 
@@ -134,11 +134,6 @@ Will produce header:
  * `param array` $params
 
 
-#### seeResponseCodeIs
- 
-@deprecated use seeSoapResponseCodeIs instead
-
-
 #### seeSoapResponseCodeIs
  
 Checks response code from server.
@@ -256,4 +251,4 @@ $I->sendSoapRequest('UpdateUser', \Codeception\Utils\Soap::request()->user
  * `param` $request
  * `param` $body
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.5/src/Codeception/Module/SOAP.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/3.0/src/Codeception/Module/SOAP.php">Help us to improve documentation. Edit module reference</a></div>

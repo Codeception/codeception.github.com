@@ -5,7 +5,7 @@ title: Asserts - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Module/Asserts.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Asserts.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.3/docs/modules/Asserts.md">2.3</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/Asserts.md">2.2</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Asserts.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Asserts.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Asserts.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/3.0/src/Codeception/Module/Asserts.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Asserts.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/3.0/docs/modules/Asserts.md"><strong>3.0</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.5/docs/modules/Asserts.md">2.5</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Asserts.md">1.8</a></div>
 
 # Asserts
 
@@ -26,16 +26,6 @@ Special module for using asserts in your tests.
  * `param` $key
  * `param` $actual
  * `param` $description
-
-
-#### assertArraySubset
- 
-Checks that array contains subset.
-
- * `param array`  $subset
- * `param array`  $array
- * `param bool`   $strict
- * `param string` $message
 
 
 #### assertContains
@@ -64,25 +54,7 @@ Checks that variable is empty.
 
 #### assertEquals
  
-Checks that two variables are equal. If you're comparing floating-point values,
-you can specify the optional "delta" parameter which dictates how great of a precision
-error are you willing to tolerate in order to consider the two values equal.
-
-Regular example:
-{% highlight php %}
-
-<?php
-$I->assertEquals(5, $element->getChildrenCount());
-
-{% endhighlight %}
-
-Floating-point example:
-{% highlight php %}
-
-<?php
-$I->assertEquals(0.3, $calculator->add(0.1, 0.2), 'Calculator should add the two numbers correctly.', 0.01);
-
-{% endhighlight %}
+Checks that two variables are equal.
 
  * `param`        $expected
  * `param`        $actual
@@ -153,10 +125,90 @@ Checks that actual is greater or equal than expected
  * `param` $description
 
 
+#### assertIsArray
+__not documented__
+
+
+#### assertIsBool
+__not documented__
+
+
+#### assertIsCallable
+__not documented__
+
+
 #### assertIsEmpty
  
  * `param` $actual
  * `param` $description
+
+
+#### assertIsFloat
+__not documented__
+
+
+#### assertIsInt
+__not documented__
+
+
+#### assertIsNotArray
+__not documented__
+
+
+#### assertIsNotBool
+__not documented__
+
+
+#### assertIsNotCallable
+__not documented__
+
+
+#### assertIsNotFloat
+__not documented__
+
+
+#### assertIsNotInt
+__not documented__
+
+
+#### assertIsNotNumeric
+__not documented__
+
+
+#### assertIsNotObject
+__not documented__
+
+
+#### assertIsNotResource
+__not documented__
+
+
+#### assertIsNotScalar
+__not documented__
+
+
+#### assertIsNotString
+__not documented__
+
+
+#### assertIsNumeric
+__not documented__
+
+
+#### assertIsObject
+__not documented__
+
+
+#### assertIsResource
+__not documented__
+
+
+#### assertIsScalar
+__not documented__
+
+
+#### assertIsString
+__not documented__
 
 
 #### assertLessOrEquals
@@ -203,25 +255,7 @@ Checks that variable is not empty.
 
 #### assertNotEquals
  
-Checks that two variables are not equal. If you're comparing floating-point values,
-you can specify the optional "delta" parameter which dictates how great of a precision
-error are you willing to tolerate in order to consider the two values not equal.
-
-Regular example:
-{% highlight php %}
-
-<?php
-$I->assertNotEquals(0, $element->getChildrenCount());
-
-{% endhighlight %}
-
-Floating-point example:
-{% highlight php %}
-
-<?php
-$I->assertNotEquals(0.4, $calculator->add(0.1, 0.2), 'Calculator should add the two numbers correctly.', 0.01);
-
-{% endhighlight %}
+Checks that two variables are not equal
 
  * `param`        $expected
  * `param`        $actual
@@ -304,6 +338,22 @@ Checks that two variables are same
  * `param string` $message
 
 
+#### assertStringContainsString
+__not documented__
+
+
+#### assertStringContainsStringIgnoringCase
+__not documented__
+
+
+#### assertStringNotContainsString
+__not documented__
+
+
+#### assertStringNotContainsStringIgnoringCase
+__not documented__
+
+
 #### assertStringStartsNotWith
  
 Checks that a string doesn't start with the given prefix.
@@ -361,8 +411,6 @@ $I->expectException(new MyException("Don't do bad things"), function() {
  * `param` $exception string or \Exception
  * `param` $callback
 
-@deprecated Use expectThrowable instead
-
 
 #### expectThrowable
  
@@ -402,4 +450,4 @@ Fails the test with message.
 
  * `param` $message
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.5/src/Codeception/Module/Asserts.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/3.0/src/Codeception/Module/Asserts.php">Help us to improve documentation. Edit module reference</a></div>

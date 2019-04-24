@@ -2,7 +2,7 @@
 
 ## DotReporter
 
-[See Source](https://github.com/Codeception/Codeception/blob/2.5/ext/DotReporter.php)
+[See Source](https://github.com/Codeception/Codeception/blob/3.0/ext/DotReporter.php)
 
 DotReporter provides less verbose output for test execution.
 Like PHPUnit printer it prints dots "." for successful testes and "F" for failures.
@@ -38,7 +38,7 @@ Use this extension as an example for building custom reporters.
 
 ## Logger
 
-[See Source](https://github.com/Codeception/Codeception/blob/2.5/ext/Logger.php)
+[See Source](https://github.com/Codeception/Codeception/blob/3.0/ext/Logger.php)
 
 Log suites/tests/steps using Monolog library.
 Monolog should be installed additionally by Composer.
@@ -65,7 +65,7 @@ extensions:
 
 ## Recorder
 
-[See Source](https://github.com/Codeception/Codeception/blob/2.5/ext/Recorder.php)
+[See Source](https://github.com/Codeception/Codeception/blob/3.0/ext/Recorder.php)
 
 Saves a screenshot of each step in acceptance tests and shows them as a slideshow on one HTML page (here's an [example](http://codeception.com/images/recorder.gif))
 Activated only for suites with WebDriver module enabled.
@@ -91,6 +91,7 @@ extensions:
 * `failure_color` (default: danger) - bootstrap values to be used for color representation for failed tests
 * `error_color` (default: dark) - bootstrap values to be used for color representation for scenarios where there's an issue occurred while generating a recording
 * `delete_orphaned` (default: false) - delete recording folders created via previous runs
+* `include_microseconds` (default: false) - enable microsecond precision for recorded step time details
 
 #### Examples:
 
@@ -123,7 +124,7 @@ public function testLogin(AcceptanceTester $I)
 
 ## RunBefore
 
-[See Source](https://github.com/Codeception/Codeception/blob/2.5/ext/RunBefore.php)
+[See Source](https://github.com/Codeception/Codeception/blob/3.0/ext/RunBefore.php)
 
 Extension for execution of some processes before running tests.
 
@@ -154,7 +155,7 @@ HINT: you can use different configurations per environment.
 
 ## RunFailed
 
-[See Source](https://github.com/Codeception/Codeception/blob/2.5/ext/RunFailed.php)
+[See Source](https://github.com/Codeception/Codeception/blob/3.0/ext/RunFailed.php)
 
 Saves failed tests into tests/log/failed in order to rerun failed tests.
 
@@ -183,7 +184,7 @@ On each execution failed tests are logged and saved into `tests/_output/failed` 
 
 ## RunProcess
 
-[See Source](https://github.com/Codeception/Codeception/blob/2.5/ext/RunProcess.php)
+[See Source](https://github.com/Codeception/Codeception/blob/3.0/ext/RunProcess.php)
 
 Extension to start and stop processes per suite.
 Can be used to start/stop selenium server, chromedriver, phantomjs, mailcatcher, etc.
@@ -230,7 +231,7 @@ HINT: you can use different configurations per environment.
 
 ## SimpleReporter
 
-[See Source](https://github.com/Codeception/Codeception/blob/2.5/ext/SimpleReporter.php)
+[See Source](https://github.com/Codeception/Codeception/blob/3.0/ext/SimpleReporter.php)
 
 This extension demonstrates how you can implement console output of your own.
 Recommended to be used for development purposes only.
