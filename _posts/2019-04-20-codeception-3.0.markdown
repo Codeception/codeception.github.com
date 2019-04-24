@@ -108,7 +108,7 @@ if ($I->tryToSeeElement('.alert.cookie')) {
 
 Thanks to Iain Poulson from Delicious Brains for [showing this use case](https://deliciousbrains.com/automated-testing-woocommerce/)
 
-[Learn how to use it](https://codeception.com/docs/03-AcceptanceTests#A-B-Testing) in updated Acceptance Testing guide.
+[Learn how to use it](https://codeception.com/docs/03-AcceptanceTests#AB-Testing) in updated Acceptance Testing guide.
 
 Try and Retry were implemented as [Step Decorators](https://codeception.com/docs/08-Customization#Step-Decorators). As you know, actor classes contain code generated parts, and step decorators allow to generate additional actions by wrapping methods of modules. Conditional Assertions (`canSee*` methods) were refactored as step decorators too. So you need to enable them explicitly on new setups. 
 
