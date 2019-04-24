@@ -7,6 +7,15 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 2.5.6
+
+* **[WebDriver]** Fixed `loadSessionSnapshot` with php-webdriver 1.1.3 by **[Naktibalda](https://github.com/Naktibalda)**.
+* **[WebDriver]** Avoid removing required fields in cookies. [#5470](https://github.com/Codeception/Codeception/issues/5470) by **[JorisVanEijden](https://github.com/JorisVanEijden)**
+* [PhpBrowser][Frameworks] Support for `formaction` attribute in `button` to submit forms. By **[Dezzpil](https://github.com/Dezzpil)**
+* **[FTP]** Updated to phpseclib v2 constants
+* Fixes: Gherkin Scenarios not loading when specified in group file by **[mozillalives](https://github.com/mozillalives)**. See [#5457](https://github.com/Codeception/Codeception/issues/5457)
+
+
 #### 2.5.5
 
 * **[Laravel]** Fix missing declaration shouldReport in Laravel 5.8 by **[edno](https://github.com/edno)**
