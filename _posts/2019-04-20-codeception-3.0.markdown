@@ -4,8 +4,8 @@ title: "Codeception 3.0"
 date: 2019-04-24 01:03:50
 ---
 
-It's finally time to bring a new major version of Codeception to live! 
-Through years of evolution and constant improvements we learned a lot and today we think we are bringing to you the best Codeception version so far. We still belove that simplicity of testing is important, that test code should be easy to read, write, and debug. And if you are reading this post you probably already discovered that.
+It's finally time to bring a new major version of Codeception to life! 
+Through years of evolution and constant improvements we learned a lot and today we think we are bringing to you the best Codeception version so far. We still belive that simplicity of testing is important, that test code should be easy to read, write, and debug. And if you are reading this post you probably already discovered that.
 
 Maintaining such project that tries to embrace all kind of frameworks and CMSes, from Symfony to WordPress, from Laravel to Magento, is challenging, but what we see that people from those communities send us patches regularly. Probably, our philosophy - separate tests from the framework, share similar solutions via modules, shows the way. And our awesome community continue to improve this project. Hey, just look into our changelog. Even patch releases contain HUGE list of improvements!
 
