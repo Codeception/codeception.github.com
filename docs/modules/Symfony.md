@@ -1045,6 +1045,9 @@ $I->seeElement(['css' => 'form input'], ['name' => 'login']);
  
 Checks if the desired number of emails was sent.
 If no argument is provided then at least one email must be sent to satisfy the check.
+The email is checked using Symfony's profiler. If your app performs a redirect after sending the email,
+you need to tell Codeception to not follow this redirect, using REST Module's [stopFollowingRedirects](
+https://codeception.com/docs/modules/REST#stopFollowingRedirects) method.
 
 {% highlight php %}
 

@@ -1241,6 +1241,24 @@ $I->seeNumberOfElements('tr', [0,10]); // between 0 and 10 elements
  * `param mixed` $expected int or int[]
 
 
+#### seeNumberOfRecords
+ 
+Checks that number of records exists in database.
+
+{% highlight php %}
+
+<?php
+$I->seeNumberOfRecords('App\Models\Categories', 3, ['name' => 'Testing']);
+?>
+
+{% endhighlight %}
+
+ * `param string` $model Model name
+ * `param int` $number int number of records
+ * `param array`  $attributes Model attributes
+ * `[Part]` orm
+
+
 #### seeOptionIsSelected
  
 Checks that the given option is selected.

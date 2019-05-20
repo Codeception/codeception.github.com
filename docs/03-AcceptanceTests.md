@@ -319,7 +319,7 @@ Conditional assertions are disabled in bootstrap setup. To enable them you shoul
 
 # in acceptance.suite.yml 
 # or in codeception.yml inside suites section
-step_drcorators:
+step_decorators:
   - \Codeception\Step\ConditionalAssertion
 
 {% endhighlight %} 
@@ -606,7 +606,7 @@ Retries are disabled by default. To enable them you should add retry step decora
 
 # in acceptance.suite.yml 
 # or in codeception.yml inside suites section
-step_drcorators:
+step_decorators:
   - \Codeception\Step\Retry
 
 {% endhighlight %} 
@@ -698,7 +698,7 @@ A/B testing is disabled by default. To enable it you should add corresponding st
 
 # in acceptance.suite.yml 
 # or in codeception.yml inside suites section
-step_drcorators:
+step_decorators:
   - \Codeception\Step\TryTo
 
 {% endhighlight %} 
