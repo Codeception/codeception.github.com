@@ -7,6 +7,23 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 3.0.2
+* **[weshooper](https://github.com/weshooper)** reduced size of exported package.
+* --no-redirect option disables the redirect to a Composer-installed version, by **[DanielRuf](https://github.com/DanielRuf)**
+* PhpUnit 8.2 support by **[Naktibalda](https://github.com/Naktibalda)**
+* Retry: double wait interval after each execution by **[Naktibalda](https://github.com/Naktibalda)**
+* **[FTP]** Bugfix: Make sure _directory will return its directory by **[bbatsche](https://github.com/bbatsche)**
+* **[Doctrine2]** Fixed recursive building of association queries by **[alexkunin](https://github.com/alexkunin)**
+* **[PhpBrowser]** Pass file type option to Guzzle if specified [#5548](https://github.com/Codeception/Codeception/issues/5548) by **[Naktibalda](https://github.com/Naktibalda)**
+* [PhpBrowser][Frameworks]  InnerBrowser: selectOption can match by text when option has no value attribute [#5547](https://github.com/Codeception/Codeception/issues/5547) by **[Naktibalda](https://github.com/Naktibalda)**
+* **[REST]** Updated url construction logic, so it does not produce double slashes, by **[nicholascus](https://github.com/nicholascus)**
+* **[ZF2]** Add check for console class before calling it by **[carnage](https://github.com/carnage)**
+* **[Gherkin]** Fixed Gherkin setup for single run from group file by **[bnpatel1990](https://github.com/bnpatel1990)**
+* **[CodeCoverage]** Ability to use a custom cookie domain for code coverage by **[maksimovic](https://github.com/maksimovic)**
+* **[Docs]** **[EspadaV8](https://github.com/EspadaV8)** fixed env substitution in DB module example
+* **[Docs]** **[splinter89](https://github.com/splinter89)** mentioned phpdbg and pcov for code coverage
+* **[el7cosmos](https://github.com/el7cosmos)**, **[KartaviK](https://github.com/KartaviK)** and **[davertMik](https://github.com/davertMik)** fixed various deprecation messages
+
 #### 3.0.1
 
 * Fixed code duplication when building actors. Fixes [#5506](https://github.com/Codeception/Codeception/issues/5506) [#5500](https://github.com/Codeception/Codeception/issues/5500)

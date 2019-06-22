@@ -509,7 +509,7 @@ module:
         - Db:
             dsn: "mysql:host=%DB_HOST%;dbname=%DB_DATABASE%"
             user: "%DB_USERNAME%"
-            password: "DB_PASSWORD"
+            password: "%DB_PASSWORD%"
 
 {% endhighlight %}
 
@@ -583,6 +583,7 @@ Modules are the real power of Codeception. They are used to emulate multiple inh
 access data, interact with popular PHP libraries, etc. If the bundled modules are not enough for you that's OK,
 you are free to write your own! Use Helpers (custom modules) for everything that Codeception can't do out of the box.
 Helpers also can be used to extend the functionality of the original modules.
+
 
 
 
