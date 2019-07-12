@@ -137,3 +137,7 @@
 - name: Drupal
   link: https://github.com/guncha25/drupal-codeception
   description: Sets of codeception modules and utilities to test drupal cms.
+
+- name: Private Sniffer
+  link: https://github.com/fkupper/private-sniffer-module/
+  description: Simple module that enables sniffing into private defined elements of an object while running unit tests with Codeception.
