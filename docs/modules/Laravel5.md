@@ -1225,6 +1225,28 @@ $I->haveSingleton('My\Interface', 'My\Singleton');
 Logout user.
 
 
+#### make
+ 
+Use Laravel's model factory to make a model instance.
+Can only be used with Laravel 5.1 and later.
+
+{% highlight php %}
+
+<?php
+$I->make('App\User');
+$I->make('App\User', ['name' => 'John Doe']);
+$I->make('App\User', [], 'admin');
+?>
+
+{% endhighlight %}
+
+@see http://laravel.com/docs/5.1/testing#model-factories
+ * `param string` $model
+ * `param array` $attributes
+ * `param string` $name
+ * `[Part]` orm
+
+
 #### makeHtmlSnapshot
  
 Saves current page's HTML into a temprary file.
@@ -1233,14 +1255,37 @@ Use this method in debug mode within an interactive pause to get a source code o
 {% highlight php %}
 
 <?php
-$I->makePageSnapshot('edit_page');
+$I->makeHtmlSnapshot('edit_page');
 // saved to: tests/_output/debug/edit_page.html
-$I->makePageSnapshot();
+$I->makeHtmlSnapshot();
 // saved to: tests/_output/debug/2017-05-26_14-24-11_4b3403665fea6.html
 
 {% endhighlight %}
 
  * `param null` $name
+
+
+#### makeMultiple
+ 
+Use Laravel's model factory to make multiple model instances.
+Can only be used with Laravel 5.1 and later.
+
+{% highlight php %}
+
+<?php
+$I->makeMultiple('App\User', 10);
+$I->makeMultiple('App\User', 10, ['name' => 'John Doe']);
+$I->makeMultiple('App\User', 10, [], 'admin');
+?>
+
+{% endhighlight %}
+
+@see http://laravel.com/docs/5.1/testing#model-factories
+ * `param string` $model
+ * `param int` $times
+ * `param array` $attributes
+ * `param string` $name
+ * `[Part]` orm
 
 
 #### moveBack

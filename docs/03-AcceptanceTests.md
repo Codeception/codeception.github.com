@@ -584,19 +584,20 @@ $I->retrySee('Something changed');
 
 {% endhighlight %}
 
-Retry can be configured via `$I->retry()` command, where you can set number of retries and interval.
+Retry can be configured via `$I->retry()` command, where you can set number of retries and initial interval:
+interval will be doubled on each unsuccessful execution.
 
 {% highlight php %}
 
 <?php
-// Retry up to 4 sec: 10 times, for 400ms interval 
-$I->retry(10, 400);
+// Retry up to 6 sec: 4 times, for 400ms initial interval => 400ms + 800ms + 1600ms + 3200ms = 6000ms
+$I->retry(4, 400);
 
 {% endhighlight %}
 
 `$I->retry` takes 2 parameters:
 * number of retries (1 by default)
-* interval (200ms by default)
+* initial interval (200ms by default)
 
 Retries are disabled by default. To enable them you should add retry step decorators to suite config:
 
