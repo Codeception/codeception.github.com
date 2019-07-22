@@ -6,7 +6,7 @@ sidebar: |
 
   ## Features
 
-  * Access Symfony services through the dependecy injection container: `$I->grabService(...)`
+  * Access Symfony services through the dependency injection container: `$I->grabService(...)`
   * Use Doctrine to test against the database: `$I->seeInRepository(...)`
   * Assert that emails would have been sent: `$I->seeEmailIsSent()`
   * Tests are wrapped into Doctrine transaction to speed them up.
@@ -76,9 +76,9 @@ If you prefer to describe application with feature files, Codeception can turn t
 ln -s $PWD/features tests/acceptance
 ```
 
-Codeception allows to combine tests written in different formats. If are about to wirite a regression test it probably should not be described as a product's feature. That's why feature-files is subset of all acceptance tests, and they are stored in subfolder of `tests/acceptance`. 
+Codeception allows to combine tests written in different formats. If you are about to write a regression test it probably should not be described as a product's feature. That's why feature-files are a subset of all acceptance tests, and they are stored in subfolder of `tests/acceptance`. 
 
-There is no standard Gherkin steps built in. By writing your feature files you can get code snippets which should be added to `AcceptanceTester` class. 
+There are no standard Gherkin steps built in. By writing your feature files you can get code snippets which should be added to `AcceptanceTester` class. 
 
 ```
 vendor/bin/codecept gherkin:snippets
