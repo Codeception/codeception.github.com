@@ -27,10 +27,6 @@
   description: The reporter with a progress bar
   image: /images/extensions/codeception-progress-reporter.png  
 
-- name: MultiDb
-  link: http://github.com/redmatter/Codeception-MultiDb
-  description: Extension that enables working with multiple dabatase backends and safe switching between them. It provides equivalant service as the Db module and more. Use v1.x for codeception v2.0 and v2.x for codeception v2.1.
-
 - name: DrushDb
   link: http://github.com/pfaocle/DrushDb
   image: https://www.drupal.org/files/druplicon-small.png  
