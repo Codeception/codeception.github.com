@@ -133,3 +133,7 @@
 - name: Drupal
   link: https://github.com/guncha25/drupal-codeception
   description: Sets of codeception modules and utilities to test drupal cms.
+  
+- name: PSR3 Logger
+  link: https://github.com/byteout/psr-logger-codeception-module
+  description: Module for testing PSR3 compatible loggers. It provides actions to validate logged messages.
