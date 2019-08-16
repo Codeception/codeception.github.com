@@ -34,10 +34,15 @@
     <link rel="author" href="https://plus.google.com/+Codeception">
 </head>
 
-<body>{% capture guides %}{% include guides.html %}{% endcapture %}
+<body>
+    {% capture guides %}{% include guides.html %}{% endcapture %}
     {% capture modules %}{% include modules.html %}{% endcapture %}
     {% capture reference %}{% include reference.html %}{% endcapture %}
     <nav class="navbar nav-custom navbar-inverse navbar-fixed-top">
+
+
+        {% include announcement.html %}
+
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -154,9 +159,7 @@
         </div> <!-- /.container -->
     </nav>
 
-          <div style="background-color: #fff573; text-align: center, padding: 10px">
-      Training: Web Test Automation with Codeception - 04.09.2019-05.09.2019 <a href="https://sdclabs.com/trainings/schedule">Buy now!</a>
-      </div>
+
 
     {% if page.hero %}
     <div>{% include {{ page.hero }} %}</div>
