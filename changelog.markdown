@@ -7,6 +7,19 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 3.0.3
+- **[Laravel5]** Add `make` and `makeMultiple` methods for generating model instance by **[ibpavlov](https://github.com/ibpavlov)**
+- **[Lumen]** Add `make` and `makeMultiple` methods for generating model instance by **[ibpavlov](https://github.com/ibpavlov)**
+- **[Phalcon]** ActiveRecord: escape all column names using [] by **[maxgalbu](https://github.com/maxgalbu)**
+- **[Yii2]** Fixed issue on PHP7.3 because `preg_quote` now also quotes `#` by **[SamMousa](https://github.com/SamMousa)**
+- **[ZF2]** Persistent service functionality for ZF3 by **[svycka](https://github.com/svycka)**
+- **[ZF2]** Doctrine entity manager name is configurable by **[svycka](https://github.com/svycka)**
+- **[Db]** Fix sqlite connection close when holding reference in PHP's GC ([#5557](https://github.com/Codeception/Codeception/issues/5557)) by **[hoogi91](https://github.com/hoogi91)**
+- **[Doctrine2]** Fixed handling of embedables, inherited entities and parameter name clashes by **[alexkunin](https://github.com/alexkunin)**
+- [Frameworks][PhpBrowser] Fixed compatibility with symfony/browserkit 4.3 by **[kapcus](https://github.com/kapcus)**
+- **[Docs]** Small documentation updates by **[Nebulosar](https://github.com/Nebulosar)**, **[reinholdfuereder](https://github.com/reinholdfuereder)** and **[richardbrinkman](https://github.com/richardbrinkman)**
+- **[Docker]** Switched to buster php build by **[OneEyedSpaceFish](https://github.com/OneEyedSpaceFish)**
+
 #### 3.0.2
 * **[weshooper](https://github.com/weshooper)** reduced size of exported package.
 * --no-redirect option disables the redirect to a Composer-installed version, by **[DanielRuf](https://github.com/DanielRuf)**
@@ -43,11 +56,11 @@ title: Codeception Changelog
 > Upgrade Notice: If you face issues with conflicting PHPUnit classes or difference in method signatures, lock version for PHPUnit in composer.json: “phpunit/phpunit”:”^7.0.0”
 * **BREAKING** Multi-session testing disabled by default. Add `use \Codeception\Lib\Actor\Shared\Friend;` to enable `$I->haveFriend`.     
 * **BREAKING** **[WebDriver]** `pauseExecution` removed in favor of `$I->pause()`
-* [Interactive pause](https://codeception.com/docs/02-GettingStarted#Interactive-Pause) inside tests with `$I->pause();` command in debug mode added. Allows to write and debug test in realtime.
-* Introduced [Step Decorators](https://codeception.com/docs/08-Customization#Step-Decorators) - auto-generated actions around module and helper methods. As part of this feature implemented
+* [Interactive pause](https://codeception.com/docs/02-GettingStarted#Interactive-Pause) inside tests with `$I->pause()` command in debug mode added. Allows to write and debug test in realtime.
+* Introduced [Step Decorators](https://codeception.com/docs/08-Customization#Step-Decorators) - auto-generated actions around module and helper methods. As part of this feature implemented:
   * [Conditional Assertions](https://codeception.com/docs/03-AcceptanceTests#Conditional-Assertions) (`$I->canSee()`)
-  * [Retries](https://codeception.com/docs/03-AcceptanceTests#Retry) (`$I->retryClick()`); 
-  * [Silent Actions](https://codeception.com/docs/03-AcceptanceTests#A-B-Testing)(`$I->tryToClick`).
+  * [Retries](https://codeception.com/docs/03-AcceptanceTests#Retry) (`$I->retryClick()`)
+  * [Silent Actions](https://codeception.com/docs/03-AcceptanceTests#AB-Testing) (`$I->tryToClick()`)
 * Print artifacts on test failure
 * **[REST]** Short API responses in debug mode with `shortDebugResponse` config option. See [#5455](https://github.com/Codeception/Codeception/issues/5455) by **[sebastianneubert](https://github.com/sebastianneubert)** 
 * **[WebDriver]** `switchToIFrame` allow to locate iframe by CSS/XPath.

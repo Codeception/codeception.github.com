@@ -114,10 +114,6 @@
   link: https://github.com/mendicm/css-regression
   description: CSS / Visual regression tests integrated in Codeception. This module can be used to compare the current representation of a website element with an expected based on a reference image. This module does not require any JavaScript injections in your website and works with viewport screenshots (chromedriver). Compatible with WebDriver and AngularJS modules.  
 
-- name: MultiDb
-  link: https://github.com/iamdevice/codeception-multidb
-  description: Extension or work with multiple databases and switch between them. Based on original Db module. Make for codeception v.2.2
-   
 - name: Mountebank
   link: https://github.com/meare/codeception-mountebank
   description: Stub and mck external services with mountebank
@@ -137,6 +133,10 @@
 - name: Drupal
   link: https://github.com/guncha25/drupal-codeception
   description: Sets of codeception modules and utilities to test drupal cms.
+  
+- name: PSR3 Logger
+  link: https://github.com/byteout/psr-logger-codeception-module
+  description: Module for validation of messages logged by PSR3 loggers.
 
 - name: Private Sniffer
   link: https://github.com/fkupper/private-sniffer-module/

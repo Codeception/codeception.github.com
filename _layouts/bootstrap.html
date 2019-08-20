@@ -34,10 +34,15 @@
     <link rel="author" href="https://plus.google.com/+Codeception">
 </head>
 
-<body>{% capture guides %}{% include guides.html %}{% endcapture %}
+<body>
+    {% capture guides %}{% include guides.html %}{% endcapture %}
     {% capture modules %}{% include modules.html %}{% endcapture %}
     {% capture reference %}{% include reference.html %}{% endcapture %}
     <nav class="navbar nav-custom navbar-inverse navbar-fixed-top">
+
+
+        {% include announcement.html %}
+
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -154,6 +159,8 @@
         </div> <!-- /.container -->
     </nav>
 
+
+
     {% if page.hero %}
     <div>{% include {{ page.hero }} %}</div>
     {% endif %}
@@ -243,7 +250,7 @@
                     <li><a href="/changelog">Releases</a></li>
                     <li><a href="http://sdclabs.com/codeception?utm_source=codeception.com&utm_medium=bottom_menu&utm_term=link&utm_campaign=reference" >Enterprise Support</a></li>
                     <li><a href="http://sdclabs.com/trainings?utm_source=codeception.com&utm_medium=bottom_menu&utm_term=link&utm_campaign=reference" >Trainings</a></li>                  
-                    <li><a href="https://github.com/Codeception/Codeception/blob/master/LICENSE">License</a></li>
+                    <li><a href="https://github.com/Codeception/Codeception/blob/3.0/LICENSE</a></li>
                 </ul>
 
 

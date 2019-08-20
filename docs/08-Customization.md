@@ -148,7 +148,7 @@ class MyCustomExtension extends \Codeception\Extension
 
     public static $events = array(
         Events::SUITE_AFTER  => 'afterSuite',
-        Events::SUITE_BEFORE => 'beforeTest',
+        Events::TEST_BEFORE => 'beforeTest',
         Events::STEP_BEFORE => 'beforeStep',
         Events::TEST_FAIL => 'testFailed',
         Events::RESULT_PRINT_AFTER => 'print',
@@ -358,11 +358,11 @@ List of available step decorators:
 Step decorators can be added to suite config inside `steps` block:
 
 {% highlight yaml %}
-yml
-step_decorators:
-    - Codeception/Step/TryTo
-    - Codeception/Step/Retry
-    - Codeception/Step/ConditionalAssertion
+steps:
+    step_decorators:
+        - Codeception/Step/TryTo
+        - Codeception/Step/Retry
+        - Codeception/Step/ConditionalAssertion
 
 {% endhighlight %}
 
