@@ -311,6 +311,24 @@ Checks that two variables are equal.
 
 [See source](https://github.com/Codeception/Codeception/blob/3.0/src/Codeception/Util/Shared/Asserts.php#L35)
 
+#### assertEqualsCanonicalizing()
+
+ *protected* assertEqualsCanonicalizing($expected, $actual, $message = null) 
+
+[See source](https://github.com/Codeception/Codeception/blob/3.0/src/Codeception/Util/Shared/Asserts.php#L567)
+
+#### assertEqualsIgnoringCase()
+
+ *protected* assertEqualsIgnoringCase($expected, $actual, $message = null) 
+
+[See source](https://github.com/Codeception/Codeception/blob/3.0/src/Codeception/Util/Shared/Asserts.php#L577)
+
+#### assertEqualsWithDelta()
+
+ *protected* assertEqualsWithDelta($expected, $actual, $delta, $message = null) 
+
+[See source](https://github.com/Codeception/Codeception/blob/3.0/src/Codeception/Util/Shared/Asserts.php#L587)
+
 #### assertFalse()
 
  *protected* assertFalse($condition, $message = null) 
@@ -602,6 +620,24 @@ Checks that two variables are not equal
  * `param float`  $delta
 
 [See source](https://github.com/Codeception/Codeception/blob/3.0/src/Codeception/Util/Shared/Asserts.php#L48)
+
+#### assertNotEqualsCanonicalizing()
+
+ *protected* assertNotEqualsCanonicalizing($expected, $actual, $message = null) 
+
+[See source](https://github.com/Codeception/Codeception/blob/3.0/src/Codeception/Util/Shared/Asserts.php#L572)
+
+#### assertNotEqualsIgnoringCase()
+
+ *protected* assertNotEqualsIgnoringCase($expected, $actual, $message = null) 
+
+[See source](https://github.com/Codeception/Codeception/blob/3.0/src/Codeception/Util/Shared/Asserts.php#L582)
+
+#### assertNotEqualsWithDelta()
+
+ *protected* assertNotEqualsWithDelta($expected, $actual, $delta, $message = null) 
+
+[See source](https://github.com/Codeception/Codeception/blob/3.0/src/Codeception/Util/Shared/Asserts.php#L592)
 
 #### assertNotFalse()
 

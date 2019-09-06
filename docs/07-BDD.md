@@ -231,7 +231,9 @@ Please note that regular expressions should start and end with `/` char. Regex i
 {% highlight php %}
 
 <?php
-/** @Given /I am (?:logged|authorized) as "(\w+)"/  */
+/**
+* @Given /I am (?:logged|authorized) as "(\w+)"/
+*/
 function amAuthorized($role)
 {
   // logged or authorized does not matter to us
@@ -400,7 +402,7 @@ Let's improve our BDD suite by using the advanced features of Gherkin language.
 
 ### Background
 
-If a group of scenarios have the same initial steps we can define a *Background* section to be used prior to those steps being run. This allows us to avoid repeating our steps across multiple scenarios. Let's say that for the dashboard feature we always need to be logged in as administrator.
+If a group of scenarios have the same initial steps, let's that for dashboard we need always need to be logged in as administrator. We can use *Background* section to do the required preparations and not to repeat same steps across scenarios.
 
 {% highlight gherkin %}
 

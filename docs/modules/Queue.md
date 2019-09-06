@@ -5,7 +5,7 @@ title: Queue - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/3.0/src/Codeception/Module/Queue.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Queue.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/3.0/docs/modules/Queue.md"><strong>3.0</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.5/docs/modules/Queue.md">2.5</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Queue.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/3.1/src/Codeception/Module/Queue.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Queue.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/3.0/docs/modules/Queue.md">3.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.5/docs/modules/Queue.md">2.5</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Queue.md">1.8</a></div>
 
 # Queue
 

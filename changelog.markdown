@@ -7,6 +7,28 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 3.1.0
+
+* Unified bootstrap file loading
+* Deprecated configuring bootstrap for all suites implicitly
+* Added `--bootstrap` option to `run`
+* **[Asserts]** Added specialized assertEquals methods
+* **[Doctrine2]** Added support for Expression and Criteria objects in queries by **[alexkunin](https://github.com/alexkunin)**
+* **[Doctrine2]** Added fixture support by **[alexkunin](https://github.com/alexkunin)**
+* **[Doctrine2]** added refreshEntities and clearEntityManager methods by **[alexkunin](https://github.com/alexkunin)**
+* **[Doctrine2]** implement recursive entity creation  by **[alexkunin](https://github.com/alexkunin)**
+* **[Doctrine2]** properly handle non-typical primary keys in haveInRepository by **[alexkunin](https://github.com/alexkunin)**
+* **[Doctrine2]** merge functionality of persistEntity into haveInRepository by **[alexkunin](https://github.com/alexkunin)**
+* **[Doctrine2]** deprecated persistEntity method by **[alexkunin](https://github.com/alexkunin)**
+* **[Doctrine2]** Make haveInRepository support constructor parameters by **[burned42](https://github.com/burned42)**
+* **[Symfony]** Fixed symfony 4.3 deprecation message removal by **[juntereiner](https://github.com/juntereiner)**
+* **[Yii2]** Allow to preserve session with recreateApplication enabled by **[Slamdunk](https://github.com/Slamdunk)**
+* **[Docs]** Documentation updates by **[Nebulosar](https://github.com/Nebulosar)** and **[mikehaertl](https://github.com/mikehaertl)**
+* **[Docker]** Changed base image to 7.3-cli by **[OneEyedSpaceFish](https://github.com/OneEyedSpaceFish)**
+* Robo build:phar command can be used for building custom phar files again
+* Improved file path detection for groups [#5609](https://github.com/Codeception/Codeception/issues/5609) by **[adaniloff](https://github.com/adaniloff)**
+* Shortened error output of unexpected exit to one line by **[Slamdunk](https://github.com/Slamdunk)**
+* Fixed composer.json of codeception/base package
 #### 3.0.3
 - **[Laravel5]** Add `make` and `makeMultiple` methods for generating model instance by **[ibpavlov](https://github.com/ibpavlov)**
 - **[Lumen]** Add `make` and `makeMultiple` methods for generating model instance by **[ibpavlov](https://github.com/ibpavlov)**
