@@ -137,3 +137,7 @@
 - name: PSR3 Logger
   link: https://github.com/byteout/psr-logger-codeception-module
   description: Module for validation of messages logged by PSR3 loggers.
+
+- name: Private Sniffer
+  link: https://github.com/fkupper/private-sniffer-module/
+  description: Simple module that enables sniffing into private defined elements of an object while running unit tests with Codeception.
