@@ -147,7 +147,7 @@ Symfony module actions like `amOnPage` or `see` should not be available for test
 
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-  Continue to <a href="http://codeception.com/docs/10-WebServices#REST">REST API Testing Guide &raquo;</a>.
+  Continue to <a href="http://codeception.com/docs/10-APITesting#REST-API">REST API Testing Guide &raquo;</a>.
 </div>
 
 

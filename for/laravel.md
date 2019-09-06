@@ -33,7 +33,7 @@ composer require codeception/codeception --dev
 It is easy to setup tests by running bootstrap command:
 
 ```
-composer exec codecept bootstrap
+php vendor/bin/codecept bootstrap
 ```
 
 This will create `tests` directory and configuration file `codeception.yml`. This also prepares 3 suites for testing: acceptance, functional, and unit. You will also need to prepare .env file for testing environment:
@@ -68,7 +68,7 @@ Codeception will also use **Eloquent to cleanup changes to database** by wrappin
 To create first functional test for `Login` you should run:
 
 ```
-composer exec codecept g:cest functional Login
+php vendor/bin/codecept g:cest functional Login
 ```
 
 ## Unit Tests
@@ -76,7 +76,7 @@ composer exec codecept g:cest functional Login
 Codeception is powered by PHPUnit so unit and integration test work in a similar manner. To genereate a unit test run:
 
 ```
-composer exec codecept g:test unit "Foo\Bar"
+php vendor/bin/codecept g:test unit "Foo\Bar"
 ```
 This generates `Codeception\Test\Unit` testcase which is inherited from PHPUnit but provides a module access.
 Enable Laravel5 module in `unit.suite.yml` to have its methods inside a testcase. They are available injected into `$this->tester` property of a testcase.
@@ -127,7 +127,7 @@ Laravel5 module won't be able to wrap test execution in a transaction but method
 API Tests are done at functional testing level but instead of testing HTML responses on user actions, they test requests and responses via protocols like REST or SOAP. To create api tests you should create a suite for them
 
 ```
-composer exec codecept g:suite api
+php vendor/bin/codecept g:suite api
 ```
 
 You will need to enable `REST`, `Laravel5` module in `tests/api.suite.yml`:
@@ -151,7 +151,7 @@ Laravel5 module actions like `amOnPage` or `see` should not be available for tes
 
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-  Continue to <a href="http://codeception.com/docs/10-WebServices#REST">REST API Testing Guide &raquo;</a>.
+  Continue to <a href="http://codeception.com/docs/10-APITesting#REST-API">REST API Testing Guide &raquo;</a>.
 </div>
 
 ### BDD
@@ -167,7 +167,7 @@ Codeception allows to combine tests written in different formats. If are about t
 There is no standard Gherkin steps built in. By writing your feature files you can get code snippets which should be added to `AcceptanceTester` class. 
 
 ```
-composer exec codecept gherkin:snippets
+php vendor/bin/codecept gherkin:snippets
 ```
 
 In the same manner features can be set up as functional tests.
