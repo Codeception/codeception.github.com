@@ -508,7 +508,7 @@ public function testSingleton()
 	$this->assertInstanceOf('DOMDocument', $class);
 }
 
-{% endhighlight %} 
+{% endhighlight %}
 
 * [AspectMock on GitHub](https://github.com/Codeception/AspectMock)
 * [AspectMock in Action](http://codeception.com/07-31-2013/nothing-is-untestable-aspect-mock.html)

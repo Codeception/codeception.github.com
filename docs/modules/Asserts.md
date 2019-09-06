@@ -5,7 +5,7 @@ title: Asserts - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/3.0/src/Codeception/Module/Asserts.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Asserts.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/3.0/docs/modules/Asserts.md"><strong>3.0</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.5/docs/modules/Asserts.md">2.5</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Asserts.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/3.1/src/Codeception/Module/Asserts.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Asserts.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/3.0/docs/modules/Asserts.md">3.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.5/docs/modules/Asserts.md">2.5</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Asserts.md">1.8</a></div>
 
 # Asserts
 
@@ -60,6 +60,18 @@ Checks that two variables are equal.
  * `param`        $actual
  * `param string` $message
  * `param float`  $delta
+
+
+#### assertEqualsCanonicalizing
+__not documented__
+
+
+#### assertEqualsIgnoringCase
+__not documented__
+
+
+#### assertEqualsWithDelta
+__not documented__
 
 
 #### assertFalse
@@ -261,6 +273,18 @@ Checks that two variables are not equal
  * `param`        $actual
  * `param string` $message
  * `param float`  $delta
+
+
+#### assertNotEqualsCanonicalizing
+__not documented__
+
+
+#### assertNotEqualsIgnoringCase
+__not documented__
+
+
+#### assertNotEqualsWithDelta
+__not documented__
 
 
 #### assertNotFalse

@@ -191,7 +191,7 @@ coverage:
     work_dir: /workdir
 
 
-{% endhighlight %} 
+{% endhighlight %}
 
 ### Remote Context Options
 
@@ -220,4 +220,4 @@ It's never been easier to setup local and remote code coverage. Just one config 
 
 
 * **Next Chapter: [ContinuousIntegration >](/docs/12-ContinuousIntegration)**
-* **Previous Chapter: [< WebServices](/docs/10-WebServices)**
+* **Previous Chapter: [< APITesting](/docs/10-APITesting)**

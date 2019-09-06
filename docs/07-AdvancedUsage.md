@@ -18,7 +18,7 @@ You can create a Cest file by running the command:
 
 {% highlight bash %}
 
-$ php vendor/bin/codecept generate:cest suitename CestName
+php vendor/bin/codecept generate:cest suitename CestName
 
 {% endhighlight %}
 
@@ -205,13 +205,7 @@ Of course, you are not allowed to have *cyclic dependencies*.
 
 What if you want to execute the same test scenario with different data? In this case you can inject examples
 as `\Codeception\Example` instances.
-Data is defined via the `@example` annotation, using JSON or Doctrine-style notation (limited to a single line).
-
-<div class="alert alert-info">
-Please keep in mind that all string keys and values must be enclosed in double quotes (`"`).
-</div>
-
-Doctrine-style:
+Data is defined via the `@example` annotation, using JSON or Doctrine-style notation (limited to a single line). Doctrine-style:
 
 {% highlight php %}
 
@@ -255,6 +249,11 @@ class PageCest
 }
 
 {% endhighlight %}
+
+<div class="alert alert-info">
+If you use JSON notation please keep in mind that all string keys
+and values should be enclosed in double quotes (`"`) according to JSON standard.
+</div>
 
 Key-value data in Doctrine-style annotation syntax:
 

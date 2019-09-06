@@ -5,7 +5,7 @@ title: Doctrine2 - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/3.0/src/Codeception/Module/Doctrine2.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Doctrine2.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/3.0/docs/modules/Doctrine2.md"><strong>3.0</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.5/docs/modules/Doctrine2.md">2.5</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Doctrine2.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/3.1/src/Codeception/Module/Doctrine2.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Doctrine2.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/3.0/docs/modules/Doctrine2.md">3.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.5/docs/modules/Doctrine2.md">2.5</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Doctrine2.md">1.8</a></div>
 
 # Doctrine2
 
@@ -54,7 +54,59 @@ tests will run much faster and will be isolated from each other.
 
 * `em` - Entity Manager
 
+### Note on parameters
+
+Every method that expects some parameters to be checked against values in the database (`see...()`,
+`dontSee...()`, `grab...()`) can accept instance of \Doctrine\Common\Collections\Criteria for more
+flexibility, e.g.:
+
+{% highlight php %}
+
+$I->seeInRepository('User', [
+    'name' => 'John',
+    Criteria::create()->where(
+        Criteria::expr()->endsWith('email', '@domain.com')
+    ),
+]);
+
+{% endhighlight %}
+
+If criteria is just a `->where(...)` construct, you can pass just expression without criteria wrapper:
+
+{% highlight php %}
+
+$I->seeInRepository('User', [
+    'name' => 'John',
+    Criteria::expr()->endsWith('email', '@domain.com'),
+]);
+
+{% endhighlight %}
+
+Criteria can be used not only to filter data, but also to change order of results:
+
+{% highlight php %}
+
+$I->grabEntitiesFromRepository('User', [
+    'status' => 'active',
+    Criteria::create()->orderBy(['name' => 'asc']),
+]);
+
+{% endhighlight %}
+
+Note that key is ignored, because actual field name is part of criteria and/or expression.
+
 ### Actions
+
+#### clearEntityManager
+ 
+Performs $em->clear():
+
+{% highlight php %}
+
+$I->clearEntityManager();
+
+{% endhighlight %}
+
 
 #### dontSeeInRepository
  
@@ -166,7 +218,10 @@ which will always return the NULL value.
 Persists record into repository.
 This method creates an entity, and sets its properties directly (via reflection).
 Setters of entity won't be executed, but you can create almost any entity and save it to database.
-Returns id using `getId` of newly created entity.
+If the entity has a constructor, for optional parameters the default value will be used and for non-optional parameters the given fields (with a matching name) will be passed when calling the constructor before the properties get set directly (via reflection).
+
+Returns primary key of newly created entity. Primary key value is extracted using Reflection API.
+If primary key is composite, array of values is returned.
 
 {% highlight php %}
 
@@ -174,28 +229,120 @@ $I->haveInRepository('Entity\User', array('name' => 'davert'));
 
 {% endhighlight %}
 
+This method also accepts instances as first argument, which is useful when entity constructor
+has some arguments:
 
-#### onReconfigure
+{% highlight php %}
+
+$I->haveInRepository(new User($arg), array('name' => 'davert'));
+
+{% endhighlight %}
+
+Alternatively, constructor arguments can be passed by name. Given User constructor signature is `__constructor($arg)`, the example above could be rewritten like this:
+
+{% highlight php %}
+
+$I->haveInRepository('Entity\User', array('arg' => $arg, 'name' => 'davert'));
+
+{% endhighlight %}
+
+If entity has relations, they can be populated too. In case of OneToMany the following format
+ie expected:
+
+{% highlight php %}
+
+$I->haveInRepository('Entity\User', array(
+    'name' => 'davert',
+    'posts' => array(
+        array(
+            'title' => 'Post 1',
+        ),
+        array(
+            'title' => 'Post 2',
+        ),
+    ),
+));
+
+{% endhighlight %}
+
+For ManyToOne format is slightly different:
+
+{% highlight php %}
+
+$I->haveInRepository('Entity\User', array(
+    'name' => 'davert',
+    'post' => array(
+        'title' => 'Post 1',
+    ),
+));
+
+{% endhighlight %}
+
+This works recursively, so you can create deep structures in a single call.
+
+Note that both `$em->persist(...)`, $em->refresh(...), and `$em->flush()` are called every time.
+
+ * `param string|object` $classNameOrInstance
+ * `param array` $data
+
+
+#### loadFixtures
  
-@throws ModuleConfigException
-
-
-#### persistEntity
- 
-Adds entity to repository and flushes. You can redefine it's properties with the second parameter.
-
-Example:
+Loads fixtures. Fixture can be specified as a fully qualified class name,
+an instance, or an array of class names/instances.
 
 {% highlight php %}
 
 <?php
-$I->persistEntity(new \Entity\User, array('name' => 'Miles'));
-$I->persistEntity($user, array('name' => 'Miles'));
+$I->loadFixtures(AppFixtures::class);
+$I->loadFixtures([AppFixtures1::class, AppFixtures2::class]);
+$I->loadFixtures(new AppFixtures);
 
 {% endhighlight %}
 
- * `param` $obj
- * `param array` $values
+By default fixtures are loaded in 'append' mode. To replace all
+data in database, use `false` as second parameter:
+
+{% highlight php %}
+
+<?php
+$I->loadFixtures(AppFixtures::class, false);
+
+{% endhighlight %}
+
+Note: this method requires `doctrine/data-fixtures` package to be installed.
+
+ * `param string|string[]|object[]` $fixtures
+ * `param bool` $append
+@throws ModuleException
+@throws ModuleRequireException
+
+
+#### onReconfigure
+ 
+HOOK to be executed when config changes with `_reconfigure`.
+
+
+#### persistEntity
+ 
+This method is deprecated in favor of `haveInRepository()`. It's functionality is exactly the same.
+
+
+#### refreshEntities
+ 
+Performs $em->refresh() on every passed entity:
+
+{% highlight php %}
+
+$I->refreshEntities($user);
+$I->refreshEntities([$post1, $post2, $post3]]);
+
+{% endhighlight %}
+
+This can useful in acceptance tests where entity can become invalid due to
+external (relative to entity manager used in tests) changes.
+
+ * `param object|object[]` $entities
 
 
 #### seeInRepository
