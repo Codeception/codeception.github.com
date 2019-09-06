@@ -2,48 +2,33 @@
 layout: bootstrap
 ---
 
-
-<div class="row">
+<div class="row pt">
   <div class="col-sm-3 col-lg-3">
+
+    <div>
 
 
     <input type="text" class="algolia__input js-algolia__input" autocomplete="off" name="query" placeholder="Search in docs..." />
 
+    <hr>
 
-   <div id="searchable">
+    <h3>Guides</h3>    
 
-    <!-- <input type="search" class="search" placeholder="live search..."> -->
-    <br>
-     <!-- toc.js generated nav... -->
-     <div id="toc" class="nav"></div>
-   </div> <!-- /#searchable -->
+  <ol class="guides">    
+      {% include guides.html %}
 
-   <script type="text/javascript">
-    $(document).ready(function () {
-      $('#page table').addClass('table table-striped table-bordered');
-      $('#toc').toc({
-        'selectors': 'h2,h3,h4',
-        'prefix': 'toc',
-        'container': '#page',
-        //custom function for anchor name
-        'anchorName': function(i, heading, prefix) {
-          return $(heading).text().replace(/\s/g, '-').replace(/[^\w-]/g, '');
-        },
-      });
-      // List.js
-      $('#toc > ul').addClass('list');
-      $('#toc ul.list li a').addClass('searchitem');
-      var options = {
-        valueNames: [ 'searchitem' ]
-      };
-      var userList = new List('searchable', options);
-      // end List.js
+  </ol>
 
-    }); // docrdy
-  </script>
+  <hr>
+
+      <p>&nbsp;<a href="http://sdclabs.com/codeception?utm_source=codeception.com&utm_medium=docs_left&utm_term=link&utm_campaign=reference">&raquo; Enterprise support</a></p>
+      <p>&nbsp;<a href="http://sdclabs.com/trainings?utm_source=codeception.com&utm_medium=docs_left&utm_term=link&utm_campaign=reference">&raquo; Trainings </a>
+      </p>
+  </div>
+
 
 </div>
-  <div class="col-sm-9 col-lg-9">
+  <div class="col-sm-12 col-lg-6">
 
 
     <div class="content page">
@@ -66,20 +51,54 @@ layout: bootstrap
           </div>
         </div>
         <div class="alert alert-success">
-Let us help you take Codeception further. We offer a number of paid services that can help you and your organization get the most out of Codeception Enterprise. Software testing & test automation development and outsourcing.
+
+Don't know how to write tests on your own? We will build or improve them for you. 
 <strong>
-  Request a quote for 
+  Request a quote for official 
          <a href="http://sdclabs.com/codeception?utm_source=codeception.com&utm_medium=docs_bottom&utm_term=link&utm_campaign=reference">enterprise support</a> or <a href="http://sdclabs.com/trainings?utm_source=codeception.com&utm_medium=docs_bottom&utm_term=link&utm_campaign=reference">trainings</a></strong>
 
 </div>
 
 
       </div>
+    </div>
+  </div>
+
+    <div class="col-sm-12 col-lg-3">
+
+    <!-- <input type="search" class="search" placeholder="live search..."> -->
+     <!-- toc.js generated nav... -->
+     <div id="toc" class="nav"></div>
+
+   <script type="text/javascript">
+    $(document).ready(function () {
+      $(".cp:contains('<?php')").css({ visibility : 'hidden' });
+      $(".cp:contains('?>')").css({ visibility : 'hidden' });
+      $('#page table').addClass('table table-striped table-bordered');
+      $('#toc').toc({
+        'selectors': 'h2,h3,h4',
+        'prefix': 'toc',
+        'container': '#page',
+        //custom function for anchor name
+        'anchorName': function(i, heading, prefix) {
+          return $(heading).text().replace(/\s/g, '-').replace(/[^\w-]/g, '');
+        },
+      });
+      // List.js
+      $('#toc > ul').addClass('list');
+      $('#toc ul.list li a').addClass('searchitem');
+      var options = {
+        valueNames: [ 'searchitem' ]
+      };
+      var userList = new List('searchable', options);
+      // end List.js
+
+    }); // docrdy
+  </script>
+
+
 
     </div>
-
-
-
   </div>
-</div>
+
 

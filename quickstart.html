@@ -4,13 +4,18 @@ title: Quick Start Codeception
 ---
 
 </div></div>
-<div class="hero" style="background-image: url(/images/backgrounds/quickstart.jpg); height: 50vh; min-height: 400px; ">
+<div class="hero" style="height: 50vh;
+  min-height: 700px;
+  margin-bottom: -400px; ">
 
   <div class="wide">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-12 col-sm-12 text-center">       
-        <h1>Codeception<br> Quickstart Guide</h1>
+      <div class="col-lg-12 col-sm-12 text-center">
+      <h1>
+        
+        Quickstart
+      </h1>       
         
       </div>
 
@@ -28,31 +33,26 @@ title: Quick Start Codeception
 <div class="wide">
 <div class="container-fluid">
 <div class="row">
-  <div class="col-xs-12 col-lg-8">
+  <div class="col-xs-12 col-lg-6 col-lg-offset-3">
 
-    <div class="panel panel-info">
+    <div class="panel panel-info" style="zoom: 1.2;
+  box-shadow: 5px 5px 5px #0000004f;">
       <div class="panel-heading">
 
 <a href="/install" style="float: right">Alternative Installations &raquo;</a>
       <h4 class="panel-title">1. Install</h4></div>
-      <div class="panel-body">
+      <div class="panel-body text-center">
           <div class="">
-            <p class="lead">Install via Composer</p>
+
+              
+            Install via Composer
             <div class="highlight">
               
             <pre>composer require "codeception/codeception" --dev</pre>
             </div>
                       <p>
-      Execute it as
-
-          <code>./vendor/bin/codecept</code></p>
           </div>
-<hr>
 
-{% include phar.html %}
-
-<a class="" role="button" data-toggle="collapse" href="#phar-global" aria-expanded="false" aria-controls="collapseExample">
-  
 </a>
 
             
@@ -62,12 +62,6 @@ title: Quick Start Codeception
       </div> <!-- /.panel -->
       </div> <!-- /.col -->
 
-<div class="col-sm-12 col-lg-4">
-<h3>Quick Start For</h3>
-{% include for.html %}
-
-</div>
-</div>
 </div>
 <div class="row">
 
@@ -82,12 +76,11 @@ title: Quick Start Codeception
           <p>Execute:</p>
           <div class="highlight">
             <p>
-              <pre>codecept bootstrap</pre>
+              <pre>php venor/bin/codecept bootstrap</pre>
             </p>
           </div>
           <p class="text-muted">This creates configuration file
             <b>codeception.yml</b> and <b>tests</b> directory and default test suites.
-            Acceptance, functional, unit test suites are created as well.
             </p>
 
 <a class="btn btn-primary" role="button" data-toggle="collapse" href="#bootstrap-demo" aria-expanded="false" aria-controls="collapseExample">
@@ -107,10 +100,9 @@ title: Quick Start Codeception
               of a real user visiting your site.</p>
               <div class="highlight">
                 <p>
-                  <pre>codecept generate:cest acceptance First</pre>
+                  <pre>php venor/bin/codecept generate:cest acceptance First</pre>
                 </p>
               </div>
-              <p class="text-muted">Codeception scenario tests are called Cepts.</p>
                 </div> <!-- /.panel-body -->
               </div> <!-- /.panel -->
 
@@ -166,7 +158,7 @@ class FirstCest
     <p>Tests are executed with 'run' command</p>
     <div class="highlight">
       <p>
-        <pre>codecept run --steps</pre>
+        <pre>php venor/bin/codecept run --steps</pre>
       </p>
     </div>
     <p class="text-muted">This will execute our Welcome test with
@@ -191,7 +183,7 @@ Run them instead of <code>bootstrap</code> command.
 <h4>Acceptance Testing (only)</h4>
 
 <div class="highlight">
-  <pre>codecept init acceptance</pre>
+  <pre>php venor/bin/codecept init acceptance</pre>
 </div>
 
 <a class="btn btn-primary" role="button" data-toggle="collapse" href="#acceptance-demo" aria-expanded="false" aria-controls="collapseExample">
@@ -205,7 +197,7 @@ Run them instead of <code>bootstrap</code> command.
 <h4>REST API Testing (only)</h4>
 
 <div class="highlight">
-  <pre>codecept init api</pre>
+  <pre>php venor/bin/codecept init api</pre>
 </div>
 
 
@@ -213,7 +205,7 @@ Run them instead of <code>bootstrap</code> command.
   See Demo
 </a>
 
- <a href="/docs/10-WebServices#REST" class="btn btn-secondary">REST API Testing Guide &raquo;</a>
+ <a href="/docs/10-APITesting" class="btn btn-secondary">REST API Testing Guide &raquo;</a>
 
 <p class="collapse" id="api-demo"><img src="/images/codecept_api.gif" alt=""></p>
 
@@ -222,7 +214,7 @@ Run them instead of <code>bootstrap</code> command.
 <h4>Unit Testing (only)</h4>
 
 <div class="highlight">
-  <pre>codecept init unit</pre>
+  <pre>php venor/bin/codecept init unit</pre>
 </div>
 
 <a class="btn btn-primary" role="button" data-toggle="collapse" href="#unit-demo" aria-expanded="false" aria-controls="collapseExample">
