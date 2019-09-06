@@ -840,11 +840,7 @@ $I->login('miles', '123456');
 However, implementing all actions for reuse in a single actor class may lead to
 breaking the [Single Responsibility Principle](http://en.wikipedia.org/wiki/Single_responsibility_principle).
 
-<<<<<<< HEAD
-#### Session Snapshot
-=======
 #### Single Login
->>>>>>> 82997221b762bc09876379f9f30906c9d364a4f5
 
 If you need to authorize a user for each test, you can do so by submitting the login form at the beginning of every test.
 Running those steps takes time, and in the case of Selenium tests (which are slow by themselves)
