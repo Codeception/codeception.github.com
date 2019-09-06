@@ -56,7 +56,11 @@
 
 - name: EventsScripting
   link: http://github.com/oprudkyi/codeception-events-scripting
-  description: Run shell scripts on events - before/after suites/environments/full test run  
+  description: Run shell scripts on events - before/after suites/environments/full test run
+
+- name: PauseOnFail
+  link: https://github.com/ipeevski/PauseOnFail
+  description: Pause execution on failure/error - allow debugging from failed point onwardss
 
 - name: GherkinParam
   link: http://github.com/edno/codeception-gherkin-param
