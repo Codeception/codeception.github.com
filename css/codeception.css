@@ -50,6 +50,7 @@ body .navbar.nav-custom {
   border: 0px;
   border-radius: 0px;
   padding: 10px;
+  margin-bottom: 0;
 }
 
 body .navbar .promo {
