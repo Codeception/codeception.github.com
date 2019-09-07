@@ -509,6 +509,10 @@ body .hero h1 {
 	color: #fff;
 }
 
+.home-btns a {
+	width: 40%;	
+}
+
 body .btn {
 	border-radius: 0;
   text-transform: uppercase;
@@ -583,25 +587,43 @@ body .btn-lg {
 		clear: both;
 	}
 
-	body {
-		margin-top: 40px;
-	}
-
 	body #home-hero h1{
 		padding-top:0px;
 		font-size: 50px;
 	}
 
+	body #home-hero {		
+	   min-height: 0px; 
+	}
+
 	.navbar-nav .dropdown-menu, .navbar-nav .dropdown-menu a {
-		color: #999;
+		color: #333;
 	}
 
 	.navbar-nav .dropdown-menu a:hover {
 		background-color: inherit;
-		color: #fff;
+		color: #333;
 	}
 
+	body .navbar-collapse {
+		border-top: none;
+	}
 
+	body .home-btns a {
+		width: 100%;	
+	}
+
+	body #footer .links {
+		display: block;
+	}
+
+	body #home-hero .bubble {
+		margin-top: 50px;
+	}
+}
+
+body .navbar-inverse .navbar-toggle .icon-bar {
+  background-color: #000;
 }
 
 @media screen and (min-width: 1030px) {
