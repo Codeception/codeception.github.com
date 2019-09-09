@@ -336,8 +336,8 @@ body b {
 }
 
 #footer .social {
-  filter: brightness(100);
   opacity: 0.8;
+	text-decoration: none;
 }
 
 #footer .sponsors {
