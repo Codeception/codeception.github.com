@@ -27,7 +27,7 @@ Out of the box you have tools for writing unit, functional, and acceptance tests
 | Testing computer needs access to project's PHP files | Yes | Yes | No |
 | Webserver required | No | No | Yes |
 | JavaScript  | No | No | Yes |
-| Additional software required | None | None | Selenium for browser testing</ul> |
+| Additional software required | None | None | Selenium for browser testing |
 | Speed | Fast | Fast | Slow |
 | Configuration file | `unit.suite.yml` | `functional.suite.yml` | `acceptance.suite.yml` |
 
@@ -128,6 +128,7 @@ It allows writing unit, functional, integration, and acceptance tests in a singl
 
 All Codeception tests are written in a descriptive manner.
 Just by looking at the test body, you can clearly understand what is being tested and how it is performed.
+
 
 
 
