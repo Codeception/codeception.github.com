@@ -336,8 +336,14 @@ body b {
 }
 
 #footer .social {
+	display: inline-block;
+	margin: 0 5px;
   opacity: 0.8;
 	text-decoration: none;
+}
+
+#footer .social img {
+	width: 100%;
 }
 
 #footer .sponsors {
