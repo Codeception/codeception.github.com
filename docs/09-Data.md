@@ -217,7 +217,7 @@ modules:
 
 {% endhighlight %}
 
-### DataMapper
+### Doctrine
 
 Doctrine is also a popular ORM, unlike some others it implements the DataMapper pattern and is not bound to any framework.
 The [Doctrine2](http://codeception.com/docs/modules/Doctrine2) module requires an `EntityManager` instance to work with.
