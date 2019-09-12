@@ -634,6 +634,7 @@ body .navbar-inverse .navbar-toggle .icon-bar {
 
 @media screen and (min-width: 1030px) {
 	.navbar-collapse.collapse {
+		position: relative;
 		display: block!important;
 		height: auto!important;
 		padding-bottom: 0;
@@ -770,7 +771,11 @@ body .navbar-inverse .navbar-toggle .icon-bar {
 	min-width: 400px;
 }
 .dropdown-menu.columns-3 {
-	min-width: 700px;
+	min-width: 100%;
+	left: -15px;
+	right: -15px;
+	overflow: hidden;
+	background-color: #F5F9FD;
 }
 
 .multi-column-dropdown li a {
@@ -969,4 +974,12 @@ body .panel-info>.panel-heading {
 	align-items: center;
 	justify-content: center;
 	padding: 12px;
+}
+
+.docs-dropdown {
+	position: inherit;
+}
+
+.guides-wrapper {
+	background-color: #ffffff;
 }

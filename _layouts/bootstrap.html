@@ -75,42 +75,43 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/quickstart">QuickStart</a></li>                      
-                    <li class="dropdown">
+                    <li class="dropdown docs-dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Docs
                             <b class="caret"></b>
                         </a>                        
                         <ul class="dropdown-menu  multi-column columns-3">
+                          <div class="container">
                             <div class="row">
-                                <div class="col-sm-4"> 
+                                <div class="col-sm-4 guides-wrapper">
                                 
-                                <ul class="multi-column-dropdown">               
-                                <li><h4>Guides</h4></li>    
-                                {{ guides }}
-                                <li role="separator" class="divider"></li>
-                                <li><a href="/video">Video</a></li>
-                                </ul>
+                                  <ul class="multi-column-dropdown">
+                                  <li><h4>Guides</h4></li>
+                                  {{ guides }}
+                                  <li role="separator" class="divider"></li>
+                                  <li><a href="/video">Video</a></li>
+                                  </ul>
                                 </div>
 
-                                <div class="col-sm-5">
-                                <ul class="dropdown-modules multi-column-dropdown">                   
-                                <h4>Modules</h4>
-                                {{ modules }}
-                                </ul>
+                                <div class="col-sm-6">
+                                  <ul class="dropdown-modules multi-column-dropdown">
+                                  <h4>Modules</h4>
+                                  {{ modules }}
+                                  </ul>
                                 </div>
 
-                                <div class="col-sm-3">
-                                <ul class="multi-column-dropdown"                                  
-                                <li><h4>Reference</h4></li>             
-                                <li><a href="/install">Install</a></li>
-                                <li><a href="/docs/reference/Configuration">Configuration</a></li>
-                                <li><a href="/extensions">Extensions</a></li>
-                                <li><a href="/docs/reference/Commands">Commands</a></li></a></li>
-                                 <li role="separator" class="divider"></li>
-                                <li><h4>Util Classes</h4></li>             
-                                {{ reference }}
-                                </ul>
+                                <div class="col-sm-2">
+                                  <ul class="multi-column-dropdown"
+                                  <li><h4>Reference</h4></li>
+                                  <li><a href="/install">Install</a></li>
+                                  <li><a href="/docs/reference/Configuration">Configuration</a></li>
+                                  <li><a href="/extensions">Extensions</a></li>
+                                  <li><a href="/docs/reference/Commands">Commands</a></li></a></li>
+                                   <li role="separator" class="divider"></li>
+                                  <li><h4>Util Classes</h4></li>
+                                  {{ reference }}
+                                  </ul>
                                 </div>
-
+                            </div>
                         </ul>
                     </li>
                     <li>
