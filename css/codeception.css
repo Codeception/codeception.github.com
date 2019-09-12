@@ -977,7 +977,7 @@ body .panel-info>.panel-heading {
 }
 
 .docs-dropdown {
-	position: inherit;
+	position: inherit !important;
 }
 
 .guides-wrapper {
