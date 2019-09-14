@@ -555,13 +555,6 @@ body .btn-lg {
 		float: left;
 	}
 
-	body .dropdown-modules li a {
-		float: none;
-		clear: none;
-		width: 100%;
-	}
-
-
 	#home-hero{
 		height:320px;
 	}
@@ -588,6 +581,11 @@ body .btn-lg {
 }
 
 @media screen and (max-width : 767px) {
+	body .dropdown-modules li a {
+		float: none;
+		clear: none;
+		width: 100%;
+	}
 
 	.menu li {
 		clear: both;
@@ -769,13 +767,6 @@ body .navbar-inverse .navbar-toggle .icon-bar {
 }
 .dropdown-menu.columns-2 {
 	min-width: 400px;
-}
-.dropdown-menu.columns-3 {
-	min-width: 100%;
-	left: -15px;
-	right: -15px;
-	overflow: hidden;
-	background-color: #F5F9FD;
 }
 
 .multi-column-dropdown li a {
@@ -982,4 +973,14 @@ body .panel-info>.panel-heading {
 
 .guides-wrapper {
 	background-color: #ffffff;
+}
+
+@media (min-width: 768px) {
+	.dropdown-menu.columns-3 {
+		min-width: 100%;
+		left: -15px;
+		right: -15px;
+		overflow: hidden;
+		background-color: #F5F9FD;
+	}
 }
