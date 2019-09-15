@@ -72,12 +72,14 @@ body .nav-custom .navbar-nav>li>a {
 }
 
 body .nav-custom .navbar-brand {
+	position: relative;
 	padding: 0;
   color: #236BFD;
   text-transform: uppercase;
   font-family: 'Roboto Mono', monospace;
   font-weight: bold;
-  font-size: 24px;	
+  font-size: 24px;
+	z-index: 1;
 }
 
 body .hero-unit {
