@@ -987,6 +987,6 @@ body .panel-info>.panel-heading {
 	}
 }
 
-.footer-logo {
+.footer-logo:hover {
 	text-decoration: none;
 }
