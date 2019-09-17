@@ -811,18 +811,17 @@ body .navbar-inverse .navbar-toggle .icon-bar {
 
 .casestudy .item  {
 	text-align: center;
-	margin: 10px; padding: 10px; width: 100%; height: 250px;
+	margin: 10px 0;
+	padding: 10px;
+	width: 100%;
+	height: 250px;
 	display: flex;
   filter: grayscale(100);
-
   transition: 0.5s;
   transition-property: filter;
 }
 
 .casestudy .item:hover  {
-	text-align: center;
-	margin: 10px; padding: 10px; width: 100%; height: 250px;
-	display: flex;
   filter: none;  
 }
 
