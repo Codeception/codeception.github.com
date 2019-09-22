@@ -989,6 +989,10 @@ body .panel-info>.panel-heading {
 		overflow: hidden;
 		background-color: #F5F9FD;
 	}
+
+	.navbar>.container-fluid .navbar-brand {
+		margin-left: 0;
+	}
 }
 
 .footer-logo:hover {
