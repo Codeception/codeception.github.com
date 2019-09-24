@@ -290,7 +290,7 @@ class PageCest
    /**
     * @dataProvider pageProvider
     */
-    public function staticPages(AcceptanceTester $I, \Codeception\Example $example)
+    public function staticPages(AcceptanceTester $I, array $example)
     {
         $I->amOnPage($example['url']);
         $I->see($example['title'], 'h1');
