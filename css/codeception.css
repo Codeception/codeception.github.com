@@ -701,6 +701,10 @@ body .navbar-inverse .navbar-toggle .icon-bar {
   display: block;
 }
 
+.btn-learn:active {
+	box-shadow: none;
+}
+
 .mission {
 	background: #B2EBF2;
 	padding-top: 2em;
