@@ -1009,3 +1009,14 @@ body .panel-info>.panel-heading {
 		align-items: center;
 	}
 }
+
+.hero-laravel .quiet {
+	margin-left: 200px;
+}
+
+.hero-laravel img {
+	width: 200px;
+	border-radius: 10px;
+	background: #fff;
+	padding: 10px;
+}
