@@ -1010,13 +1010,22 @@ body .panel-info>.panel-heading {
 	}
 }
 
-.hero-laravel .quiet {
+.hero--laravel {
+	min-height: 400px
+}
+
+.hero--laravel .quiet {
 	margin-left: 200px;
 }
 
-.hero-laravel img {
+.hero--laravel img {
 	width: 200px;
 	border-radius: 10px;
 	background: #fff;
 	padding: 10px;
+}
+
+.hero--symfony img {
+	width: 70%;
+	max-width: 800px;
 }
