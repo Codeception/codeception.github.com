@@ -1029,3 +1029,9 @@ body .panel-info>.panel-heading {
 	width: 70%;
 	max-width: 800px;
 }
+
+.hero--yii img {
+	width: 70%;
+	max-width: 800px;
+	border-radius: 10px
+}
