@@ -1035,3 +1035,16 @@ body .panel-info>.panel-heading {
 	max-width: 800px;
 	border-radius: 10px
 }
+
+.hero--wp {
+	background-image: url(/images/backgrounds/wordpress.jpg);
+	background-color: #fff;
+}
+
+.hero--wp .text-center {
+	margin-top: 80px;
+}
+
+.hero--wp .quiet{
+	color: #464646;
+}
