@@ -1048,3 +1048,7 @@ body .panel-info>.panel-heading {
 .hero--wp .quiet{
 	color: #464646;
 }
+
+.container--addons {
+	margin-bottom: 1.5em;
+}
