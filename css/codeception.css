@@ -1052,3 +1052,8 @@ body .panel-info>.panel-heading {
 .container--addons {
 	margin-bottom: 1.5em;
 }
+
+.item--symfony img{
+	width: 200px;
+	height: 200px;
+}
