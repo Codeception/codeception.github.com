@@ -1057,3 +1057,29 @@ body .panel-info>.panel-heading {
 	width: 200px;
 	height: 200px;
 }
+
+.item--laravel img {
+	width: 110px;
+	height: 115px;
+}
+
+.item--wp img {
+	width: 110px;
+	height: 110px;
+}
+
+.item--joomla img {
+	width: 250px;
+	height: 208px;
+}
+
+.item--yii img {
+	width: 95px;
+	height: 102px;
+}
+
+.item--zend img {
+	opacity: 0.5;
+	width: 170px;
+	height: 90px;
+}
