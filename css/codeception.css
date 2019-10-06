@@ -694,6 +694,10 @@ body .navbar-inverse .navbar-toggle .icon-bar {
 	font-size: 0.8em;
 }
 
+.feature .btn {
+	float: right;
+}
+
 .btn-learn {
 	background: #fff;
   color: #666;
@@ -701,7 +705,7 @@ body .navbar-inverse .navbar-toggle .icon-bar {
   display: block;
 }
 
-.btn-learn:active {
+.feature .btn:active {
 	box-shadow: none;
 }
 
