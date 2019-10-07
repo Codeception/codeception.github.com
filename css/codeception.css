@@ -366,13 +366,13 @@ body b {
 #footer .links {
 	display: flex;
   align-items: baseline;
+	justify-content: space-between;
+	padding: 24px 0;
 }
 
 
 #footer .links li {
-	flex: auto;
   list-style: none;
-  padding: 24px;
   font-size: 16px;
 }
 
