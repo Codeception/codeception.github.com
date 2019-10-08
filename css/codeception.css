@@ -366,7 +366,7 @@ body b {
 #footer .links {
 	display: flex;
   align-items: baseline;
-	justify-content: space-between;
+	justify-content: space-around;
 	padding: 24px 0;
 }
 
