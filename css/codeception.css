@@ -1087,3 +1087,8 @@ body .panel-info>.panel-heading {
 	width: 170px;
 	height: 90px;
 }
+
+.fill-thanks {
+	padding-top: 3em;
+	padding-bottom: 4em;
+}
