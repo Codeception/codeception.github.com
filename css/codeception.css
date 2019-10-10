@@ -1092,3 +1092,13 @@ body .panel-info>.panel-heading {
 	padding-top: 3em;
 	padding-bottom: 4em;
 }
+
+.design {
+	margin-bottom: 5px;
+}
+
+.design svg {
+	vertical-align: middle;
+	margin-top: -6px;
+	margin-right: 6px;
+}
