@@ -123,6 +123,11 @@ body #home-hero h1 {
 #home-hero img{
 	position:relative;
 	top:-7px;
+	float: right;
+	width: 400px;
+	box-shadow: 7px 8px 19px #3333331a;
+	border-radius: 5px;
+	margin-left: 10px;
 }
 
 body .panel>.panel-collapse {
@@ -514,7 +519,6 @@ body .hero h1 {
   margin: 150px auto 0 auto;	
 	font-size: 18px;
 	line-height: 160%;
-
 }
 
 .btn-install {
