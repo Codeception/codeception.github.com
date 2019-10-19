@@ -7,6 +7,19 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 3.1.2
+
+* **[Doctrine2]** Support non-entity doctrine **[id](https://github.com/id)** on the haveInRepository debug message by **[Basster](https://github.com/Basster)** 
+* [Frameworks][PhpBrowser] Improved detection of content-type for .fail files by **[jasny](https://github.com/jasny)**
+* [Frameworks][PhpBrowser] Add HTML snapshots of failing tests to HTML Report by **[reinholdfuereder](https://github.com/reinholdfuereder)**
+* **[Symfony]** Fixed runConsoleCommand by **[wirwolf](https://github.com/wirwolf)**
+* **[Symfony]** grabService uses the special test service container if available by **[burned42](https://github.com/burned42)**
+* **[Webdriver]** Display cookie details in debug output by **[Mitrichius](https://github.com/Mitrichius)**
+* **[WebDriver]** Improved error text of WaitForJS method by **[eriksape](https://github.com/eriksape)**
+* Code coverage does not fail when excluded directory not exists by **[Mitrichius](https://github.com/Mitrichius)**
+* Use path resolver for bootstrap file detection by **[laoneo](https://github.com/laoneo)**
+* **[Docs]** Documentation updates by **[burned42](https://github.com/burned42)**, **[kishorehariram](https://github.com/kishorehariram)**, **[Mitrichius](https://github.com/Mitrichius)**, **[ruudboon](https://github.com/ruudboon)**, **[sva1sva](https://github.com/sva1sva)**
+
 #### 3.1.1
 
 * Preparation for Symfony 5, removes deprecation message when Symfony 4.3 components are used. See [#5670](https://github.com/Codeception/Codeception/issues/5670) by **[Naktibalda](https://github.com/Naktibalda)**

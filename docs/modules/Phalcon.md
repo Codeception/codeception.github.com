@@ -10,7 +10,7 @@ title: Phalcon - Codeception - Documentation
 # Phalcon
 
 
-This module provides integration with [Phalcon framework](http://www.phalconphp.com/) (3.x).
+This module provides integration with [Phalcon framework](http://www.phalcon.io/) (3.x).
 Please try it and leave your feedback.
 
 ### Demo Project
@@ -21,7 +21,7 @@ Please try it and leave your feedback.
 
 * Maintainer: **Serghei Iakovlev**
 * Stability: **stable**
-* Contact: serghei@phalconphp.com
+* Contact: serghei@phalcon.io
 
 ### Config
 

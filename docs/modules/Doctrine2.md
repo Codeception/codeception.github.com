@@ -185,7 +185,6 @@ $email = $I->grabFromRepository('User', 'email', array('name' => 'davert'));
  * `param` $entity
  * `param` $field
  * `param array` $params
- * `return` array
 
 
 #### haveFakeRepository
