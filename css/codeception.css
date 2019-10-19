@@ -1112,3 +1112,12 @@ body .panel-info>.panel-heading {
 	right: 10px;
 	bottom: 0;
 }
+
+.quickstart-panel {
+	box-shadow: 5px 5px 5px #0000004f;
+	font-size: 16px;
+}
+
+.quickstart-panel .panel-heading a {
+	float: right;
+}
