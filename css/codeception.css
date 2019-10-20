@@ -1121,3 +1121,7 @@ body .panel-info>.panel-heading {
 .quickstart-panel .panel-heading a {
 	float: right;
 }
+
+.test-forum img{
+	height: 64px;
+}
