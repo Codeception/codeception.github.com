@@ -24,7 +24,6 @@ algolia:
     - "2014-"
 banner:
   # disable content to show last blogpost
-  content: '<a href="https://sdclabs.com/trainings/schedule">
-Training: Web test automation with Codeception
-online, 21.10.2019-22.10.2019, 11:00 GMT+3 DST
+  content: '<a href="https://codeception.com/10-22-2019/codeception-4.0-and-beyond.html">
+CODECEPTION 4.0 IS COMING, 5.0 IS ON THE WAY. <b>BE PREPARED!</b>
 </a>'
