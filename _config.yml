@@ -25,5 +25,5 @@ algolia:
 banner:
   # disable content to show last blogpost
   content: '<a href="https://codeception.com/10-22-2019/codeception-4.0-and-beyond.html">
-CODECEPTION 4.0 IS COMING, 5.0 IS ON THE WAY. <b>BE PREPARED!</b>
+CODECEPTION 4.0 IS COMING, 5.0 IS ON THE WAY. BE PREPARED!
 </a>'
