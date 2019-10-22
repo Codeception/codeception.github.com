@@ -4,7 +4,6 @@ title: "Codeception 4.0 and beyond"
 date: 2019-10-22 01:03:50
 ---
 
-### Codeception 4.0 is coming, 5.0 is on the way. Be prepared!
 
 Today we would like to share our plans for the future of Codeception. 
 We are going to release two major versions soon and we are ready to do so!
@@ -12,11 +11,17 @@ If you want to stay on board and get the latest updates, please read this post c
 
 As you know, we are very proud of our policy of keeping backward compatible releases. We know that tests should be stable and reliable at first. If a business is still powered by PHP 5.6, this is a business issue, and we can't force a company to upgrade all their servers and processes just to support some more testing. 
 
+### Codeception 4.0 is coming, 5.0 is on the way. Be prepared!
+
 However, keeping backward compatibility is harder and harder because of our dependencies - PHPUnit & Symfony. They all go forward, break API and require newer versions of PHP and to follow them we need to do the same. 
 
 But can't leave you without upgrades even if you don't plan to switch to the latest Symfony or PHPUnit. That's why we announce **decoupling of Codeception**.
 
 That's right! Since Codeception 4.0 **the core will be separated from Codeception modules and extensions**. This allows you to get the latest updates for the modules you use while keeping running Codeception on PHP 5.6+ with your set of dependencies.
+
+![](/images/decoupled-modules.png)
+
+*See all modules decoupled at [Codeception organization](https://github.com/codeception)*
 
 After Symfony 5 is released we will release Codeception 5.0, with a direct dependency on Symfony 5 components. If you never plan to upgrade to Symfony 5 you can keep using Codeception 4, as (again) all modules are independent of the core. Codeception 5 (and upcoming versions) will support only the latest major versions of Symfony & PHPUnit.
 
@@ -27,7 +32,7 @@ That's why we ask you to **sponsor development of Codeception**. Please talk to 
 Now you donate in [a few clicks on OpenCollective](https://opencollective.com/codeception/)!
 
 <p class="text-center">
-<a href="https://opencollective.com/codeception/" class="btn btn-lg btn-success" role="button">Sponsor Codeception at OpenCollective</a></p>\
+<a href="https://opencollective.com/codeception/" class="btn btn-lg btn-success" role="button">Sponsor Codeception</a></p>
 
 Sponsors receive priority support from our team, can ask for consulting, and add their logo on our website! Over 15K PHP developers visit our website monthly. If your brand needs to be recognizable in the PHP community - sponsoring Codeception is a very good opportunity for you!
 
