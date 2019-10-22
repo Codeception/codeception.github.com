@@ -64,10 +64,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="/" class="navbar-brand"><svg width="81" height="60" style="vertical-align: middle" viewBox="0 0 81 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <a href="/" class="navbar-brand">
+                  <svg width="81" height="60" style="vertical-align: middle" viewBox="0 0 81 60" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M35.6058 29.2295L22.5186 19.676L34.8582 40.2759L80.9997 2.21027L35.6058 29.2295ZM29.9915 54.4923C16.4012 54.4923 5.38429 43.4968 5.38429 29.9331C5.38429 16.3696 16.4012 5.37379 29.9915 5.37379C36.0092 5.37379 41.5198 7.53284 45.7954 11.1129L49.2448 7.00516C44.0311 2.63716 37.3154 0 29.9915 0C13.4539 0 0 13.428 0 29.9331C0 46.4384 13.4539 59.8664 29.9915 59.8664C38.5677 59.8664 46.3089 56.2494 51.7802 50.4701L47.8767 46.7908C43.3907 51.5302 37.0395 54.4923 29.9915 54.4923ZM29.9915 47.3736C20.3405 47.3736 12.517 39.5654 12.517 29.9332C12.517 20.301 20.3405 12.4925 29.9915 12.4925C34.2649 12.4925 38.176 14.0285 41.2122 16.5709L43.8017 13.4869C40.0621 10.3536 35.2448 8.46205 29.9915 8.46205C18.1291 8.46205 8.47842 18.0939 8.47842 29.9332C8.47842 41.7722 18.1291 51.404 29.9915 51.404C36.1431 51.404 41.696 48.8095 45.6204 44.6642L42.6838 41.8966C39.4983 45.2619 34.9967 47.3736 29.9915 47.3736Z" fill="#236BFD"/>
-</svg>
- CODECEPTION_</a>                
+</svg>CODECEPTION_</a>
             </div>            
 
             <div class="collapse navbar-collapse menu ">
@@ -75,42 +75,43 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/quickstart">QuickStart</a></li>                      
-                    <li class="dropdown">
+                    <li class="dropdown docs-dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Docs
                             <b class="caret"></b>
                         </a>                        
                         <ul class="dropdown-menu  multi-column columns-3">
+                          <div class="container">
                             <div class="row">
-                                <div class="col-sm-4"> 
+                                <div class="col-sm-4 guides-wrapper">
                                 
-                                <ul class="multi-column-dropdown">               
-                                <li><h4>Guides</h4></li>    
-                                {{ guides }}
-                                <li role="separator" class="divider"></li>
-                                <li><a href="/video">Video</a></li>
-                                </ul>
+                                  <ul class="multi-column-dropdown">
+                                  <li><h4>Guides</h4></li>
+                                  {{ guides }}
+                                  <li role="separator" class="divider"></li>
+                                  <li><a href="/video">Video</a></li>
+                                  </ul>
                                 </div>
 
-                                <div class="col-sm-5">
-                                <ul class="dropdown-modules multi-column-dropdown">                   
-                                <h4>Modules</h4>
-                                {{ modules }}
-                                </ul>
+                                <div class="col-sm-6">
+                                  <ul class="dropdown-modules multi-column-dropdown">
+                                  <h4>Modules</h4>
+                                  {{ modules }}
+                                  </ul>
                                 </div>
 
-                                <div class="col-sm-3">
-                                <ul class="multi-column-dropdown"                                  
-                                <li><h4>Reference</h4></li>             
-                                <li><a href="/install">Install</a></li>
-                                <li><a href="/docs/reference/Configuration">Configuration</a></li>
-                                <li><a href="/extensions">Extensions</a></li>
-                                <li><a href="/docs/reference/Commands">Commands</a></li></a></li>
-                                 <li role="separator" class="divider"></li>
-                                <li><h4>Util Classes</h4></li>             
-                                {{ reference }}
-                                </ul>
+                                <div class="col-sm-2">
+                                  <ul class="multi-column-dropdown"
+                                  <li><h4>Reference</h4></li>
+                                  <li><a href="/install">Install</a></li>
+                                  <li><a href="/docs/reference/Configuration">Configuration</a></li>
+                                  <li><a href="/extensions">Extensions</a></li>
+                                  <li><a href="/docs/reference/Commands">Commands</a></li></a></li>
+                                   <li role="separator" class="divider"></li>
+                                  <li><h4>Util Classes</h4></li>
+                                  {{ reference }}
+                                  </ul>
                                 </div>
-
+                            </div>
                         </ul>
                     </li>
                     <li>
@@ -154,6 +155,8 @@
                             <li><a href="http://automated-testing.info/category/codeception">Russian Forum @ AT.info</a></li>
                             <li><a href="http://stackoverflow.com/questions/tagged/codeception">StackOverflow</a></li>
                             <li><a href="https://github.com/codeception/codeception/issues">GitHub Issues</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="https://opencollective.com/codeception"><strong>Opencollective</strong></a></li>
                             </ul>
                     </li>                    
                     
@@ -206,19 +209,22 @@
 </div>
 
     <div id="footer">
-            <ul class="links">
-                    <li>
-                        <a href="/">
-                        <h4>
-                    <img src="/images/logo_footer.svg" alt="">
-
-                    Codeception_</h4></a></li>
-                    <li><a href="/install">Installation</a></li>
-                    <li><a href="/credits">Credits</a></li>
-                    <li><a href="/changelog">Releases</a></li>
-                    <li><a href="http://sdclabs.com/codeception?utm_source=codeception.com&utm_medium=bottom_menu&utm_term=link&utm_campaign=reference" >Enterprise Support</a></li>
-                    <li><a href="http://sdclabs.com/trainings?utm_source=codeception.com&utm_medium=bottom_menu&utm_term=link&utm_campaign=reference" >Trainings</a></li>
-            </ul>
+      <div class="container-fluid">
+        <ul class="links">
+          <li>
+            <a href="/" class="footer-logo">
+              <h4>
+                <img src="/images/logo_footer.svg" alt="logo">Codeception_
+              </h4>
+            </a>
+          </li>
+          <li><a href="/install">Installation</a></li>
+          <li><a href="/credits">Credits</a></li>
+          <li><a href="/changelog">Releases</a></li>
+          <li><a href="http://sdclabs.com/codeception?utm_source=codeception.com&utm_medium=bottom_menu&utm_term=link&utm_campaign=reference" >Enterprise Support</a></li>
+          <li><a href="http://sdclabs.com/trainings?utm_source=codeception.com&utm_medium=bottom_menu&utm_term=link&utm_campaign=reference" >Trainings</a></li>
+        </ul>
+      </div>
 
 <div class="container-fluid">
             <div class="row">
@@ -275,11 +281,13 @@
   </div>
   <div id="copyright">
 
-<div>
-Design made by  <a href="https://pizdata.is/">
-<svg width="17" height="22" style="vertical-align: middle;" viewBox="0 0 17 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M14.1521 4.64018L13.5305 3.83959L12.2672 5.6787C11.3601 4.22562 9.35785 1.74674 5.75912 0.57675L3.98126 0L4.88607 1.58776C4.89702 1.60708 5.83747 3.28537 5.66941 5.11943L2.80415 3.48567L3.14267 5.05097C3.14982 5.08409 3.83233 8.3093 3.20491 11.3562C3.12457 11.421 3.01509 11.4774 2.86608 11.4774C2.63863 11.4774 2.13696 11.3484 1.33672 10.4825L0.283136 9.3428L0.0669574 10.8565C0.056478 10.9316 -0.934383 18.4053 5.07684 21.1622C6.18671 21.71 7.48187 22 8.8226 22H8.82308C11.2433 22 13.4927 21.0735 14.9939 19.4586C16.5583 17.7762 17.2281 15.4572 16.9315 12.7513C16.9202 12.2855 16.744 7.9779 14.1521 4.64018Z" fill="white"/>
-</svg> <strong>Pizdata</strong></a>  
+<div class="design">
+  Design made by
+  <a href="https://pizdata.is/">
+    <svg width="17" height="22" viewBox="0 0 17 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+     <path d="M14.1521 4.64018L13.5305 3.83959L12.2672 5.6787C11.3601 4.22562 9.35785 1.74674 5.75912 0.57675L3.98126 0L4.88607 1.58776C4.89702 1.60708 5.83747 3.28537 5.66941 5.11943L2.80415 3.48567L3.14267 5.05097C3.14982 5.08409 3.83233 8.3093 3.20491 11.3562C3.12457 11.421 3.01509 11.4774 2.86608 11.4774C2.63863 11.4774 2.13696 11.3484 1.33672 10.4825L0.283136 9.3428L0.0669574 10.8565C0.056478 10.9316 -0.934383 18.4053 5.07684 21.1622C6.18671 21.71 7.48187 22 8.8226 22H8.82308C11.2433 22 13.4927 21.0735 14.9939 19.4586C16.5583 17.7762 17.2281 15.4572 16.9315 12.7513C16.9202 12.2855 16.744 7.9779 14.1521 4.64018Z" fill="white"/>
+    </svg><strong>Pizdata</strong>
+  </a>
 </div>
 
 
@@ -315,7 +323,7 @@ $(document).ready(function(){
 });
 </script>
 
-<div class="visible-lg-block" style="position: fixed; right: 10px; bottom: 0px">
+<div class="visible-lg-block twitter-btn">
     
                                   <aside>
           <a href="https://twitter.com/codeception" class="twitter-follow-button" data-show-count="false"

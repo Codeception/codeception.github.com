@@ -10,7 +10,7 @@ title: Phalcon - Codeception - Documentation
 # Phalcon
 
 
-This module provides integration with [Phalcon framework](http://www.phalconphp.com/) (3.x).
+This module provides integration with [Phalcon framework](http://www.phalcon.io/) (3.x).
 Please try it and leave your feedback.
 
 ### Demo Project
@@ -21,7 +21,7 @@ Please try it and leave your feedback.
 
 * Maintainer: **Serghei Iakovlev**
 * Stability: **stable**
-* Contact: serghei@phalconphp.com
+* Contact: serghei@phalcon.io
 
 ### Config
 
@@ -1700,4 +1700,4 @@ $I->uncheckOption('#notify');
 
  * `param` $option
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/3.0/src/Codeception/Module/Phalcon.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/3.1/src/Codeception/Module/Phalcon.php">Help us to improve documentation. Edit module reference</a></div>

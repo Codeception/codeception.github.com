@@ -19,7 +19,7 @@ Performs a cleanup by flushing all values after each test run.
 
 * Maintainer: **Serghei Iakovlev**
 * Stability: **stable**
-* Contact: serghei@phalconphp.com
+* Contact: serghei@phalcon.io
 
 #### Example (`unit.suite.yml`)
 
@@ -131,4 +131,4 @@ $I->seeInApc('users_count', 200);
  * `param string|string[]` $key
  * `param mixed` $value
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/3.0/src/Codeception/Module/Apc.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/3.1/src/Codeception/Module/Apc.php">Help us to improve documentation. Edit module reference</a></div>

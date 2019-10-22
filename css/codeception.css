@@ -72,12 +72,14 @@ body .nav-custom .navbar-nav>li>a {
 }
 
 body .nav-custom .navbar-brand {
+	position: relative;
 	padding: 0;
   color: #236BFD;
   text-transform: uppercase;
   font-family: 'Roboto Mono', monospace;
   font-weight: bold;
-  font-size: 24px;	
+  font-size: 24px;
+	z-index: 1;
 }
 
 body .hero-unit {
@@ -101,6 +103,7 @@ body .bg-white {
 
 body .bg-grey {
 	background: #F5F9FD;
+	padding: 50px 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -121,6 +124,11 @@ body #home-hero h1 {
 #home-hero img{
 	position:relative;
 	top:-7px;
+	float: right;
+	width: 400px;
+	box-shadow: 7px 8px 19px #3333331a;
+	border-radius: 5px;
+	margin-left: 10px;
 }
 
 body .panel>.panel-collapse {
@@ -336,8 +344,19 @@ body b {
 }
 
 #footer .social {
+	display: inline-block;
+	margin: 0 5px;
   opacity: 0.8;
 	text-decoration: none;
+	transition: opacity .2s ease;
+}
+
+#footer .social:hover {
+	opacity: 1;
+}
+
+#footer .social img {
+	width: 100%;
 }
 
 #footer .sponsors {
@@ -352,14 +371,14 @@ body b {
 
 #footer .links {
 	display: flex;
-  align-items: baseline;
+  align-items: center;
+	justify-content: space-around;
+	padding: 24px 0;
 }
 
 
 #footer .links li {
-	flex: auto;
   list-style: none;
-  padding: 24px;
   font-size: 16px;
 }
 
@@ -501,7 +520,6 @@ body .hero h1 {
   margin: 150px auto 0 auto;	
 	font-size: 18px;
 	line-height: 160%;
-
 }
 
 .btn-install {
@@ -525,7 +543,7 @@ body .btn-default {
 }
 
 body .btn-lg {
-  padding: 20px 80px;	
+  padding: 20px;
 }
 
 #home-hero .logo {
@@ -548,13 +566,6 @@ body .btn-lg {
 	body .navbar-header ul.nav>li {
 		float: left;
 	}
-
-	body .dropdown-modules li a {
-		float: none;
-		clear: none;
-		width: 100%;
-	}
-
 
 	#home-hero{
 		height:320px;
@@ -582,6 +593,11 @@ body .btn-lg {
 }
 
 @media screen and (max-width : 767px) {
+	body .dropdown-modules li a {
+		float: none;
+		clear: none;
+		width: 100%;
+	}
 
 	.menu li {
 		clear: both;
@@ -628,6 +644,7 @@ body .navbar-inverse .navbar-toggle .icon-bar {
 
 @media screen and (min-width: 1030px) {
 	.navbar-collapse.collapse {
+		position: relative;
 		display: block!important;
 		height: auto!important;
 		padding-bottom: 0;
@@ -682,11 +699,19 @@ body .navbar-inverse .navbar-toggle .icon-bar {
 	font-size: 0.8em;
 }
 
+.feature .btn {
+	float: right;
+}
+
 .btn-learn {
 	background: #fff;
   color: #666;
   text-align: right;
   display: block;
+}
+
+.feature .btn:active {
+	box-shadow: none;
 }
 
 .mission {
@@ -763,9 +788,6 @@ body .navbar-inverse .navbar-toggle .icon-bar {
 .dropdown-menu.columns-2 {
 	min-width: 400px;
 }
-.dropdown-menu.columns-3 {
-	min-width: 700px;
-}
 
 .multi-column-dropdown li a {
 	padding: 5px 0px;
@@ -807,18 +829,17 @@ body .navbar-inverse .navbar-toggle .icon-bar {
 
 .casestudy .item  {
 	text-align: center;
-	margin: 10px; padding: 10px; width: 100%; height: 250px;
+	margin: 10px 0;
+	padding: 10px;
+	width: 100%;
+	height: 250px;
 	display: flex;
   filter: grayscale(100);
-
   transition: 0.5s;
   transition-property: filter;
 }
 
 .casestudy .item:hover  {
-	text-align: center;
-	margin: 10px; padding: 10px; width: 100%; height: 250px;
-	display: flex;
   filter: none;  
 }
 
@@ -963,4 +984,151 @@ body .panel-info>.panel-heading {
 	align-items: center;
 	justify-content: center;
 	padding: 12px;
+}
+
+.docs-dropdown {
+	position: inherit !important;
+}
+
+.guides-wrapper {
+	background-color: #ffffff;
+}
+
+@media (min-width: 768px) {
+	.dropdown-menu.columns-3 {
+		min-width: 100%;
+		left: -15px;
+		right: -15px;
+		overflow: hidden;
+		background-color: #F5F9FD;
+	}
+
+	.navbar>.container-fluid .navbar-brand {
+		margin-left: 0;
+	}
+}
+
+.footer-logo:hover {
+	text-decoration: none;
+}
+
+@media screen and (min-width:992px) {
+	.navbar-right {
+		display: flex;
+		align-items: center;
+	}
+}
+
+.hero--laravel {
+	min-height: 400px
+}
+
+.hero--laravel .quiet {
+	margin-left: 200px;
+}
+
+.hero--laravel img {
+	width: 200px;
+	border-radius: 10px;
+	background: #fff;
+	padding: 10px;
+}
+
+.hero--symfony img {
+	width: 70%;
+	max-width: 800px;
+}
+
+.hero--yii img {
+	width: 70%;
+	max-width: 800px;
+	border-radius: 10px
+}
+
+.hero--wp {
+	background-image: url(/images/backgrounds/wordpress.jpg);
+	background-color: #fff;
+}
+
+.hero--wp .text-center {
+	margin-top: 80px;
+}
+
+.hero--wp .quiet{
+	color: #464646;
+}
+
+.container--addons {
+	margin-bottom: 1.5em;
+}
+
+.item--symfony img{
+	width: 200px;
+	height: 200px;
+}
+
+.item--laravel img {
+	width: 110px;
+	height: 115px;
+}
+
+.item--wp img {
+	width: 110px;
+	height: 110px;
+}
+
+.item--joomla img {
+	width: 250px;
+	height: 208px;
+}
+
+.item--yii img {
+	width: 95px;
+	height: 102px;
+}
+
+.item--zend img {
+	opacity: 0.5;
+	width: 170px;
+	height: 90px;
+}
+
+.fill-thanks {
+	padding-top: 3em;
+	padding-bottom: 4em;
+}
+
+.design {
+	margin-bottom: 5px;
+}
+
+.design svg {
+	vertical-align: middle;
+	margin-top: -6px;
+	margin-right: 6px;
+}
+
+.twitter-btn {
+	position: fixed;
+	right: 10px;
+	bottom: 0;
+}
+
+.quickstart-panel {
+	box-shadow: 5px 5px 5px #0000004f;
+	font-size: 16px;
+}
+
+.quickstart-panel .panel-heading a {
+	float: right;
+}
+
+.test-forum img{
+	height: 64px;
+}
+
+.hero--quickstart {
+	height: 50vh;
+	min-height: 700px;
+	margin-bottom: -400px;
 }

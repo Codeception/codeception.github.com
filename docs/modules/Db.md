@@ -51,6 +51,7 @@ if you run into problems loading dumps and cleaning databases.
 * ssl_verify_server_cert - disables certificate CN verification (MySQL specific, @see http://php.net/manual/de/ref.pdo-mysql.php)
 * ssl_cipher - list of one or more permissible ciphers to use for SSL encryption (MySQL specific, @see http://php.net/manual/de/ref.pdo-mysql.php#pdo.constants.mysql-attr-cipher)
 * databases - include more database configs and switch between them in tests.
+* initial_queries - list of queries to be executed right after connection to the database has been initiated, i.e. creating the database if it does not exist or preparing the database collation
 
 ### Example
 
@@ -70,6 +71,10 @@ if you run into problems loading dumps and cleaning databases.
              ssl_ca: '/path/to/ca-cert.pem'
              ssl_verify_server_cert: false
              ssl_cipher: 'AES256-SHA'
+             initial_queries:
+                 - 'CREATE DATABASE IF NOT EXISTS temp_db;'
+                 - 'USE temp_db;'
+                 - 'SET NAMES utf8;'
 
 ### Example with multi-dumps
     modules:
@@ -298,20 +303,32 @@ $mails = $I->grabColumnFromDatabase('users', 'email', array('name' => 'RebOOter'
 
 #### grabFromDatabase
  
-Fetches all values from the column in database.
+Fetches a single column value from a database.
 Provide table name, desired column and criteria.
 
 {% highlight php %}
 
 <?php
-$mails = $I->grabFromDatabase('users', 'email', array('name' => 'RebOOter'));
+$mail = $I->grabFromDatabase('users', 'email', array('name' => 'Davert'));
+
+{% endhighlight %}
+Comparison expressions can be used as well:
+
+{% highlight php %}
+
+<?php
+$post = $I->grabFromDatabase('posts', ['num_comments >=' => 100]);
+$user = $I->grabFromDatabase('users', ['email like' => 'miles%']);
 
 {% endhighlight %}
 
+Supported operators: `<`, `>`, `>=`, `<=`, `!=`, `like`.
+
  * `param string` $table
  * `param string` $column
- * `param array`  $criteria
+ * `param array` $criteria
 
+ * `return` mixed Returns a single column value or false
 
 
 #### grabNumRecords
@@ -446,4 +463,4 @@ $I->updateInDatabase('users', array('isAdmin' => true), array('email' => 'miles@
  * `param array` $data
  * `param array` $criteria
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/3.0/src/Codeception/Module/Db.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/3.1/src/Codeception/Module/Db.php">Help us to improve documentation. Edit module reference</a></div>

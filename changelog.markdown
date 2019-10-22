@@ -7,6 +7,45 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 3.1.2
+
+* **[Doctrine2]** Support non-entity doctrine **[id](https://github.com/id)** on the haveInRepository debug message by **[Basster](https://github.com/Basster)** 
+* [Frameworks][PhpBrowser] Improved detection of content-type for .fail files by **[jasny](https://github.com/jasny)**
+* [Frameworks][PhpBrowser] Add HTML snapshots of failing tests to HTML Report by **[reinholdfuereder](https://github.com/reinholdfuereder)**
+* **[Symfony]** Fixed runConsoleCommand by **[wirwolf](https://github.com/wirwolf)**
+* **[Symfony]** grabService uses the special test service container if available by **[burned42](https://github.com/burned42)**
+* **[Webdriver]** Display cookie details in debug output by **[Mitrichius](https://github.com/Mitrichius)**
+* **[WebDriver]** Improved error text of WaitForJS method by **[eriksape](https://github.com/eriksape)**
+* Code coverage does not fail when excluded directory not exists by **[Mitrichius](https://github.com/Mitrichius)**
+* Use path resolver for bootstrap file detection by **[laoneo](https://github.com/laoneo)**
+* **[Docs]** Documentation updates by **[burned42](https://github.com/burned42)**, **[kishorehariram](https://github.com/kishorehariram)**, **[Mitrichius](https://github.com/Mitrichius)**, **[ruudboon](https://github.com/ruudboon)**, **[sva1sva](https://github.com/sva1sva)**
+
+#### 3.1.1
+
+* Preparation for Symfony 5, removes deprecation message when Symfony 4.3 components are used. See [#5670](https://github.com/Codeception/Codeception/issues/5670) by **[Naktibalda](https://github.com/Naktibalda)**
+* **[Db]** Support initial queries execution after creating connection. See [#5660](https://github.com/Codeception/Codeception/issues/5660) by **[tadasauciunas](https://github.com/tadasauciunas)** 
+
+```yml
+Db:
+    dsn: # dsn goes hre
+    initial_queries:
+        - 'CREATE DATABASE IF NOT EXISTS temp_db;'
+        - 'USE temp_db;'
+        - 'SET NAMES utf8;'
+```
+
+* Do not fail steps for `retry` and `tryTo` step decorators. Fixes [#5666](https://github.com/Codeception/Codeception/issues/5666) by **[Mitrichius](https://github.com/Mitrichius)** 
+* **[Symfony]** Added `runSymfonyConsoleCommand` by **[wirwolf](https://github.com/wirwolf)** 
+
+```php
+$result = $I->runSymfonyConsoleCommand('hello:world', '--verbose' => 3]);
+```
+* **[Doctrine2]** Bugfix: calling `haveInRepository` with preconstructed entity requires providing constructor parameters. See [#5680](https://github.com/Codeception/Codeception/issues/5680) by **[burned42](https://github.com/burned42)** 
+* **[Doctrine2]** Make debug message in `haveInRepository` to support entities with composite keys of entities in bidirectional relations. See [#5685](https://github.com/Codeception/Codeception/issues/5685) by Basster. Fixes [#5663](https://github.com/Codeception/Codeception/issues/5663). 
+* Adds possibility to use absolute path for `groups` files in `codeception.yml`. [#5674](https://github.com/Codeception/Codeception/issues/5674) by **[maks-rafalko](https://github.com/maks-rafalko)** 
+* Fixes the issue with paths in `groups` section when `codeception.yml` is not in the root of the project. [#5674](https://github.com/Codeception/Codeception/issues/5674)) by maks-rafalko.
+* **[Asserts]** `expectException` deprecated in favor of `expectThrowable`.
+
 #### 3.1.0
 
 * Unified bootstrap file loading
