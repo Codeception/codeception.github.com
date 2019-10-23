@@ -1132,3 +1132,7 @@ body .panel-info>.panel-heading {
 	min-height: 700px;
 	margin-bottom: -400px;
 }
+
+.support-wrapper .container {
+	padding: 20px 15px;
+}
