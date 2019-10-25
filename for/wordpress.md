@@ -54,6 +54,14 @@ If you did not use the step-by-step initialization then edit each suite configur
 If you are using the `WPLoader` module in your tests take care to create a dedicated database for it and not to use the same database the `Db` or `WPDb` modules might use.  
 The use of the modules defined in the WPBrowser package is not tied to this bootstrap though so feel free to set up Codeception in any other way.
 
+## Setting Environment variables
+If you have used the initialization template, you'll need to set Codeception to [load parameters](https://codeception.com/docs/06-ModulesAndHelpers#dynamic-configuration-with-parameters) from the environment variables. You can do this by updating the `params` key in your codeception.dist.yaml to 
+```
+params:
+  - env # load params from environment vars
+```
+This will load the environment variables from the `.env.testing` file.
+
 ## Integration Tests
 Commonly "WordPress unit tests" (hence the `wpunit` default name of the suite) are not related to classical unit tests but to integration tests. The difference is that unit tests are supposed to test a class methods in complete isolation, while integration tests check how components work inside WordPress. That's why, to prepare WordPress for testing, you should enable `WPLoader` module into `wpunit.suite.yml`.  
 The `WPLoader` module: it takes care of loading, installing and configuring a fresh WordPress installation before each test method runs.  
