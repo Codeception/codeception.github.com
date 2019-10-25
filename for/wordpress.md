@@ -46,7 +46,7 @@ In the examples below I assume that the local WordPress installation root direct
 While it's possible to start from a default Codeception configuration the WPBrowser package comes with its own initialization template that can be called using:
 
 ```bash
-codecept init wpbrowser
+./vendor/bin/codecept init wpbrowser
 ```
 
 The command offers the possibility to scaffold an empty suite or to undergo an interactive setup that will end in a ready to run Codeception for WordPress installation; it will create the `tests` directory and scaffold the `acceptance`, `functional`, `wpunit` and `unit` suites creating a `tests` sub-directory and a configuration file for each.  
@@ -80,7 +80,7 @@ modules:
 The module is wrapping and augmenting the [WordPress Core automated testing suite](https://make.wordpress.org/core/handbook/testing/automated-testing/phpunit/) and to generate a test case that uses Codeception and the methods provided by the Core testing suite you can use the generation command provided by the package:
 
 ```bash
-codecept generate:wpunit wpunit "Acme\SomeClass"
+./vendor/bin/codecept generate:wpunit wpunit "Acme\SomeClass"
 ```
 
 The generated test case extends the `WPTestCase` class and it exposes all the mehtods defined by `Codeception\Test\Unit` test case and the Core suite `\WP_UnitTestCase`.  
@@ -123,7 +123,7 @@ modules:
 To generate a functional test use the default `codecept` commmand.
 
 ```bash
-codecept generate:cept functional "PostInsertion"
+./vendor/bin/codecept generate:cept functional "PostInsertion"
 ```
 
 <div class="alert alert-warning">
@@ -182,7 +182,7 @@ Codeception allows to combine tests written in different formats. If are about t
 There is no standard Gherkin steps built in. By writing your feature files you can get code snippets which should be added to `AcceptanceTester` class. 
 
 ```
-composer exec codecept gherkin:snippets
+./vendor/bin/codecept exec codecept gherkin:snippets
 ```
 
 In the same manner features can be set up as functional tests.
