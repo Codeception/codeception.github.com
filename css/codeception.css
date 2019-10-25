@@ -1138,7 +1138,7 @@ body .panel-info>.panel-heading {
 }
 
 .social-link {
-	padding: 5px 5px 0 0;
+	padding: 5px 5px 0 0 !important;
 }
 
 .social-link img {
