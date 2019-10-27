@@ -1145,3 +1145,8 @@ body .panel-info>.panel-heading {
 	height: 40px;
 	float: right;
 }
+
+.community-wrapper .container {
+	border-top: 1px solid #eee;
+	padding: 50px
+}
