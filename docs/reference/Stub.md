@@ -210,7 +210,7 @@ Accepts either name of class or object of that class
 {% highlight php %}
 
 <?php
-Stub::construct(new User, ['autosave' => false), ['name' => 'davert']);
+Stub::construct(new User, ['autosave' => false], ['name' => 'davert']);
 ?>
 
 {% endhighlight %}
@@ -256,7 +256,7 @@ Even protected and private properties can be set.
 
 <?php
 Stub::constructEmpty('User', ['autosave' => false]);
-Stub::constructEmpty('User', ['autosave' => false), ['name' => 'davert']);
+Stub::constructEmpty('User', ['autosave' => false], ['name' => 'davert']);
 
 {% endhighlight %}
 
