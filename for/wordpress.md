@@ -182,7 +182,7 @@ Codeception allows to combine tests written in different formats. If are about t
 There is no standard Gherkin steps built in. By writing your feature files you can get code snippets which should be added to `AcceptanceTester` class. 
 
 ```
-./vendor/bin/codecept exec codecept gherkin:snippets
+./vendor/bin/codecept gherkin:snippets
 ```
 
 In the same manner features can be set up as functional tests.
