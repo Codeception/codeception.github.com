@@ -365,6 +365,16 @@ body b {
 	opacity: 0.5;
 }
 
+.sponsors--phpstorm {
+	width: 100px;
+}
+
+.sponsors--rebilly {
+	width:150px;
+	background: #fff;
+	border-radius: 20px;
+}
+
 #footer a {
 	color: #fff;
 }
