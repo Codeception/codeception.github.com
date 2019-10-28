@@ -58,7 +58,7 @@ The use of the modules defined in the WPBrowser package is not tied to this boot
 If you have used the initialization template, you'll need to set Codeception to [load parameters](https://codeception.com/docs/06-ModulesAndHelpers#dynamic-configuration-with-parameters) from the environment variables. You can do this by updating the `params` key in your codeception.dist.yaml to 
 ```
 params:
-  - env # load params from environment vars
+  - .env.testing
 ```
 This will load the environment variables from the `.env.testing` file.
 
