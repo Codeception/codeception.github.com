@@ -1160,3 +1160,8 @@ body .panel-info>.panel-heading {
 	border-top: 1px solid #eee;
 	padding: 50px
 }
+
+.item--company-magma img {
+	background-color: #3c3c3b;
+	width: 100%;
+}
