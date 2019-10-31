@@ -1,0 +1,36 @@
+{
+  "name": "codeception/codeception.github.com",
+  "type": "project",
+  "description": "Dependencies are used to build docs",
+  "license":"MIT",
+
+  "require": {
+    "codeception/codeception": "4.0.x-dev | >=4.0",
+    "codeception/module-amqp": "*",
+    "codeception/module-apc": "*",
+    "codeception/module-asserts": "*",
+    "codeception/module-cli": "*",
+    "codeception/module-datafactory": "*",
+    "codeception/module-db": "*",
+    "codeception/module-doctrine2": "*",
+    "codeception/module-filesystem": "*",
+    "codeception/module-ftp": "*",
+    "codeception/module-laravel5": "*",
+    "codeception/module-lumen": "*",
+    "codeception/module-memcache": "*",
+    "codeception/module-mongodb": "*",
+    "codeception/module-phalcon": "*",
+    "codeception/module-phpbrowser": "*",
+    "codeception/module-queue": "*",
+    "codeception/module-redis": "*",
+    "codeception/module-rest": "*",
+    "codeception/module-sequence": "*",
+    "codeception/module-soap": "*",
+    "codeception/module-symfony": "*",
+    "codeception/module-webdriver": "*",
+    "codeception/module-yii2": "*",
+    "codeception/module-zendexpressive": "*",
+    "codeception/module-zf2": "*",
+    "codeception/util-robohelpers": "dev-master"
+  }
+}
