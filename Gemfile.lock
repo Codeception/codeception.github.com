@@ -30,7 +30,7 @@ GEM
     faraday (0.13.1)
       multipart-post (>= 1.2, < 3)
     fast-stemmer (1.0.2)
-    ffi (1.9.18)
+    ffi (1.11.1)
     httpclient (2.8.3)
     jekyll (2.5.3)
       classifier-reborn (~> 2.0)
