@@ -1166,3 +1166,7 @@ body .panel-info>.panel-heading {
 	background-color: #3c3c3b;
 	width: 100%;
 }
+
+.btn-group--source {
+	float: right;
+}
