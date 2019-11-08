@@ -452,10 +452,10 @@ EOF;
         $buildFile = 'build/codecept56.phar';
         $this->setPlatformVersionTo('5.6.0');
         $this->buildPhar($buildFile);
-        $versionedFile = "$releaseDir/php5.6/codecept.phar";
+        $versionedFile = "$releaseDir/php56/codecept.phar";
         $this->taskFilesystemStack()
             ->stopOnFail()
-            ->mkdir("$releaseDir/php5.6")
+            ->mkdir("$releaseDir/php56")
             ->copy($buildFile, $versionedFile)
             ->remove('php56/codecept.phar')
             ->symlink("../$versionedFile", 'php56/codecept.phar')
@@ -468,8 +468,7 @@ EOF;
             ->add('php56/codecept.phar')
             ->add($releaseDir)
             ->run();
-        //update builds page
-        //$this->updateBuildsPage();
+        $this->updateBuildsPage();
     }
 
     private function setPlatformVersionTo($version)
@@ -530,7 +529,66 @@ EOF;
         }
 
         $pharTask->addFile('codecept', 'package/vendor/codeception/codeception/package/bin');
-
         $pharTask->run();
+    }
+
+    public function updateBuildsPage()
+    {
+        $sortByVersion = function (\SplFileInfo $a, \SplFileInfo $b) {
+            return version_compare($a->getBaseName(), $b->getBaseName());
+        };
+
+        $releases = array_reverse(
+            iterator_to_array(Finder::create()->depth(0)->directories()->sort($sortByVersion)->in('releases'))
+        );
+        $branch = null;
+        $releaseFile = $this->taskWriteToFile('builds.markdown')
+            ->line('---')
+            ->line('layout: page')
+            ->line('title: Codeception Builds')
+            ->line('---')
+            ->line('');
+
+        foreach ($releases as $release) {
+            $releaseName = $release->getBasename();
+            $downloadUrl = "http://codeception.com/releases/$releaseName/codecept.phar";
+
+            list($major, $minor) = explode('.', $releaseName);
+            if ("$major.$minor" != $branch) {
+                $branch = "$major.$minor";
+                $releaseFile->line("\n## $branch");
+                if ($major < 2) {
+                    $releaseFile->line("*Requires: PHP 5.3 and higher + CURL*\n");
+                } elseif ($major == 2 && $minor < 4) {
+                    $releaseFile->line("*Requires: PHP 5.4 and higher + CURL*\n");
+                } else {
+                    $releaseFile->line("*Requires: PHP 5.6 and higher + CURL*\n");
+                }
+                $releaseFile->line("* **[Download Latest $branch Release]($downloadUrl)**");
+            }
+
+            if (file_exists("releases/$releaseName/php54/codecept.phar")) {
+                $downloadUrl2 = "http://codeception.com/releases/$releaseName/php54/codecept.phar";
+                if (version_compare($releaseName, '2.4.0', '>=')) {
+                    $versionLine = "* [$releaseName for PHP 7]($downloadUrl)";
+                    $versionLine .= ", [for PHP 5.6]($downloadUrl2)";
+                } elseif (version_compare($releaseName, '2.3.0', '>=')) {
+                    $versionLine = "* [$releaseName for PHP 7]($downloadUrl)";
+                    $versionLine .= ", [for PHP 5.4 - 5.6]($downloadUrl2)";
+                } else {
+                    $versionLine = "* [$releaseName for PHP 5.6+]($downloadUrl)";
+                    $versionLine .= ", [for PHP 5.4 or 5.5]($downloadUrl2)";
+                }
+            } elseif (file_exists("releases/$releaseName/php56/codecept.phar")) {
+                $versionLine = "* [$releaseName for PHP 7.2+]($downloadUrl)";
+                $downloadUrl2 = "http://codeception.com/releases/$releaseName/php56/codecept.phar";
+                $versionLine .= ", [for PHP 5.6 - 7.1]($downloadUrl2)";
+            } else {
+                $versionLine = "* [$releaseName]($downloadUrl)";
+            }
+
+            $releaseFile->line($versionLine);
+        }
+        $releaseFile->run();
     }
 }
