@@ -1,9 +1,17 @@
 <?php
+
+use Codeception\Util\DocumentationHelpers;
 use Symfony\Component\Finder\Finder;
+
+require __DIR__ . '/vendor/autoload.php';
 
 class RoboFile extends \Robo\Tasks
 {
- 
+    use DocumentationHelpers;
+
+    const REPO_BLOB_URL = 'https://github.com/Codeception/Codeception/blob';
+    const STABLE_BRANCH = '4.0';
+
  	function post()
  	{
  		$title = $this->ask("Post title");
@@ -97,4 +105,309 @@ class RoboFile extends \Robo\Tasks
     $indexFile->run();
     // $this->taskDeleteDir('source')->run();
   }
+
+    /**
+     * @desc generates modules reference from source files
+     */
+    public function buildDocs()
+    {
+        $this->say('generating documentation from source files');
+        $this->taskComposerInstall()->run();
+        $this->buildDocsModules();
+        $this->buildDocsUtils();
+        $this->buildDocsCommands();
+        $this->buildDocsStub();
+        $this->buildDocsApi();
+        $this->buildDocsExtensions();
+    }
+
+    public function buildDocsModules()
+    {
+        $this->taskCleanDir('docs/modules')->run();
+        $this->say("Modules");
+        $modules = Finder::create()->files()->name('*.php')->in(__DIR__ . '/vendor/codeception/module-*/src/Codeception/Module');
+        foreach ($modules as $module) {
+            $moduleName = basename(substr($module, 0, -4));
+            $className = 'Codeception\Module\\' . $moduleName;
+            $classPath = 'Codeception/Module/' . $moduleName;
+            $repositoryName = basename(substr($module, 0, -1 * (strlen($classPath) + 9)));
+            //echo $classPath, " ", $repositoryName, "\n"; continue;
+            //TODO: take /src/$classPath.php directly from module
+            $source = "https://github.com/Codeception/$repositoryName/tree/master/src/$classPath.php";
+            $documentationFile = 'docs/modules/' . $moduleName . '.md';
+            $sourceMessage = '<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="' . $source . '">Help us to improve documentation. Edit module reference</a></div>';
+            $this->generateDocumentationForClass($className, $documentationFile, $sourceMessage);
+            $this->postProcessModuleDocFile($documentationFile, $moduleName, $source);
+        }
+    }
+
+    private function postProcessModuleDocFile($documentationFile, $name, $source)
+    {
+        $contents = file_get_contents($documentationFile);
+        $contents = str_replace('## ', '### ', $contents);
+        $buttons = [
+            'source' => $source,
+        ];
+        // building version switcher
+        foreach (['3.1', '2.5', '1.8'] as $branch) {
+            $buttons[$branch] = self::REPO_BLOB_URL."/$branch/docs/modules/$name.md";
+        }
+        $buttonHtml = "\n\n".'<div class="btn-group" role="group" style="float: right" aria-label="...">';
+        foreach ($buttons as $link => $url) {
+            if ($link == 'source') {
+                $link = "<strong>$link</strong>";
+            }
+            $buttonHtml.= '<a class="btn btn-default" href="'.$url.'">'.$link.'</a>';
+        }
+        $buttonHtml .= '</div>'."\n\n";
+
+        $contents = $this->postProcessStandardElements($name,  $buttonHtml . $contents);
+        file_put_contents($documentationFile, $contents);
+    }
+
+    public function buildDocsUtils()
+    {
+        $this->say("Util Classes");
+        $utils = [
+            'Autoload'   => null,
+            'Fixtures'   => null,
+            'Locator'    => null,
+            'XmlBuilder' => null,
+            'JsonType'   => 'module-rest',
+            'HttpCode'   => 'lib-innerbrowser',
+        ];
+        //JsonType is in module-rest, HttpCode - in lib-innerbrowser
+
+        foreach ($utils as $utilName => $repositoryName) {
+            $className = '\Codeception\Util\\' . $utilName;
+            $documentationFile = 'docs/reference/' . $utilName . '.md';
+            $this->documentApiClass($documentationFile, $className, false, $repositoryName);
+            $this->postProcessFile($utilName, $documentationFile);
+        }
+    }
+
+    public function buildDocsCommands()
+    {
+        $this->say("Commands");
+
+        $path     = __DIR__ . '/vendor/codeception/codeception/src/Codeception/Command';
+        $commands = Finder::create()->files()->name('*.php')->depth(0)->in($path);
+
+        $documentationFile = 'docs/reference/Commands.md';
+        $commandGenerator  = $this->taskGenDoc($documentationFile);
+        foreach ($commands as $command) {
+            $commandName = basename(substr($command, 0, -4));
+            $className = '\Codeception\Command\\' . $commandName;
+            $commandGenerator->docClass($className);
+        }
+        $commandGenerator
+            ->prepend("# Console Commands\n")
+            ->processClassSignature(function ($r, $text) {
+                return "## ".$r->getShortName();
+            })
+            ->filterMethods(function (ReflectionMethod $r) {
+                return false;
+            })
+            ->run();
+
+        $this->postProcessFile('Commands', $documentationFile);
+    }
+
+    public function buildDocsStub()
+    {
+        $this->say("Stub Classes");
+
+        $stubFile = 'docs/reference/Stub.md';
+        $this->taskGenDoc($stubFile)
+            ->docClass('Codeception\Stub')
+            ->filterMethods(function (\ReflectionMethod $method) {
+                if ($method->isConstructor() or $method->isDestructor()) {
+                    return false;
+                }
+                if (!$method->isPublic()) {
+                    return false;
+                }
+                if (strpos($method->name, '_') === 0) {
+                    return false;
+                }
+                return true;
+            })
+            ->processMethodDocBlock(
+                function (\ReflectionMethod $m, $doc) {
+                    $doc = str_replace(array('@since'), array(' * available since version'), $doc);
+                    $doc = str_replace(array(' @', "\n@"), array("  * ", "\n * "), $doc);
+                    return $doc;
+                }
+            )
+            ->processProperty(false)
+            ->run();
+
+        $mocksDocumentation = <<<EOF
+# Mocks
+
+Declare mocks inside `Codeception\Test\Unit` class.
+If you want to use mocks outside it, check the reference for [Codeception/Stub](https://github.com/Codeception/Stub) library.      
+EOF;
+
+        $mockFile = 'docs/reference/Mock.md';
+        $this->taskGenDoc($mockFile)
+            ->docClass('Codeception\Test\Feature\Stub')
+            ->docClass('Codeception\Stub\Expected')
+            ->processClassDocBlock(false)
+            ->processClassSignature(false)
+            ->prepend($mocksDocumentation)
+            ->filterMethods(function (\ReflectionMethod $method) {
+                if ($method->isConstructor() or $method->isDestructor()) {
+                    return false;
+                }
+                if (!$method->isPublic()) {
+                    return false;
+                }
+                if (strpos($method->name, '_') === 0) {
+                    return false;
+                }
+                if (strpos($method->name, 'stub') === 0) {
+                    return false;
+                }
+                return true;
+            })
+            ->run();
+
+        $this->postProcessFile('Stub', $stubFile);
+        $this->postProcessFile('Mock', $mockFile);
+    }
+
+    public function buildDocsApi()
+    {
+        $this->say("API Classes");
+        $apiClasses = ['Codeception\Module', 'Codeception\InitTemplate'];
+
+        foreach ($apiClasses as $apiClass) {
+            $name = (new ReflectionClass($apiClass))->getShortName();
+            $documentationFile  = 'docs/reference/' . $name . '.md';
+            $this->documentApiClass($documentationFile, $apiClass, true);
+            $this->postProcessFile($name, $documentationFile);
+        }
+    }
+
+    public function buildDocsExtensions()
+    {
+        $this->say('Extensions');
+
+        $path       = __DIR__ . '/vendor/codeception/codeception/ext';
+        $extensions = Finder::create()->files()->sortByName()->name('*.php')->in($path);
+
+        $extGenerator= $this->taskGenDoc('_includes/extensions.md');
+        foreach ($extensions as $extension) {
+            $extensionName = basename(substr($extension, 0, -4));
+            $className = '\Codeception\Extension\\' . $extensionName;
+            $extGenerator->docClass($className);
+        }
+        $extGenerator
+            ->prepend("# Official Extensions\n")
+            ->processClassSignature(function (ReflectionClass $r, $text) {
+                $name = $r->getShortName();
+                return "## $name\n\n[See Source](" . self::REPO_BLOB_URL."/".self::STABLE_BRANCH. "/ext/$name.php)";
+            })
+            ->filterMethods(function (ReflectionMethod $r) {
+                return false;
+            })
+            ->filterProperties(function ($r) {
+                return false;
+            })
+            ->run();
+    }
+
+    protected function documentApiClass($file, $className, $all = false, $repositoryName = null)
+    {
+        if ($repositoryName === null ) {
+            $repositoryUrl = self::REPO_BLOB_URL."/".self::STABLE_BRANCH;
+        } else {
+            $repositoryUrl = 'https://github.com/Codeception/' . $repositoryName . '/blob/master';
+        }
+        $uri = str_replace('\\', '/', $className);
+        $source = $repositoryUrl . "/src$uri.php";
+
+        $this->taskGenDoc($file)
+            ->docClass($className)
+            ->filterMethods(function (ReflectionMethod $r) use ($all, $className) {
+                return $all || $r->isPublic();
+            })
+            ->append(
+                '<p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. '
+                . '<a href="' . $source . '">Help us to improve documentation. Edit module reference</a></div>'
+            )
+            ->processPropertySignature(function ($r) {
+                return "\n#### $" . $r->name. "\n\n";
+            })
+            ->processPropertyDocBlock(function ($r, $text) {
+                $modifiers = implode(' ', \Reflection::getModifierNames($r->getModifiers()));
+                $text = ' *' . $modifiers . '* **$' . $r->name . "**\n" . $text;
+                $text = preg_replace("~@(.*?)\s(.*)~", 'type `$2`', $text);
+                return $text;
+            })
+            ->processClassDocBlock(
+                function (ReflectionClass $r, $text) {
+                    return $text . "\n";
+                }
+            )
+            ->processMethodSignature(function ($r, $text) {
+                return "#### {$r->name}()\n\n" . ltrim($text, '#');
+            })
+            ->processMethodDocBlock(
+                function (ReflectionMethod $r, $text) use ($file, $source) {
+                    //$file = str_replace(__DIR__, '', $r->getFileName());
+                    //$source = self::REPO_BLOB_URL."/".self::STABLE_BRANCH. $file;
+
+                    $line = $r->getStartLine();
+                    $text = preg_replace("~^\s?@(.*?)\s~m", ' * `$1` $2', $text);
+                    $text .= "\n[See source]($source#L$line)";
+                    return "\n" . $text . "\n";
+                }
+            )
+            ->reorderMethods('ksort')
+            ->run();
+    }
+
+    /**
+     * @param $name
+     * @param $contents
+     * @return mixed|string|string[]|null
+     */
+    private function postProcessStandardElements($name, $contents)
+    {
+        $highlight_languages = implode('|', [
+            'php',
+            'html',
+            'bash',
+            'yaml',
+            'json',
+            'xml',
+            'sql',
+            'gherkin'
+        ]);
+        $contents            = preg_replace(
+            "~```\s?($highlight_languages)\b(.*?)```~ms",
+            "{% highlight $1 %}\n$2\n{% endhighlight %}",
+            $contents
+        );
+        $contents            = str_replace('{% highlight  %}', '{% highlight yaml %}', $contents);
+        $contents            = preg_replace("~```\s?(.*?)```~ms", "{% highlight yaml %}\n$1\n{% endhighlight %}", $contents);
+        // set default language in order not to leave unparsed code inside '```'
+
+        $title = $name;
+        $contents = "---\nlayout: doc\ntitle: " . ($title != "" ? $title . " - " : "")
+            . "Codeception - Documentation\n---\n\n" . $contents;
+        return $contents;
+    }
+
+    /**
+     * @param $pageName
+     * @param $documentationFile
+     */
+    private function postProcessFile($pageName, $documentationFile)
+    {
+        $contents = $this->postProcessStandardElements($pageName, file_get_contents($documentationFile));
+        file_put_contents($documentationFile, $contents);
+    }
 }
