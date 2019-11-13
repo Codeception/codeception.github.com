@@ -280,7 +280,7 @@ EOF;
     public function buildDocsApi()
     {
         $this->say("API Classes");
-        $apiClasses = ['Codeception\Module', 'Codeception\InitTemplate'];
+        $apiClasses = ['\Codeception\Module', '\Codeception\InitTemplate'];
 
         foreach ($apiClasses as $apiClass) {
             $name = (new ReflectionClass($apiClass))->getShortName();
