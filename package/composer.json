@@ -21,6 +21,8 @@
     "codeception/module-rest": "*",
     "codeception/module-sequence": "*",
     "codeception/module-soap": "*",
-    "codeception/module-webdriver": "*"
+    "codeception/module-webdriver": "*",
+    "hoa/console": "*",
+    "padraic/phar-updater": "^1.0"
   }
 }

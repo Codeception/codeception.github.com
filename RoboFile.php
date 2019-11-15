@@ -433,10 +433,11 @@ EOF;
         $this->stopOnFail();
 
         $this->taskFilesystemStack()->mkdir('build')->run();
+        $releaseDir    = "releases/$version";
         $this->setPlatformVersionTo('7.2.0');
         $buildFile = 'build/codecept72.phar';
         $this->buildPhar($buildFile);
-        $releaseDir    = "releases/$version";
+        $this->updateVersionFile($buildFile, 'codecept.version');
         $versionedFile = "$releaseDir/codecept.phar";
         $this->taskFilesystemStack()
             ->stopOnFail()
@@ -445,10 +446,12 @@ EOF;
             ->remove('codecept.phar')
             ->symlink($versionedFile, 'codecept.phar')
             ->run();
+
+        $this->setPlatformVersionTo('5.6.0');
         //filenames must be different, because Phar refuses to build second file with the same name
         $buildFile = 'build/codecept56.phar';
-        $this->setPlatformVersionTo('5.6.0');
         $this->buildPhar($buildFile);
+        $this->updateVersionFile($buildFile, 'php56/codecept.version');
         $versionedFile = "$releaseDir/php56/codecept.phar";
         $this->taskFilesystemStack()
             ->stopOnFail()
@@ -462,7 +465,9 @@ EOF;
             ->stopOnFail()
             ->checkout('-- package/composer.json')
             ->add('codecept.phar')
+            ->add('codecept.version')
             ->add('php56/codecept.phar')
+            ->add('php56/codecept.version')
             ->add($releaseDir)
             ->run();
         $this->updateBuildsPage();
@@ -587,5 +592,18 @@ EOF;
             $releaseFile->line($versionLine);
         }
         $releaseFile->run();
+    }
+
+    /**
+     * @param $pharFile
+     * @param $versionFile
+     */
+    private function updateVersionFile($pharFile, $versionFile)
+    {
+        $hash = sha1_file($pharFile);
+        if ($hash === false) {
+            throw new Exception('Failed to write hash to file: ' . $versionFile);
+        }
+        $this->taskWriteToFile($versionFile)->text($hash)->run();
     }
 }
