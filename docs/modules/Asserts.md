@@ -370,6 +370,16 @@ __not documented__
 __not documented__
 
 
+#### assertStringEndsNotWith
+ 
+ * `Available since` 1.1.0 of module-asserts
+
+
+#### assertStringEndsWith
+ 
+ * `Available since` 1.1.0 of module-asserts
+
+
 #### assertStringNotContainsString
 __not documented__
 
