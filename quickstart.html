@@ -5,55 +5,36 @@ title: Quick Start Codeception
 
 </div></div>
 <div class="hero hero--quickstart">
-
   <div class="wide">
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12 col-sm-12 text-center">
       <h1>
-        
         Quickstart
-      </h1>       
-        
+      </h1>
       </div>
-
     </div>
-
-    
-
-    
   </div>
 </div>
-
-
 </div>
 
 <div class="wide">
 <div class="container-fluid">
 <div class="row">
   <div class="col-xs-12 col-lg-6 col-lg-offset-3">
-
     <div class="panel panel-info quickstart-panel">
       <div class="panel-heading">
-
 <a href="/install">Alternative Installations &raquo;</a>
       <h4 class="panel-title">1.Install</h4></div>
       <div class="panel-body text-center">
           <div class="">
-
-              
             Install via Composer
             <div class="highlight">
-              
             <pre>composer require "codeception/codeception" --dev</pre>
             </div>
                       <p>
           </div>
-
 </a>
-
-            
-
           <!-- <p>Use <code>codecept</code> instead of codecept.phar in this case.</p> -->
         </div> <!-- /.panel-body -->
       </div> <!-- /.panel -->
@@ -61,12 +42,7 @@ title: Quick Start Codeception
 
 </div>
 <div class="row">
-
 <div class="col-sm-12 col-lg-6">
-
-
-
-
       <div class="panel panel-info">
         <div class="panel-heading"><h4 class="panel-title">2. Setup</h4></div>
         <div class="panel-body">
@@ -85,8 +61,6 @@ title: Quick Start Codeception
 </a>
 
 <p class="collapse" id="bootstrap-demo"><img src="/images/codecept_bootstrap.gif" alt=""></p>
-
-
               </div> <!-- /.panel-body -->
             </div> <!-- /.panel -->
 
@@ -102,7 +76,6 @@ title: Quick Start Codeception
               </div>
                 </div> <!-- /.panel-body -->
               </div> <!-- /.panel -->
-
 
 <div class="panel panel-info">
 <div class="panel-heading"><h4 class="panel-title">4. Configure Acceptance Tests</h4></div>
@@ -139,7 +112,7 @@ class FirstCest
     public function frontpageWorks(AcceptanceTester $I)
     {
         $I->amOnPage('/');
-        $I->see('Home');  
+        $I->see('Home');
     }
 }
 {% endhighlight %}
@@ -147,7 +120,6 @@ class FirstCest
     <p class="text-muted">It will check that your frontpage contains the word <b>Home</b> in it.</p>
       </div> <!-- /.panel-body -->
     </div> <!-- /.panel -->
-
 
 <div class="panel panel-info">
   <div class="panel-heading"><h4 class="panel-title">6. Run!</h4></div>
@@ -170,10 +142,10 @@ class FirstCest
 
 <div class="col-sm-12 col-lg-6">
 <div class="page">
-  
+
 <h3>Simplified Setup</h3>
 
-<p>Use predefined installation templates for common use cases. 
+<p>Use predefined installation templates for common use cases.
 Run them instead of <code>bootstrap</code> command.
 </p>
 
