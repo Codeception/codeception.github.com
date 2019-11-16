@@ -530,7 +530,6 @@ EOF;
             }
         }
 
-        $pharTask->addFile('codecept', 'package/vendor/codeception/codeception/package/bin');
         $pharTask->run();
     }
 
