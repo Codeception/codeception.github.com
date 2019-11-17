@@ -2,8 +2,6 @@
 <?php
 Phar::mapPhar();
 
-require_once 'phar://codecept.phar/vendor/codeception/codeception/autoload.php';
-
-require_once 'phar://codecept.phar/codecept';
+require_once 'phar://codecept.phar/vendor/codeception/codeception/app.php';
 
 __HALT_COMPILER();
