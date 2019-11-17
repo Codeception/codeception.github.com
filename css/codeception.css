@@ -1174,3 +1174,22 @@ body .panel-info>.panel-heading {
 .navbar-toggle {
 	margin-right: 0;
 }
+
+.main-logo svg {
+	width: 41px;
+	height: 29px;
+}
+
+@media screen and (min-width:768px) {
+	.main-logo svg {
+		width: 61px;
+		height: 45px;
+	}
+}
+
+@media screen and (min-width:991px) {
+	.main-logo svg {
+		width: 81px;
+		height: 60px;
+	}
+}
