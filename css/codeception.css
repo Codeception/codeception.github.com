@@ -1180,10 +1180,18 @@ body .panel-info>.panel-heading {
 	height: 29px;
 }
 
+.main-logo {
+	font-size: 16px !important;
+}
+
 @media screen and (min-width:768px) {
 	.main-logo svg {
 		width: 61px;
 		height: 45px;
+	}
+
+	.main-logo {
+		font-size: 20px !important;
 	}
 }
 
@@ -1191,5 +1199,9 @@ body .panel-info>.panel-heading {
 	.main-logo svg {
 		width: 81px;
 		height: 60px;
+	}
+
+	.main-logo {
+		font-size: 24px !important;
 	}
 }
