@@ -1181,6 +1181,8 @@ body .panel-info>.panel-heading {
 }
 
 .main-logo {
+	display: flex;
+	align-items: center;
 	font-size: 16px !important;
 }
 
@@ -1191,6 +1193,7 @@ body .panel-info>.panel-heading {
 	}
 
 	.main-logo {
+		display: block;
 		font-size: 20px !important;
 	}
 }
