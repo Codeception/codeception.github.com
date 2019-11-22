@@ -461,16 +461,18 @@ EOF;
             ->symlink("../$versionedFile", 'php56/codecept.phar')
             ->run();
 
+        $this->updateBuildsPage();
+
         $this->taskGitStack()
             ->stopOnFail()
             ->checkout('-- package/composer.json')
+            ->add('builds.markdown')
             ->add('codecept.phar')
             ->add('codecept.version')
             ->add('php56/codecept.phar')
             ->add('php56/codecept.version')
             ->add($releaseDir)
             ->run();
-        $this->updateBuildsPage();
     }
 
     private function setPlatformVersionTo($version)
@@ -486,7 +488,10 @@ EOF;
     public function buildPhar($targetFile)
     {
         $this->packPhar($targetFile);
-        $code = $this->taskExec('php ' . basename($targetFile))->dir(dirname($targetFile))->run()->getExitCode();
+        $dir = dirname($targetFile);
+        //the file must be named codecept.phar to be executable
+        $this->taskFilesystemStack()->copy($targetFile, $dir . '/codecept.phar')->run();
+        $code = $this->taskExec('php codecept.phar')->dir($dir)->run()->getExitCode();
         if ($code !== 0) {
             throw new Exception("There was problem compiling phar");
         }
