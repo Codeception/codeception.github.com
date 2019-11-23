@@ -1193,8 +1193,18 @@ body .panel-info>.panel-heading {
 	}
 
 	.main-logo {
-		display: block;
-		font-size: 20px !important;
+		display: inline-block;
+		font-size: 16px !important;
+		float: none !important;
+	}
+
+	.body .navbar.nav-custom {
+		padding: 20px 10px 10px;
+	}
+
+	.container-fluid>.navbar-header {
+		width: 100%;
+		text-align: center;
 	}
 }
 
@@ -1206,5 +1216,14 @@ body .panel-info>.panel-heading {
 
 	.main-logo {
 		font-size: 24px !important;
+		float: left !important;
+	}
+
+	.body .navbar.nav-custom {
+		padding: 10px;
+	}
+
+	.container-fluid>.navbar-header {
+		width: auto;
 	}
 }
