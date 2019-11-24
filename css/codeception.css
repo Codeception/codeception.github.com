@@ -1206,6 +1206,17 @@ body .panel-info>.panel-heading {
 		width: 100%;
 		text-align: center;
 	}
+
+	body .nav-custom .navbar-nav>li>a {
+		font-size: 16px;
+		padding: 10px;
+	}
+
+	.navbar-right {
+		float: none;
+		display: flex;
+		align-items: center;
+	}
 }
 
 @media screen and (min-width:991px) {
@@ -1225,5 +1236,15 @@ body .panel-info>.panel-heading {
 
 	.container-fluid>.navbar-header {
 		width: auto;
+	}
+
+	body .nav-custom .navbar-nav>li>a {
+		font-size: 18px;
+		padding: 10px 15px;
+	}
+
+	.navbar-right {
+		float: right;
+		display: block;
 	}
 }
