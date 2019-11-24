@@ -1213,7 +1213,7 @@ body .panel-info>.panel-heading {
 	}
 
 	.navbar-right {
-		float: none;
+		float: none !important;
 		display: flex;
 		align-items: center;
 	}
@@ -1244,7 +1244,7 @@ body .panel-info>.panel-heading {
 	}
 
 	.navbar-right {
-		float: right;
+		float: right !important;
 		display: block;
 	}
 }
