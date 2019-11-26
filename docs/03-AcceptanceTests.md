@@ -651,7 +651,7 @@ For more options see [`performOn()` reference](http://codeception.com/docs/modul
 When a web site acts unpredictably you may need to react on that change.
 This happens if site configured for A/B testing, or shows different popups, based on environment.
 
-Since Codeception 3.0 you can have some actions to fail silently, is they are errored.
+Since Codeception 3.0 you can have some actions to fail silently, if they are errored.
 Let's say, you open a page and some times there is a popup which should be closed. 
 We may try to hit the "close" button but if this action fails (no popup on page) we just continue the test.
 
