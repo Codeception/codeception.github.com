@@ -1222,6 +1222,7 @@ body .panel-info>.panel-heading {
 
 @media screen and (min-width:991px) {
 	.main-logo {
+		display: flex;
 		float: left !important;
 	}
 
