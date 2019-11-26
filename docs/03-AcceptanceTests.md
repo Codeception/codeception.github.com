@@ -731,7 +731,7 @@ $nickAdmin->leave();
 
 {% endhighlight %}
 
-Multi session testing is disabled by default. To enable it, add `\Codeception\Lib\Actor\Shared\Friend` into `AcceptancTester`.
+Multi session testing is disabled by default. To enable it, add `\Codeception\Lib\Actor\Shared\Friend` into `AcceptanceTester`.
 
 {% highlight php %}
 
