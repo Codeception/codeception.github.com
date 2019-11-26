@@ -1221,13 +1221,7 @@ body .panel-info>.panel-heading {
 }
 
 @media screen and (min-width:991px) {
-	.main-logo svg {
-		width: 81px;
-		height: 60px;
-	}
-
 	.main-logo {
-		font-size: 24px !important;
 		float: left !important;
 	}
 
@@ -1239,13 +1233,24 @@ body .panel-info>.panel-heading {
 		width: auto;
 	}
 
+	.navbar-right {
+		float: right !important;
+		display: block;
+	}
+}
+
+@media screen and (min-width:1170px) {
 	body .nav-custom .navbar-nav>li>a {
 		font-size: 18px;
 		padding: 10px 15px;
 	}
 
-	.navbar-right {
-		float: right !important;
-		display: block;
+	.main-logo {
+		font-size: 24px !important;
+	}
+
+	.main-logo svg {
+		width: 81px;
+		height: 60px;
 	}
 }
