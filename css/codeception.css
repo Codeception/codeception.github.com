@@ -1254,4 +1254,8 @@ body .panel-info>.panel-heading {
 		width: 81px;
 		height: 60px;
 	}
+
+	body .navbar.nav-custom {
+		padding: 15px 10px;
+	}
 }
