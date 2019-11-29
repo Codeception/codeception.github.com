@@ -345,6 +345,7 @@ body b {
 
 #footer .social {
 	display: inline-block;
+	width: 32px;
 	margin: 0 5px;
   opacity: 0.8;
 	text-decoration: none;
