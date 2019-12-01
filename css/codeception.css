@@ -367,11 +367,11 @@ body b {
 }
 
 .sponsors--phpstorm {
-	width: 100px;
+	width: 60px;
 }
 
 .sponsors--rebilly {
-	width:150px;
+	width:100px;
 	background: #fff;
 	border-radius: 20px;
 }
@@ -1256,6 +1256,14 @@ body .panel-info>.panel-heading {
 
 	#footer .social {
 		width: 64px;
+	}
+
+	.sponsors--phpstorm {
+		width: 100px;
+	}
+
+	.sponsors--rebilly {
+		width: 150px;
 	}
 }
 
