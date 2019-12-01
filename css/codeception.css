@@ -1187,6 +1187,11 @@ body .panel-info>.panel-heading {
 	font-size: 16px !important;
 }
 
+.footer-social {
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
 @media screen and (min-width:768px) {
 	.main-logo svg {
 		width: 61px;
@@ -1222,6 +1227,11 @@ body .panel-info>.panel-heading {
 
 	#footer .social {
 		width: 45px;
+	}
+
+	.footer-social {
+		margin-top: 0;
+		margin-bottom: 0;
 	}
 }
 
