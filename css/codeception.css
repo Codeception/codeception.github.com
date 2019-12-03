@@ -1255,7 +1255,7 @@ body .panel-info>.panel-heading {
 	}
 
 	#footer .social {
-		width: 64px;
+		width: 44px;
 	}
 
 	.sponsors--phpstorm {
@@ -1284,5 +1284,9 @@ body .panel-info>.panel-heading {
 
 	body .navbar.nav-custom {
 		padding: 15px 10px;
+	}
+
+	#footer .social {
+		width: 64px;
 	}
 }
