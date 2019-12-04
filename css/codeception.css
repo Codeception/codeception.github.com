@@ -393,14 +393,6 @@ body b {
   font-size: 16px;
 }
 
-#footer .links h4 {
-	font-size: 24px;
-  font-weight: bold;
-  text-transform: uppercase;	
-}
-
-
-
 #copyright {
 	color: #fff;
 	text-align: center;
@@ -1176,7 +1168,8 @@ body .panel-info>.panel-heading {
 	margin-right: 0;
 }
 
-.main-logo svg {
+.main-logo svg,
+.footer-logo img {
 	width: 41px;
 	height: 29px;
 }
@@ -1184,7 +1177,7 @@ body .panel-info>.panel-heading {
 .main-logo {
 	display: flex;
 	align-items: center;
-	font-size: 16px !important;
+	font-size: 14px !important;
 }
 
 .footer-social {
@@ -1192,8 +1185,15 @@ body .panel-info>.panel-heading {
 	margin-bottom: 25px;
 }
 
+#footer .links h4 {
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
 @media screen and (min-width:768px) {
-	.main-logo svg {
+	.main-logo svg,
+	.footer-logo img {
 		width: 61px;
 		height: 45px;
 	}
@@ -1232,6 +1232,10 @@ body .panel-info>.panel-heading {
 	.footer-social {
 		margin-top: 0;
 		margin-bottom: 0;
+	}
+
+	#footer .links h4 {
+		font-size: 16px;
 	}
 }
 
@@ -1273,11 +1277,13 @@ body .panel-info>.panel-heading {
 		padding: 10px 15px;
 	}
 
-	.main-logo {
+	.main-logo,
+	#footer .links h4 {
 		font-size: 24px !important;
 	}
 
-	.main-logo svg {
+	.main-logo svg,
+	.footer-logo img {
 		width: 81px;
 		height: 60px;
 	}
