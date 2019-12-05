@@ -1191,6 +1191,10 @@ body .panel-info>.panel-heading {
 	text-transform: uppercase;
 }
 
+.navbar-inverse .navbar-toggle:focus {
+	background-color: #dddddd;
+}
+
 @media screen and (min-width:768px) {
 	.main-logo svg,
 	.footer-logo img {
