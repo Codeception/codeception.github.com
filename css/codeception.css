@@ -449,7 +449,7 @@ ul.navbar-nav {
 	padding-top:0px;
 }
 
-.row.home-btns{
+.home-btns{
 	margin-top:40px;
 	margin-bottom:40px;
 }
@@ -586,7 +586,7 @@ body .btn-lg {
 		color:#333;
 	}
 
-	.row.home-btns{
+	.home-btns{
 		margin-bottom:20px;
 	}
 
