@@ -1152,7 +1152,7 @@ body .panel-info>.panel-heading {
 
 .community-wrapper .container {
 	border-top: 1px solid #eee;
-	padding: 50px
+	padding: 30px
 }
 
 .item--company-magma img {
@@ -1240,6 +1240,10 @@ body .panel-info>.panel-heading {
 
 	#footer .links h4 {
 		font-size: 16px;
+	}
+
+	.community-wrapper .container {
+		padding: 50px;
 	}
 }
 
