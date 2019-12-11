@@ -1195,6 +1195,10 @@ body .panel-info>.panel-heading {
 	background-color: #dddddd;
 }
 
+.panel-success img {
+	width: 100%;
+}
+
 @media screen and (min-width:768px) {
 	.main-logo svg,
 	.footer-logo img {
