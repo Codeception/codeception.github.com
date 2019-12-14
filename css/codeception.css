@@ -593,10 +593,6 @@ body .btn-lg {
 	ul {
 		padding-left: 20px;
 	}
-
-	body #footer .links {
-		display: block;
-	}
 }
 
 @media screen and (max-width : 767px) {
@@ -1199,6 +1195,14 @@ body .panel-info>.panel-heading {
 	width: 100%;
 }
 
+body #footer .links {
+	display: block;
+}
+
+#footer .links li {
+	font-size: 14px;
+}
+
 @media screen and (min-width:768px) {
 	.main-logo svg,
 	.footer-logo img {
@@ -1249,6 +1253,11 @@ body .panel-info>.panel-heading {
 	.community-wrapper .container {
 		padding: 50px;
 	}
+
+	body #footer .links {
+		display: flex;
+		justify-content: space-between;
+	}
 }
 
 @media screen and (min-width:991px) {
@@ -1281,9 +1290,13 @@ body .panel-info>.panel-heading {
 	.sponsors--rebilly {
 		width: 150px;
 	}
+
+	#footer .links li {
+		font-size: 16px;
+	}
 }
 
-@media screen and (min-width:1170px) {
+@media screen and (min-width:1200px) {
 	body .nav-custom .navbar-nav>li>a {
 		font-size: 18px;
 		padding: 10px 15px;
@@ -1306,5 +1319,9 @@ body .panel-info>.panel-heading {
 
 	#footer .social {
 		width: 64px;
+	}
+
+	body #footer .links {
+		justify-content: space-around;
 	}
 }
