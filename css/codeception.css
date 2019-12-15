@@ -1201,6 +1201,13 @@ body #footer .links {
 
 #footer .links li {
 	font-size: 14px;
+	display: inline-block;
+	margin: 5px;
+}
+
+.footer-logo {
+	display: block !important;
+	margin-bottom: 20px;
 }
 
 @media screen and (min-width:768px) {
@@ -1257,6 +1264,14 @@ body #footer .links {
 	body #footer .links {
 		display: flex;
 		justify-content: space-between;
+	}
+
+	.footer-logo {
+		margin-bottom: 0;
+	}
+
+	#footer .links li {
+		margin: 0;
 	}
 }
 
