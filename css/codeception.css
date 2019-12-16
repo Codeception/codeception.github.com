@@ -1207,7 +1207,7 @@ body #footer .links {
 
 .footer-logo {
 	display: block !important;
-	margin-bottom: 20px;
+	margin-bottom: 20px !important;
 }
 
 @media screen and (min-width:768px) {
@@ -1267,7 +1267,7 @@ body #footer .links {
 	}
 
 	.footer-logo {
-		margin-bottom: 0;
+		margin-bottom: 0 !important;
 	}
 
 	#footer .links li {
