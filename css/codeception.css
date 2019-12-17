@@ -1197,6 +1197,7 @@ body .panel-info>.panel-heading {
 
 body #footer .links {
 	display: block;
+	text-align: center;
 }
 
 #footer .links li {
