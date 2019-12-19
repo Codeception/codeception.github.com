@@ -1,5 +1,8 @@
 _site/
-.jekyll-metadata
-/composer.lock
-/vendor
 /.idea
+.jekyll-metadata
+/build
+/composer.lock
+/package/composer.lock
+/package/vendor
+/vendor

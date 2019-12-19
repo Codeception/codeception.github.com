@@ -72,7 +72,7 @@ Export:
  * `$xml->getDom` - get a DOMDocument object
  * `$xml->__toString` - get a string representation of XML.
 
-[Source code](https://github.com/Codeception/Codeception/blob/master/src/Codeception/Util/XmlBuilder.php)
+[Source code](https://github.com/Codeception/Codeception/blob/4.0/src/Codeception/Util/XmlBuilder.php)
 
 
 #### __construct()
