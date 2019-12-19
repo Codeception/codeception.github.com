@@ -43,14 +43,6 @@ title: Codeception Installation
         <div class="highlight">
           <pre><code>php vendor/bin/codecept bootstrap</code></pre>
         </div>
-        <h3>Minimal Codeception</h3>
-        <p>Currently Codeception installs Webdriver and Guzzle libraries as dependencies. If you don't plan to do acceptance testing, you can get minimal installation of Codeception by requiring `codeception/base`</p>
-
-        <p>Prepare tests directory and configs</p>
-        <div class="highlight">
-            <pre><code>composer require codeception/base --dev</code></pre>
-        </div>
-
       </div>
 
     </div>
@@ -88,15 +80,6 @@ title: Codeception Installation
       <div class="highlight">
         <pre><code>php codecept run -c /path/to/demo/project</code></pre>
       </div>
-      <p>If you want to build phar package you need to install <a href="http://robo.li">Robo Task Runner</a> and execute
-      </p>
-      <div class="highlight">
-      <pre><code>robo build:phar</code></pre>        
-      </div>
-      <p>To generate documentation files run</p>
-      <div class="highlight">
-      <pre><code>robo build:docs</code></pre>        
-      </div>      
     </p>
     <p>Don't forget to send Pull Requests!</p>
   </div>

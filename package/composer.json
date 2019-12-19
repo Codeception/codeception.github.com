@@ -1,0 +1,28 @@
+{
+  "name": "codeception/phar-file",
+  "type": "project",
+  "description": "Dependencies are used to build phar-file",
+  "license":"MIT",
+
+  "require": {
+    "codeception/codeception": "4.0.x-dev | >=4.0",
+    "codeception/module-amqp": "*",
+    "codeception/module-apc": "*",
+    "codeception/module-asserts": "*",
+    "codeception/module-cli": "*",
+    "codeception/module-db": "*",
+    "codeception/module-filesystem": "*",
+    "codeception/module-ftp": "*",
+    "codeception/module-memcache": "*",
+    "codeception/module-mongodb": "*",
+    "codeception/module-phpbrowser": "*",
+    "codeception/module-queue": "*",
+    "codeception/module-redis": "*",
+    "codeception/module-rest": "*",
+    "codeception/module-sequence": "*",
+    "codeception/module-soap": "*",
+    "codeception/module-webdriver": "*",
+    "hoa/console": "*",
+    "padraic/phar-updater": "^1.0"
+  }
+}
