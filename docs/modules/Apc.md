@@ -5,9 +5,31 @@ title: Apc - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" style="background: #ff8b07;" href="https://github.com/Codeception/module-Apc/releases">Changelog</a><a class="btn btn-default" href="https://github.com/Codeception/module-apc/tree/master/src/Codeception/Module/Apc.php"><strong>source</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/3.1/docs/modules/Apc.md">3.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.5/docs/modules/Apc.md">2.5</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Apc.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/module-Apc/releases">Changelog</a><a class="btn btn-default" href="https://github.com/Codeception/module-apc/tree/master/src/Codeception/Module/Apc.php"><strong>source</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/3.1/docs/modules/Apc.md">3.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.5/docs/modules/Apc.md">2.5</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Apc.md">1.8</a></div>
 
 # Apc
+### Installation
+
+If you use Codeception installed using composer, install this module with the following command:
+
+{% highlight yaml %}
+composer require --dev codeception/module-apc
+
+{% endhighlight %}
+
+Alternatively, you can enable `Apc` module in suite configuration file and run
+ 
+{% highlight yaml %}
+codecept init upgrade4
+
+{% endhighlight %}
+
+This module was bundled with Codeception 2 and 3, but since version 4 it is necessary to install it separately.   
+Some modules are bundled with PHAR files.  
+Warning. Using PHAR file and composer in the same project can cause unexpected errors.  
+
+### Description
+
 
 
 This module interacts with the [Alternative PHP Cache (APC)](http://php.net/manual/en/intro.apcu.php)
