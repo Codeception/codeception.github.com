@@ -13,7 +13,7 @@ title: REST - Codeception - Documentation
 If you use Codeception installed using composer, install this module with the following command:
 
 {% highlight yaml %}
-composer require --dev codeception/codeception/module-rest
+composer require --dev codeception/module-rest
 
 {% endhighlight %}
 
