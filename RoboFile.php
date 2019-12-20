@@ -119,6 +119,7 @@ class RoboFile extends \Robo\Tasks
         $this->buildDocsStub();
         $this->buildDocsApi();
         $this->buildDocsExtensions();
+        $this->changelog();
     }
 
     public function buildDocsModules()
@@ -152,7 +153,10 @@ class RoboFile extends \Robo\Tasks
         foreach (['3.1', '2.5', '1.8'] as $branch) {
             $buttons[$branch] = self::REPO_BLOB_URL."/$branch/docs/modules/$name.md";
         }
+
         $buttonHtml = "\n\n".'<div class="btn-group" role="group" style="float: right" aria-label="...">';
+        $releasesUrl = "https://github.com/Codeception/module-$name/releases";
+        $buttonHtml .= '<a class="btn btn-warning" href="'.$releasesUrl.'">Changelog</a>';
         foreach ($buttons as $link => $url) {
             if ($link == 'source') {
                 $link = "<strong>$link</strong>";
@@ -368,6 +372,51 @@ EOF;
             ->reorderMethods('ksort')
             ->run();
     }
+
+    public function changelog() {
+        $this->say('building changelog');
+        $this->taskWriteToFile('changelog.markdown')
+            ->line('---')
+            ->line('layout: page')
+            ->line('title: Codeception Changelog')
+            ->line('---')
+            ->line('')
+            ->line(
+                '<div class="alert alert-warning">Download specific version at <a href="/builds">builds page</a></div>'
+            )
+            ->line('')
+            ->line('# Changelog')
+            ->line('')
+            ->line($this->processChangelog())
+            ->run();                    
+    }    
+
+    protected function processChangelog()
+    {
+        $sortByVersionDesc = function (\SplFileInfo $a, \SplFileInfo $b) {
+            $pattern = '/^CHANGELOG-(\d+\.\d+).md$/';
+            if (preg_match($pattern, $a->getBasename(), $matches1) && preg_match($pattern, $b->getBasename(), $matches2)) {
+                return version_compare($matches1[1], $matches2[1]) * -1;
+            }
+            return 0;
+        };
+        $changelogFiles = Finder::create()->name('CHANGELOG-*.md')->in('vendor/codeception/codeception')->depth(0)->sort($sortByVersionDesc);
+        $changelog = "\n";
+        foreach ($changelogFiles as $file) {
+            $changelog .= $file->getContents();
+        }
+        //user
+        $changelog = preg_replace('~\s@([\w-]+)~', ' **[$1](https://github.com/$1)**', $changelog);
+        //issue
+        $changelog = preg_replace(
+            '~#(\d+)~',
+            '[#$1](https://github.com/Codeception/Codeception/issues/$1)',
+            $changelog
+        );
+        //module
+        $changelog = preg_replace('~\s\[(\w+)\]\s~', ' **[$1]** ', $changelog);
+        return $changelog;
+    }    
 
     /**
      * @param $name

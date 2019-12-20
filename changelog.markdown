@@ -7,6 +7,18 @@ title: Codeception Changelog
 
 # Changelog
 
+
+#### 4.0.0
+
+* Extracted modules from Codeception core to separate repository
+* Separated building of phar files and documentation from Codeception core.
+* Implemented upgrade script
+* Support for Symfony 5
+* Support for phpdotenv v4 by **[sunspikes](https://github.com/sunspikes)**
+* New Feature: Ability to stash/unstash commands in interactive mode by **[pohnean](https://github.com/pohnean)**
+* **[Fixtures]** Cleanup by name **[soupli](https://github.com/soupli)**
+* GroupManager throws exception if path used in group configuration does not exist.
+* GroupManager supports absolute and backtracking (..) paths in group files.
 #### 3.1.2
 
 * **[Doctrine2]** Support non-entity doctrine **[id](https://github.com/id)** on the haveInRepository debug message by **[Basster](https://github.com/Basster)** 
