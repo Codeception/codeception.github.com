@@ -31,7 +31,7 @@ Fixtures::exists('user1');
 
 #### cleanup()
 
- *public static* cleanup() 
+ *public static* cleanup($name = null) 
 
 [See source](https://github.com/Codeception/Codeception/blob/4.0/src/Codeception/Util/Fixtures.php#L35)
 
@@ -39,7 +39,7 @@ Fixtures::exists('user1');
 
  *public static* exists($name) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.0/src/Codeception/Util/Fixtures.php#L40)
+[See source](https://github.com/Codeception/Codeception/blob/4.0/src/Codeception/Util/Fixtures.php#L45)
 
 #### get()
 

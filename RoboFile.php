@@ -165,7 +165,7 @@ class RoboFile extends \Robo\Tasks
         }
         $buttonHtml = "\n\n" . '<div class="btn-group" role="group" style="float: right" aria-label="...">';
         $releasesUrl = "https://github.com/Codeception/module-$name/releases";
-        $buttonHtml .= '<a class="btn btn-warning" href="'.$releasesUrl.'">Changelog</a>';
+        $buttonHtml .= '<a class="btn btn-default" style="background: #ff8b07;" href="'.$releasesUrl.'">Changelog</a>';
         foreach ($buttons as $link => $url) {
             if ($link == 'source') {
                 $link = "<strong>$link</strong>";
