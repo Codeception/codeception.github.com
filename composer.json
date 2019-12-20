@@ -32,5 +32,9 @@
     "codeception/module-zendexpressive": "*",
     "codeception/module-zf2": "*",
     "codeception/util-robohelpers": "dev-master"
+  },
+  "require-dev": {
+    "symfony/event-dispatcher": "4.4.*",
+    "consolidation/robo": "^2.0"    
   }
 }
