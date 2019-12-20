@@ -8,6 +8,28 @@ title: SOAP - Codeception - Documentation
 <div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-warning" href="https://github.com/Codeception/module-SOAP/releases">Changelog</a><a class="btn btn-default" href="https://github.com/Codeception/module-soap/tree/master/src/Codeception/Module/SOAP.php"><strong>source</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/3.1/docs/modules/SOAP.md">3.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.5/docs/modules/SOAP.md">2.5</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/SOAP.md">1.8</a></div>
 
 # SOAP
+### Installation
+
+If you use Codeception installed using composer, install this module with the following command:
+
+{% highlight yaml %}
+composer require --dev codeception/codeception/module-soap
+
+{% endhighlight %}
+
+Alternatively, you can enable `SOAP` module in suite configuration file and run
+ 
+{% highlight yaml %}
+codecept init upgrade4
+
+{% endhighlight %}
+
+This module was bundled with Codeception 2 and 3, but since version 4 it is necessary to install it separately.   
+Some modules are bundled with PHAR files.  
+Warning. Using PHAR file and composer in the same project can cause unexpected errors.  
+
+### Description
+
 
 
 Module for testing SOAP WSDL web services.
