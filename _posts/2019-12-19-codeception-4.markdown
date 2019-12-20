@@ -8,7 +8,7 @@ We are finally here!
 
 Codeception 4.0 is released and this means a lot for us!
 
-After long months on spitting core into modules, publishing new packages and setting up build pipelines, we are proud to show you the result.
+After long months on splitting core into modules, publishing new packages and setting up build pipelines, we are proud to show you the result.
 
 As you know - Codeception 4 changes the way it is installed. From now on, Codeception package won't include any modules by default and you will need to install them manually. This can be a bit annoying at first but in the end, this will allow you to upgrade each package individually and not relying on the core.
 
@@ -40,7 +40,7 @@ php vendor/bin/codecept init upgrade4 -c src/app/frontend/
 
 Congratulations! An upgrade is done. Now you will be able to use each module individually.
 
-**Thanks to Gintautas Miselis @Naktibalda for splitting the core and working Symfony support**
+**Thanks to Gintautas Miselis @Naktibalda for splitting the core and adding Symfony 5 support**
 
 ## Phar Distribution
 
@@ -90,7 +90,7 @@ Thank you for using Codeception, and thank you for staying with us these years.
 It is December 2019, so it means that **Codeception turns 8**. Through these years we reached 15Mln installations on Packagist, we are used in some well-known companies and we became a valuable part of PHP ecosystem.
 
 
-We accept congratulations [in Twitter](https://twitter.com/codeception) or [on OpenCollective](https://opencollective.com/codeception). If your business gets some value from Codeception it is ok to support its maintainers. Especially, today, when we have to maintain not one repository 32! So, if possible, talk to your boss and ask for sponsoring Codeception. This means a lot to us, Codeception Team, and it will motivate us to work more on Codeception.
+We accept congratulations [in Twitter](https://twitter.com/codeception) or [on OpenCollective](https://opencollective.com/codeception). If your business gets some value from Codeception it is ok to support its maintainers. Especially, today, when we have to maintain not one repository but 32! So, if possible, talk to your boss and ask for sponsoring Codeception. This means a lot to us, Codeception Team, and it will motivate us to work more on Codeception.
 
 We say "thank you" to all our current and previous sponsors:
 
