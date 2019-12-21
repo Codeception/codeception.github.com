@@ -370,11 +370,14 @@ body b {
 	width: 60px;
 }
 
-.sponsors--rebilly {
+.sponsors--rebilly,
+.sponsors--themeisle {
 	width:100px;
 	background: #fff;
 	border-radius: 20px;
 }
+
+
 
 #footer a {
 	color: #fff;
@@ -1303,7 +1306,8 @@ body #footer .links {
 		width: 100px;
 	}
 
-	.sponsors--rebilly {
+	.sponsors--rebilly,
+	.sponsors--themeisle {
 		width: 150px;
 	}
 
