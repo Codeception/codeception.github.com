@@ -377,7 +377,9 @@ body b {
 	border-radius: 20px;
 }
 
-
+.sponsors--themeisle {
+  padding: 5px;
+}
 
 #footer a {
 	color: #fff;
