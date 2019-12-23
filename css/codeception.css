@@ -505,11 +505,6 @@ body .hero h1 {
 	text-transform: none;;
 }
 
-.hero .quiet {
-	color: #ddd;
-	font-size: 50px;
-}
-
 .hero h1 {
 	color: #fff;
 	font-size: 120px;
@@ -1217,6 +1212,11 @@ body #footer .links {
 	margin-bottom: 20px !important;
 }
 
+.hero .quiet {
+	color: #ddd;
+	font-size: 32px;
+}
+
 @media screen and (min-width:768px) {
 	.main-logo svg,
 	.footer-logo img {
@@ -1279,6 +1279,10 @@ body #footer .links {
 
 	#footer .links li {
 		margin: 0;
+	}
+
+	.hero .quiet {
+		font-size: 50px;
 	}
 }
 
