@@ -475,15 +475,15 @@ EOF;
         file_put_contents($documentationFile, $contents);
     }
 
-    public function release()
+    public function buildPhar72()
     {
-        $version = self::STABLE_BRANCH . '.' . date('Ymd');
+        $version    = self::STABLE_BRANCH . '.' . date('Ymd');
+        $releaseDir = "releases/$version";
         $this->stopOnFail();
 
-        $this->taskFilesystemStack()->mkdir('build')->run();
-        $releaseDir    = "releases/$version";
+        $this->taskFilesystemStack()->mkdir('build/72')->run();
         $this->setPlatformVersionTo('7.2.0');
-        $buildFile = 'build/codecept72.phar';
+        $buildFile = 'build/72/codecept.phar';
         $this->buildPhar($buildFile);
         $this->updateVersionFile($buildFile, 'codecept.version');
         $versionedFile = "$releaseDir/codecept.phar";
@@ -494,10 +494,18 @@ EOF;
             ->remove('codecept.phar')
             ->symlink($versionedFile, 'codecept.phar')
             ->run();
+    }
 
+    public function buildPhar56()
+    {
+        $version    = self::STABLE_BRANCH . '.' . date('Ymd');
+        $releaseDir = "releases/$version";
+        $this->stopOnFail();
+
+        $this->taskFilesystemStack()->mkdir('build/56')->run();
         $this->setPlatformVersionTo('5.6.0');
         //filenames must be different, because Phar refuses to build second file with the same name
-        $buildFile = 'build/codecept56.phar';
+        $buildFile = 'build/56/codecept.phar';
         $this->buildPhar($buildFile);
         $this->updateVersionFile($buildFile, 'php56/codecept.version');
         $versionedFile = "$releaseDir/php56/codecept.phar";
@@ -509,6 +517,12 @@ EOF;
             ->symlink("../$versionedFile", 'php56/codecept.phar')
             ->run();
 
+    }
+
+    public function release()
+    {
+        $version    = self::STABLE_BRANCH . '.' . date('Ymd');
+        $releaseDir = "releases/$version";
         $this->updateBuildsPage();
 
         $this->taskGitStack()
