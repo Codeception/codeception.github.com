@@ -1023,17 +1023,6 @@ body .panel-info>.panel-heading {
 	min-height: 400px
 }
 
-.hero--laravel .quiet {
-	margin-left: 200px;
-}
-
-.hero--laravel img {
-	width: 200px;
-	border-radius: 10px;
-	background: #fff;
-	padding: 10px;
-}
-
 .hero--symfony img {
 	width: 70%;
 	max-width: 800px;
@@ -1217,6 +1206,17 @@ body #footer .links {
 	font-size: 32px;
 }
 
+.hero--laravel img {
+	width: 200px;
+	border-radius: 10px;
+	background: #fff;
+	padding: 10px;
+}
+
+.hero--laravel .quiet {
+	margin-bottom: 30px;
+}
+
 @media screen and (min-width:768px) {
 	.main-logo svg,
 	.footer-logo img {
@@ -1284,6 +1284,11 @@ body #footer .links {
 	.hero .quiet {
 		font-size: 50px;
 	}
+
+	.hero--laravel .quiet {
+		margin-left: 228px;
+		margin-bottom: 0;
+	}
 }
 
 @media screen and (min-width:991px) {
@@ -1320,6 +1325,10 @@ body #footer .links {
 
 	#footer .links li {
 		font-size: 16px;
+	}
+
+	.hero--laravel .quiet {
+		margin-left: 200px;
 	}
 }
 
