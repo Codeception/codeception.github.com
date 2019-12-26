@@ -1201,7 +1201,7 @@ body #footer .links {
 }
 
 .hero--laravel img {
-	width: 200px;
+	width: 100px;
 	border-radius: 10px;
 	background: #fff;
 	padding: 10px;
@@ -1285,13 +1285,12 @@ body #footer .links {
 		font-size: 50px;
 	}
 
-	.hero--laravel .quiet {
-		margin-left: 228px;
-		margin-bottom: 0;
-	}
-
 	.hero h1 {
 		font-size: 80px;
+	}
+
+	.hero--laravel img {
+		width: 140px;
 	}
 }
 
@@ -1331,12 +1330,12 @@ body #footer .links {
 		font-size: 16px;
 	}
 
-	.hero--laravel .quiet {
-		margin-left: 200px;
-	}
-
 	.hero h1 {
 		font-size: 100px;
+	}
+
+	.hero--laravel img {
+		width: 160px;
 	}
 }
 
@@ -1371,5 +1370,9 @@ body #footer .links {
 
 	.hero h1 {
 		font-size: 120px;
+	}
+
+	.hero--laravel img {
+		width: 200px;
 	}
 }
