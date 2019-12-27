@@ -1038,10 +1038,6 @@ body .panel-info>.panel-heading {
 	margin-top: 80px;
 }
 
-.hero--wp .quiet{
-	color: #464646;
-}
-
 .container--addons {
 	margin-bottom: 1.5em;
 }
@@ -1217,6 +1213,11 @@ body #footer .links {
 	font-weight: bold;
 }
 
+.hero--wp .quiet {
+	margin-bottom: 20px;
+	color: #464646;
+}
+
 @media screen and (min-width:768px) {
 	.main-logo svg,
 	.footer-logo img {
@@ -1336,6 +1337,10 @@ body #footer .links {
 
 	.hero--laravel img {
 		width: 160px;
+	}
+
+	.hero--wp .quiet{
+		margin-bottom: 0;
 	}
 }
 
