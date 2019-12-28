@@ -501,8 +501,10 @@ body .navbar-inverse .navbar-brand:hover {
 }
 
 body .hero h1 {
+	margin-top: 0;
+	margin-bottom: 0;
 	font-family: 'Lato', sans-serif;
-	text-transform: none;;
+	text-transform: none;
 }
 
 #home-hero{
