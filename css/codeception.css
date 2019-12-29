@@ -491,8 +491,7 @@ body .navbar-inverse .navbar-brand:hover {
 
 .hero {
 	background: #236BFD;	
-	background-size: cover; 
-	min-height: 400px;
+	background-size: cover;
 	width: 100%;	
 	font-family: 'Lato', sans-serif;
 	padding-top: 20px;
@@ -1013,10 +1012,6 @@ body .panel-info>.panel-heading {
 		display: flex;
 		align-items: center;
 	}
-}
-
-.hero--laravel {
-	min-height: 400px
 }
 
 .hero--symfony img {
