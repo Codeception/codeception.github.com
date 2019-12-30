@@ -75,7 +75,8 @@ modules:
             part: SERVICES
         - Doctrine2:
             depends: Symfony
-``
+
+{% endhighlight %}
 
 You cannot use `cleanup: true` in an acceptance test, since Codeception and your app (i.e. browser) are using two
 different connections to the database, so Codeception can't wrap changes made by the app into a transaction.
@@ -99,14 +100,16 @@ Every method that expects some parameters to be checked against values in the da
 flexibility, e.g.:
 
 
-{% endhighlight %} php
+{% highlight php %}
+
 $I->seeInRepository('User', [
     'name' => 'John',
     Criteria::create()->where(
         Criteria::expr()->endsWith('email', '@domain.com')
     ),
 ]);
-```
+
+{% endhighlight %}
 
 If criteria is just a `->where(...)` construct, you can pass just expression without criteria wrapper:
 
