@@ -69,7 +69,7 @@
   description: This module allows the testing against external messaging services as well as triggering notifications via your tests, currently supports HipChat messaging service.
 
 - name: MailCare
-  image: https://raw.githubusercontent.com/mailcare/codeception-module-mailcare/master/logo.png
+  image: https://raw.githubusercontent.com/mailcare/codeception-module-mailcare/master/codeception-addons.png
   link: https://github.com/mailcare/codeception-module-mailcare
   description: Codeception module to test email using MailCare.io (Free, Open Source or paid services).
   color: "#e65722"
