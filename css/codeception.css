@@ -1211,6 +1211,10 @@ body #footer .links {
 	color: #464646;
 }
 
+.hero .wide {
+	margin-top: 0;
+}
+
 @media screen and (min-width:768px) {
 	.main-logo svg,
 	.footer-logo img {
