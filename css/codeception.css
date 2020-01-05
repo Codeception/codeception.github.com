@@ -1031,6 +1031,10 @@ body .panel-info>.panel-heading {
 	background-color: #fff;
 }
 
+.hero--wp img {
+	max-width: 100%;
+}
+
 .container--addons {
 	margin-bottom: 1.5em;
 }
