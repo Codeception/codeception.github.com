@@ -7,6 +7,11 @@ title: Codeception Changelog
 
 # Changelog
 
+#### 4.0.1
+
+* Fixed error reporting error in upgrade4 script
+* Symfony 5 compatibility: Improved detection of event-dispatcher version
+
 
 #### 4.0.0
 
@@ -19,6 +24,7 @@ title: Codeception Changelog
 * **[Fixtures]** Cleanup by name **[soupli](https://github.com/soupli)**
 * GroupManager throws exception if path used in group configuration does not exist.
 * GroupManager supports absolute and backtracking (..) paths in group files.
+
 #### 3.1.2
 
 * **[Doctrine2]** Support non-entity doctrine **[id](https://github.com/id)** on the haveInRepository debug message by **[Basster](https://github.com/Basster)** 
@@ -80,7 +86,9 @@ $result = $I->runSymfonyConsoleCommand('hello:world', '--verbose' => 3]);
 * Improved file path detection for groups [#5609](https://github.com/Codeception/Codeception/issues/5609) by **[adaniloff](https://github.com/adaniloff)**
 * Shortened error output of unexpected exit to one line by **[Slamdunk](https://github.com/Slamdunk)**
 * Fixed composer.json of codeception/base package
+
 #### 3.0.3
+
 - **[Laravel5]** Add `make` and `makeMultiple` methods for generating model instance by **[ibpavlov](https://github.com/ibpavlov)**
 - **[Lumen]** Add `make` and `makeMultiple` methods for generating model instance by **[ibpavlov](https://github.com/ibpavlov)**
 - **[Phalcon]** ActiveRecord: escape all column names using [] by **[maxgalbu](https://github.com/maxgalbu)**
@@ -142,6 +150,7 @@ $result = $I->runSymfonyConsoleCommand('hello:world', '--verbose' => 3]);
 * Recorder Extension: Added timestamp information with `include_microseconds` config option. By **[OneEyedSpaceFish](https://github.com/OneEyedSpaceFish)**.
 * **[REST]** Fixed sending request with duplicated slash with endpoint + URL. By **[nicholascus](https://github.com/nicholascus)** 
 * **[Db]** Remove generateWhereClause method from SqlSrv to be compatible with other drivers. By **[Naktibalda](https://github.com/Naktibalda)**
+
 #### 2.5.6
 
 * **[WebDriver]** Fixed `loadSessionSnapshot` with php-webdriver 1.1.3 by **[Naktibalda](https://github.com/Naktibalda)**.
@@ -149,7 +158,6 @@ $result = $I->runSymfonyConsoleCommand('hello:world', '--verbose' => 3]);
 * [PhpBrowser][Frameworks] Support for `formaction` attribute in `button` to submit forms. By **[Dezzpil](https://github.com/Dezzpil)**
 * **[FTP]** Updated to phpseclib v2 constants
 * Fixes: Gherkin Scenarios not loading when specified in group file by **[mozillalives](https://github.com/mozillalives)**. See [#5457](https://github.com/Codeception/Codeception/issues/5457)
-
 
 #### 2.5.5
 
@@ -176,7 +184,6 @@ $result = $I->runSymfonyConsoleCommand('hello:world', '--verbose' => 3]);
 * Updated vlucas/phpdotenv package to ^3.0 version by **[KartaviK](https://github.com/KartaviK)**
 * Documentation improvements by **[chrisaligent](https://github.com/chrisaligent)** **[richleland](https://github.com/richleland)** **[SanzhiyevMergen](https://github.com/SanzhiyevMergen)** **[sdlins](https://github.com/sdlins)**
 
-
 #### 2.5.2
 
 * **[ZendExppressive]** Support for Zend Expressive v3 by **[Naktibalda](https://github.com/Naktibalda)** 
@@ -199,7 +206,6 @@ $result = $I->runSymfonyConsoleCommand('hello:world', '--verbose' => 3]);
 * Run command: Added `--phpunit-xml` option, which produces xml report having the same structure as PhpUnit's [#5004](https://github.com/Codeception/Codeception/issues/5004) by **[Naktibalda](https://github.com/Naktibalda)** 
 * Bootstrap command: Changed namespace shortcut to `-s` [#5275](https://github.com/Codeception/Codeception/issues/5275) by **[Naktibalda](https://github.com/Naktibalda)**
 * Improved the docs; by **[h311ion](https://github.com/h311ion)**, **[gimler](https://github.com/gimler)**, **[picass0](https://github.com/picass0)**, **[josephzidell](https://github.com/josephzidell)**
-
 
 #### 2.5.1
 
@@ -252,6 +258,7 @@ $result = $I->runSymfonyConsoleCommand('hello:world', '--verbose' => 3]);
 * Added ext-curl to the composer require section by **[siad007](https://github.com/siad007)**
 * Make `coverage: show_only_summary` configurable. See [#5142](https://github.com/Codeception/Codeception/issues/5142) by **[Quexer69](https://github.com/Quexer69)**
 * Ensure php extension `mbstring` is available by **[siad007](https://github.com/siad007)**. Fixes [#4575](https://github.com/Codeception/Codeception/issues/4575) 
+
 #### 2.4.5
 
 * Fixed PHPUnit 7.2 compatibility.
@@ -314,7 +321,6 @@ modules:
 * Fix error on single file test. See [#4986](https://github.com/Codeception/Codeception/issues/4986) by **[mikbox74](https://github.com/mikbox74)** 
 * Upgraded to Codeception/Stub 2.0 by **[Naktibalda](https://github.com/Naktibalda)**, fixed compatibility.
  
-
 #### 2.4.1
 
 * Fixed "Uncaught Error: Call to undefined method Codeception\Test\Descriptor::getTestDataSetIndex()" error when filtering tests.
@@ -371,7 +377,6 @@ $I->fillField('password', new PasswordArgument('thisissecret'));
 * **[REST]** Add missing / to relative url from config by **[bscheshirwork](https://github.com/bscheshirwork)** 
 * Fixed HTML Report marks tests as succeeded by **[mpgo13](https://github.com/mpgo13)**
 * `clean` command works recursively with included setups. By **[davidnewcomb](https://github.com/davidnewcomb)** 
-
 
 #### 2.3.8
 
@@ -552,7 +557,6 @@ codecept run --ext DotReporter
 * Bootstrap `_bootstrap.php` files are disabled by default.
 * Configuration changes: `actor` replaced with `actor_suffix` in global config
 * Configuration changes: `class_name` replaced with `actor` in suite config
-
 
 #### 2.2.12
 
@@ -950,6 +954,7 @@ extensions:
 * **[Sequence]** Changed the prefix value. Generated sequences to include id inside a prefix: `sq('user1') => 'user1_876asd8as87a'. Added `prefix` config option.
 * Deprecation errors won't fail tests but will be printed.
 * Official [Docker image](https://hub.docker.com/r/codeception/codeception/) introduced by **[schmunk42](https://github.com/schmunk42)**
+
 #### 2.1.11
 
 * **[Yii1]** Improved Yii connector. AR metadata is cleaned up between requests. `regenerateId` of session is disabled.
