@@ -416,7 +416,7 @@ EOF;
             return 0;
         };
         $changelogFiles = Finder::create()->name('CHANGELOG-*.md')->in('vendor/codeception/codeception')->depth(0)->sort($sortByVersionDesc);
-        $changelog = "\n";
+        $changelog = "\n\n";
         foreach ($changelogFiles as $file) {
             $changelog .= $file->getContents();
         }
