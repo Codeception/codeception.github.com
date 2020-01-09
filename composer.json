@@ -20,6 +20,7 @@
     "codeception/module-memcache": "*",
     "codeception/module-mongodb": "*",
     "codeception/module-phalcon": "*",
+    "codeception/module-phalcon4": "*",
     "codeception/module-phpbrowser": "*",
     "codeception/module-queue": "*",
     "codeception/module-redis": "*",
@@ -35,6 +36,6 @@
   },
   "require-dev": {
     "symfony/event-dispatcher": "4.4.*",
-    "consolidation/robo": "^2.0"    
+    "consolidation/robo": "^2.0"
   }
 }
