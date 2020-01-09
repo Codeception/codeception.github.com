@@ -8,7 +8,6 @@ sidebar: |
 
   * Access Phalcon services through the dependency injection container: `$I->grabService(...)`
   * Combine **all testing levels** (unit, functional, acceptance)
-  * 
 
   ## Reference
 
