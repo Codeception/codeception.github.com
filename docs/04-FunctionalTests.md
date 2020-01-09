@@ -146,10 +146,10 @@ modules:
 
 > See module reference to more configuration options
 
-### Phalcon
+### Phalcon 4
 
-The `Phalcon` module requires creating a bootstrap file which returns an instance of `\Phalcon\Mvc\Application`.
-To start writing functional tests with Phalcon support you should enable the `Phalcon` module
+The `Phalcon4` module requires creating a bootstrap file which returns an instance of `\Phalcon\Mvc\Application`.
+To start writing functional tests with Phalcon support you should enable the `Phalcon4` module
 and provide the path to this bootstrap file:
 
 {% highlight yaml %}
@@ -159,14 +159,14 @@ and provide the path to this bootstrap file:
 actor: FunctionalTester
 modules:
     enabled:
-        - Phalcon:
+        - Phalcon4:
             bootstrap: 'app/config/bootstrap.php'
              cleanup: true
              savepoints: true
 
 {% endhighlight %}
 
-[See the full reference](http://codeception.com/docs/modules/Phalcon)
+[See the full reference](http://codeception.com/docs/modules/Phalcon4)
 
 ## Writing Functional Tests
 
