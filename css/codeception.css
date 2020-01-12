@@ -1298,6 +1298,11 @@ body #footer .links {
 	.hero--laravel img {
 		width: 140px;
 	}
+
+	.navbar-collapse {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+	}
 }
 
 @media screen and (min-width:991px) {
