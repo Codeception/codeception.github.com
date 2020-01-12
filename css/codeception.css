@@ -1035,6 +1035,10 @@ body .panel-info>.panel-heading {
 	max-width: 100%;
 }
 
+.hero--phalcon img {
+	max-width: 100%;
+}
+
 .container--addons {
 	margin-bottom: 1.5em;
 }
