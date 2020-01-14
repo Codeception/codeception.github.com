@@ -1039,6 +1039,10 @@ body .panel-info>.panel-heading {
 	max-width: 100%;
 }
 
+.hero--phalcon .quiet {
+	margin-bottom: 20px;
+}
+
 .container--addons {
 	margin-bottom: 1.5em;
 }
@@ -1222,6 +1226,7 @@ body #footer .links {
 .hero .wide {
 	margin-top: 0;
 }
+
 
 @media screen and (min-width:768px) {
 	.main-logo svg,
