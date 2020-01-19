@@ -1078,6 +1078,11 @@ body .panel-info>.panel-heading {
 	height: 90px;
 }
 
+.item--phalcon img {
+	width: 125px;
+	height: 125px;
+}
+
 .fill-thanks {
 	padding-top: 3em;
 	padding-bottom: 4em;
