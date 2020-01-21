@@ -579,6 +579,7 @@ EOF;
             ->name('*.woff')
             ->name('*.woff2')
             ->name('*.png')
+            ->name('*.tpl')
             ->name('*.tpl.dist')
             ->name('*.html.dist')
             ->exclude('Tests')
