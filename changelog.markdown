@@ -24,6 +24,7 @@ title: Codeception Changelog
 * **[Fixtures]** Cleanup by name **[soupli](https://github.com/soupli)**
 * GroupManager throws exception if path used in group configuration does not exist.
 * GroupManager supports absolute and backtracking (..) paths in group files.
+
 #### 3.1.2
 
 * **[Doctrine2]** Support non-entity doctrine **[id](https://github.com/id)** on the haveInRepository debug message by **[Basster](https://github.com/Basster)** 
@@ -85,6 +86,7 @@ $result = $I->runSymfonyConsoleCommand('hello:world', '--verbose' => 3]);
 * Improved file path detection for groups [#5609](https://github.com/Codeception/Codeception/issues/5609) by **[adaniloff](https://github.com/adaniloff)**
 * Shortened error output of unexpected exit to one line by **[Slamdunk](https://github.com/Slamdunk)**
 * Fixed composer.json of codeception/base package
+
 #### 3.0.3
 - **[Laravel5]** Add `make` and `makeMultiple` methods for generating model instance by **[ibpavlov](https://github.com/ibpavlov)**
 - **[Lumen]** Add `make` and `makeMultiple` methods for generating model instance by **[ibpavlov](https://github.com/ibpavlov)**
@@ -147,6 +149,7 @@ $result = $I->runSymfonyConsoleCommand('hello:world', '--verbose' => 3]);
 * Recorder Extension: Added timestamp information with `include_microseconds` config option. By **[OneEyedSpaceFish](https://github.com/OneEyedSpaceFish)**.
 * **[REST]** Fixed sending request with duplicated slash with endpoint + URL. By **[nicholascus](https://github.com/nicholascus)** 
 * **[Db]** Remove generateWhereClause method from SqlSrv to be compatible with other drivers. By **[Naktibalda](https://github.com/Naktibalda)**
+
 #### 2.5.6
 
 * **[WebDriver]** Fixed `loadSessionSnapshot` with php-webdriver 1.1.3 by **[Naktibalda](https://github.com/Naktibalda)**.
@@ -257,6 +260,7 @@ $result = $I->runSymfonyConsoleCommand('hello:world', '--verbose' => 3]);
 * Added ext-curl to the composer require section by **[siad007](https://github.com/siad007)**
 * Make `coverage: show_only_summary` configurable. See [#5142](https://github.com/Codeception/Codeception/issues/5142) by **[Quexer69](https://github.com/Quexer69)**
 * Ensure php extension `mbstring` is available by **[siad007](https://github.com/siad007)**. Fixes [#4575](https://github.com/Codeception/Codeception/issues/4575) 
+
 #### 2.4.5
 
 * Fixed PHPUnit 7.2 compatibility.
@@ -557,7 +561,6 @@ codecept run --ext DotReporter
 * Bootstrap `_bootstrap.php` files are disabled by default.
 * Configuration changes: `actor` replaced with `actor_suffix` in global config
 * Configuration changes: `class_name` replaced with `actor` in suite config
-
 
 #### 2.2.12
 
@@ -955,6 +958,7 @@ extensions:
 * **[Sequence]** Changed the prefix value. Generated sequences to include id inside a prefix: `sq('user1') => 'user1_876asd8as87a'. Added `prefix` config option.
 * Deprecation errors won't fail tests but will be printed.
 * Official [Docker image](https://hub.docker.com/r/codeception/codeception/) introduced by **[schmunk42](https://github.com/schmunk42)**
+
 #### 2.1.11
 
 * **[Yii1]** Improved Yii connector. AR metadata is cleaned up between requests. `regenerateId` of session is disabled.
@@ -1210,7 +1214,9 @@ extensions:
 * Official extensions moved to `ext` dir; Base Extension class renamed to `Codeception\Extension`
 * Duplicate environment options won't cause Codeception to run environment tests twice
 * **[Phalcon1]** `haveServiceInDi` method implemented by **[sergeyklay](https://github.com/sergeyklay)**
-* **[Db]** `seeNumRecords` method added by **[sergeyklay](https://github.com/sergeyklay)**#### 2.0.15
+* **[Db]** `seeNumRecords` method added by **[sergeyklay](https://github.com/sergeyklay)**
+
+#### 2.0.15
 
 * **[Phalcon1]** Fixed getting has more than one field by **[sergeyklay](https://github.com/sergeyklay)** [#2010](https://github.com/Codeception/Codeception/issues/2010).
 * [PhpBrowser][Frameworks] Compute relative URIs against the effective request URI when there is a redirect. [#2058](https://github.com/Codeception/Codeception/issues/2058) [#2057](https://github.com/Codeception/Codeception/issues/2057)
@@ -1556,4 +1562,5 @@ settings:
 * added extension to rerun failed tests
 * webdriver upgraded to 0.4
 * upgraded to PHPUnit 4
+
 

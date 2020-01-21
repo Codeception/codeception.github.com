@@ -418,7 +418,7 @@ EOF;
         $changelogFiles = Finder::create()->name('CHANGELOG-*.md')->in('vendor/codeception/codeception')->depth(0)->sort($sortByVersionDesc);
         $changelog = "\n";
         foreach ($changelogFiles as $file) {
-            $changelog .= $file->getContents();
+            $changelog .= trim($file->getContents(), "\r\n") . "\n\n";
         }
         //user
         $changelog = preg_replace('~\s@([\w-]+)~', ' **[$1](https://github.com/$1)**', $changelog);
