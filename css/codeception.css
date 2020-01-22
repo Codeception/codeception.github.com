@@ -1232,6 +1232,11 @@ body #footer .links {
 	margin-top: 0;
 }
 
+.table {
+	display: block;
+	overflow-x: auto;
+}
+
 
 @media screen and (min-width:768px) {
 	.main-logo svg,
