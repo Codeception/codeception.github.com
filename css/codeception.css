@@ -1406,3 +1406,11 @@ body #footer .links {
 		width: 200px;
 	}
 }
+
+.team {
+	text-decoration: none;
+}
+
+.team:hover {
+	text-decoration: none;
+}
