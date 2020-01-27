@@ -1012,6 +1012,10 @@ body .panel-info>.panel-heading {
 		display: flex;
 		align-items: center;
 	}
+
+	.navbar>.container-fluid .navbar-brand {
+		margin-left: -5px;
+	}
 }
 
 .hero--symfony img {
