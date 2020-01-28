@@ -696,6 +696,7 @@ body .navbar-inverse .navbar-toggle .icon-bar {
 
 .feature .btn {
 	float: right;
+	border: 1px solid;
 }
 
 .btn-learn {
