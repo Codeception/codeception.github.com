@@ -237,7 +237,8 @@ It's supposed to use the dbh connection value from the Db module.
 
 <?php
 
-function reconnectToDatabase() {
+function reconnectToDatabase()
+{
     $dbh = $this->getModule('Db')->dbh;
     $dbh->close();
     $dbh->open();
@@ -285,7 +286,8 @@ If accessing modules doesn't provide enough flexibility, you can extend a module
 <?php
 namespace Helper;
 
-class MyExtendedSelenium extends \Codeception\Module\WebDriver {
+class MyExtendedSelenium extends \Codeception\Module\WebDriver
+{
 }
 
 {% endhighlight %}
@@ -307,45 +309,45 @@ All hooks are defined in [Codeception\Module](http://codeception.com/docs/refere
 
 <?php
 
-    // HOOK: used after configuration is loaded
-    public function _initialize()
-    {
-    }
+// HOOK: used after configuration is loaded
+public function _initialize()
+{
+}
 
-    // HOOK: before each suite
-    public function _beforeSuite($settings = array())
-    {
-    }
+// HOOK: before each suite
+public function _beforeSuite($settings = array())
+{
+}
 
-    // HOOK: after suite
-    public function _afterSuite()
-    {
-    }
+// HOOK: after suite
+public function _afterSuite()
+{
+}
 
-    // HOOK: before each step
-    public function _beforeStep(\Codeception\Step $step)
-    {
-    }
+// HOOK: before each step
+public function _beforeStep(\Codeception\Step $step)
+{
+}
 
-    // HOOK: after each step
-    public function _afterStep(\Codeception\Step $step)
-    {
-    }
+// HOOK: after each step
+public function _afterStep(\Codeception\Step $step)
+{
+}
 
-    // HOOK: before test
-    public function _before(\Codeception\TestInterface $test)
-    {
-    }
+// HOOK: before test
+public function _before(\Codeception\TestInterface $test)
+{
+}
 
-    // HOOK: after test
-    public function _after(\Codeception\TestInterface $test)
-    {
-    }
+// HOOK: after test
+public function _after(\Codeception\TestInterface $test)
+{
+}
 
-    // HOOK: on fail
-    public function _failed(\Codeception\TestInterface $test, $fail)
-    {
-    }
+// HOOK: on fail
+public function _failed(\Codeception\TestInterface $test, $fail)
+{
+}
 
 {% endhighlight %}
 
@@ -368,9 +370,9 @@ Here is an example of how it works for PhpBrowser:
 {% highlight php %}
 
 <?php
-    $this->debugSection('Request', $params);
-    $this->client->request($method, $uri, $params);
-    $this->debug('Response Code: ' . $this->client->getStatusCode());
+$this->debugSection('Request', $params);
+$this->client->request($method, $uri, $params);
+$this->debug('Response Code: ' . $this->client->getStatusCode());
 
 {% endhighlight %}
 
@@ -492,11 +494,11 @@ and `SAUCE_KEY` variables from environment, and now we are passing their values 
 
 {% highlight yaml %}
 
-    modules:
-       enabled:
-          - WebDriver:
-             url: http://mysite.com
-             host: '%SAUCE_USER%:%SAUCE_KEY%@ondemand.saucelabs.com'
+modules:
+   enabled:
+      - WebDriver:
+         url: http://mysite.com
+         host: '%SAUCE_USER%:%SAUCE_KEY%@ondemand.saucelabs.com'
 
 {% endhighlight %}
 
@@ -504,7 +506,7 @@ Parameters are also useful to provide connection credentials for the `Db` module
 
 {% highlight yaml %}
 
-module:
+modules:
     enabled:
         - Db:
             dsn: "mysql:host=%DB_HOST%;dbname=%DB_DATABASE%"
