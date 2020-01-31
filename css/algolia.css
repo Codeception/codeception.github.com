@@ -31,7 +31,7 @@
   font-size:0.8rem;
 }
 .algolia__result-text {
-  font-size: 1.2rem;
+  font-size: 1em;
 }
 .algolia__result-link .algolia__result-highlight {
   background-color:#D3E8F6;
