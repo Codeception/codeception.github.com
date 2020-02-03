@@ -21,7 +21,7 @@
 
 /* Search results */
 .algolia__result {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 .algolia__result-link {
   font-size: 1.2em;
