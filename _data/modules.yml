@@ -84,7 +84,6 @@
   description: This module will let you test emails using simple SMTP connection, with any provider that supports IMAP.
 
 - name: MailTrap
-  image: https://pbs.twimg.com/profile_images/455622373182414848/TivgbDaH.png
   link: https://github.com/WhatDaFox/Codeception-Mailtrap
   description: Codeception module to test email using Mailtrap.io.
 
@@ -121,7 +120,6 @@
   description: This module helps to upload files when using webdriver via remote connection.
 
 - name: Slim 3
-  image: http://www.freewebmentor.com/wp-content/uploads/2015/12/slim-logo.png
   link: https://github.com/herloct/codeception-slim-module
   description: This module allows you to run tests inside Slim 3 Microframework. Based on ZendExpressive Module.
 
@@ -140,7 +138,6 @@
   color: "#FFF5C4"  
 
 - name: WordPress Browser and Database
-  image: https://s.w.org/about/images/desktops/wp-light-lo-640x960.png
   link: https://github.com/lucatume/wp-browser
   description: An extension of Codeception own PhpBrowser and Db modules to allow for easy and streamlined WordPress themes and plugins testing. 
 
