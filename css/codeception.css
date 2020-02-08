@@ -210,8 +210,7 @@ body .page {
 	font-family: 'Lato', sans-serif;
 	font-size: 1.2em;
 	line-height: 150%;
-	padding: 2em;
-	padding-top: 1em;
+	padding: 1em;
 	background: #fff;
 	margin-bottom: 1.5em;
 	border-radius: 5px;
@@ -1001,6 +1000,10 @@ body .panel-info>.panel-heading {
 
 	.navbar>.container-fluid .navbar-brand {
 		margin-left: 0;
+	}
+
+	body .page {
+		padding: 1em 2em 2em;
 	}
 }
 
