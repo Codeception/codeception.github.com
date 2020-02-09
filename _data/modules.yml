@@ -144,3 +144,8 @@
 - name: Yandex
   link: https://github.com/portrino/codeception-yandex-module
   description: Validation of structured data via yandex API.
+
+- name: Percy
+  link: https://github.com/tr33m4n/codeception-module-percy
+  description: Percy https://percy.io integration
+  color: "#9e66bf"
