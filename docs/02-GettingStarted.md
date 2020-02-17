@@ -120,7 +120,7 @@ Then we are sent to a user page, where we see the text `Hello, %username%`. Let'
 <?php
 class SigninCest
 {
-    public function loginSuccessfully(AcceptanceTester $I)
+    public function signInSuccessfully(AcceptanceTester $I)
     {
         $I->amOnPage('/login');
         $I->fillField('Username','davert');
