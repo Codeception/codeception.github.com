@@ -208,7 +208,7 @@ you should use a tunnel application provided by a service.
 * `pageload_timeout` - amount of time to wait for a page load to complete before throwing an error (default 0 seconds).
 * `http_proxy` - sets http proxy server url for testing a remote server.
 * `http_proxy_port` - sets http proxy server port
-* `debug_log_entries` - how many selenium entries to print with `debugWebDriverLogs` or on fail (15 by default).
+* `debug_log_entries` - how many selenium entries to print with `debugWebDriverLogs` or on fail (0 by default).
 * `log_js_errors` - Set to true to include possible JavaScript to HTML report, or set to false (default) to deactivate.
 
 Example (`acceptance.suite.yml`)

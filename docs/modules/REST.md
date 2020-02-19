@@ -405,6 +405,17 @@ $I->haveHttpHeader('Content-Type', 'application/json');
  * `[Part]` xml
 
 
+#### haveServerParameter
+ 
+Sets SERVER parameter valid for all next requests.
+
+{% highlight php %}
+
+$I->haveServerParameter('name', 'value');
+
+{% endhighlight %}
+
+
 #### seeBinaryResponseEquals
  
 Checks if the hash of a binary response is exactly the same as provided.
@@ -580,6 +591,49 @@ Checks if response is exactly the same as provided.
 Checks whether last response was valid JSON.
 This is done with json_last_error function.
 
+ * `[Part]` json
+
+
+#### seeResponseIsValidOnJsonSchema
+ 
+Checks whether last response matches the supplied json schema (https://json-schema.org/)
+Supply schema as relative file path in your project directory or an absolute path
+
+@see codecept_absolute_path()
+
+ * `param string` $schemaFilename
+ * `[Part]` json
+
+
+#### seeResponseIsValidOnJsonSchemaString
+ 
+Checks whether last response matches the supplied json schema (https://json-schema.org/)
+Supply schema as json string.
+
+Examples:
+
+{% highlight php %}
+
+<?php
+// response: {"name": "john", "age": 20}
+$I->seeResponseIsValidOnJsonSchemaString('{"type": "object"}');
+
+// response {"name": "john", "age": 20}
+$schema = [
+ "properties" => [
+     "age" => [
+         "type" => "integer",
+         "minimum" => 18
+     ]
+ ]
+];
+$I->seeResponseIsValidOnJsonSchemaString(json_encode($schema));
+
+?>
+
+{% endhighlight %}
+
+ * `param string` $schema
  * `[Part]` json
 
 
@@ -946,6 +1000,18 @@ Sends UNLINK request to given uri.
 @author samva.ua@gmail.com
  * `[Part]` json
  * `[Part]` xml
+
+
+#### setServerParameters
+ 
+Sets SERVER parameters valid for all next requests.
+this will remove old ones.
+
+{% highlight php %}
+
+$I->setServerParameters([]);
+
+{% endhighlight %}
 
 
 #### startFollowingRedirects

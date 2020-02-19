@@ -890,6 +890,17 @@ $I->haveRecord('App\Models\Categories', ['name' => 'Testing']');
  * `[Part]` orm
 
 
+#### haveServerParameter
+ 
+Sets SERVER parameter valid for all next requests.
+
+{% highlight php %}
+
+$I->haveServerParameter('name', 'value');
+
+{% endhighlight %}
+
+
 #### makeHtmlSnapshot
  
 Saves current page's HTML into a temprary file.
@@ -1491,6 +1502,18 @@ $I->setCookie('PHPSESSID', 'el4ukv0kqbvoirg7nkp4dncpk3');
  * `param` $val
  * `param array` $params
 
+
+
+#### setServerParameters
+ 
+Sets SERVER parameters valid for all next requests.
+this will remove old ones.
+
+{% highlight php %}
+
+$I->setServerParameters([]);
+
+{% endhighlight %}
 
 
 #### submitForm

@@ -844,6 +844,17 @@ $I->haveHttpHeader('Client&#95;Id', 'Codeception');
        requests
 
 
+#### haveServerParameter
+ 
+Sets SERVER parameter valid for all next requests.
+
+{% highlight php %}
+
+$I->haveServerParameter('name', 'value');
+
+{% endhighlight %}
+
+
 #### invalidateCachedRouter
  
 Invalidate previously cached routes.
@@ -1475,6 +1486,18 @@ $I->setCookie('PHPSESSID', 'el4ukv0kqbvoirg7nkp4dncpk3');
  * `param` $val
  * `param array` $params
 
+
+
+#### setServerParameters
+ 
+Sets SERVER parameters valid for all next requests.
+this will remove old ones.
+
+{% highlight php %}
+
+$I->setServerParameters([]);
+
+{% endhighlight %}
 
 
 #### submitForm

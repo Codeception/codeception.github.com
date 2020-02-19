@@ -1113,6 +1113,17 @@ $user_id = $I->haveRecord('app\models\User', array('name' => 'Davert'));
  * `[Part]` orm
 
 
+#### haveServerParameter
+ 
+Sets SERVER parameter valid for all next requests.
+
+{% highlight php %}
+
+$I->haveServerParameter('name', 'value');
+
+{% endhighlight %}
+
+
 #### makeHtmlSnapshot
  
 Saves current page's HTML into a temprary file.
@@ -1654,6 +1665,18 @@ Sets a cookie and, if validation is enabled, signs it.
  * `param string` $name The name of the cookie
  * `param string` $value The value of the cookie
  * `param array` $params Additional cookie params like `domain`, `path`, `expires` and `secure`.
+
+
+#### setServerParameters
+ 
+Sets SERVER parameters valid for all next requests.
+this will remove old ones.
+
+{% highlight php %}
+
+$I->setServerParameters([]);
+
+{% endhighlight %}
 
 
 #### submitForm

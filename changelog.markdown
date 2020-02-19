@@ -8,6 +8,15 @@ title: Codeception Changelog
 # Changelog
 
 
+#### 4.1.1
+
+* --no-artifacts flag for run command [#5646](https://github.com/Codeception/Codeception/issues/5646) by **[Mitrichius](https://github.com/Mitrichius)**
+* Fix recorder filename with special chars [#5846](https://github.com/Codeception/Codeception/issues/5846) by **[gimler](https://github.com/gimler)**
+
+#### 4.1.0
+
+* Support for PHPUnit 9
+
 #### 4.0.3
 
 * Fixed command autocompletion [#5806](https://github.com/Codeception/Codeception/issues/5806) by **[svycka](https://github.com/svycka)**

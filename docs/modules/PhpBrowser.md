@@ -831,6 +831,17 @@ $I->haveHttpHeader('Client&#95;Id', 'Codeception');
        requests
 
 
+#### haveServerParameter
+ 
+Sets SERVER parameter valid for all next requests.
+
+{% highlight php %}
+
+$I->haveServerParameter('name', 'value');
+
+{% endhighlight %}
+
+
 #### makeHtmlSnapshot
  
 Saves current page's HTML into a temprary file.
@@ -1356,6 +1367,18 @@ Alias to `haveHttpHeader`
 
  * `param` $name
  * `param` $value
+
+
+#### setServerParameters
+ 
+Sets SERVER parameters valid for all next requests.
+this will remove old ones.
+
+{% highlight php %}
+
+$I->setServerParameters([]);
+
+{% endhighlight %}
 
 
 #### submitForm

@@ -998,6 +998,17 @@ $user = $I->haveRecord('App\User', array('name' => 'Davert')); // returns Eloque
  * `[Part]` orm
 
 
+#### haveServerParameter
+ 
+Sets SERVER parameter valid for all next requests.
+
+{% highlight php %}
+
+$I->haveServerParameter('name', 'value');
+
+{% endhighlight %}
+
+
 #### haveSingleton
  
 Add a singleton binding to the Laravel service container.
@@ -1606,6 +1617,18 @@ $I->setCookie('PHPSESSID', 'el4ukv0kqbvoirg7nkp4dncpk3');
  * `param` $val
  * `param array` $params
 
+
+
+#### setServerParameters
+ 
+Sets SERVER parameters valid for all next requests.
+this will remove old ones.
+
+{% highlight php %}
+
+$I->setServerParameters([]);
+
+{% endhighlight %}
 
 
 #### submitForm
