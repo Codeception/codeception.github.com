@@ -816,6 +816,10 @@ body .navbar-inverse .navbar-toggle .icon-bar {
 		min-width: 240px !important;
 		overflow-x: hidden;
 	}
+
+	.navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
+		color: #333;
+	}
 }
 
 .panel-body {
