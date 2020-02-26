@@ -1131,7 +1131,7 @@ body .panel-info>.panel-heading {
 .hero--quickstart {
 	height: 50vh;
 	min-height: 700px;
-	margin-bottom: -400px;
+	margin-bottom: -600px;
 }
 
 .support-wrapper .container {
@@ -1415,6 +1415,10 @@ body #footer .links {
 
 	.hero--laravel img {
 		width: 200px;
+	}
+
+	.hero--quickstart {
+		margin-bottom: -400px;
 	}
 }
 
