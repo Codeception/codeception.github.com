@@ -1213,6 +1213,7 @@ body #footer .links {
 }
 
 .hero .quiet {
+	display: block;
 	color: #ddd;
 	font-size: 32px;
 }
