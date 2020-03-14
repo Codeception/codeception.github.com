@@ -244,8 +244,8 @@ Override this class to create customized setup.
 
 #### updateComposerClassMap()
 
- *private* updateComposerClassMap() 
+ *private* updateComposerClassMap($vendorDir = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.0/src/Codeception/InitTemplate.php#L332)
+[See source](https://github.com/Codeception/Codeception/blob/4.0/src/Codeception/InitTemplate.php#L336)
 
 <p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/blob/4.0/src/Codeception/InitTemplate.php">Help us to improve documentation. Edit module reference</a></div>

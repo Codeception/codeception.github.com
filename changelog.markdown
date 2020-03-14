@@ -8,6 +8,14 @@ title: Codeception Changelog
 # Changelog
 
 
+#### 4.1.2
+
+* Fixed --no-redirect option does not exist error [#5857](https://github.com/Codeception/Codeception/issues/5857) by **[liamjtoohey](https://github.com/liamjtoohey)**
+* Init command: Check the composer option config.vendor_dir when updating composer [#5871](https://github.com/Codeception/Codeception/issues/5871) by **[gabriel-lima96](https://github.com/gabriel-lima96)**
+* Add return type hint to the generated actions above PHP 7.0 [#5862](https://github.com/Codeception/Codeception/issues/5862) by **[pezia](https://github.com/pezia)**
+* Prevent merged config array ballooning in memory [#5871](https://github.com/Codeception/Codeception/issues/5871) by **[AndrewFeeney](https://github.com/AndrewFeeney)**
+* Do not truncate arguments for --html options [#5870](https://github.com/Codeception/Codeception/issues/5870) by **[adaniloff](https://github.com/adaniloff)**
+
 #### 4.1.1
 
 * --no-artifacts flag for run command [#5646](https://github.com/Codeception/Codeception/issues/5646) by **[Mitrichius](https://github.com/Mitrichius)**

@@ -2129,7 +2129,7 @@ Switch to another frame on the page.
 Example:
 {% highlight html %}
 
-<iframe name="another_frame" src="http://example.com">
+<iframe name="another_frame" id="fr1" src="http://example.com">
 
 
 {% endhighlight %}
@@ -2137,15 +2137,17 @@ Example:
 {% highlight php %}
 
 <?php
-# switch to iframe
+# switch to iframe by name
 $I->switchToIFrame("another_frame");
+# switch to iframe by CSS or XPath
+$I->switchToIFrame("#fr1");
 # switch to parent page
 $I->switchToIFrame();
 
 
 {% endhighlight %}
 
- * `param string|null` $name
+ * `param string|null` $locator (name, CSS or XPath)
 
 
 #### switchToNextTab
