@@ -1437,3 +1437,8 @@ body #footer .links {
 		height: 150px;
 	}
 }
+
+.panel p {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
