@@ -153,4 +153,3 @@
 - name: Yandex
   link: https://github.com/portrino/codeception-yandex-module
   description: Validation of structured data via yandex API.
-
