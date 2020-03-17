@@ -364,6 +364,10 @@ body b {
 	opacity: 0.5;
 }
 
+#footer .sponsors:hover {
+	opacity: 1;
+}
+
 .sponsors--phpstorm {
 	width: 60px;
 }
