@@ -5,7 +5,7 @@
   "license":"MIT",
 
   "require": {
-    "codeception/codeception": "4.0.x-dev | >=4.0",
+    "codeception/codeception": "^4.1",
     "codeception/module-amqp": "*",
     "codeception/module-apc": "*",
     "codeception/module-asserts": "*",
