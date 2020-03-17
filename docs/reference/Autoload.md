@@ -40,12 +40,12 @@ Autoload::addNamespace('app\Codeception', '/path/to/controllers');
                      this causes it to be searched first rather than last.
  * `return` void
 
-[See source](https://github.com/Codeception/Codeception/blob/4.0/src/Codeception/Util/Autoload.php#L45)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Util/Autoload.php#L45)
 
 #### load()
 
  *public static* load($class) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.0/src/Codeception/Util/Autoload.php#L72)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Util/Autoload.php#L72)
 
-<p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/blob/4.0/src/Codeception/Util/Autoload.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Util/Autoload.php">Help us to improve documentation. Edit module reference</a></div>
