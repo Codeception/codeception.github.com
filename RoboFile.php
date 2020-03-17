@@ -146,6 +146,7 @@ class RoboFile extends \Robo\Tasks
             $this->generateDocumentationForClass($className, $documentationFile, $sourceMessage);
             $this->postProcessModuleDocFile($documentationFile, $moduleName, $source);
         }
+        $this->taskFilesystemStack()->symlink('Mezzio.md', 'docs/modules/ZendExpressive.md')->run();
     }
 
     private function postProcessModuleDocFile($documentationFile, $name, $source)

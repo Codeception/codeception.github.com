@@ -18,6 +18,7 @@
     "codeception/module-laravel5": "*",
     "codeception/module-lumen": "*",
     "codeception/module-memcache": "*",
+    "codeception/module-mezzio": "*",
     "codeception/module-mongodb": "*",
     "codeception/module-phalcon": "*",
     "codeception/module-phalcon4": "*",
@@ -30,7 +31,6 @@
     "codeception/module-symfony": "*",
     "codeception/module-webdriver": "*",
     "codeception/module-yii2": "*",
-    "codeception/module-zendexpressive": "*",
     "codeception/module-zf2": "*",
     "codeception/util-robohelpers": "dev-master"
   },
