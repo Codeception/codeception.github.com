@@ -6,6 +6,10 @@
   link: https://github.com/tajawal/codeception-appium
   description: Appium Driver to interact with appium server - iOS/Android Mobile Testing Automation.
 
+- name: Appium
+  link: https://github.com/walterwhites/Appium-codeception-module
+  description: Easy Appium integration, iOS Automation
+
 - name: BrowserMob
   link: https://github.com/edno/codeception-browsermob
   description: Codeception module for BrowserMob Proxy.
