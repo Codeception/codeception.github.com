@@ -131,7 +131,7 @@ body #home-hero h1 {
 	margin-left: 10px;
 }
 
-body .panel>.panel-collapse {
+.panel-collapse-body {
 	padding: 10px;
 }
 
