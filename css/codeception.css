@@ -1447,3 +1447,12 @@ body #footer .links {
 	margin-top: 1em;
 	margin-bottom: 1em;
 }
+
+.well {
+	display: flex;
+	align-items: center;
+}
+
+.well .btn {
+	margin-left: 20px;
+}
