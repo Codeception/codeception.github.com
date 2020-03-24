@@ -1456,3 +1456,7 @@ body #footer .links {
 .well .btn {
 	margin-left: 20px;
 }
+
+.well-custom {
+	flex-direction: column;
+}
