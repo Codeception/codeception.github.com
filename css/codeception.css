@@ -1448,12 +1448,7 @@ body #footer .links {
 	margin-bottom: 1em;
 }
 
-.well {
-	display: flex;
-	align-items: center;
-}
-
-.well .btn {
+.well-custom .btn {
 	margin-left: 20px;
 }
 
