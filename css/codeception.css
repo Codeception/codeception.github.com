@@ -1455,3 +1455,8 @@ body #footer .links {
 .well-custom {
 	flex-direction: column;
 }
+
+.well-custom-row {
+	display: flex;
+	align-items: center;
+}
