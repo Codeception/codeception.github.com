@@ -1384,6 +1384,16 @@ body #footer .links {
 	.hero--wp .quiet{
 		margin-bottom: 0;
 	}
+
+	.well-custom-row {
+		display: flex;
+		align-items: center;
+	}
+
+	.well-custom-row .btn {
+		margin-left: 20px;
+		font-size: 18px;
+	}
 }
 
 @media screen and (min-width:1200px) {
@@ -1448,15 +1458,10 @@ body #footer .links {
 	margin-bottom: 1em;
 }
 
-.well-custom .btn {
-	margin-left: 20px;
-}
-
 .well-custom {
 	flex-direction: column;
 }
 
-.well-custom-row {
-	display: flex;
-	align-items: center;
+.well-custom-row .btn {
+	font-size: 16px;
 }
