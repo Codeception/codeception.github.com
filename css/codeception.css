@@ -1465,3 +1465,8 @@ body #footer .links {
 .well-custom-row .btn {
 	font-size: 16px;
 }
+
+.intro-block {
+	display: flex;
+	justify-content: space-between;
+}
