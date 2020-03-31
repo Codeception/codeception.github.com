@@ -1466,7 +1466,17 @@ body #footer .links {
 	font-size: 16px;
 }
 
-.intro-block {
-	display: flex;
-	justify-content: space-between;
+.intro-block .pull-right {
+	float: none;
+}
+
+@media (min-width : 768px) {
+	.intro-block {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.intro-block .pull-right {
+		float: right !important;
+	}
 }
