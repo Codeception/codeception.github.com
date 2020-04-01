@@ -1467,7 +1467,7 @@ body #footer .links {
 }
 
 .intro-block .pull-right {
-	float: none;
+	float: none !important;
 }
 
 @media (min-width : 768px) {
