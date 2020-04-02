@@ -1462,6 +1462,10 @@ body #footer .links {
 	flex-direction: column;
 }
 
+.well-custom h4 {
+	margin-top: 0;
+}
+
 .well-custom-row .btn {
 	font-size: 16px;
 }
