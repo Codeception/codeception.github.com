@@ -538,6 +538,11 @@ body .btn {
   text-transform: uppercase;
 }
 
+body .btn:active {
+	box-shadow: none;
+	-webkit-box-shadow: none;
+}
+
 body .btn-default {
 	background: transparent;
 	color: #236BFD;
