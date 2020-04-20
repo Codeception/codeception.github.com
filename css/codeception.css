@@ -1175,6 +1175,10 @@ body .panel-info>.panel-heading {
 	margin-right: 0;
 }
 
+.navbar-toggle:hover {
+	background-color: #dddddd !important;
+}
+
 .main-logo svg,
 .footer-logo img {
 	width: 50px;
