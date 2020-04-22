@@ -1084,8 +1084,8 @@ body .panel-info>.panel-heading {
 }
 
 .item--joomla img {
-	width: 250px;
-	height: 208px;
+	width: 100px;
+	height: 100px;
 }
 
 .item--yii img {
@@ -1453,13 +1453,6 @@ body #footer .links {
 
 .team:hover {
 	text-decoration: none;
-}
-
-@media only screen and (min-width : 768px) and (max-width : 991px) {
-	.item--joomla img {
-		width: 180px;
-		height: 150px;
-	}
 }
 
 .panel p {
