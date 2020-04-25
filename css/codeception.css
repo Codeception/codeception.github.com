@@ -1068,9 +1068,9 @@ body .panel-info>.panel-heading {
 	margin-bottom: 1.5em;
 }
 
-.item--symfony img{
-	width: 200px;
-	height: 200px;
+.item--symfony img {
+	width: 110px;
+	height: 100px;
 }
 
 .item--laravel img {
