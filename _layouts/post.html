@@ -4,50 +4,65 @@ layout: bootstrap
 
 <div class="fixed pt">
 
-<div class="col-md-6 hidden-xs" style="float: right; margin-top: 1em">
-<div class="well">
-  <a class="btn btn-lg btn-warning btn-block" href="/quickstart">Quick Start →<br>with Codeception</a>
-  <p><br/>Write and execute a test for an existing app
-    <b>in less then a 5 mins!</b>
-  </p>
+  <div class="col-md-6 hidden-xs release-well-block">
+    <div class="row">
+      <div class="well">
+        <a class="btn btn-lg btn-warning btn-block" href="/quickstart">Quick Start →<br>with Codeception</a>
+        <p><br/>Write and execute a test for an existing app
+          <b>in less then a 5 mins!</b>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="content page">
+
+    <h1>{{ page.title }}</h1>
+
+    <p class="lead">
+      Published on {{ page.date | date: "%B %d, %Y" }}
+      {% if page.author %}
+      <br>by <strong>{{ page.author }}</strong>
+      {% endif %}
+    </p>
+    <div class="post">
+      {{ content }}
+    </div>
+    <div class="alert alert-info">
+      <a href="http://www.reddit.com/submit"
+         onclick="window.location = 'http://www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"
+         style="float: right"><img src="http://www.reddit.com/static/spreddit7.gif" alt="submit to reddit" border="0"/></a>
+      <!-- Розмістіть цей тег там, де необхідно розмістити кнопку +1 -->
+      <g:plusone size="tall" annotation="inline"></g:plusone>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="codeception">Tweet</a>
+    </div>  <!-- /.alert -->
+
+    <script>!function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+      if (!d.getElementById(id)) {
+        js = d.createElement(s);
+        js.id = id;
+        js.src = p + '://platform.twitter.com/widgets.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }
+    }(document, 'script', 'twitter-wjs');</script>
+
+    <!-- Розмістіть цю команду відображення в потрібному місці -->
+    <script type="text/javascript">
+      (function () {
+        var po = document.createElement('script');
+        po.type = 'text/javascript';
+        po.async = true;
+        po.src = 'https://apis.google.com/js/plusone.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(po, s);
+      })();
+    </script>
+    {% include comment.html %}
+
+  </div>
+
+
 </div>
-</div>
-
-<div class="content page">
-  
-<h1>{{ page.title }}</h1>
-
-<p class="lead">
-  Published on {{ page.date | date: "%B %d, %Y" }}
-  {% if page.author %}
-  <br>by <strong>{{ page.author }}</strong>
-  {% endif %}
-</p>
-<div class="post">
-  {{ content }}
-</div>
-<div class="alert alert-info">
-  <a href="http://www.reddit.com/submit" onclick="window.location = 'http://www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false" style="float: right"><img src="http://www.reddit.com/static/spreddit7.gif" alt="submit to reddit" border="0" /></a>
-  <!-- Розмістіть цей тег там, де необхідно розмістити кнопку +1 -->
-  <g:plusone size="tall" annotation="inline"></g:plusone>
-  <a href="https://twitter.com/share" class="twitter-share-button" data-via="codeception">Tweet</a>
-  </div>  <!-- /.alert -->
-
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
-<!-- Розмістіть цю команду відображення в потрібному місці -->
-<script type="text/javascript">
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/plusone.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
-</script>
-{% include comment.html %}
-
-</div>
-
-
-</div>  
 
 </div>

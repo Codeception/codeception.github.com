@@ -1506,3 +1506,10 @@ body #footer .links {
 	height: 100%;
 	border: none;
 }
+
+@media (min-width : 992px) {
+	.release-well-block {
+		float: right;
+		margin-top: 1em;
+	}
+}
