@@ -45,7 +45,7 @@ Codeception follows simple naming rules to make it easy to remember (as well as 
 
 ## Actors
 
-One of the main concepts of Codeception is representation of tests as actions of a person.We have a UnitTester, who executes functions and tests the code. We also have a FunctionalTester, a qualified tester,
+One of the main concepts of Codeception is representation of tests as actions of a person. We have a UnitTester, who executes functions and tests the code. We also have a FunctionalTester, a qualified tester,
 who tests the application as a whole, with knowledge of its internals. Lastly we have an AcceptanceTester, a user who works with our application
 through an interface that we provide.
 
