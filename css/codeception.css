@@ -1510,6 +1510,10 @@ body #footer .links {
 @media (min-width : 992px) {
 	.release-well-block {
 		float: right;
-		margin-top: 1em;
+	}
+
+	.release-well-block .well {
+		margin-top: 1.5em;
+		margin-right: 2.5em;
 	}
 }
