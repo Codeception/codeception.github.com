@@ -402,7 +402,7 @@ Let's improve our BDD suite by using the advanced features of Gherkin language.
 
 ### Background
 
-If a group of scenarios have the same initial steps, let's that for dashboard we need always need to be logged in as administrator. We can use *Background* section to do the required preparations and not to repeat same steps across scenarios.
+If a group of scenarios have the same initial steps, let's that for dashboard we always need to be logged in as administrator. We can use *Background* section to do the required preparations and not to repeat same steps across scenarios.
 
 {% highlight gherkin %}
 
