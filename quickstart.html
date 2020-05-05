@@ -82,12 +82,12 @@ title: Quick Start Codeception
                 <b>tests/acceptance.suite.yml</b>&nbsp;</p>
               <div class="highlight">
                 <pre>
-                  actor: AcceptanceTester
-                  modules:
-                      enabled:
-                          - PhpBrowser:
-                              url: {YOUR APP'S URL}
-                          - \Helper\Acceptance
+actor: AcceptanceTester
+modules:
+    enabled:
+        - PhpBrowser:
+            url: {YOUR APP'S URL}
+        - \Helper\Acceptance
                 </pre>
               </div>
             </div> <!-- /.panel-body -->
@@ -103,15 +103,15 @@ title: Quick Start Codeception
               </p>
               <div>
                 {% highlight php %}
-                <?php
+<?php
   class FirstCest
-  {
-      public function frontpageWorks(AcceptanceTester $I)
       {
-          $I->amOnPage('/');
-                $I->see('Home');
-                }
-                }
+        public function frontpageWorks(AcceptanceTester $I)
+      {
+      $I->amOnPage('/');
+        $I->see('Home'); 
+  }
+}
                 {% endhighlight %}
               </div>
               <p class="text-muted">It will check that your frontpage contains the word <b>Home</b> in it.</p>
