@@ -104,13 +104,14 @@ modules:
               <div>
                 {% highlight php %}
 <?php
-  class FirstCest
-      {
-        public function frontpageWorks(AcceptanceTester $I)
-      {
-      $I->amOnPage('/');
-        $I->see('Home'); 
-  }
+
+class FirstCest
+{
+    public function frontpageWorks(AcceptanceTester $I)
+    {
+        $I->amOnPage('/');
+        $I->see('Home');
+    }
 }
                 {% endhighlight %}
               </div>
