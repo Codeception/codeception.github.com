@@ -31,9 +31,8 @@ layout: bootstrap
     <div class="alert alert-info">
       <a href="http://www.reddit.com/submit"
          onclick="window.location = 'http://www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"
-         style="float: right"><img src="http://www.reddit.com/static/spreddit7.gif" alt="submit to reddit" border="0"/></a>
+         style="float: right"><img src="http://www.reddit.com/static/spreddit7.gif" alt="submit to reddit"/></a>
       <!-- Розмістіть цей тег там, де необхідно розмістити кнопку +1 -->
-      <g:plusone size="tall" annotation="inline"></g:plusone>
       <a href="https://twitter.com/share" class="twitter-share-button" data-via="codeception">Tweet</a>
     </div>  <!-- /.alert -->
 
@@ -48,10 +47,9 @@ layout: bootstrap
     }(document, 'script', 'twitter-wjs');</script>
 
     <!-- Розмістіть цю команду відображення в потрібному місці -->
-    <script type="text/javascript">
+    <script>
       (function () {
         var po = document.createElement('script');
-        po.type = 'text/javascript';
         po.async = true;
         po.src = 'https://apis.google.com/js/plusone.js';
         var s = document.getElementsByTagName('script')[0];
@@ -62,7 +60,5 @@ layout: bootstrap
 
   </div>
 
-
-</div>
 
 </div>
