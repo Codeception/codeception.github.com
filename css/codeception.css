@@ -361,6 +361,7 @@ body b {
 
 #footer .social svg {
 	fill: #ffffff;
+	height: 100%;
 }
 
 #footer .sponsors {
