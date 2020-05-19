@@ -354,8 +354,13 @@ body b {
 	opacity: 1;
 }
 
-#footer .social img {
+#footer .social img,
+#footer .social svg {
 	width: 100%;
+}
+
+#footer .social svg {
+	fill: #ffffff;
 }
 
 #footer .sponsors {
