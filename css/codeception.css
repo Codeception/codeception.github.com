@@ -344,6 +344,7 @@ body b {
 #footer .social {
 	display: inline-block;
 	width: 32px;
+	height: 32px;
 	margin: 0 5px;
   opacity: 0.8;
 	text-decoration: none;
@@ -1306,6 +1307,7 @@ body #footer .links {
 
 	#footer .social {
 		width: 45px;
+		height: 45px;
 	}
 
 	.footer-social {
@@ -1373,6 +1375,7 @@ body #footer .links {
 
 	#footer .social {
 		width: 44px;
+		height: 44px;
 	}
 
 	.sponsors--phpstorm {
@@ -1434,6 +1437,7 @@ body #footer .links {
 
 	#footer .social {
 		width: 64px;
+		height: 64px;
 	}
 
 	body #footer .links {
