@@ -8,6 +8,12 @@ title: Codeception Changelog
 # Changelog
 
 
+#### 4.1.5
+
+* Fixed docker images
+* Fix indentation in generated Actor class, by **[cebe](https://github.com/cebe)**
+* Added addToAssertionCount method to AssertionCounter trait, [#5918](https://github.com/Codeception/Codeception/issues/5918) by **[Archanium](https://github.com/Archanium)**
+
 #### 4.1.4
 
 * Build: Fix bug with void type not being picked up correctly [#5880](https://github.com/Codeception/Codeception/issues/5880) by **[Jamesking56](https://github.com/Jamesking56)**

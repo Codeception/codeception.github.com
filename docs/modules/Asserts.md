@@ -66,6 +66,16 @@ Checks that haystack contains needle
  * `param` $description
 
 
+#### assertDoesNotMatchRegularExpression
+ 
+Checks that string not match with pattern
+
+Alias of assertNotRegExp
+ * `param string` $pattern
+ * `param string` $string
+ * `param string` $message
+
+
 #### assertEmpty
  
 Checks that variable is empty.
@@ -101,6 +111,15 @@ __not documented__
 Checks that condition is negative.
 
  * `param`        $condition
+ * `param string` $message
+
+
+#### assertFileDoesNotExist
+ 
+Checks if file doesn't exist
+
+Alias of assertFileNotExists
+ * `param string` $filename
  * `param string` $message
 
 
@@ -267,6 +286,16 @@ Checks that actual is less or equal than expected
 
  * `param`        $expected
  * `param`        $actual
+ * `param string` $message
+
+
+#### assertMatchesRegularExpression
+ 
+Checks that string match with pattern
+
+Alias of assertRegExp
+ * `param string` $pattern
+ * `param string` $string
  * `param string` $message
 
 

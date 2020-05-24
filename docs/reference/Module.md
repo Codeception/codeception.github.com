@@ -230,7 +230,7 @@ public function _beforeSuite($settings = []) {
 
  *protected* assert($arguments, $not = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L6)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L10)
 
 #### assertArrayHasKey()
 
@@ -240,7 +240,7 @@ public function _beforeSuite($settings = []) {
  * `param` $actual
  * `param` $description
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L369)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L411)
 
 #### assertArrayNotHasKey()
 
@@ -250,7 +250,7 @@ public function _beforeSuite($settings = []) {
  * `param` $actual
  * `param` $description
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L379)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L421)
 
 #### assertArraySubset()
 
@@ -263,7 +263,7 @@ Checks that array contains subset.
  * `param bool`   $strict
  * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L392)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L434)
 
 #### assertContains()
 
@@ -275,7 +275,7 @@ Checks that haystack contains needle
  * `param`        $haystack
  * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L133)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L137)
 
 #### assertCount()
 
@@ -285,7 +285,20 @@ Checks that haystack contains needle
  * `param` $actual
  * `param` $description
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L402)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L444)
+
+#### assertDoesNotMatchRegularExpression()
+
+ *protected* assertDoesNotMatchRegularExpression($pattern, $string, $message = null) 
+
+Checks that string not match with pattern
+
+Alias of assertNotRegExp
+ * `param string` $pattern
+ * `param string` $string
+ * `param string` $message
+
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L199)
 
 #### assertEmpty()
 
@@ -296,7 +309,7 @@ Checks that variable is empty.
  * `param`        $actual
  * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L205)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L235)
 
 #### assertEquals()
 
@@ -309,25 +322,25 @@ Checks that two variables are equal.
  * `param string` $message
  * `param float`  $delta
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L35)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L39)
 
 #### assertEqualsCanonicalizing()
 
  *protected* assertEqualsCanonicalizing($expected, $actual, $message = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L583)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L625)
 
 #### assertEqualsIgnoringCase()
 
  *protected* assertEqualsIgnoringCase($expected, $actual, $message = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L593)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L635)
 
 #### assertEqualsWithDelta()
 
  *protected* assertEqualsWithDelta($expected, $actual, $delta, $message = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L603)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L645)
 
 #### assertFalse()
 
@@ -338,7 +351,19 @@ Checks that condition is negative.
  * `param`        $condition
  * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L271)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L301)
+
+#### assertFileDoesNotExist()
+
+ *protected* assertFileDoesNotExist($filename, $message = null) 
+
+Checks if file doesn't exist
+
+Alias of assertFileNotExists
+ * `param string` $filename
+ * `param string` $message
+
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L372)
 
 #### assertFileExists()
 
@@ -349,7 +374,7 @@ Checks if file exists
  * `param string` $filename
  * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L318)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L348)
 
 #### assertFileNotExists()
 
@@ -360,7 +385,7 @@ Checks if file doesn't exist
  * `param string` $filename
  * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L330)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L360)
 
 #### assertGreaterOrEquals()
 
@@ -370,7 +395,7 @@ Checks if file doesn't exist
  * `param` $actual
  * `param` $description
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L340)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L382)
 
 #### assertGreaterThan()
 
@@ -382,7 +407,7 @@ Checks that actual is greater than expected
  * `param`        $actual
  * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L84)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L88)
 
 #### assertGreaterThanOrEqual()
 
@@ -394,7 +419,7 @@ Checks that actual is greater or equal than expected
  * `param`        $actual
  * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L96)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L100)
 
 #### assertInstanceOf()
 
@@ -404,7 +429,7 @@ Checks that actual is greater or equal than expected
  * `param` $actual
  * `param` $description
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L412)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L454)
 
 #### assertInternalType()
 
@@ -414,25 +439,25 @@ Checks that actual is greater or equal than expected
  * `param` $actual
  * `param` $description
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L432)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L474)
 
 #### assertIsArray()
 
  *protected* assertIsArray($actual, $message = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L483)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L525)
 
 #### assertIsBool()
 
  *protected* assertIsBool($actual, $message = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L488)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L530)
 
 #### assertIsCallable()
 
  *protected* assertIsCallable($actual, $message = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L528)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L570)
 
 #### assertIsEmpty()
 
@@ -441,109 +466,109 @@ Checks that actual is greater or equal than expected
  * `param` $actual
  * `param` $description
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L359)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L401)
 
 #### assertIsFloat()
 
  *protected* assertIsFloat($actual, $message = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L493)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L535)
 
 #### assertIsInt()
 
  *protected* assertIsInt($actual, $message = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L498)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L540)
 
 #### assertIsNotArray()
 
  *protected* assertIsNotArray($actual, $message = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L533)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L575)
 
 #### assertIsNotBool()
 
  *protected* assertIsNotBool($actual, $message = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L538)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L580)
 
 #### assertIsNotCallable()
 
  *protected* assertIsNotCallable($actual, $message = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L578)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L620)
 
 #### assertIsNotFloat()
 
  *protected* assertIsNotFloat($actual, $message = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L543)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L585)
 
 #### assertIsNotInt()
 
  *protected* assertIsNotInt($actual, $message = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L548)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L590)
 
 #### assertIsNotNumeric()
 
  *protected* assertIsNotNumeric($actual, $message = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L553)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L595)
 
 #### assertIsNotObject()
 
  *protected* assertIsNotObject($actual, $message = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L558)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L600)
 
 #### assertIsNotResource()
 
  *protected* assertIsNotResource($actual, $message = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L563)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L605)
 
 #### assertIsNotScalar()
 
  *protected* assertIsNotScalar($actual, $message = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L573)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L615)
 
 #### assertIsNotString()
 
  *protected* assertIsNotString($actual, $message = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L568)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L610)
 
 #### assertIsNumeric()
 
  *protected* assertIsNumeric($actual, $message = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L503)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L545)
 
 #### assertIsObject()
 
  *protected* assertIsObject($actual, $message = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L508)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L550)
 
 #### assertIsResource()
 
  *protected* assertIsResource($actual, $message = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L513)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L555)
 
 #### assertIsScalar()
 
  *protected* assertIsScalar($actual, $message = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L523)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L565)
 
 #### assertIsString()
 
  *protected* assertIsString($actual, $message = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L518)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L560)
 
 #### assertLessOrEquals()
 
@@ -553,7 +578,7 @@ Checks that actual is greater or equal than expected
  * `param` $actual
  * `param` $description
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L350)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L392)
 
 #### assertLessThan()
 
@@ -565,7 +590,7 @@ Checks that actual is less than expected
  * `param`        $actual
  * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L108)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L112)
 
 #### assertLessThanOrEqual()
 
@@ -577,13 +602,26 @@ Checks that actual is less or equal than expected
  * `param`        $actual
  * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L120)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L124)
+
+#### assertMatchesRegularExpression()
+
+ *protected* assertMatchesRegularExpression($pattern, $string, $message = null) 
+
+Checks that string match with pattern
+
+Alias of assertRegExp
+ * `param string` $pattern
+ * `param string` $string
+ * `param string` $message
+
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L174)
 
 #### assertNot()
 
  *protected* assertNot($arguments) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L22)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L26)
 
 #### assertNotContains()
 
@@ -595,7 +633,7 @@ Checks that haystack doesn't contain needle.
  * `param`        $haystack
  * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L145)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L149)
 
 #### assertNotEmpty()
 
@@ -606,7 +644,7 @@ Checks that variable is not empty.
  * `param`        $actual
  * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L216)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L246)
 
 #### assertNotEquals()
 
@@ -619,25 +657,25 @@ Checks that two variables are not equal
  * `param string` $message
  * `param float`  $delta
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L48)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L52)
 
 #### assertNotEqualsCanonicalizing()
 
  *protected* assertNotEqualsCanonicalizing($expected, $actual, $message = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L588)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L630)
 
 #### assertNotEqualsIgnoringCase()
 
  *protected* assertNotEqualsIgnoringCase($expected, $actual, $message = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L598)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L640)
 
 #### assertNotEqualsWithDelta()
 
  *protected* assertNotEqualsWithDelta($expected, $actual, $delta, $message = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L608)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L650)
 
 #### assertNotFalse()
 
@@ -648,7 +686,7 @@ Checks that the condition is NOT false (everything but false)
  * `param`        $condition
  * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L282)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L312)
 
 #### assertNotInstanceOf()
 
@@ -658,7 +696,7 @@ Checks that the condition is NOT false (everything but false)
  * `param` $actual
  * `param` $description
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L422)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L464)
 
 #### assertNotNull()
 
@@ -669,7 +707,7 @@ Checks that variable is not NULL
  * `param`        $actual
  * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L238)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L268)
 
 #### assertNotRegExp()
 
@@ -681,7 +719,7 @@ Checks that string not match with pattern
  * `param string` $string
  * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L169)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L186)
 
 #### assertNotSame()
 
@@ -693,7 +731,7 @@ Checks that two variables are not same
  * `param`        $actual
  * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L72)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L76)
 
 #### assertNotTrue()
 
@@ -704,7 +742,7 @@ Checks that the condition is NOT true (everything but true)
  * `param`        $condition
  * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L260)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L290)
 
 #### assertNull()
 
@@ -715,7 +753,7 @@ Checks that variable is NULL
  * `param`        $actual
  * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L227)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L257)
 
 #### assertRegExp()
 
@@ -727,7 +765,7 @@ Checks that string match with pattern
  * `param string` $string
  * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L157)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L161)
 
 #### assertSame()
 
@@ -739,45 +777,45 @@ Checks that two variables are same
  * `param`        $actual
  * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L60)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L64)
 
 #### assertStringContainsString()
 
  *protected* assertStringContainsString($needle, $haystack, $message = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L447)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L489)
 
 #### assertStringContainsStringIgnoringCase()
 
  *protected* assertStringContainsStringIgnoringCase($needle, $haystack, $message = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L457)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L499)
 
 #### assertStringEndsNotWith()
 
  *protected* assertStringEndsNotWith($suffix, $string, $message = null) 
  * `since` 1.1.0 of module-asserts
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L478)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L520)
 
 #### assertStringEndsWith()
 
  *protected* assertStringEndsWith($suffix, $string, $message = null) 
  * `since` 1.1.0 of module-asserts
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L470)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L512)
 
 #### assertStringNotContainsString()
 
  *protected* assertStringNotContainsString($needle, $haystack, $message = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L452)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L494)
 
 #### assertStringNotContainsStringIgnoringCase()
 
  *protected* assertStringNotContainsStringIgnoringCase($needle, $haystack, $message = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L462)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L504)
 
 #### assertStringStartsNotWith()
 
@@ -789,7 +827,7 @@ Checks that a string doesn't start with the given prefix.
  * `param string` $string
  * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L193)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L223)
 
 #### assertStringStartsWith()
 
@@ -801,7 +839,7 @@ Checks that a string starts with the given prefix.
  * `param string` $string
  * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L181)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L211)
 
 #### assertThat()
 
@@ -812,7 +850,7 @@ Checks that a string starts with the given prefix.
  * `param`        $constraint
  * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L293)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L323)
 
 #### assertThatItsNot()
 
@@ -824,7 +862,7 @@ Checks that haystack doesn't attend
  * `param`        $constraint
  * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L305)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L335)
 
 #### assertTrue()
 
@@ -835,7 +873,7 @@ Checks that condition is positive.
  * `param`        $condition
  * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L249)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L279)
 
 #### debug()
 
@@ -866,7 +904,7 @@ Fails the test with message.
 
  * `param` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L442)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Module.php#L484)
 
 #### getModule()
 
