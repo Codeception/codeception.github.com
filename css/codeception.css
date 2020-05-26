@@ -1159,9 +1159,15 @@ body .panel-info>.panel-heading {
 	padding: 5px 5px 0 0 !important;
 }
 
-.social-link img {
+.social-link img,
+.social-link svg {
 	height: 40px;
+	width: 40px;
 	float: right;
+}
+
+.social-link svg {
+	fill: #696969;
 }
 
 .community-wrapper .container {
