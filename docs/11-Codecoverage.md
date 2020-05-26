@@ -103,6 +103,24 @@ codecept run --coverage --coverage-xml --coverage-html
 XML and HTML reports are stored to the `_output` directory. The best way to review report is to open `index.html` from `tests/_output/coverage` in your browser.
 XML clover reports are used by IDEs (like PHPStorm) or Continuous Integration servers (like Jenkins).
 
+### Advanced configuration
+We support setting any configuration on the `CodeCoverage` object. Note that while we expose all configuration
+options here, not all combinations of them have been tested with CodeCeption. Using a non-standard configuration may break things.
+
+{% highlight yaml %}
+
+coverage:
+  advanced:
+    forceCoversAnnotation: true
+    checkForMissingCoversAnnotation: true
+    
+{% endhighlight %}
+
+The code doing the configuration is fully dynamic meaning that the actual options available depend on the version of `php-code-coverage` you are using.
+Some of the available options are documented in PHPUnit's docs: https://phpunit.readthedocs.io/en/9.1/code-coverage-analysis.html.
+For a full list of (undocumented) options check the source https://github.com/sebastianbergmann/php-code-coverage/blob/master/src/CodeCoverage.php.
+
+
 ## Remote CodeCoverage
 
 ### Local Server
