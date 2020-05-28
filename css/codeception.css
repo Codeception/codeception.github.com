@@ -1005,6 +1005,10 @@ body .panel-info>.panel-heading {
 	position: inherit !important;
 }
 
+.docs-dropdown.open .caret{
+	border-color: #ffffff;
+}
+
 .guides-wrapper {
 	background-color: #ffffff;
 }
