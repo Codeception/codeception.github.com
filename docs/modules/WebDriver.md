@@ -2122,9 +2122,37 @@ For example, given the following HTML:
  * `param` $button
 
 
-#### switchToIFrame
+#### switchToFrame
  
 Switch to another frame on the page.
+
+Example:
+{% highlight html %}
+
+<frame name="another_frame" id="fr1" src="http://example.com">
+
+
+{% endhighlight %}
+
+{% highlight php %}
+
+<?php
+# switch to frame by name
+$I->switchToFrame("another_frame");
+# switch to frame by CSS or XPath
+$I->switchToFrame("#fr1");
+# switch to parent page
+$I->switchToFrame();
+
+
+{% endhighlight %}
+
+ * `param string|null` $locator (name, CSS or XPath)
+
+
+#### switchToIFrame
+ 
+Switch to another iframe on the page.
 
 Example:
 {% highlight html %}
