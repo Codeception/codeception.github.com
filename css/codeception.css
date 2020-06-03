@@ -1537,3 +1537,15 @@ body #footer .links {
 		margin-right: 2.5em;
 	}
 }
+
+.github-repository {
+	display: inline-flex;
+	align-items: center;
+}
+
+.github-repository svg {
+	width: 52px;
+	height: 52px;
+	margin-right: 6px;
+	fill: #666666;
+}
