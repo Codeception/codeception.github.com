@@ -132,8 +132,7 @@ body #home-hero h1 {
 }
 
 .panel-collapse-body {
-	margin-top: 1em;
-	margin-bottom: 1em;
+	padding-top: 15px;
 }
 
 .maintainer a {
