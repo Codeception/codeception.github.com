@@ -1016,8 +1016,8 @@ body .panel-info>.panel-heading {
 @media (min-width: 768px) {
 	.dropdown-menu.columns-3 {
 		min-width: 100%;
-		left: -15px;
-		right: -15px;
+		left: 0;
+		right: auto;
 		overflow: hidden;
 		background-color: #F5F9FD;
 	}
