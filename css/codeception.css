@@ -1045,6 +1045,7 @@ body .panel-info>.panel-heading {
 .hero--symfony img {
 	width: 70%;
 	max-width: 800px;
+	height: auto;
 }
 
 .hero--yii img {
