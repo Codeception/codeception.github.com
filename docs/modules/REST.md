@@ -45,14 +45,22 @@ Otherwise, a PHPBrowser should be specified as a dependency to send requests and
 
 This module requires PHPBrowser or any of Framework modules enabled.
 
+In case you need to configure low-level HTTP fields, that's done on the PHPBrowser level.
+Check the example below for details.
+
 #### Example
 
     modules:
        enabled:
            - REST:
                depends: PhpBrowser
-               url: 'http://serviceapp/api/v1/'
+               url: &url 'http://serviceapp/api/v1/' # you only need the &url anchor for further PhpBrowser configs
                shortDebugResponse: 300 # only the first 300 chars of the response
+       config:
+           PhpBrowser:
+               url: *url # repeats the URL from the REST module; not needed if you don't have further settings like below
+               headers:
+                   Content-Type: application/json
 
 ### Public Properties
 
@@ -745,9 +753,9 @@ $I->seeResponseJsonMatchesXpath('/store//price');
 
 #### seeResponseMatchesJsonType
  
-Checks that Json matches provided types.
+Checks that JSON matches provided types.
 In case you don't know the actual values of JSON data returned you can match them by type.
-Starts check with a root element. If JSON data is array it will check the first element of an array.
+It starts the check with a root element. If JSON data is an array it will check all elements of it.
 You can specify the path in the json which should be checked with JsonPath
 
 Basic example:
@@ -769,7 +777,7 @@ $I->seeResponseMatchesJsonType(['name' => 'string'], '$.users[0]');
 
 {% endhighlight %}
 
-In this case you can match that record contains fields with data types you expected.
+You can check if the record contains fields with the data types you expect.
 The list of possible data types:
 
 * string
@@ -777,8 +785,9 @@ The list of possible data types:
 * float
 * array (json object is array as well)
 * boolean
+* null
 
-You can also use nested data type structures:
+You can also use nested data type structures, and define multiple types for the same field:
 
 {% highlight php %}
 
@@ -792,7 +801,8 @@ $I->seeResponseMatchesJsonType([
 
 {% endhighlight %}
 
-You can also apply filters to check values. Filter can be applied with `:` char after the type declaration.
+You can also apply filters to check values. Filter can be applied with a `:` char after the type declaration,
+or after another filter if you need more than one.
 
 Here is the list of possible filters:
 
@@ -817,17 +827,18 @@ $I->seeResponseMatchesJsonType([
 // {'user_id': '1'}
 $I->seeResponseMatchesJsonType([
      'user_id' => 'string:>0', // works with strings as well
-}
+]);
 ?>
 
 {% endhighlight %}
 
-You can also add custom filters y accessing `JsonType::addCustomFilter` method.
+You can also add custom filters by using `{@link JsonType::addCustomFilter()}`.
 See [JsonType reference](http://codeception.com/docs/reference/JsonType).
 
  * `[Part]` json
  * `param array` $jsonType
  * `param string` $jsonPath
+@see JsonType
  * `Available since` 2.1.3
 
 

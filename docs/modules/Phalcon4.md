@@ -899,6 +899,8 @@ Sets SERVER parameter valid for all next requests.
 $I->haveServerParameter('name', 'value');
 
 {% endhighlight %}
+ * `param` $name
+ * `param` $value
 
 
 #### makeHtmlSnapshot
@@ -1514,6 +1516,7 @@ this will remove old ones.
 $I->setServerParameters([]);
 
 {% endhighlight %}
+ * `param array` $params
 
 
 #### submitForm

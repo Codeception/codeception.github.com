@@ -666,7 +666,7 @@ $I->executeInGuzzle(function (\GuzzleHttp\Client $client) {
 It is not recommended to use this command on a regular basis.
 If Codeception lacks important Guzzle Client methods, implement them and submit patches.
 
- * `param callable` $function
+ * `param Closure` $function
 
 
 #### fillField
@@ -840,6 +840,8 @@ Sets SERVER parameter valid for all next requests.
 $I->haveServerParameter('name', 'value');
 
 {% endhighlight %}
+ * `param` $name
+ * `param` $value
 
 
 #### makeHtmlSnapshot
@@ -1379,6 +1381,7 @@ this will remove old ones.
 $I->setServerParameters([]);
 
 {% endhighlight %}
+ * `param array` $params
 
 
 #### submitForm

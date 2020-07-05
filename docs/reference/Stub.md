@@ -55,11 +55,12 @@ Stub::make('User', [
 
 {% endhighlight %}
 
- * `param mixed` $class - A class to be mocked
+ * template RealInstanceType of object
+ * `param class-string<RealInstanceType>|RealInstanceType|callable(): class-string<RealInstanceType>` $class - A class to be mocked
  * `param array` $params - properties and methods to set
  * `param bool|\PHPUnit\Framework\TestCase` $testCase
 
- * return object - mock
+ * return \PHPUnit\Framework\MockObject\MockObject&RealInstanceType - mock
  * throws \RuntimeException when class does not exist
  * throws \Exception
 
@@ -120,13 +121,13 @@ Stub::makeEmptyExcept('User', 'validate', [
 ], $this);
 
 {% endhighlight %}
-
- * `param mixed` $class
+ * template
+ * `param class-string<RealInstanceType>|RealInstanceType|callable(): class-string<RealInstanceType>` $class - A class to be mocked
  * `param string` $method
  * `param array` $params
  * `param bool|\PHPUnit\Framework\TestCase` $testCase
 
- * return object
+ * return \PHPUnit\Framework\MockObject\MockObject&RealInstanceType
  * throws \Exception
 
 #### *public static* makeEmpty($class, $params = null, $testCase = null) 
@@ -174,11 +175,12 @@ Stub::makeEmpty('User', [
 
 {% endhighlight %}
 
- * `param mixed` $class
+ * template RealInstanceType of object
+ * `param class-string<RealInstanceType>|RealInstanceType|callable(): class-string<RealInstanceType>` $class - A class to be mocked
  * `param array` $params
  * `param bool|\PHPUnit\Framework\TestCase` $testCase
 
- * return object
+ * return \PHPUnit\Framework\MockObject\MockObject&RealInstanceType
  * throws \Exception
 
 #### *public static* copy($obj, $params = null) 
@@ -238,12 +240,13 @@ Stub::construct('User', [], [
 
 {% endhighlight %}
 
- * `param mixed` $class
+ * template RealInstanceType of object
+ * `param class-string<RealInstanceType>|RealInstanceType|callable(): class-string<RealInstanceType>` $class - A class to be mocked
  * `param array` $constructorParams
  * `param array` $params
  * `param bool|\PHPUnit\Framework\TestCase` $testCase
 
- * return object
+ * return \PHPUnit\Framework\MockObject\MockObject&RealInstanceType
  * throws \Exception
 
 #### *public static* constructEmpty($class, $constructorParams = null, $params = null, $testCase = null) 
@@ -291,12 +294,13 @@ Stub::constructEmpty('User', [], [
 
 {% endhighlight %}
 
- * `param mixed` $class
+ * template RealInstanceType of object
+ * `param class-string<RealInstanceType>|RealInstanceType|callable(): class-string<RealInstanceType>` $class - A class to be mocked
  * `param array` $constructorParams
  * `param array` $params
  * `param bool|\PHPUnit\Framework\TestCase` $testCase
 
- * return object
+ * return \PHPUnit\Framework\MockObject\MockObject&RealInstanceType
 
 #### *public static* constructEmptyExcept($class, $method, $constructorParams = null, $params = null, $testCase = null) 
 Instantiates a class instance by running constructor with all methods replaced with dummies, except one.
@@ -346,13 +350,14 @@ Stub::constructEmptyExcept('User', 'save', [], [
 
 {% endhighlight %}
 
- * `param mixed` $class
+ * template RealInstanceType of object
+ * `param class-string<RealInstanceType>|RealInstanceType|callable(): class-string<RealInstanceType>` $class - A class to be mocked
  * `param string` $method
  * `param array` $constructorParams
  * `param array` $params
  * `param bool|\PHPUnit\Framework\TestCase` $testCase
 
- * return object
+ * return \PHPUnit\Framework\MockObject\MockObject&RealInstanceType
 
 #### *public static* update($mock, array $params) 
 Replaces properties of current stub
