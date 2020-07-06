@@ -366,7 +366,26 @@ On next execution the obtained data will be compared with previously saved snaps
 > To update a snapshot with a new data run tests in `--debug` mode.
 
 By default Snapshot uses `assertEquals` assertion, however this can be customized by overriding `assertData` method.
+
+### Failed assertion output
+
+The assertion performed by `assertData` will not display the typical diff output from `assertEquals` or any customized failed assertion.
+To have the diff displayed when running tests, you can call the snapshot method `shouldShowDiffOnFail`:
+
+{% highlight php %}
+
+<?php
+public function testCategoriesAreTheSame(\AcceptanceTester $I, \Snapshot\Categories $snapshot)
+{
+    $I->amOnPage('/categories');
+    // I want to see the diff in case the snapshot data changes
+    $snapshot->shouldShowDiffOnFail();
+    $snapshot->assert();
+}
+
+{% endhighlight %}
   
+If ever needed, the diff output can also be omitted by calling `shouldShowDiffOnFail(false)`.
 
 ## Conclusion
 
