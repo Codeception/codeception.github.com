@@ -62,10 +62,6 @@
   link: https://github.com/ipeevski/PauseOnFail
   description: Pause execution on failure/error - allow debugging from failed point onwardss
 
-- name: GherkinParam
-  link: http://github.com/edno/codeception-gherkin-param
-  description: The Codeception extension for supporting parameter notation in Gherkin scenario.
-
 - name: SecureShell
   link: http://github.com/edno/codeception-secureshell
   description: The Codeception module for SSH commands, SFTP access and SSH tunnels
