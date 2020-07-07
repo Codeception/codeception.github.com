@@ -60,7 +60,7 @@
 
 - name: GherkinParam
   link: http://github.com/edno/codeception-gherkin-param
-  description: The Codeception extension for supporting parameter notation in Gherkin scenario.
+  description: The Codeception module for supporting parameter notation in Gherkin scenario.
 
 - name: HighlightCeption
   image: https://user-images.githubusercontent.com/6382002/29250010-0bdb3cf6-803b-11e7-92af-f666caf497e4.png
