@@ -1560,3 +1560,20 @@ body #footer .links {
 	margin-right: 6px;
 	fill: #666666;
 }
+
+.panel-group--phar .panel-collapse-body {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.panel-group--phar .phar-download {
+	display: table;
+}
+
+.panel-group--phar .btn {
+	width: 100%;
+}
+
+.panel-group--phar pre {
+	margin-bottom: 0;
+}
