@@ -992,6 +992,12 @@ body .navbar-inverse .navbar-toggle .icon-bar {
 body .panel-info>.panel-heading {
   background: #fff;
   border-radius: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+body .panel-info>.panel-heading a {
+	margin-top: 10px;
 }
 
 .doc-btn {
@@ -1147,10 +1153,6 @@ body .panel-info>.panel-heading {
 .quickstart-panel {
 	box-shadow: 5px 5px 5px #0000004f;
 	font-size: 16px;
-}
-
-.quickstart-panel .panel-heading a {
-	float: right;
 }
 
 .test-forum img{
@@ -1515,6 +1517,16 @@ body #footer .links {
 
 	.intro-block .pull-right {
 		float: right !important;
+	}
+
+	body .panel-info>.panel-heading {
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	body .panel-info>.panel-heading a {
+		margin-top: 0;
 	}
 }
 
