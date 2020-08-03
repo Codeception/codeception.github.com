@@ -1019,33 +1019,8 @@ body .panel-info>.panel-heading a {
 	background-color: #ffffff;
 }
 
-@media (min-width: 768px) {
-	.dropdown-menu.columns-3 {
-		min-width: 100%;
-		left: 0;
-		right: auto;
-		overflow: hidden;
-		background-color: #F5F9FD;
-	}
-
-	.navbar>.container-fluid .navbar-brand {
-		margin-left: 0;
-	}
-
-	body .page {
-		padding: 1em 2em 2em;
-	}
-}
-
 .footer-logo:hover {
 	text-decoration: none;
-}
-
-@media screen and (min-width:992px) {
-	.navbar-right {
-		display: flex;
-		align-items: center;
-	}
 }
 
 .hero--symfony img {
@@ -1372,6 +1347,23 @@ body #footer .links {
 		padding-left: 0 !important;
 		padding-right: 0 !important;
 	}
+
+	.dropdown-menu.columns-3 {
+		min-width: 100%;
+		left: 0;
+		top: 100px;
+		right: auto;
+		overflow: hidden;
+		background-color: #F5F9FD;
+	}
+
+	.navbar>.container-fluid .navbar-brand {
+		margin-left: 0;
+	}
+
+	body .page {
+		padding: 1em 2em 2em;
+	}
 }
 
 @media screen and (min-width:991px) {
@@ -1431,6 +1423,15 @@ body #footer .links {
 		margin-left: 20px;
 		font-size: 18px;
 	}
+
+	.navbar-right {
+		display: flex;
+		align-items: center;
+	}
+
+	.dropdown-menu.columns-3 {
+		top: 52px;
+	}
 }
 
 @media screen and (min-width:1200px) {
@@ -1473,6 +1474,10 @@ body #footer .links {
 
 	.hero--quickstart {
 		margin-bottom: -400px;
+	}
+
+	.dropdown-menu.columns-3 {
+		top: 48px;
 	}
 }
 
