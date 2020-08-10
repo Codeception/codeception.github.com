@@ -259,11 +259,11 @@ Given I am logged in as 1
 
 Steps are defined in Context files. Default context is an actor class, i.e. for acceptance testing suite default context is `AcceptanceTester` class. However, you can define steps in any classes and include them as contexts. It is useful to define steps in StepObject and PageObject classes.
 
-To list all defined steps run `gherkin:steps` command:
+To list all defined steps run `gherkin:steps acceptance` command:
 
 {% highlight bash %}
 
-codecept gherkin:steps
+codecept gherkin:steps acceptance
 
 {% endhighlight %}
 
