@@ -190,24 +190,6 @@ hero: hero.html
     </div>
   </div>
 </div>
-<script>
-  $(document).ready(function () {
-    function randomCarousel(id) {
-      var num = $(id + ' .item').length;
-      var slide = Math.floor((Math.random() * num));
-      $(id + ' .item').each(function (index) {
-        if (index == slide) {
-          $(this).addClass('active');
-        } else {
-          $(this).removeClass('active');
-        }
-      });
-    }
-
-    randomCarousel('#carousel-tweets');
-    randomCarousel('#carousel-companies');
-  });
-</script>
 
 <div class="bg-grey">
   <div class="container">

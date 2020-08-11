@@ -53,16 +53,3 @@ layout: bootstrap
     </div>
   </div>
 </div>
-
-<script>
-  $(document).ready(function () {
-    $('#toc').toc({
-      'selectors': 'h2',
-      'prefix': 'toc',
-      'container': '#page',
-      'anchorName': function (i, heading, prefix) { //custom function for anchor name
-        return $(heading).text().replace(/\s/g, '-').replace(/[^\w-]/g, '');
-      },
-    });
-  });
-</script>
