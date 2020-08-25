@@ -164,7 +164,44 @@ test:
 
 ![report](http://codeception.com/images/gitlab/build.png)
 
-For acceptance testing you can use `codeception/codeception` docker image as base.
+For acceptance testing you can use `codeception/codeception` docker image as base. See example below:
+
+{% highlight yaml %}
+
+
+image:
+  name: codeception/codeception
+  # clear image entrypoint to make bash being available
+  entrypoint: [""]
+
+# run selenium chrome as a local service (put "host: 'selenium__standalone-chrome'" in environment configuration)
+services:
+  - selenium/standalone-chrome:latest
+
+# Select what we should cache
+cache:
+  paths:
+  - vendor/
+
+before_script:
+# Install all project dependencies
+- composer install
+
+# Test
+test:
+  script:
+    - vendor/bin/codecept run acceptance --xml --html
+  artifacts:
+    when: always
+    expire: 1 week
+    paths:
+      - tests/_output
+    # make the report available in Gitlab UI. see https://docs.gitlab.com/ee/ci/unit_test_reports.html
+    reports:
+      junit: tests/_output/report.xml
+
+{% endhighlight %}
+
 
 ## Conclusion
 
