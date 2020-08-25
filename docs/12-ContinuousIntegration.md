@@ -193,7 +193,7 @@ test:
     - vendor/bin/codecept run acceptance --xml --html
   artifacts:
     when: always
-    expire: 1 week
+    expire_in: 1 week
     paths:
       - tests/_output
     # make the report available in Gitlab UI. see https://docs.gitlab.com/ee/ci/unit_test_reports.html
