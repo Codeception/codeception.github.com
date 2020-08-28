@@ -8,6 +8,14 @@ title: Codeception Changelog
 # Changelog
 
 
+#### 4.1.7
+
+* Compatibility with PhpCodeCoverage 9 and PHPUnit 9.3
+* Show snapshot diff on fail [#5930](https://github.com/Codeception/Codeception/issues/5930) by **[fkupper](https://github.com/fkupper)**
+* Ability to store non-json snapshots [#5945](https://github.com/Codeception/Codeception/issues/5945) by **[fkupperr](https://github.com/fkupperr)**
+* Fixed step decorators in generated configuration file [#5936](https://github.com/Codeception/Codeception/issues/5936) by **[rene-hermenau](https://github.com/rene-hermenau)**
+* Fixed single line style dataprovider [#5944](https://github.com/Codeception/Codeception/issues/5944) by **[edno](https://github.com/edno)**
+
 #### 4.1.6
 
 * Compatibility with PHPUnit 9.2
