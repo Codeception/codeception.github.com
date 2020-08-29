@@ -384,8 +384,32 @@ public function testCategoriesAreTheSame(\AcceptanceTester $I, \Snapshot\Categor
 }
 
 {% endhighlight %}
-  
+
 If ever needed, the diff output can also be omitted by calling `shouldShowDiffOnFail(false)`.
+
+### Working with different data formats
+
+By default, all snapshot files are stored in json format, so if you have to work with different formats, neither the diff output or the snapshot file data will be helpful. 
+To fix this, you can call the snapshot method `shouldSaveAsJson(false)` and set the file extension by calling `setSnapshotFileExtension()`:
+
+{% highlight php %}
+
+<?php
+public function testCategoriesAreTheSame(\AcceptanceTester $I, \Snapshot\Categories $snapshot)
+{
+    // I fetch an HTML page
+    $I->amOnPage('/categories.html');
+    // I want to see the diff in case the snapshot data changes
+    $snapshot->shouldSaveAsJson(false);
+    $snapshot->setSnapshotFileExtension('html');
+    $snapshot->assert();
+}
+
+{% endhighlight %}
+
+The snapshot file will be stored without encoding it to json format, and with the `.html` extension.
+
+> Beware that this option will not perform any changes in the data returned by `fetchData`, and store it as it is.
 
 ## Conclusion
 
