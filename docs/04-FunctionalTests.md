@@ -54,7 +54,7 @@ In functional tests we run the application multiple times, thus we will get lots
 
 ### External URLs
 
-Functional tests cannot access external URLs, just URLs within your project. You can use Guzzle to open external URLs.
+Functional tests cannot access external URLs, just URLs within your project. You can use PhpBrowser to open external URLs.
 
 ### Shared Memory
 
