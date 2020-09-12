@@ -52,9 +52,9 @@ One of the common issues with functional tests is the use of PHP functions that 
 As you may already know, the `header` function triggers an error if it is executed after PHP has already output something.
 In functional tests we run the application multiple times, thus we will get lots of irrelevant errors in the result.
 
-### External URL's
+### External URLs
 
-Functional tests cannot access external URL's, just URL's within your project. You can use Guzzle to open external URL's.
+Functional tests cannot access external URLs, just URLs within your project. You can use PhpBrowser to open external URLs.
 
 ### Shared Memory
 
