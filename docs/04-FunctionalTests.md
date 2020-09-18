@@ -8,13 +8,14 @@ title: 04-FunctionalTests - Codeception - Documentation
 Now that we've written some acceptance tests, functional tests are almost the same, with one major difference:
 Functional tests don't require a web server.
 
-In simple terms we set the `$_REQUEST`, `$_GET` and `$_POST` variables and then we execute the application from a test.
-This may be valuable, as functional tests are faster and provide detailed stack traces on failures.
+Under the hood, Codeception uses Symfony's [BrowserKit](https://symfony.com/doc/current/components/browser_kit.html)
+to "send" requests to your app. So there's no real HTTP request made, but rather a BrowserKit
+[Request object](https://github.com/symfony/browser-kit/blob/master/Request.php) with the required properties is
+passed to your framework's (font-)controller.
 
-Codeception can connect to different PHP frameworks that support functional testing: Symfony2, Laravel5, Yii2,
-Zend Framework and others. You just need to enable the desired module in your functional suite configuration to start.
+As a first step, you need to enable Codeception's module for your framework in `functional.suite.yml` (see below).
 
-Modules for all of these frameworks share the same interface, and thus your tests are not bound to any one of them.
+All of Codeception's framework modules share the same interface, and thus your tests are not bound to any one of them.
 This is a sample functional test:
 
 {% highlight php %}
