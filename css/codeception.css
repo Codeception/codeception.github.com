@@ -368,8 +368,13 @@ body b {
 #footer .sponsors {
 	zoom: 0.8;
 	filter: grayscale(0.3);  
-	opacity: 0.5;
+	opacity: 0.9;
 	transition: opacity .2s ease;
+}
+
+
+#footer .sponsors.thanks {
+	opacity: 0.5;
 }
 
 #footer .sponsors:hover {

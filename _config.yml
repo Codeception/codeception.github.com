@@ -24,4 +24,4 @@ algolia:
     - "2014-"
 banner:
   # disable content to show last blogpost
-  content: '<a href="https://codeception.com/12-18-2019/codeception-4.html">Codeception 4 is here! Time to upgrade</a>'
+  content: '<a href="https://opencollective.com/codeception">Codeception is on OpenCollective! Support us 💖</a>'
