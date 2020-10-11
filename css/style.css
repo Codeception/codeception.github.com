@@ -376,6 +376,7 @@ body b {
 
 #footer .sponsors:hover {
   opacity: 1;
+  text-decoration: none;
 }
 
 .sponsors--phpstorm {
