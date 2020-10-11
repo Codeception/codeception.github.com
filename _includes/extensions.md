@@ -47,7 +47,8 @@ Monolog should be installed additionally by Composer.
 composer require monolog/monolog
 ```
 
-Steps are logged into `tests/_output/codeception.log`
+Codeception's core/internal stuff is logged into `tests/_output/codeception.log`.
+Test suites' steps are logged into `tests/_output/<test_full_name>-<rotation_date>.log`.
 
 To enable this module add to your `codeception.yml`:
 
@@ -157,7 +158,7 @@ HINT: you can use different configurations per environment.
 
 [See Source](https://github.com/Codeception/Codeception/blob/4.1/ext/RunFailed.php)
 
-Saves failed tests into tests/log/failed in order to rerun failed tests.
+Saves failed tests into tests/_output/failed in order to rerun failed tests.
 
 To rerun failed tests just run the `failed` group:
 

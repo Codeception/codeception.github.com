@@ -8,6 +8,17 @@ title: Codeception Changelog
 # Changelog
 
 
+#### 4.1.8
+
+* Support Covertura code coverage format [#5994](https://github.com/Codeception/Codeception/issues/5994) by **[zachkknowbe4](https://github.com/zachkknowbe4)**
+* Compatibility with vlucas/phpdotenv v5 [#5975](https://github.com/Codeception/Codeception/issues/5975) by **[johanzandstra](https://github.com/johanzandstra)**
+* Support absolute output dir path on Windows [#5966](https://github.com/Codeception/Codeception/issues/5966) by **[Naktibalda](https://github.com/Naktibalda)**
+* Fix --no-redirect option for run command [#5967](https://github.com/Codeception/Codeception/issues/5967) by **[convenient](https://github.com/convenient)**
+* Code coverage: Don't make request to c3.php if remote=false [#5991](https://github.com/Codeception/Codeception/issues/5991) by **[dereuromark](https://github.com/dereuromark)**
+* Gherkin: Fail on ambiguous step definition [#5866](https://github.com/Codeception/Codeception/issues/5866) by **[matthiasnoback](https://github.com/matthiasnoback)**
+* Removed complicated merge logic for environment configurations [#5948](https://github.com/Codeception/Codeception/issues/5948) by **[Sasti](https://github.com/Sasti)**
+* Logger extension: add .log to suite log files [#5982](https://github.com/Codeception/Codeception/issues/5982) by **[varp](https://github.com/varp)**
+
 #### 4.1.7
 
 * Compatibility with PhpCodeCoverage 9 and PHPUnit 9.3

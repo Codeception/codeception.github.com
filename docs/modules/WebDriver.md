@@ -1157,6 +1157,7 @@ $I->grabAttributeFrom('#tooltip', 'title');
  
 Grabs a cookie value.
 You can set additional cookie params like `domain`, `path` in array passed as last argument.
+If the cookie is set by an ajax request (XMLHttpRequest), there might be some delay caused by the browser, so try `$I->wait(0.1)`.
 
  * `param` $cookie
 
@@ -1348,7 +1349,7 @@ $I->moveMouseOver(['css' => '.checkout'], 20, 50);
 
 #### openNewTab
  
-Opens a new browser tab (wherever it is possible) and switches to it.
+Opens a new browser tab and switches to it.
 
 {% highlight php %}
 
@@ -1356,11 +1357,10 @@ Opens a new browser tab (wherever it is possible) and switches to it.
 $I->openNewTab();
 
 {% endhighlight %}
-Tab is opened by using `window.open` javascript in a browser.
-Please note, that adblock can restrict creating such tabs.
-
-Can't be used with PhantomJS
-
+The tab is opened with JavaScript's `window.open()`, which means:
+* Some adblockers might restrict it.
+* The sessionStorage is copied to the new tab (contrary to a tab that was manually opened by the user)
+* It is not possible in PhantomJS.
 
 
 #### performOn

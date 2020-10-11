@@ -54,7 +54,7 @@ Checks that output from latest command doesn't contain text
 #### runShellCommand
  
 Executes a shell command.
-Fails If exit code is > 0. You can disable this by setting second parameter to false
+Fails if exit code is > 0. You can disable this by passing `false` as second argument
 
 {% highlight php %}
 
@@ -79,7 +79,7 @@ Checks that output from last executed command contains text
 
 #### seeResultCodeIs
  
-Checks result code
+Checks result code. To verify a result code > 0, you need to pass `false` as second argument to `runShellCommand()`
 
 {% highlight php %}
 
