@@ -270,8 +270,16 @@ Learn more about the [Cest format](http://codeception.com/docs/07-AdvancedUsage#
 It's hard to write a complete test at once. 
 You will need to try different commands with different arguments before you find a correct path.
 
-Since Codeception 3.0 you can pause execution in any point and enter interactive shell where you will be able to try commands in action.
-All you need to do is to **call `$I->pause()` in debug mode**.
+Since Codeception 3.0 you can pause the execution at any point and enter an interactive shell where you will be able to try different commands in action.
+All you need to do is **call `$I->pause()`** somewhere in your test, then run the test in [debug mode](#Debugging).
+
+Interactive Pause requires [`hoa/console`](https://hoa-project.net/) which is not installed by default. To install it, run:
+
+{% highlight bash %}
+
+php composer.phar require --dev hoa/console
+
+{% endhighlight %}
 
 {% highlight php %}
 
@@ -281,15 +289,15 @@ $I->pause();
 
 {% endhighlight %}
 
-When a test gets to this point it stops and shows a console where you can try all available commands. 
+The execution of the test is stopped at this point, and a console is shown where you can try all available commands "live". 
 This can be very useful when you write functional, acceptance, or api test.
 
 ![](https://user-images.githubusercontent.com/220264/54929617-875ad180-4f1e-11e9-8fea-fc1b02423050.gif)
 
-Inside interactive pause you can use all power of PHP interpreter. Use variables, functions, etc.
-Result of the last executed command (usually a grabber) is saved to `$result` variable, so you can use it in next commands.
+Inside Interactive Pause you can use the entire power of the PHP interpreter: variables, functions, etc.
+You can access the result of the last executed command in a variable called `$result`.
 
-Inside acceptance or functional test you can save page screenshot or html snapshot to check the page you are working on.
+In acceptance or functional test you can save page screenshot or html snapshot.
 
 {% highlight php %}
 
