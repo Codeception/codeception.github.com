@@ -394,6 +394,10 @@ body b {
   padding: 5px;
 }
 
+.sponsors-item:hover {
+  text-decoration: none;
+}
+
 #footer a {
   color: #fff;
 }
