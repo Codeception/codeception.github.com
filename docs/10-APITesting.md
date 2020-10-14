@@ -82,7 +82,7 @@ class CreateUserCest
     {
         $I->amHttpAuthenticated('service_user', '123456');
         $I->haveHttpHeader('Content-Type', 'application/x-www-form-urlencoded');
-        $I->sendPOST('/users', [
+        $I->sendPost('/users', [
           'name' => 'davert', 
           'email' => 'davert@codeception.com'
         ]);
@@ -131,26 +131,26 @@ $I->haveHttpHeader('content-type', 'application/json');
 
 {% endhighlight %}
 
-When headers are set, you can send a request. To obtain data use `sendGET`:
+When headers are set, you can send a request. To obtain data use `sendGet`:
 
 {% highlight php %}
 
 <?php
 // pass in query params in second argument
-$I->sendGET('/posts', [ 'status' => 'pending' ]);
+$I->sendGet('/posts', [ 'status' => 'pending' ]);
 $I->seeResponseCodeIs(200);
 $I->seeResponseIsJson();
 
 {% endhighlight %}
 
-> `sendGET` won't return any value. However, you can access data from a response and perform assertions using other available methods of REST module.
+> `sendGet` won't return any value. However, you can access data from a response and perform assertions using other available methods of REST module.
 
 To create or update data you can use other common methods:
 
-* `sendPOST`
-* `sendPUT`
-* `sendDELETE`
-* `sendPATCH`
+* `sendPost`
+* `sendPut`
+* `sendDelete`
+* `sendPatch`
 
 ### JSON Structure Validation
 
@@ -159,7 +159,7 @@ If we expect a JSON response to be received we can check its structure with [JSO
 {% highlight php %}
 
 <?php
-$I->sendGET('/users');
+$I->sendGet('/users');
 $I->seeResponseCodeIs(HttpCode::OK); // 200
 $I->seeResponseIsJson();
 $I->seeResponseJsonMatchesJsonPath('$[0].user.login');
@@ -173,7 +173,7 @@ You can do that by using with a [seeResponseMatchesJsonType](http://codeception.
 {% highlight php %}
 
 <?php
-$I->sendGET('/users/1');
+$I->sendGet('/users/1');
 $I->seeResponseCodeIs(HttpCode::OK); // 200
 $I->seeResponseIsJson();
 $I->seeResponseMatchesJsonType([
@@ -198,7 +198,7 @@ When you need to obtain a value from a response and use it in next requests you 
 
 <?php
 list($id) = $I->grabDataFromResponseByJsonPath('$.id');
-$I->sendGET('/pet/' . $id);
+$I->sendGet('/pet/' . $id);
 
 {% endhighlight %}
 
@@ -252,7 +252,7 @@ There is `seeXmlResponseIncludes` method to match inclusion of XML parts in resp
 {% highlight php %}
 
 <?php
-$I->sendGET('/users.xml');
+$I->sendGet('/users.xml');
 $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
 $I->seeResponseIsXml();
 $I->seeXmlResponseMatchesXpath('//user/login');
