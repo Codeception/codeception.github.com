@@ -220,7 +220,7 @@ class EndpointCest
   */
   public function checkEndpoints(ApiTester $I, \Codeception\Example $example)
   {
-    $I->sendGET($example[0]);
+    $I->sendGet($example[0]);
     $I->seeResponseCodeIs($example[1]);
   }
 }
