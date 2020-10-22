@@ -394,13 +394,13 @@ body b {
   padding: 5px;
 }
 
-.sponsors-item .sponsors {
+#footer .sponsors-item .sponsors {
   height: 80px;
   border-radius: 20px;
   opacity: 0.8;
 }
 
-.sponsors-item .sponsors.sponsors--themeisle {
+#footer .sponsors-item .sponsors.sponsors--themeisle {
   width: 150px;
   height: auto;
 }
@@ -409,7 +409,7 @@ body b {
   text-decoration: none;
 }
 
-.sponsors-item .sponsors.sponsors--somewherewarm {
+#footer .sponsors-item .sponsors.sponsors--somewherewarm {
   height: 150px;
   opacity: 0.9;
   width: auto;
