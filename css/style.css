@@ -398,6 +398,11 @@ body b {
   height: 80px;
   border-radius: 20px;
   opacity: 0.8;
+  transition: opacity .2s ease;
+}
+
+#footer .sponsors-item .sponsors:hover {
+  opacity: 1;
 }
 
 #footer .sponsors-item .sponsors.sponsors--themeisle {
