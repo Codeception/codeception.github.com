@@ -420,6 +420,10 @@ body b {
   width: auto;
 }
 
+#footer .sponsors-item .sponsors.sponsors--somewherewarm:hover {
+  opacity: 1;
+}
+
 #footer a {
   color: #fff;
 }
