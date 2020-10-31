@@ -1339,7 +1339,6 @@ body #footer .links {
   }
 
   .footer-social {
-    margin-top: 0;
     margin-bottom: 0;
   }
 
@@ -1511,6 +1510,10 @@ body #footer .links {
 
   .dropdown-menu.columns-3 {
     top: 48px;
+  }
+
+  .footer-social {
+    margin-top: 0;
   }
 }
 
