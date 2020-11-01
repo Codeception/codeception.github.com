@@ -166,7 +166,7 @@ Then you will need to launch application server in test mode:
 ./tests/bin/yii serve
 ```
 
-and start a [Selenium Server or PhantomJS](http://codeception.com/docs/modules/WebDriver#Local-Testing). For acceptance WebDriver module is used. Please check its reference to learn how to work with it. Unlike Yii2 module it does know nothing about your application, so if you want to use features of Yii like fixtures for acceptance testing, you should check that enable Yii2 module is enabled as well:
+and start a [Selenium Server](http://codeception.com/docs/modules/WebDriver#Local-Testing). For acceptance WebDriver module is used. Please check its reference to learn how to work with it. Unlike Yii2 module it does know nothing about your application, so if you want to use features of Yii like fixtures for acceptance testing, you should check that enable Yii2 module is enabled as well:
 
 ```yml
 # config at tests/acceptance.yml
