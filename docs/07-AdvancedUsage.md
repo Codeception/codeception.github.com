@@ -384,13 +384,6 @@ modules:
             url: 'http://127.0.0.1:8000/'
             browser: 'firefox'
 
-env:
-    phantom:
-         modules:
-            config:
-                WebDriver:
-                    browser: 'phantomjs'
-
     chrome:
          modules:
             config:
@@ -402,7 +395,7 @@ env:
 
 {% endhighlight %}
 
-Basically you can define different environments inside the `env` root, name them (`phantom`, `chrome` etc.),
+Basically you can define different environments inside the `env` root, name them (`chrome`, `firefox` etc.),
 and then redefine any configuration parameters that were set before.
 
 You can also define environments in separate configuration files placed in the directory specified by the `envs` option in
@@ -439,19 +432,19 @@ modules:
 The environment configuration files are merged into the main configuration before the suite configuration is merged.
 
 You can easily switch between those configs by running tests with `--env` option.
-To run the tests only for PhantomJS you just need to pass `--env phantom` as an option:
+To run the tests only for Firefox you just need to pass `--env firefox` as an option:
 
 {% highlight bash %}
 
-$ php vendor/bin/codecept run acceptance --env phantom
+$ php vendor/bin/codecept run acceptance --env firefox
 
 {% endhighlight %}
 
-To run the tests in all 3 browsers, list all the environments:
+To run the tests in all browsers, list all the environments:
 
 {% highlight bash %}
 
-$ php vendor/bin/codecept run acceptance --env phantom --env chrome --env firefox
+$ php vendor/bin/codecept run acceptance --env chrome --env firefox
 
 {% endhighlight %}
 
@@ -461,7 +454,7 @@ It's also possible to merge multiple environments into a single configuration by
 
 {% highlight bash %}
 
-$ php vendor/bin/codecept run acceptance --env dev,phantom --env dev,chrome --env dev,firefox
+$ php vendor/bin/codecept run acceptance --env dev,firefox --env dev,chrome --env dev,firefox
 
 {% endhighlight %}
 
@@ -479,10 +472,10 @@ The desired environments can be specified with the `@env` annotation for tests i
 class UserCest
 {
     /**
-     * This test will be executed only in 'firefox' and 'phantom' environments
+     * This test will be executed only in 'firefox' and 'chrome' environments
      *
      * @env firefox
-     * @env phantom
+     * @env chrome
      */
     public function webkitOnlyTest(AcceptanceTester $I)
     {
@@ -498,7 +491,7 @@ For Cept you should use simple comments:
 
 <?php
 // @env firefox
-// @env phantom
+// @env chrome
 
 {% endhighlight %}
 
@@ -540,9 +533,8 @@ while in Cest you should retrieve it through dependency injection:
 <?php
 public function myTest(\AcceptanceTester $I, \Codeception\Scenario $scenario)
 {
-    if ($scenario->current('browser') == 'phantomjs') {
-      // emulate popups for PhantomJS
-      $I->executeScript('window.alert = function(){return true;}');
+    if ($scenario->current('browser') == 'chrome') {
+      // ...
     }
 }
 
