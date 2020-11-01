@@ -415,7 +415,7 @@ In such tests, we should concentrate more on **testing the UI** than on testing 
 
 "[WebDriver](https://www.w3.org/TR/webdriver/)" is the name of a protocol (specified by W3C)
 to drive browsers automatically. This specification is implemented for all modern desktop and mobile browsers.
-Codeception uses [facebook/php-webdriver](https://github.com/facebook/php-webdriver) library from Facebook as PHP implementation of WebDriver protocol.
+Codeception uses [php-webdriver/php-webdriver](https://github.com/php-webdriver/php-webdriver) as a PHP implementation of the WebDriver protocol.
 
 To control the browsers you need to use a program or a service to start/stop browser sessions.
 In the next section, we will overview the most popular solutions.
