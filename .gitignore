@@ -1,2 +1,9 @@
 _site/
+/.idea
 .jekyll-metadata
+/build
+/composer.lock
+/docs/modules/AbstractAsserts.md
+/package/composer.lock
+/package/vendor
+/vendor

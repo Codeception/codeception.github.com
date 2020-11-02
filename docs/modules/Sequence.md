@@ -5,9 +5,31 @@ title: Sequence - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Module/Sequence.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Sequence.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/Sequence.md"><strong>2.2</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Sequence.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Sequence.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Sequence.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/module-Sequence/releases">Changelog</a><a class="btn btn-default" href="https://github.com/Codeception/module-sequence/tree/master/src/Codeception/Module/Sequence.php"><strong>source</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/3.1/docs/modules/Sequence.md">3.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.5/docs/modules/Sequence.md">2.5</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Sequence.md">1.8</a></div>
 
 # Sequence
+### Installation
+
+If you use Codeception installed using composer, install this module with the following command:
+
+{% highlight yaml %}
+composer require --dev codeception/module-sequence
+
+{% endhighlight %}
+
+Alternatively, you can enable `Sequence` module in suite configuration file and run
+ 
+{% highlight yaml %}
+codecept init upgrade4
+
+{% endhighlight %}
+
+This module was bundled with Codeception 2 and 3, but since version 4 it is necessary to install it separately.   
+Some modules are bundled with PHAR files.  
+Warning. Using PHAR file and composer in the same project can cause unexpected errors.  
+
+### Description
+
 
 
 Sequence solves data cleanup issue in alternative way.
@@ -114,7 +136,6 @@ Sequence:
 
 {% endhighlight %}
 
-
 ### Actions
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.2/src/Codeception/Module/Sequence.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-sequence/tree/master/src/Codeception/Module/Sequence.php">Help us to improve documentation. Edit module reference</a></div>

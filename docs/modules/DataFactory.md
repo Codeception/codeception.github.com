@@ -5,9 +5,31 @@ title: DataFactory - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Module/DataFactory.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/DataFactory.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/DataFactory.md"><strong>2.2</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/DataFactory.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/DataFactory.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/DataFactory.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/module-DataFactory/releases">Changelog</a><a class="btn btn-default" href="https://github.com/Codeception/module-datafactory/tree/master/src/Codeception/Module/DataFactory.php"><strong>source</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/3.1/docs/modules/DataFactory.md">3.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.5/docs/modules/DataFactory.md">2.5</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/DataFactory.md">1.8</a></div>
 
 # DataFactory
+### Installation
+
+If you use Codeception installed using composer, install this module with the following command:
+
+{% highlight yaml %}
+composer require --dev codeception/module-datafactory
+
+{% endhighlight %}
+
+Alternatively, you can enable `DataFactory` module in suite configuration file and run
+ 
+{% highlight yaml %}
+codecept init upgrade4
+
+{% endhighlight %}
+
+This module was bundled with Codeception 2 and 3, but since version 4 it is necessary to install it separately.   
+Some modules are bundled with PHAR files.  
+Warning. Using PHAR file and composer in the same project can cause unexpected errors.  
+
+### Description
+
 
 
 DataFactory allows you to easily generate and create test data using [**FactoryMuffin**](https://github.com/thephpleague/factory-muffin).
@@ -19,7 +41,6 @@ This module requires packages installed:
 
 {
  "league/factory-muffin": "^3.0",
- "league/factory-muffin-faker": "^1.0"
 }
 
 {% endhighlight %}
@@ -42,7 +63,7 @@ $fm->define(User::class)->setDefinitions([
 
    // generate a profile and return its Id
    'profile_id' => 'factory|Profile'
-);
+]);
 
 {% endhighlight %}
 
@@ -64,7 +85,7 @@ modules:
 (you can also use Laravel5 and Phalcon).
 
 In this example factories are loaded from `tests/_support/factories` directory. Please note that this directory is relative from the codeception.yml file (so for Yii2 it would be codeception/_support/factories).
- * You should create this directory manually and create PHP files in it with factories definitions following [official documentation](https://github.com/thephpleague/factory-muffin#usage).
+You should create this directory manually and create PHP files in it with factories definitions following [official documentation](https://github.com/thephpleague/factory-muffin#usage).
 
 In cases you want to use data from database inside your factory definitions you can define them in Helper.
 For instance, if you use Doctrine, this allows you to access `EntityManager` inside a definition.
@@ -133,7 +154,6 @@ In case your ORM expects a related record itself (Doctrine) then you should use 
 
 {% endhighlight %}
 
-
 ### Actions
 
 #### have
@@ -149,7 +169,7 @@ $I->have('User', ['is_active' => true]); // creates active user
 
 Returns an instance of created user.
 
- * `param` $name
+ * `param string` $name
  * `param array` $extraAttrs
 
  * `return` object
@@ -166,10 +186,36 @@ $I->haveMultiple('User', 10, ['is_active' => true]); // create 10 active users
 
 {% endhighlight %}
 
- * `param` $name
- * `param` $times
+ * `param string` $name
+ * `param int` $times
  * `param array` $extraAttrs
 
  * `return` \object[]
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.2/src/Codeception/Module/DataFactory.php">Help us to improve documentation. Edit module reference</a></div>
+
+#### make
+ 
+Generates a record instance.
+
+This does not save it in the database. Use `have` for that.
+
+{% highlight php %}
+
+$user = $I->make('User'); // return User instance
+$activeUser = $I->make('User', ['is_active' => true]); // return active user instance
+
+{% endhighlight %}
+
+Returns an instance of created user without creating a record in database.
+
+ * `param string` $name
+ * `param array` $extraAttrs
+
+ * `return` object
+
+
+#### onReconfigure
+ 
+@throws ModuleException
+
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-datafactory/tree/master/src/Codeception/Module/DataFactory.php">Help us to improve documentation. Edit module reference</a></div>

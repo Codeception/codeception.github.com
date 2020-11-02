@@ -12,12 +12,6 @@ Autoloader, which is fully compatible with PSR-4,
 and can be used to autoload your `Helper`, `Page`, and `Step` classes.
 
 
-#### __construct()
-
- *private* __construct() 
-
-[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Autoload.php#L18)
-
 #### addNamespace()
 
  *public static* addNamespace($prefix, $base_dir, $prepend = null) 
@@ -46,44 +40,12 @@ Autoload::addNamespace('app\Codeception', '/path/to/controllers');
                      this causes it to be searched first rather than last.
  * `return` void
 
-[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Autoload.php#L45)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Util/Autoload.php#L45)
 
 #### load()
 
  *public static* load($class) 
 
-[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Autoload.php#L88)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Util/Autoload.php#L72)
 
-#### loadMappedFile()
-
- *protected static* loadMappedFile($prefix, $relative_class) 
-
-Load the mapped file for a namespace prefix and relative class.
-
- * `param string` $prefix The namespace prefix.
- * `param string` $relative_class The relative class name.
- * `return` mixed Boolean false if no mapped file can be loaded, or the name of the mapped file that was loaded.
-
-[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Autoload.php#L136)
-
-#### register()
-
- *public static* register($namespace, $suffix, $path) 
- * `deprecated` Use self::addNamespace() instead.
-
-[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Autoload.php#L75)
-
-#### registerSuffix()
-
- *public static* registerSuffix($suffix, $path) 
- * `deprecated` Use self::addNamespace() instead.
-
-[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Autoload.php#L83)
-
-#### requireFile()
-
- *protected static* requireFile($file) 
-
-[See source](https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Util/Autoload.php#L156)
-
-<p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/blob/2.2/src//Codeception/Util/Autoload.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/Util/Autoload.php">Help us to improve documentation. Edit module reference</a></div>

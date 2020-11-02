@@ -1,0 +1,159 @@
+- name: Amazon S3 Filesystem
+  link: https://github.com/polevaultweb/s3-filesystem
+  description: An Amazon S3 Filesystem module.
+
+- name: Appium Driver
+  link: https://github.com/tajawal/codeception-appium
+  description: Appium Driver to interact with appium server - iOS/Android Mobile Testing Automation.
+
+- name: Appium
+  link: https://github.com/walterwhites/Appium-codeception-module
+  description: Easy Appium integration, iOS Automation
+
+- name: BrowserMob
+  link: https://github.com/edno/codeception-browsermob
+  description: Codeception module for BrowserMob Proxy.
+
+- name: CakeCeption
+  link: https://github.com/hkzpjt/cakeception
+  description: Integrate Codeception to CakePHP v2.* projects.
+
+- name: CakePHP
+  image: https://pbs.twimg.com/profile_images/736902911993774080/p5C2_6xM.jpg
+  link: https://github.com/cakephp/codeception
+  description: Official CakePHP 3 module for Codeception.
+  
+- name: Codecept UnitTest generator
+  image: https://user-images.githubusercontent.com/6382002/33774260-0aaacebc-dc3b-11e7-8a97-34265a4818cc.png
+  link: https://github.com/hyperia-sk/codecept-unittest-generator
+  description: Generate PHPUnit tests from annotations.
+
+- name: Composer Project
+  link: https://github.com/TypistTech/codeception-composer-project-module
+  description: Create throw away composer projects for Codeception tests.
+
+- name: Config
+  link: https://github.com/JustBlackBird/codeception-config-module
+  description: Loads params from Codeception config and pass them to test scenarios.
+
+- name: CSS Regression
+  link: https://github.com/mendicm/css-regression
+  description: CSS / Visual regression tests integrated in Codeception. This module can be used to compare the current representation of a website element with an expected based on a reference image. This module does not require any JavaScript injections in your website and works with viewport screenshots (chromedriver). Compatible with WebDriver and AngularJS modules.
+  
+- name: Date/Time
+  link: https://github.com/nathanmac/datetime-codeception-module
+  description: This module provides additional helpers for your test to help with date and time comparisons.
+
+- name: Doctrine1
+  link: https://github.com/Codeception/Doctrine1Module
+  description: Module for Doctrine 1.x ORM (deprecated in Codeception 2.1).
+  color: "#eee"
+
+- name: Drupal
+  link: https://github.com/guncha25/drupal-codeception
+  description: Sets of codeception modules and utilities to test drupal cms.
+
+- name: FlySystem
+  link: https://github.com/lamoda/codeception-flysystem
+  description: Codeception FlySystem module with several adapters. Provides a set of methods for checking and modifying files on remote storage.
+  color: "#FFF5C4" 
+
+- name: GherkinParam
+  link: http://github.com/edno/codeception-gherkin-param
+  description: The Codeception module for supporting parameter notation in Gherkin scenario.
+
+- name: HighlightCeption
+  image: https://user-images.githubusercontent.com/6382002/29250010-0bdb3cf6-803b-11e7-92af-f666caf497e4.png
+  link: https://github.com/hyperia-sk/highlight-ception
+  description: Highlight text or element by codeception.
+  color: "#FFF5C4"
+
+- name: HttpMock
+  link: https://github.com/mcustiel/codeception-http-mock
+  description: Module and extension to use HttpMock to mock external services when running Codeception tests.
+
+- name: IM
+  link: https://github.com/nathanmac/im-codeception-module
+  description: This module allows the testing against external messaging services as well as triggering notifications via your tests, currently supports HipChat messaging service.
+
+- name: MailCare
+  image: https://raw.githubusercontent.com/mailcare/codeception-module-mailcare/master/codeception-addons.png
+  link: https://github.com/mailcare/codeception-module-mailcare
+  description: Codeception module to test email using MailCare.io (Free, Open Source or paid services).
+  color: "#e65722"
+
+- name: MailCatcher
+  link: https://github.com/captbaritone/codeception-mailcatcher-module
+  description: MailCatcher is a standalone software which can be configured to catch *any* email sent by your development server, and display it on a webpage. The MailCatcher Module allows you to test the contents of those emails in an acceptance test.
+  color: "#FFF5C4"
+
+- name: MailSMTP
+  link: https://github.com/AhmedSamy/codeception-smtp-mail
+  description: This module will let you test emails using simple SMTP connection, with any provider that supports IMAP.
+
+- name: MailTrap
+  link: https://github.com/WhatDaFox/Codeception-Mailtrap
+  description: Codeception module to test email using Mailtrap.io.
+
+- name: Markup Validator
+  link: https://github.com/Kolyunya/codeception-markup-validator
+  description: A module which validates the markup (HTML, XHTML, etc.) of web documents. Works out of the box, requires no complex configuration to get started. Yet fully configurable and extendable if something special is needed.
+
+- name: Mockery
+  link: https://github.com/Codeception/MockeryModule
+  description: Integrates Mockery into Codeception tests.
+
+- name: Mountebank
+  link: https://github.com/meare/codeception-mountebank
+  description: Stub and mck external services with mountebank.
+
+- name: Nette
+  link: https://github.com/Arachne/Codeception
+  description: Module for Nette framework.
+
+- name: Percy
+  link: https://github.com/tr33m4n/codeception-module-percy
+  description: Percy https://percy.io integration
+  color: "#9e66bf"
+
+- name: PhireMock
+  link: https://github.com/mcustiel/phiremock-codeception-extension
+  description: Extension and module to mock http request to external services during acceptance testing with Codeception.
+
+- name: Private Sniffer
+  link: https://github.com/fkupper/private-sniffer-module/
+  description: Simple module that enables sniffing into private defined elements of an object while running unit tests with Codeception.
+ 
+- name: PSR3 Logger
+  link: https://github.com/byteout/psr-logger-codeception-module
+  description: Module for validation of messages logged by PSR3 loggers.
+
+- name: Remote File Attachment
+  link: https://github.com/phmLabs/codeception-module-attachfileremote
+  description: This module helps to upload files when using webdriver via remote connection.
+
+- name: Slim 3
+  link: https://github.com/herloct/codeception-slim-module
+  description: This module allows you to run tests inside Slim 3 Microframework. Based on ZendExpressive Module.
+
+- name: Stepler
+  link: https://github.com/nicholascus/codeception-stepler
+  description: Enabling step-by-step console execution in bebugging mode.
+
+- name: Symfony1
+  link: https://github.com/Codeception/symfony1module
+  description: Module for symfony 1.x framework (deprecated in Codeception 2.1).
+  color: "#eee"
+
+- name: VisualCeption
+  link: https://github.com/Codeception/VisualCeption
+  description: Visual regression tests integrated in Codeception. This module can be used to compare the current representation of a website element with an expected. It was written on the shoulders of codeception and integrates in a very easy way.
+  color: "#FFF5C4"  
+
+- name: WordPress Browser and Database
+  link: https://github.com/lucatume/wp-browser
+  description: An extension of Codeception own PhpBrowser and Db modules to allow for easy and streamlined WordPress themes and plugins testing. 
+
+- name: Yandex
+  link: https://github.com/portrino/codeception-yandex-module
+  description: Validation of structured data via yandex API.

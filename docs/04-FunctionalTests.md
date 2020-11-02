@@ -6,81 +6,90 @@ title: 04-FunctionalTests - Codeception - Documentation
 # Functional Tests
 
 Now that we've written some acceptance tests, functional tests are almost the same, with one major difference:
-functional tests don't require a web server to run tests.
+Functional tests don't require a web server.
 
-In simple terms we set the `$_REQUEST`, `$_GET` and `$_POST` variables and then we execute the application from a test.
-This may be valuable as functional tests are faster and provide detailed stack traces on failures.
+Under the hood, Codeception uses Symfony's [BrowserKit](https://symfony.com/doc/current/components/browser_kit.html)
+to "send" requests to your app. So there's no real HTTP request made, but rather a BrowserKit
+[Request object](https://github.com/symfony/browser-kit/blob/master/Request.php) with the required properties is
+passed to your framework's (font-)controller.
 
-Codeception can connect to different web frameworks that support functional testing: Symfony2, Laravel5, Yii2,
-Zend Framework and others. You just need to enable the desired module in your functional suite configuration to start.
+As a first step, you need to enable Codeception's module for your framework in `functional.suite.yml` (see below).
 
-Modules for all of these frameworks share the same interface, and thus your tests are not bound to any one of them.
+All of Codeception's framework modules share the same interface, and thus your tests are not bound to any one of them.
 This is a sample functional test:
 
 {% highlight php %}
 
 <?php
-$I = new FunctionalTester($scenario);
-$I->amOnPage('/');
-$I->click('Login');
-$I->fillField('Username', 'Miles');
-$I->fillField('Password', 'Davis');
-$I->click('Enter');
-$I->see('Hello, Miles', 'h1');
-// $I->seeEmailIsSent() - special for Symfony2
+// LoginCest.php
+
+class LoginCest
+{
+    public function tryLogin(FunctionalTester $I)
+    {
+        $I->amOnPage('/');
+        $I->click('Login');
+        $I->fillField('Username', 'Miles');
+        $I->fillField('Password', 'Davis');
+        $I->click('Enter');
+        $I->see('Hello, Miles', 'h1');
+        // $I->seeEmailIsSent(); // only for Symfony
+    }
+}
 
 {% endhighlight %}
 
-As you see, you can use same tests for functional and acceptance testing.
+As you see, the syntax is the same for functional and acceptance tests.
 
-## Pitfalls
+## Limitations
 
-Acceptance tests are usually much slower than functional tests. But functional tests are less stable as they run Codeception
-and the application in the one environment. If your application was not designed to run in long lived processes,
-for instance you use the `exit` operator or global variables, then probably functional tests are not for you.
+Functional tests are usually much faster than acceptance tests. But functional tests are less stable as they run Codeception
+and the application in one environment. If your application was not designed to run in long lived processes (e.g.
+if you use the `exit` operator or global variables), then functional tests are probably not for you.
 
-#### Headers, Cookies, Sessions
+### Headers, Cookies, Sessions
 
-One of the common issues with functional tests is the use of PHP functions that deal with `headers`, `sessions` and `cookies`.
+One of the common issues with functional tests is the use of PHP functions that deal with headers, sessions and cookies.
 As you may already know, the `header` function triggers an error if it is executed after PHP has already output something.
 In functional tests we run the application multiple times, thus we will get lots of irrelevant errors in the result.
 
-#### Shared Memory
+### External URLs
+
+Functional tests cannot access external URLs, just URLs within your project. You can use PhpBrowser to open external URLs.
+
+### Shared Memory
 
 In functional testing, unlike running the application the traditional way, the PHP application does not stop
-after it has finished processing a request. Since all requests are run in the one memory container, they are not isolated.
+after it has finished processing a request. Since all requests are run in one memory container, they are not isolated.
 So **if you see that your tests are mysteriously failing when they shouldn't - try to execute a single test.**
-This will see if the tests were failing because they weren't isolated during the run.
+This will show if the tests were failing because they weren't isolated during the run.
 Keep your memory clean, avoid memory leaks and clean global and static variables.
 
 ## Enabling Framework Modules
 
 You have a functional testing suite in the `tests/functional` directory.
 To start, you need to include one of the framework modules in the suite configuration file: `tests/functional.suite.yml`.
-Bellow we provide simple instructions for setting up functional tests with some of the most popular PHP frameworks.
 
 ### Symfony
 
-To perform Symfony integrations you don't need to install any bundles or do any configuration changes.
-You just need to include the `Symfony` module into your test suite. If you also use Doctrine2,
-don't forget to include it too. To make the Doctrine2 module connect using the `doctrine` service from Symfony DIC,
+To perform Symfony integration you just need to include the Symfony module into your test suite. If you also use Doctrine2,
+don't forget to include it too. To make the Doctrine2 module connect using the `doctrine` service from Symfony,
 you should specify the Symfony module as a dependency for Doctrine2:
-
-Example of `functional.suite.yml`
 
 {% highlight yaml %}
 
-class_name: FunctionalTester
+# functional.suite.yml
+
+actor: FunctionalTester
 modules:
     enabled:
         - Symfony
         - Doctrine2:
             depends: Symfony # connect to Symfony
-        - \Helper\Functional
 
 {% endhighlight %}
 
-By default this module will search for App Kernel in the `app` directory.
+By default this module will search for AppKernel in the `app` directory.
 
 The module uses the Symfony Profiler to provide additional information and assertions.
 
@@ -90,41 +99,21 @@ The module uses the Symfony Profiler to provide additional information and asser
 
 The [Laravel5](http://codeception.com/docs/modules/Laravel5) module is included and requires no configuration:
 
-
 {% highlight yaml %}
 
-class_name: FunctionalTester
+# functional.suite.yml
+
+actor: FunctionalTester
 modules:
     enabled:
         - Laravel5
-        - \Helper\Functional
 
 {% endhighlight %}
-
 
 ### Yii2
 
 Yii2 tests are included in [Basic](https://github.com/yiisoft/yii2-app-basic)
 and [Advanced](https://github.com/yiisoft/yii2-app-advanced) application templates. Follow the Yii2 guides to start.
-
-### Yii
-
-By itself Yii framework does not have an engine for functional testing.
-So Codeception is the first and the only functional testing framework for Yii.
-To use it with Yii include `Yii1` module into config:
-
-{% highlight yaml %}
-
-class_name: FunctionalTester
-modules:
-    enabled:
-        - Yii1
-        - \Helper\Functional
-
-{% endhighlight %}
-
-To avoid the common pitfalls we discussed earlier, Codeception provides basic hooks over the Yii engine.
-Please set them up following [the installation steps in the module reference](http://codeception.com/docs/modules/Yii1).
 
 ### Zend Framework 2
 
@@ -132,54 +121,53 @@ Use [the ZF2 module](http://codeception.com/docs/modules/ZF2) to run functional 
 
 {% highlight yaml %}
 
-class_name: FunctionalTester
+# functional.suite.yml
+
+actor: FunctionalTester
 modules:
     enabled:
         - ZF2
-        - \Helper\Functional
 
 {% endhighlight %}
 
-### Zend Framework 1.x
+### Zend Expressive
 
-The module for Zend Framework is highly inspired by the ControllerTestCase class, used for functional testing with PHPUnit.
-It follows similar approaches for bootstrapping and cleaning up.
-To start using Zend Framework in your functional tests, include the `ZF1` module:
-
-Example of `functional.suite.yml`
+[Zend Expressive](http://codeception.com/docs/modules/ZendExpressive) tests can be executed with enabling a corresponding module.
 
 {% highlight yaml %}
 
-class_name: FunctionalTester
+# functional.suite.yml
+
+actor: FunctionalTester
 modules:
     enabled:
-        - ZF1
-        - \Helper\Functional
+        - ZendExpressive
 
 {% endhighlight %}
 
-[See the full reference](http://codeception.com/docs/modules/ZF1)
+> See module reference to more configuration options
 
-### Phalcon
+### Phalcon 4
 
-The `Phalcon` module requires creating a bootstrap file which returns an instance of `\Phalcon\Mvc\Application`.
-To start writing functional tests with Phalcon support you should enable the `Phalcon` module
+The `Phalcon4` module requires creating a bootstrap file which returns an instance of `\Phalcon\Mvc\Application`.
+To start writing functional tests with Phalcon support you should enable the `Phalcon4` module
 and provide the path to this bootstrap file:
 
 {% highlight yaml %}
 
-class_name: FunctionalTester
+# functional.suite.yml
+
+actor: FunctionalTester
 modules:
     enabled:
-        - Phalcon:
+        - Phalcon4:
             bootstrap: 'app/config/bootstrap.php'
              cleanup: true
              savepoints: true
-        - \Helper\Functional
 
 {% endhighlight %}
 
-[See the full reference](http://codeception.com/docs/modules/Phalcon)
+[See the full reference](http://codeception.com/docs/modules/Phalcon4)
 
 ## Writing Functional Tests
 
@@ -187,17 +175,16 @@ Functional tests are written in the same manner as [Acceptance Tests](http://cod
 with the `PhpBrowser` module enabled. All framework modules and the `PhpBrowser` module share the same methods
 and the same engine.
 
-Therefore we can open a web page with `amOnPage` command:
+Therefore we can open a web page with `amOnPage` method:
 
 {% highlight php %}
 
 <?php
-$I = new FunctionalTester($scenario);
 $I->amOnPage('/login');
 
 {% endhighlight %}
 
-We can click links to open web pages of application:
+We can click links to open web pages:
 
 {% highlight php %}
 
@@ -236,13 +223,13 @@ $I->seeCurrentUrlEquals('/profile/john');
 
 {% endhighlight %}
 
-Framework modules also contain additional methods to access framework internals. For instance, `Laravel5`, `Phalcon`,
-and `Yii2` modules have `seeRecord` method which uses ActiveRecord layer to check that record exists in database.
+Framework modules also contain additional methods to access framework internals. For instance, Laravel5, Phalcon,
+and Yii2 modules have a `seeRecord` method which uses the ActiveRecord layer to check that a record exists in the database.
 
-Take a look at the complete reference for module you are using. Most of its methods are common for all modules
+Take a look at the complete reference for the module you are using. Most of its methods are common to all modules
 but some of them are unique.
 
-You can also access framework globals inside a test or access dependency injection containers
+You can also access framework globals inside a test or access the dependency injection container
 inside the `Helper\Functional` class:
 
 {% highlight php %}
@@ -271,24 +258,23 @@ The error reporting level can be set in the suite configuration file:
 
 {% highlight yaml %}
 
-class_name: FunctionalTester
+actor: FunctionalTester
 modules:
     enabled:
-        - Yii1
+        - Yii2
         - \Helper\Functional
 error_level: "E_ALL & ~E_STRICT & ~E_DEPRECATED"
 
 {% endhighlight %}
 
-`error_level` can be set globally in `codeception.yml` file.
-
+`error_level` can also be set globally in `codeception.yml` file.
 
 ## Conclusion
 
 Functional tests are great if you are using powerful frameworks. By using functional tests you can access
 and manipulate their internal state. This makes your tests shorter and faster. In other cases,
 if you don't use frameworks there is no practical reason to write functional tests.
-If you are using a framework other than the ones listed here, create a module for it and share it with community.
+If you are using a framework other than the ones listed here, create a module for it and share it with the community.
 
 
 

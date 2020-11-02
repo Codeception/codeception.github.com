@@ -5,9 +5,31 @@ title: FTP - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Module/FTP.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/FTP.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/FTP.md"><strong>2.2</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/FTP.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/FTP.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/FTP.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/module-FTP/releases">Changelog</a><a class="btn btn-default" href="https://github.com/Codeception/module-ftp/tree/master/src/Codeception/Module/FTP.php"><strong>source</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/3.1/docs/modules/FTP.md">3.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.5/docs/modules/FTP.md">2.5</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/FTP.md">1.8</a></div>
 
 # FTP
+### Installation
+
+If you use Codeception installed using composer, install this module with the following command:
+
+{% highlight yaml %}
+composer require --dev codeception/module-ftp
+
+{% endhighlight %}
+
+Alternatively, you can enable `FTP` module in suite configuration file and run
+ 
+{% highlight yaml %}
+codecept init upgrade4
+
+{% endhighlight %}
+
+This module was bundled with Codeception 2 and 3, but since version 4 it is necessary to install it separately.   
+Some modules are bundled with PHAR files.  
+Warning. Using PHAR file and composer in the same project can cause unexpected errors.  
+
+### Description
+
 
 
 
@@ -33,18 +55,16 @@ connection to SFTP uses [phpseclib](http://phpseclib.sourceforge.net/) pulled in
 For SFTP, add [phpseclib](http://phpseclib.sourceforge.net/) to require list.
 {% highlight yaml %}
 "require": {
- "phpseclib/phpseclib": "0.3.6"
+ "phpseclib/phpseclib": "^2.0.14"
 }
 
 {% endhighlight %}
 
 ### Status
 
-* Maintainer: **nathanmac**
 * Stability:
     - FTP: **stable**
     - SFTP: **stable**
-* Contact: nathan.macnamara@outlook.com
 
 ### Config
 
@@ -95,7 +115,6 @@ For SFTP, add [phpseclib](http://phpseclib.sourceforge.net/) to require list.
 
 
 This module extends the Filesystem module, file contents methods are inherited from this module.
-
 
 ### Actions
 
@@ -479,4 +498,4 @@ $I->writeToFile('composer.json', 'some data here');
  * `param` $filename
  * `param` $contents
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.2/src/Codeception/Module/FTP.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-ftp/tree/master/src/Codeception/Module/FTP.php">Help us to improve documentation. Edit module reference</a></div>

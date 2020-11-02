@@ -2,51 +2,75 @@
 layout: bootstrap
 ---
 
-<div class="row">
+<div class="row pt">
   <div class="col-sm-3 col-lg-3">
 
-   <div id="searchable">
-    <input type="search" class="search" placeholder="live search...">
-    <br>
-     <!-- toc.js generated nav... -->
-     <div id="toc" class="nav"></div>
-   </div> <!-- /#searchable -->
+    <div>
 
-   <script type="text/javascript">
-    $(document).ready(function () {
-      $('#toc').toc({
-        'selectors': 'h2,h3,h4',
-        'prefix': 'toc',
-        'container': '#page',
-        //custom function for anchor name
-        'anchorName': function(i, heading, prefix) {
-          return $(heading).text().replace(/\s/g, '-').replace(/[^\w-]/g, '');
-        },
-      });
-      // List.js
-      $('#toc > ul').addClass('list');
-      $('#toc ul.list li a').addClass('searchitem');
-      var options = {
-        valueNames: [ 'searchitem' ]
-      };
-      var userList = new List('searchable', options);
-      // end List.js
 
-    }); // docrdy
-  </script>
+    <input type="text" class="algolia__input js-algolia__input" autocomplete="off" name="query" placeholder="Search in docs..." />
+
+    <hr>
+
+    <h3>Guides</h3>    
+
+  <ol class="guides">    
+      {% include guides.html %}
+
+  </ol>
+
+  <hr>
+
+      <p><a href="http://sdclabs.com/codeception?utm_source=codeception.com&utm_medium=docs_left&utm_term=link&utm_campaign=reference" class="btn btn-default doc-btn">Enterprise support</a></p>
+      <p><a href="http://sdclabs.com/trainings?utm_source=codeception.com&utm_medium=docs_left&utm_term=link&utm_campaign=reference" class="btn btn-default doc-btn">Trainings </a>
+      </p>
+  </div>
+
 
 </div>
-  <div class="col-sm-9 col-lg-9">
+  <div class="col-sm-12 col-lg-6">
+
+
     <div class="content page">
       <div>
 
+
+
         <div id="page">
-          {{ content }}
+
+
+          <div class="algolia__search-content js-algolia__search-content">
+            <h1 class="page-title">Search</h1>
+            <div class="posts algolia__results"></div>
+          </div>
+
+          <div class="algolia__initial-content js-algolia__initial-content">
+
+            {{ content }}
+
+          </div>
         </div>
+        <div class="alert alert-success">
+
+Don't know how to write tests on your own? We will build or improve them for you. 
+<strong>
+  Request a quote for official 
+         <a href="http://sdclabs.com/codeception?utm_source=codeception.com&utm_medium=docs_bottom&utm_term=link&utm_campaign=reference">enterprise support</a> or <a href="http://sdclabs.com/trainings?utm_source=codeception.com&utm_medium=docs_bottom&utm_term=link&utm_campaign=reference">trainings</a></strong>
+
+</div>
+
 
       </div>
+    </div>
+  </div>
+
+    <div class="col-sm-12 col-lg-3">
+
+    <!-- <input type="search" class="search" placeholder="live search..."> -->
+     <!-- toc.js generated nav... -->
+     <div id="toc" class="nav"></div>
 
     </div>
   </div>
-</div>
+
 

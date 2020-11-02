@@ -17,9 +17,9 @@ Codeception does not provide a command like `run-parallel`. There is no common s
 * Will they use different hosts?
 * How should I split my tests across parallel processes?
 
-There are two approaches to achieve parallelization. We can use [Docker](http://docker.com) and run each process inside isolated containers, and have those containers executed simultaneously. 
+There are two approaches to achieve parallelization. We can use [Docker](http://docker.com) and run each process inside isolated containers, and have those containers executed simultaneously.
 
-Docker works really well for isolating testing environments. 
+Docker works really well for isolating testing environments.
 By the time of writing this chapter, we didn't have an awesome tool like it. This chapter demonstrates how to manage parallel execution manually. As you will see we spend too much effort trying to isolate tests which Docker does for free. Today we <strong>recommend using Docker</strong> for parallel testing.
 
 ## Docker
@@ -30,51 +30,44 @@ Please make sure you have `docker` or [Docker Toolbox](https://www.docker.com/pr
 
 Run official Codeception image from DockerHub:
 
-    docker run codeception/codeception    
+    docker run codeception/codeception
 
 Running tests from a project, by mounting the current path as a host-volume into the container.
-The default working directory in the container is `/project`.
-    
+The **default working directory in the container is `/project`**.
+
     docker run -v ${PWD}:/project codeception/codeception run
 
-To prepare application and tests to be executed inside containers you will need to use [Docker Compose](https://docs.docker.com/compose/) to run multiple containers and connect them together. 
+To prepare application and tests to be executed inside containers you will need to use [Docker Compose](https://docs.docker.com/compose/) to run multiple containers and connect them together.
 
 Define all required services in `docker-compose.yml` file. Make sure to follow Docker philisophy: 1 service = 1 container. So each process should be defined as its own service. Those services can use official Docker images pulled from DockerHub. Directories with code and tests should be mounted using `volume` directive. And exposed ports should be explicitly set using `ports` directive.
 
-We prepared a sample config with codeception, web server, database, and selenium with firefox to be executed together.
+We prepared a sample config with codeception, web server, database, and selenium with Chrome to be executed together.
 
 {% highlight yaml %}
 
-version: '2'
+version: '3'
 services:
-  codeception:
+  codecept:
     image: codeception/codeception
     depends_on:
-      - firefox    
+      - chrome
       - web
     volumes:
-      - ./src:/src      
-      - ./tests:/tests
-      - ./codeception.yml:/codeception.yml
+      - .:/project
   web:
     image: php:7-apache
     depends_on:
-      - db  
+      - db
     volumes:
-      - .:/var/www/html      
+      - .:/var/www/html
   db:
     image: percona:5.6
-    ports:
-      - '3306'
-  firefox:
-    image: selenium/standalone-firefox-debug:2.53.0
-    ports:
-      - '4444'
-      - '5900'
+  chrome:
+    image: selenium/standalone-chrome
 
 {% endhighlight %}
 
-Codeception service will execute command `codecept run` but only after all services are started. This is defined using `depends_on` parameter. 
+Codeception service will execute command `codecept run` but only after all services are started. This is defined using `depends_on` parameter.
 
 It is easy to add more custom services. For instance to use Redis you just simple add this lines:
 
@@ -99,7 +92,6 @@ docker-compose run --rm codecept run acceptance
 
 {% endhighlight %}
 
-
 {% highlight yaml %}
 docker-compose run --rm codecept run acceptance LoginCest
 
@@ -111,7 +103,6 @@ Development bash
 docker-compose run --rm --entrypoint bash codecept
 
 {% endhighlight %}
-
 
 And finally to execute testing in parallel you should define how you split your tests and run parallel processes for `docker-compose`. Here we split tests by suites, but you can use different groups to split your tests. In section below you will learn how to do that with Robo.
 
@@ -146,7 +137,7 @@ To conclude, we need:
 
 * [Robo](http://robo.li), a task runner.
 * [robo-paracept](https://github.com/Codeception/robo-paracept) - Codeception tasks for parallel execution.
- 
+
 ## Preparing Robo and Robo-paracept
 
 Execute this command in an empty folder to install Robo and Robo-paracept :
@@ -163,10 +154,9 @@ $ composer require codeception/codeception
 
 {% endhighlight %}
 
-
 ### Preparing Robo
 
-Intitalizes basic RoboFile in the root of your project
+Initializes basic RoboFile in the root of your project
 
 {% highlight bash %}
 
@@ -240,9 +230,9 @@ Available commands:
   help                    Displays help for a command
   list                    Lists commands
  parallel
-  parallel:merge-results  
-  parallel:run            
-  parallel:split-tests   
+  parallel:merge-results
+  parallel:run
+  parallel:split-tests
 
 {% endhighlight %}
 
@@ -265,22 +255,22 @@ Tasks from `\Codeception\Task\SplitTestsByGroups` will generate non-intersecting
 <?php
     function parallelSplitTests()
     {
-        // Slip your tests by files
+        // Split your tests by files
         $this->taskSplitTestFilesByGroups(5)
             ->projectRoot('.')
             ->testsFrom('tests/acceptance')
             ->groupsTo('tests/_data/paracept_')
             ->run();
-            
+
         /*
-        // Slip your tests by single tests (alternatively)
+        // Split your tests by single tests (alternatively)
         $this->taskSplitTestsByGroups(5)
             ->projectRoot('.')
             ->testsFrom('tests/acceptance')
             ->groupsTo('tests/_data/paracept_')
             ->run();
         */
-    }    
+    }
 
 
 {% endhighlight %}
@@ -325,17 +315,16 @@ Robo has `ParallelExec` task to spawn background processes.
 
 If you are using [Docker](#docker)  containers you can launch multiple Codeception containers for different groups:
 
-
 {% highlight php %}
 
 public function parallelRun()
 {
     $parallel = $this->taskParallelExec();
-    for ($i = 1; $i <= 5; $i++) {            
+    for ($i = 1; $i <= 5; $i++) {
         $parallel->process(
             $this->taskExec('docker-compose run --rm codecept run')
-                ->opt('group', "p$i") // run for groups p*
-                ->opt('xml', "tests/_log/result_$i.xml"); // provide xml report
+                ->option('group', "paracept_$i") // run for groups paracept_*
+                ->option('xml', "tests/_log/result_$i.xml") // provide xml report
         );
     }
     return $parallel->run();
@@ -353,19 +342,18 @@ If you want to run tests locally just use preinstalled `taskCodecept` task of Ro
 public function parallelRun()
 {
     $parallel = $this->taskParallelExec();
-    for ($i = 1; $i <= 5; $i++) {            
+    for ($i = 1; $i <= 5; $i++) {
         $parallel->process(
             $this->taskCodecept() // use built-in Codecept task
             ->suite('acceptance') // run acceptance tests
-            ->group("p$i")        // for all p* groups
+            ->group("paracept_$i") // for all paracept_* groups
             ->xml("tests/_log/result_$i.xml") // save XML results
         );
     }
     return $parallel->run();
-}    
+}
 
 {% endhighlight %}
-
 
 In case you don't use containers you can isolate processes by starting different web servers and databases per each test process.
 
@@ -373,11 +361,11 @@ We can define different databases for different processes. This can be done usin
 
 {% highlight yaml %}
 
-class_name: AcceptanceTester
+actor: AcceptanceTester
 modules:
     enabled:
         - Db:
-            dsn: 'mysql:dbname=testdb;host=127.0.0.1' 
+            dsn: 'mysql:dbname=testdb;host=127.0.0.1'
             user: 'root'
             dump: 'tests/_data/dump.sql'
             populate: true
@@ -389,40 +377,39 @@ env:
         modules:
             config:
                 Db:
-                    dsn: 'mysql:dbname=testdb_1;host=127.0.0.1' 
+                    dsn: 'mysql:dbname=testdb_1;host=127.0.0.1'
                 WebDriver:
                     url: 'http://test1.localhost/'
     env2:
         modules:
             config:
                 Db:
-                    dsn: 'mysql:dbname=testdb_2;host=127.0.0.1' 
+                    dsn: 'mysql:dbname=testdb_2;host=127.0.0.1'
                 WebDriver:
                     url: 'http://test2.localhost/'
     env3:
         modules:
             config:
                 Db:
-                    dsn: 'mysql:dbname=testdb_3;host=127.0.0.1' 
+                    dsn: 'mysql:dbname=testdb_3;host=127.0.0.1'
                 WebDriver:
                     url: 'http://test3.localhost/'
     env4:
         modules:
             config:
                 Db:
-                    dsn: 'mysql:dbname=testdb_4;host=127.0.0.1' 
+                    dsn: 'mysql:dbname=testdb_4;host=127.0.0.1'
                 WebDriver:
                     url: 'http://test4.localhost/'
     env5:
         modules:
             config:
                 Db:
-                    dsn: 'mysql:dbname=testdb_5;host=127.0.0.1' 
+                    dsn: 'mysql:dbname=testdb_5;host=127.0.0.1'
                 WebDriver:
                     url: 'http://test5.localhost/'
 
 {% endhighlight %}
-
 
 ----
 
@@ -477,7 +464,6 @@ To create one command to rule them all we can define new public method `parallel
 
 
 {% endhighlight %}
-
 
 ## Conclusion
 

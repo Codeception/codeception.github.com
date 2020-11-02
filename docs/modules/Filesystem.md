@@ -5,9 +5,31 @@ title: Filesystem - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Module/Filesystem.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Filesystem.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/Filesystem.md"><strong>2.2</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Filesystem.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Filesystem.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Filesystem.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/module-Filesystem/releases">Changelog</a><a class="btn btn-default" href="https://github.com/Codeception/module-filesystem/tree/master/src/Codeception/Module/Filesystem.php"><strong>source</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/3.1/docs/modules/Filesystem.md">3.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.5/docs/modules/Filesystem.md">2.5</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Filesystem.md">1.8</a></div>
 
 # Filesystem
+### Installation
+
+If you use Codeception installed using composer, install this module with the following command:
+
+{% highlight yaml %}
+composer require --dev codeception/module-filesystem
+
+{% endhighlight %}
+
+Alternatively, you can enable `Filesystem` module in suite configuration file and run
+ 
+{% highlight yaml %}
+codecept init upgrade4
+
+{% endhighlight %}
+
+This module was bundled with Codeception 2 and 3, but since version 4 it is necessary to install it separately.   
+Some modules are bundled with PHAR files.  
+Warning. Using PHAR file and composer in the same project can cause unexpected errors.  
+
+### Description
+
 
 
 Module for testing local filesystem.
@@ -20,7 +42,6 @@ Fork it to extend the module for FTP, Amazon S3, others.
 * Contact: codecept@davert.mail.ua
 
 Module was developed to test Codeception itself.
-
 
 ### Actions
 
@@ -226,4 +247,4 @@ Saves contents to file
  * `param string` $filename
  * `param string` $contents
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.2/src/Codeception/Module/Filesystem.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-filesystem/tree/master/src/Codeception/Module/Filesystem.php">Help us to improve documentation. Edit module reference</a></div>

@@ -5,9 +5,31 @@ title: Redis - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Module/Redis.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Redis.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/Redis.md"><strong>2.2</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Redis.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Redis.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Redis.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/module-Redis/releases">Changelog</a><a class="btn btn-default" href="https://github.com/Codeception/module-redis/tree/master/src/Codeception/Module/Redis.php"><strong>source</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/3.1/docs/modules/Redis.md">3.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.5/docs/modules/Redis.md">2.5</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Redis.md">1.8</a></div>
 
 # Redis
+### Installation
+
+If you use Codeception installed using composer, install this module with the following command:
+
+{% highlight yaml %}
+composer require --dev codeception/module-redis
+
+{% endhighlight %}
+
+Alternatively, you can enable `Redis` module in suite configuration file and run
+ 
+{% highlight yaml %}
+codecept init upgrade4
+
+{% endhighlight %}
+
+This module was bundled with Codeception 2 and 3, but since version 4 it is necessary to install it separately.   
+Some modules are bundled with PHAR files.  
+Warning. Using PHAR file and composer in the same project can cause unexpected errors.  
+
+### Description
+
 
 
 This module uses the [Predis](https://github.com/nrk/predis) library
@@ -21,8 +43,8 @@ to interact with a Redis server.
 
 * **`host`** (`string`, default `'127.0.0.1'`) - The Redis host
 * **`port`** (`int`, default `6379`) - The Redis port
-* **`database`** (`int`, no default) - The Redis database. Needs to be explicitly specified.
-* **`cleanupBefore`**: (`string`, default `'suite'`) - Whether/when to flush the database:
+* **`database`** (`int`, no default) - The Redis database. Needs to be specified.
+* **`cleanupBefore`**: (`string`, default `'never'`) - Whether/when to flush the database:
     * `suite`: at the beginning of every suite
     * `test`: at the beginning of every test
     * Any other value: never
@@ -36,7 +58,7 @@ to interact with a Redis server.
            host: '127.0.0.1'
            port: 6379
            database: 0
-           cleanupBefore: 'test'
+           cleanupBefore: 'never'
 
 {% endhighlight %}
 
@@ -45,7 +67,6 @@ to interact with a Redis server.
 * **driver** - Contains the Predis client/driver
 
 @author Marc Verney <marc@marcverney.net>
-
 
 ### Actions
 
@@ -58,7 +79,7 @@ Delete all the keys in the Redis database
 
 #### dontSeeInRedis
  
-Asserts that a key does not exist or, optionaly, that it doesn't have the
+Asserts that a key does not exist or, optionally, that it doesn't have the
 provided $value
 
 Examples:
@@ -170,7 +191,6 @@ $I->grabFromRedis('example:hash', 'foo');
 {% endhighlight %}
 
  * `param string` $key The key name
-
 
 @throws ModuleException if the key does not exist
 
@@ -309,4 +329,4 @@ $I->sendCommandToRedis('flushdb');
  * `param string` $command The command name
 
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.2/src/Codeception/Module/Redis.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-redis/tree/master/src/Codeception/Module/Redis.php">Help us to improve documentation. Edit module reference</a></div>

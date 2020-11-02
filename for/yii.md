@@ -27,7 +27,7 @@ Once you created a project from a [basic template](https://github.com/yiisoft/yi
 Run them by executing in terminal: 
 
 ```
-composer exec codecept run
+./vendor/bin/codecept run
 ```
 
 ![Output](/images/yii-basic-tests.png)
@@ -109,7 +109,7 @@ Codeception provides standard set of actions like `amOnPage`, `submitForm`, `see
 Functional tests should be written inside [Cest files](http://codeception.com/docs/07-AdvancedUsage#Cest-Classes), which is a scenario-driven test format of Codeception. You can easily create a new test by running:
 
 ```
-composer exec codecept g:cest functional MyNewScenarioCest
+./vendor/bin/codecept g:cest functional MyNewScenarioCest
 ```
 
 <div class="alert alert-warning">
@@ -123,7 +123,7 @@ composer exec codecept g:cest functional MyNewScenarioCest
 API tests are not included in any Yii templates so you need to set up them manually if you developing a web service. API testing is done at functional testing level but instead of testing HTML responses on user actions, they test requests and responses via protocols like REST or SOAP. To start writing api tests you should create a suite for them
 
 ```
-composer exec codecept g:suite api
+./vendor/bin/codecept g:suite api
 ```
 
 You will need to enable `REST`, `Yii2` module in `tests/api.suite.yml`:
@@ -145,7 +145,7 @@ Yii2 module actions like `amOnPage` or `see` should not be available for testing
 
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-  Continue to <a href="http://codeception.com/docs/10-WebServices#REST">REST API Testing Guide &raquo;</a>.
+  Continue to <a href="http://codeception.com/docs/10-APITesting#REST-API">REST API Testing Guide &raquo;</a>.
 </div>
 
 ### Acceptance Tests
@@ -186,7 +186,7 @@ As it was said, functional and acceptance tests are similar, so in order to avoi
 Similar as for functional tests it is recommended to use Cest format for acceptance testing:
 
 ```
-composer exec codecept g:cest acceptance MyNewScenarioCest
+./vendor/bin/codecept g:cest acceptance MyNewScenarioCest
 ```
 
 <div class="alert alert-warning">
@@ -219,7 +219,7 @@ composer require "codeception/codeception" --dev
 Create basic test suites
 
 ```
-composer exec codecept bootstrap
+./vendor/bin/codecept bootstrap
 ```
 
 Enable module Yii2 for functional tests inside `functional.suite.yml`: 

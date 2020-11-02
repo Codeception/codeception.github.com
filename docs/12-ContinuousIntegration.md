@@ -3,9 +3,9 @@ layout: doc
 title: 12-ContinuousIntegration - Codeception - Documentation
 ---
 
-# Continous Integration
+# Continuous Integration
 
-Once you get testing suite up and running you are interested in running your tests regularly. If you ensure that tests are running on every code change or at least once a day you can be sure that no regression is introduced. This allows to keep you system stable. But developers are not so passionate about running all tests manually, they also can forget to execute tests before pushing code to production... The solution is simple, test execution should be automated. Instead of running them locally it is better to have dedicated server responsible for running tests for a team. This way we can ensure that everyone's tests executed, which commit made a regression in codebase, and that we can deploy only once tests pass. 
+Once you get testing suite up and running you are interested in running your tests regularly. If you ensure that tests are running on every code change or at least once a day you can be sure that no regression is introduced. This allows to keep you system stable. But developers are not so passionate about running all tests manually, they also can forget to execute tests before pushing code to production... The solution is simple, test execution should be automated. Instead of running them locally it is better to have dedicated server responsible for running tests for a team. This way we can ensure that everyone's tests executed, which commit made a regression in codebase, and that we can deploy only once tests pass.
 
 There are many Continuous Integration Servers out there. We will try to list basic steps to setup Codeception tests with them. If your CI system is not mentioned, you can get the idea by analogy. Please also help us to extend this guide by adding instructions for different CIs.
 
@@ -36,7 +36,7 @@ At first we need to create build project. Depending on your needs you can set up
 We need to define build steps. The most simple setup may look like this:
 
 {% highlight php %}
- codecept run
+ vendor/bin/codecept run
 
 {% endhighlight %}
 
@@ -53,7 +53,7 @@ But we don't want to analyze console output for each failing build. Especially I
 Now let's update our build step to generate xml:
 
 {% highlight php %}
- codecept run --xml
+ vendor/bin/codecept run --xml
 
 {% endhighlight %}
 
@@ -67,13 +67,12 @@ Now we should specify path to PHPUnit style XML reports. In case of standard Cod
 
 Now for all builds we will see results trend graph that shows us percentage of passing and failing tests. We also will see a **Latest Test Result** link which will lead to to the page where all executed tests and their stats listed in a table.
 
-
 ### HTML Reports
 
-To get more details on steps executed you can generate HTML report and use Jenkins to display them. 
+To get more details on steps executed you can generate HTML report and use Jenkins to display them.
 
 {% highlight php %}
- codecept run --html
+ vendor/bin/codecept run --html
 
 {% endhighlight %}
 
@@ -90,12 +89,12 @@ Jenkins should locate `report.html` at `tests/_output/`. Now Jenkins will displa
 
 ![TeamCity](http://codeception.com/images/teamcity/logo.jpg)
 
-TeamCity is a hotsed solution from JetBrains. The setup of it can be a bit tricky as TeamCity uses its own reporter format for parsing test results. PHPUnit since verison 5.x has integrated support for this format, so does Codeception. What we need to do is to configure Codeception to use custom reporter. By default there is `--report` option which provides an alternative output. You can change the reporter class in `codeception.yml` configuration:
+TeamCity is a hosted solution from JetBrains. The setup of it can be a bit tricky as TeamCity uses its own reporter format for parsing test results. PHPUnit since version 5.x has integrated support for this format, so does Codeception. What we need to do is to configure Codeception to use custom reporter. By default there is `--report` option which provides an alternative output. You can change the reporter class in `codeception.yml` configuration:
 
 {% highlight yaml %}
 
 reporters:
-  report: PHPUnit_Util_Log_TeamCity  
+  report: PHPUnit_Util_Log_TeamCity
 
 {% endhighlight %}
 
@@ -104,7 +103,7 @@ As an alternative you can use 3rd-party [TeamCity extension](https://github.com/
 After you create build project you should define build step with Codeception which is
 
 {% highlight php %}
- codecept run --report
+ vendor/bin/codecept run --report
 
 {% endhighlight %}
 
@@ -118,15 +117,15 @@ Once you execute your first build you should see detailed report inside TeamCity
 
 ![Travis CI](http://codeception.com/images/travis.png)
 
-Travis CI is popular service CI with good GitHub integration. Codeception is self-tested with Travis CI. There nothing specifal about configuration. Just add to the bottom line of travis configuration:
+Travis CI is popular service CI with good GitHub integration. Codeception is self-tested with Travis CI. There nothing special about configuration. Just add to the bottom line of travis configuration:
 
 {% highlight yaml %}
 
-php codecept run 
+php vendor/bin/codecept run
 
 {% endhighlight %}
 
-More details on configuration can be learned from Codeception's [`.travis.yml`](https://github.com/Codeception/Codeception/blob/master/.travis.yml). 
+More details on configuration can be learned from Codeception's [`.travis.yml`](https://github.com/Codeception/Codeception/blob/3.0/.travis.yml).
 
 Travis doesn't provide visualization for XML or HTML reports so you can't view reports in format any different than console output. However, Codeception produces nice console output with detailed error reports.
 
@@ -165,11 +164,48 @@ test:
 
 ![report](http://codeception.com/images/gitlab/build.png)
 
-For acceptance testing you can use `codeception/codeception` docker image as base.
+For acceptance testing you can use `codeception/codeception` docker image as base. See example below:
+
+{% highlight yaml %}
+
+
+image:
+  name: codeception/codeception
+  # clear image entrypoint to make bash being available
+  entrypoint: [""]
+
+# run selenium chrome as a local service (put "host: 'selenium__standalone-chrome'" in environment configuration)
+services:
+  - selenium/standalone-chrome:latest
+
+# Select what we should cache
+cache:
+  paths:
+  - vendor/
+
+before_script:
+# Install all project dependencies
+- composer install
+
+# Test
+test:
+  script:
+    - vendor/bin/codecept run acceptance --xml --html
+  artifacts:
+    when: always
+    expire_in: 1 week
+    paths:
+      - tests/_output
+    # make the report available in Gitlab UI. see https://docs.gitlab.com/ee/ci/unit_test_reports.html
+    reports:
+      junit: tests/_output/report.xml
+
+{% endhighlight %}
+
 
 ## Conclusion
 
-It is tringly recommended to use Continuous Integration system in development. Codeception is easy to install and run in any CI systems. However, each of them has their differences you should take into account. You can use different repoters to provide output in format expected by CI system.
+It is highly recommended to use Continuous Integration system in development. Codeception is easy to install and run in any CI systems. However, each of them has their differences you should take into account. You can use different reporters to provide output in format expected by CI system.
 
 
 

@@ -5,9 +5,31 @@ title: Queue - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Module/Queue.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Queue.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/Queue.md"><strong>2.2</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Queue.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Queue.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Queue.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/module-Queue/releases">Changelog</a><a class="btn btn-default" href="https://github.com/Codeception/module-queue/tree/master/src/Codeception/Module/Queue.php"><strong>source</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/3.1/docs/modules/Queue.md">3.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.5/docs/modules/Queue.md">2.5</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Queue.md">1.8</a></div>
 
 # Queue
+### Installation
+
+If you use Codeception installed using composer, install this module with the following command:
+
+{% highlight yaml %}
+composer require --dev codeception/module-queue
+
+{% endhighlight %}
+
+Alternatively, you can enable `Queue` module in suite configuration file and run
+ 
+{% highlight yaml %}
+codecept init upgrade4
+
+{% endhighlight %}
+
+This module was bundled with Codeception 2 and 3, but since version 4 it is necessary to install it separately.   
+Some modules are bundled with PHAR files.  
+Warning. Using PHAR file and composer in the same project can cause unexpected errors.  
+
+### Description
+
 
 
 
@@ -30,12 +52,10 @@ The following dependencies are needed for the listed queue servers:
 
 ### Status
 
-* Maintainer: **nathanmac**
 * Stability:
     - Iron.io:    **stable**
     - Beanstalkd: **stable**
     - Amazon SQS: **stable**
-* Contact: nathan.macnamara@outlook.com
 
 ### Config
 
@@ -50,6 +70,8 @@ service.
 * token - Iron.io access token.
 * project - Iron.io project ID.
 * key - AWS access key ID.
+* version - AWS version (e.g. latest)
+* endpoint - The full URI of the webservice. This is only required when connecting to a custom endpoint (e.g., a local version of SQS).
 * secret - AWS secret access key.
      Warning:
          Hard-coding your credentials can be dangerous, because it is easy to accidentally commit your credentials
@@ -87,10 +109,10 @@ service.
        enabled: [Queue]
        config:
           Queue:
-             'type' => 'iron',
-             'host' => 'mq-aws-us-east-1.iron.io',
-             'token' => 'your-token',
-             'project' => 'your-project-id'
+             'type': 'iron',
+             'host': 'mq-aws-us-east-1.iron.io',
+             'token': 'your-token',
+             'project': 'your-project-id'
 
 ##### Example (AWS SQS)
 
@@ -98,10 +120,10 @@ service.
        enabled: [Queue]
        config:
           Queue:
-             'type' => 'aws',
-             'key' => 'your-public-key',
-             'secret' => 'your-secret-key',
-             'region' => 'us-west-2'
+             'type': 'aws',
+             'key': 'your-public-key',
+             'secret': 'your-secret-key',
+             'region': 'us-west-2'
 
 ##### Example AWS SQS using profile credentials
 
@@ -109,19 +131,18 @@ service.
        enabled: [Queue]
        config:
           Queue:
-             'type' => 'aws',
-             'profile' => 'project1', //see documentation
-             'region' => 'us-west-2'
+             'type': 'aws',
+             'profile': 'project1', //see documentation
+             'region': 'us-west-2'
 
-##### Example AWS SQS running on Anazon EC2 instance
+##### Example AWS SQS running on Amazon EC2 instance
 
     modules:
        enabled: [Queue]
        config:
           Queue:
-             'type' => 'aws',
-             'region' => 'us-west-2'
-
+             'type': 'aws',
+             'region': 'us-west-2'
 
 
 ### Actions
@@ -328,4 +349,4 @@ $I->seeQueueHasTotalCount('default', 10);
  * `param string` $queue Queue Name
  * `param int` $expected Number of messages expected
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.2/src/Codeception/Module/Queue.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-queue/tree/master/src/Codeception/Module/Queue.php">Help us to improve documentation. Edit module reference</a></div>

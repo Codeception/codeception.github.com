@@ -5,9 +5,31 @@ title: Lumen - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Module/Lumen.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/Lumen.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/Lumen.md"><strong>2.2</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/Lumen.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/Lumen.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Lumen.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/module-Lumen/releases">Changelog</a><a class="btn btn-default" href="https://github.com/Codeception/module-lumen/tree/master/src/Codeception/Module/Lumen.php"><strong>source</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/3.1/docs/modules/Lumen.md">3.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.5/docs/modules/Lumen.md">2.5</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Lumen.md">1.8</a></div>
 
 # Lumen
+### Installation
+
+If you use Codeception installed using composer, install this module with the following command:
+
+{% highlight yaml %}
+composer require --dev codeception/module-lumen
+
+{% endhighlight %}
+
+Alternatively, you can enable `Lumen` module in suite configuration file and run
+ 
+{% highlight yaml %}
+codecept init upgrade4
+
+{% endhighlight %}
+
+This module was bundled with Codeception 2 and 3, but since version 4 it is necessary to install it separately.   
+Some modules are bundled with PHAR files.  
+Warning. Using PHAR file and composer in the same project can cause unexpected errors.  
+
+### Description
+
 
 
 
@@ -15,13 +37,8 @@ This module allows you to run functional tests for Lumen.
 Please try it and leave your feedback.
 
 ### Demo project
-<https://github.com/janhenkgerritsen/codeception-lumen-sample>
+<https://github.com/Codeception/codeception-lumen-sample>
 
-### Status
-
-* Maintainer: **Jan-Henk Gerritsen**
-* Stability: **dev**
-* Contact: janhenkgerritsen@gmail.com
 
 ### Config
 
@@ -46,7 +63,6 @@ Please try it and leave your feedback.
     * grabRecord
     * seeRecord
     * dontSeeRecord
-
 
 ### Actions
 
@@ -93,7 +109,7 @@ Use it in Helpers when you want to retrieve response of request performed by ano
 // in Helper class
 public function seeResponseContains($text)
 {
-   $this->assertContains($text, $this->getModule('Lumen')->_getResponseContent(), "response contains");
+   $this->assertStringContainsString($text, $this->getModule('Lumen')->_getResponseContent(), "response contains");
 }
 ?>
 
@@ -209,7 +225,7 @@ $I->amOnPage('/register');
 
 {% endhighlight %}
 
- * `param` $page
+ * `param string` $page
 
 
 #### amOnRoute
@@ -230,7 +246,7 @@ $I->amOnRoute('homepage');
 
 #### attachFile
  
-Attaches a file relative to the Codeception data directory to the given file upload field.
+Attaches a file relative to the Codeception `_data` directory to the given file upload field.
 
 {% highlight php %}
 
@@ -260,6 +276,20 @@ $I->checkOption('#agree');
  * `param` $option
 
 
+#### clearApplicationHandlers
+ 
+Clear the registered application handlers.
+
+{% highlight php %}
+
+<?php
+$I->clearApplicationHandlers();
+?>
+
+{% endhighlight %}
+
+
+
 #### click
  
 Perform a click on a link or a button, given by a locator.
@@ -282,7 +312,7 @@ $I->click('Submit');
 // CSS button
 $I->click('#form input[type=submit]');
 // XPath
-$I->click('//form/*[@type=submit]');
+$I->click('//form/*[@type="submit"]');
 // link in context
 $I->click('Logout', '#nav');
 // using strict locator
@@ -345,8 +375,8 @@ But will ignore strings like:
 
 For checking the raw source code, use `seeInSource()`.
 
- * `param`      $text
- * `param null` $selector
+ * `param string` $text
+ * `param array|string` $selector optional
 
 
 #### dontSeeAuthentication
@@ -394,7 +424,7 @@ $I->dontSeeCurrentUrlEquals('/');
 
 {% endhighlight %}
 
- * `param` $uri
+ * `param string` $uri
 
 
 #### dontSeeCurrentUrlMatches
@@ -405,12 +435,12 @@ Checks that current url doesn't match the given regular expression.
 
 <?php
 // to match root url
-$I->dontSeeCurrentUrlMatches('~$/users/(\d+)~');
+$I->dontSeeCurrentUrlMatches('~^/users/(\d+)~');
 ?>
 
 {% endhighlight %}
 
- * `param` $uri
+ * `param string` $uri
 
 
 #### dontSeeElement
@@ -445,7 +475,7 @@ $I->dontSeeInCurrentUrl('/users/');
 
 {% endhighlight %}
 
- * `param` $uri
+ * `param string` $uri
 
 
 #### dontSeeInField
@@ -556,8 +586,8 @@ $I->dontSeeLink('Checkout now', '/store/cart.php');
 
 {% endhighlight %}
 
- * `param` $text
- * `param null` $url
+ * `param string` $text
+ * `param string` $url optional
 
 
 #### dontSeeOptionIsSelected
@@ -649,7 +679,6 @@ $I->grabAttributeFrom('#tooltip', 'title');
 
 {% endhighlight %}
 
-
  * `param` $cssOrXpath
  * `param` $attribute
 
@@ -659,6 +688,7 @@ $I->grabAttributeFrom('#tooltip', 'title');
  
 Grabs a cookie value.
 You can set additional cookie params like `domain`, `path` in array passed as last argument.
+If the cookie is set by an ajax request (XMLHttpRequest), there might be some delay caused by the browser, so try `$I->wait(0.1)`.
 
  * `param` $cookie
 
@@ -667,19 +697,19 @@ You can set additional cookie params like `domain`, `path` in array passed as la
 
 #### grabFromCurrentUrl
  
-Executes the given regular expression against the current URI and returns the first match.
+Executes the given regular expression against the current URI and returns the first capturing group.
 If no parameters are provided, the full URI is returned.
 
 {% highlight php %}
 
 <?php
-$user_id = $I->grabFromCurrentUrl('~$/user/(\d+)/~');
+$user_id = $I->grabFromCurrentUrl('~^/user/(\d+)/~');
 $uri = $I->grabFromCurrentUrl();
 ?>
 
 {% endhighlight %}
 
- * `param null` $uri
+ * `param string` $uri optional
 
 
 
@@ -711,6 +741,15 @@ $aLinks = $I->grabMultiple('a', 'href');
  * `param` $cssOrXpath
  * `param` $attribute
  * `return` string[]
+
+
+#### grabPageSource
+ 
+Grabs current page source code.
+
+@throws ModuleException if no page was opened.
+
+ * `return` string Current page source code.
 
 
 #### grabRecord
@@ -808,6 +847,64 @@ $I->have('App\User', [], 'admin');
  * `[Part]` orm
 
 
+#### haveApplicationHandler
+ 
+Register a handler than can be used to modify the Laravel application object after it is initialized.
+The Laravel application object will be passed as an argument to the handler.
+
+{% highlight php %}
+
+<?php
+$I->haveApplicationHandler(function($app) {
+    $app->make('config')->set(['test_value' => '10']);
+});
+?>
+
+{% endhighlight %}
+
+ * `param` $handler
+
+
+#### haveBinding
+ 
+Add a binding to the Laravel service container.
+(https://laravel.com/docs/master/container)
+
+{% highlight php %}
+
+<?php
+$I->haveBinding('My\Interface', 'My\Implementation');
+?>
+
+{% endhighlight %}
+
+ * `param` $abstract
+ * `param` $concrete
+
+
+#### haveContextualBinding
+ 
+Add a contextual binding to the Laravel service container.
+(https://laravel.com/docs/master/container)
+
+{% highlight php %}
+
+<?php
+$I->haveContextualBinding('My\Class', '$variable', 'value');
+
+// This is similar to the following in your Laravel application
+$app->when('My\Class')
+    ->needs('$variable')
+    ->give('value');
+?>
+
+{% endhighlight %}
+
+ * `param` $concrete
+ * `param` $abstract
+ * `param` $implementation
+
+
 #### haveHttpHeader
  
 Sets the HTTP header to the passed value - which is used on
@@ -817,8 +914,21 @@ Example:
 {% highlight php %}
 
 <?php
-$I->setHeader('X-Requested-With', 'Codeception');
+$I->haveHttpHeader('X-Requested-With', 'Codeception');
 $I->amOnPage('test-headers.php');
+?>
+
+{% endhighlight %}
+
+To use special chars in Header Key use HTML Character Entities:
+Example:
+Header with underscore - 'Client_Id'
+should be represented as - 'Client&#x0005F;Id' or 'Client&#95;Id'
+
+{% highlight php %}
+
+<?php
+$I->haveHttpHeader('Client&#95;Id', 'Codeception');
 ?>
 
 {% endhighlight %}
@@ -826,6 +936,23 @@ $I->amOnPage('test-headers.php');
  * `param string` $name the name of the request header
  * `param string` $value the value to set it to for subsequent
        requests
+
+
+#### haveInstance
+ 
+Add an instance binding to the Laravel service container.
+(https://laravel.com/docs/master/container)
+
+{% highlight php %}
+
+<?php
+$I->haveInstance('My\Class', new My\Class());
+?>
+
+{% endhighlight %}
+
+ * `param` $abstract
+ * `param` $instance
 
 
 #### haveMultiple
@@ -869,6 +996,99 @@ $user = $I->haveRecord('App\User', array('name' => 'Davert')); // returns Eloque
  * `param string` $table
  * `param array` $attributes
  * `return` integer|EloquentModel
+ * `[Part]` orm
+
+
+#### haveServerParameter
+ 
+Sets SERVER parameter valid for all next requests.
+
+{% highlight php %}
+
+$I->haveServerParameter('name', 'value');
+
+{% endhighlight %}
+ * `param` $name
+ * `param` $value
+
+
+#### haveSingleton
+ 
+Add a singleton binding to the Laravel service container.
+(https://laravel.com/docs/master/container)
+
+{% highlight php %}
+
+<?php
+$I->haveSingleton('My\Interface', 'My\Singleton');
+?>
+
+{% endhighlight %}
+
+ * `param` $abstract
+ * `param` $concrete
+
+
+#### make
+ 
+Use Lumen's model factory to make a model instance.
+Can only be used with Lumen 5.1 and later.
+
+{% highlight php %}
+
+<?php
+$I->make('App\User');
+$I->make('App\User', ['name' => 'John Doe']);
+$I->make('App\User', [], 'admin');
+?>
+
+{% endhighlight %}
+
+@see https://lumen.laravel.com/docs/master/testing#model-factories
+ * `param string` $model
+ * `param array` $attributes
+ * `param string` $name
+ * `[Part]` orm
+
+
+#### makeHtmlSnapshot
+ 
+Saves current page's HTML into a temprary file.
+Use this method in debug mode within an interactive pause to get a source code of current page.
+
+{% highlight php %}
+
+<?php
+$I->makeHtmlSnapshot('edit_page');
+// saved to: tests/_output/debug/edit_page.html
+$I->makeHtmlSnapshot();
+// saved to: tests/_output/debug/2017-05-26_14-24-11_4b3403665fea6.html
+
+{% endhighlight %}
+
+ * `param null` $name
+
+
+#### makeMultiple
+ 
+Use Laravel's model factory to make multiple model instances.
+Can only be used with Lumen 5.1 and later.
+
+{% highlight php %}
+
+<?php
+$I->makeMultiple('App\User', 10);
+$I->makeMultiple('App\User', 10, ['name' => 'John Doe']);
+$I->makeMultiple('App\User', 10, [], 'admin');
+?>
+
+{% endhighlight %}
+
+@see https://lumen.laravel.com/docs/master/testing#model-factories
+ * `param string` $model
+ * `param int` $times
+ * `param array` $attributes
+ * `param string` $name
  * `[Part]` orm
 
 
@@ -920,8 +1140,8 @@ But will *not* be true for strings like:
 
 For checking the raw source code, use `seeInSource()`.
 
- * `param`      $text
- * `param null` $selector
+ * `param string` $text
+ * `param array|string` $selector optional
 
 
 #### seeAuthentication
@@ -977,7 +1197,7 @@ $I->seeCurrentUrlEquals('/');
 
 {% endhighlight %}
 
- * `param` $uri
+ * `param string` $uri
 
 
 #### seeCurrentUrlMatches
@@ -988,12 +1208,12 @@ Checks that the current URL matches the given regular expression.
 
 <?php
 // to match root url
-$I->seeCurrentUrlMatches('~$/users/(\d+)~');
+$I->seeCurrentUrlMatches('~^/users/(\d+)~');
 ?>
 
 {% endhighlight %}
 
- * `param` $uri
+ * `param string` $uri
 
 
 #### seeElement
@@ -1035,13 +1255,13 @@ $I->seeInCurrentUrl('/users/');
 
 {% endhighlight %}
 
- * `param` $uri
+ * `param string` $uri
 
 
 #### seeInField
  
-Checks that the given input field or textarea contains the given value.
-For fuzzy locators, fields are matched by label text, the "name" attribute, CSS, and XPath.
+Checks that the given input field or textarea *equals* (i.e. not just contains) the given value.
+Fields are matched by label text, the "name" attribute, CSS, or XPath.
 
 {% highlight php %}
 
@@ -1176,8 +1396,8 @@ $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
 
 {% endhighlight %}
 
- * `param`      $text
- * `param null` $url
+ * `param string` $text
+ * `param string` $url optional
 
 
 #### seeNumberOfElements
@@ -1188,14 +1408,12 @@ Checks that there are a certain number of elements matched by the given locator 
 
 <?php
 $I->seeNumberOfElements('tr', 10);
-$I->seeNumberOfElements('tr', [0,10]); //between 0 and 10 elements
+$I->seeNumberOfElements('tr', [0,10]); // between 0 and 10 elements
 ?>
 
 {% endhighlight %}
  * `param` $selector
- * `param mixed` $expected :
-- string: strict number
-- array: range of numbers [0,10]
+ * `param mixed` $expected int or int[]
 
 
 #### seeOptionIsSelected
@@ -1254,6 +1472,34 @@ $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK);
 {% endhighlight %}
 
  * `param` $code
+
+
+#### seeResponseCodeIsBetween
+ 
+Checks that response code is between a certain range. Between actually means [from <= CODE <= to]
+
+ * `param` $from
+ * `param` $to
+
+
+#### seeResponseCodeIsClientError
+ 
+Checks that the response code is 4xx
+
+
+#### seeResponseCodeIsRedirection
+ 
+Checks that the response code 3xx
+
+
+#### seeResponseCodeIsServerError
+ 
+Checks that the response code is 5xx
+
+
+#### seeResponseCodeIsSuccessful
+ 
+Checks that the response code 2xx
 
 
 #### selectOption
@@ -1376,9 +1622,22 @@ $I->setCookie('PHPSESSID', 'el4ukv0kqbvoirg7nkp4dncpk3');
 
 
 
+#### setServerParameters
+ 
+Sets SERVER parameters valid for all next requests.
+this will remove old ones.
+
+{% highlight php %}
+
+$I->setServerParameters([]);
+
+{% endhighlight %}
+ * `param array` $params
+
+
 #### submitForm
  
-Submits the given form on the page, optionally with the given form
+Submits the given form on the page, with the given form
 values.  Pass the form field's values as an array in the second
 parameter.
 
@@ -1601,4 +1860,4 @@ $I->uncheckOption('#notify');
 
  * `param` $option
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.2/src/Codeception/Module/Lumen.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-lumen/tree/master/src/Codeception/Module/Lumen.php">Help us to improve documentation. Edit module reference</a></div>

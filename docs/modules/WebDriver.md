@@ -5,9 +5,31 @@ title: WebDriver - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Module/WebDriver.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/WebDriver.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/WebDriver.md"><strong>2.2</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/WebDriver.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/WebDriver.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/WebDriver.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/module-WebDriver/releases">Changelog</a><a class="btn btn-default" href="https://github.com/Codeception/module-webdriver/tree/master/src/Codeception/Module/WebDriver.php"><strong>source</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/3.1/docs/modules/WebDriver.md">3.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.5/docs/modules/WebDriver.md">2.5</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/WebDriver.md">1.8</a></div>
 
 # WebDriver
+### Installation
+
+If you use Codeception installed using composer, install this module with the following command:
+
+{% highlight yaml %}
+composer require --dev codeception/module-webdriver
+
+{% endhighlight %}
+
+Alternatively, you can enable `WebDriver` module in suite configuration file and run
+ 
+{% highlight yaml %}
+codecept init upgrade4
+
+{% endhighlight %}
+
+This module was bundled with Codeception 2 and 3, but since version 4 it is necessary to install it separately.   
+Some modules are bundled with PHAR files.  
+Warning. Using PHAR file and composer in the same project can cause unexpected errors.  
+
+### Description
+
 
 
 New generation Selenium WebDriver module.
@@ -16,9 +38,12 @@ New generation Selenium WebDriver module.
 
 #### Selenium
 
-1. Download [Selenium Server](http://docs.seleniumhq.org/download/)
-2. Launch the daemon: `java -jar selenium-server-standalone-2.xx.xxx.jar`
-3. Configure this module (in acceptance.suite.yml) by setting url and browser:
+To run Selenium Server you need [Java](https://www.java.com/) as well as Chrome or Firefox browser installed.
+
+1. Download [Selenium Standalone Server](http://docs.seleniumhq.org/download/)
+2. To use Chrome, install [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/getting-started). To use Firefox, install [GeckoDriver](https://github.com/mozilla/geckodriver).
+3. Launch the Selenium Server: `java -jar selenium-server-standalone-3.xx.xxx.jar`. To locate Chromedriver binary use `-Dwebdriver.chrome.driver=./chromedriver` option. For Geckodriver use `-Dwebdriver.gecko.driver=./geckodriver`.
+4. Configure this module (in `acceptance.suite.yml`) by setting `url` and `browser`:
 
 {% highlight yaml %}
 
@@ -26,19 +51,51 @@ New generation Selenium WebDriver module.
        enabled:
           - WebDriver:
              url: 'http://localhost/'
-             browser: firefox
+             browser: chrome # 'chrome' or 'firefox'
 
 {% endhighlight %}
 
+Launch Selenium Server before executing tests.
+
+{% highlight yaml %}
+java -jar "/path/to/selenium-server-standalone-xxx.jar"
+
+{% endhighlight %}
+
+#### ChromeDriver
+
+To run tests in Chrome browser you may connect to ChromeDriver directly, without using Selenium Server.
+
+1. Install [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/getting-started).
+2. Launch ChromeDriver: `chromedriver --url-base=/wd/hub`
+3. Configure this module to use ChromeDriver port:
+
+{% highlight yaml %}
+
+    modules:
+       enabled:
+          - WebDriver:
+             url: 'http://localhost/'
+             window_size: false # disabled in ChromeDriver
+             port: 9515
+             browser: chrome
+             capabilities:
+                 "goog:chromeOptions": # additional chrome options
+
+{% endhighlight %}
+
+Additional [Chrome options](https://sites.google.com/a/chromium.org/chromedriver/capabilities) can be set in `goog:chromeOptions` capabilities. Note that Selenium 3.8 renamed this capability from `chromeOptions` to `goog:chromeOptions`.
+
+
 #### PhantomJS
 
-PhantomJS is a headless alternative to Selenium Server that implements
+PhantomJS is a [headless browser](https://en.wikipedia.org/wiki/Headless_browser) alternative to Selenium Server that implements
 [the WebDriver protocol](https://code.google.com/p/selenium/wiki/JsonWireProtocol).
 It allows you to run Selenium tests on a server without a GUI installed.
 
 1. Download [PhantomJS](http://phantomjs.org/download.html)
 2. Run PhantomJS in WebDriver mode: `phantomjs --webdriver=4444`
-3. Configure this module (in acceptance.suite.yml) by setting url and `phantomjs` as browser:
+3. Configure this module (in `acceptance.suite.yml`) by setting url and `phantomjs` as browser:
 
 {% highlight yaml %}
 
@@ -49,6 +106,20 @@ It allows you to run Selenium tests on a server without a GUI installed.
              browser: phantomjs
 
 {% endhighlight %}
+
+Since PhantomJS doesn't give you any visual feedback, it's probably a good idea to install [Codeception\Extension\Recorder](http://codeception.com/extensions#CodeceptionExtensionRecorder) which gives you screenshots of how PhantomJS "sees" your pages.
+
+#### Headless Selenium in Docker
+
+Docker can ship Selenium Server with all its dependencies and browsers inside a single container.
+Running tests inside Docker is as easy as pulling [official selenium image](https://github.com/SeleniumHQ/docker-selenium) and starting a container with Chrome:
+
+{% highlight yaml %}
+docker run --net=host selenium/standalone-chrome
+
+{% endhighlight %}
+
+By using `--net=host` we allow selenium to access local websites.
 
 ### Cloud Testing
 
@@ -126,17 +197,18 @@ you should use a tunnel application provided by a service.
 * `browser` *required* - Browser to launch.
 * `host` - Selenium server host (127.0.0.1 by default).
 * `port` - Selenium server port (4444 by default).
-* `restart` - Set to false (default) to share browser window between tests, or set to true to create a separate window for each test.
+* `restart` - Set to `false` (default) to use the same browser window for all tests, or set to `true` to create a new window for each test. In any case, when all tests are finished the browser window is closed.
+* `start` - Autostart a browser for tests. Can be disabled if browser session is started with `_initializeSession` inside a Helper.
 * `window_size` - Initial window size. Set to `maximize` or a dimension in the format `640x480`.
 * `clear_cookies` - Set to false to keep cookies, or set to true (default) to delete all cookies between tests.
-* `wait` - Implicit wait (default 0 seconds).
-* `capabilities` - Sets Selenium2 [desired capabilities](https://github.com/SeleniumHQ/selenium/wiki/DesiredCapabilities). Should be a key-value array.
+* `wait` (default: 0 seconds) - Whenever element is required and is not on page, wait for n seconds to find it before fail.
+* `capabilities` - Sets Selenium [desired capabilities](https://github.com/SeleniumHQ/selenium/wiki/DesiredCapabilities). Should be a key-value array.
 * `connection_timeout` - timeout for opening a connection to remote selenium server (30 seconds by default).
 * `request_timeout` - timeout for a request to return something from remote selenium server (30 seconds by default).
 * `pageload_timeout` - amount of time to wait for a page load to complete before throwing an error (default 0 seconds).
 * `http_proxy` - sets http proxy server url for testing a remote server.
 * `http_proxy_port` - sets http proxy server port
-* `debug_log_entries` - how many selenium entries to print with `debugWebDriverLogs` or on fail (15 by default).
+* `debug_log_entries` - how many selenium entries to print with `debugWebDriverLogs` or on fail (0 by default).
 * `log_js_errors` - Set to true to include possible JavaScript to HTML report, or set to false (default) to deactivate.
 
 Example (`acceptance.suite.yml`)
@@ -154,11 +226,6 @@ Example (`acceptance.suite.yml`)
                  firefox_profile: '~/firefox-profiles/codeception-profile.zip.b64'
 
 {% endhighlight %}
-
-#### Status
-
-Stability: **stable**
-Based on [facebook php-webdriver](https://github.com/facebook/php-webdriver)
 
 ### Usage
 
@@ -212,8 +279,117 @@ $this->getModule('WebDriver')->webDriver->getKeyboard()->sendKeys('hello, webdri
 {% endhighlight %}
 
 
-
 ### Actions
+
+#### _backupSession
+
+*hidden API method, expected to be used from Helper classes*
+ 
+Returns current WebDriver session for saving
+
+ * `return` RemoteWebDriver
+
+
+#### _capabilities
+
+*hidden API method, expected to be used from Helper classes*
+ 
+Change capabilities of WebDriver. Should be executed before starting a new browser session.
+This method expects a function to be passed which returns array or [WebDriver Desired Capabilities](https://github.com/php-webdriver/php-webdriver/blob/community/lib/Remote/DesiredCapabilities.php) object.
+Additional [Chrome options](https://github.com/php-webdriver/php-webdriver/wiki/ChromeOptions) (like adding extensions) can be passed as well.
+
+{% highlight php %}
+
+<?php // in helper
+public function _before(TestInterface $test)
+{
+    $this->getModule('WebDriver')->_capabilities(function($currentCapabilities) {
+        // or new \Facebook\WebDriver\Remote\DesiredCapabilities();
+        return \Facebook\WebDriver\Remote\DesiredCapabilities::firefox();
+    });
+}
+
+{% endhighlight %}
+
+to make this work load `\Helper\Acceptance` before `WebDriver` in `acceptance.suite.yml`:
+
+{% highlight yaml %}
+
+modules:
+    enabled:
+        - \Helper\Acceptance
+        - WebDriver
+
+{% endhighlight %}
+
+For instance, [**BrowserStack** cloud service](https://www.browserstack.com/automate/capabilities) may require a test name to be set in capabilities.
+This is how it can be done via `_capabilities` method from `Helper\Acceptance`:
+
+{% highlight php %}
+
+<?php // inside Helper\Acceptance
+public function _before(TestInterface $test)
+{
+     $name = $test->getMetadata()->getName();
+     $this->getModule('WebDriver')->_capabilities(function($currentCapabilities) use ($name) {
+         $currentCapabilities['name'] = $name;
+         return $currentCapabilities;
+     });
+}
+
+{% endhighlight %}
+In this case, please ensure that `\Helper\Acceptance` is loaded before WebDriver so new capabilities could be applied.
+
+ * `param \Closure` $capabilityFunction
+
+
+#### _closeSession
+
+*hidden API method, expected to be used from Helper classes*
+ 
+Manually closes current WebDriver session.
+
+{% highlight php %}
+
+<?php
+$this->getModule('WebDriver')->_closeSession();
+
+// close a specific session
+$webDriver = $this->getModule('WebDriver')->webDriver;
+$this->getModule('WebDriver')->_closeSession($webDriver);
+
+{% endhighlight %}
+
+ * `param` $webDriver (optional) a specific webdriver session instance
+
+
+#### _findClickable
+
+*hidden API method, expected to be used from Helper classes*
+ 
+Locates a clickable element.
+
+Use it in Helpers or GroupObject or Extension classes:
+
+{% highlight php %}
+
+<?php
+$module = $this->getModule('WebDriver');
+$page = $module->webDriver;
+
+// search a link or button on a page
+$el = $module->_findClickable($page, 'Click Me');
+
+// search a link or button within an element
+$topBar = $module->_findElements('.top-bar')[0];
+$el = $module->_findClickable($topBar, 'Click Me');
+
+
+{% endhighlight %}
+ * `param RemoteWebDriver` $page WebDriver instance or an element to search within
+ * `param` $link a link text or locator to click
+ * `return` WebDriverElement
+
 
 #### _findElements
 
@@ -259,7 +435,51 @@ Uri of currently opened page.
 *hidden API method, expected to be used from Helper classes*
  
 Returns URL of a host.
+
 @throws ModuleConfigException
+
+
+#### _initializeSession
+
+*hidden API method, expected to be used from Helper classes*
+ 
+Manually starts a new browser session.
+
+{% highlight php %}
+
+<?php
+$this->getModule('WebDriver')->_initializeSession();
+
+{% endhighlight %}
+
+
+
+#### _loadSession
+
+*hidden API method, expected to be used from Helper classes*
+ 
+Loads current RemoteWebDriver instance as a session
+
+ * `param RemoteWebDriver` $session
+
+
+#### _restart
+
+*hidden API method, expected to be used from Helper classes*
+ 
+Restarts a web browser.
+Can be used with `_reconfigure` to open browser with different configuration
+
+{% highlight php %}
+
+<?php
+// inside a Helper
+$this->getModule('WebDriver')->_restart(); // just restart
+$this->getModule('WebDriver')->_restart(['browser' => $browser]); // reconfigure + restart
+
+{% endhighlight %}
+
+ * `param array` $config
 
 
 #### _savePageSource
@@ -305,7 +525,7 @@ $I->amOnPage('/register');
 
 {% endhighlight %}
 
- * `param` $page
+ * `param string` $page
 
 
 #### amOnSubdomain
@@ -366,7 +586,7 @@ $I->appendField('#myTextField', 'appended');
 
 #### attachFile
  
-Attaches a file relative to the Codeception data directory to the given file upload field.
+Attaches a file relative to the Codeception `_data` directory to the given file upload field.
 
 {% highlight php %}
 
@@ -383,7 +603,7 @@ $I->attachFile('input[@type="file"]', 'prices.xls');
 
 #### cancelPopup
  
-Dismisses the active JavaScript popup, as created by `window.alert`|`window.confirm`|`window.prompt`.
+Dismisses the active JavaScript popup, as created by `window.alert`, `window.confirm`, or `window.prompt`.
 
 
 #### checkOption
@@ -399,6 +619,20 @@ $I->checkOption('#agree');
 {% endhighlight %}
 
  * `param` $option
+
+
+#### clearField
+ 
+Clears given field which isn't empty.
+
+{% highlight php %}
+
+<?php
+$I->clearField('#username');
+
+{% endhighlight %}
+
+ * `param` $field
 
 
 #### click
@@ -423,7 +657,7 @@ $I->click('Submit');
 // CSS button
 $I->click('#form input[type=submit]');
 // XPath
-$I->click('//form/*[@type=submit]');
+$I->click('//form/*[@type="submit"]');
 // link in context
 $I->click('Logout', '#nav');
 // using strict locator
@@ -480,8 +714,8 @@ $I->clickWithRightButton(['css' => '.checkout'], 20, 50);
 {% endhighlight %}
 
  * `param string` $cssOrXPath css or xpath of the web element (body by default).
- * `param int`    $offsetX
- * `param int`    $offsetY
+ * `param int` $offsetX
+ * `param int` $offsetY
 
 @throws \Codeception\Exception\ElementNotFound
 
@@ -504,7 +738,16 @@ Can't be used with PhantomJS
  
 Print out latest Selenium Logs in debug mode
 
- * `param TestInterface` $test
+ * `param \Codeception\TestInterface` $test
+
+
+#### deleteSessionSnapshot
+ 
+Deletes session snapshot.
+
+See [saveSessionSnapshot](#saveSessionSnapshot)
+
+ * `param` $name
 
 
 #### dontSee
@@ -536,8 +779,8 @@ But will ignore strings like:
 
 For checking the raw source code, use `seeInSource()`.
 
- * `param`      $text
- * `param null` $selector
+ * `param string` $text
+ * `param array|string` $selector optional
 
 
 #### dontSeeCheckboxIsChecked
@@ -580,7 +823,7 @@ $I->dontSeeCurrentUrlEquals('/');
 
 {% endhighlight %}
 
- * `param` $uri
+ * `param string` $uri
 
 
 #### dontSeeCurrentUrlMatches
@@ -591,12 +834,12 @@ Checks that current url doesn't match the given regular expression.
 
 <?php
 // to match root url
-$I->dontSeeCurrentUrlMatches('~$/users/(\d+)~');
+$I->dontSeeCurrentUrlMatches('~^/users/(\d+)~');
 ?>
 
 {% endhighlight %}
 
- * `param` $uri
+ * `param string` $uri
 
 
 #### dontSeeElement
@@ -639,7 +882,7 @@ $I->dontSeeInCurrentUrl('/users/');
 
 {% endhighlight %}
 
- * `param` $uri
+ * `param string` $uri
 
 
 #### dontSeeInField
@@ -720,6 +963,16 @@ Checks that the page source doesn't contain the given string.
  * `param` $text
 
 
+#### dontSeeInPopup
+ 
+Checks that the active JavaScript popup,
+as created by `window.alert`|`window.confirm`|`window.prompt`, does NOT contain the given string.
+
+ * `param` $text
+
+@throws \Codeception\Exception\ModuleException
+
+
 #### dontSeeInSource
  
 Checks that the current page contains the given string in its
@@ -757,8 +1010,8 @@ $I->dontSeeLink('Checkout now', '/store/cart.php');
 
 {% endhighlight %}
 
- * `param` $text
- * `param null` $url
+ * `param string` $text
+ * `param string` $url optional
 
 
 #### dontSeeOptionIsSelected
@@ -802,6 +1055,27 @@ $I->dragAndDrop('#drag', '#drop');
  * `param string` $target (CSS ID or XPath)
 
 
+#### executeAsyncJS
+ 
+Executes asynchronous JavaScript.
+A callback should be executed by JavaScript to exit from a script.
+Callback is passed as a last element in `arguments` array.
+Additional arguments can be passed as array in second parameter.
+
+{% highlight yaml %}
+js
+// wait for 1200 milliseconds my running `setTimeout`
+* $I->executeAsyncJS('setTimeout(arguments[0], 1200)');
+
+$seconds = 1200; // or seconds are passed as argument
+$I->executeAsyncJS('setTimeout(arguments[1], arguments[0])', [$seconds]);
+
+{% endhighlight %}
+
+ * `param` $script
+ * `param array` $arguments
+
+
 #### executeInSelenium
  
 Low-level API method.
@@ -816,7 +1090,7 @@ $I->executeInSelenium(function(\Facebook\WebDriver\Remote\RemoteWebDriver $webdr
 {% endhighlight %}
 
 This runs in the context of the
-[RemoteWebDriver class](https://github.com/facebook/php-webdriver/blob/master/lib/remote/RemoteWebDriver.php).
+[RemoteWebDriver class](https://github.com/php-webdriver/php-webdriver/blob/master/lib/remote/RemoteWebDriver.php).
 Try not to use this command on a regular basis.
 If Codeception lacks a feature you need, please implement it and submit a patch.
 
@@ -833,11 +1107,15 @@ This example uses jQuery to get a value and assigns that value to a PHP variable
 
 <?php
 $myVar = $I->executeJS('return $("#myField").val()');
-?>
+
+// additional arguments can be passed as array
+// Example shows `Hello World` alert:
+$I->executeJS("window.alert(arguments[0])", ['Hello world']);
 
 {% endhighlight %}
 
  * `param` $script
+ * `param array` $arguments
 
 
 #### fillField
@@ -870,7 +1148,6 @@ $I->grabAttributeFrom('#tooltip', 'title');
 
 {% endhighlight %}
 
-
  * `param` $cssOrXpath
  * `param` $attribute
 
@@ -880,6 +1157,7 @@ $I->grabAttributeFrom('#tooltip', 'title');
  
 Grabs a cookie value.
 You can set additional cookie params like `domain`, `path` in array passed as last argument.
+If the cookie is set by an ajax request (XMLHttpRequest), there might be some delay caused by the browser, so try `$I->wait(0.1)`.
 
  * `param` $cookie
 
@@ -888,19 +1166,19 @@ You can set additional cookie params like `domain`, `path` in array passed as la
 
 #### grabFromCurrentUrl
  
-Executes the given regular expression against the current URI and returns the first match.
+Executes the given regular expression against the current URI and returns the first capturing group.
 If no parameters are provided, the full URI is returned.
 
 {% highlight php %}
 
 <?php
-$user_id = $I->grabFromCurrentUrl('~$/user/(\d+)/~');
+$user_id = $I->grabFromCurrentUrl('~^/user/(\d+)/~');
 $uri = $I->grabFromCurrentUrl();
 ?>
 
 {% endhighlight %}
 
- * `param null` $uri
+ * `param string` $uri optional
 
 
 
@@ -932,6 +1210,15 @@ $aLinks = $I->grabMultiple('a', 'href');
  * `param` $cssOrXpath
  * `param` $attribute
  * `return` string[]
+
+
+#### grabPageSource
+ 
+Grabs current page source code.
+
+@throws ModuleException if no page was opened.
+
+ * `return` string Current page source code.
 
 
 #### grabTextFrom
@@ -976,8 +1263,30 @@ $name = $I->grabValueFrom(['name' => 'username']);
 
 #### loadSessionSnapshot
  
- * `param string` $name
- * `return` bool
+Loads cookies from a saved snapshot.
+Allows to reuse same session across tests without additional login.
+
+See [saveSessionSnapshot](#saveSessionSnapshot)
+
+ * `param` $name
+
+
+#### makeHtmlSnapshot
+ 
+Saves current page's HTML into a temprary file.
+Use this method in debug mode within an interactive pause to get a source code of current page.
+
+{% highlight php %}
+
+<?php
+$I->makeHtmlSnapshot('edit_page');
+// saved to: tests/_output/debug/edit_page.html
+$I->makeHtmlSnapshot();
+// saved to: tests/_output/debug/2017-05-26_14-24-11_4b3403665fea6.html
+
+{% endhighlight %}
+
+ * `param null` $name
 
 
 #### makeScreenshot
@@ -990,7 +1299,8 @@ Takes a screenshot of the current window and saves it to `tests/_output/debug`.
 $I->amOnPage('/user/edit');
 $I->makeScreenshot('edit_page');
 // saved to: tests/_output/debug/edit_page.png
-?>
+$I->makeScreenshot();
+// saved to: tests/_output/debug/2017-05-26_14-24-11_4b3403665fea6.png
 
 {% endhighlight %}
 
@@ -1039,7 +1349,7 @@ $I->moveMouseOver(['css' => '.checkout'], 20, 50);
 
 #### openNewTab
  
-Opens a new browser tab (wherever it is possible) and switches to it.
+Opens a new browser tab and switches to it.
 
 {% highlight php %}
 
@@ -1047,20 +1357,10 @@ Opens a new browser tab (wherever it is possible) and switches to it.
 $I->openNewTab();
 
 {% endhighlight %}
-Tab is opened by using `window.open` javascript in a browser.
-Please note, that adblock can restrict creating such tabs.
-
-Can't be used with PhantomJS
-
-
-
-#### pauseExecution
- 
-Pauses test execution in debug mode.
-To proceed test press "ENTER" in console.
-
-This method is useful while writing tests,
-since it allows you to inspect the current page in the middle of a test case.
+The tab is opened with JavaScript's `window.open()`, which means:
+* Some adblockers might restrict it.
+* The sessionStorage is copied to the new tab (contrary to a tab that was manually opened by the user)
+* It is not possible in PhantomJS.
 
 
 #### performOn
@@ -1172,7 +1472,35 @@ $I->resizeWindow(800, 600);
 
 #### saveSessionSnapshot
  
- * `param string` $name
+Saves current cookies into named snapshot in order to restore them in other tests
+This is useful to save session state between tests.
+For example, if user needs log in to site for each test this scenario can be executed once
+while other tests can just restore saved cookies.
+
+{% highlight php %}
+
+<?php
+// inside AcceptanceTester class:
+
+public function login()
+{
+     // if snapshot exists - skipping login
+     if ($I->loadSessionSnapshot('login')) return;
+
+     // logging in
+     $I->amOnPage('/login');
+     $I->fillField('name', 'jon');
+     $I->fillField('password', '123345');
+     $I->click('Login');
+
+     // saving snapshot
+     $I->saveSessionSnapshot('login');
+}
+?>
+
+{% endhighlight %}
+
+ * `param` $name
 
 
 #### scrollTo
@@ -1225,8 +1553,8 @@ But will *not* be true for strings like:
 
 For checking the raw source code, use `seeInSource()`.
 
- * `param`      $text
- * `param null` $selector
+ * `param string` $text
+ * `param array|string` $selector optional
 
 
 #### seeCheckboxIsChecked
@@ -1277,7 +1605,7 @@ $I->seeCurrentUrlEquals('/');
 
 {% endhighlight %}
 
- * `param` $uri
+ * `param string` $uri
 
 
 #### seeCurrentUrlMatches
@@ -1288,12 +1616,12 @@ Checks that the current URL matches the given regular expression.
 
 <?php
 // to match root url
-$I->seeCurrentUrlMatches('~$/users/(\d+)~');
+$I->seeCurrentUrlMatches('~^/users/(\d+)~');
 ?>
 
 {% endhighlight %}
 
- * `param` $uri
+ * `param string` $uri
 
 
 #### seeElement
@@ -1351,13 +1679,13 @@ $I->seeInCurrentUrl('/users/');
 
 {% endhighlight %}
 
- * `param` $uri
+ * `param string` $uri
 
 
 #### seeInField
  
-Checks that the given input field or textarea contains the given value.
-For fuzzy locators, fields are matched by label text, the "name" attribute, CSS, and XPath.
+Checks that the given input field or textarea *equals* (i.e. not just contains) the given value.
+Fields are matched by label text, the "name" attribute, CSS, or XPath.
 
 {% highlight php %}
 
@@ -1516,8 +1844,8 @@ $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
 
 {% endhighlight %}
 
- * `param`      $text
- * `param null` $url
+ * `param string` $text
+ * `param string` $url optional
 
 
 #### seeNumberOfElements
@@ -1528,14 +1856,12 @@ Checks that there are a certain number of elements matched by the given locator 
 
 <?php
 $I->seeNumberOfElements('tr', 10);
-$I->seeNumberOfElements('tr', [0,10]); //between 0 and 10 elements
+$I->seeNumberOfElements('tr', [0,10]); // between 0 and 10 elements
 ?>
 
 {% endhighlight %}
  * `param` $selector
- * `param mixed` $expected :
-- string: strict number
-- array: range of numbers [0,10]
+ * `param mixed` $expected int or int[]
 
 
 #### seeNumberOfElementsInDOM
@@ -1726,16 +2052,16 @@ $I->submitForm('#my-form', [
      'field1' => 'value',
      'checkbox' => [
          'value of first checkbox',
-         'value of second checkbox,
+         'value of second checkbox',
      ],
      'otherCheckboxes' => [
          true,
          false,
-         false
+         false,
      ],
      'multiselect' => [
          'first option value',
-         'second option value'
+         'second option value',
      ]
 ]);
 ?>
@@ -1796,14 +2122,14 @@ For example, given the following HTML:
  * `param` $button
 
 
-#### switchToIFrame
+#### switchToFrame
  
 Switch to another frame on the page.
 
 Example:
 {% highlight html %}
 
-<iframe name="another_frame" src="http://example.com">
+<frame name="another_frame" id="fr1" src="http://example.com">
 
 
 {% endhighlight %}
@@ -1811,15 +2137,45 @@ Example:
 {% highlight php %}
 
 <?php
-# switch to iframe
+# switch to frame by name
+$I->switchToFrame("another_frame");
+# switch to frame by CSS or XPath
+$I->switchToFrame("#fr1");
+# switch to parent page
+$I->switchToFrame();
+
+
+{% endhighlight %}
+
+ * `param string|null` $locator (name, CSS or XPath)
+
+
+#### switchToIFrame
+ 
+Switch to another iframe on the page.
+
+Example:
+{% highlight html %}
+
+<iframe name="another_frame" id="fr1" src="http://example.com">
+
+
+{% endhighlight %}
+
+{% highlight php %}
+
+<?php
+# switch to iframe by name
 $I->switchToIFrame("another_frame");
+# switch to iframe by CSS or XPath
+$I->switchToIFrame("#fr1");
 # switch to parent page
 $I->switchToIFrame();
 
 
 {% endhighlight %}
 
- * `param string|null` $name
+ * `param string|null` $locator (name, CSS or XPath)
 
 
 #### switchToNextTab
@@ -1844,16 +2200,16 @@ Can't be used with PhantomJS
 
 #### switchToPreviousTab
  
-Switches to next browser tab.
+Switches to previous browser tab.
 An offset can be specified.
 
 {% highlight php %}
 
 <?php
 // switch to previous tab
-$I->switchToNextTab();
+$I->switchToPreviousTab();
 // switch to 2nd previous tab
-$I->switchToNextTab(-2);
+$I->switchToPreviousTab(2);
 
 {% endhighlight %}
 
@@ -1942,7 +2298,7 @@ Unselect an option in the given select box.
  
 Wait for $timeout seconds.
 
- * `param int` $timeout secs
+ * `param int|float` $timeout secs
 @throws \Codeception\Exception\TestRuntimeException
 
 
@@ -1986,6 +2342,25 @@ $I->waitForElementChange('#menu', function(WebDriverElement $el) {
  * `param \Closure` $callback
  * `param int` $timeout seconds
 @throws \Codeception\Exception\ElementNotFound
+
+
+#### waitForElementClickable
+ 
+Waits up to $timeout seconds for the given element to be clickable.
+If element doesn't become clickable, a timeout exception is thrown.
+
+{% highlight php %}
+
+<?php
+$I->waitForElementClickable('#agree_button', 30); // secs
+$I->click('#agree_button');
+?>
+
+{% endhighlight %}
+
+ * `param` $element
+ * `param int` $timeout seconds
+@throws \Exception
 
 
 #### waitForElementNotVisible
@@ -2062,7 +2437,7 @@ $I->waitForText('foo', 30, '.title'); // secs
 
  * `param string` $text
  * `param int` $timeout seconds
- * `param null` $selector
+ * `param string` $selector optional
 @throws \Exception
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.2/src/Codeception/Module/WebDriver.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-webdriver/tree/master/src/Codeception/Module/WebDriver.php">Help us to improve documentation. Edit module reference</a></div>

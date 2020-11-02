@@ -5,9 +5,31 @@ title: REST - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/src/Codeception/Module/REST.php">source</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/master/docs/modules/REST.md">master</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.2/docs/modules/REST.md"><strong>2.2</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.1/docs/modules/REST.md">2.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.0/docs/modules/REST.md">2.0</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/REST.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/module-REST/releases">Changelog</a><a class="btn btn-default" href="https://github.com/Codeception/module-rest/tree/master/src/Codeception/Module/REST.php"><strong>source</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/3.1/docs/modules/REST.md">3.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.5/docs/modules/REST.md">2.5</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/REST.md">1.8</a></div>
 
 # REST
+### Installation
+
+If you use Codeception installed using composer, install this module with the following command:
+
+{% highlight yaml %}
+composer require --dev codeception/module-rest
+
+{% endhighlight %}
+
+Alternatively, you can enable `REST` module in suite configuration file and run
+ 
+{% highlight yaml %}
+codecept init upgrade4
+
+{% endhighlight %}
+
+This module was bundled with Codeception 2 and 3, but since version 4 it is necessary to install it separately.   
+Some modules are bundled with PHAR files.  
+Warning. Using PHAR file and composer in the same project can cause unexpected errors.  
+
+### Description
+
 
 
 Module for testing REST WebService.
@@ -19,8 +41,12 @@ Otherwise, a PHPBrowser should be specified as a dependency to send requests and
 ### Configuration
 
 * url *optional* - the url of api
+* shortDebugResponse *optional* - amount of chars to limit the api response length
 
 This module requires PHPBrowser or any of Framework modules enabled.
+
+In case you need to configure low-level HTTP fields, that's done on the PHPBrowser level.
+Check the example below for details.
 
 #### Example
 
@@ -28,7 +54,13 @@ This module requires PHPBrowser or any of Framework modules enabled.
        enabled:
            - REST:
                depends: PhpBrowser
-               url: 'http://serviceapp/api/v1/'
+               url: &url 'http://serviceapp/api/v1/' # you only need the &url anchor for further PhpBrowser configs
+               shortDebugResponse: 300 # only the first 300 chars of the response
+       config:
+           PhpBrowser:
+               url: *url # repeats the URL from the REST module; not needed if you don't have further settings like below
+               headers:
+                   Content-Type: application/json
 
 ### Public Properties
 
@@ -46,8 +78,37 @@ This module requires PHPBrowser or any of Framework modules enabled.
 Conflicts with SOAP module
 
 
-
 ### Actions
+
+#### amAWSAuthenticated
+ 
+Allows to send REST request using AWS Authorization
+
+Only works with PhpBrowser
+Example Config:
+{% highlight yaml %}
+yml
+modules:
+     enabled:
+         - REST:
+             aws:
+                 key: accessKey
+                 secret: accessSecret
+                 service: awsService
+                 region: awsRegion
+
+{% endhighlight %}
+Code:
+{% highlight php %}
+
+<?php
+$I->amAWSAuthenticated();
+?>
+
+{% endhighlight %}
+ * `param array` $additionalAWSConfig
+@throws ModuleException
+
 
 #### amBearerAuthenticated
  
@@ -78,10 +139,31 @@ Adds HTTP authentication via username/password.
  * `[Part]` xml
 
 
+#### amNTLMAuthenticated
+ 
+Adds NTLM authentication via username/password.
+Requires client to be Guzzle >=6.3.0
+Out of scope for functional modules.
+
+Example:
+{% highlight php %}
+
+<?php
+$I->amNTLMAuthenticated('jon_snow', 'targaryen');
+?>
+
+{% endhighlight %}
+
+ * `param` $username
+ * `param` $password
+@throws ModuleException
+ * `[Part]` json
+ * `[Part]` xml
+
+
 #### deleteHeader
  
-Deletes the header with the passed name.  Subsequent requests
-will not have the deleted header in its request.
+Deletes a HTTP header, so that subsequent requests will not send it anymore.
 
 Example:
 {% highlight php %}
@@ -188,9 +270,9 @@ Opposite to seeResponseJsonMatchesXpath
 Opposite to `seeResponseMatchesJsonType`.
 
  * `[Part]` json
-@see seeResponseMatchesJsonType
  * `param` $jsonType jsonType structure
  * `param null` $jsonPath optionally set specific path to structure with JsonPath
+@see seeResponseMatchesJsonType
  * `Available since` 2.1.3
 
 
@@ -217,7 +299,7 @@ Parameter can be passed either as XmlBuilder, DOMDocument, DOMNode, XML string, 
 
 #### dontSeeXmlResponseMatchesXpath
  
-Checks wheather XML response does not match XPath
+Checks whether XML response does not match XPath
 
 {% highlight php %}
 
@@ -238,15 +320,6 @@ Element is matched by either CSS or XPath
  * `param` $attribute
  * `return` string
  * `[Part]` xml
-
-
-#### grabDataFromJsonResponse
- 
-Deprecated since 2.0.9 and removed since 2.1.0
-
- * `param` $path
-@throws ModuleException
-@deprecated
 
 
 #### grabDataFromResponseByJsonPath
@@ -272,9 +345,9 @@ $I->sendPUT('/user', array('id' => $firstUserId[0], 'name' => 'davert'));
 
  * `param string` $jsonPath
  * `return` array Array of matching items
- * `Available since` 2.0.9
 @throws \Exception
  * `[Part]` json
+ * `Available since` 2.0.9
 
 
 #### grabHttpHeader
@@ -304,10 +377,10 @@ $I->sendPUT('/user', array('id' => $user_id, 'name' => 'davert'));
 
 {% endhighlight %}
 
- * `Available since` 1.1
  * `return` string
  * `[Part]` json
  * `[Part]` xml
+ * `Available since` 1.1
 
 
 #### grabTextContentFromXmlElement
@@ -322,7 +395,7 @@ Element is matched by either CSS or XPath
 
 #### haveHttpHeader
  
-Sets HTTP header valid for all next requests. Use `deleteHeader` to unset it
+Sets a HTTP header to be used for all subsequent requests. Use [`deleteHeader`](#deleteHeader) to unset it.
 
 {% highlight php %}
 
@@ -337,6 +410,17 @@ $I->haveHttpHeader('Content-Type', 'application/json');
  * `param` $value
  * `[Part]` json
  * `[Part]` xml
+
+
+#### haveServerParameter
+ 
+Sets SERVER parameter valid for all next requests.
+
+{% highlight php %}
+
+$I->haveServerParameter('name', 'value');
+
+{% endhighlight %}
 
 
 #### seeBinaryResponseEquals
@@ -365,7 +449,7 @@ $I->seeBinaryResponseEquals(md5($fileData));
 ?>
 
 {% endhighlight %}
-Example: Using sha256 hsah
+Example: Using sha256 hash
 
 {% highlight php %}
 
@@ -431,6 +515,38 @@ $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK);
  * `param` $code
 
 
+#### seeResponseCodeIsClientError
+ 
+Checks that the response code is 4xx
+
+ * `[Part]` json
+ * `[Part]` xml
+
+
+#### seeResponseCodeIsRedirection
+ 
+Checks that the response code 3xx
+
+ * `[Part]` json
+ * `[Part]` xml
+
+
+#### seeResponseCodeIsServerError
+ 
+Checks that the response code is 5xx
+
+ * `[Part]` json
+ * `[Part]` xml
+
+
+#### seeResponseCodeIsSuccessful
+ 
+Checks that the response code is 2xx
+
+ * `[Part]` json
+ * `[Part]` xml
+
+
 #### seeResponseContains
  
 Checks whether the last response contains text.
@@ -482,6 +598,49 @@ Checks if response is exactly the same as provided.
 Checks whether last response was valid JSON.
 This is done with json_last_error function.
 
+ * `[Part]` json
+
+
+#### seeResponseIsValidOnJsonSchema
+ 
+Checks whether last response matches the supplied json schema (https://json-schema.org/)
+Supply schema as relative file path in your project directory or an absolute path
+
+@see codecept_absolute_path()
+
+ * `param string` $schemaFilename
+ * `[Part]` json
+
+
+#### seeResponseIsValidOnJsonSchemaString
+ 
+Checks whether last response matches the supplied json schema (https://json-schema.org/)
+Supply schema as json string.
+
+Examples:
+
+{% highlight php %}
+
+<?php
+// response: {"name": "john", "age": 20}
+$I->seeResponseIsValidOnJsonSchemaString('{"type": "object"}');
+
+// response {"name": "john", "age": 20}
+$schema = [
+ "properties" => [
+     "age" => [
+         "type" => "integer",
+         "minimum" => 18
+     ]
+ ]
+];
+$I->seeResponseIsValidOnJsonSchemaString(json_encode($schema));
+
+?>
+
+{% endhighlight %}
+
+ * `param string` $schema
  * `[Part]` json
 
 
@@ -593,9 +752,9 @@ $I->seeResponseJsonMatchesXpath('/store//price');
 
 #### seeResponseMatchesJsonType
  
-Checks that Json matches provided types.
+Checks that JSON matches provided types.
 In case you don't know the actual values of JSON data returned you can match them by type.
-Starts check with a root element. If JSON data is array it will check the first element of an array.
+It starts the check with a root element. If JSON data is an array it will check all elements of it.
 You can specify the path in the json which should be checked with JsonPath
 
 Basic example:
@@ -617,7 +776,7 @@ $I->seeResponseMatchesJsonType(['name' => 'string'], '$.users[0]');
 
 {% endhighlight %}
 
-In this case you can match that record contains fields with data types you expected.
+You can check if the record contains fields with the data types you expect.
 The list of possible data types:
 
 * string
@@ -625,8 +784,9 @@ The list of possible data types:
 * float
 * array (json object is array as well)
 * boolean
+* null
 
-You can also use nested data type structures:
+You can also use nested data type structures, and define multiple types for the same field:
 
 {% highlight php %}
 
@@ -640,7 +800,8 @@ $I->seeResponseMatchesJsonType([
 
 {% endhighlight %}
 
-You can also apply filters to check values. Filter can be applied with `:` char after the type declatation.
+You can also apply filters to check values. Filter can be applied with a `:` char after the type declaration,
+or after another filter if you need more than one.
 
 Here is the list of possible filters:
 
@@ -665,18 +826,19 @@ $I->seeResponseMatchesJsonType([
 // {'user_id': '1'}
 $I->seeResponseMatchesJsonType([
      'user_id' => 'string:>0', // works with strings as well
-}
+]);
 ?>
 
 {% endhighlight %}
 
-You can also add custom filters y accessing `JsonType::addCustomFilter` method.
+You can also add custom filters by using `{@link JsonType::addCustomFilter()}`.
 See [JsonType reference](http://codeception.com/docs/reference/JsonType).
 
  * `[Part]` json
- * `Available since` 2.1.3
  * `param array` $jsonType
  * `param string` $jsonPath
+@see JsonType
+ * `Available since` 2.1.3
 
 
 #### seeXmlResponseEquals
@@ -712,7 +874,7 @@ $I->seeXmlResponseIncludes("<result>1</result>");
 
 #### seeXmlResponseMatchesXpath
  
-Checks wheather XML response matches XPath
+Checks whether XML response matches XPath
 
 {% highlight php %}
 
@@ -792,13 +954,37 @@ Sends PATCH request to given uri.
 
 #### sendPOST
  
-Sends a POST request to given uri.
+Sends a POST request to given uri. Parameters and files can be provided separately.
 
-Parameters and files (as array of filenames) can be provided.
+Example:
+{% highlight php %}
+
+<?php
+//simple POST call
+$I->sendPOST('/message', ['subject' => 'Read this!', 'to' => 'johndoe@example.com']);
+//simple upload method
+$I->sendPOST('/message/24', ['inline' => 0], ['attachmentFile' => codecept_data_dir('sample_file.pdf')]);
+//uploading a file with a custom name and mime-type. This is also useful to simulate upload errors.
+$I->sendPOST('/message/24', ['inline' => 0], [
+    'attachmentFile' => [
+         'name' => 'document.pdf',
+         'type' => 'application/pdf',
+         'error' => UPLOAD_ERR_OK,
+         'size' => filesize(codecept_data_dir('sample_file.pdf')),
+         'tmp_name' => codecept_data_dir('sample_file.pdf')
+    ]
+]);
+
+{% endhighlight %}
 
  * `param` $url
  * `param array|\JsonSerializable` $params
- * `param array` $files
+ * `param array` $files A list of filenames or "mocks" of $_FILES (each entry being an array with the following
+                    keys: name, type, error, size, tmp_name (pointing to the real file path). Each key works
+                    as the "name" attribute of a file input field.
+
+@see http://php.net/manual/en/features.file-upload.post-method.php
+@see codecept_data_dir()
  * `[Part]` json
  * `[Part]` xml
 
@@ -824,6 +1010,18 @@ Sends UNLINK request to given uri.
 @author samva.ua@gmail.com
  * `[Part]` json
  * `[Part]` xml
+
+
+#### setServerParameters
+ 
+Sets SERVER parameters valid for all next requests.
+this will remove old ones.
+
+{% highlight php %}
+
+$I->setServerParameters([]);
+
+{% endhighlight %}
 
 
 #### startFollowingRedirects
@@ -855,4 +1053,4 @@ $I->stopFollowingRedirects();
  * `[Part]` xml
  * `[Part]` json
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.2/src/Codeception/Module/REST.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-rest/tree/master/src/Codeception/Module/REST.php">Help us to improve documentation. Edit module reference</a></div>

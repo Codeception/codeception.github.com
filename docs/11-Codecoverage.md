@@ -10,7 +10,13 @@ Just for this case the [CodeCoverage](http://en.wikipedia.org/wiki/Code_coverage
 you will receive statistics of all classes, methods, and lines triggered by these tests.
 The ratio between all lines in script and all touched lines is a main coverage criterion. In the ideal world you should get 100% code coverage, but in reality 80% is really enough. Because even 100% code coverage rate doesn't save you from fatal errors and crashes.
 
-*To collect coverage information `xdebug` is required**.
+The required information is provided by [SebastianBergmann\CodeCoverage](https://github.com/sebastianbergmann/php-code-coverage), and you can use any of the supported drivers.
+
+| Driver | Description |
+| --- | --- |
+| [Xdebug](https://github.com/xdebug/xdebug) | Great for debugging, but too slow when collecting coverage |
+| [phpdbg](https://www.php.net/manual/en/book.phpdbg.php) | Faster than `Xdebug` but inaccurate |
+| [pcov](https://github.com/krakjoe/pcov) | Fast and accurate, but no debug functionality &mdash; perfect for CI |
 
 ![Code Coverage Example](http://codeception.com/images/coverage.png)
 
@@ -28,7 +34,7 @@ coverage:
 
 {% endhighlight %}
 
-That's ok for now. But what files should be present in final coverage report? 
+That's ok for now. But what files should be present in final coverage report?
 Pass an array of files or directory to include/exclude sections. The path ending with '\*' matches the directory.
 Also you can use '\*' mask in a file name, i.e. `app/models/*Model.php` to match all models.
 
@@ -48,7 +54,7 @@ Include and exclude options can be redefined for each suite in corresponding con
 
 By default, if coverage is reported to be < 35% it is marked as low, and >70% is high coverage.
 You can also define high and low boundaries with `low_limit` and `high_limit` config options:
- 
+
 {% highlight yaml %}
 
 coverage:
@@ -56,8 +62,29 @@ coverage:
     low_limit: 30
     high_limit: 60
 
-{% endhighlight %} 
+{% endhighlight %}
 
+By default, show all whitelisted files in `--coverage-text` output not just the ones with coverage information is set to false, config option:
+
+{% highlight yaml %}
+
+coverage:
+    enabled: true
+    show_uncovered: false
+
+{% endhighlight %}
+
+By default, show only the coverage report summary in `--coverage-text` output is set to false, config option:
+
+{% highlight yaml %}
+
+coverage:
+    enabled: true
+    show_only_summary: false
+
+{% endhighlight %}
+
+For further information please refer to the [PHPUnit configuration docs](https://phpunit.readthedocs.io/en/latest/configuration.html)
 
 ## Local CodeCoverage
 
@@ -96,7 +123,6 @@ Please, follow installation instructions described in a [readme file](https://gi
 To connect to `c3` Codeception uses url config from PhpBrowser or WebDriver module.
 But URL of index with `c3.php` included can be specified explicitly with `c3_url` parameter defined:
 
-
 {% highlight yaml %}
 
 coverage:
@@ -104,12 +130,28 @@ coverage:
     c3_url: 'http://127.0.0.1:8000/index-test.php/'
 
 {% endhighlight %}
-
+> note: we can't have multiple `c3_url` on same host difference only by port. Please, use alias of domain 
+(i.e. `frontend.dev:8000`,`backend.dev:8080`) instead.
 
 After the `c3.php` file is included in application you can start gather coverage.
 In case you execute your application locally there is nothing to be changed in config.
 All codecoverage reports will be collected as usual and merged afterwards.
 Think of it: Codeception runs remote coverage in the same way as local.
+
+#### Custom cookie domain
+
+It's possible to override the cookie domain set by Codeception during code coverage. Typical case for that is when you
+have several subdomains that your acceptance tests are visiting, e.g. `mysite.com` and `admin.mysite.com`. By default,
+Codeception will run code coverage only for the domain set in the url of the  `WebDriver/url` (or `c3_url` if defined),
+thus leaving out other subdomains from code coverage. To avoid that and to include all relevant subdomains in code
+covereage, it's advised to set `.mysite.com` as the cookie domain option:
+
+{% highlight yaml %}
+
+coverage:
+    cookie_domain: ".mysite.com"
+
+{% endhighlight %}
 
 ### Remote Server
 
@@ -127,7 +169,29 @@ In this case remote Code Coverage results won't be merged with local ones, if th
 Merging is possible only in case a remote and local files have the same path.
 But in case of running tests on a remote server we are not sure of it.
 
-CodeCoverage results from remote server will be saved to `tests/_output` directory. Please note that remote codecoverage results won't be displayed in console by the reason mentioned above: local and remote results can't be merged, and console displays results for local codecoverage. 
+CodeCoverage results from remote server will be saved to `tests/_output` directory. Please note that remote codecoverage results won't be displayed in console by the reason mentioned above: local and remote results can't be merged, and console displays results for local codecoverage.
+
+### Working Directory (Docker/Shared Mounts)
+
+If your remote server is accessed through a shared mount, or a mounted folder (IE: Docker Volumes), you can still get merged coverage details.
+Use the `work_dir` option to specify the work directory. When CodeCoverage runs, Codeception will update any path that matches the `work_dir` option to match the local current project directory.
+
+Given a docker command similar to:
+{% highlight bash %}
+
+docker run -v $(pwd):/workdir -w /workdir...
+
+{% endhighlight %}
+
+Use the below configuration to allow coverage mergers.
+{% highlight yaml %}
+
+coverage:
+    remote: false
+    work_dir: /workdir
+
+
+{% endhighlight %}
 
 ### Remote Context Options
 
@@ -156,4 +220,4 @@ It's never been easier to setup local and remote code coverage. Just one config 
 
 
 * **Next Chapter: [ContinuousIntegration >](/docs/12-ContinuousIntegration)**
-* **Previous Chapter: [< WebServices](/docs/10-WebServices)**
+* **Previous Chapter: [< APITesting](/docs/10-APITesting)**
