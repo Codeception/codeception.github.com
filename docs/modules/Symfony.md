@@ -267,6 +267,27 @@ Authenticates user for HTTP_AUTH
  * `param` $password
 
 
+#### amLoggedInAs
+__not documented__
+
+
+#### amOnAction
+ 
+Opens web page by action name
+
+{% highlight php %}
+
+<?php
+$I->amOnAction('PostController::index');
+$I->amOnAction('HomeController');
+$I->amOnAction('ArticleController', ['slug' => 'lorem-ipsum']);
+
+{% endhighlight %}
+
+ * `param string` $action
+ * `param array` $params
+
+
 #### amOnPage
  
 Opens the page for the given relative URI.
@@ -420,6 +441,21 @@ For checking the raw source code, use `seeInSource()`.
 
  * `param string` $text
  * `param array|string` $selector optional
+
+
+#### dontSeeAuthentication
+ 
+Check that user is not authenticated.
+You can specify whether users logged in with the 'remember me' option should be ignored by passing 'false' as a parameter.
+
+{% highlight php %}
+
+<?php
+$I->dontSeeAuthentication();
+
+{% endhighlight %}
+
+ * `param bool` $remembered
 
 
 #### dontSeeCheckboxIsChecked
@@ -773,8 +809,9 @@ Grabs current page source code.
 
 #### grabService
  
-Grabs a service from Symfony DIC container.
-Recommended to use for unit testing.
+Grabs a service from the Symfony dependency injection container (DIC).
+In "test" environment, Symfony uses a special `test.service_container`, see https://symfony.com/doc/current/testing.html#accessing-the-container
+Services that aren't injected somewhere into your app, need to be defined as `public` to be accessible by Codeception.
 
 {% highlight php %}
 
@@ -866,6 +903,17 @@ $I->haveServerParameter('name', 'value');
 Invalidate previously cached routes.
 
 
+#### logout
+ 
+Invalidate the current session.
+{% highlight php %}
+
+<?php
+$I->logout();
+
+{% endhighlight %}
+
+
 #### makeHtmlSnapshot
  
 Saves current page's HTML into a temprary file.
@@ -889,11 +937,6 @@ $I->makeHtmlSnapshot();
 Moves back in history.
 
  * `param int` $numberOfSteps (default value 1)
-
-
-#### onReconfigure
- 
-HOOK to be executed when config changes with `_reconfigure`.
 
 
 #### persistService
@@ -993,6 +1036,22 @@ For checking the raw source code, use `seeInSource()`.
  * `param array|string` $selector optional
 
 
+#### seeAuthentication
+ 
+Checks that a user is authenticated.
+You can check users logged in with the option 'remember me' passing true as parameter.
+
+{% highlight php %}
+
+<?php
+$I->seeAuthentication();
+$I->seeAuthentication(true);
+
+{% endhighlight %}
+
+ * `param bool` $remembered
+
+
 #### seeCheckboxIsChecked
  
 Checks that the specified checkbox is checked.
@@ -1025,6 +1084,21 @@ $I->seeCookie('PHPSESSID');
 
  * `param` $cookie
  * `param array` $params
+
+
+#### seeCurrentActionIs
+ 
+Checks that current page matches action
+
+{% highlight php %}
+
+<?php
+$I->seeCurrentActionIs('PostController::index');
+$I->seeCurrentActionIs('HomeController');
+
+{% endhighlight %}
+
+ * `param string` $action
 
 
 #### seeCurrentRouteIs
@@ -1105,9 +1179,9 @@ $I->seeElement(['css' => 'form input'], ['name' => 'login']);
  
 Checks if the desired number of emails was sent.
 If no argument is provided then at least one email must be sent to satisfy the check.
-The email is checked using Symfony's profiler. If your app performs a redirect after sending the email,
-you need to tell Codeception to not follow this redirect, using REST Module's [stopFollowingRedirects](
-https://codeception.com/docs/modules/REST#stopFollowingRedirects) method.
+The email is checked using Symfony's profiler, which means:
+* If your app performs a redirect after sending the email, you need to suppress this using REST Module's [stopFollowingRedirects](https://codeception.com/docs/modules/REST#stopFollowingRedirects)
+* If the email is sent by a Symfony Console Command, Codeception cannot detect it yet.
 
 {% highlight php %}
 
@@ -1247,6 +1321,23 @@ $I->seeInFormFields('//form[@id=my-form]', $form);
  * `param` $params
 
 
+#### seeInSession
+ 
+Assert that a session attribute exists.
+
+{% highlight php %}
+
+<?php
+$I->seeInSession('attrib');
+$I->seeInSession('attrib', 'value');
+
+{% endhighlight %}
+
+ * `param string` $attrib
+ * `param mixed|null` $value
+ * `return` void
+
+
 #### seeInSource
  
 Checks that the current page contains the given string in its
@@ -1294,6 +1385,24 @@ $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
 
  * `param string` $text
  * `param string` $url optional
+
+
+#### seeNumRecords
+ 
+Checks that number of given records were found in database.
+'id' is the default search parameter.
+
+{% highlight php %}
+
+<?php
+$I->seeNumRecords(1, User::class, ['name' => 'davert']);
+$I->seeNumRecords(80, User::class);
+
+{% endhighlight %}
+
+ * `param int` $expectedNum Expected number of records
+ * `param string` $className A doctrine entity
+ * `param array` $criteria Optional query criteria
 
 
 #### seeNumberOfElements
@@ -1379,6 +1488,20 @@ Checks that the response code is 5xx
 Checks that the response code 2xx
 
 
+#### seeUserHasRole
+ 
+Check that the current user has a role
+
+{% highlight php %}
+
+<?php
+$I->seeUserHasRole('ROLE_ADMIN');
+
+{% endhighlight %}
+
+ * `param string` $role
+
+
 #### selectOption
  
 Selects an option in a select tag or in radio button group.
@@ -1420,10 +1543,8 @@ $I->selectOption('Which OS do you use?', array('value' => 'windows')); // Only s
 
 #### sendAjaxGetRequest
  
-If your page triggers an ajax request, you can perform it manually.
-This action sends a GET ajax request with specified params.
-
-See ->sendAjaxPostRequest for examples.
+Sends an ajax GET request with the passed parameters.
+See `sendAjaxPostRequest()`
 
  * `param` $uri
  * `param` $params
@@ -1431,42 +1552,42 @@ See ->sendAjaxPostRequest for examples.
 
 #### sendAjaxPostRequest
  
-If your page triggers an ajax request, you can perform it manually.
-This action sends a POST ajax request with specified params.
-Additional params can be passed as array.
-
+Sends an ajax POST request with the passed parameters.
+The appropriate HTTP header is added automatically:
+`X-Requested-With: XMLHttpRequest`
 Example:
-
-Imagine that by clicking checkbox you trigger ajax request which updates user settings.
-We emulate that click by running this ajax request manually.
-
 {% highlight php %}
 
 <?php
-$I->sendAjaxPostRequest('/updateSettings', array('notifications' => true)); // POST
-$I->sendAjaxGetRequest('/updateSettings', array('notifications' => true)); // GET
-
+$I->sendAjaxPostRequest('/add-task', ['task' => 'lorem ipsum']);
 
 {% endhighlight %}
+Some frameworks (e.g. Symfony) create field names in the form of an "array":
+`<input type="text" name="form[task]">`
+In this case you need to pass the fields like this:
+{% highlight php %}
 
- * `param` $uri
- * `param` $params
+<?php
+$I->sendAjaxPostRequest('/add-task', ['form' => [
+    'task' => 'lorem ipsum',
+    'category' => 'miscellaneous',
+]]);
+
+{% endhighlight %}    
+
+ * `param string` $uri
+ * `param array` $params
 
 
 #### sendAjaxRequest
  
-If your page triggers an ajax request, you can perform it manually.
-This action sends an ajax request with specified method and params.
-
+Sends an ajax request, using the passed HTTP method.
+See `sendAjaxPostRequest()`
 Example:
-
-You need to perform an ajax request specifying the HTTP method.
-
 {% highlight php %}
 
 <?php
-$I->sendAjaxRequest('PUT', '/posts/7', array('title' => 'new title'));
-
+$I->sendAjaxRequest('PUT', '/posts/7', ['title' => 'new title']);
 
 {% endhighlight %}
 

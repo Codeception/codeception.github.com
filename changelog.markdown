@@ -8,6 +8,12 @@ title: Codeception Changelog
 # Changelog
 
 
+#### 4.1.9
+
+* Support PHP 8 [#5999](https://github.com/Codeception/Codeception/issues/5999)
+* Generate correct default values in Actions files [#5999](https://github.com/Codeception/Codeception/issues/5999)
+* Use sendGet in Api template [#5998](https://github.com/Codeception/Codeception/issues/5998) by **[ThomasLandauer](https://github.com/ThomasLandauer)**
+
 #### 4.1.8
 
 * Support Covertura code coverage format [#5994](https://github.com/Codeception/Codeception/issues/5994) by **[zachkknowbe4](https://github.com/zachkknowbe4)**
