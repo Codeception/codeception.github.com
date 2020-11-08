@@ -17,7 +17,11 @@
 - name: PhpBuiltinServer
   link: http://github.com/tiger-seo/PhpBuiltinServer
   description: Extension for starting and stopping built-in PHP server. Works on Windows, Mac, Linux.
-    
+  
+- name: Phiremock
+  link: https://github.com/mcustiel/phiremock-codeception-extension
+  description: Extension for automatically starting and stopping Phiremock.
+
 - name: Progress Reporter
   link: https://github.com/fr05t1k/codeception-progress-reporter
   description: The reporter with a progress bar

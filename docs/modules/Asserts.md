@@ -1193,7 +1193,7 @@ $I->expectException(new MyException("Don't do bad things"), function() {
 {% endhighlight %}
 
 @deprecated Use expectThrowable() instead
- * `param Exception|string` $exception
+ * `param \Exception|string` $exception
  * `param callable` $callback
 
 
@@ -1225,7 +1225,7 @@ $I->expectThrowable(new MyError("Don't do bad things"), function() {
 
 {% endhighlight %}
 
- * `param Throwable|string` $throwable
+ * `param \Throwable|string` $throwable
  * `param callable` $callback
 
 

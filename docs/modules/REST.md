@@ -163,17 +163,18 @@ $I->amNTLMAuthenticated('jon_snow', 'targaryen');
 
 #### deleteHeader
  
-Deletes a HTTP header, so that subsequent requests will not send it anymore.
+Deletes a HTTP header (that was originally added by [haveHttpHeader()](#haveHttpHeader)),
+so that subsequent requests will not send it anymore.
 
 Example:
 {% highlight php %}
 
 <?php
 $I->haveHttpHeader('X-Requested-With', 'Codeception');
-$I->sendGET('test-headers.php');
+$I->sendGet('test-headers.php');
 // ...
 $I->deleteHeader('X-Requested-With');
-$I->sendPOST('some-other-page.php');
+$I->sendPost('some-other-page.php');
 ?>
 
 {% endhighlight %}
@@ -338,7 +339,7 @@ Example:
 <?php
 // match the first `user.id` in json
 $firstUserId = $I->grabDataFromResponseByJsonPath('$..users[0].id');
-$I->sendPUT('/user', array('id' => $firstUserId[0], 'name' => 'davert'));
+$I->sendPut('/user', array('id' => $firstUserId[0], 'name' => 'davert'));
 ?>
 
 {% endhighlight %}
@@ -372,7 +373,7 @@ Example:
 
 <?php
 $user_id = $I->grabResponse();
-$I->sendPUT('/user', array('id' => $user_id, 'name' => 'davert'));
+$I->sendPut('/user', array('id' => $user_id, 'name' => 'davert'));
 ?>
 
 {% endhighlight %}
@@ -886,7 +887,7 @@ $I->seeXmlResponseMatchesXpath('//root/user[@id=1]');
  * `param` $xpath
 
 
-#### sendDELETE
+#### sendDelete
  
 Sends DELETE request to given uri.
 
@@ -897,7 +898,7 @@ Sends DELETE request to given uri.
  * `[Part]` xml
 
 
-#### sendGET
+#### sendGet
  
 Sends a GET request to given uri.
 
@@ -907,7 +908,7 @@ Sends a GET request to given uri.
  * `[Part]` xml
 
 
-#### sendHEAD
+#### sendHead
  
 Sends a HEAD request to given uri.
 
@@ -917,7 +918,7 @@ Sends a HEAD request to given uri.
  * `[Part]` xml
 
 
-#### sendLINK
+#### sendLink
  
 Sends LINK request to given uri.
 
@@ -931,7 +932,7 @@ Sends LINK request to given uri.
  * `[Part]` xml
 
 
-#### sendOPTIONS
+#### sendOptions
  
 Sends an OPTIONS request to given uri.
 
@@ -941,7 +942,7 @@ Sends an OPTIONS request to given uri.
  * `[Part]` xml
 
 
-#### sendPATCH
+#### sendPatch
  
 Sends PATCH request to given uri.
 
@@ -952,7 +953,7 @@ Sends PATCH request to given uri.
  * `[Part]` xml
 
 
-#### sendPOST
+#### sendPost
  
 Sends a POST request to given uri. Parameters and files can be provided separately.
 
@@ -961,11 +962,11 @@ Example:
 
 <?php
 //simple POST call
-$I->sendPOST('/message', ['subject' => 'Read this!', 'to' => 'johndoe@example.com']);
+$I->sendPost('/message', ['subject' => 'Read this!', 'to' => 'johndoe@example.com']);
 //simple upload method
-$I->sendPOST('/message/24', ['inline' => 0], ['attachmentFile' => codecept_data_dir('sample_file.pdf')]);
+$I->sendPost('/message/24', ['inline' => 0], ['attachmentFile' => codecept_data_dir('sample_file.pdf')]);
 //uploading a file with a custom name and mime-type. This is also useful to simulate upload errors.
-$I->sendPOST('/message/24', ['inline' => 0], [
+$I->sendPost('/message/24', ['inline' => 0], [
     'attachmentFile' => [
          'name' => 'document.pdf',
          'type' => 'application/pdf',
@@ -974,6 +975,12 @@ $I->sendPOST('/message/24', ['inline' => 0], [
          'tmp_name' => codecept_data_dir('sample_file.pdf')
     ]
 ]);
+// If your field names contain square brackets (e.g. `<input type="text" name="form[task]">`),
+// PHP parses them into an array. In this case you need to pass the fields like this:
+$I->sendPost('/add-task', ['form' => [
+    'task' => 'lorem ipsum',
+    'category' => 'miscellaneous',
+]]);
 
 {% endhighlight %}
 
@@ -989,7 +996,7 @@ $I->sendPOST('/message/24', ['inline' => 0], [
  * `[Part]` xml
 
 
-#### sendPUT
+#### sendPut
  
 Sends PUT request to given uri.
 
@@ -1000,7 +1007,7 @@ Sends PUT request to given uri.
  * `[Part]` xml
 
 
-#### sendUNLINK
+#### sendUnlink
  
 Sends UNLINK request to given uri.
 
