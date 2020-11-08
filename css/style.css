@@ -488,6 +488,10 @@ ul.navbar-nav {
   .navbar-nav .open .dropdown-menu .row{
     max-height: 40vh;
   }
+
+  .sponsors-item {
+    display: inline-block;
+  }
 }
 
 .row.home{
