@@ -132,6 +132,10 @@
   link: https://github.com/phmLabs/codeception-module-attachfileremote
   description: This module helps to upload files when using webdriver via remote connection.
 
+- name: Slim
+  description: This module allows you to run functional tests inside Slim 4 Microframework without HTTP calls, so tests will be much faster and debug could be easier.
+  link: https://github.com/DoclerLabs/codeception-slim-module
+  
 - name: Slim 3
   link: https://github.com/herloct/codeception-slim-module
   description: This module allows you to run tests inside Slim 3 Microframework. Based on ZendExpressive Module.
