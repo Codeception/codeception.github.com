@@ -22,6 +22,10 @@
   link: http://github.com/site5/phantoman
   description: Extension for automatically starting and stopping PhantomJS when running tests.
   
+- name: Phiremock
+  link: https://github.com/mcustiel/phiremock-codeception-extension
+  description: Extension for automatically starting and stopping Phiremock.
+
 - name: Progress Reporter
   link: https://github.com/fr05t1k/codeception-progress-reporter
   description: The reporter with a progress bar

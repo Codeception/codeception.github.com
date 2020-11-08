@@ -116,9 +116,9 @@
   description: Percy https://percy.io integration
   color: "#9e66bf"
 
-- name: PhireMock
-  link: https://github.com/mcustiel/phiremock-codeception-extension
-  description: Extension and module to mock http request to external services during acceptance testing with Codeception.
+- name: Phiremock
+  link: https://github.com/mcustiel/phiremock-codeception-module
+  description: Module to mock http request to external services using Phiremock.
 
 - name: Private Sniffer
   link: https://github.com/fkupper/private-sniffer-module/
