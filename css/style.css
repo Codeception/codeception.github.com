@@ -491,6 +491,7 @@ ul.navbar-nav {
 
   .sponsors-item {
     display: inline-block;
+    margin: 5px;
   }
 }
 
