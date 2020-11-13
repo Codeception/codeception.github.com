@@ -642,6 +642,12 @@ body .btn-lg {
   ul {
     padding-left: 20px;
   }
+
+  .about-framework {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
 }
 
 @media screen and (max-width : 767px) {
@@ -1863,3 +1869,9 @@ p code, li code {
   border: none;
 }
 
+.about-framework {
+  font-size: 18px;
+  line-height: 2;
+  width: 90%;
+  margin: auto;
+}
