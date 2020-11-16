@@ -34,10 +34,11 @@ Warning. Using PHAR file and composer in the same project can cause unexpected e
 
 Access the database using [Doctrine2 ORM](http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/).
 
-When used with Zend Framework 2 or Symfony2, Doctrine's Entity Manager is automatically retrieved from Service Locator.
+When used with Symfony or Zend Framework 2, Doctrine's Entity Manager is automatically retrieved from Service Locator.
 Set up your `functional.suite.yml` like this:
 
 {% highlight yaml %}
+
 modules:
     enabled:
         - Symfony # 'ZF2' or 'Symfony'
@@ -50,16 +51,13 @@ modules:
 If you don't use Symfony or Zend Framework, you need to specify a callback function to retrieve the Entity Manager:
 
 {% highlight yaml %}
+
 modules:
     enabled:
         - Doctrine2:
-            connection_callback: ['MyDb', 'createEntityManager']
-            cleanup: true # All doctrine queries will be wrapped in a transaction, which will be rolled back at the end of each test
-
+            connection_callback: ['MyDb', 'createEntityManager'] # Call the static method `MyDb::createEntityManager()` to get the Entity Manager
 
 {% endhighlight %}
-
-This will use static method of `MyDb::createEntityManager()` to establish the Entity Manager.
 
 By default, the module will wrap everything into a transaction for each test and roll it back afterwards
 (this is controlled by the `cleanup` setting).
@@ -75,10 +73,21 @@ modules:
             part: SERVICES
         - Doctrine2:
             depends: Symfony
-``
+
+{% endhighlight %}
 
 You cannot use `cleanup: true` in an acceptance test, since Codeception and your app (i.e. browser) are using two
 different connections to the database, so Codeception can't wrap changes made by the app into a transaction.
+
+Change purge mode doctrine fixtures:
+{% highlight yaml %}
+
+modules:
+    enabled:
+        - Doctrine2:
+            purge_mode: 1 //1 - DELETE, 2 - TRUNCATE, default DELETE
+
+{% endhighlight %}
 
 ### Status
 
@@ -95,31 +104,33 @@ different connections to the database, so Codeception can't wrap changes made by
 ### Note on parameters
 
 Every method that expects some parameters to be checked against values in the database (`see...()`,
-`dontSee...()`, `grab...()`) can accept instance of \Doctrine\Common\Collections\Criteria for more
-flexibility, e.g.:
+`dontSee...()`, `grab...()`) can accept instance of
+[\Doctrine\Common\Collections\Criteria](https://www.doctrine-project.org/api/collections/latest/Doctrine/Common/Collections/Criteria.html)
+for more flexibility, e.g.:
 
+{% highlight php %}
 
-{% endhighlight %} php
-$I->seeInRepository('User', [
+$I->seeInRepository(User::class, [
     'name' => 'John',
     Criteria::create()->where(
         Criteria::expr()->endsWith('email', '@domain.com')
     ),
 ]);
-```
+
+{% endhighlight %}
 
 If criteria is just a `->where(...)` construct, you can pass just expression without criteria wrapper:
 
 {% highlight php %}
 
-$I->seeInRepository('User', [
+$I->seeInRepository(User::class, [
     'name' => 'John',
     Criteria::expr()->endsWith('email', '@domain.com'),
 ]);
 
 {% endhighlight %}
 
-Criteria can be used not only to filter data, but also to change order of results:
+Criteria can be used not only to filter data, but also to change the order of results:
 
 {% highlight php %}
 
@@ -169,14 +180,14 @@ Example:
 {% highlight php %}
 
 <?php
-$users = $I->grabEntitiesFromRepository('AppBundle:User', array('name' => 'davert'));
+$users = $I->grabEntitiesFromRepository(User::class, ['name' => 'davert']);
 ?>
 
 {% endhighlight %}
 
  * `Available since` 1.1
  * `param` $entity
- * `param array` $params. For `IS NULL`, use `array('field'=>null)`
+ * `param array` $params. For `IS NULL`, use `['field' => null]`
  * `return` array
 
 
@@ -191,14 +202,14 @@ Example:
 {% highlight php %}
 
 <?php
-$user = $I->grabEntityFromRepository('User', array('id' => '1234'));
+$user = $I->grabEntityFromRepository(User::class, ['id' => '1234']);
 ?>
 
 {% endhighlight %}
 
  * `Available since` 1.1
  * `param` $entity
- * `param array` $params. For `IS NULL`, use `array('field'=>null)`
+ * `param array` $params. For `IS NULL`, use `['field' => null]`
  * `return` object
 
 
@@ -213,7 +224,7 @@ Example:
 {% highlight php %}
 
 <?php
-$email = $I->grabFromRepository('User', 'email', array('name' => 'davert'));
+$email = $I->grabFromRepository(User::class, 'email', ['name' => 'davert']);
 ?>
 
 {% endhighlight %}
@@ -237,7 +248,7 @@ Example:
 
 <?php
 
-$I->haveFakeRepository('Entity\User', array('findByUsername' => function($username) {  return null; }));
+$I->haveFakeRepository(User::class, ['findByUsername' => function($username) { return null; }]);
 
 
 {% endhighlight %}
@@ -251,26 +262,26 @@ which will always return the NULL value.
 
 #### haveInRepository
  
-Persists record into repository.
+Persists a record into the repository.
 This method creates an entity, and sets its properties directly (via reflection).
-Setters of entity won't be executed, but you can create almost any entity and save it to database.
+Setters of the entity won't be executed, but you can create almost any entity and save it to the database.
 If the entity has a constructor, for optional parameters the default value will be used and for non-optional parameters the given fields (with a matching name) will be passed when calling the constructor before the properties get set directly (via reflection).
 
-Returns primary key of newly created entity. Primary key value is extracted using Reflection API.
-If primary key is composite, array of values is returned.
+Returns the primary key of the newly created entity. The primary key value is extracted using Reflection API.
+If the primary key is composite, an array of values is returned.
 
 {% highlight php %}
 
-$I->haveInRepository('Entity\User', array('name' => 'davert'));
+$I->haveInRepository(User::class, ['name' => 'davert']);
 
 {% endhighlight %}
 
-This method also accepts instances as first argument, which is useful when entity constructor
+This method also accepts instances as first argument, which is useful when the entity constructor
 has some arguments:
 
 {% highlight php %}
 
-$I->haveInRepository(new User($arg), array('name' => 'davert'));
+$I->haveInRepository(new User($arg), ['name' => 'davert']);
 
 {% endhighlight %}
 
@@ -278,45 +289,43 @@ Alternatively, constructor arguments can be passed by name. Given User construct
 
 {% highlight php %}
 
-$I->haveInRepository('Entity\User', array('arg' => $arg, 'name' => 'davert'));
+$I->haveInRepository(User::class, ['arg' => $arg, 'name' => 'davert']);
 
 {% endhighlight %}
 
-If entity has relations, they can be populated too. In case of OneToMany the following format
-ie expected:
+If the entity has relations, they can be populated too. In case of
+[OneToMany](https://www.doctrine-project.org/projects/doctrine-orm/en/latest/reference/association-mapping.html#one-to-many-bidirectional)
+the following format is expected:
 
 {% highlight php %}
 
-$I->haveInRepository('Entity\User', array(
+$I->haveInRepository(User::class, [
     'name' => 'davert',
-    'posts' => array(
-        array(
-            'title' => 'Post 1',
-        ),
-        array(
-            'title' => 'Post 2',
-        ),
-    ),
-));
+    'posts' => [
+        ['title' => 'Post 1'],
+        ['title' => 'Post 2'],
+    ],
+]);
 
 {% endhighlight %}
 
-For ManyToOne format is slightly different:
+For [ManyToOne](https://www.doctrine-project.org/projects/doctrine-orm/en/latest/reference/association-mapping.html#many-to-one-unidirectional)
+the format is slightly different:
 
 {% highlight php %}
 
-$I->haveInRepository('Entity\User', array(
+$I->haveInRepository(User::class, [
     'name' => 'davert',
-    'post' => array(
+    'post' => [
         'title' => 'Post 1',
-    ),
-));
+    ],
+]);
 
 {% endhighlight %}
 
 This works recursively, so you can create deep structures in a single call.
 
-Note that both `$em->persist(...)`, $em->refresh(...), and `$em->flush()` are called every time.
+Note that `$em->persist()`, `$em->refresh()`, and `$em->flush()` are called every time.
 
  * `param string|object` $classNameOrInstance
  * `param array` $data
@@ -346,7 +355,7 @@ $I->loadFixtures(AppFixtures::class, false);
 
 {% endhighlight %}
 
-Note: this method requires `doctrine/data-fixtures` package to be installed.
+This method requires [`doctrine/data-fixtures`](https://github.com/doctrine/data-fixtures) to be installed.
 
  * `param string|string[]|object[]` $fixtures
  * `param bool` $append
@@ -361,7 +370,7 @@ HOOK to be executed when config changes with `_reconfigure`.
 
 #### persistEntity
  
-This method is deprecated in favor of `haveInRepository()`. It's functionality is exactly the same.
+This method is deprecated in favor of `haveInRepository()`. Its functionality is exactly the same.
 
 
 #### refreshEntities
@@ -391,9 +400,9 @@ Example:
 {% highlight php %}
 
 <?php
-$I->seeInRepository('AppBundle:User', array('name' => 'davert'));
-$I->seeInRepository('User', array('name' => 'davert', 'Company' => array('name' => 'Codegyre')));
-$I->seeInRepository('Client', array('User' => array('Company' => array('name' => 'Codegyre')));
+$I->seeInRepository(User::class, ['name' => 'davert']);
+$I->seeInRepository(User::class, ['name' => 'davert', 'Company' => ['name' => 'Codegyre']]);
+$I->seeInRepository(Client::class, ['User' => ['Company' => ['name' => 'Codegyre']]]);
 ?>
 
 {% endhighlight %}

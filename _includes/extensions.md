@@ -188,7 +188,7 @@ On each execution failed tests are logged and saved into `tests/_output/failed` 
 [See Source](https://github.com/Codeception/Codeception/blob/4.1/ext/RunProcess.php)
 
 Extension to start and stop processes per suite.
-Can be used to start/stop selenium server, chromedriver, phantomjs, mailcatcher, etc.
+Can be used to start/stop selenium server, chromedriver, mailcatcher, etc.
 
 Can be configured in suite config:
 

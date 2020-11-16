@@ -8,6 +8,19 @@ title: Codeception Changelog
 # Changelog
 
 
+#### 4.1.12
+
+* Dependency Injection: Fix PHP types being treated as classes [#6031](https://github.com/Codeception/Codeception/issues/6031) by **[cs278](https://github.com/cs278)**
+
+#### 4.1.11
+
+* Another patch for class constant default values [#6027](https://github.com/Codeception/Codeception/issues/6027) by **[mwi-gofore](https://github.com/mwi-gofore)**
+
+#### 4.1.10
+
+* Use fully qualified name for class constant defaults [#6016](https://github.com/Codeception/Codeception/issues/6016) by **[lastzero](https://github.com/lastzero)**
+* add ServerConstAdapter for phpdotenv v5 [#6015](https://github.com/Codeception/Codeception/issues/6015) by #retnek
+
 #### 4.1.9
 
 * Support PHP 8 [#5999](https://github.com/Codeception/Codeception/issues/5999)

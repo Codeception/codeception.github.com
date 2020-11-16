@@ -51,6 +51,11 @@ Checks that output from latest command doesn't contain text
 
 
 
+#### grabShellOutput
+ 
+Returns the output from latest command
+
+
 #### runShellCommand
  
 Executes a shell command.

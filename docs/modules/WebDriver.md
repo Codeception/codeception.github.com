@@ -32,18 +32,24 @@ Warning. Using PHAR file and composer in the same project can cause unexpected e
 
 
 
-New generation Selenium WebDriver module.
+Run tests in real browsers using the W3C [WebDriver protocol](https://www.w3.org/TR/webdriver/).
 
 ### Local Testing
+
+#### Browsers: Chrome and/or Firefox
+
+First, you need to install the browser itself: Chrome and/or Firefox.
+* To run tests in Chrome/Chromium, you need to install [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/getting-started).
+* To use Firefox, install [GeckoDriver](https://github.com/mozilla/geckodriver).
+If you want to use both, consider setting up a dedicated [Codeception environment](https://codeception.com/docs/07-AdvancedUsage#Environments) for each.
 
 #### Selenium
 
 To run Selenium Server you need [Java](https://www.java.com/) as well as Chrome or Firefox browser installed.
 
 1. Download [Selenium Standalone Server](http://docs.seleniumhq.org/download/)
-2. To use Chrome, install [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/getting-started). To use Firefox, install [GeckoDriver](https://github.com/mozilla/geckodriver).
-3. Launch the Selenium Server: `java -jar selenium-server-standalone-3.xx.xxx.jar`. To locate Chromedriver binary use `-Dwebdriver.chrome.driver=./chromedriver` option. For Geckodriver use `-Dwebdriver.gecko.driver=./geckodriver`.
-4. Configure this module (in `acceptance.suite.yml`) by setting `url` and `browser`:
+2. Launch the Selenium Server: `java -jar selenium-server-standalone-3.xx.xxx.jar`. To locate Chromedriver binary use `-Dwebdriver.chrome.driver=./chromedriver` option. For Geckodriver use `-Dwebdriver.gecko.driver=./geckodriver`.
+3. Configure this module (in `acceptance.suite.yml`) by setting `url` and `browser`:
 
 {% highlight yaml %}
 
@@ -64,7 +70,7 @@ java -jar "/path/to/selenium-server-standalone-xxx.jar"
 
 #### ChromeDriver
 
-To run tests in Chrome browser you may connect to ChromeDriver directly, without using Selenium Server.
+To run tests in Chrome/Chromium you may connect to ChromeDriver directly, without using Selenium Server.
 
 1. Install [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/getting-started).
 2. Launch ChromeDriver: `chromedriver --url-base=/wd/hub`
@@ -86,28 +92,26 @@ To run tests in Chrome browser you may connect to ChromeDriver directly, without
 
 Additional [Chrome options](https://sites.google.com/a/chromium.org/chromedriver/capabilities) can be set in `goog:chromeOptions` capabilities. Note that Selenium 3.8 renamed this capability from `chromeOptions` to `goog:chromeOptions`.
 
+#### GeckoDriver
 
-#### PhantomJS
+To run tests in Firefox you may connect to GeckoDriver directly, without using Selenium Server.
 
-PhantomJS is a [headless browser](https://en.wikipedia.org/wiki/Headless_browser) alternative to Selenium Server that implements
-[the WebDriver protocol](https://code.google.com/p/selenium/wiki/JsonWireProtocol).
-It allows you to run Selenium tests on a server without a GUI installed.
-
-1. Download [PhantomJS](http://phantomjs.org/download.html)
-2. Run PhantomJS in WebDriver mode: `phantomjs --webdriver=4444`
-3. Configure this module (in `acceptance.suite.yml`) by setting url and `phantomjs` as browser:
+1. Install [GeckoDriver](https://github.com/mozilla/geckodriver).
+2. Launch GeckoDriver: `geckodriver`
+3. Configure this module:
 
 {% highlight yaml %}
 
-    modules:
-       enabled:
-          - WebDriver:
-             url: 'http://localhost/'
-             browser: phantomjs
+modules:
+   enabled:
+      - WebDriver:
+         url: 'http://localhost/'
+         browser: firefox
+         path: ''
+         capabilities:
+             acceptInsecureCerts: true # allow self-signed certificates
 
 {% endhighlight %}
-
-Since PhantomJS doesn't give you any visual feedback, it's probably a good idea to install [Codeception\Extension\Recorder](http://codeception.com/extensions#CodeceptionExtensionRecorder) which gives you screenshots of how PhantomJS "sees" your pages.
 
 #### Headless Selenium in Docker
 
@@ -226,6 +230,31 @@ Example (`acceptance.suite.yml`)
                  firefox_profile: '~/firefox-profiles/codeception-profile.zip.b64'
 
 {% endhighlight %}
+
+### Loading Parts from other Modules
+
+While all Codeception modules are designed to work stand-alone, it's still possible to load *several* modules at once. To use e.g. the [Asserts module](https://codeception.com/docs/modules/Asserts) in your acceptance tests, just load it like this in your `acceptance.suite.yml`:
+
+{% highlight yaml %}
+
+modules:
+    enabled:
+        - WebDriver
+        - Asserts
+
+{% endhighlight %}
+
+However, when loading a framework module (e.g. [Symfony](https://codeception.com/docs/modules/Symfony)) like this, it would lead to a conflict: When you call `$I->amOnPage()`, Codeception wouldn't know if you want to access the page using WebDriver's `amOnPage()`, or Symfony's `amOnPage()`. That's why possibly conflicting modules are separated into "parts". Here's how to load just the "services" part from e.g. Symfony:
+{% highlight yaml %}
+
+modules:
+    enabled:
+        - WebDriver
+        - Symfony:
+            part: services
+
+{% endhighlight %}
+To find out which parts each module has, look at the "Parts" header on the module's page.
 
 ### Usage
 
@@ -730,8 +759,6 @@ Closes current browser tab and switches to previous active tab.
 $I->closeTab();
 
 {% endhighlight %}
-
-Can't be used with PhantomJS
 
 
 #### debugWebDriverLogs
@@ -1360,7 +1387,6 @@ $I->openNewTab();
 The tab is opened with JavaScript's `window.open()`, which means:
 * Some adblockers might restrict it.
 * The sessionStorage is copied to the new tab (contrary to a tab that was manually opened by the user)
-* It is not possible in PhantomJS.
 
 
 #### performOn
@@ -1417,9 +1443,9 @@ In 3rd argument you can set number a seconds to wait for element to appear
 #### pressKey
  
 Presses the given key on the given element.
-To specify a character and modifier (e.g. ctrl, alt, shift, meta), pass an array for $char with
+To specify a character and modifier (e.g. <kbd>Ctrl</kbd>, Alt, Shift, Meta), pass an array for `$char` with
 the modifier as the first element and the character as the second.
-For special keys use key constants from WebDriverKeys class.
+For special keys, use the constants from [`Facebook\WebDriver\WebDriverKeys`](https://github.com/php-webdriver/php-webdriver/blob/main/lib/WebDriverKeys.php).
 
 {% highlight php %}
 
@@ -2192,9 +2218,6 @@ $I->switchToNextTab();
 $I->switchToNextTab(2);
 
 {% endhighlight %}
-
-Can't be used with PhantomJS
-
  * `param int` $offset 1
 
 
@@ -2212,9 +2235,6 @@ $I->switchToPreviousTab();
 $I->switchToPreviousTab(2);
 
 {% endhighlight %}
-
-Can't be used with PhantomJS
-
  * `param int` $offset 1
 
 
