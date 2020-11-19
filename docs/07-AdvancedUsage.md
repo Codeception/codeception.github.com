@@ -504,7 +504,7 @@ For Cept you should use simple comments:
 
 This way you can easily control which tests will be executed for each environment.
 
-### Current values
+## Get Scenario Metadata
 
 Sometimes you may need to change the test behavior in real time.
 For instance, the behavior of the same test may differ in Firefox and in Chrome.
@@ -550,45 +550,7 @@ public function myTest(\AcceptanceTester $I, \Codeception\Scenario $scenario)
 
 `Codeception\Scenario` is also available in Actor classes and StepObjects. You can access it with `$this->getScenario()`.
 
-### Dependencies
-
-With the `@depends` annotation you can specify a test that should be passed before the current one.
-If that test fails, the current test will be skipped. You should pass the method name of the test you are relying on.
-
-{% highlight php %}
-
-<?php
-class ModeratorCest {
-
-    public function login(AcceptanceTester $I)
-    {
-        // logs moderator in
-    }
-
-    /**
-     * @depends login
-     */
-    public function banUser(AcceptanceTester $I)
-    {
-        // bans user
-    }
-}
-
-{% endhighlight %}
-
-`@depends` applies to the `Cest` and `Codeception\Test\Unit` formats. Dependencies can be set across different classes.
-To specify a dependent test from another file you should provide a *test signature*.
-Normally, the test signature matches the `className:methodName` format.
-But to get the exact test signature just run the test with the `--steps` option to see it:
-
-{% highlight yaml %}
-Signature: ModeratorCest:login`
-
-{% endhighlight %}
-
-Codeception reorders tests so dependent tests will always be executed before the tests that rely on them.
-
-### Shuffle
+## Shuffle
 
 By default Codeception runs tests in alphabetic order. 
 To ensure that tests are not depending on each other (unless explicitly declared via `@depends`) you can enable `shuffle` option.
@@ -626,6 +588,44 @@ Pass the copied seed into `--seed` option:
 codecept run --seed 1872290562
 
 {% endhighlight %}  
+
+### Dependencies
+
+With the `@depends` annotation you can specify a test that should be passed before the current one.
+If that test fails, the current test will be skipped. You should pass the method name of the test you are relying on.
+
+{% highlight php %}
+
+<?php
+class ModeratorCest {
+
+    public function login(AcceptanceTester $I)
+    {
+        // logs moderator in
+    }
+
+    /**
+     * @depends login
+     */
+    public function banUser(AcceptanceTester $I)
+    {
+        // bans user
+    }
+}
+
+{% endhighlight %}
+
+`@depends` applies to the `Cest` and `Codeception\Test\Unit` formats. Dependencies can be set across different classes.
+To specify a dependent test from another file you should provide a *test signature*.
+Normally, the test signature matches the `className:methodName` format.
+But to get the exact test signature just run the test with the `--steps` option to see it:
+
+{% highlight yaml %}
+Signature: ModeratorCest:login`
+
+{% endhighlight %}
+
+Codeception reorders tests so dependent tests will always be executed before the tests that rely on them.
 
 ## Running from different folders
 
