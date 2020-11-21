@@ -1192,6 +1192,10 @@ body .panel-info>.panel-heading a {
   padding: 5px 5px 0 0 !important;
 }
 
+.social-link-first {
+  margin-left: 5px;
+}
+
 .social-link img,
 .social-link svg {
   height: 35px;
