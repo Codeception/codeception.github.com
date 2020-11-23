@@ -101,7 +101,7 @@ modules:
         - \Helper\Acceptance            
 ```
 
-Browser can be specified as `firefox`, `chrome`, `phantomjs`, or others. 
+Browser can be specified as `firefox`, `chrome`, or others. 
 
 Acceptance tests will be executed in development environment using real web server, so settings from `.env.testing` can't be passed to them. 
 
