@@ -1879,3 +1879,41 @@ p code, li code {
   width: 90%;
   margin: auto;
 }
+
+.sponsors-wrapper .sponsors-item .sponsors {
+  height: 80px;
+  border-radius: 20px;
+  opacity: 0.8;
+  transition: opacity .2s ease;
+}
+
+.sponsors-wrapper .sponsors-item .sponsors:hover {
+  opacity: 1;
+}
+
+.sponsors-wrapper .sponsors-item .sponsors.sponsors--themeisle {
+  width: 150px;
+  height: auto;
+}
+
+.sponsors-wrapper .sponsors-item .sponsors.sponsors--somewherewarm {
+  height: 150px;
+  opacity: 0.9;
+  width: auto;
+}
+
+.sponsors-wrapper .sponsors-item .sponsors.sponsors--somewherewarm:hover {
+  opacity: 1;
+}
+
+.sponsors-wrapper .sponsors {
+  zoom: 0.8;
+  filter: grayscale(0.3);
+  opacity: 0.5;
+  transition: opacity .2s ease;
+}
+
+.sponsors-wrapper .sponsors:hover {
+  opacity: 1;
+  text-decoration: none;
+}
