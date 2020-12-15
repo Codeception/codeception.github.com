@@ -432,7 +432,7 @@ body b {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 24px 0;
+  padding: 24px 0 0 0;
 }
 
 
@@ -1916,4 +1916,9 @@ p code, li code {
 .sponsors-wrapper .sponsors:hover {
   opacity: 1;
   text-decoration: none;
+}
+
+.partners-block {
+  font-size: 18px;
+  margin-bottom: 30px;
 }
