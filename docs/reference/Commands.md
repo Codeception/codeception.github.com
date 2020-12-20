@@ -192,20 +192,13 @@ Generates StepObject class. You will be asked for steps you want to implement.
 * `codecept g:stepobject acceptance AdminSteps`
 * `codecept g:stepobject acceptance UserSteps --silent` - skip action questions
 
-
-
-
 ## GenerateSuite
 
 Create new test suite. Requires suite name and actor name
 
-* ``
-* `codecept g:suite api` -> api + ApiTester
-* `codecept g:suite integration Code` -> integration + CodeTester
-* `codecept g:suite frontend Front` -> frontend + FrontTester
-
-
-
+* `vendor/bin/codecept g:suite api` -> api + ApiTester
+* `vendor/bin/codecept g:suite integration Code` -> integration + CodeTester
+* `vendor/bin/codecept g:suite frontend Front` -> frontend + FrontTester
 
 ## GenerateTest
 
