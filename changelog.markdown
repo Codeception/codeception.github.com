@@ -8,6 +8,10 @@ title: Codeception Changelog
 # Changelog
 
 
+#### 4.1.13
+
+* Gherkin: Fixed loading methods from namespaced helper classes [#6057](https://github.com/Codeception/Codeception/issues/6057)
+
 #### 4.1.12
 
 * Dependency Injection: Fix PHP types being treated as classes [#6031](https://github.com/Codeception/Codeception/issues/6031) by **[cs278](https://github.com/cs278)**

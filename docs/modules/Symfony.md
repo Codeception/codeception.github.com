@@ -40,7 +40,7 @@ This module uses Symfony Crawler and HttpKernel to emulate requests and test res
 
 ### Config
 
-#### Symfony 4.x
+#### Symfony 5.x or 4.x
 
 * app_path: 'src' - in Symfony 4 Kernel is located inside `src`
 * environment: 'local' - environment used for load kernel
@@ -82,27 +82,6 @@ This module uses Symfony Crawler and HttpKernel to emulate requests and test res
               environment: 'local_test'
 
 
-#### Symfony 2.x
-
-* app_path: 'app' - specify custom path to your app dir, where bootstrap cache and kernel interface is located.
-* environment: 'local' - environment used for load kernel
-* kernel_class: 'AppKernel' - kernel class name
-* debug: true - turn on/off debug mode
-* em_service: 'doctrine.orm.entity_manager' - use the stated EntityManager to pair with Doctrine Module.
-* cache_router: 'false' - enable router caching between tests in order to [increase performance](http://lakion.com/blog/how-did-we-speed-up-sylius-behat-suite-with-blackfire)
-* rebootable_client: 'true' - reboot client's kernel before each request
-* mailer: 'swiftmailer' - choose the mailer used by your application
-
-#### Example (`functional.suite.yml`) - Symfony 2.x Directory Structure
-
-{% highlight yaml %}
-   modules:
-       - Symfony:
-           app_path: 'app/front'
-           environment: 'local_test'
-
-{% endhighlight %}
-
 ### Public Properties
 
 * kernel - HttpKernel instance
@@ -110,7 +89,10 @@ This module uses Symfony Crawler and HttpKernel to emulate requests and test res
 
 ### Parts
 
-* services - allows to use Symfony DIC only with WebDriver or PhpBrowser modules.
+* `services`: Symfony dependency injection container (DIC)
+
+See [WebDriver module](https://codeception.com/docs/modules/WebDriver#Loading-Parts-from-other-Modules)
+for general information on how to load parts of a framework module.
 
 Usage example:
 
@@ -120,14 +102,17 @@ actor: AcceptanceTester
 modules:
     enabled:
         - Symfony:
-            part: SERVICES
+            part: services
         - Doctrine2:
             depends: Symfony
         - WebDriver:
             url: http://your-url.com
-            browser: phantomjs
+            browser: firefox
 
 {% endhighlight %}
+
+If you're using Symfony with Eloquent ORM (instead of Doctrine), you can load the [`ORM` part of Laravel module](https://codeception.com/docs/modules/Laravel5#Parts)
+in addition to Symfony module.
 
 
 ### Actions
@@ -268,7 +253,24 @@ Authenticates user for HTTP_AUTH
 
 
 #### amLoggedInAs
-__not documented__
+ 
+Login with the given user object.
+The `$user` object must have a persistent identifier.
+If you have more than one firewall or firewall context, you can specify the desired one as a parameter.
+
+{% highlight php %}
+
+<?php
+$user = $I->grabEntityFromRepository(User::class, [
+    'email' => 'john_doe@gmail.com'
+]);
+$I->amLoggedInAs($user);
+
+{% endhighlight %}
+
+ * `param UserInterface` $user
+ * `param string` $firewallName
+ * `param null` $firewallContext
 
 
 #### amOnAction
@@ -314,11 +316,10 @@ Opens web page using route name and parameters.
 <?php
 $I->amOnRoute('posts.create');
 $I->amOnRoute('posts.show', array('id' => 34));
-?>
 
 {% endhighlight %}
 
- * `param` $routeName
+ * `param string` $routeName
  * `param array` $params
 
 
@@ -446,7 +447,6 @@ For checking the raw source code, use `seeInSource()`.
 #### dontSeeAuthentication
  
 Check that user is not authenticated.
-You can specify whether users logged in with the 'remember me' option should be ignored by passing 'false' as a parameter.
 
 {% highlight php %}
 
@@ -454,8 +454,6 @@ You can specify whether users logged in with the 'remember me' option should be 
 $I->dontSeeAuthentication();
 
 {% endhighlight %}
-
- * `param bool` $remembered
 
 
 #### dontSeeCheckboxIsChecked
@@ -544,6 +542,18 @@ Checks that no email was sent. This is an alias for seeEmailIsSent(0).
  * `[Part]` email
 
 
+#### dontSeeFormErrors
+ 
+Verifies that there are no errors bound to the submitted form.
+
+{% highlight php %}
+
+<?php
+$I->dontSeeFormErrors();
+
+{% endhighlight %}
+
+
 #### dontSeeInCurrentUrl
  
 Checks that the current URI doesn't contain the given string.
@@ -630,6 +640,22 @@ $I->dontSeeInFormFields('#form-id', [
  * `param` $params
 
 
+#### dontSeeInSession
+ 
+Assert that a session attribute does not exist, or is not equal to the passed value.
+
+{% highlight php %}
+
+<?php
+$I->dontSeeInSession('attribute');
+$I->dontSeeInSession('attribute', 'value');
+
+{% endhighlight %}
+
+ * `param string` $attribute
+ * `param mixed|null` $value
+
+
 #### dontSeeInSource
  
 Checks that the current page contains the given string in its
@@ -686,6 +712,18 @@ $I->dontSeeOptionIsSelected('#form input[name=payment]', 'Visa');
  * `param` $selector
  * `param` $optionText
 
+
+
+#### dontSeeRememberedAuthentication
+ 
+Check that user is not authenticated with the 'remember me' option.
+
+{% highlight php %}
+
+<?php
+$I->dontSeeRememberedAuthentication();
+
+{% endhighlight %}
 
 
 #### dontSeeResponseCodeIs
@@ -798,6 +836,23 @@ $aLinks = $I->grabMultiple('a', 'href');
  * `return` string[]
 
 
+#### grabNumRecords
+ 
+Retrieves number of records from database
+'id' is the default search parameter.
+
+{% highlight php %}
+
+<?php
+$I->grabNumRecords('User::class', ['name' => 'davert']);
+
+{% endhighlight %}
+
+ * `param string` $entityClass  The entity class
+ * `param array` $criteria      Optional query criteria
+ * `return` int
+
+
 #### grabPageSource
  
 Grabs current page source code.
@@ -805,6 +860,40 @@ Grabs current page source code.
 @throws ModuleException if no page was opened.
 
  * `return` string Current page source code.
+
+
+#### grabParameter
+ 
+Grabs a Symfony parameter
+
+{% highlight php %}
+
+<?php
+$I->grabParameter('app.business_name');
+
+{% endhighlight %}
+
+ * `param string` $name
+ * `return` mixed|null
+
+
+#### grabRepository
+ 
+Grab a Doctrine entity repository.
+Works with objects, entities, repositories, and repository interfaces.
+
+{% highlight php %}
+
+<?php
+$I->grabRepository($user);
+$I->grabRepository(User::class);
+$I->grabRepository(UserRepository::class);
+$I->grabRepository(UserRepositoryInterface::class);
+
+{% endhighlight %}
+
+ * `param object|string` $mixed
+ * `return` \Doctrine\ORM\EntityRepository|null
 
 
 #### grabService
@@ -817,11 +906,10 @@ Services that aren't injected somewhere into your app, need to be defined as `pu
 
 <?php
 $em = $I->grabService('doctrine');
-?>
 
 {% endhighlight %}
 
- * `param` $service
+ * `param string` $service
  * `[Part]` services
 
 
@@ -939,13 +1027,19 @@ Moves back in history.
  * `param int` $numberOfSteps (default value 1)
 
 
+#### persistPermanentService
+ 
+Get service $serviceName and add it to the lists of persistent services,
+making that service persistent between tests.
+
+ * `param string` $serviceName
+
+
 #### persistService
  
 Get service $serviceName and add it to the lists of persistent services.
-If $isPermanent then service becomes persistent between tests
 
- * `param string`  $serviceName
- * `param boolean` $isPermanent
+ * `param string` $serviceName
 
 
 #### rebootClientKernel
@@ -956,15 +1050,13 @@ Can be used to manually reboot kernel when 'rebootable_client' => false
 {% highlight php %}
 
 <?php
-...
-perform some requests
-...
-$I->rebootClientKernel();
-...
-perform other requests
-...
 
-?>
+// Perform some requests
+
+$I->rebootClientKernel();
+
+// Perform other requests
+
 
 {% endhighlight %}
 
@@ -989,7 +1081,6 @@ Recommended to use for integration or functional testing.
 
 <?php
 $result = $I->runSymfonyConsoleCommand('hello:world', ['arg' => 'argValue', 'opt1' => 'optValue'], ['input']);
-?>
 
 {% endhighlight %}
 
@@ -1039,17 +1130,13 @@ For checking the raw source code, use `seeInSource()`.
 #### seeAuthentication
  
 Checks that a user is authenticated.
-You can check users logged in with the option 'remember me' passing true as parameter.
 
 {% highlight php %}
 
 <?php
 $I->seeAuthentication();
-$I->seeAuthentication(true);
 
 {% endhighlight %}
-
- * `param bool` $remembered
 
 
 #### seeCheckboxIsChecked
@@ -1110,11 +1197,10 @@ Checks that current url matches route.
 <?php
 $I->seeCurrentRouteIs('posts.index');
 $I->seeCurrentRouteIs('posts.show', array('id' => 8));
-?>
 
 {% endhighlight %}
 
- * `param` $routeName
+ * `param string` $routeName
  * `param array` $params
 
 
@@ -1187,11 +1273,53 @@ The email is checked using Symfony's profiler, which means:
 
 <?php
 $I->seeEmailIsSent(2);
-?>
 
 {% endhighlight %}
 
- * `param null|int` $expectedCount
+ * `param int|null` $expectedCount
+
+
+#### seeEventTriggered
+ 
+Make sure events fired during the test.
+
+{% highlight php %}
+
+<?php
+$I->seeEventTriggered('App\MyEvent');
+$I->seeEventTriggered(new App\Events\MyEvent());
+$I->seeEventTriggered(['App\MyEvent', 'App\MyOtherEvent']);
+
+{% endhighlight %}
+ * `param string|object|string[]` $expected
+
+
+#### seeFormErrorMessage
+ 
+Verifies that a form field has an error.
+You can specify the expected error message as second parameter.
+
+{% highlight php %}
+
+<?php
+$I->seeFormErrorMessage('username');
+$I->seeFormErrorMessage('username', 'Username is empty');
+
+{% endhighlight %}
+ * `param string` $field
+ * `param string|null` $message
+
+
+#### seeFormHasErrors
+ 
+Verifies that there are one or more errors bound to the submitted form.
+
+{% highlight php %}
+
+<?php
+$I->seeFormHasErrors();
+
+{% endhighlight %}
 
 
 #### seeInCurrentRoute
@@ -1202,12 +1330,11 @@ Unlike seeCurrentRouteIs, this can matches without exact route parameters
 {% highlight php %}
 
 <?php
-$I->seeCurrentRouteMatches('my_blog_pages');
-?>
+$I->seeInCurrentRoute('my_blog_pages');
 
 {% endhighlight %}
 
- * `param` $routeName
+ * `param string` $routeName
 
 
 #### seeInCurrentUrl
@@ -1335,7 +1462,6 @@ $I->seeInSession('attrib', 'value');
 
  * `param string` $attrib
  * `param mixed|null` $value
- * `return` void
 
 
 #### seeInSource
@@ -1438,9 +1564,50 @@ $I->seeOptionIsSelected('#form input[name=payment]', 'Visa');
 
 
 
+#### seePageIsAvailable
+ 
+Goes to a page and check that it can be accessed.
+
+{% highlight php %}
+
+<?php
+$I->seePageIsAvailable('/dashboard');
+
+{% endhighlight %}
+
+ * `param string` $url
+
+
 #### seePageNotFound
  
 Asserts that current page has 404 response status code.
+
+
+#### seePageRedirectsTo
+ 
+Goes to a page and check that it redirects to another.
+
+{% highlight php %}
+
+<?php
+$I->seePageRedirectsTo('/admin', '/login');
+
+{% endhighlight %}
+
+ * `param string` $page
+ * `param string` $redirectsTo
+
+
+#### seeRememberedAuthentication
+ 
+Checks that a user is authenticated with the 'remember me' option.
+
+{% highlight php %}
+
+<?php
+$I->seeRememberedAuthentication();
+
+{% endhighlight %}
 
 
 #### seeResponseCodeIs
@@ -1488,6 +1655,21 @@ Checks that the response code is 5xx
 Checks that the response code 2xx
 
 
+#### seeSessionHasValues
+ 
+Assert that the session has a given list of values.
+
+{% highlight php %}
+
+<?php
+$I->seeSessionHasValues(['key1', 'key2']);
+$I->seeSessionHasValues(['key1' => 'value1', 'key2' => 'value2']);
+
+{% endhighlight %}
+
+ * `param`  array $bindings
+
+
 #### seeUserHasRole
  
 Check that the current user has a role
@@ -1500,6 +1682,24 @@ $I->seeUserHasRole('ROLE_ADMIN');
 {% endhighlight %}
 
  * `param string` $role
+
+
+#### seeUserPasswordDoesNotNeedRehash
+ 
+Checks that the user's password would not benefit from rehashing.
+If the user is not provided it is taken from the current session.
+
+You might use this function after performing tasks like registering a user or submitting a password update form.
+
+{% highlight php %}
+
+<?php
+$I->seeUserPasswordDoesNotNeedRehash();
+$I->seeUserPasswordDoesNotNeedRehash($user);
+
+{% endhighlight %}
+
+ * `param UserInterface|null` $user
 
 
 #### selectOption
@@ -1815,6 +2015,27 @@ $I->submitForm('#my-form', [
  * `param` $selector
  * `param` $params
  * `param` $button
+
+
+#### submitSymfonyForm
+ 
+Submit a form specifying the form name only once.
+
+Use this function instead of $I->submitForm() to avoid repeating the form name in the field selectors.
+If you customized the names of the field selectors use $I->submitForm() for full control.
+
+{% highlight php %}
+
+<?php
+$I->submitSymfonyForm('login_form', [
+    '[email]'    => 'john_doe@gmail.com',
+    '[password]' => 'secretForest'
+]);
+
+{% endhighlight %}
+
+ * `param string` $name
+ * `param string[]` $fields
 
 
 #### switchToIframe

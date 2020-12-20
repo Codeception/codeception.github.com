@@ -258,6 +258,22 @@ Will generate:
 SELECT COUNT(*) FROM `users` WHERE `name` = 'Davert' AND `email` LIKE 'davert%'
 
 {% endhighlight %}
+Null comparisons are also available, as shown here:
+
+{% highlight php %}
+
+<?php
+$I->seeInDatabase('users', ['name' => null, 'email !=' => null]);
+
+
+{% endhighlight %}
+Will generate:
+
+{% highlight sql %}
+
+SELECT COUNT(*) FROM `users` WHERE `name` IS NULL AND `email` IS NOT NULL
+
+{% endhighlight %}
 ### Public Properties
 * dbh - contains the PDO connection
 * driver - contains the Connection Driver
