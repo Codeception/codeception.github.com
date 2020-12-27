@@ -31,15 +31,15 @@ $I->see('Welcome, Davert!');
 
 {% endhighlight %}
 
-**This scenario can be performed either by PhpBrowser or by a "real" browser through Selenium WebDriver**.
+**This scenario can be performed either by PhpBrowser or by a "real" browser through WebDriver**.
 
 | | PhpBrowser | WebDriver |
 | --- | --- | --- |
 | Browser Engine | Guzzle + Symfony BrowserKit | Chrome or Firefox |
 | JavaScript | No | Yes |
 | `see`/`seeElement` checks if… | …text is present in the HTML source | …text is actually visible to the user |
-| Read HTTP response headers | Yes | No |
-| System requirements | PHP with [cURL extension](http://php.net/manual/book.curl.php) | Selenium Standalone Server, Chrome or Firefox |
+| Access to HTTP response headers and status codes | Yes | No |
+| System requirements | PHP with [ext-curl](http://php.net/manual/book.curl.php) | Chrome or Firefox; optionally with Selenium Standalone Server |
 | Speed | Fast | Slow |
 
 We will start writing our first acceptance tests with PhpBrowser.
