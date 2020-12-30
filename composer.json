@@ -15,6 +15,7 @@
     "codeception/module-doctrine2": "*",
     "codeception/module-filesystem": "*",
     "codeception/module-ftp": "*",
+    "codeception/module-laminas": "*",
     "codeception/module-laravel": "*",
     "codeception/module-lumen": "*",
     "codeception/module-memcache": "*",
@@ -31,11 +32,10 @@
     "codeception/module-symfony": "*",
     "codeception/module-webdriver": "*",
     "codeception/module-yii2": "*",
-    "codeception/module-zf2": "*",
     "codeception/util-robohelpers": "dev-master"
   },
   "require-dev": {
     "symfony/event-dispatcher": "4.4.*",
-    "consolidation/robo": "^2.0"
+    "consolidation/robo": "^3.0.0-alpha3"
   }
 }
