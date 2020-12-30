@@ -22,10 +22,10 @@ sidebar: |
 
 ## Install
 
-Install Codeception via Composer:
+Install Codeception and required modules via Composer:
 
 ```bash
-composer require codeception/codeception --dev
+composer require codeception/codeception codeception/module-symfony codeception/module-doctrine2 codeception/module-asserts codeception/module-rest codeception/module-webdriver --dev
 ```
 
 ## Setup
@@ -125,7 +125,7 @@ API Tests are done at functional testing level but instead of testing HTML respo
 vendor/bin/codecept g:suite api
 ```
 
-You will need to enable `REST`, `Symfony` and `Doctrine` module in `tests/api.suite.yml`:
+You will need to enable `REST`, `Symfony` and `Doctrine2` module in `tests/api.suite.yml`:
 
 ```yaml
 class_name: ApiTester
