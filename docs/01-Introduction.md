@@ -134,4 +134,4 @@ Just by looking at the test body, you can clearly understand what is being teste
 
 * **Next Chapter: [GettingStarted >](/docs/02-GettingStarted)**
 
-[Edit this page on GitHub](https://github.com/Codeception/codeception.github.com/edit/master/docs/01-Introduction.md)
+<div class="alert alert-warning">[Edit this page on GitHub](https://github.com/Codeception/codeception.github.com/edit/master/docs/01-Introduction.md)</div>
