@@ -36,7 +36,7 @@ This module uses Symfony Crawler and HttpKernel to emulate requests and test res
 
 ### Demo Project
 
-<https://github.com/Codeception/symfony-demo>
+<https://github.com/Codeception/symfony-module-tests>
 
 ### Config
 
@@ -540,6 +540,21 @@ $I->dontSeeElement('input', ['value' => '123456']);
 Checks that no email was sent. This is an alias for seeEmailIsSent(0).
 
  * `[Part]` email
+
+
+#### dontSeeEventTriggered
+ 
+Make sure events did not fire during the test.
+
+{% highlight php %}
+
+<?php
+$I->dontSeeEventTriggered('App\MyEvent');
+$I->dontSeeEventTriggered(new App\Events\MyEvent());
+$I->dontSeeEventTriggered(['App\MyEvent', 'App\MyOtherEvent']);
+
+{% endhighlight %}
+ * `param string|object|string[]` $expected
 
 
 #### dontSeeFormErrors
@@ -1310,6 +1325,57 @@ $I->seeFormErrorMessage('username', 'Username is empty');
  * `param string|null` $message
 
 
+#### seeFormErrorMessages
+ 
+Verifies that multiple fields on a form have errors.
+
+If you only specify the name of the fields, this method will
+verify that the field contains at least one error of any type:
+
+{% highlight php %}
+
+<?php
+$I->seeFormErrorMessages(['telephone', 'address']);
+
+{% endhighlight %}
+
+If you want to specify the error messages, you can do so
+by sending an associative array instead, with the key being
+the name of the field and the error message the value.
+
+This method will validate that the expected error message
+is contained in the actual error message, that is,
+you can specify either the entire error message or just a part of it:
+
+{% highlight php %}
+
+<?php
+$I->seeFormErrorMessages([
+    'address'   => 'The address is too long'
+    'telephone' => 'too short', // the full error message is 'The telephone is too short'
+]);
+
+{% endhighlight %}
+
+If you don't want to specify the error message for some fields,
+you can pass `null` as value instead of the message string,
+or you can directly omit the value of that field. If that is the case,
+it will be validated that that field has at least one error of any type:
+
+{% highlight php %}
+
+<?php
+$I->seeFormErrorMessages([
+    'telephone' => 'too short',
+    'address'   => null,
+    'postal code',
+]);
+
+{% endhighlight %}
+
+ * `param string[]` $expectedErrors
+
+
 #### seeFormHasErrors
  
 Verifies that there are one or more errors bound to the submitted form.
@@ -1455,12 +1521,12 @@ Assert that a session attribute exists.
 {% highlight php %}
 
 <?php
-$I->seeInSession('attrib');
-$I->seeInSession('attrib', 'value');
+$I->seeInSession('attribute');
+$I->seeInSession('attribute', 'value');
 
 {% endhighlight %}
 
- * `param string` $attrib
+ * `param string` $attribute
  * `param mixed|null` $value
 
 
@@ -1682,6 +1748,20 @@ $I->seeUserHasRole('ROLE_ADMIN');
 {% endhighlight %}
 
  * `param string` $role
+
+
+#### seeUserHasRoles
+ 
+Verifies that the current user has multiple roles
+
+{% highlight php %}
+
+<?php
+$I->seeUserHasRoles(['ROLE_USER', 'ROLE_ADMIN']);
+
+{% endhighlight %}
+
+ * `param string[]` $roles
 
 
 #### seeUserPasswordDoesNotNeedRehash

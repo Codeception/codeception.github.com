@@ -8,6 +8,10 @@ title: Codeception Changelog
 # Changelog
 
 
+#### 4.1.14
+
+* Improved compatibility logic for Symfony EventDispatcher
+
 #### 4.1.13
 
 * Gherkin: Fixed loading methods from namespaced helper classes [#6057](https://github.com/Codeception/Codeception/issues/6057)
