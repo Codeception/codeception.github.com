@@ -15,7 +15,7 @@
     "codeception/module-doctrine2": "*",
     "codeception/module-filesystem": "*",
     "codeception/module-ftp": "*",
-    "codeception/module-laravel5": "*",
+    "codeception/module-laravel": "*",
     "codeception/module-lumen": "*",
     "codeception/module-memcache": "*",
     "codeception/module-mezzio": "*",
