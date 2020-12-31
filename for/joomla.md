@@ -27,7 +27,7 @@ Create a Joomla website in your local web server.
 Go to the folder where your website is located and run:
 
 ```bash
-composer require codeception/codeception --dev
+composer require codeception/codeception codeception/module-phpbrowser codeception/module-asserts --dev
 ```
 
 Then run:
