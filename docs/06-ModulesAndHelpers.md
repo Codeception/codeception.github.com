@@ -590,3 +590,7 @@ Helpers also can be used to extend the functionality of the original modules.
 
 * **Next Chapter: [ReusingTestCode >](/docs/06-ReusingTestCode)**
 * **Previous Chapter: [< UnitTests](/docs/05-UnitTests)**
+
+
+<p>&nbsp;</p>
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/06-ModulesAndHelpers.md"><strong>Edit</strong> this page on GitHub</a></div>
