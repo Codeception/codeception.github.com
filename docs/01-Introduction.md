@@ -6,7 +6,7 @@ title: 01-Introduction - Codeception - Documentation
 # Introduction
 
 The idea behind testing is not new. You can't sleep well if you are not confident
-that your last commit didn't take down the whole application.
+that your latest commit didn't take down the entire application.
 Having your application covered with tests gives you more trust in the stability of your application. That's all.
 
 In most cases tests don't guarantee that the application works 100% as it is supposed to.
@@ -23,7 +23,7 @@ Out of the box you have tools for writing unit, functional, and acceptance tests
 
 | | Unit Tests | Functional Tests | Acceptance Tests
 | --- | --- | --- | --- |
-| Scope of the test | Single PHP class | PHP Framework (Routing, Controllers, etc.) | Page in browser (Chrome, Firefox, or PhpBrowser) |
+| Scope of the test | Single PHP class | PHP Framework (Routing, Controllers, etc.) | Page in browser (Chrome, Firefox, or [PhpBrowser](https://codeception.com/docs/03-AcceptanceTests#PhpBrowser)) |
 | Testing computer needs access to project's PHP files | Yes | Yes | No |
 | Webserver required | No | No | Yes |
 | JavaScript  | No | No | Yes |
