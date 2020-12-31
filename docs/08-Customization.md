@@ -498,3 +498,6 @@ If you see you have a problem that can be solved using these extensions, then gi
 
 * **Next Chapter: [Data >](/docs/09-Data)**
 * **Previous Chapter: [< BDD](/docs/07-BDD)**
+
+<p>&nbsp;</p>
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/08-Customization.md"><strong>Edit</strong> this page on GitHub</a></div>
