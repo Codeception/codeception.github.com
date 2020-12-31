@@ -149,6 +149,7 @@ class RoboFile extends \Robo\Tasks
         //Page of old module displays content of new module
         $this->taskFilesystemStack()->symlink('Mezzio.md', 'docs/modules/ZendExpressive.md')->run();
         $this->taskFilesystemStack()->symlink('Laravel.md', 'docs/modules/Laravel5.md')->run();
+        $this->taskFilesystemStack()->symlink('Laminas.md', 'docs/modules/ZF2.md')->run();
     }
 
     private function postProcessModuleDocFile($documentationFile, $name, $source)
