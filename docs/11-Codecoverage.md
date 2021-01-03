@@ -216,8 +216,9 @@ Context stream options are [well documented at php.net](http://php.net/manual/en
 It's never been easier to setup local and remote code coverage. Just one config and one additional file to include!
 **With Codeception you can easily generate CodeCoverage reports for your Selenium tests** (or other acceptance or api tests). Mixing reports for `acceptance`, `functional`, and `unit` suites provides you with the most complete information on which parts of your applications are tested and which are not.
 
-
-
-
 * **Next Chapter: [ContinuousIntegration >](/docs/12-ContinuousIntegration)**
 * **Previous Chapter: [< APITesting](/docs/10-APITesting)**
+
+
+<p>&nbsp;</p>
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/11-Codecoverage.md"><strong>Edit</strong> this page on GitHub</a></div>

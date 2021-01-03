@@ -836,3 +836,7 @@ and write them faster using the interactive console. Codeception tests can be ea
 
 * **Next Chapter: [BDD >](/docs/07-BDD)**
 * **Previous Chapter: [< ReusingTestCode](/docs/06-ReusingTestCode)**
+
+
+<p>&nbsp;</p>
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/07-AdvancedUsage.md"><strong>Edit</strong> this page on GitHub</a></div>
