@@ -900,5 +900,4 @@ If you need to access the database, you can use the [Db Module](http://codecepti
 * **Next Chapter: [FunctionalTests >](/docs/04-FunctionalTests)**
 * **Previous Chapter: [< GettingStarted](/docs/02-GettingStarted)**
 
-<p>&nbsp;</p>
 <div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/03-AcceptanceTests.md"><strong>Edit</strong> this page on GitHub</a></div>

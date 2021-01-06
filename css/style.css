@@ -1922,3 +1922,7 @@ p code, li code {
   font-size: 18px;
   margin-bottom: 30px;
 }
+
+.page .alert-warning {
+  margin-top: 50px;
+}

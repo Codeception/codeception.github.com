@@ -423,5 +423,4 @@ to operate with database through a data abstraction layer, and use the DataFacto
 * **Next Chapter: [APITesting >](/docs/10-APITesting)**
 * **Previous Chapter: [< Customization](/docs/08-Customization)**
 
-<p>&nbsp;</p>
 <div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/09-Data.md"><strong>Edit</strong> this page on GitHub</a></div>

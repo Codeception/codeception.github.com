@@ -220,5 +220,4 @@ It's never been easier to setup local and remote code coverage. Just one config 
 * **Previous Chapter: [< APITesting](/docs/10-APITesting)**
 
 
-<p>&nbsp;</p>
 <div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/11-Codecoverage.md"><strong>Edit</strong> this page on GitHub</a></div>

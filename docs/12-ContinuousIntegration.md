@@ -210,5 +210,4 @@ It is highly recommended to use Continuous Integration system in development. Co
 * **Next Chapter: [ParallelExecution >](/docs/12-ParallelExecution)**
 * **Previous Chapter: [< Codecoverage](/docs/11-Codecoverage)**
 
-<p>&nbsp;</p>
 <div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/12-ContinuousIntegration.md"><strong>Edit</strong> this page on GitHub</a></div>

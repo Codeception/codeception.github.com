@@ -389,5 +389,4 @@ Codeception has two modules that will help you to test various web services. The
 * **Next Chapter: [Codecoverage >](/docs/11-Codecoverage)**
 * **Previous Chapter: [< Data](/docs/09-Data)**
 
-<p>&nbsp;</p>
 <div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/10-APITesting.md"><strong>Edit</strong> this page on GitHub</a></div>

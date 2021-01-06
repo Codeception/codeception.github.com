@@ -282,5 +282,4 @@ If you are using a framework other than the ones listed here, create a module fo
 * **Next Chapter: [UnitTests >](/docs/05-UnitTests)**
 * **Previous Chapter: [< AcceptanceTests](/docs/03-AcceptanceTests)**
 
-<p>&nbsp;</p>
 <div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/04-FunctionalTests.md"><strong>Edit</strong> this page on GitHub</a></div>
