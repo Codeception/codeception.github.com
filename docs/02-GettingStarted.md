@@ -445,5 +445,4 @@ After you have reviewed the basic concepts and configurations, you can start wri
 * **Next Chapter: [AcceptanceTests >](/docs/03-AcceptanceTests)**
 * **Previous Chapter: [< Introduction](/docs/01-Introduction)**
 
-<p>&nbsp;</p>
 <div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/02-GettingStarted.md"><strong>Edit</strong> this page on GitHub</a></div>
