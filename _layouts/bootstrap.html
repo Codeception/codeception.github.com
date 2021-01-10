@@ -195,7 +195,9 @@
         {{ content }}
     </div>
 
-{% include sponsors.html %}
+    {% if page.hero %}
+      {% include sponsors.html %}
+    {% endif %}
 
 <div class="d-none d-lg-block support-wrapper">
   <div class="container">
