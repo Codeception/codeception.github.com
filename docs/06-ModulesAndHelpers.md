@@ -296,6 +296,30 @@ In this helper you can replace the parent's methods with your own implementation
 You can also replace the `_before` and `_after` hooks, which might be an option
 when you need to customize starting and stopping of a testing session.
 
+### Interactive Pause
+
+To enable the `pause()` function to start the [Interactive Pause](https://codeception.com/docs/02-GettingStarted#Interactive-Pause)
+in a helper, you need to import the `Pause` trait:
+
+{% highlight php %}
+
+<?php
+namespace Helper;
+
+use Codeception\Lib\Actor\Shared\Pause;
+
+class Acceptance extends \Codeception\Module
+{
+    use Pause;
+
+    public function myFunction()
+    {
+        $this->pause();
+    }
+}
+
+{% endhighlight %}
+
 ### Hooks
 
 Each module can handle events from the running test. A module can be executed before the test starts,
