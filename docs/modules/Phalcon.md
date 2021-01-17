@@ -69,6 +69,9 @@ actions and avoid conflicts.
 * `orm` - include only `haveRecord/grabRecord/seeRecord/dontSeeRecord` actions.
 * `services` - allows to use `grabServiceFromContainer` and `addServiceToContainer`.
 
+See [WebDriver module](https://codeception.com/docs/modules/WebDriver#Loading-Parts-from-other-Modules)
+for general information on how to load parts of a framework module.
+
 Usage example:
 
 Sample bootstrap (`app/config/bootstrap.php`):
@@ -805,7 +808,8 @@ Resolves the service based on its configuration from Phalcon's DI container
 Recommended to use for unit testing.
 
  * `param string` $service    Service name
- * `param array`  $parameters Parameters [Optional]
+ * `param array|null`  $parameters Parameters [Optional]. Set it to null
+if you want service container to use parameters defined in the config of the container
  * `[Part]` services
 
 
@@ -910,8 +914,7 @@ $I->haveServerParameter('name', 'value');
 
 #### makeHtmlSnapshot
  
-Saves current page's HTML into a temprary file.
-Use this method in debug mode within an interactive pause to get a source code of current page.
+Use this method within an [interactive pause](https://codeception.com/docs/02-GettingStarted#Interactive-Pause) to save the HTML source code of the current page.
 
 {% highlight php %}
 

@@ -139,25 +139,25 @@ Create a helper class inside a directory
 
  *protected* getNamespaceHeader($class) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/InitTemplate.php#L31)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/InitTemplate.php#L25)
 
 #### getNamespaceString()
 
  *protected* getNamespaceString($class) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/InitTemplate.php#L25)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/InitTemplate.php#L19)
 
 #### getNamespaces()
 
  *protected* getNamespaces($class) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/InitTemplate.php#L40)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/InitTemplate.php#L34)
 
 #### getShortClassName()
 
  *protected* getShortClassName($class) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/InitTemplate.php#L19)
+[See source](https://github.com/Codeception/Codeception/blob/4.1/src/Codeception/InitTemplate.php#L13)
 
 #### gitIgnore()
 

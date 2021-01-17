@@ -72,7 +72,10 @@ Sample bootstrap (`app/config/bootstrap.php`):
 {% highlight php %}
 
 <?php
+$config = include __DIR__ . "/config.php";
+include __DIR__ . "/loader.php";
 $di = new \Phalcon\DI\FactoryDefault();
+include __DIR__ . "/services.php";
 return new \Phalcon\Mvc\Application($di);
 ?>
 
@@ -83,7 +86,7 @@ return new \Phalcon\Mvc\Application($di);
 actor: AcceptanceTester
 modules:
     enabled:
-        - Phalcon4:
+        - Phalcon:
             part: services
             bootstrap: 'app/config/bootstrap.php'
             cleanup: true
@@ -903,8 +906,7 @@ $I->haveServerParameter('name', 'value');
 
 #### makeHtmlSnapshot
  
-Saves current page's HTML into a temprary file.
-Use this method in debug mode within an interactive pause to get a source code of current page.
+Use this method within an [interactive pause](https://codeception.com/docs/02-GettingStarted#Interactive-Pause) to save the HTML source code of the current page.
 
 {% highlight php %}
 

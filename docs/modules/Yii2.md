@@ -1106,8 +1106,7 @@ $I->haveServerParameter('name', 'value');
 
 #### makeHtmlSnapshot
  
-Saves current page's HTML into a temprary file.
-Use this method in debug mode within an interactive pause to get a source code of current page.
+Use this method within an [interactive pause](https://codeception.com/docs/02-GettingStarted#Interactive-Pause) to save the HTML source code of the current page.
 
 {% highlight php %}
 

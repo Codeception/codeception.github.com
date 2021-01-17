@@ -197,7 +197,7 @@ you should use a tunnel application provided by a service.
 
 ### Configuration
 
-* `url` *required* - Starting URL for your app.
+* `url` *required* - Base URL for your app (amOnPage opens URLs relative to this setting).
 * `browser` *required* - Browser to launch.
 * `host` - Selenium server host (127.0.0.1 by default).
 * `port` - Selenium server port (4444 by default).
@@ -212,6 +212,8 @@ you should use a tunnel application provided by a service.
 * `pageload_timeout` - amount of time to wait for a page load to complete before throwing an error (default 0 seconds).
 * `http_proxy` - sets http proxy server url for testing a remote server.
 * `http_proxy_port` - sets http proxy server port
+* `ssl_proxy` - sets ssl(https) proxy server url for testing a remote server.
+* `ssl_proxy_port` - sets ssl(https) proxy server port
 * `debug_log_entries` - how many selenium entries to print with `debugWebDriverLogs` or on fail (0 by default).
 * `log_js_errors` - Set to true to include possible JavaScript to HTML report, or set to false (default) to deactivate.
 
@@ -324,7 +326,7 @@ Returns current WebDriver session for saving
 *hidden API method, expected to be used from Helper classes*
  
 Change capabilities of WebDriver. Should be executed before starting a new browser session.
-This method expects a function to be passed which returns array or [WebDriver Desired Capabilities](https://github.com/php-webdriver/php-webdriver/blob/community/lib/Remote/DesiredCapabilities.php) object.
+This method expects a function to be passed which returns array or [WebDriver Desired Capabilities](https://github.com/php-webdriver/php-webdriver/blob/main/lib/Remote/DesiredCapabilities.php) object.
 Additional [Chrome options](https://github.com/php-webdriver/php-webdriver/wiki/ChromeOptions) (like adding extensions) can be passed as well.
 
 {% highlight php %}
@@ -1298,10 +1300,27 @@ See [saveSessionSnapshot](#saveSessionSnapshot)
  * `param` $name
 
 
+#### makeElementScreenshot
+ 
+Takes a screenshot of an element of the current window and saves it to `tests/_output/debug`.
+
+{% highlight php %}
+
+<?php
+$I->amOnPage('/user/edit');
+$I->makeElementScreenshot('#dialog', 'edit_page');
+// saved to: tests/_output/debug/edit_page.png
+$I->makeElementScreenshot('#dialog');
+// saved to: tests/_output/debug/2017-05-26_14-24-11_4b3403665fea6.png
+
+{% endhighlight %}
+
+ * `param` $name
+
+
 #### makeHtmlSnapshot
  
-Saves current page's HTML into a temprary file.
-Use this method in debug mode within an interactive pause to get a source code of current page.
+Use this method within an [interactive pause](https://codeception.com/docs/02-GettingStarted#Interactive-Pause) to save the HTML source code of the current page.
 
 {% highlight php %}
 

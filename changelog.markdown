@@ -8,6 +8,13 @@ title: Codeception Changelog
 # Changelog
 
 
+#### 4.1.15
+
+* GroupManager: Show which group contains a missing file [#5938](https://github.com/Codeception/Codeception/issues/5938)
+* Ignore . namespace in generators when someone pass path as a class name, e.g. ./foo [#5818](https://github.com/Codeception/Codeception/issues/5818)
+* Removed "Running with seed" from CLI report ([#6088](https://github.com/Codeception/Codeception/issues/6088)) by **[eXorus](https://github.com/eXorus)**
+* Suggest most similar module in missing module exception [#6079](https://github.com/Codeception/Codeception/issues/6079) by **[c33s](https://github.com/c33s)**
+
 #### 4.1.14
 
 * Improved compatibility logic for Symfony EventDispatcher
