@@ -267,7 +267,7 @@ error_level: "E_ALL & ~E_STRICT & ~E_DEPRECATED"
 
 {% endhighlight %}
 
-`error_level` can also be set globally in `codeception.yml` file.
+`error_level` can also be set globally in `codeception.yml` file. In order to do that, you need to specify `error_level` as a part of `settings`. For more information, see [Global Configuration](https://codeception.com/docs/reference/Configuration).
 
 ## Conclusion
 
