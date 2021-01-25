@@ -1880,6 +1880,12 @@ p code, li code {
   margin: auto;
 }
 
+@media (min-width : 768px) and (max-width: 991px) {
+  .about-framework {
+    margin-bottom: 25px;
+  }
+}
+
 .sponsors-wrapper .sponsors-item .sponsors {
   height: 80px;
   border-radius: 20px;
