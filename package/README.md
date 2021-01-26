@@ -8,16 +8,16 @@ Modules excluded from phar file:
 * phalcon
 * symfony
 * yii2
-* zendexpressive
-* zf2
+* zendexpressive / mezzio
+* zf2 / laminas
 
 Additional dependency compared with codeception/codecepion:
 * hoa/console
 
 ### Build instructions
-1. Download robo.phar file wget https://robo.li/robo.phar
+1. Install dependencies by running `composer install` in parent directory.
 2. Disable phar.readonly in your php.ini file, it must be `phar.readonly = Off`
-3. Run `php robo.phar build:phar72`
-4. Run `php robo.phar build:phar56`
-5. Run `php robo.phar release`
+3. Run `./vendor/bin/robo build:phar72`
+4. Run `./vendor/bin/robo build:phar56`
+5. Run `./vendor/bin/robo release`
 6. Commit added files and push
