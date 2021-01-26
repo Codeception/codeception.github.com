@@ -37,7 +37,7 @@ This module allows you to run functional tests for Lumen.
 Please try it and leave your feedback.
 
 ### Demo project
-<https://github.com/Codeception/codeception-lumen-sample>
+<https://github.com/codeception/lumen-module-tests>
 
 
 ### Config
@@ -56,13 +56,18 @@ Please try it and leave your feedback.
 
 ### Parts
 
-* ORM - only include the database methods of this module:
+* `ORM`: Only include the database methods of this module:
+    * dontSeeRecord
+    * grabRecord
     * have
     * haveMultiple
     * haveRecord
-    * grabRecord
+    * make
+    * makeMultiple
     * seeRecord
-    * dontSeeRecord
+
+See [WebDriver module](https://codeception.com/docs/modules/WebDriver#Loading-Parts-from-other-Modules)
+for general information on how to load parts of a framework module.
 
 ### Actions
 
@@ -206,9 +211,8 @@ Authenticates user for HTTP_AUTH
 Set the authenticated user for the next request.
 This will not persist between multiple requests.
 
- * `param`  \Illuminate\Contracts\Auth\Authenticatable
- * `param`  string|null $driver The authentication driver for Lumen <= 5.1.*, guard name for Lumen >= 5.2
- * `return` void
+ * `param Authenticatable` $user
+ * `param string|null` $guardName The guard name
 
 
 #### amOnPage
@@ -236,11 +240,10 @@ Opens web page using route name and parameters.
 
 <?php
 $I->amOnRoute('homepage');
-?>
 
 {% endhighlight %}
 
- * `param` $routeName
+ * `param string` $routeName
  * `param array` $params
 
 
@@ -284,7 +287,6 @@ Clear the registered application handlers.
 
 <?php
 $I->clearApplicationHandlers();
-?>
 
 {% endhighlight %}
 
@@ -615,9 +617,8 @@ You can pass the name of a database table or the class name of an Eloquent model
 {% highlight php %}
 
 <?php
-$I->dontSeeRecord('users', array('name' => 'davert'));
-$I->dontSeeRecord('App\User', array('name' => 'davert'));
-?>
+$I->dontSeeRecord('users', ['name' => 'davert']);
+$I->dontSeeRecord('App\Models\User', ['name' => 'davert']);
 
 {% endhighlight %}
 
@@ -662,8 +663,6 @@ $I->fillField(['name' => 'email'], 'jon@mail.com');
 #### getApplication
  
 Provides access the Lumen application object.
-
- * `return` \Laravel\Lumen\Application
 
 
 #### grabAttributeFrom
@@ -761,9 +760,8 @@ You can also pass the class name of an Eloquent model, in that case this method 
 {% highlight php %}
 
 <?php
-$record = $I->grabRecord('users', array('name' => 'davert')); // returns array
-$record = $I->grabRecord('App\User', array('name' => 'davert')); // returns Eloquent model
-?>
+$record = $I->grabRecord('users', ['name' => 'davert']); // returns array
+$record = $I->grabRecord('App\Models\User', ['name' => 'davert']); // returns Eloquent model
 
 {% endhighlight %}
 
@@ -791,11 +789,10 @@ App::bind('foo', function($app)
 $service = $I->grabService('foo');
 
 // Will return an instance of FooBar, also works for singletons.
-?>
 
 {% endhighlight %}
 
- * `param`  string $class
+ * `param string` $class
 
 
 #### grabTextFrom
@@ -828,15 +825,13 @@ $value = $I->grabTextFrom('~<input value=(.*?)]~sgi'); // match with a regex
 #### have
  
 Use Lumen's model factory to create a model.
-Can only be used with Lumen 5.1 and later.
 
 {% highlight php %}
 
 <?php
-$I->have('App\User');
-$I->have('App\User', ['name' => 'John Doe']);
-$I->have('App\User', [], 'admin');
-?>
+$I->have('App\Models\User');
+$I->have('App\Models\User', ['name' => 'John Doe']);
+$I->have('App\Models\User', [], 'admin');
 
 {% endhighlight %}
 
@@ -858,7 +853,6 @@ The Laravel application object will be passed as an argument to the handler.
 $I->haveApplicationHandler(function($app) {
     $app->make('config')->set(['test_value' => '10']);
 });
-?>
 
 {% endhighlight %}
 
@@ -873,8 +867,7 @@ Add a binding to the Laravel service container.
 {% highlight php %}
 
 <?php
-$I->haveBinding('My\Interface', 'My\Implementation');
-?>
+$I->haveBinding('App\MyInterface', 'App\MyImplementation');
 
 {% endhighlight %}
 
@@ -890,13 +883,12 @@ Add a contextual binding to the Laravel service container.
 {% highlight php %}
 
 <?php
-$I->haveContextualBinding('My\Class', '$variable', 'value');
+$I->haveContextualBinding('App\MyClass', '$variable', 'value');
 
 // This is similar to the following in your Laravel application
-$app->when('My\Class')
+$app->when('App\MyClass')
     ->needs('$variable')
     ->give('value');
-?>
 
 {% endhighlight %}
 
@@ -946,8 +938,7 @@ Add an instance binding to the Laravel service container.
 {% highlight php %}
 
 <?php
-$I->haveInstance('My\Class', new My\Class());
-?>
+$I->haveInstance('App\MyClass', new App\MyClass());
 
 {% endhighlight %}
 
@@ -957,16 +948,14 @@ $I->haveInstance('My\Class', new My\Class());
 
 #### haveMultiple
  
-Use Laravel's model factory to create multiple models.
-Can only be used with Lumen 5.1 and later.
+Use Laravel model factory to create multiple models.
 
 {% highlight php %}
 
 <?php
-$I->haveMultiple('App\User', 10);
-$I->haveMultiple('App\User', 10, ['name' => 'John Doe']);
-$I->haveMultiple('App\User', 10, [], 'admin');
-?>
+$I->haveMultiple('App\Models\User', 10);
+$I->haveMultiple('App\Models\User', 10, ['name' => 'John Doe']);
+$I->haveMultiple('App\Models\User', 10, [], 'admin');
 
 {% endhighlight %}
 
@@ -987,9 +976,8 @@ You can also pass the class name of an Eloquent model, in that case this method 
 {% highlight php %}
 
 <?php
-$user_id = $I->haveRecord('users', array('name' => 'Davert')); // returns integer
-$user = $I->haveRecord('App\User', array('name' => 'Davert')); // returns Eloquent model
-?>
+$userId = $I->haveRecord('users', ['name' => 'Davert']); // returns integer
+$user = $I->haveRecord('App\Models\User', ['name' => 'Davert']); // returns Eloquent model
 
 {% endhighlight %}
 
@@ -1021,7 +1009,6 @@ Add a singleton binding to the Laravel service container.
 
 <?php
 $I->haveSingleton('My\Interface', 'My\Singleton');
-?>
 
 {% endhighlight %}
 
@@ -1032,15 +1019,13 @@ $I->haveSingleton('My\Interface', 'My\Singleton');
 #### make
  
 Use Lumen's model factory to make a model instance.
-Can only be used with Lumen 5.1 and later.
 
 {% highlight php %}
 
 <?php
-$I->make('App\User');
-$I->make('App\User', ['name' => 'John Doe']);
-$I->make('App\User', [], 'admin');
-?>
+$I->make('App\Models\User');
+$I->make('App\Models\User', ['name' => 'John Doe']);
+$I->make('App\Models\User', [], 'admin');
 
 {% endhighlight %}
 
@@ -1070,16 +1055,14 @@ $I->makeHtmlSnapshot();
 
 #### makeMultiple
  
-Use Laravel's model factory to make multiple model instances.
-Can only be used with Lumen 5.1 and later.
+Use Laravel model factory to make multiple model instances.
 
 {% highlight php %}
 
 <?php
-$I->makeMultiple('App\User', 10);
-$I->makeMultiple('App\User', 10, ['name' => 'John Doe']);
-$I->makeMultiple('App\User', 10, [], 'admin');
-?>
+$I->makeMultiple('App\Models\User', 10);
+$I->makeMultiple('App\Models\User', 10, ['name' => 'John Doe']);
+$I->makeMultiple('App\Models\User', 10, [], 'admin');
 
 {% endhighlight %}
 
@@ -1445,8 +1428,8 @@ You can pass the name of a database table or the class name of an Eloquent model
 {% highlight php %}
 
 <?php
-$I->seeRecord('users', array('name' => 'davert'));
-$I->seeRecord('App\User', array('name' => 'davert'));
+$I->seeRecord('users', ['name' => 'Davert']);
+$I->seeRecord('App\Models\User', ['name' => 'Davert']);
 ?>
 
 {% endhighlight %}
@@ -1596,8 +1579,7 @@ $I->sendAjaxRequest('PUT', '/posts/7', ['title' => 'new title']);
 
 
 #### setApplication
- 
- * `param \Laravel\Lumen\Application` $app
+__not documented__
 
 
 #### setCookie

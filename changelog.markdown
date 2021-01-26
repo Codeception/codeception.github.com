@@ -8,6 +8,12 @@ title: Codeception Changelog
 # Changelog
 
 
+#### 4.1.16
+
+* Detect the suite from a test path relative to the current working dir ([#6051](https://github.com/Codeception/Codeception/issues/6051))
+* GroupManager: Fixed bug introduced in 4.1.15
+* Show location of warning in error message ([#6090](https://github.com/Codeception/Codeception/issues/6090))
+
 #### 4.1.15
 
 * GroupManager: Show which group contains a missing file [#5938](https://github.com/Codeception/Codeception/issues/5938)
