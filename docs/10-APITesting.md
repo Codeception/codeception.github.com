@@ -19,6 +19,8 @@ We will put all the api tests there.
 
 ## REST API
 
+> **NOTE:** REST API testing requires the `codeception/module-rest` package to be installed.
+
 The REST web service is accessed via HTTP with standard methods: `GET`, `POST`, `PUT`, `DELETE`. They allow users to receive and manipulate entities from the service. Accessing a WebService requires an HTTP client, so for using it you need the module `PhpBrowser` or one of framework modules set up. For example, we can use the `Symfony` module for Symfony2 applications in order to ignore web server and test web service internally.
 
 Configure modules in `api.suite.yml`:
