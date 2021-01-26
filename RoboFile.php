@@ -507,7 +507,7 @@ EOF;
         $this->stopOnFail();
 
         $this->taskFilesystemStack()->mkdir('build/56')->run();
-        $this->setPlatformVersionTo('5.6.0');
+        $this->setPlatformVersionTo('5.6.4');
         //filenames must be different, because Phar refuses to build second file with the same name
         $buildFile = 'build/56/codecept.phar';
         $this->buildPhar($buildFile);
