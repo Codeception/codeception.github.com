@@ -686,6 +686,19 @@ $I->fillField(['name' => 'email'], 'jon@mail.com');
  * `param` $value
 
 
+#### followRedirect
+ 
+Follow pending redirect if there is one.
+
+{% highlight php %}
+
+<?php
+$I->followRedirect();
+
+{% endhighlight %}
+
+
+
 #### grabAttributeFrom
  
 Grabs the value of the given attribute value from the given element.
@@ -1369,6 +1382,20 @@ Alias to `haveHttpHeader`
  * `param` $value
 
 
+#### setMaxRedirects
+ 
+Sets the maximum number of redirects that the Client can follow.
+
+{% highlight php %}
+
+<?php
+$I->setMaxRedirects(2);
+
+{% endhighlight %}
+
+ * `param int` $maxRedirects
+
+
 #### setServerParameters
  
 Sets SERVER parameters valid for all next requests.
@@ -1380,6 +1407,32 @@ $I->setServerParameters([]);
 
 {% endhighlight %}
  * `param array` $params
+
+
+#### startFollowingRedirects
+ 
+Enables automatic redirects to be followed by the client.
+
+{% highlight php %}
+
+<?php
+$I->startFollowingRedirects();
+
+{% endhighlight %}
+
+
+
+#### stopFollowingRedirects
+ 
+Prevents automatic redirects to be followed by the client.
+
+{% highlight php %}
+
+<?php
+$I->stopFollowingRedirects();
+
+{% endhighlight %}
+
 
 
 #### submitForm

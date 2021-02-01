@@ -118,7 +118,7 @@ class RoboFile extends \Robo\Tasks
     public function buildDocs()
     {
         $this->say('generating documentation from source files');
-        $this->taskComposerInstall()->run();
+        $this->taskComposerUpdate()->run();
         $this->buildDocsModules();
         $this->buildDocsUtils();
         $this->buildDocsCommands();

@@ -37,5 +37,10 @@
   "require-dev": {
     "symfony/event-dispatcher": "4.4.*",
     "consolidation/robo": "^3.0.0-alpha3"
+  },
+  "config": {
+    "platform": {
+      "ext-phalcon": "4.1.1"
+    }
   }
 }

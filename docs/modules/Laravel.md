@@ -860,6 +860,19 @@ $I->fillField(['name' => 'email'], 'jon@mail.com');
  * `param` $value
 
 
+#### followRedirect
+ 
+Follow pending redirect if there is one.
+
+{% highlight php %}
+
+<?php
+$I->followRedirect();
+
+{% endhighlight %}
+
+
+
 #### getApplication
  
 Provides access the Laravel application object.
@@ -1996,6 +2009,20 @@ $I->setCookie('PHPSESSID', 'el4ukv0kqbvoirg7nkp4dncpk3');
 
 
 
+#### setMaxRedirects
+ 
+Sets the maximum number of redirects that the Client can follow.
+
+{% highlight php %}
+
+<?php
+$I->setMaxRedirects(2);
+
+{% endhighlight %}
+
+ * `param int` $maxRedirects
+
+
 #### setServerParameters
  
 Sets SERVER parameters valid for all next requests.
@@ -2007,6 +2034,32 @@ $I->setServerParameters([]);
 
 {% endhighlight %}
  * `param array` $params
+
+
+#### startFollowingRedirects
+ 
+Enables automatic redirects to be followed by the client.
+
+{% highlight php %}
+
+<?php
+$I->startFollowingRedirects();
+
+{% endhighlight %}
+
+
+
+#### stopFollowingRedirects
+ 
+Prevents automatic redirects to be followed by the client.
+
+{% highlight php %}
+
+<?php
+$I->stopFollowingRedirects();
+
+{% endhighlight %}
+
 
 
 #### submitForm
