@@ -413,7 +413,7 @@ EOF;
     protected function processChangelog()
     {
         $sortByVersionDesc = function (\SplFileInfo $a, \SplFileInfo $b) {
-            $pattern = '/^CHANGELOG-(\d+\.\d+).md$/';
+            $pattern = '/^CHANGELOG-(\d+\.(?:x|\d+)).md$/';
             if (preg_match($pattern, $a->getBasename(), $matches1) && preg_match($pattern, $b->getBasename(), $matches2)) {
                 return version_compare($matches1[1], $matches2[1]) * -1;
             }
