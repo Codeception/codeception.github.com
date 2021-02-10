@@ -11,7 +11,7 @@ Functional tests don't require a web server.
 Under the hood, Codeception uses Symfony's [BrowserKit](https://symfony.com/doc/current/components/browser_kit.html)
 to "send" requests to your app. So there's no real HTTP request made, but rather a BrowserKit
 [Request object](https://github.com/symfony/browser-kit/blob/master/Request.php) with the required properties is
-passed to your framework's (font-)controller.
+passed to your framework's (front-)controller.
 
 As a first step, you need to enable Codeception's module for your framework in `functional.suite.yml` (see below).
 
