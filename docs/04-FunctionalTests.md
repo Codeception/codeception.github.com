@@ -259,15 +259,12 @@ The error reporting level can be set in the suite configuration file:
 {% highlight yaml %}
 
 actor: FunctionalTester
-modules:
-    enabled:
-        - Yii2
-        - \Helper\Functional
-error_level: "E_ALL & ~E_STRICT & ~E_DEPRECATED"
+...
+error_level: E_ALL & ~E_STRICT & ~E_DEPRECATED
 
 {% endhighlight %}
 
-`error_level` can also be set globally in `codeception.yml` file. In order to do that, you need to specify `error_level` as a part of `settings`. For more information, see [Global Configuration](https://codeception.com/docs/reference/Configuration).
+`error_level` can also be set globally in `codeception.yml` file. In order to do that, you need to specify `error_level` as a part of `settings`. For more information, see [Global Configuration](https://codeception.com/docs/reference/Configuration). Note that suite specific `error_level` value will override global value.
 
 ## Conclusion
 

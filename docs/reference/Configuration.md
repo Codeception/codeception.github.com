@@ -84,6 +84,12 @@ settings:
     # Section logging > junit
     log_incomplete_skipped: false
 
+    # Set the error_reporting level
+    # You can specify either a predefined constant or an integer value
+    # See https://www.php.net/manual/en/function.error-reporting.php
+    # See https://www.php.net/manual/en/errorfunc.constants.php
+    error_level: E_ALL & ~E_STRICT & ~E_DEPRECATED
+
 {% endhighlight %}
 
 * `modules`: allows to create shared module configuration for all included suites.
@@ -151,7 +157,7 @@ modules:
 * `formats`: [formats](http://codeception.com/docs/07-AdvancedUsage#Formats) with the list of extra test format classes.
 * `coverage`: per suite [CodeCoverage](http://codeception.com/docs/11-Codecoverage#Configuration) settings.
 * `gherkin`: per suite [BDD Gherkin](http://codeception.com/docs/07-BDD#Configuration) settings.
-* `error_level`: [error level](http://codeception.com/docs/04-FunctionalTests#Error-Reporting) for runner in current suite. Should be specified for unit, integration, functional tests. Passes value to `error_reporting` function.
+* `error_level`: [error level](http://codeception.com/docs/04-FunctionalTests#Error-Reporting) for runner in current suite. Can be specified for unit, integration, functional tests. Passes value to `error_reporting` function. Suite specific value will override the global value.
 * `bootstrap`:  bootstrap script that will be executed before current suites. A script should be put into suite directory.
 
 ## Config Templates (dist)

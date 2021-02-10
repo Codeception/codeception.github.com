@@ -887,6 +887,22 @@ WebDriver module provides advanced methods for the browser session, however, the
 
 Those methods can be used to create custom commands like `$I->startBrowser()` or used in [before/after](http://codeception.com/docs/06-ModulesAndHelpers#Hooks) hooks.
 
+## Error Reporting
+
+By default Codeception uses the `E_ALL & ~E_STRICT & ~E_DEPRECATED` error reporting level.
+In acceptance tests you might want to change this level depending on your framework's error policy.
+The error reporting level can be set in the suite configuration file:
+
+{% highlight yaml %}
+
+actor: AcceptanceTester
+...
+error_level: E_ALL & ~E_STRICT & ~E_DEPRECATED
+
+{% endhighlight %}
+
+`error_level` can also be set globally in `codeception.yml` file. In order to do that, you need to specify `error_level` as a part of `settings`. For more information, see [Global Configuration](https://codeception.com/docs/reference/Configuration). Note that suite specific `error_level` value will override global value.
+
 ## Conclusion
 
 Writing acceptance tests with Codeception and PhpBrowser is a good start.

@@ -514,6 +514,22 @@ public function testSingleton()
 * [AspectMock in Action](http://codeception.com/07-31-2013/nothing-is-untestable-aspect-mock.html)
 * [How it Works](http://codeception.com/09-13-2013/understanding-aspectmock.html)
 
+## Error Reporting
+
+By default Codeception uses the `E_ALL & ~E_STRICT & ~E_DEPRECATED` error reporting level.
+In unit tests you might want to change this level depending on your framework's error policy.
+The error reporting level can be set in the suite configuration file:
+
+{% highlight yaml %}
+
+actor: UnitTester
+...
+error_level: E_ALL & ~E_STRICT & ~E_DEPRECATED
+
+{% endhighlight %}
+
+`error_level` can also be set globally in `codeception.yml` file. In order to do that, you need to specify `error_level` as a part of `settings`. For more information, see [Global Configuration](https://codeception.com/docs/reference/Configuration). Note that suite specific `error_level` value will override global value.
+
 ## Conclusion
 
 PHPUnit tests are first-class citizens in test suites. Whenever you need to write and execute unit tests,
