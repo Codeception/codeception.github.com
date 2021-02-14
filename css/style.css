@@ -384,7 +384,8 @@ body b {
 }
 
 .sponsors--rebilly,
-.sponsors--themeisle {
+.sponsors--themeisle,
+.sponsors--vpnwelt {
   width:100px;
   background: #fff;
   border-radius: 20px;
@@ -1441,7 +1442,8 @@ body #footer .links {
   }
 
   .sponsors--rebilly,
-  .sponsors--themeisle {
+  .sponsors--themeisle,
+  .sponsors--vpnwelt {
     width: 150px;
   }
 
