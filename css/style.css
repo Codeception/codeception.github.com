@@ -1895,6 +1895,11 @@ p code, li code {
   transition: opacity .2s ease;
 }
 
+.sponsors-wrapper .sponsors-item .sponsors.sponsors--vpnwelt {
+  height: auto;
+  border-radius: inherit;
+}
+
 .sponsors-wrapper .sponsors-item .sponsors:hover {
   opacity: 1;
 }
