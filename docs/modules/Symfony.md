@@ -13,6 +13,7 @@ title: Symfony - Codeception - Documentation
 If you use Codeception installed using composer, install this module with the following command:
 
 {% highlight yaml %}
+
 composer require --dev codeception/module-symfony
 
 {% endhighlight %}
@@ -20,6 +21,7 @@ composer require --dev codeception/module-symfony
 Alternatively, you can enable `Symfony` module in suite configuration file and run
  
 {% highlight yaml %}
+
 codecept init upgrade4
 
 {% endhighlight %}
@@ -40,16 +42,15 @@ This module uses Symfony Crawler and HttpKernel to emulate requests and test res
 
 ### Config
 
-#### Symfony 5.x or 4.x
+#### Symfony 5.x or 4.4
 
-* app_path: 'src' - in Symfony 4 Kernel is located inside `src`
-* environment: 'local' - environment used for load kernel
-* kernel_class: 'App\Kernel' - kernel class name
-* em_service: 'doctrine.orm.entity_manager' - use the stated EntityManager to pair with Doctrine Module.
-* debug: true - turn on/off debug mode
-* cache_router: 'false' - enable router caching between tests in order to [increase performance](http://lakion.com/blog/how-did-we-speed-up-sylius-behat-suite-with-blackfire)
-* rebootable_client: 'true' - reboot client's kernel before each request
-* mailer: 'symfony_mailer' - choose the mailer used by your application
+* app_path: 'src' - Specify custom path to your app dir, where the kernel interface is located.
+* environment: 'local' - Environment used for load kernel
+* kernel_class: 'App\Kernel' - Kernel class name
+* em_service: 'doctrine.orm.entity_manager' - Use the stated EntityManager to pair with Doctrine Module.
+* debug: true - Turn on/off debug mode
+* cache_router: 'false' - Enable router caching between tests in order to [increase performance](http://lakion.com/blog/how-did-we-speed-up-sylius-behat-suite-with-blackfire)
+* rebootable_client: 'true' - Reboot client's kernel before each request
 
 ##### Example (`functional.suite.yml`) - Symfony 4 Directory Structure
 
@@ -60,28 +61,6 @@ This module uses Symfony Crawler and HttpKernel to emulate requests and test res
               environment: 'test'
 
 
-#### Symfony 3.x
-
-* app_path: 'app' - specify custom path to your app dir, where the kernel interface is located.
-* var_path: 'var' - specify custom path to your var dir, where bootstrap cache is located.
-* environment: 'local' - environment used for load kernel
-* kernel_class: 'AppKernel' - kernel class name
-* em_service: 'doctrine.orm.entity_manager' - use the stated EntityManager to pair with Doctrine Module.
-* debug: true - turn on/off debug mode
-* cache_router: 'false' - enable router caching between tests in order to [increase performance](http://lakion.com/blog/how-did-we-speed-up-sylius-behat-suite-with-blackfire)
-* rebootable_client: 'true' - reboot client's kernel before each request
-* mailer: 'swiftmailer' - choose the mailer used by your application
-
-##### Example (`functional.suite.yml`) - Symfony 3 Directory Structure
-
-    modules:
-       enabled:
-          - Symfony:
-              app_path: 'app/front'
-              var_path: 'var'
-              environment: 'local_test'
-
-
 ### Public Properties
 
 * kernel - HttpKernel instance
@@ -89,7 +68,11 @@ This module uses Symfony Crawler and HttpKernel to emulate requests and test res
 
 ### Parts
 
-* `services`: Symfony dependency injection container (DIC)
+* `services`: Includes methods related to the Symfony dependency injection container (DIC):
+    * grabService
+    * persistService
+    * persistPermanentService
+    * unpersistService
 
 See [WebDriver module](https://codeception.com/docs/modules/WebDriver#Loading-Parts-from-other-Modules)
 for general information on how to load parts of a framework module.
@@ -315,7 +298,7 @@ Opens web page using route name and parameters.
 
 <?php
 $I->amOnRoute('posts.create');
-$I->amOnRoute('posts.show', array('id' => 34));
+$I->amOnRoute('posts.show', ['id' => 34]);
 
 {% endhighlight %}
 
@@ -537,14 +520,12 @@ $I->dontSeeElement('input', ['value' => '123456']);
 
 #### dontSeeEmailIsSent
  
-Checks that no email was sent. This is an alias for seeEmailIsSent(0).
-
- * `[Part]` email
+Checks that no email was sent.
 
 
 #### dontSeeEventTriggered
  
-Make sure events did not fire during the test.
+Verifies that one or more event listeners were not called during the test.
 
 {% highlight php %}
 
@@ -554,6 +535,7 @@ $I->dontSeeEventTriggered(new App\Events\MyEvent());
 $I->dontSeeEventTriggered(['App\MyEvent', 'App\MyOtherEvent']);
 
 {% endhighlight %}
+
  * `param string|object|string[]` $expected
 
 
@@ -729,6 +711,27 @@ $I->dontSeeOptionIsSelected('#form input[name=payment]', 'Visa');
 
 
 
+#### dontSeeOrphanEvent
+ 
+Verifies that there were no orphan events during the test.
+
+An orphan event is an event that was triggered by manually executing the
+[`dispatch()`](https://symfony.com/doc/current/components/event_dispatcher.html#dispatch-the-event) method
+of the EventDispatcher but was not handled by any listener after it was dispatched.
+
+{% highlight php %}
+
+<?php
+$I->dontSeeOrphanEvent();
+$I->dontSeeOrphanEvent('App\MyEvent');
+$I->dontSeeOrphanEvent(new App\Events\MyEvent());
+$I->dontSeeOrphanEvent(['App\MyEvent', 'App\MyOtherEvent']);
+
+{% endhighlight %}
+
+ * `param string|object|string[]` $expected
+
+
 #### dontSeeRememberedAuthentication
  
 Check that user is not authenticated with the 'remember me' option.
@@ -739,6 +742,20 @@ Check that user is not authenticated with the 'remember me' option.
 $I->dontSeeRememberedAuthentication();
 
 {% endhighlight %}
+
+
+#### dontSeeRenderedTemplate
+ 
+Asserts that a template was not rendered in the response.
+
+{% highlight php %}
+
+<?php
+$I->dontSeeRenderedTemplate('home.html.twig');
+
+{% endhighlight %}
+
+ * `param string` $template
 
 
 #### dontSeeResponseCodeIs
@@ -834,6 +851,22 @@ $uri = $I->grabFromCurrentUrl();
 
 
 
+#### grabLastSentEmail
+ 
+Returns the last sent email.
+
+{% highlight php %}
+
+<?php
+$email = $I->grabLastSentEmail();
+$address = $email->getTo()[0];
+$I->assertSame('john_doe@user.com', $address->getAddress());
+
+{% endhighlight %}
+
+ * `return` \Symfony\Component\Mime\Email|null
+
+
 #### grabMultiple
  
 Grabs either the text content, or attribute values, of nodes
@@ -924,10 +957,27 @@ $I->grabRepository(UserRepositoryInterface::class);
  * `return` \Doctrine\ORM\EntityRepository|null
 
 
+#### grabSentEmails
+ 
+Returns an array of all sent emails.
+
+{% highlight php %}
+
+<?php
+$emails = $I->grabSentEmails();
+$address = $emails[0]->getTo()[0];
+$I->assertSame('john_doe@user.com', $address->getAddress());
+
+{% endhighlight %}
+
+ * `return` \Symfony\Component\Mime\Email[]
+
+
 #### grabService
  
 Grabs a service from the Symfony dependency injection container (DIC).
-In "test" environment, Symfony uses a special `test.service_container`, see https://symfony.com/doc/current/testing.html#accessing-the-container
+In "test" environment, Symfony uses a special `test.service_container`.
+See the "[Accessing the Container](https://symfony.com/doc/current/testing.html#accessing-the-container)" documentation.
 Services that aren't injected somewhere into your app, need to be defined as `public` to be accessible by Codeception.
 
 {% highlight php %}
@@ -937,8 +987,9 @@ $em = $I->grabService('doctrine');
 
 {% endhighlight %}
 
- * `param string` $service
  * `[Part]` services
+ * `param string` $serviceId
+ * `return` object
 
 
 #### grabTextFrom
@@ -1022,6 +1073,7 @@ Invalidate previously cached routes.
 #### logout
  
 Invalidate the current session.
+
 {% highlight php %}
 
 <?php
@@ -1059,6 +1111,7 @@ Moves back in history.
 Get service $serviceName and add it to the lists of persistent services,
 making that service persistent between tests.
 
+ * `[Part]` services
  * `param string` $serviceName
 
 
@@ -1066,6 +1119,7 @@ making that service persistent between tests.
  
 Get service $serviceName and add it to the lists of persistent services.
 
+ * `[Part]` services
  * `param string` $serviceName
 
 
@@ -1115,7 +1169,6 @@ $result = $I->runSymfonyConsoleCommand('hello:world', ['arg' => 'argValue', 'opt
  * `param array`  $parameters       Parameters (arguments and options) to pass to the command
  * `param array`  $consoleInputs    Console inputs (e.g. used for interactive questions)
  * `param int`    $expectedExitCode The expected exit code of the command
-
  * `return` string Returns the console output of the command
 
 
@@ -1223,12 +1276,26 @@ Checks that current url matches route.
 
 <?php
 $I->seeCurrentRouteIs('posts.index');
-$I->seeCurrentRouteIs('posts.show', array('id' => 8));
+$I->seeCurrentRouteIs('posts.show', ['id' => 8]);
 
 {% endhighlight %}
 
  * `param string` $routeName
  * `param array` $params
+
+
+#### seeCurrentTemplateIs
+ 
+Asserts that the current template matches the expected template.
+
+{% highlight php %}
+
+<?php
+$I->seeCurrentTemplateIs('home.html.twig');
+
+{% endhighlight %}
+
+ * `param string` $expectedTemplate
 
 
 #### seeCurrentUrlEquals
@@ -1291,10 +1358,9 @@ $I->seeElement(['css' => 'form input'], ['name' => 'login']);
 #### seeEmailIsSent
  
 Checks if the desired number of emails was sent.
-If no argument is provided then at least one email must be sent to satisfy the check.
-The email is checked using Symfony's profiler, which means:
-* If your app performs a redirect after sending the email, you need to suppress this using REST Module's [stopFollowingRedirects](https://codeception.com/docs/modules/REST#stopFollowingRedirects)
-* If the email is sent by a Symfony Console Command, Codeception cannot detect it yet.
+Asserts that 1 email was sent by default, specify the `expectedCount` parameter to modify it.
+The email is checked using Symfony message logger, which means:
+* If your app performs a redirect after sending the email, you need to suppress it using [stopFollowingRedirects](https://codeception.com/docs/modules/Symfony#stopFollowingRedirects).
 
 {% highlight php %}
 
@@ -1303,12 +1369,12 @@ $I->seeEmailIsSent(2);
 
 {% endhighlight %}
 
- * `param int|null` $expectedCount
+ * `param int` $expectedCount The expected number of emails sent
 
 
 #### seeEventTriggered
  
-Make sure events fired during the test.
+Verifies that one or more event listeners were called during the test.
 
 {% highlight php %}
 
@@ -1318,6 +1384,7 @@ $I->seeEventTriggered(new App\Events\MyEvent());
 $I->seeEventTriggered(['App\MyEvent', 'App\MyOtherEvent']);
 
 {% endhighlight %}
+
  * `param string|object|string[]` $expected
 
 
@@ -1333,6 +1400,7 @@ $I->seeFormErrorMessage('username');
 $I->seeFormErrorMessage('username', 'Username is empty');
 
 {% endhighlight %}
+
  * `param string` $field
  * `param string|null` $message
 
@@ -1642,18 +1710,42 @@ $I->seeOptionIsSelected('#form input[name=payment]', 'Visa');
 
 
 
-#### seePageIsAvailable
+#### seeOrphanEvent
  
-Goes to a page and check that it can be accessed.
+Verifies that one or more orphan events were dispatched during the test.
+
+An orphan event is an event that was triggered by manually executing the
+[`dispatch()`](https://symfony.com/doc/current/components/event_dispatcher.html#dispatch-the-event) method
+of the EventDispatcher but was not handled by any listener after it was dispatched.
 
 {% highlight php %}
 
 <?php
-$I->seePageIsAvailable('/dashboard');
+$I->seeOrphanEvent('App\MyEvent');
+$I->seeOrphanEvent(new App\Events\MyEvent());
+$I->seeOrphanEvent(['App\MyEvent', 'App\MyOtherEvent']);
 
 {% endhighlight %}
 
- * `param string` $url
+ * `param string|object|string[]` $expected
+
+
+#### seePageIsAvailable
+ 
+Verifies that a page is available.
+By default it checks the current page, specify the `$url` parameter to change it.
+
+{% highlight php %}
+
+<?php
+$I->amOnPage('/dashboard');
+$I->seePageIsAvailable();
+
+$I->seePageIsAvailable('/dashboard'); // Same as above
+
+{% endhighlight %}
+
+ * `param string|null` $url
 
 
 #### seePageNotFound
@@ -1686,6 +1778,22 @@ Checks that a user is authenticated with the 'remember me' option.
 $I->seeRememberedAuthentication();
 
 {% endhighlight %}
+
+
+#### seeRenderedTemplate
+ 
+Asserts that a template was rendered in the response.
+That includes templates built with [inheritance](https://twig.symfony.com/doc/3.x/templates.html#template-inheritance).
+
+{% highlight php %}
+
+<?php
+$I->seeRenderedTemplate('home.html.twig');
+$I->seeRenderedTemplate('layout.html.twig');
+
+{% endhighlight %}
+
+ * `param string` $template
 
 
 #### seeResponseCodeIs
@@ -1745,7 +1853,7 @@ $I->seeSessionHasValues(['key1' => 'value1', 'key2' => 'value2']);
 
 {% endhighlight %}
 
- * `param`  array $bindings
+ * `param array` $bindings
 
 
 #### seeUserHasRole
@@ -2211,6 +2319,7 @@ $I->uncheckOption('#notify');
  
 Remove service $serviceName from the lists of persistent services.
 
+ * `[Part]` services
  * `param string` $serviceName
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-symfony/tree/master/src/Codeception/Module/Symfony.php">Help us to improve documentation. Edit module reference</a></div>
