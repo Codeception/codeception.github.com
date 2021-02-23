@@ -13,7 +13,6 @@ title: Symfony - Codeception - Documentation
 If you use Codeception installed using composer, install this module with the following command:
 
 {% highlight yaml %}
-
 composer require --dev codeception/module-symfony
 
 {% endhighlight %}
@@ -21,7 +20,6 @@ composer require --dev codeception/module-symfony
 Alternatively, you can enable `Symfony` module in suite configuration file and run
  
 {% highlight yaml %}
-
 codecept init upgrade4
 
 {% endhighlight %}

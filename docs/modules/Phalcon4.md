@@ -65,6 +65,9 @@ actions and avoid conflicts.
 * `orm` - include only `haveRecord/grabRecord/seeRecord/dontSeeRecord` actions.
 * `services` - allows to use `grabServiceFromContainer` and `addServiceToContainer`.
 
+See [WebDriver module](https://codeception.com/docs/modules/WebDriver#Loading-Parts-from-other-Modules)
+for general information on how to load parts of a framework module.
+
 Usage example:
 
 Sample bootstrap (`app/config/bootstrap.php`):

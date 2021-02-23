@@ -8,6 +8,12 @@ title: Codeception Changelog
 # Changelog
 
 
+#### 4.1.18
+
+* Fix cleanup of included test directories [#6117](https://github.com/Codeception/Codeception/issues/6117) by **[rolandsaven](https://github.com/rolandsaven)**
+* Clean command will not delete .gitkeep files in _output directory [#6118](https://github.com/Codeception/Codeception/issues/6118)
+* Add line break between opening tag and namespace in generated Cest and Test files [#6072](https://github.com/Codeception/Codeception/issues/6072)
+
 #### 4.1.17
 
 * Fix `codecept run suite` when suite name matches directory (bug introduced in 4.1.16)
@@ -138,7 +144,7 @@ title: Codeception Changelog
 
 #### 3.1.2
 
-* **[Doctrine2]** Support non-entity doctrine **[id](https://github.com/id)** on the haveInRepository debug message by **[Basster](https://github.com/Basster)** 
+* **[Doctrine2]** Support non-entity doctrine **[id](https://github.com/id)** on the haveInRepository debug message by **[Basster](https://github.com/Basster)**
 * [Frameworks][PhpBrowser] Improved detection of content-type for .fail files by **[jasny](https://github.com/jasny)**
 * [Frameworks][PhpBrowser] Add HTML snapshots of failing tests to HTML Report by **[reinholdfuereder](https://github.com/reinholdfuereder)**
 * **[Symfony]** Fixed runConsoleCommand by **[wirwolf](https://github.com/wirwolf)**
@@ -152,7 +158,7 @@ title: Codeception Changelog
 #### 3.1.1
 
 * Preparation for Symfony 5, removes deprecation message when Symfony 4.3 components are used. See [#5670](https://github.com/Codeception/Codeception/issues/5670) by **[Naktibalda](https://github.com/Naktibalda)**
-* **[Db]** Support initial queries execution after creating connection. See [#5660](https://github.com/Codeception/Codeception/issues/5660) by **[tadasauciunas](https://github.com/tadasauciunas)** 
+* **[Db]** Support initial queries execution after creating connection. See [#5660](https://github.com/Codeception/Codeception/issues/5660) by **[tadasauciunas](https://github.com/tadasauciunas)**
 
 ```yml
 Db:
@@ -163,15 +169,15 @@ Db:
         - 'SET NAMES utf8;'
 ```
 
-* Do not fail steps for `retry` and `tryTo` step decorators. Fixes [#5666](https://github.com/Codeception/Codeception/issues/5666) by **[Mitrichius](https://github.com/Mitrichius)** 
-* **[Symfony]** Added `runSymfonyConsoleCommand` by **[wirwolf](https://github.com/wirwolf)** 
+* Do not fail steps for `retry` and `tryTo` step decorators. Fixes [#5666](https://github.com/Codeception/Codeception/issues/5666) by **[Mitrichius](https://github.com/Mitrichius)**
+* **[Symfony]** Added `runSymfonyConsoleCommand` by **[wirwolf](https://github.com/wirwolf)**
 
 ```php
 $result = $I->runSymfonyConsoleCommand('hello:world', '--verbose' => 3]);
 ```
-* **[Doctrine2]** Bugfix: calling `haveInRepository` with preconstructed entity requires providing constructor parameters. See [#5680](https://github.com/Codeception/Codeception/issues/5680) by **[burned42](https://github.com/burned42)** 
-* **[Doctrine2]** Make debug message in `haveInRepository` to support entities with composite keys of entities in bidirectional relations. See [#5685](https://github.com/Codeception/Codeception/issues/5685) by Basster. Fixes [#5663](https://github.com/Codeception/Codeception/issues/5663). 
-* Adds possibility to use absolute path for `groups` files in `codeception.yml`. [#5674](https://github.com/Codeception/Codeception/issues/5674) by **[maks-rafalko](https://github.com/maks-rafalko)** 
+* **[Doctrine2]** Bugfix: calling `haveInRepository` with preconstructed entity requires providing constructor parameters. See [#5680](https://github.com/Codeception/Codeception/issues/5680) by **[burned42](https://github.com/burned42)**
+* **[Doctrine2]** Make debug message in `haveInRepository` to support entities with composite keys of entities in bidirectional relations. See [#5685](https://github.com/Codeception/Codeception/issues/5685) by Basster. Fixes [#5663](https://github.com/Codeception/Codeception/issues/5663).
+* Adds possibility to use absolute path for `groups` files in `codeception.yml`. [#5674](https://github.com/Codeception/Codeception/issues/5674) by **[maks-rafalko](https://github.com/maks-rafalko)**
 * Fixes the issue with paths in `groups` section when `codeception.yml` is not in the root of the project. [#5674](https://github.com/Codeception/Codeception/issues/5674)) by maks-rafalko.
 * **[Asserts]** `expectException` deprecated in favor of `expectThrowable`.
 
@@ -269,7 +275,6 @@ $result = $I->runSymfonyConsoleCommand('hello:world', '--verbose' => 3]);
 * **[FTP]** Updated to phpseclib v2 constants
 * Fixes: Gherkin Scenarios not loading when specified in group file by **[mozillalives](https://github.com/mozillalives)**. See [#5457](https://github.com/Codeception/Codeception/issues/5457)
 
-
 #### 2.5.5
 
 * **[Laravel]** Fix missing declaration shouldReport in Laravel 5.8 by **[edno](https://github.com/edno)**
@@ -291,31 +296,30 @@ $result = $I->runSymfonyConsoleCommand('hello:world', '--verbose' => 3]);
 * **[FTP]** Compatibility with phpseclib v2 by **[kardagan](https://github.com/kardagan)**
 * **[JsonType]** Fixed issue [#5230](https://github.com/Codeception/Codeception/issues/5230) Dropped filters after a string:regex by **[ellisgl](https://github.com/ellisgl)**
 * **[Symfony]** Fixed persistent service functionality for Symfony 3 by **[Naktibalda](https://github.com/Naktibalda)**
-* **[ZendExpressive]** Set Cookie header in request by **[Naktibalda](https://github.com/Naktibalda)** 
+* **[ZendExpressive]** Set Cookie header in request by **[Naktibalda](https://github.com/Naktibalda)**
 * Updated vlucas/phpdotenv package to ^3.0 version by **[KartaviK](https://github.com/KartaviK)**
 * Documentation improvements by **[chrisaligent](https://github.com/chrisaligent)** **[richleland](https://github.com/richleland)** **[SanzhiyevMergen](https://github.com/SanzhiyevMergen)** **[sdlins](https://github.com/sdlins)**
 
-
 #### 2.5.2
 
-* **[ZendExppressive]** Support for Zend Expressive v3 by **[Naktibalda](https://github.com/Naktibalda)** 
+* **[ZendExppressive]** Support for Zend Expressive v3 by **[Naktibalda](https://github.com/Naktibalda)**
 * **[ZendExppressive]** Added options to reload application between tests and between requests by **[Naktibalda](https://github.com/Naktibalda)**
 * **[Symfony]** Fix "already initialized service", "reboot kernel issue" [#5262](https://github.com/Codeception/Codeception/issues/5262) by **[gdmfx](https://github.com/gdmfx)**
 * {Yii2] Prevent NPE [#5259](https://github.com/Codeception/Codeception/issues/5259) by **[SilverFire](https://github.com/SilverFire)**
 * **[Db]** isPopulated method was hidden by renaming to _isPopulated by **[Naktibalda](https://github.com/Naktibalda)**
-* **[Db]** don't clear database for empty dump by **[Slamdunk](https://github.com/Slamdunk)** 
+* **[Db]** don't clear database for empty dump by **[Slamdunk](https://github.com/Slamdunk)**
 * **[AMQP]** added methods `seeQueueIsEmpty`, `dontSeeQueueIsEmpty`, `seeNumberOfMessagesInQueue`, `scheduleQueueCleanup` method by **[kardagan](https://github.com/kardagan)**
-* [REST][PhpBrowser][Frameworks] Save page source as .fail.json or .fail.xml depending on content type, by **[freiondrej](https://github.com/freiondrej)** 
+* [REST][PhpBrowser][Frameworks] Save page source as .fail.json or .fail.xml depending on content type, by **[freiondrej](https://github.com/freiondrej)**
 * **[Doctrine2]** Cleanup property works after on reconfigure [#5250](https://github.com/Codeception/Codeception/issues/5250) by **[joelmedeiros](https://github.com/joelmedeiros)**
 * **[JsonType]** Allow to use : in regex filter ([#5273](https://github.com/Codeception/Codeception/issues/5273)) by **[ellisgl](https://github.com/ellisgl)**
 * **[WebDriver]** Print curl error to debug output if WebDriver failed to connect [#5315](https://github.com/Codeception/Codeception/issues/5315) by **[Naktibalda](https://github.com/Naktibalda)**
-* **[Logger]** Ignores empty context and extra fields, by **[siad007](https://github.com/siad007)** 
+* **[Logger]** Ignores empty context and extra fields, by **[siad007](https://github.com/siad007)**
 * **[Recorder]** Improved steps ignoring in Recorder extension with meta steps and annotations support [#5210](https://github.com/Codeception/Codeception/issues/5210) by **[sspat](https://github.com/sspat)**.
 * `@dataProvider` works with yield/generators [#5271](https://github.com/Codeception/Codeception/issues/5271) by **[burned42](https://github.com/burned42)**
 * Fixed issue ArrayContainsComparator do not Intersect correctly Empty expected nested array [#5303](https://github.com/Codeception/Codeception/issues/5303) by **[malinink](https://github.com/malinink)**
 * Fixed issue of steps with mocked objects [#5163](https://github.com/Codeception/Codeception/issues/5163) by **[dh9325](https://github.com/dh9325)**
 * Added Environment Name To Descriptor Unique Signatures [#5294](https://github.com/Codeception/Codeception/issues/5294) by **[Tenzian](https://github.com/Tenzian)**
-* Run command: Added `--phpunit-xml` option, which produces xml report having the same structure as PhpUnit's [#5004](https://github.com/Codeception/Codeception/issues/5004) by **[Naktibalda](https://github.com/Naktibalda)** 
+* Run command: Added `--phpunit-xml` option, which produces xml report having the same structure as PhpUnit's [#5004](https://github.com/Codeception/Codeception/issues/5004) by **[Naktibalda](https://github.com/Naktibalda)**
 * Bootstrap command: Changed namespace shortcut to `-s` [#5275](https://github.com/Codeception/Codeception/issues/5275) by **[Naktibalda](https://github.com/Naktibalda)**
 * Improved the docs; by **[h311ion](https://github.com/h311ion)**, **[gimler](https://github.com/gimler)**, **[picass0](https://github.com/picass0)**, **[josephzidell](https://github.com/josephzidell)**
 
@@ -334,10 +338,10 @@ $result = $I->runSymfonyConsoleCommand('hello:world', '--verbose' => 3]);
   * the ability to change colors in the generated list based on configuration
 * **[Db]** Made `_loadDump` unconditional like it was in 2.4. Fixed [#5195](https://github.com/Codeception/Codeception/issues/5195) by **[Naktibalda](https://github.com/Naktibalda)**
 * **[Db]** Allows to specify more than one dump file. See [#5220](https://github.com/Codeception/Codeception/issues/5220) by **[Fenikkusu](https://github.com/Fenikkusu)**
-* **[WebDriver]** Added `waitForElementClickable` by **[FatBoyXPC](https://github.com/FatBoyXPC)** 
-* Code coverage: added `work_dir` config option to map remote paths to local. See [#5225](https://github.com/Codeception/Codeception/issues/5225) by **[Fenikkusu](https://github.com/Fenikkusu)** 
+* **[WebDriver]** Added `waitForElementClickable` by **[FatBoyXPC](https://github.com/FatBoyXPC)**
+* Code coverage: added `work_dir` config option to map remote paths to local. See [#5225](https://github.com/Codeception/Codeception/issues/5225) by **[Fenikkusu](https://github.com/Fenikkusu)**
 * **[Lumen]** Added Lumen 5.5+ support for getRoutes method by **[lendormi](https://github.com/lendormi)**
-* **[Yii2]** Restored `getApplication()` API by **[Slamdunk](https://github.com/Slamdunk)** 
+* **[Yii2]** Restored `getApplication()` API by **[Slamdunk](https://github.com/Slamdunk)**
 * **[Yii2]** Added deprecation doc to `getApplication()` by **[Slamdunks](https://github.com/Slamdunks)**
 * **[Doctrine2]** Reloading module on reconfigure to persist new configs. See [#5241](https://github.com/Codeception/Codeception/issues/5241) by **[joelmedeiros](https://github.com/joelmedeiros)**
 * **[Doctrine2]** Rollback all nested transactions created within test by **[Dukecz](https://github.com/Dukecz)**
@@ -356,46 +360,46 @@ $result = $I->runSymfonyConsoleCommand('hello:world', '--verbose' => 3]);
 * Rerun tests in **[shuffle mode](https://codeception.com/docs/07-AdvancedUsage#Shuffle)** in the same order by setting seed value. By **[SamMousa](https://github.com/SamMousa)**
 * [PhpBrowser][Frameworks] **Breaking Change** `seeLink` now matches the end of a URL, instead of partial matching. By **[Slamdunk](https://github.com/Slamdunk)**
   * Previous: `$I->seeLink('Delete','/post/1');` matches `<a href="/post/199">Delete</a>`
-  * Now: `$I->seeLink('Delete','/post/1');` does NOT match `<a href="/post/199">Delete</a>` 
-* **[WebDriver]** Keep coverage cookies in `loadSessionSnapshot`. Fix by **[rajras](https://github.com/rajras)** 
+  * Now: `$I->seeLink('Delete','/post/1');` does NOT match `<a href="/post/199">Delete</a>`
+* **[WebDriver]** Keep coverage cookies in `loadSessionSnapshot`. Fix by **[rajras](https://github.com/rajras)**
 * **[Yii2]** Prevent null pointer exception by **[SilverFire](https://github.com/SilverFire)**. See [#5136](https://github.com/Codeception/Codeception/issues/5136)
 * **[Yii2]** Fixed issue with empty response stream by **[SamMousa](https://github.com/SamMousa)**.
 * **[Yii2]** Fixed `Too many connections` issue [#4926](https://github.com/Codeception/Codeception/issues/4926). By **[roslov](https://github.com/roslov)**
 * **[Yii2]** Fixed [#4769](https://github.com/Codeception/Codeception/issues/4769): `amLoggedInAs()` throws TypeError. By **[SamMousa](https://github.com/SamMousa)**
 * [Recorder Extension] Fixing recorder extension issues caused by phpunit 7.2.7 update by **[OneEyedSpaceFish](https://github.com/OneEyedSpaceFish)**
-* [Logger Extension] Added `codecept_log` function to write to logs from any place. Fixes [#3551](https://github.com/Codeception/Codeception/issues/3551) by **[siad007](https://github.com/siad007)**  
+* [Logger Extension] Added `codecept_log` function to write to logs from any place. Fixes [#3551](https://github.com/Codeception/Codeception/issues/3551) by **[siad007](https://github.com/siad007)**
 * **[WebDriver]** Report correct strict locator in error message. When `see()` and `dontSee()` are used with array selector. Fix by **[Naktibalda](https://github.com/Naktibalda)**.
 * **[Phalcon]** Use bind for find record. See [#5158](https://github.com/Codeception/Codeception/issues/5158) by **[Joilson](https://github.com/Joilson)**
-* **[Phalcon]** Add support for nullable fields in `findRecord()` by **[arjanwestdorp](https://github.com/arjanwestdorp)** 
+* **[Phalcon]** Add support for nullable fields in `findRecord()` by **[arjanwestdorp](https://github.com/arjanwestdorp)**
 * Added `memory_limit` to `dry-run` command by **[siad007](https://github.com/siad007)**. Fixes [#5090](https://github.com/Codeception/Codeception/issues/5090)
 * Added ext-curl to the composer require section by **[siad007](https://github.com/siad007)**
 * Make `coverage: show_only_summary` configurable. See [#5142](https://github.com/Codeception/Codeception/issues/5142) by **[Quexer69](https://github.com/Quexer69)**
-* Ensure php extension `mbstring` is available by **[siad007](https://github.com/siad007)**. Fixes [#4575](https://github.com/Codeception/Codeception/issues/4575) 
+* Ensure php extension `mbstring` is available by **[siad007](https://github.com/siad007)**. Fixes [#4575](https://github.com/Codeception/Codeception/issues/4575)
 
 #### 2.4.5
 
 * Fixed PHPUnit 7.2 compatibility.
-* Introduced **RunBefore** extension to execute scripts before running tests. See [#5049](https://github.com/Codeception/Codeception/issues/5049) by **[aashmelev](https://github.com/aashmelev)**.  
+* Introduced **RunBefore** extension to execute scripts before running tests. See [#5049](https://github.com/Codeception/Codeception/issues/5049) by **[aashmelev](https://github.com/aashmelev)**.
 * **[Db]** Added two options for MySQL by **[bangertz](https://github.com/bangertz)**
-    * `ssl_cipher` - list of one or more permissible ciphers to use for SSL encryption
-    * `ssl_verify_server_cert` - disables certificate CN verification
+  * `ssl_cipher` - list of one or more permissible ciphers to use for SSL encryption
+  * `ssl_verify_server_cert` - disables certificate CN verification
 * **[Db]** Always disconnect before connect when `reconnect` is set. By **[ashnazg](https://github.com/ashnazg)**
 * **[Db]** More explicit PDO closing upon destruction and close opened transactions by **[ashnazg](https://github.com/ashnazg)**.
 * [Recorder Extension] Improved error logging by **[OneEyedSpaceFish](https://github.com/OneEyedSpaceFish)**. See [#5101](https://github.com/Codeception/Codeception/issues/5101)
 * **[Lumen]** Fixed file uploads via REST module. By **[retnek](https://github.com/retnek)**.
-* Fixed: function getMetadata() may not exist, results in fatal error. See [#4913](https://github.com/Codeception/Codeception/issues/4913) by **[marcovtwout](https://github.com/marcovtwout)** 
+* Fixed: function getMetadata() may not exist, results in fatal error. See [#4913](https://github.com/Codeception/Codeception/issues/4913) by **[marcovtwout](https://github.com/marcovtwout)**
 
 #### 2.4.4
 
 * Recently added `extends` property in the `codeception.yml` and `*.suite.yml` files now support absolute paths; by **[silverfire](https://github.com/silverfire)**
 * Fixed absolute paths handling on Windows in ParamLoader; by **[silverfire](https://github.com/silverfire)**
 * **[Yii2]** Refactored database connection handling by **[SamMousa](https://github.com/SamMousa)**. Database connections should now always be closed after tests no matter how you have opened them or who is holding references to them. See  [#5045](https://github.com/Codeception/Codeception/issues/5045)
-* **[Symfony]** Email handling improved by **[mbohal](https://github.com/mbohal)**. Fixes [#5058](https://github.com/Codeception/Codeception/issues/5058).  
-    * Added optional argument `$expectedCount` to `seeEmailIsSent`
-    * Added `dontSeeEmailIsSent`
+* **[Symfony]** Email handling improved by **[mbohal](https://github.com/mbohal)**. Fixes [#5058](https://github.com/Codeception/Codeception/issues/5058).
+  * Added optional argument `$expectedCount` to `seeEmailIsSent`
+  * Added `dontSeeEmailIsSent`
 * [Recorder Extension] Added `ignore_steps` option to disable recording of specific steps. By **[sspat](https://github.com/sspat)**.
 * **[WebDriver]** Fixed "No Session Timeout" fatal error by **[davertmik](https://github.com/davertmik)**.
-* **[WebDriver]** Added ability to locate clickable element by its title. See [#5065](https://github.com/Codeception/Codeception/issues/5065) by **[gimler](https://github.com/gimler)**  
+* **[WebDriver]** Added ability to locate clickable element by its title. See [#5065](https://github.com/Codeception/Codeception/issues/5065) by **[gimler](https://github.com/gimler)**
 * **[Db]** Add `waitlock` config option for the database session to wait for lock in Oracle. By **[ashnazg](https://github.com/ashnazg)**. See [#5069](https://github.com/Codeception/Codeception/issues/5069)
 * **[REST]** Fixed `seeXmlResponseEquals` by **[Voziv](https://github.com/Voziv)**
 
@@ -410,7 +414,7 @@ $result = $I->runSymfonyConsoleCommand('hello:world', '--verbose' => 3]);
 #### 2.4.2
 
 * Added support for `extends` in the `codeception.yml` and `*.suite.yml` files; by **[johannesschobel](https://github.com/johannesschobel)**.
- Allows to inherit current config from a provided file. See example for `functional.suite.yml`:
+  Allows to inherit current config from a provided file. See example for `functional.suite.yml`:
 
 ```yml
 actor: FunctionalTester
@@ -426,14 +430,14 @@ modules:
 * **[WebDriverIO]** Added `deleteSessionSnapshot` by **[vi4o](https://github.com/vi4o)**
 * **[Symfony]** Added support for custom kernel names with `kernel_class` config option. By **[omnilight](https://github.com/omnilight)**.
 * **[Asserts]** Better exception message for `expectException` by **[Slamdunk](https://github.com/Slamdunk)**
-* **[REST]** Decode all non-arrays to array. See [#4946](https://github.com/Codeception/Codeception/issues/4946) by **[Amunak](https://github.com/Amunak)**, fixes [#4944](https://github.com/Codeception/Codeception/issues/4944). 
+* **[REST]** Decode all non-arrays to array. See [#4946](https://github.com/Codeception/Codeception/issues/4946) by **[Amunak](https://github.com/Amunak)**, fixes [#4944](https://github.com/Codeception/Codeception/issues/4944).
 * **[ZF2]** Fixed compatibility with ZF2 ServiceManager by **[omnilight](https://github.com/omnilight)**.
 * **[Laravel5]** Fixed memory leak when using Laravel factories inside Codeception. See [#4971](https://github.com/Codeception/Codeception/issues/4971) by **[AdrianSkierniewski](https://github.com/AdrianSkierniewski)**
 * **[Db]** Added support for `null` values in MSSQL driver by **[philek](https://github.com/philek)**
 * Handle absolute paths in ParamsLoader by **[SilverFire](https://github.com/SilverFire)**
-* Fix error on single file test. See [#4986](https://github.com/Codeception/Codeception/issues/4986) by **[mikbox74](https://github.com/mikbox74)** 
+* Fix error on single file test. See [#4986](https://github.com/Codeception/Codeception/issues/4986) by **[mikbox74](https://github.com/mikbox74)**
 * Upgraded to Codeception/Stub 2.0 by **[Naktibalda](https://github.com/Naktibalda)**, fixed compatibility.
- 
+
 
 #### 2.4.1
 
@@ -449,8 +453,8 @@ modules:
   * Fixtures method is now configurable
   * Subset of misconfigurations are now detected and informative messages created
 * Fixed using `$settings['path']` in `Codeception\Configuration::suiteSettings()` on Windows by **[olegpro](https://github.com/olegpro)**  
-(starting with `/`), you must change it. **[silverfire](https://github.com/silverfire)**
-* **[Laravel5]** Added Laravel 5.4+ (5.1+ backward compatible) support for `callArtisan` method in Laravel5 module. See [#4860](https://github.com/Codeception/Codeception/issues/4860) by **[mohamed-aiman](https://github.com/mohamed-aiman)** 
+  (starting with `/`), you must change it. **[silverfire](https://github.com/silverfire)**
+* **[Laravel5]** Added Laravel 5.4+ (5.1+ backward compatible) support for `callArtisan` method in Laravel5 module. See [#4860](https://github.com/Codeception/Codeception/issues/4860) by **[mohamed-aiman](https://github.com/mohamed-aiman)**
 * Fixed [#4854](https://github.com/Codeception/Codeception/issues/4854): unnecessary escaping in operation arguments logging by **[nicholascus](https://github.com/nicholascus)**
 * Fixed humanizing steps for utf8 strings by **[nicholascus](https://github.com/nicholascus)**. See [#4850](https://github.com/Codeception/Codeception/issues/4850)
 * Fixed parsing relative urls in `parse_url`. See [#4853](https://github.com/Codeception/Codeception/issues/4853) by **[quantum-x](https://github.com/quantum-x)**
@@ -466,7 +470,7 @@ modules:
 * Cest hooks behavior changed (by **[fffilimonov](https://github.com/fffilimonov)**):
   * `_failed` called when test fails
   * `_passed` called when tests is successful
-  * `_after` is called for failing and successful tests   
+  * `_after` is called for failing and successful tests
 
 **Upgrade Notice**: If you face issues with underscore PHPUnit class names (like PHPUnit_Framework_Assert) you have two options:
 
@@ -485,13 +489,12 @@ $I->amOnPage('/form/password_argument');
 $I->fillField('password', new PasswordArgument('thisissecret'));
 ```
 
-* **[WebDriver]** added `clearField` method to clean up input fields by **[eknej](https://github.com/eknej)** 
-* **[DataFactory]** added `make` method to create instances without saving them to database. But **[ibpavlov](https://github.com/ibpavlov)** 
+* **[WebDriver]** added `clearField` method to clean up input fields by **[eknej](https://github.com/eknej)**
+* **[DataFactory]** added `make` method to create instances without saving them to database. But **[ibpavlov](https://github.com/ibpavlov)**
 * **[REST]** Fixed passing a file to `sendPOST()` without name, size or type parameter. BY **[zebraf1](https://github.com/zebraf1)**
-* **[REST]** Add missing / to relative url from config by **[bscheshirwork](https://github.com/bscheshirwork)** 
+* **[REST]** Add missing / to relative url from config by **[bscheshirwork](https://github.com/bscheshirwork)**
 * Fixed HTML Report marks tests as succeeded by **[mpgo13](https://github.com/mpgo13)**
-* `clean` command works recursively with included setups. By **[davidnewcomb](https://github.com/davidnewcomb)** 
-
+* `clean` command works recursively with included setups. By **[davidnewcomb](https://github.com/davidnewcomb)**
 
 #### 2.3.8
 
@@ -499,23 +502,23 @@ $I->fillField('password', new PasswordArgument('thisissecret'));
   * Use `Codeception\Stub` instead of `Codeception\Util\Stub`
   * Mocking methods `::once`, `::never`, etc moved to `Codeception\Stub\Expected` class
   * Calling mocking methods from `Codeception\Util\Stub` provides deprecation warning.
-  * Non-static API is [recommended to use for mocking](http://codeception.com/docs/05-UnitTests) 
+  * Non-static API is [recommended to use for mocking](http://codeception.com/docs/05-UnitTests)
 * **[WebDriver]** Added `executeAsyncJS` action to run asynchronous scripts.
-* **[WebDriver]** Added second parameter to `executeJS` to pass additional arguments into JavaScript function. 
+* **[WebDriver]** Added second parameter to `executeJS` to pass additional arguments into JavaScript function.
 * **[Yii2]** `setCookie` signs cookies when signing enabled. [#4656](https://github.com/Codeception/Codeception/issues/4656) By **[SamMousa](https://github.com/SamMousa)**
 * **[Yii2]** Method `createAndSetCsrfCookie` added. [#4656](https://github.com/Codeception/Codeception/issues/4656) By **[SamMousa](https://github.com/SamMousa)**
 * Compatibility with phpunit-mock-objects 5.* by **[Naktibalda](https://github.com/Naktibalda)**
 * **[DataFactory]** Removed dependency to `league/factory-muffin-faker` by **[Naktibalda](https://github.com/Naktibalda)** and **[Insolita](https://github.com/Insolita)**
-* Fixed auto-rebuilding Actor classes when dependencies are used. See [#4694](https://github.com/Codeception/Codeception/issues/4694) by **[stefankleff](https://github.com/stefankleff)**. 
+* Fixed auto-rebuilding Actor classes when dependencies are used. See [#4694](https://github.com/Codeception/Codeception/issues/4694) by **[stefankleff](https://github.com/stefankleff)**.
 * **[Symfony]** allows to use Symfony Dotenv component to parse `.env` files. Fix by **[ebuildy](https://github.com/ebuildy)**
-* Added the ability to export the code coverage data in PHPUnit xml format by **[tobiasstadler](https://github.com/tobiasstadler)** 
-  * `--coverage-phpunit` option added 
+* Added the ability to export the code coverage data in PHPUnit xml format by **[tobiasstadler](https://github.com/tobiasstadler)**
+  * `--coverage-phpunit` option added
   * Allows to use mutation testing with [Inflection](https://infection.github.io)
 * **[ZendExpressive]** Added Doctrine2 integration by **[artmnv](https://github.com/artmnv)**
 * [PhpBrowser][Frameworks] Added `_getResponseStatusCode` hidden method for using in helpers. By **[FanchTheSystem](https://github.com/FanchTheSystem)**
 * **[Yii2]** Use Yii DI to instantiate record class. Fixes [#4762](https://github.com/Codeception/Codeception/issues/4762). By **[bscheshirwork](https://github.com/bscheshirwork)**
-* Remote Code Coverage improvements [#4768](https://github.com/Codeception/Codeception/issues/4768) by **[bscheshirwork](https://github.com/bscheshirwork)** 
-  * Remove `:port` for cookie domain; 
+* Remote Code Coverage improvements [#4768](https://github.com/Codeception/Codeception/issues/4768) by **[bscheshirwork](https://github.com/bscheshirwork)**
+  * Remove `:port` for cookie domain;
   * `->amOnPage('/');` executed when running code coverage with WebDriver
 * Fixed running single test with `include` config parameter. Fixes [#4733](https://github.com/Codeception/Codeception/issues/4733) by **[ppetpadriew](https://github.com/ppetpadriew)**
 * Fixed running single test when a custom suite path is configured (For instance, in single-suite setups).
@@ -603,7 +606,7 @@ thanks to **[carusogabriel](https://github.com/carusogabriel)** for refactoring 
 
 * Added `@prepare` annotation to make realtime configuration for tests in Cest and Test classes. [See documentation](http://codeception.com/docs/06-ModulesAndHelpers#Runtime-Configuration-of-a-Test).
 
- Example: disabling Doctrine2 database transaction for a test
+Example: disabling Doctrine2 database transaction for a test
 
 ```php
 <?php
@@ -620,9 +623,9 @@ protected function disableTransactions(Doctrine2 $module)
 * **[WebDriver]** **SmartWait**. Automatically waits for a few extra seconds for element to appear on a page before failing. Can reduce high usage of `wait*` methods. [See Documentation](http://codeception.com/docs/03-AcceptanceTests#SmartWait)
 * Added [RunProcess extension](http://codeception.com/extensions#RunProcess). Use it to start/stop Selenium (or other process) automatically for a test suite.
 * **[WebDriver]** Customization improvements:
-    * added `start` option to disable autostart of a browser for tests. (can be useful for Cloud testing setups)
-    * added `_capabilities` method for setting desired capabilities in runtime (can be combined with `@prepare` annotation)
-    * `_initializeSession` and `_closeSession` can be used in Helpers to start and stop browser manually (combine with `start: false` config)
+  * added `start` option to disable autostart of a browser for tests. (can be useful for Cloud testing setups)
+  * added `_capabilities` method for setting desired capabilities in runtime (can be combined with `@prepare` annotation)
+  * `_initializeSession` and `_closeSession` can be used in Helpers to start and stop browser manually (combine with `start: false` config)
 * Fixed running a single test from a global config when using included configs. See [#4366](https://github.com/Codeception/Codeception/issues/4366) by **[zebraf1](https://github.com/zebraf1)** (improves PhpStorm integration)
 * [Doctrine2][Laravel5][Yii2][Phalcon] Print debug information for started/stopped transactions in tests. See [#4352](https://github.com/Codeception/Codeception/issues/4352)
 * [PhpBrowser][Frameworks] click with context respects base tag [#4330](https://github.com/Codeception/Codeception/issues/4330) by **[Naktibalda](https://github.com/Naktibalda)**.
@@ -851,7 +854,7 @@ When I have 100$ => $num === 100
 And I have $100 => $num === 100
 ```
 
-  * escaped strings can now be passed into placeholders. Fixes [#3676](https://github.com/Codeception/Codeception/issues/3676).
+* escaped strings can now be passed into placeholders. Fixes [#3676](https://github.com/Codeception/Codeception/issues/3676).
 
 * Codeception is tested with latest verision of HHVM
 * Extensions loader refactored:
@@ -893,8 +896,8 @@ extensions:
 #### 2.2.6 (October 2016)
 
 * Ability to update config on run with `--override` (`-o`) option. Usage Examples:
-    * `codecept run -o "settings: shuffle: true"`: enable shuffle
-    * `codecept run -o "settings: lint: false"`: disable linting
+  * `codecept run -o "settings: shuffle: true"`: enable shuffle
+  * `codecept run -o "settings: lint: false"`: disable linting
 * **[WebDriver]** **HTML report to include screenshots of failed tests.** See [#3602](https://github.com/Codeception/Codeception/issues/3602)
 * [PhpBrowser][Frameworks] HTML report to include HTML of failed tests. See [#3602](https://github.com/Codeception/Codeception/issues/3602)
 * **[Apc]** **Module added** to interact with the Alternative PHP Cache (APC) using either APCu or APC extension. By **[sergeyklay](https://github.com/sergeyklay)**
@@ -975,15 +978,15 @@ extensions:
 #### 2.2.3 (July 2016)
 
 * **[Yii2]** Improvements:
-    * Added `init` part to initialize Yii app for unit and acceptance testing.
-    * added `entryScript` and `entryUrl` config values for acceptance testing.
-    * Fixtures support: `haveFixtures`, `grabFixtures` methods.
-    * Yii logs to be printed in debug mode.
-    * added `amOnRoute` method.
-    * added `amloggedInAs` method.
-    * added `grabComponent` method.
-    * added `seeEmailIsSent`, `grabLastSentEmail`, etc and email part.
-    * assetManager disabled for unit/functional tests.
+  * Added `init` part to initialize Yii app for unit and acceptance testing.
+  * added `entryScript` and `entryUrl` config values for acceptance testing.
+  * Fixtures support: `haveFixtures`, `grabFixtures` methods.
+  * Yii logs to be printed in debug mode.
+  * added `amOnRoute` method.
+  * added `amloggedInAs` method.
+  * added `grabComponent` method.
+  * added `seeEmailIsSent`, `grabLastSentEmail`, etc and email part.
+  * assetManager disabled for unit/functional tests.
 * Fixed `@example` to `@group` defined in group files. By **[eXorus](https://github.com/eXorus)**. Fixes [#3278](https://github.com/Codeception/Codeception/issues/3278)
 * Added `ReqiuiresPackage` interface to set external dependencies for modules.
 * Fixed timing values in output. Closes [#3331](https://github.com/Codeception/Codeception/issues/3331)
@@ -1035,9 +1038,9 @@ extensions:
 
 * **Gherkin format support**. [Announcement](https://github.com/Codeception/Codeception/pull/2750#issue-129899745)
 * **Core Test Format Refactorings** Codeception becomes true multiformat testing platform. Format requires a [Loader](https://github.com/Codeception/Codeception/blob/master/src/Codeception/Test/Loader/LoaderInterface.php) and class extending [Test](https://github.com/Codeception/Codeception/blob/master/src/Codeception/Test/Test.php) class, implementing [TestInterface](https://github.com/Codeception/Codeception/blob/master/src/Codeception/TestInterface.php).
-    * *Breaking* `Codeception\TestCase` replaced with `Codeception\TestInterface` in code and in module signatures.
-    * *Breaking* Cept/Cest classes are no longer extending `PHPUnit_Framework_TestCase`, so they don't have `expectException`, `getMock`, etc.
-    * Reduced stack trace for scenario-driven test formats. Codeception tests implement `PHPUnit_Framework_Test` instead of extending heavy `PHPUnit_Framework_TestCase` class.
+  * *Breaking* `Codeception\TestCase` replaced with `Codeception\TestInterface` in code and in module signatures.
+  * *Breaking* Cept/Cest classes are no longer extending `PHPUnit_Framework_TestCase`, so they don't have `expectException`, `getMock`, etc.
+  * Reduced stack trace for scenario-driven test formats. Codeception tests implement `PHPUnit_Framework_Test` instead of extending heavy `PHPUnit_Framework_TestCase` class.
 * *Breaking* **Conflicts API implemented** Frameworks + PhpBrowser + WebDriver can't be used together unless only non-conflicting part is used. [Announcement](http://codeception.com/03-05-2016/codeception-2.2.-upcoming-features.html#conflicts)
 * **Examples** as an alternative to Data Providers. [Announcement](http://codeception.com/03-10-2016/even-more-features-of-codeception.html#examples)
 * **Params** loading from yml, env files or environment. [Announcement](http://codeception.com/03-05-2016/codeception-2.2.-upcoming-features.html#params)
