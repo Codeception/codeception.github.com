@@ -118,7 +118,7 @@ class RoboFile extends \Robo\Tasks
     public function buildDocs()
     {
         $this->say('generating documentation from source files');
-        $this->taskComposerUpdate()->run();
+        $this->taskComposerUpdate()->preferSource()->run();
         $this->buildDocsModules();
         $this->buildDocsUtils();
         $this->buildDocsCommands();
@@ -132,7 +132,7 @@ class RoboFile extends \Robo\Tasks
     {
         $this->taskCleanDir('docs/modules')->run();
         $this->say("Modules");
-        $modules = Finder::create()->files()->name('*.php')->in(__DIR__ . '/vendor/codeception/module-*/src/Codeception/Module');
+        $modules = Finder::create()->files()->name('*.php')->in(__DIR__ . '/vendor/codeception/module-*/src/Codeception/Module')->depth('== 0');
         foreach ($modules as $module) {
             $moduleName     = basename(substr($module, 0, -4));
             $className      = 'Codeception\Module\\' . $moduleName;
