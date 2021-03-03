@@ -302,7 +302,7 @@ In acceptance or functional test you can save page screenshot or html snapshot.
 {% highlight php %}
 
 <?php
-// inside PhpBrowser, WebDrvier, frameworks
+// inside PhpBrowser, WebDriver, frameworks
 // saves current HTML and prints a path to created file 
 $I->makeHtmlSnapshot();
 
