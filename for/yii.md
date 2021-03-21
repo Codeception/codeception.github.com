@@ -14,7 +14,7 @@ sidebar: |
 
   * [Yii2 Module](/docs/modules/Yii2) 
   * [Yii Basic Template](https://github.com/yiisoft/yii2-app-basic)
-  * [Yii Advanced Temlate](https://github.com/yiisoft/yii2-app-advanced)
+  * [Yii Advanced Template](https://github.com/yiisoft/yii2-app-advanced)
 
 ---
 
