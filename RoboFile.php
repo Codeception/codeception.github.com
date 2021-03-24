@@ -159,17 +159,9 @@ class RoboFile extends \Robo\Tasks
         $buttons  = [
             'source' => $source,
         ];
-        // building version switcher
-        foreach ([
-                     '3.1',
-                     '2.5',
-                     '1.8'
-                 ] as $branch) {
-            $buttons[$branch] = self::REPO_BLOB_URL . "/$branch/docs/modules/$name.md";
-        }
         $buttonHtml = "\n\n" . '<div class="btn-group" role="group" style="float: right" aria-label="...">';
         $releasesUrl = "https://github.com/Codeception/module-$name/releases";
-        $buttonHtml .= '<a class="btn btn-default" href="'.$releasesUrl.'">Changelog</a>';
+        $buttonHtml .= '<a class="btn btn-default" href="'.$releasesUrl.'">Releases</a>';
         foreach ($buttons as $link => $url) {
             if ($link == 'source') {
                 $link = "<strong>$link</strong>";
