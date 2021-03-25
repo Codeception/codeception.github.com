@@ -467,7 +467,6 @@ For example, you might need some tests to be executed in Firefox only, and some 
 The desired environments can be specified with the `@env` annotation for tests in Test and Cest formats:
 
 {% highlight php %}
-
 <?php
 class UserCest
 {
@@ -482,17 +481,6 @@ class UserCest
         // I do something
     }
 }
-
-{% endhighlight %}
-
-For Cept you should use simple comments:
-
-{% highlight php %}
-
-<?php
-// @env firefox
-// @env chrome
-
 {% endhighlight %}
 
 This way you can easily control which tests will be executed for each environment.
@@ -524,12 +512,9 @@ $scenario->current('capabilities');
 
 {% endhighlight %}
 
-You can access `\Codeception\Scenario` in the Cept and Cest formats.
-In Cept, the `$scenario` variable is available by default,
-while in Cest you should retrieve it through dependency injection:
+You can inject `\Codeception\Scenario` like this:
 
 {% highlight php %}
-
 <?php
 public function myTest(\AcceptanceTester $I, \Codeception\Scenario $scenario)
 {
@@ -537,7 +522,6 @@ public function myTest(\AcceptanceTester $I, \Codeception\Scenario $scenario)
       // ...
     }
 }
-
 {% endhighlight %}
 
 `Codeception\Scenario` is also available in Actor classes and StepObjects. You can access it with `$this->getScenario()`.
@@ -628,7 +612,7 @@ You can pass the `-c` option to any Codeception command (except `bootstrap`), to
 
 $ php vendor/bin/codecept run -c ~/projects/ecommerce/
 $ php vendor/bin/codecept run -c ~/projects/drupal/
-$ php vendor/bin/codecept generate:cept acceptance CreateArticle -c ~/projects/drupal/
+$ php vendor/bin/codecept generate:cest acceptance CreateArticle -c ~/projects/drupal/
 
 {% endhighlight %}
 
@@ -675,18 +659,6 @@ For Test and Cest files you can use the `@group` annotation to add a test to a g
 public function testAdminUser()
 {
 }
-
-{% endhighlight %}
-
-For Cept files, use pseudo-annotations in comments:
-
-{% highlight php %}
-
-<?php
-// @group admin
-// @group editor
-$I = new AcceptanceTester($scenario);
-$I->wantToTest('admin area');
 
 {% endhighlight %}
 
@@ -750,7 +722,7 @@ This will load all found `p*` files in `tests/_data` as groups. Group names will
 
 ## Formats
 
-In addition to the standard test formats (Cept, Cest, Unit, Gherkin) you can implement your own format classes to customise your test execution.
+In addition to the standard test formats (Cest, Unit, Gherkin) you can implement your own format classes to customise your test execution.
 Specify these in your suite configuration:
 
 {% highlight yaml %}
