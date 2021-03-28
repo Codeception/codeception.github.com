@@ -154,6 +154,40 @@ In case your ORM expects a related record itself (Doctrine) then you should use 
 
 {% endhighlight %}
 
+#### Custom store
+
+You can define a custom store for Factory Muffin using `customStore` parameter. It can be a simple class or a factory with `create` method.
+The instantiated object must implement `\League\FactoryMuffin\Stores\StoreInterface`.
+
+Store factory example:
+{% highlight yaml %}
+
+modules:
+    enabled:
+        - DataFactory:
+            customStore: \common\tests\store\MyCustomStoreFactory
+
+{% endhighlight %}
+
+{% highlight php %}
+
+use League\FactoryMuffin\Stores\StoreInterface;
+
+class MyCustomStoreFactory
+{
+    public function create(): StoreInterface
+    {
+        return CustomStore();
+    }
+}
+
+class CustomStore implements StoreInterface
+{
+    // ...
+}
+
+{% endhighlight %}
+
 ### Actions
 
 #### have

@@ -7,12 +7,7 @@ title: Commands - Codeception - Documentation
 
 ## GenerateCept
 
-Generates Cept (scenario-driven test) file:
-
-* `codecept generate:cept suite Login`
-* `codecept g:cept suite subdir/subdir/testnameCept.php`
-* `codecept g:cept suite LoginCept -c path/to/project`
-
+@deprecated
 
 
 
@@ -97,8 +92,8 @@ Executes tests.
 Usage:
 
 * `codecept run acceptance`: run all acceptance tests
-* `codecept run tests/acceptance/MyCept.php`: run only MyCept
-* `codecept run acceptance MyCept`: same as above
+* `codecept run tests/acceptance/MyCest.php`: run only MyCest
+* `codecept run acceptance MyCest`: same as above
 * `codecept run acceptance MyCest:myTestInIt`: run one test from a Cest
 * `codecept run acceptance checkout.feature`: run feature-file
 * `codecept run acceptance -g slow`: run tests from *slow* group
@@ -108,9 +103,9 @@ Verbosity modes:
 
 * `codecept run -v`:
 * `codecept run --steps`: print step-by-step execution
-* `codecept run -vv`:
-* `codecept run --debug`: print steps and debug information
-* `codecept run -vvv`: print internal debug information
+* `codecept run -vv`: print steps and debug information
+* `codecept run --debug`: alias for `-vv`
+* `codecept run -vvv`: print Codeception-internal debug information
 
 Load config:
 
@@ -147,9 +142,9 @@ Options:
  --json                Generate Json Log (default: "report.json")
  --colors              Use colors in output
  --no-colors           Force no colors in output (useful to override config file)
- --silent              Only outputs suite names and final results
+ --silent              Only outputs suite names and final results. Almost the same as `--quiet`
  --steps               Show steps in output
- --debug (-d)          Show debug and scenario output
+ --debug (-d)          Alias for `-vv`
  --bootstrap           Execute bootstrap script before the test
  --coverage            Run with code coverage (default: "coverage.serialized")
  --coverage-html       Generate CodeCoverage HTML report in path (default: "coverage")
@@ -165,8 +160,8 @@ Options:
  --fail-fast (-f)      Stop after first failure
  --no-rebuild          Do not rebuild actor classes on start
  --help (-h)           Display this help message.
- --quiet (-q)          Do not output any message.
- --verbose (-v|vv|vvv) Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+ --quiet (-q)          Do not output any message. Almost the same as `--silent`
+ --verbose (-v|vv|vvv) Increase the verbosity of messages: `v` for normal output, `vv` for steps and debug, `vvv` for Codeception-internal debug
  --version (-V)        Display this application version.
  --ansi                Force ANSI output.
  --no-ansi             Disable ANSI output.
@@ -324,7 +319,7 @@ Creates empty GroupObject - extension which handles all group events.
 
 ## GenerateScenarios
 
-Generates user-friendly text scenarios from scenario-driven tests (Cest, Cept).
+Generates user-friendly text scenarios from scenario-driven tests (Cest).
 
 * `codecept g:scenarios acceptance` - for all acceptance tests
 * `codecept g:scenarios acceptance --format html` - in html format
