@@ -32,7 +32,14 @@ Warning. Using PHAR file and composer in the same project can cause unexpected e
 
 
 
-This module uses Symfony Crawler and HttpKernel to emulate requests and test response.
+This module uses [Symfony's DomCrawler](https://symfony.com/doc/current/components/dom_crawler.html)
+and [HttpKernel Component](https://symfony.com/doc/current/components/http_kernel.html) to emulate requests and test response.
+
+* Access Symfony services through the dependency injection container: [`$I->grabService(...)`](#grabService)
+* Use Doctrine to test against the database: `$I->seeInRepository(...)` - see [Doctrine Module](https://codeception.com/docs/modules/Doctrine2)
+* Assert that emails would have been sent: [`$I->seeEmailIsSent()`](#seeEmailIsSent)
+* Tests are wrapped into Doctrine transaction to speed them up.
+* Symfony Router can be cached between requests to speed up testing.
 
 ### Demo Project
 
@@ -87,7 +94,7 @@ modules:
         - Doctrine2:
             depends: Symfony
         - WebDriver:
-            url: http://your-url.com
+            url: http://example.com
             browser: firefox
 
 {% endhighlight %}
@@ -243,7 +250,7 @@ If you have more than one firewall or firewall context, you can specify the desi
 
 <?php
 $user = $I->grabEntityFromRepository(User::class, [
-    'email' => 'john_doe@gmail.com'
+    'email' => 'john_doe@example.com'
 ]);
 $I->amLoggedInAs($user);
 
@@ -519,6 +526,9 @@ $I->dontSeeElement('input', ['value' => '123456']);
 #### dontSeeEmailIsSent
  
 Checks that no email was sent.
+The check is based on `\Symfony\Component\Mailer\EventListener\MessageLoggerListener`, which means:
+If your app performs a HTTP redirect, you need to suppress it using [stopFollowingRedirects()](https://codeception.com/docs/modules/Symfony#stopFollowingRedirects) first; otherwise this check will *always* pass.
+Starting with version 2.0.0, `codeception/module-symfony` requires your app to use [Symfony Mailer](https://symfony.com/doc/current/mailer.html). If your app still uses [Swift Mailer](https://symfony.com/doc/current/email.html), set your version constraint to `^1.6`.
 
 
 #### dontSeeEventTriggered
@@ -852,13 +862,17 @@ $uri = $I->grabFromCurrentUrl();
 #### grabLastSentEmail
  
 Returns the last sent email.
+The function is based on `\Symfony\Component\Mailer\EventListener\MessageLoggerListener`, which means:
+If your app performs a HTTP redirect after sending the email, you need to suppress it using [stopFollowingRedirects()](https://codeception.com/docs/modules/Symfony#stopFollowingRedirects) first.
+Starting with version 2.0.0, `codeception/module-symfony` requires your app to use [Symfony Mailer](https://symfony.com/doc/current/mailer.html). If your app still uses [Swift Mailer](https://symfony.com/doc/current/email.html), set your version constraint to `^1.6`.
+See also: [grabSentEmails()](https://codeception.com/docs/modules/Symfony#grabSentEmails)
 
 {% highlight php %}
 
 <?php
 $email = $I->grabLastSentEmail();
 $address = $email->getTo()[0];
-$I->assertSame('john_doe@user.com', $address->getAddress());
+$I->assertSame('john_doe@example.com', $address->getAddress());
 
 {% endhighlight %}
 
@@ -958,13 +972,15 @@ $I->grabRepository(UserRepositoryInterface::class);
 #### grabSentEmails
  
 Returns an array of all sent emails.
+The function is based on `\Symfony\Component\Mailer\EventListener\MessageLoggerListener`, which means:
+If your app performs a HTTP redirect after sending the email, you need to suppress it using [stopFollowingRedirects()](https://codeception.com/docs/modules/Symfony#stopFollowingRedirects) first.
+Starting with version 2.0.0, `codeception/module-symfony` requires your app to use [Symfony Mailer](https://symfony.com/doc/current/mailer.html). If your app still uses [Swift Mailer](https://symfony.com/doc/current/email.html), set your version constraint to `^1.6`.
+See also: [grabLastSentEmail()](https://codeception.com/docs/modules/Symfony#grabLastSentEmail)
 
 {% highlight php %}
 
 <?php
 $emails = $I->grabSentEmails();
-$address = $emails[0]->getTo()[0];
-$I->assertSame('john_doe@user.com', $address->getAddress());
 
 {% endhighlight %}
 
@@ -1355,10 +1371,10 @@ $I->seeElement(['css' => 'form input'], ['name' => 'login']);
 
 #### seeEmailIsSent
  
-Checks if the desired number of emails was sent.
-Asserts that 1 email was sent by default, specify the `expectedCount` parameter to modify it.
-The email is checked using Symfony message logger, which means:
-* If your app performs a redirect after sending the email, you need to suppress it using [stopFollowingRedirects](https://codeception.com/docs/modules/Symfony#stopFollowingRedirects).
+Checks if the given number of emails was sent (default `$expectedCount`: 1).
+The check is based on `\Symfony\Component\Mailer\EventListener\MessageLoggerListener`, which means:
+If your app performs a HTTP redirect after sending the email, you need to suppress it using [stopFollowingRedirects()](https://codeception.com/docs/modules/Symfony#stopFollowingRedirects) first.
+Starting with version 2.0.0, `codeception/module-symfony` requires your app to use [Symfony Mailer](https://symfony.com/doc/current/mailer.html). If your app still uses [Swift Mailer](https://symfony.com/doc/current/email.html), set your version constraint to `^1.6`.
 
 {% highlight php %}
 
@@ -2266,7 +2282,7 @@ If you customized the names of the field selectors use $I->submitForm() for full
 
 <?php
 $I->submitSymfonyForm('login_form', [
-    '[email]'    => 'john_doe@gmail.com',
+    '[email]'    => 'john_doe@example.com',
     '[password]' => 'secretForest'
 ]);
 

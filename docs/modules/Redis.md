@@ -44,10 +44,14 @@ to interact with a Redis server.
 * **`host`** (`string`, default `'127.0.0.1'`) - The Redis host
 * **`port`** (`int`, default `6379`) - The Redis port
 * **`database`** (`int`, no default) - The Redis database. Needs to be specified.
+* **`username`** (`string`, no default) - When ACLs are enabled on Redis >= 6.0, both username and password are required for user authentication.
+* **`password`** (`string`, no default) - The Redis password/secret.
 * **`cleanupBefore`**: (`string`, default `'never'`) - Whether/when to flush the database:
     * `suite`: at the beginning of every suite
     * `test`: at the beginning of every test
     * Any other value: never
+
+Note: The full configuration list can be found on Predis' github.
 
 #### Example (`unit.suite.yml`)
 
