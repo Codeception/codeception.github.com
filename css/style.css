@@ -4,7 +4,7 @@
   margin-top: 10px;
 }
 body {
-  background:  #F5F9FD; /** url("/images/bg.png") transparent !important; */
+  background:  #F5F9FD;
   word-wrap: break-word; /* IE */
   overflow-wrap: break-word; /* CSS3 */
   font-family: "Roboto Mono", monospace;
