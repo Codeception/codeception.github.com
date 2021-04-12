@@ -391,10 +391,6 @@ body b {
   border-radius: 20px;
 }
 
-.sponsors--themeisle {
-  padding: 5px;
-}
-
 #footer .sponsors-item .sponsors {
   height: 80px;
   border-radius: 20px;
@@ -1443,7 +1439,8 @@ body #footer .links {
 
   .sponsors--rebilly,
   .sponsors--themeisle,
-  .sponsors--vpnwelt {
+  .sponsors--vpnwelt,
+  .sponsors--translationreport {
     width: 150px;
   }
 
