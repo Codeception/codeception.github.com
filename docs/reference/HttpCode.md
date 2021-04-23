@@ -41,9 +41,9 @@ HttpCode::getDescription(401); // '401 (Unauthorized)'
 
 {% endhighlight %}
 
- * `param` $code
- * `return` mixed
+ * `param int` $code
+ * `return` int|string
 
-[See source](https://github.com/Codeception/lib-innerbrowser/blob/master/src/Codeception/Util/HttpCode.php#L165)
+[See source](https://github.com/Codeception/lib-innerbrowser/blob/master/src/Codeception/Util/HttpCode.php#L353)
 
 <p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/lib-innerbrowser/blob/master/src/Codeception/Util/HttpCode.php">Help us to improve documentation. Edit module reference</a></div>

@@ -34,33 +34,49 @@ Warning. Using PHAR file and composer in the same project can cause unexpected e
 
 Module for testing REST WebService.
 
-This module can be used either with frameworks or PHPBrowser.
-If a framework module is connected, the testing will occur in the application directly.
-Otherwise, a PHPBrowser should be specified as a dependency to send requests and receive responses from a server.
+This module requires either [PhpBrowser](https://codeception.com/docs/modules/PhpBrowser)
+or a framework module (e.g. [Symfony](https://codeception.com/docs/modules/Symfony), [Laravel](https://codeception.com/docs/modules/Laravel5))
+to send the actual HTTP request.
 
 ### Configuration
 
-* url *optional* - the url of api
-* shortDebugResponse *optional* - amount of chars to limit the api response length
-
-This module requires PHPBrowser or any of Framework modules enabled.
-
-In case you need to configure low-level HTTP fields, that's done on the PHPBrowser level.
-Check the example below for details.
+* `url` *optional* - the url of api
+* `shortDebugResponse` *optional* - number of chars to limit the API response length
 
 #### Example
 
-    modules:
-       enabled:
-           - REST:
-               depends: PhpBrowser
-               url: &url 'http://serviceapp/api/v1/' # you only need the &url anchor for further PhpBrowser configs
-               shortDebugResponse: 300 # only the first 300 chars of the response
-       config:
-           PhpBrowser:
-               url: *url # repeats the URL from the REST module; not needed if you don't have further settings like below
-               headers:
-                   Content-Type: application/json
+{% highlight yaml %}
+
+modules:
+   enabled:
+       - REST:
+           depends: PhpBrowser
+           url: 'https://example.com/api/v1/'
+           shortDebugResponse: 300 # only the first 300 characters of the response
+
+{% endhighlight %}
+
+In case you need to configure low-level HTTP headers, that's done on the PhpBrowser level like so:
+
+{% highlight yaml %}
+
+modules:
+   enabled:
+       - REST:
+           depends: PhpBrowser
+           url: &url 'https://example.com/api/v1/'
+   config:
+       PhpBrowser:
+           url: *url
+           headers:
+               Content-Type: application/json
+
+{% endhighlight %}
+
+### JSONPath
+
+[JSONPath](http://goessner.net/articles/JsonPath/) is the equivalent to XPath, for querying JSON data structures.
+Here's an [Online JSONPath Expressions Tester](http://jsonpath.curiousconcept.com/)
 
 ### Public Properties
 
@@ -107,7 +123,7 @@ $I->amAWSAuthenticated();
 
 {% endhighlight %}
  * `param array` $additionalAWSConfig
-@throws ModuleException
+@throws ConfigurationException
 
 
 #### amBearerAuthenticated
@@ -197,8 +213,8 @@ $I->dontSeeBinaryResponseEquals("8c90748342f19b195b9c6b4eff742ded");
 {% endhighlight %}
 Opposite to `seeBinaryResponseEquals`
 
- * `param` $hash the hashed data response expected
- * `param` $algo the hash algorithm to use. Default md5.
+ * `param string` $hash the hashed data response expected
+ * `param string` $algo the hash algorithm to use. Default md5.
  * `[Part]` json
  * `[Part]` xml
 
@@ -252,7 +268,8 @@ Opposite to seeResponseContainsJson
 
 #### dontSeeResponseJsonMatchesJsonPath
  
-Opposite to seeResponseJsonMatchesJsonPath
+See [#jsonpath](#jsonpath) for general info on JSONPath.
+Opposite to [`seeResponseJsonMatchesJsonPath()`](#seeResponseJsonMatchesJsonPath)
 
  * `param string` $jsonPath
  * `[Part]` json
@@ -271,10 +288,9 @@ Opposite to seeResponseJsonMatchesXpath
 Opposite to `seeResponseMatchesJsonType`.
 
  * `[Part]` json
- * `param` $jsonType jsonType structure
- * `param null` $jsonPath optionally set specific path to structure with JsonPath
+ * `param array` $jsonType JsonType structure
+ * `param string` $jsonPath
 @see seeResponseMatchesJsonType
- * `Available since` 2.1.3
 
 
 #### dontSeeXmlResponseEquals
@@ -325,13 +341,8 @@ Element is matched by either CSS or XPath
 
 #### grabDataFromResponseByJsonPath
  
-Returns data from the current JSON response using [JSONPath](http://goessner.net/articles/JsonPath/) as selector.
-JsonPath is XPath equivalent for querying Json structures.
-Try your JsonPath expressions [online](http://jsonpath.curiousconcept.com/).
+See [#jsonpath](#jsonpath) for general info on JSONPath.
 Even for a single value an array is returned.
-
-This method **require [`flow/jsonpath` > 0.2](https://github.com/FlowCommunications/JSONPath/) library to be installed**.
-
 Example:
 
 {% highlight php %}
@@ -348,7 +359,6 @@ $I->sendPut('/user', array('id' => $firstUserId[0], 'name' => 'davert'));
  * `return` array Array of matching items
 @throws \Exception
  * `[Part]` json
- * `Available since` 2.0.9
 
 
 #### grabHttpHeader
@@ -381,7 +391,6 @@ $I->sendPut('/user', array('id' => $user_id, 'name' => 'davert'));
  * `return` string
  * `[Part]` json
  * `[Part]` xml
- * `Available since` 1.1
 
 
 #### grabTextContentFromXmlElement
@@ -461,8 +470,8 @@ $I->seeBinaryResponseEquals(hash("sha256", base64_decode($fileData)), 'sha256');
 
 {% endhighlight %}
 
- * `param` $hash the hashed data response expected
- * `param` $algo the hash algorithm to use. Default md5.
+ * `param string` $hash the hashed data response expected
+ * `param string` $algo the hash algorithm to use. Default md5.
  * `[Part]` json
  * `[Part]` xml
 
@@ -655,12 +664,8 @@ This is done with libxml_get_last_error function.
 
 #### seeResponseJsonMatchesJsonPath
  
-Checks if json structure in response matches [JsonPath](http://goessner.net/articles/JsonPath/).
-JsonPath is XPath equivalent for querying Json structures.
-Try your JsonPath expressions [online](http://jsonpath.curiousconcept.com/).
-This assertion allows you to check the structure of response json.
-
-This method **require [`flow/jsonpath` > 0.2](https://github.com/FlowCommunications/JSONPath/) library to be installed**.
+See [#jsonpath](#jsonpath) for general info on JSONPath.
+Checks if JSON structure in response matches JSONPath.
 
 {% highlight json %}
 
@@ -701,7 +706,6 @@ $I->seeResponseJsonMatchesJsonPath('$.store..price');
 
  * `param string` $jsonPath
  * `[Part]` json
- * `Available since` 2.0.9
 
 
 #### seeResponseJsonMatchesXpath
@@ -748,7 +752,6 @@ $I->seeResponseJsonMatchesXpath('/store//price');
 {% endhighlight %}
  * `param string` $xpath
  * `[Part]` json
- * `Available since` 2.0.9
 
 
 #### seeResponseMatchesJsonType
@@ -839,7 +842,6 @@ See [JsonType reference](http://codeception.com/docs/reference/JsonType).
  * `param array` $jsonType
  * `param string` $jsonPath
 @see JsonType
- * `Available since` 2.1.3
 
 
 #### seeXmlResponseEquals
@@ -885,6 +887,18 @@ $I->seeXmlResponseMatchesXpath('//root/user[@id=1]');
 {% endhighlight %}
  * `[Part]` xml
  * `param` $xpath
+
+
+#### send
+ 
+Sends a HTTP request.
+
+ * `param` $method
+ * `param` $url
+ * `param array|string|\JsonSerializable` $params
+ * `param array` $files
+ * `[Part]` json
+ * `[Part]` xml
 
 
 #### sendDelete
@@ -947,7 +961,7 @@ Sends an OPTIONS request to given uri.
 Sends PATCH request to given uri.
 
  * `param`       $url
- * `param array` $params
+ * `param array|string|\JsonSerializable` $params
  * `param array` $files
  * `[Part]` json
  * `[Part]` xml
@@ -985,7 +999,7 @@ $I->sendPost('/add-task', ['form' => [
 {% endhighlight %}
 
  * `param` $url
- * `param array|\JsonSerializable` $params
+ * `param array|string|\JsonSerializable` $params
  * `param array` $files A list of filenames or "mocks" of $_FILES (each entry being an array with the following
                     keys: name, type, error, size, tmp_name (pointing to the real file path). Each key works
                     as the "name" attribute of a file input field.
@@ -1001,7 +1015,7 @@ $I->sendPost('/add-task', ['form' => [
 Sends PUT request to given uri.
 
  * `param` $url
- * `param array` $params
+ * `param array|string|\JsonSerializable` $params
  * `param array` $files
  * `[Part]` json
  * `[Part]` xml

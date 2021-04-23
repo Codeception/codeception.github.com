@@ -142,7 +142,6 @@ public function seeResponseContains($text)
 {
    $this->assertStringContainsString($text, $this->getModule('PhpBrowser')->_getResponseContent(), "response contains");
 }
-?>
 
 {% endhighlight %}
 
@@ -164,16 +163,12 @@ Useful for testing multi-step forms on a specific step.
 public function openCheckoutFormStep2($orderId) {
     $this->getModule('PhpBrowser')->_loadPage('POST', '/checkout/step2', ['order' => $orderId]);
 }
-?>
 
 {% endhighlight %}
 
- * `param` $method
- * `param` $uri
- * `param array` $parameters
- * `param array` $files
- * `param array` $server
- * `param null` $content
+ * `param string` $method
+ * `param string` $uri
+ * `param string` $content
 
 
 #### _request
@@ -193,19 +188,15 @@ public function createUserByApi($name) {
     $user = json_decode($userData);
     return $user->id;
 }
-?>
 
 {% endhighlight %}
 Does not load the response into the module so you can't interact with response page (click, fill forms).
 To load arbitrary page for interaction, use `_loadPage` method.
 
- * `param` $method
- * `param` $uri
- * `param array` $parameters
- * `param array` $files
- * `param array` $server
- * `param null` $content
- * `return` mixed|Crawler
+ * `param string` $method
+ * `param string` $uri
+ * `param string` $content
+ * `return` string
 @throws ExternalUrlException
 @see `_loadPage`
 
@@ -228,8 +219,8 @@ $this->getModule('PhpBrowser')->_savePageSource(codecept_output_dir().'page.html
  
 Authenticates user for HTTP_AUTH
 
- * `param` $username
- * `param` $password
+ * `param string` $username
+ * `param string` $password
 
 
 #### amOnPage
@@ -367,7 +358,6 @@ $I->amOnPage('test-headers.php');
 // ...
 $I->deleteHeader('X-Requested-With');
 $I->amOnPage('some-other-page.php');
-?>
 
 {% endhighlight %}
 
@@ -643,7 +633,7 @@ $I->dontSeeResponseCodeIs(200);
 $I->dontSeeResponseCodeIs(\Codeception\Util\HttpCode::OK);
 
 {% endhighlight %}
- * `param` $code
+ * `param int` $code
 
 
 #### executeInGuzzle
@@ -781,7 +771,6 @@ $aLinks = $I->grabMultiple('a', 'href');
 Grabs current page source code.
 
 @throws ModuleException if no page was opened.
-
  * `return` string Current page source code.
 
 
@@ -823,7 +812,6 @@ Example:
 <?php
 $I->haveHttpHeader('X-Requested-With', 'Codeception');
 $I->amOnPage('test-headers.php');
-?>
 
 {% endhighlight %}
 
@@ -836,7 +824,6 @@ should be represented as - 'Client&#x0005F;Id' or 'Client&#95;Id'
 
 <?php
 $I->haveHttpHeader('Client&#95;Id', 'Codeception');
-?>
 
 {% endhighlight %}
 
@@ -854,8 +841,8 @@ Sets SERVER parameter valid for all next requests.
 $I->haveServerParameter('name', 'value');
 
 {% endhighlight %}
- * `param` $name
- * `param` $value
+ * `param string` $name
+ * `param string` $value
 
 
 #### makeHtmlSnapshot
@@ -1230,15 +1217,15 @@ $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK);
 
 {% endhighlight %}
 
- * `param` $code
+ * `param int` $code
 
 
 #### seeResponseCodeIsBetween
  
 Checks that response code is between a certain range. Between actually means [from <= CODE <= to]
 
- * `param` $from
- * `param` $to
+ * `param int` $from
+ * `param int` $to
 
 
 #### seeResponseCodeIsClientError
@@ -1332,7 +1319,7 @@ $I->sendAjaxPostRequest('/add-task', ['form' => [
     'category' => 'miscellaneous',
 ]]);
 
-{% endhighlight %}    
+{% endhighlight %}
 
  * `param string` $uri
  * `param array` $params
@@ -1352,7 +1339,7 @@ $I->sendAjaxRequest('PUT', '/posts/7', ['title' => 'new title']);
 
  * `param` $method
  * `param` $uri
- * `param` $params
+ * `param array` $params
 
 
 #### setCookie
@@ -1406,7 +1393,6 @@ this will remove old ones.
 $I->setServerParameters([]);
 
 {% endhighlight %}
- * `param array` $params
 
 
 #### startFollowingRedirects

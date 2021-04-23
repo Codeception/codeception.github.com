@@ -34,71 +34,44 @@ Warning. Using PHAR file and composer in the same project can cause unexpected e
 
 Run tests in real browsers using the W3C [WebDriver protocol](https://www.w3.org/TR/webdriver/).
 
-### Local Testing
+### Local Testing in Chrome and/or Firefox
 
-#### Browsers: Chrome and/or Firefox
-
-First, you need to install the browser itself: Chrome and/or Firefox.
-* To run tests in Chrome/Chromium, you need to install [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/getting-started).
-* To use Firefox, install [GeckoDriver](https://github.com/mozilla/geckodriver).
-If you want to use both, consider setting up a dedicated [Codeception environment](https://codeception.com/docs/07-AdvancedUsage#Environments) for each.
-
-#### Selenium
-
-To run Selenium Server you need [Java](https://www.java.com/) as well as Chrome or Firefox browser installed.
-
-1. Download [Selenium Standalone Server](http://docs.seleniumhq.org/download/)
-2. Launch the Selenium Server: `java -jar selenium-server-standalone-3.xx.xxx.jar`. To locate Chromedriver binary use `-Dwebdriver.chrome.driver=./chromedriver` option. For Geckodriver use `-Dwebdriver.gecko.driver=./geckodriver`.
-3. Configure this module (in `acceptance.suite.yml`) by setting `url` and `browser`:
-
-{% highlight yaml %}
-
-    modules:
-       enabled:
-          - WebDriver:
-             url: 'http://localhost/'
-             browser: chrome # 'chrome' or 'firefox'
-
-{% endhighlight %}
-
-Launch Selenium Server before executing tests.
-
-{% highlight yaml %}
-java -jar "/path/to/selenium-server-standalone-xxx.jar"
-
-{% endhighlight %}
+To run tests in a real browser you need:
+* The browser itself: Chrome/Chromium and/or Firefox
+* The appropriate driver:
+    * [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/getting-started) for Chrome/Chromium
+    * [GeckoDriver](https://github.com/mozilla/geckodriver) for Firefox
+  If you want to use both Chrome and Firefox, consider setting up a dedicated [Codeception environment](https://codeception.com/docs/07-AdvancedUsage#Environments) for each.
+* Optional: Selenium Standalone Server (see below) 
 
 #### ChromeDriver
 
-To run tests in Chrome/Chromium you may connect to ChromeDriver directly, without using Selenium Server.
-
-1. Install [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/getting-started).
-2. Launch ChromeDriver: `chromedriver --url-base=/wd/hub`
-3. Configure this module to use ChromeDriver port:
+Configuration in `acceptance.suite.yml`:
 
 {% highlight yaml %}
 
-    modules:
-       enabled:
-          - WebDriver:
-             url: 'http://localhost/'
-             window_size: false # disabled in ChromeDriver
-             port: 9515
-             browser: chrome
-             capabilities:
-                 "goog:chromeOptions": # additional chrome options
+modules:
+   enabled:
+      - WebDriver:
+         url: 'http://localhost/'
+         window_size: false # disabled in ChromeDriver
+         port: 9515
+         browser: chrome
+         capabilities:
+             chromeOptions:
+                 args: ["--headless", "--disable-gpu"] # Run Chrome in headless mode
+                 prefs:
+                     download.default_directory: "..."
 
 {% endhighlight %}
+See here for additional [Chrome options](https://sites.google.com/a/chromium.org/chromedriver/capabilities)
 
-Additional [Chrome options](https://sites.google.com/a/chromium.org/chromedriver/capabilities) can be set in `goog:chromeOptions` capabilities. Note that Selenium 3.8 renamed this capability from `chromeOptions` to `goog:chromeOptions`.
+Before running the tests, you need to start ChromeDriver in a separate console window: `chromedriver --url-base=/wd/hub`.
+Or you can enable the [RunProcess extension](https://codeception.com/extensions#RunProcess) to start/stop ChromeDriver automatically.
 
 #### GeckoDriver
 
-To run tests in Firefox you may connect to GeckoDriver directly, without using Selenium Server.
-
-1. Install [GeckoDriver](https://github.com/mozilla/geckodriver).
-2. Launch GeckoDriver: `geckodriver`
-3. Configure this module:
+Configuration in `acceptance.suite.yml`:
 
 {% highlight yaml %}
 
@@ -110,8 +83,38 @@ modules:
          path: ''
          capabilities:
              acceptInsecureCerts: true # allow self-signed certificates
+             moz:firefoxOptions:
+                 args: ["-headless"] # Run Firefox in headless mode
+                 prefs:
+                     intl.accept_languages: "de-AT" # Set HTTP-Header `Accept-Language: de-AT` for requests
 
 {% endhighlight %}
+See here for [Firefox capabilities](https://developer.mozilla.org/en-US/docs/Web/WebDriver/Capabilities#List_of_capabilities)
+
+Before running the tests, you need to start GeckoDriver in a separate console window: `geckodriver`.
+Or you can enable the [RunProcess extension](https://codeception.com/extensions#RunProcess) to start/stop GeckoDriver automatically.
+
+#### Selenium
+
+On top of ChromeDriver/GeckoDriver you may also use Selenium Standalone Server for more options.
+
+1. Install [Java](https://www.java.com/)
+2. Download [Selenium Standalone Server](http://docs.seleniumhq.org/download/)
+3. Configuration in `acceptance.suite.yml`:
+
+{% highlight yaml %}
+
+modules:
+   enabled:
+      - WebDriver:
+         url: 'http://localhost/'
+         browser: chrome # 'chrome' or 'firefox'
+
+{% endhighlight %}
+For additional `capabilities`, see above. Selenium 3.8 renamed the `chromeOptions` capability to `goog:chromeOptions`.
+
+Before running the tests, you need to start GeckoDriver in a separate console window: `java -jar "/path/to/selenium-server-standalone-xxx.jar"`
+To locate the ChromeDriver binary use `-Dwebdriver.chrome.driver=./chromedriver`, for GeckoDriver use `-Dwebdriver.gecko.driver=./geckodriver`.
 
 #### Headless Selenium in Docker
 
@@ -297,6 +300,22 @@ In the example above if you set `wait` to 5 seconds and use XPath string as fuzz
 That means 5 seconds finding the form by ID, another 5 seconds finding by CSS
 until it finally tries to find the form by XPath).
 If speed is a concern, it's recommended you stick with explicitly specifying the locator type via the array syntax.
+
+#### Get Scenario Metadata
+
+You can inject `\Codeception\Scenario` into your test to get information about the current configuration:
+{% highlight php %}
+
+use Codeception\Scenario
+public function myTest(AcceptanceTester $I, Scenario $scenario)
+{
+    if ('firefox' === $scenario->current('browser')) {
+        // ...
+    }
+}
+
+{% endhighlight %}
+See [Get Scenario Metadata](https://codeception.com/docs/07-AdvancedUsage#Get-Scenario-Metadata) for more information on `$scenario`.
 
 ### Public Properties
 
