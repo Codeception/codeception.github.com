@@ -641,7 +641,6 @@ body .btn-lg {
   }
 
   .about-framework {
-    font-size: 16px;
     text-align: center;
     margin-bottom: 20px;
   }
@@ -1873,7 +1872,7 @@ p code, li code {
 }
 
 .about-framework {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 2;
   width: 90%;
   margin: auto;
