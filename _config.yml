@@ -7,7 +7,7 @@ kramdown:
 highlighter: rouge
 exclude: [vendor]
 plugins:
-  - algoliasearch-jekyll
+  - jekyll-algolia
 algolia:
   application_id: 'G160Y1N5OT'
   index_name:     'codeception'  

@@ -3,6 +3,7 @@ _site/
 .jekyll-metadata
 /build
 /composer.lock
+Gemfile.lock
 /docs/modules/AbstractAsserts.md
 /package/composer.lock
 /package/vendor
