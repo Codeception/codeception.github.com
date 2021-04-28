@@ -25,7 +25,7 @@ sidebar: |
 Install latest stable Codeception and required modules via Composer:
 
 ```bash
-composer require codeception/codeception codeception/module-laravelcodeception/module-rest codeception/module-webdriver codeception/module-asserts  --dev
+composer require codeception/codeception codeception/module-laravel codeception/module-rest codeception/module-webdriver codeception/module-asserts --dev
 
 ```
 
