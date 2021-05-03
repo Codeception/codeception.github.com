@@ -1,0 +1,53 @@
+/*Contributors*/
+
+.contributors {
+  width: 600px;
+  overflow: auto;
+  margin-bottom: 3em;
+
+  li {
+    width: 178px;
+    margin-right: 12px;
+    margin-bottom: 6px;
+    overflow: auto;
+    float: left;
+    padding: 1px 0px;
+
+    a {
+      display: block;
+      text-decoration: none;
+      overflow: auto;
+    }
+
+    span {
+      display: block;
+      float: left;
+      margin-left: 12px;
+      font-size: 15px;
+      padding-top: 5px;
+      color: #aaa;
+    }
+
+    a span {
+      color: #888;
+    }
+
+    img {
+      float: left;
+      border: 1px solid #fff;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+    }
+
+    a:hover {
+      span {
+        color: #000;
+      }
+
+      img {
+        border: 1px solid #bbb;
+      }
+    }
+  }
+}

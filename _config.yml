@@ -6,6 +6,9 @@ kramdown:
   syntax_highlighting: rouge
 highlighter: rouge
 exclude: [vendor]
+sass:
+  sass_dir: _scss
+  style: compressed
 plugins:
   - jekyll-algolia
 algolia:
