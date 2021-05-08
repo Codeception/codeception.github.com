@@ -401,7 +401,7 @@ body {
   width: 60px;
 }
 
-.sponsors--rebilly, .sponsors--themeisle, .sponsors--vpnwelt {
+.sponsors--rebilly, {
   width: 100px;
   background: #fff;
   border-radius: 20px;
@@ -416,11 +416,6 @@ body {
   &:hover {
     opacity: 1;
   }
-
-  &.sponsors--themeisle {
-    width: 150px;
-    height: auto;
-  }
 }
 
 .sponsors-item:hover {
@@ -428,16 +423,6 @@ body {
 }
 
 #footer {
-  .sponsors-item .sponsors.sponsors--somewherewarm {
-    height: 150px;
-    opacity: 0.9;
-    width: auto;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-
   a {
     color: #fff;
   }
@@ -1481,7 +1466,7 @@ body #footer .links {
     width: 100px;
   }
 
-  .sponsors--rebilly, .sponsors--themeisle, .sponsors--vpnwelt, .sponsors--translationreport {
+  .sponsors--rebilly {
     width: 150px;
   }
 
@@ -1701,64 +1686,6 @@ body #footer .links {
 @media (min-width: 768px) and (max-width: 991px) {
   .about-framework {
     margin-bottom: 25px;
-  }
-}
-
-.sponsors-wrapper {
-  .sponsors-item .sponsors {
-    height: 80px;
-    border-radius: 20px;
-    opacity: 0.8;
-    transition: opacity .2s ease;
-
-    &.sponsors--vpnwelt, &.sponsors--translationreport {
-      height: auto;
-      border-radius: inherit;
-    }
-
-    &:hover {
-      opacity: 1;
-    }
-
-    &.sponsors--themeisle {
-      width: 150px;
-      height: auto;
-    }
-
-    &.sponsors--somewherewarm {
-      height: 150px;
-      opacity: 0.9;
-      width: auto;
-
-      &:hover {
-        opacity: 1;
-      }
-    }
-  }
-
-  .sponsors {
-    zoom: 0.8;
-    filter: grayscale(0.3);
-    opacity: 0.5;
-    transition: opacity .2s ease;
-
-    &:hover {
-      opacity: 1;
-      text-decoration: none;
-    }
-  }
-
-  .container {
-    padding-bottom: 50px;
-  }
-
-  h4 {
-    margin-top: 40px;
-    margin-bottom: 15px;
-  }
-
-  h3 {
-    margin-bottom: 15px;
   }
 }
 
