@@ -17,7 +17,7 @@
     justify-content: center;
 
     img {
-      max-width: 160px;
+      max-width: 100%;
       transition: all .15s ease;
       opacity: .5;
       filter: grayscale(1);
@@ -32,10 +32,7 @@
   }
 
   .support-item--premium {
-    width: 240px;
-    img {
-      max-width: 220px;
-    }
+    width: 210px;
   }
 
   .container {
