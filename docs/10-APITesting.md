@@ -9,11 +9,10 @@ The same way we tested a web site, Codeception allows you to test web services. 
 
 You should start by creating a new test suite, (which was not provided by the `bootstrap` command). We recommend calling it **api** and using the `ApiTester` class for it.
 
-{% highlight bash %}
-
+``` bash
 php vendor/bin/codecept generate:suite api
 
-{% endhighlight %}
+```
 
 We will put all the api tests there.
 
@@ -25,7 +24,7 @@ The REST web service is accessed via HTTP with standard methods: `GET`, `POST`, 
 
 Configure modules in `api.suite.yml`:
 
-{% highlight yaml %}
+``` yaml
 
 actor: ApiTester
 modules:
@@ -34,11 +33,11 @@ modules:
             url: http://serviceapp/api/v1/
             depends: PhpBrowser
 
-{% endhighlight %}
+```
 
 The REST module will connect to `PhpBrowser` according to this configuration. Depending on the web service we may deal with XML or JSON responses. Codeception handles both data formats well, however If you don't need one of them, you can explicitly specify that the JSON or XML parts of the module will be used:
 
-{% highlight yaml %}
+``` yaml
 
 actor: ApiTester
 modules:
@@ -48,11 +47,11 @@ modules:
             depends: PhpBrowser
             part: Json
 
-{% endhighlight %}
+```
 
 API tests can be functional and be executed using Symfony, Laravel5, Zend, or any other framework module. You will need slightly update configuration for it:
 
-{% highlight yaml %}
+``` yaml 
 
 actor: ApiTester
 modules:
@@ -61,20 +60,20 @@ modules:
             url: /api/v1/
             depends: Laravel5
 
-{% endhighlight %}
+```
 
 Once we have configured our new testing suite, we can create the first sample test:
 
-{% highlight bash %}
+``` bash
 
 php vendor/bin/codecept generate:cest api CreateUser
 
-{% endhighlight %}
+```
 
 It will be called `CreateUserCest.php`. 
 We need to implement a public method for each test. Let's make `createUserViaAPI` to test creation of a user via the REST API.
 
-{% highlight php %}
+``` php
 
 <?php
 class CreateUserCest
@@ -95,7 +94,7 @@ class CreateUserCest
     }
 }
 
-{% endhighlight %}
+```
 
 We can use HTTP code constants from `Codeception\Util\HttpCode` instead of numeric values to check response code in `seeResponseCodeIs` and `dontSeeResponseCodeIs` methods.
 
@@ -106,12 +105,12 @@ Let's see what the test consist of.
 To authorize requests to external resources, usually provider requires you to authorize using headers. Additional headers can be set before request using `haveHttpHeader` command:
 
       
-{% highlight php %}
+``` php
 
 <?php
 $I->haveHttpHeader('api_key', 'special-key');
 
-{% endhighlight %}
+```
 
 For common authorization patterns use one of the following methods:
 
@@ -125,25 +124,24 @@ For common authorization patterns use one of the following methods:
 
 The real action in a test happens only when a request is sent. Before a request you may provide additional http headers which will be used in a next request to set authorization or expected content format.
 
-{% highlight php %}
+``` php
 
 <?php
 $I->haveHttpHeader('accept', 'application/json');
 $I->haveHttpHeader('content-type', 'application/json');
 
-{% endhighlight %}
+```
 
 When headers are set, you can send a request. To obtain data use `sendGet`:
 
-{% highlight php %}
+``` php
 
 <?php
 // pass in query params in second argument
 $I->sendGet('/posts', [ 'status' => 'pending' ]);
 $I->seeResponseCodeIs(200);
 $I->seeResponseIsJson();
-
-{% endhighlight %}
+```
 
 > `sendGet` won't return any value. However, you can access data from a response and perform assertions using other available methods of REST module.
 
@@ -158,7 +156,7 @@ To create or update data you can use other common methods:
 
 If we expect a JSON response to be received we can check its structure with [JSONPath](http://goessner.net/articles/JsonPath/). It looks and sounds like XPath but is designed to work with JSON data, however we can convert JSON into XML and use XPath to validate the structure. Both approaches are valid and can be used in the REST module:
 
-{% highlight php %}
+``` php
 
 <?php
 $I->sendGet('/users');
@@ -167,12 +165,12 @@ $I->seeResponseIsJson();
 $I->seeResponseJsonMatchesJsonPath('$[0].user.login');
 $I->seeResponseJsonMatchesXpath('//user/login');
 
-{% endhighlight %}
+```
 
 More detailed check can be applied if you need to validate the type of fields in a response.
 You can do that by using with a [seeResponseMatchesJsonType](http://codeception.com/docs/modules/REST#seeResponseMatchesJsonType) action in which you define the structure of JSON response.
 
-{% highlight php %}
+``` php
 
 <?php
 $I->sendGet('/users/1');
@@ -187,8 +185,7 @@ $I->seeResponseMatchesJsonType([
     'is_active' => 'boolean'
 ]);
 
-
-{% endhighlight %}
+```
 
 Codeception uses this simple and lightweight definitions format which can be [easily learned and extended](http://codeception.com/docs/modules/REST#seeResponseMatchesJsonType).
 
@@ -196,19 +193,19 @@ Codeception uses this simple and lightweight definitions format which can be [ea
 
 When you need to obtain a value from a response and use it in next requests you can use `grab*` methods. For instance, use `grabDataFromResponseByJsonPath` allows to query JSON for a value.
 
-{% highlight php %}
+``` php
 
 <?php
 list($id) = $I->grabDataFromResponseByJsonPath('$.id');
 $I->sendGet('/pet/' . $id);
 
-{% endhighlight %}
+```
 
 ### Validating Data JSON Responses
 
 The last line of the previous example verified that the response contained the provided string. However we shouldn't rely on it, as depending on content formatting we can receive different results with the same data. What we actually need is to check that the response can be parsed and it contains some of the values we expect. In the case of JSON we can use the `seeResponseContainsJson` method
 
-{% highlight php %}
+``` php
 
 <?php
 // matches {"result":"ok"}'
@@ -223,11 +220,11 @@ $I->seeResponseContainsJson([
 ]);
 
 
-{% endhighlight %}
+```
 
 You may want to perform even more complex assertions on a response. This can be done by writing your own methods in the [Helper](http://codeception.com/docs/06-ReusingTestCode#Modules-and-Helpers) classes. To access the latest JSON response you will need to get the `response` property of the `REST` module. Let's demonstrate it with the `seeResponseIsHtml` method:
 
-{% highlight php %}
+``` php
 
 <?php
 namespace Helper;
@@ -242,7 +239,7 @@ class Api extends \Codeception\Module
 }
 
 
-{% endhighlight %}
+```
 
 The same way you can receive request parameters and headers.
 
@@ -251,7 +248,7 @@ The same way you can receive request parameters and headers.
 In case your REST API works with XML format you can use similar methods to test its data and structure.
 There is `seeXmlResponseIncludes` method to match inclusion of XML parts in response, and `seeXmlResponseMatchesXpath` to validate its structure.
 
-{% highlight php %}
+``` php
 
 <?php
 $I->sendGet('/users.xml');
@@ -266,8 +263,7 @@ $I->seeXmlResponseIncludes(\Codeception\Util\Xml::toXml([
   ]
 ]));
 
-
-{% endhighlight %}
+```
 
 We are using `Codeception\Util\Xml` class which allows us to build XML structures in a clean manner. The `toXml` method may accept a string or array and returns \DOMDocument instance. If your XML contains attributes and so can't be represented as a PHP array you can create XML using the [XmlBuilder](http://codeception.com/docs/reference/XmlBuilder) class. We will take a look at it a bit more in next section.
 
@@ -279,7 +275,7 @@ SOAP web services are usually more complex. You will need PHP [configured with S
 
 Let's configure `SOAP` module to be used with `PhpBrowser`:
 
-{% highlight yaml %}
+``` yaml
 
 actor: ApiTester
 modules:
@@ -288,19 +284,19 @@ modules:
           depends: PhpBrowser
           endpoint: http://serviceapp/api/v1/
 
-{% endhighlight %}
+```
 
 SOAP request may contain application specific information, like authentication or payment. This information is provided with SOAP header inside the `<soap:Header>` element of XML request. In case you need to submit such header, you can use `haveSoapHeader` action. For example, next line of code
 
-{% highlight php %}
+``` php
 
 <?php
 $I->haveSoapHeader('Auth', ['username' => 'Miles', 'password' => '123456']);
 
-{% endhighlight %}
+```
 will produce this XML header
 
-{% highlight xml %}
+``` xml
 
 <soap:Header>
 <Auth>
@@ -309,21 +305,21 @@ will produce this XML header
 </Auth>
 </soap:Header>
 
-{% endhighlight %}
+```
 
 Use `sendSoapRequest` method to define the body of your request.
 
-{% highlight php %}
+``` php
 
 <?php
 $I->sendSoapRequest('CreateUser', '<name>Miles Davis</name><email>miles@davis.com</email>');
 
 
-{% endhighlight %}
+```
 
 This call will be translated to XML:
 
-{% highlight xml %}
+``` xml
 
 <soap:Body>
 <ns:CreateUser>
@@ -332,11 +328,11 @@ This call will be translated to XML:
 </ns:CreateUser>
 </soap:Body>
 
-{% endhighlight %}
+```
 
 And here is the list of sample assertions that can be used with SOAP.
 
-{% highlight php %}
+``` php
 
 <?php
 $I->seeSoapResponseEquals('<?xml version="1.0"<error>500</error>');
@@ -345,12 +341,12 @@ $I->seeSoapResponseContainsStructure('<user><name></name><email></email>');
 $I->seeSoapResponseContainsXPath('//result/user/name[@id=1]');
 
 
-{% endhighlight %}
+```
 
 In case you don't want to write long XML strings, consider using [XmlBuilder](http://codeception.com/docs/reference/XmlBuilder) class. It will help you to build complex XMLs in jQuery-like style.
 In the next example we will use `XmlBuilder` instead of regular XML.
 
-{% highlight php %}
+``` php
 
 <?php
 $I->haveSoapHeader('Session', array('token' => '123456'));
@@ -362,13 +358,13 @@ $I->seeSoapResponseIncludes(\Codeception\Util\Xml::build()
 );
 
 
-{% endhighlight %}
+```
 
 It's up to you to decide whether to use `XmlBuilder` or plain XML. `XmlBuilder` will return XML string as well.
 
 You may extend current functionality by using `SOAP` module in your helper class. To access the SOAP response as `\DOMDocument` you can use `response` property of `SOAP` module.
 
-{% highlight php %}
+``` php
 
 <?php
 namespace Helper;
@@ -382,7 +378,7 @@ class Api extends \Codeception\Module {
 }
 
 
-{% endhighlight %}
+```
 
 ## Conclusion
 
