@@ -20,7 +20,7 @@ At least you will be sure that site features work after the latest changes were 
 Let's say the first test you would want to run, would be signing in.
 In order to write such a test, we still require basic knowledge of PHP and HTML:
 
-{% highlight php %}
+```php
 
 <?php
 $I->amOnPage('/login');
@@ -28,8 +28,7 @@ $I->fillField('username', 'davert');
 $I->fillField('password', 'qwerty');
 $I->click('LOGIN');
 $I->see('Welcome, Davert!');
-
-{% endhighlight %}
+```
 
 **This scenario can be performed either by PhpBrowser or by a "real" browser through WebDriver**.
 
@@ -56,8 +55,7 @@ Common PhpBrowser drawbacks:
 * You can't fill in fields that are not inside a form
 
 We need to specify the `url` parameter in the acceptance suite config:
-
-{% highlight yaml %}
+``` yaml
 
 # acceptance.suite.yml
 actor: AcceptanceTester
@@ -67,18 +65,18 @@ modules:
             url: http://www.example.com/
         - \Helper\Acceptance
 
-{% endhighlight %}
+```
 
 We should start by creating a test with the next command:
 
-{% highlight php %}
+``` php
  vendor/bin/codecept g:cest acceptance Signin
 
-{% endhighlight %}
+```
 
 It will be placed into `tests/acceptance` directory.
 
-{% highlight php %}
+``` php
 
 <?php
 class SigninCest
@@ -88,17 +86,17 @@ class SigninCest
     }
 }
 
-{% endhighlight %}
+```
 
 The `$I` object is used to write all interactions.
 The methods of the `$I` object are taken from the [PhpBrowser Module](http://codeception.com/docs/modules/PhpBrowser). We will briefly describe them here:
 
-{% highlight php %}
+``` php
 
 <?php
 $I->amOnPage('/login');
 
-{% endhighlight %}
+```
 
 We will assume that all actions starting with `am` and `have` describe the initial environment.
 The `amOnPage` action sets the starting point of a test to the `/login` page.
@@ -110,7 +108,7 @@ With the `PhpBrowser` you can click the links and fill in the forms. That will p
 Emulates a click on valid anchors. The URL referenced in the `href` attribute will be opened.
 As a parameter, you can specify the link name or a valid CSS or XPath selector.
 
-{% highlight php %}
+``` php
 
 <?php
 $I->click('Log in');
@@ -121,7 +119,7 @@ $I->click('//a[@id=login]');
 // Using context as second argument
 $I->click('Login', '.nav');
 
-{% endhighlight %}
+```
 
 Codeception tries to locate an element by its text, name, CSS or XPath.
 You can specify the locator type manually by passing an array as a parameter. We call this a **strict locator**.
@@ -134,24 +132,23 @@ Available strict locator types are:
 * link
 * class
 
-{% highlight php %}
+``` php
 
 <?php
 // By specifying locator type
 $I->click(['link' => 'Login']);
 $I->click(['class' => 'btn']);
 
-{% endhighlight %}
+```
 
 There is a special class [`Codeception\Util\Locator`](http://codeception.com/docs/reference/Locator)
 which may help you to generate complex XPath locators.
 For instance, it can easily allow you to click an element on the last row of a table:
 
-{% highlight php %}
+``` php
 
 $I->click('Edit' , \Codeception\Util\Locator::elementAt('//table/tr', -1));
-
-{% endhighlight %}
+```
 
 #### Forms
 
@@ -160,7 +157,7 @@ The most routine waste of time goes into the testing of forms. Codeception provi
 
 Let's submit this sample form inside the Codeception test:
 
-{% highlight html %}
+``` html
 
 <form method="post" action="/update" id="update_form">
      <label for="user_name">Name</label>
@@ -174,12 +171,11 @@ Let's submit this sample form inside the Codeception test:
      </select>
      <input type="submit" name="submitButton" value="Update" />
 </form>
-
-{% endhighlight %}
+```
 
 From a user's perspective, a form consists of fields which should be filled in, and then a submit button clicked:
 
-{% highlight php %}
+``` php
 
 <?php
 // we are using label to match user_name field
@@ -189,7 +185,7 @@ $I->fillField('user[email]','miles@davis.com');
 $I->selectOption('Gender','Male');
 $I->click('Update');
 
-{% endhighlight %}
+```
 
 To match fields by their labels, you should write a `for` attribute in the `label` tag.
 
@@ -197,7 +193,7 @@ From the developer's perspective, submitting a form is just sending a valid POST
 Sometimes it's easier to fill in all of the fields at once and send the form without clicking a 'Submit' button.
 A similar scenario can be rewritten with only one command:
 
-{% highlight php %}
+``` php
 
 <?php
 $I->submitForm('#update_form', array('user' => array(
@@ -205,8 +201,7 @@ $I->submitForm('#update_form', array('user' => array(
      'email' => 'Davis',
      'gender' => 'm'
 )));
-
-{% endhighlight %}
+```
 
 The `submitForm` is not emulating a user's actions, but it's quite useful
 in situations when the form is not formatted properly, for example, to discover that labels aren't set
@@ -215,7 +210,7 @@ or that fields have unclean names or badly written IDs, or the form is sent by a
 By default, `submitForm` doesn't send values for buttons.  The last parameter allows specifying
 what button values should be sent, or button values can be explicitly specified in the second parameter:
 
-{% highlight php %}
+``` php
 
 <?php
 $I->submitForm('#update_form', array('user' => array(
@@ -231,14 +226,14 @@ $I->submitForm('#update_form', array('user' => array(
      'submitButton' => 'Update'
 )));
 
-{% endhighlight %}
+```
 
 ##### Hiding Sensitive Data
 
 If you need to fill in sensitive data (like passwords) and hide it in logs, 
 you can pass instance `\Codeception\Step\Argument\PasswordArgument` with the data which needs to be hidden.
 
-{% highlight php %}
+``` php
 
 <?php
 use \Codeception\Step\Argument\PasswordArgument;
@@ -246,7 +241,7 @@ use \Codeception\Step\Argument\PasswordArgument;
 $I->amOnPage('/form/password_argument');
 $I->fillField('password', new PasswordArgument('thisissecret'));
 
-{% endhighlight %}
+```
 
 `thisissecret` will be filled into a form but it won't be shown in output and logs.
 
@@ -257,7 +252,7 @@ In most cases, you just need to check that the required text or element is on th
 
 The most useful method for this is `see()`:
 
-{% highlight php %}
+``` php
 
 <?php
 // We check that 'Thank you, Miles' is on the page.
@@ -269,21 +264,21 @@ $I->see('Thank you, Miles', "//table/tr[2]");
 // We check this message is *not* on the page.
 $I->dontSee('Form is filled incorrectly');
 
-{% endhighlight %}
+```
 
 You can check that a specific HTML element exists (or doesn't) on a page:
 
-{% highlight php %}
+``` php
 
 <?php
 $I->seeElement('.notice');
 $I->dontSeeElement('.error');
 
-{% endhighlight %}
+```
 
 We also have other useful commands to perform checks. Please note that they all start with the `see` prefix:
 
-{% highlight php %}
+``` php
 
 <?php
 $I->seeInCurrentUrl('/user/miles');
@@ -291,7 +286,7 @@ $I->seeCheckboxIsChecked('#agree');
 $I->seeInField('user[name]', 'Miles');
 $I->seeLink('Login');
 
-{% endhighlight %}
+```
 
 #### Conditional Assertions
 
@@ -300,14 +295,14 @@ Sometimes you don't want this - maybe you have a long-running test and you want 
 In this case, you can use conditional assertions.
 Each `see` method has a corresponding `canSee` method, and `dontSee` has a `cantSee` method:
 
-{% highlight php %}
+``` php
 
 <?php
 $I->canSeeInCurrentUrl('/user/miles');
 $I->canSeeCheckboxIsChecked('#agree');
 $I->cantSeeInField('user[name]', 'Miles');
 
-{% endhighlight %}
+```
 
 Each failed assertion will be shown in the test results, but it won't stop the test.
 
@@ -315,14 +310,14 @@ Conditional assertions are disabled in bootstrap setup. To enable them you shoul
 
 > If you started project as `codecept init acceptance` they should be already enabled in config
 
-{% highlight yaml %}
+``` yaml
 
 # in acceptance.suite.yml 
 # or in codeception.yml inside suites section
 step_decorators:
   - \Codeception\Step\ConditionalAssertion
 
-{% endhighlight %}
+```
 
 Then rebuild actors with `codecept build` command.
 
@@ -331,7 +326,7 @@ Then rebuild actors with `codecept build` command.
 Within a long scenario, you should describe what actions you are going to perform and what results should be achieved.
 Comment methods like `amGoingTo`, `expect`, `expectTo` help you in making tests more descriptive:
 
-{% highlight php %}
+``` php
 
 <?php
 $I->amGoingTo('submit user form with invalid values');
@@ -340,14 +335,14 @@ $I->click('Update');
 $I->expect('the form is not submitted');
 $I->see('Form is filled incorrectly');
 
-{% endhighlight %}
+```
 
 #### Grabbers
 
 These commands retrieve data that can be used in the test. Imagine your site generates a password for every user
 and you want to check that the user can log into the site using this password:
 
-{% highlight php %}
+``` php
 
 <?php
 $I->fillField('email', 'miles@davis.com');
@@ -358,45 +353,45 @@ $I->fillField('email', 'miles@davis.com');
 $I->fillField('password', $password);
 $I->click('Log in!');
 
-{% endhighlight %}
+```
 
 Grabbers allow you to get a single value from the current page with commands:
 
-{% highlight php %}
+``` php
 
 <?php
 $token = $I->grabTextFrom('.token');
 $password = $I->grabTextFrom("descendant::input/descendant::*[@id = 'password']");
 $api_key = $I->grabValueFrom('input[name=api]');
 
-{% endhighlight %}
+```
 
 #### Cookies, URLs, Title, etc
 
 Actions for cookies:
 
-{% highlight php %}
+``` php
 
 <?php
 $I->setCookie('auth', '123345');
 $I->grabCookie('auth');
 $I->seeCookie('auth');
 
-{% endhighlight %}
+```
 
 Actions for checking the page title:
 
-{% highlight php %}
+``` php
 
 <?php
 $I->seeInTitle('Login');
 $I->dontSeeInTitle('Register');
 
-{% endhighlight %}
+```
 
 Actions for URLs:
 
-{% highlight php %}
+``` php
 
 <?php
 $I->seeCurrentUrlEquals('/login');
@@ -404,7 +399,7 @@ $I->seeCurrentUrlMatches('~^/users/(\d+)~');
 $I->seeInCurrentUrl('user/1');
 $user_id = $I->grabFromCurrentUrl('~^/user/(\d+)/~');
 
-{% endhighlight %}
+```
 
 ## WebDriver
 
@@ -451,7 +446,7 @@ To execute a test in a browser we need to change the suite configuration to use 
 
 Modify your `acceptance.suite.yml` file:
 
-{% highlight yaml %}
+``` yaml
 
 actor: AcceptanceTester
 modules:
@@ -460,20 +455,20 @@ modules:
             url: {{your site URL}}
             browser: chrome
         - \Helper\Acceptance
-
-{% endhighlight %}
+ 
+```
 
 See [WebDriver Module](http://codeception.com/docs/modules/WebDriver) for details.
 
 Please note that actions executed in a browser will behave differently. For instance, `seeElement` won't just check that the element exists on a page,
 but it will also check that element is actually visible to the user:
 
-{% highlight php %}
+``` php
 
 <?php
 $I->seeElement('#modal');
 
-{% endhighlight %}
+```
 
 While WebDriver duplicates the functionality of PhpBrowser, it has its limitations: It can't check headers since browsers don't provide APIs for that.
 WebDriver also adds browser-specific functionality:
@@ -486,13 +481,13 @@ They can be used to specify what event you expect to occur on a page, before con
 
 For example:
 
-{% highlight php %}
+``` php
 
 <?php
 $I->waitForElement('#agree_button', 30); // secs
 $I->click('#agree_button');
 
-{% endhighlight %}
+```
 
 In this case, we are waiting for the 'agree' button to appear and then click it. If it didn't appear after 30 seconds,
 the test will fail. There are other `wait` methods you may use, like [waitForText](http://codeception.com/docs/modules/WebDriver#waitForText),
@@ -500,12 +495,12 @@ the test will fail. There are other `wait` methods you may use, like [waitForTex
 
 If you don't know what exact element you need to wait for, you can simply pause execution with using `$I->wait()`
 
-{% highlight php %}
+``` php
 
 <?php
 $I->wait(3); // wait for 3 secs
 
-{% endhighlight %}
+```
 
 #### SmartWait
 
@@ -516,15 +511,15 @@ Codeception enables implicit wait only when searching for a specific element and
 
 SmartWait can be enabled by setting `wait` option in WebDriver config. It expects the number of seconds to wait. Example:
 
-{% highlight yaml %}
+``` yaml
 
 wait: 5
 
-{% endhighlight %}
+```
 
 With this config we have the following test:
 
-{% highlight php %}
+``` php
 
 <?php
 // we use wait: 5 instead of
@@ -532,7 +527,7 @@ With this config we have the following test:
 // to wait for element on page
 $I->click(['css' => '#click-me']);
 
-{% endhighlight %}
+```
 
 It is important to understand that SmartWait works only with a specific locators:
 
@@ -543,7 +538,7 @@ It is important to understand that SmartWait works only with a specific locators
 But it won't be executed for all other locator types.
 See the example:
 
-{% highlight php %}
+``` php
 
 <?php
 $I->click('Login'); // DISABLED, not a specific locator
@@ -555,7 +550,7 @@ $I->seeElement('#userbar'); // ENABLED
 $I->dontSeeElement('#login'); // DISABLED, can't wait for element to hide
 $I->seeNumberOfElements(['css' => 'button.link'], 5); // DISABLED, can wait only for one element
 
-{% endhighlight %}
+```
 
 #### Retry
 
@@ -563,24 +558,24 @@ When it's hard to define condition to wait for, we can retry a command few times
 For instance, if you try to click while it's animating you can try to do it few times until it freezes.
 Since Codeception 3.0 each action and assertion have an alias prefixed with `retry` which allows to retry a flaky command.
 
-{% highlight php %}
+``` php
 
 <?php
 $I->retryClick('flaky element');
 $I->retrySee('Something changed');
 
-{% endhighlight %}
+```
 
 Retry can be configured via `$I->retry()` command, where you can set number of retries and initial interval:
 interval will be doubled on each unsuccessful execution.
 
-{% highlight php %}
+``` php
 
 <?php
 // Retry up to 6 sec: 4 times, for 400ms initial interval => 400ms + 800ms + 1600ms + 3200ms = 6000ms
 $I->retry(4, 400);
 
-{% endhighlight %}
+```
 
 `$I->retry` takes 2 parameters:
 * number of retries (1 by default)
@@ -590,18 +585,18 @@ Retries are disabled by default. To enable them you should add retry step decora
 
 > If you started project as `codecept init acceptance` they should be already enabled in config
 
-{% highlight yaml %}
+``` yaml
 
 # in acceptance.suite.yml 
 # or in codeception.yml inside suites section
 step_decorators:
   - \Codeception\Step\Retry
 
-{% endhighlight %}
+```
 
 Then add `\Codeception\Lib\Actor\Shared\Retry` trait into `AcceptanceTester` class:
 
-{% highlight php %}
+``` php
 
 <?php
 class AcceptanceTester extends \Codeception\Actor
@@ -611,7 +606,7 @@ class AcceptanceTester extends \Codeception\Actor
     use \Codeception\Lib\Actor\Shared\Retry; 
 }
 
-{% endhighlight %}
+```
 
 Run `codecept build` to recreate actions. New `retry*` actions are available for tests. 
 Keep in mind, that you can change retry policy dynamically for each test.
@@ -621,7 +616,7 @@ Keep in mind, that you can change retry policy dynamically for each test.
 To combine `waitForElement` with actions inside that element you can use the [performOn](http://codeception.com/docs/modules/WebDriver#performOn) method.
 Let's see how you can perform some actions inside an HTML popup:
 
-{% highlight php %}
+``` php
 
 <?php
 $I->performOn('.confirm', \Codeception\Util\ActionSequence::build()
@@ -630,10 +625,10 @@ $I->performOn('.confirm', \Codeception\Util\ActionSequence::build()
     ->click('Yes')
 );
 
-{% endhighlight %}
+```
 Alternatively, this can be executed using a callback, in this case the `WebDriver` instance is passed as argument
 
-{% highlight php %}
+``` php
 
 <?php
 $I->performOn('.confirm', function(\Codeception\Module\WebDriver $I) {
@@ -642,7 +637,7 @@ $I->performOn('.confirm', function(\Codeception\Module\WebDriver $I) {
     $I->click('Yes');
 });
 
-{% endhighlight %}
+```
 
 For more options see [`performOn()` reference](http://codeception.com/docs/modules/WebDriver#performOn).
 
@@ -657,18 +652,18 @@ We may try to hit the "close" button but if this action fails (no popup on page)
 
 This is how it can be implemented:
 
-{% highlight php %}
+``` php
 
 <?php
 $I->amOnPage('/');
 $I->tryToClick('x', '.alert'); 
 // continue execution
 
-{% endhighlight %}
+```
 
 You can also use `tryTo` as condition for your tests:
 
-{% highlight php %}
+``` php
 
 <?php
 if ($I->tryToSeeElement('.alert')) {
@@ -676,20 +671,20 @@ if ($I->tryToSeeElement('.alert')) {
     $I->click('Yes');
 }
 
-{% endhighlight %}
+```
 
 A/B testing is disabled by default. To enable it you should add corresponding step decorators to suite config:
 
 > If you started project as `codecept init acceptance` in Codeception >= 3.0 they should be already enabled in config
 
-{% highlight yaml %}
+``` yaml
 
 # in acceptance.suite.yml 
 # or in codeception.yml inside suites section
 step_decorators:
   - \Codeception\Step\TryTo
 
-{% endhighlight %}
+```
 
 Then rebuild actors with `codecept build` command.
 
@@ -699,7 +694,7 @@ Codeception allows you to execute actions in concurrent sessions. The most obvio
 is testing realtime messaging between users on a site. In order to do it, you will need to launch two browser windows
 at the same time for the same test. Codeception has a very smart concept for doing this. It is called **Friends**:
 
-{% highlight php %}
+``` php
 
 <?php
 $I->amOnPage('/messages');
@@ -713,14 +708,14 @@ $nick->does(function(AcceptanceTester $I) {
 $I->wait(3);
 $I->see('Hello all!', '.message');
 
-{% endhighlight %}
+```
 
 In this case, we performed, or 'did', some actions in the second window with the `does` method on a friend object.
 
 Sometimes you may want to close a webpage before the end of the test. For such cases, you may use `leave()`.
 You can also specify roles for a friend:
 
-{% highlight php %}
+``` php
 
 <?php
 $nickAdmin = $I->haveFriend('nickAdmin', adminStep::class);
@@ -729,11 +724,11 @@ $nickAdmin->does(function(adminStep $I) {
 });
 $nickAdmin->leave();
 
-{% endhighlight %}
+```
 
 Multi session testing is disabled by default. To enable it, add `\Codeception\Lib\Actor\Shared\Friend` into `AcceptanceTester`.
 
-{% highlight php %}
+``` php
 
 <?php
 class AcceptanceTester extends \Codeception\Actor
@@ -743,7 +738,7 @@ class AcceptanceTester extends \Codeception\Actor
     use \Codeception\Lib\Actor\Shared\Friend; 
 }
 
-{% endhighlight %}
+```
 
 ### Cloud Testing
 
@@ -775,12 +770,12 @@ and the cloud is too high. This may lead to random failures in acceptance tests.
 Codeception modules can print valuable information while running.
 Just execute tests with the `--debug` option to see running details. For any custom output use the `codecept_debug` function:
 
-{% highlight php %}
+``` php
 
 <?php
 codecept_debug($I->grabTextFrom('#name'));
 
-{% endhighlight %}
+```
 
 On each failure, the snapshot of the last shown page will be stored in the `tests/_output` directory.
 PhpBrowser will store the HTML code and WebDriver will save a screenshot of the page.
@@ -799,7 +794,7 @@ Let's see how common problems of acceptance testing can be solved with Codecepti
 It is recommended to put widely used actions inside an Actor class. A good example is the `login` action
 which would probably be actively involved in acceptance or functional testing:
 
-{% highlight php %}
+``` php
 
 <?php
 class AcceptanceTester extends \Codeception\Actor
@@ -819,17 +814,17 @@ class AcceptanceTester extends \Codeception\Actor
     }
 }
 
-{% endhighlight %}
+```
 
 Now you can use the `login` method inside your tests:
 
-{% highlight php %}
+``` php
 
 <?php
 // $I is AcceptanceTester
 $I->login('miles', '123456');
 
-{% endhighlight %}
+```
 
 However, implementing all actions for reuse in a single actor class may lead to
 breaking the [Single Responsibility Principle](http://en.wikipedia.org/wiki/Single_responsibility_principle).
@@ -845,7 +840,7 @@ Codeception allows you to share cookies between tests, so a test user can stay l
 Let's improve the code of our `login` method, executing the form submission only once
 and restoring the session from cookies for each subsequent login function call:
 
-{% highlight php %}
+``` php
 
 <?php
     public function login($name, $password)
@@ -866,7 +861,7 @@ and restoring the session from cookies for each subsequent login function call:
         $I->saveSessionSnapshot('login');
     }
 
-{% endhighlight %}
+```
 
 Note that session restoration only works for `WebDriver` modules
 (modules implementing `Codeception\Lib\Interfaces\SessionSnapshot`).
@@ -893,13 +888,13 @@ By default Codeception uses the `E_ALL & ~E_STRICT & ~E_DEPRECATED` error report
 In acceptance tests you might want to change this level depending on your framework's error policy.
 The error reporting level can be set in the suite configuration file:
 
-{% highlight yaml %}
+``` yaml
 
 actor: AcceptanceTester
 ...
 error_level: E_ALL & ~E_STRICT & ~E_DEPRECATED
 
-{% endhighlight %}
+```
 
 `error_level` can also be set globally in `codeception.yml` file. In order to do that, you need to specify `error_level` as a part of `settings`. For more information, see [Global Configuration](https://codeception.com/docs/reference/Configuration). Note that suite specific `error_level` value will override global value.
 
