@@ -18,7 +18,7 @@ As a first step, you need to enable Codeception's module for your framework in `
 All of Codeception's framework modules share the same interface, and thus your tests are not bound to any one of them.
 This is a sample functional test:
 
-{% highlight php %}
+``` php
 
 <?php
 // LoginCest.php
@@ -37,7 +37,7 @@ class LoginCest
     }
 }
 
-{% endhighlight %}
+```
 
 As you see, the syntax is the same for functional and acceptance tests.
 
@@ -76,7 +76,7 @@ To perform Symfony integration you just need to include the Symfony module into 
 don't forget to include it too. To make the Doctrine2 module connect using the `doctrine` service from Symfony,
 you should specify the Symfony module as a dependency for Doctrine2:
 
-{% highlight yaml %}
+``` yaml
 
 # functional.suite.yml
 
@@ -87,7 +87,7 @@ modules:
         - Doctrine2:
             depends: Symfony # connect to Symfony
 
-{% endhighlight %}
+```
 
 By default this module will search for AppKernel in the `app` directory.
 
@@ -99,7 +99,7 @@ The module uses the Symfony Profiler to provide additional information and asser
 
 The [Laravel5](http://codeception.com/docs/modules/Laravel5) module is included and requires no configuration:
 
-{% highlight yaml %}
+``` yaml
 
 # functional.suite.yml
 
@@ -108,7 +108,7 @@ modules:
     enabled:
         - Laravel5
 
-{% endhighlight %}
+```
 
 ### Yii2
 
@@ -119,7 +119,7 @@ and [Advanced](https://github.com/yiisoft/yii2-app-advanced) application templat
 
 Use [the ZF2 module](http://codeception.com/docs/modules/ZF2) to run functional tests inside Zend Framework 2:
 
-{% highlight yaml %}
+``` yaml
 
 # functional.suite.yml
 
@@ -128,13 +128,13 @@ modules:
     enabled:
         - ZF2
 
-{% endhighlight %}
+```
 
 ### Zend Expressive
 
 [Zend Expressive](http://codeception.com/docs/modules/ZendExpressive) tests can be executed with enabling a corresponding module.
 
-{% highlight yaml %}
+``` yaml
 
 # functional.suite.yml
 
@@ -143,7 +143,7 @@ modules:
     enabled:
         - ZendExpressive
 
-{% endhighlight %}
+```
 
 > See module reference to more configuration options
 
@@ -153,7 +153,7 @@ The `Phalcon4` module requires creating a bootstrap file which returns an instan
 To start writing functional tests with Phalcon support you should enable the `Phalcon4` module
 and provide the path to this bootstrap file:
 
-{% highlight yaml %}
+``` yaml
 
 # functional.suite.yml
 
@@ -165,7 +165,7 @@ modules:
              cleanup: true
              savepoints: true
 
-{% endhighlight %}
+```
 
 [See the full reference](http://codeception.com/docs/modules/Phalcon4)
 
@@ -177,16 +177,16 @@ and the same engine.
 
 Therefore we can open a web page with `amOnPage` method:
 
-{% highlight php %}
+``` php
 
 <?php
 $I->amOnPage('/login');
 
-{% endhighlight %}
+```
 
 We can click links to open web pages:
 
-{% highlight php %}
+``` php
 
 <?php
 $I->click('Logout');
@@ -197,11 +197,11 @@ $I->click('a.logout');
 // click with strict locator
 $I->click(['class' => 'logout']);
 
-{% endhighlight %}
+```
 
 We can submit forms as well:
 
-{% highlight php %}
+``` php
 
 <?php
 $I->submitForm('form#login', ['name' => 'john', 'password' => '123456']);
@@ -210,18 +210,18 @@ $I->fillField('#login input[name=name]', 'john');
 $I->fillField('#login input[name=password]', '123456');
 $I->click('Submit', '#login');
 
-{% endhighlight %}
+```
 
 And do assertions:
 
-{% highlight php %}
+``` php
 
 <?php
 $I->see('Welcome, john');
 $I->see('Logged in successfully', '.notice');
 $I->seeCurrentUrlEquals('/profile/john');
 
-{% endhighlight %}
+```
 
 Framework modules also contain additional methods to access framework internals. For instance, Laravel5, Phalcon,
 and Yii2 modules have a `seeRecord` method which uses the ActiveRecord layer to check that a record exists in the database.
@@ -232,7 +232,7 @@ but some of them are unique.
 You can also access framework globals inside a test or access the dependency injection container
 inside the `Helper\Functional` class:
 
-{% highlight php %}
+``` php
 
 <?php
 namespace Helper;
@@ -246,7 +246,7 @@ class Functional extends \Codeception\Module
     }
 }
 
-{% endhighlight %}
+```
 
 Also check all available *Public Properties* of the used modules to get full access to their data.
 
@@ -256,13 +256,13 @@ By default Codeception uses the `E_ALL & ~E_STRICT & ~E_DEPRECATED` error report
 In functional tests you might want to change this level depending on your framework's error policy.
 The error reporting level can be set in the suite configuration file:
 
-{% highlight yaml %}
+``` yaml
 
 actor: FunctionalTester
 ...
 error_level: E_ALL & ~E_STRICT & ~E_DEPRECATED
 
-{% endhighlight %}
+```
 
 `error_level` can also be set globally in `codeception.yml` file. In order to do that, you need to specify `error_level` as a part of `settings`. For more information, see [Global Configuration](https://codeception.com/docs/reference/Configuration). Note that suite specific `error_level` value will override global value.
 
