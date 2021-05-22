@@ -649,11 +649,6 @@ body {
   ul {
     padding-left: 20px;
   }
-
-  .about-framework {
-    text-align: center;
-    margin-bottom: 20px;
-  }
 }
 
 @media screen and (max-width: 767px) {
@@ -1689,13 +1684,16 @@ body #footer .links {
   line-height: 2;
   width: 90%;
   margin: auto;
-}
 
-@media (min-width: 768px) and (max-width: 991px) {
-  .about-framework {
+  @media (min-width: 768px) and (max-width: 991px) {
     margin-bottom: 25px;
   }
+
+  @media (max-width: 767px) {
+    margin-bottom: 20px;
+  }
 }
+
 
 .partners-block {
   font-size: 18px;
