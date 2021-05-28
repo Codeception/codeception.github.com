@@ -8,6 +8,12 @@ title: Codeception Changelog
 # Changelog
 
 
+#### 4.1.21
+
+* Fix `dry-run` compatibility with symfony/console 5.3
+* Coverage: Don't attempt to set cookie domain when it is "localhost" ([#6210](https://github.com/Codeception/Codeception/issues/6210)) by **[marcovtwout](https://github.com/marcovtwout)**
+* Coverage: Don't attempt to read cookies while an alert is open ([#6211](https://github.com/Codeception/Codeception/issues/6211)) by **[marcovtwout](https://github.com/marcovtwout)**
+
 #### 4.1.20
 
 * Fix compatibility with PHP 7.0 ([#6154](https://github.com/Codeception/Codeception/issues/6154))

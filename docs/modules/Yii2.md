@@ -58,6 +58,11 @@ This section details what you can expect when using this module.
 * `configFile` *required* - path to the application config file. The file
   should be configured for the test environment and return a configuration
   array.
+* `applicationClass` - Fully qualified class name for the application. There are
+  several ways to define the application class. Either via a `class` key in the Yii
+  config, via specifying this codeception module configuration value or let codeception
+  use its default value `yii\web\Application`. In a standard Yii application, this
+  value should be either `yii\console\Application`, `yii\web\Application` or unset.
 * `entryUrl` - initial application url (default: http://localhost/index-test.php).
 * `entryScript` - front script title (like: index-test.php). If not set it's
   taken from `entryUrl`.
@@ -103,7 +108,7 @@ modules:
 
 By default all available methods are loaded, but you can also use the `part`
 option to select only the needed actions and to avoid conflicts. The
-avilable parts are:
+available parts are:
 
 * `init` - use the module only for initialization (for acceptance tests).
 * `orm` - include only `haveRecord/grabRecord/seeRecord/dontSeeRecord` actions.
@@ -1745,13 +1750,15 @@ For example, given this sample "Sign Up" form:
 
 {% highlight html %}
 
-<form action="/sign_up">
+<form id="userForm">
     Login:
     <input type="text" name="user[login]" /><br/>
     Password:
     <input type="password" name="user[password]" /><br/>
     Do you agree to our terms?
     <input type="checkbox" name="user[agree]" /><br/>
+    Subscribe to our newsletter?
+    <input type="checkbox" name="user[newsletter]" value="1" checked="checked" /><br/>
     Select pricing plan:
     <select name="plan">
         <option value="1">Free</option>
@@ -1782,6 +1789,9 @@ $I->submitForm(
 {% endhighlight %}
 Note that "2" will be the submitted value for the "plan" field, as it is
 the selected option.
+
+To uncheck the pre-checked checkbox "newsletter", call `$I->uncheckOption(['name' => 'user[newsletter]']);` *before*,
+then submit the form as shown here (i.e. without the "newsletter" field in the `$params` array).
 
 You can also emulate a JavaScript submission by not specifying any
 buttons in the third parameter to submitForm.

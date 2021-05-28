@@ -229,7 +229,6 @@ $filter = $I->addServiceToContainer('filter', ['className' => '\Phalcon\Filter']
 $filter = $I->addServiceToContainer('answer', function () {
      return rand(0, 1) ? 'Yes' : 'No';
 }, true);
-?>
 
 {% endhighlight %}
 
@@ -273,7 +272,6 @@ Opens web page using route name and parameters.
 
 <?php
 $I->amOnRoute('posts.create');
-?>
 
 {% endhighlight %}
 
@@ -632,7 +630,6 @@ Checks that record does not exist in database.
 
 <?php
 $I->dontSeeRecord('App\Models\Categories', ['name' => 'Testing']);
-?>
 
 {% endhighlight %}
 
@@ -788,7 +785,6 @@ Retrieves record from database
 
 <?php
 $category = $I->grabRecord('App\Models\Categories', ['name' => 'Testing']);
-?>
 
 {% endhighlight %}
 
@@ -882,7 +878,6 @@ Inserts record into the database.
 <?php
 $user_id = $I->haveRecord('App\Models\Users', ['name' => 'Phalcon']);
 $I->haveRecord('App\Models\Categories', ['name' => 'Testing']');
-?>
 
 {% endhighlight %}
 
@@ -1015,7 +1010,6 @@ Checks that current url matches route
 
 <?php
 $I->seeCurrentRouteIs('posts.index');
-?>
 
 {% endhighlight %}
  * `param string` $routeName
@@ -1199,7 +1193,6 @@ If value is `null` checks that session has key.
 <?php
 $I->seeInSession('key');
 $I->seeInSession('key', 'value');
-?>
 
 {% endhighlight %}
 
@@ -1280,13 +1273,12 @@ Checks that number of records exists in database.
 
 <?php
 $I->seeNumberOfRecords('App\Models\Categories', 3, ['name' => 'Testing']);
-?>
 
 {% endhighlight %}
 
  * `param string` $model Model name
  * `param int` $number int number of records
- * `param array`  $attributes Model attributes
+ * `param array` $attributes Model attributes
  * `[Part]` orm
 
 
@@ -1320,7 +1312,6 @@ Checks that record exists in database.
 
 <?php
 $I->seeRecord('App\Models\Categories', ['name' => 'Testing']);
-?>
 
 {% endhighlight %}
 
@@ -1383,7 +1374,6 @@ Assert that the session has a given list of values.
 <?php
 $I->seeSessionHasValues(['key1', 'key2']);
 $I->seeSessionHasValues(['key1' => 'value1', 'key2' => 'value2']);
-?>
 
 {% endhighlight %}
 
@@ -1605,13 +1595,15 @@ For example, given this sample "Sign Up" form:
 
 {% highlight html %}
 
-<form action="/sign_up">
+<form id="userForm">
     Login:
     <input type="text" name="user[login]" /><br/>
     Password:
     <input type="password" name="user[password]" /><br/>
     Do you agree to our terms?
     <input type="checkbox" name="user[agree]" /><br/>
+    Subscribe to our newsletter?
+    <input type="checkbox" name="user[newsletter]" value="1" checked="checked" /><br/>
     Select pricing plan:
     <select name="plan">
         <option value="1">Free</option>
@@ -1642,6 +1634,9 @@ $I->submitForm(
 {% endhighlight %}
 Note that "2" will be the submitted value for the "plan" field, as it is
 the selected option.
+
+To uncheck the pre-checked checkbox "newsletter", call `$I->uncheckOption(['name' => 'user[newsletter]']);` *before*,
+then submit the form as shown here (i.e. without the "newsletter" field in the `$params` array).
 
 You can also emulate a JavaScript submission by not specifying any
 buttons in the third parameter to submitForm.
