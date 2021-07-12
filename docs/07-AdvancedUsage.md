@@ -383,7 +383,7 @@ modules:
         WebDriver:
             url: 'http://127.0.0.1:8000/'
             browser: 'firefox'
-
+env:
     chrome:
          modules:
             config:
