@@ -24,7 +24,7 @@ By the time of writing this chapter, we didn't have an awesome tool like it. Thi
 
 ## Docker
 
-Please make sure you have `docker` or [Docker Toolbox](https://www.docker.com/products/docker-toolbox) installed. Docker experience is required as well.
+Please make sure you have `docker` installed. Docker experience is required as well.
 
 ### Using Codeception Docker image
 
@@ -143,7 +143,7 @@ To conclude, we need:
 Execute this command in an empty folder to install Robo and Robo-paracept :
 {% highlight bash %}
 
-$ composer require codeception/robo-paracept:dev-master
+$ composer require codeception/robo-paracept --dev
 
 {% endhighlight %}
 
