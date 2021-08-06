@@ -302,6 +302,139 @@ $I->amOnRoute('posts.show', ['id' => 34]);
  * `param array` $params
 
 
+#### assertEmailAddressContains
+ 
+Verify that an email contains addresses with a [header](https://datatracker.ietf.org/doc/html/rfc4021)
+`$headerName` and its expected value `$expectedValue`.
+If the Email object is not specified, the last email sent is used instead.
+
+{% highlight php %}
+
+<?php
+$I->assertEmailAddressContains('To', 'jane_doe@example.com');
+
+{% endhighlight %}
+
+
+#### assertEmailAttachmentCount
+ 
+Verify that an email has sent the specified number `$count` of attachments.
+If the Email object is not specified, the last email sent is used instead.
+
+{% highlight php %}
+
+<?php
+$I->assertEmailAttachmentCount(1);
+
+{% endhighlight %}
+
+
+#### assertEmailHasHeader
+ 
+Verify that an email has a [header](https://datatracker.ietf.org/doc/html/rfc4021) `$headerName`.
+If the Email object is not specified, the last email sent is used instead.
+
+{% highlight php %}
+
+<?php
+$I->assertEmailHasHeader('Bcc');
+
+{% endhighlight %}
+
+
+#### assertEmailHeaderNotSame
+ 
+Verify that the [header](https://datatracker.ietf.org/doc/html/rfc4021)
+`$headerName` of an email is not the expected one `$expectedValue`.
+If the Email object is not specified, the last email sent is used instead.
+
+{% highlight php %}
+
+<?php
+$I->assertEmailHeaderNotSame('To', 'john_doe@gmail.com');
+
+{% endhighlight %}
+
+
+#### assertEmailHeaderSame
+ 
+Verify that the [header](https://datatracker.ietf.org/doc/html/rfc4021)
+`$headerName` of an email is the same as expected `$expectedValue`.
+If the Email object is not specified, the last email sent is used instead.
+
+{% highlight php %}
+
+<?php
+$I->assertEmailHeaderSame('To', 'jane_doe@gmail.com');
+
+{% endhighlight %}
+
+
+#### assertEmailHtmlBodyContains
+ 
+Verify that the HTML body of an email contains `$text`.
+If the Email object is not specified, the last email sent is used instead.
+
+{% highlight php %}
+
+<?php
+$I->assertEmailHtmlBodyContains('Successful registration');
+
+{% endhighlight %}
+
+
+#### assertEmailHtmlBodyNotContains
+ 
+Verify that the HTML body of an email does not contain a text `$text`.
+If the Email object is not specified, the last email sent is used instead.
+
+{% highlight php %}
+
+<?php
+$I->assertEmailHtmlBodyNotContains('userpassword');
+
+{% endhighlight %}
+
+
+#### assertEmailNotHasHeader
+ 
+Verify that an email does not have a [header](https://datatracker.ietf.org/doc/html/rfc4021) `$headerName`.
+If the Email object is not specified, the last email sent is used instead.
+
+{% highlight php %}
+
+<?php
+$I->assertEmailNotHasHeader('Bcc');
+
+{% endhighlight %}
+
+
+#### assertEmailTextBodyContains
+ 
+Verify the text body of an email contains a `$text`.
+If the Email object is not specified, the last email sent is used instead.
+
+{% highlight php %}
+
+<?php
+$I->assertEmailTextBodyContains('Example text body');
+
+{% endhighlight %}
+
+
+#### assertEmailTextBodyNotContains
+ 
+Verify that the text body of an email does not contain a `$text`.
+If the Email object is not specified, the last email sent is used instead.
+
+{% highlight php %}
+
+<?php
+$I->assertEmailTextBodyNotContains('My secret text body');
+
+{% endhighlight %}
+
+
 #### attachFile
  
 Attaches a file relative to the Codeception `_data` directory to the given file upload field.
@@ -802,6 +935,14 @@ $I->followRedirect();
 
 
 
+#### goToLogoutPath
+ 
+Go to the configured logout url (by default: `/logout`).
+This method includes redirection to the destination page configured after logout.
+
+See the Symfony documentation on ['Logging Out'](https://symfony.com/doc/current/security.html#logging-out).
+
+
 #### grabAttributeFrom
  
 Grabs the value of the given attribute value from the given element.
@@ -1073,12 +1214,25 @@ Invalidate previously cached routes.
 
 #### logout
  
-Invalidate the current session.
+Alias method for [`logoutProgrammatically()`](https://codeception.com/docs/modules/Symfony#logoutProgrammatically)
 
 {% highlight php %}
 
 <?php
 $I->logout();
+
+{% endhighlight %}
+
+
+#### logoutProgrammatically
+ 
+Invalidates the current user's session and expires the session cookies.
+This method does not include any redirects after logging out.
+
+{% highlight php %}
+
+<?php
+$I->logoutProgrammatically();
 
 {% endhighlight %}
 
@@ -1795,6 +1949,22 @@ $I->seeRenderedTemplate('layout.html.twig');
 {% endhighlight %}
 
  * `param string` $template
+
+
+#### seeRequestTimeIsLessThan
+ 
+Asserts that the time a request lasted is less than expected.
+
+If the page performed a HTTP redirect, only the time of the last request will be taken into account.
+You can modify this behavior using [stopFollowingRedirects()](https://codeception.com/docs/modules/Symfony#stopFollowingRedirects) first.
+
+Also, note that using code coverage can significantly increase the time it takes to resolve a request,
+which could lead to unreliable results when used together.
+
+It is recommended to set [`rebootable_client`](https://codeception.com/docs/modules/Symfony#Config) to `true` (=default),
+cause otherwise this assertion gives false results if you access multiple pages in a row, or if your app performs a redirect.
+
+ * `param int|float` $expectedMilliseconds The expected time in milliseconds
 
 
 #### seeResponseCodeIs
