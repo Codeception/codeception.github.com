@@ -432,13 +432,18 @@ It automatically installs Selenium and all required dependencies and starts serv
 
 ```
 npm install selenium-standalone -g
-selenium-standalone install && selenium-standalone start
+selenium-standalone install
+```
+
+Launch this command in a separate terminal:
+
+```
+selenium-standalone start
 ```
 
 ![](https://raw.githubusercontent.com/vvo/selenium-standalone/HEAD/screencast.gif)
 
-This command should launch Selenium Server so when it is ready you can run WebDriver tests.
-
+Now, you are ready to run WebDriver tests using Codeception.
 
 > Alternatively, Selenium Server can be installed manually. [Download it](https://www.selenium.dev/downloads/) from the official site and launch a server with Java: `java -jar selenium-server-....jar`. In this case ChromeDriver and GeckoDriver must be installed separately.
 
@@ -448,7 +453,7 @@ This command should launch Selenium Server so when it is ready you can run WebDr
 
 ### Configuration
 
-To execute a test in a browser we need to change the suite configuration to use **WebDriver** instead of `PhpBrowser`.
+To execute a test in a browser you need to change the suite configuration to use **WebDriver** module.
 
 Modify your `acceptance.suite.yml` file:
 
