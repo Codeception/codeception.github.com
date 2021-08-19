@@ -424,14 +424,28 @@ In the next section, we will overview the most popular solutions.
 
 #### Selenium Server
 
-[Selenium Server](http://www.seleniumhq.org/) is a de-facto standard for automated web and mobile testing.
-It is a server that can launch and drive different browsers locally or remotely.
-WebDriver protocol was initially created by Selenium before becoming a W3C standard.
-This makes Selenium server the most stable complete implementation of WebDriver for today.
-Selenium Server is also recommended by Codeception team.
+[Selenium](https://www.selenium.dev) is required to launch and control browsers from Codeception.
+Selenium Server is required to be installed and started before running tests.
 
-To control browsers Selenium Server uses official tools maintained by browser vendors, like [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver) for Chrome or [GeckoDriver](https://github.com/mozilla/geckodriver) for Firefox.
-This makes Selenium quite heavy to install, as it requires Java, browsers, Chrome or GeckoDriver and GUI (display server) to run browsers in.
+The fastest way of getting Selenium is using [selenium-standalone](https://www.npmjs.com/package/selenium-standalone) NodeJS Package.
+It automatically installs Selenium and all required dependencies and starts server. It requires **NodeJS and Java** to be installed.
+
+```
+npm install selenium-standalone -g
+selenium-standalone install && selenium-standalone start
+```
+
+![](https://raw.githubusercontent.com/vvo/selenium-standalone/HEAD/screencast.gif)
+
+
+To install Selenium Server manually, [download it](https://www.selenium.dev/downloads/) from the official site and launch a server with java:
+
+```
+java -jar selenium-server-....jar
+```
+
+In this case ChromeDriver and GeckoDriver must be installed separately.
+
 
 * Follow [Installation Instructions](http://codeception.com/docs/modules/WebDriver#Selenium)
 * Enable [RunProcess](http://codeception.com/extensions#RunProcess) extension to start/stop Selenium automatically *(optional)*.
