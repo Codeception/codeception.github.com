@@ -422,7 +422,7 @@ In the next section, we will overview the most popular solutions.
 
 ### Local Setup
 
-#### Selenium Server
+### Selenium Server
 
 [Selenium](https://www.selenium.dev) is required to launch and control browsers from Codeception.
 Selenium Server is required to be installed and started before running tests.
@@ -437,27 +437,14 @@ selenium-standalone install && selenium-standalone start
 
 ![](https://raw.githubusercontent.com/vvo/selenium-standalone/HEAD/screencast.gif)
 
-
-To install Selenium Server manually, [download it](https://www.selenium.dev/downloads/) from the official site and launch a server with java:
-
-```
-java -jar selenium-server-....jar
-```
-
-In this case ChromeDriver and GeckoDriver must be installed separately.
+This command should launch Selenium Server so when it is ready you can run WebDriver tests.
 
 
-* Follow [Installation Instructions](http://codeception.com/docs/modules/WebDriver#Selenium)
+> Alternatively, Selenium Server can be installed manually. [Download it](https://www.selenium.dev/downloads/) from the official site and launch a server with Java: `java -jar selenium-server-....jar`. In this case ChromeDriver and GeckoDriver must be installed separately.
+
+* For more information refer to [Installation Instructions](http://codeception.com/docs/modules/WebDriver#Selenium)
 * Enable [RunProcess](http://codeception.com/extensions#RunProcess) extension to start/stop Selenium automatically *(optional)*.
 
-#### ChromeDriver
-
-ChromeDriver was created by Google to control Chrome and Chromium browsers programmatically.
-It can be paired with [Selenium Server](http://codeception.com/docs/03-AcceptanceTests#Selenium-Server) or used as a standalone tool to drive Chrome browser.
-It is simpler to set up than Selenium Server, however, it has limited support for WebDriver protocol.
-
-* Follow [Installation Instructions](http://codeception.com/docs/modules/WebDriver#ChromeDriver)
-* Enable [RunProcess](http://codeception.com/extensions#RunProcess) extension to start/stop ChromeDriver automatically *(optional)*.
 
 ### Configuration
 
