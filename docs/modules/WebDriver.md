@@ -33,18 +33,71 @@ Warning. Using PHAR file and composer in the same project can cause unexpected e
 
 
 Run tests in real browsers using the W3C [WebDriver protocol](https://www.w3.org/TR/webdriver/).
+There are multiple ways of running browser tests using WebDriver:
 
-### Local Testing in Chrome and/or Firefox
+### Selenium (Recommended)
 
-To run tests in a real browser you need:
-* The browser itself: Chrome/Chromium and/or Firefox
-* The appropriate driver:
-    * [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/getting-started) for Chrome/Chromium
-    * [GeckoDriver](https://github.com/mozilla/geckodriver) for Firefox
-  If you want to use both Chrome and Firefox, consider setting up a dedicated [Codeception environment](https://codeception.com/docs/07-AdvancedUsage#Environments) for each.
-* Optional: Selenium Standalone Server (see below) 
+* Java is required
+* NodeJS is required
+
+The fastest way to get started is to [Install and launch Selenium using selenium-standalone NodeJS package](https://www.npmjs.com/package/selenium-standalone).
+
+Launch selenium standalone in separate console window:
+
+{% highlight yaml %}
+selenium-standalone start
+
+{% endhighlight %}
+
+Update configuration in `acceptance.suite.yml`:
+
+{% highlight yaml %}
+
+modules:
+   enabled:
+      - WebDriver:
+         url: 'http://localhost/'
+         browser: chrome # 'chrome' or 'firefox'
+
+{% endhighlight %}
+
+### Headless Chrome Browser
+
+To enable headless mode (launch tests without showing a window) for Chrome browser using Selenium use this config in `acceptance.suite.yml`:
+
+{% highlight yaml %}
+
+modules:
+   enabled:
+      - WebDriver:
+         url: 'http://localhost/'
+         browser: chrome
+           capabilities:
+             chromeOptions:
+               args: ["--headless", "--disable-gpu"]
+
+{% endhighlight %}
+
+### Headless Selenium in Docker
+
+Docker can ship Selenium Server with all its dependencies and browsers inside a single container.
+Running tests inside Docker is as easy as pulling [official selenium image](https://github.com/SeleniumHQ/docker-selenium) and starting a container with Chrome:
+
+{% highlight yaml %}
+docker run --net=host selenium/standalone-chrome
+
+{% endhighlight %}
+
+By using `--net=host` allow Selenium to access local websites.
+
+### Local Chrome and/or Firefox
+
+Tests can be executed directly throgh ChromeDriver or GeckoDriver (for Firefox). Consider using this option if you don't plan to use Selenium.
 
 #### ChromeDriver
+
+* Download and install [ChromeDriver](https://sites.google.com/chromium.org/driver/downloads?authuser=0)
+* Launch ChromeDriver in a separate console window: `chromedriver --url-base=/wd/hub`.
 
 Configuration in `acceptance.suite.yml`:
 
@@ -66,11 +119,12 @@ modules:
 {% endhighlight %}
 See here for additional [Chrome options](https://sites.google.com/a/chromium.org/chromedriver/capabilities)
 
-Before running the tests, you need to start ChromeDriver in a separate console window: `chromedriver --url-base=/wd/hub`.
-Or you can enable the [RunProcess extension](https://codeception.com/extensions#RunProcess) to start/stop ChromeDriver automatically.
 
 #### GeckoDriver
 
+* [GeckoDriver])(https://github.com/mozilla/geckodriver/releases) must be installed 
+* Start GeckoDriver in a separate console window: `geckodriver`.
+ 
 Configuration in `acceptance.suite.yml`:
 
 {% highlight yaml %}
@@ -90,43 +144,6 @@ modules:
 
 {% endhighlight %}
 See here for [Firefox capabilities](https://developer.mozilla.org/en-US/docs/Web/WebDriver/Capabilities#List_of_capabilities)
-
-Before running the tests, you need to start GeckoDriver in a separate console window: `geckodriver`.
-Or you can enable the [RunProcess extension](https://codeception.com/extensions#RunProcess) to start/stop GeckoDriver automatically.
-
-#### Selenium
-
-On top of ChromeDriver/GeckoDriver you may also use Selenium Standalone Server for more options.
-
-1. Install [Java](https://www.java.com/)
-2. Download [Selenium Standalone Server](http://docs.seleniumhq.org/download/)
-3. Configuration in `acceptance.suite.yml`:
-
-{% highlight yaml %}
-
-modules:
-   enabled:
-      - WebDriver:
-         url: 'http://localhost/'
-         browser: chrome # 'chrome' or 'firefox'
-
-{% endhighlight %}
-For additional `capabilities`, see above. Selenium 3.8 renamed the `chromeOptions` capability to `goog:chromeOptions`.
-
-Before running the tests, you need to start GeckoDriver in a separate console window: `java -jar "/path/to/selenium-server-standalone-xxx.jar"`
-To locate the ChromeDriver binary use `-Dwebdriver.chrome.driver=./chromedriver`, for GeckoDriver use `-Dwebdriver.gecko.driver=./geckodriver`.
-
-#### Headless Selenium in Docker
-
-Docker can ship Selenium Server with all its dependencies and browsers inside a single container.
-Running tests inside Docker is as easy as pulling [official selenium image](https://github.com/SeleniumHQ/docker-selenium) and starting a container with Chrome:
-
-{% highlight yaml %}
-docker run --net=host selenium/standalone-chrome
-
-{% endhighlight %}
-
-By using `--net=host` we allow selenium to access local websites.
 
 ### Cloud Testing
 
@@ -177,6 +194,34 @@ you should use a tunnel application provided by a service.
                  browserstack.local: true # for local testing
 
 {% endhighlight %}
+
+#### LambdaTest
+
+1. Create an account at [LambdaTest](https://www.lambdatest.com/) to get your username and access key
+2. In the module configuration use the format `username`:`access key`@hub.lambdatest.com' for `host`
+3. Configure `os` and `os_version` under `capabilities` to define the operating System
+4. If your site is available only locally or via VPN you should use a tunnel app. In this case add capabilities.setCapability("tunnel",true);.
+
+{% highlight yaml %}
+
+   modules:
+ enabled:
+   - WebDriver:
+      url: http://mysite.com
+      host: '<username>:<access key>@hub.lambdatest.com'
+      build: <your build name>
+      name: <your test name>
+      port: 80
+      browser: chrome
+      capabilities:
+          os: Windows
+          os_version: 10
+          browser_version: 86
+          resolution: 1366x768
+          tunnel: true # for local testing
+
+{% endhighlight %}
+
 #### TestingBot
 
 1. Create an account at [TestingBot](https://testingbot.com/) to get your key and secret
