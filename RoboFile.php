@@ -667,6 +667,11 @@ EOF;
 
             $body .= "\n\n\n[🦑 Repository](https://github.com/Codeception/$repo) ";
             $body .= "| [📦 Releases](https://github.com/Codeception/$repo/releases) ";
+
+            if ($isModule) {
+                $module = str_replace('module-', '', $repo);
+                $body .= "| [📖 Docs](/docs/modules/$module) ";
+            }
             $changelog .= "\n\n$body\n";
 
         }
