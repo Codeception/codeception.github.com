@@ -1,3 +1,8 @@
+- name: Codeception CRAP reporter
+  image: https://user-images.githubusercontent.com/6382002/130051733-5a6f18eb-012c-4ef8-96f0-1a12c5b26407.png
+  link: https://github.com/nebbia-fitness/codecept-coverage-reporter
+  description: Codeception CRAP reporter is an open-source implementation tool to help you detect PHP code C.R.A.P. – which stands for Change Risk Anti-Patterns.
+  
 - name: Amazon S3 Filesystem
   link: https://github.com/polevaultweb/s3-filesystem
   description: An Amazon S3 Filesystem module.
