@@ -645,13 +645,13 @@ EOF;
         foreach ($releases as $release) {
             $repo = $release['repo'] ?? 'Codeception';
             $isModule = isset($release['repo']);
-            $changelog .= sprintf("\n\n### 🎉 %s %s: %s\n\n", $repo, $release['tag_name'], $release['name']);
+            $changelog .= sprintf("\n\n## %s %s: %s\n\n", $repo, $release['tag_name'], $release['name']);
 
-            $changelog .= sprintf("> Released by **[![](%s) %s](%s) at %s**\n",
+            $changelog .= sprintf("*Released by [![](%s) %s](%s) on %s*\n",
                 $release['author']['avatar_url'] . '&s=16',
                 $release['author']['login'],
                 $release['author']['html_url'],
-                $release['published_at']
+                date_format(date_create($release['published_at']),"Y/m/d H:i:s")
             );
 
             $body = $release['body'];
@@ -665,12 +665,9 @@ EOF;
                 $body
             );
 
-            $body .= "\n\n[🦑 Repository](https://github.com/Codeception/$repo) ";
+            $body .= "\n\n\n[🦑 Repository](https://github.com/Codeception/$repo) ";
             $body .= "| [📦 Releases](https://github.com/Codeception/$repo/releases) ";
-            if ($isModule) {
-                $body .= "| [📖 Module Docs](/docs/modules/$repo) ";
-            }
-            $changelog .= "\n$body\n";
+            $changelog .= "\n\n$body\n";
 
         }
 
