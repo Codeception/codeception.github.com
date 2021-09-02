@@ -626,9 +626,11 @@ EOF;
             $this->say($repository['name']);
             if ($repository['disabled'] || $repository['archived']) continue;
             try {
-                $release = $client->repo()->releases()->latest('codeception', $repository['name']);
-                $release['repo'] = $repository['name'];
-                $moduleReleases[]= $release;
+                $releases = $client->repo()->releases()->all('codeception', $repository['name']);
+                foreach ($releases as $k=> $release) {
+                    $releases[$k]['repo'] = $repository['name'];
+                }
+                $moduleReleases = array_merge($moduleReleases, $releases);
             } catch (\Exception $err) {
 //                $this->say("Repository not available " . $repository['name']);
 //                $this->say($err->getMessage());
@@ -647,7 +649,7 @@ EOF;
             $isModule = isset($release['repo']);
             $changelog .= sprintf("\n\n## %s %s: %s\n\n", $repo, $release['tag_name'], $release['name']);
 
-            $changelog .= sprintf("*Released by [![](%s) %s](%s) on %s*\n",
+            $changelog .= sprintf("Released by [![](%s)%s](%s) on %s\n",
                 $release['author']['avatar_url'] . '&s=16',
                 $release['author']['login'],
                 $release['author']['html_url'],
@@ -666,12 +668,9 @@ EOF;
             );
 
             $body .= "\n\n\n[🦑 Repository](https://github.com/Codeception/$repo) ";
-            $body .= "| [📦 Releases](https://github.com/Codeception/$repo/releases) ";
+            $body .= " [📦 Releases](https://github.com/Codeception/$repo/releases) ";
 
-            if ($isModule) {
-                $module = str_replace('module-', '', $repo);
-                $body .= "| [📖 Docs](/docs/modules/$module) ";
-            }
+
             $changelog .= "\n\n$body\n";
 
         }
