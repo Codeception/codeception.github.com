@@ -38,7 +38,12 @@ jobs:
         
       - name: Build docs
         run: ./vendor/bin/robo build:docs
-        
+
+      - name: Build changelog
+        run: ./vendor/bin/robo changelog
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+
       - name: Publish docs
         run: ./vendor/bin/robo publish
 

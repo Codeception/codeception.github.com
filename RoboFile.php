@@ -410,7 +410,7 @@ EOF;
             ->run();                    
     }    
 
-    protected function processChangelog()
+    protected function oldProcessChangelog()
     {
         $sortByVersionDesc = function (\SplFileInfo $a, \SplFileInfo $b) {
             $pattern = '/^CHANGELOG-(\d+\.(?:x|\d+)).md$/';
@@ -523,6 +523,11 @@ EOF;
 
     }
 
+    public function findReleases()
+    {
+
+    }
+
     public function release()
     {
         $version    = self::STABLE_BRANCH . '.' . date('Ymd');
@@ -605,6 +610,73 @@ EOF;
         $pharTask->run();
     }
 
+    public function processChangelog()
+    {
+        $client = new \Github\Client();
+        $token = getenv('GH_PAT');
+        if ($token) {
+            $client->authenticate(getenv('GH_PAT'), null, \Github\Client::AUTH_ACCESS_TOKEN);
+        }
+        $codeceptionReleases = $client->repo()->releases()->all('codeception', 'Codeception');
+        $moduleReleases = [];
+
+        $repositories = $client->repos()->org('Codeception', ['per_page' => 100]);
+        foreach ($repositories as $repository) {
+            if ($repository['name'] !== 'Codeception' && !str_starts_with($repository['name'], 'module-')) continue;
+            $this->say($repository['name']);
+            if ($repository['disabled'] || $repository['archived']) continue;
+            try {
+                $release = $client->repo()->releases()->latest('codeception', $repository['name']);
+                $release['repo'] = $repository['name'];
+                $moduleReleases[]= $release;
+            } catch (\Exception $err) {
+//                $this->say("Repository not available " . $repository['name']);
+//                $this->say($err->getMessage());
+            }
+        }
+
+        $releases = array_merge($codeceptionReleases, $moduleReleases);
+        usort($releases, function($r1, $r2) {
+          return strtotime($r1['published_at']) > strtotime($r2['published_at']) ? -1 : 1;
+        });
+
+        $changelog = "";
+
+        foreach ($releases as $release) {
+            $repo = $release['repo'] ?? 'Codeception';
+            $isModule = isset($release['repo']);
+            $changelog .= sprintf("\n\n### 🎉 %s %s: %s\n\n", $repo, $release['tag_name'], $release['name']);
+
+            $changelog .= sprintf("> Released by **[![](%s) %s](%s) at %s**\n",
+                $release['author']['avatar_url'] . '&s=16',
+                $release['author']['login'],
+                $release['author']['html_url'],
+                $release['published_at']
+            );
+
+            $body = $release['body'];
+            //user
+
+            $body = preg_replace('~\s@([\w-]+)~', ' **[$1](https://github.com/$1)**', $body);
+            //issue
+            $body = preg_replace(
+                '~#(\d+)~',
+                "[#$1](https://github.com/Codeception/$repo/issues/$1)",
+                $body
+            );
+
+            $body .= "\n\n[🦑 Repository](https://github.com/Codeception/$repo) ";
+            $body .= "| [📦 Releases](https://github.com/Codeception/$repo/releases) ";
+            if ($isModule) {
+                $body .= "| [📖 Module Docs](/docs/modules/$repo) ";
+            }
+            $changelog .= "\n$body\n";
+
+        }
+
+        return $changelog;
+    }
+
     public function updateBuildsPage()
     {
         $sortByVersion = function (\SplFileInfo $a, \SplFileInfo $b) {
@@ -677,4 +749,6 @@ EOF;
         }
         $this->taskWriteToFile($versionFile)->text($hash)->run();
     }
+
+
 }
