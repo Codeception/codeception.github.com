@@ -22,6 +22,11 @@ jobs:
       - uses: actions/checkout@v2
         with:
           token: ${{ secrets.GH_PAT }}      
+
+      - name: authorize
+        run: |
+          git config --local user.email "${GITHUB_ACTOR}@bots.github.com"
+          git config --local user.name "github-actions[bot]"
       
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
