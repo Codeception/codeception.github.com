@@ -32,7 +32,7 @@ $I->seeNumberOfTabs(2);
 ```
 
 
-[🦑 Repository](https://github.com/Codeception/module-webdriver) | [📦 Releases](https://github.com/Codeception/module-webdriver/releases) 
+[🦑 Repository](https://github.com/Codeception/module-webdriver) | [📦 Releases](https://github.com/Codeception/module-webdriver/releases) | [📖 Docs](/docs/modules/webdriver) 
 
 
 ## Codeception 3.1.3: Security fix
@@ -43,7 +43,7 @@ $I->seeNumberOfTabs(2);
 * Security fix: Disable deserialization of RunProcess class ([#6241](https://github.com/Codeception/Codeception/issues/6241)) reported by **[snoopysecurity](https://github.com/snoopysecurity)**
 
 
-[🦑 Repository](https://github.com/Codeception/Codeception) | [📦 Releases](https://github.com/Codeception/Codeception/releases) 
+[🦑 Repository](https://github.com/Codeception/Codeception) | [📦 Releases](https://github.com/Codeception/Codeception/releases) | [📖 Docs](/docs/modules/Codeception) 
 
 
 ## Codeception 3.1.3: Security fix
@@ -81,7 +81,7 @@ $I->seeNumberOfTabs(2);
 - add link to changelog in readme ([#24](https://github.com/Codeception/module-laravel/issues/24)) by **[Arhell](https://github.com/Arhell)** 
 
 
-[🦑 Repository](https://github.com/Codeception/module-laravel) | [📦 Releases](https://github.com/Codeception/module-laravel/releases) 
+[🦑 Repository](https://github.com/Codeception/module-laravel) | [📦 Releases](https://github.com/Codeception/module-laravel/releases) | [📖 Docs](/docs/modules/laravel) 
 
 
 ## module-symfony 2.0.5: 2.0.5
@@ -103,7 +103,7 @@ Added assertions for Symfony Mime component ([#139](https://github.com/Codecepti
 - `assertEmailTextBodyNotContains`
 
 
-[🦑 Repository](https://github.com/Codeception/module-symfony) | [📦 Releases](https://github.com/Codeception/module-symfony/releases) 
+[🦑 Repository](https://github.com/Codeception/module-symfony) | [📦 Releases](https://github.com/Codeception/module-symfony/releases) | [📖 Docs](/docs/modules/symfony) 
 
 
 ## Codeception 4.1.21: 
@@ -127,7 +127,7 @@ Added assertions for Symfony Mime component ([#139](https://github.com/Codecepti
 - Add ability to specify application class in config ([#48](https://github.com/Codeception/module-yii2/issues/48))
 
 
-[🦑 Repository](https://github.com/Codeception/module-yii2) | [📦 Releases](https://github.com/Codeception/module-yii2/releases) 
+[🦑 Repository](https://github.com/Codeception/module-yii2) | [📦 Releases](https://github.com/Codeception/module-yii2/releases) | [📖 Docs](/docs/modules/yii2) 
 
 
 ## module-phalcon4 v1.0.7: v1.0.7
@@ -143,7 +143,7 @@ Updated code base to PHP 7.2 ([#14](https://github.com/Codeception/module-phalco
 - sha1 by default instead of md5.
 
 
-[🦑 Repository](https://github.com/Codeception/module-phalcon4) | [📦 Releases](https://github.com/Codeception/module-phalcon4/releases) 
+[🦑 Repository](https://github.com/Codeception/module-phalcon4) | [📦 Releases](https://github.com/Codeception/module-phalcon4/releases) | [📖 Docs](/docs/modules/phalcon4) 
 
 
 ## module-lumen 2.0.1: 2.0.1
@@ -155,7 +155,7 @@ Updated code base to PHP 7.2 ([#14](https://github.com/Codeception/module-phalco
 
 
 
-[🦑 Repository](https://github.com/Codeception/module-lumen) | [📦 Releases](https://github.com/Codeception/module-lumen/releases) 
+[🦑 Repository](https://github.com/Codeception/module-lumen) | [📦 Releases](https://github.com/Codeception/module-lumen/releases) | [📖 Docs](/docs/modules/lumen) 
 
 
 ## module-rest 1.3.1: DELETE  method sends request body
@@ -166,7 +166,7 @@ Updated code base to PHP 7.2 ([#14](https://github.com/Codeception/module-phalco
 Revert change implemented in 1.3.0
 
 
-[🦑 Repository](https://github.com/Codeception/module-rest) | [📦 Releases](https://github.com/Codeception/module-rest/releases) 
+[🦑 Repository](https://github.com/Codeception/module-rest) | [📦 Releases](https://github.com/Codeception/module-rest/releases) | [📖 Docs](/docs/modules/rest) 
 
 
 ## Codeception 4.1.20: 
@@ -188,7 +188,7 @@ Revert change implemented in 1.3.0
 See [#6](https://github.com/Codeception/module-redis/issues/6)
 
 
-[🦑 Repository](https://github.com/Codeception/module-redis) | [📦 Releases](https://github.com/Codeception/module-redis/releases) 
+[🦑 Repository](https://github.com/Codeception/module-redis) | [📦 Releases](https://github.com/Codeception/module-redis/releases) | [📖 Docs](/docs/modules/redis) 
 
 
 ## Codeception 4.1.19: 
@@ -217,7 +217,7 @@ See [#6](https://github.com/Codeception/module-redis/issues/6)
 * Support php-amqplib v3
 
 
-[🦑 Repository](https://github.com/Codeception/module-amqp) | [📦 Releases](https://github.com/Codeception/module-amqp/releases) 
+[🦑 Repository](https://github.com/Codeception/module-amqp) | [📦 Releases](https://github.com/Codeception/module-amqp/releases) | [📖 Docs](/docs/modules/amqp) 
 
 
 ## module-datafactory 1.1.0: Added Custom Store
@@ -228,7 +228,7 @@ See [#6](https://github.com/Codeception/module-redis/issues/6)
 Custom Store can be used for Data Factory. See [#2](https://github.com/Codeception/module-datafactory/issues/2) 
 
 
-[🦑 Repository](https://github.com/Codeception/module-datafactory) | [📦 Releases](https://github.com/Codeception/module-datafactory/releases) 
+[🦑 Repository](https://github.com/Codeception/module-datafactory) | [📦 Releases](https://github.com/Codeception/module-datafactory/releases) | [📖 Docs](/docs/modules/datafactory) 
 
 
 ## Codeception 4.1.18: 
@@ -294,7 +294,7 @@ Custom Store can be used for Data Factory. See [#2](https://github.com/Codecepti
 * Fix: `$cookie->setSecure()` always as boolean [#6](https://github.com/Codeception/module-phalcon/issues/6)
 
 
-[🦑 Repository](https://github.com/Codeception/module-phalcon) | [📦 Releases](https://github.com/Codeception/module-phalcon/releases) 
+[🦑 Repository](https://github.com/Codeception/module-phalcon) | [📦 Releases](https://github.com/Codeception/module-phalcon/releases) | [📖 Docs](/docs/modules/phalcon) 
 
 
 ## Codeception 4.1.14: 
@@ -316,7 +316,7 @@ Custom Store can be used for Data Factory. See [#2](https://github.com/Codecepti
 Use wrapper for assertRegExp method
 
 
-[🦑 Repository](https://github.com/Codeception/module-cli) | [📦 Releases](https://github.com/Codeception/module-cli/releases) 
+[🦑 Repository](https://github.com/Codeception/module-cli) | [📦 Releases](https://github.com/Codeception/module-cli/releases) | [📖 Docs](/docs/modules/cli) 
 
 
 ## Codeception 4.1.13: 
@@ -338,7 +338,7 @@ Use wrapper for assertRegExp method
 Add support for IS NOT NULL in database assertions [#12](https://github.com/Codeception/module-db/issues/12) 
 
 
-[🦑 Repository](https://github.com/Codeception/module-db) | [📦 Releases](https://github.com/Codeception/module-db/releases) 
+[🦑 Repository](https://github.com/Codeception/module-db) | [📦 Releases](https://github.com/Codeception/module-db/releases) | [📖 Docs](/docs/modules/db) 
 
 
 ## module-mongodb 1.1.1: Support PHP 8
@@ -349,7 +349,7 @@ Add support for IS NOT NULL in database assertions [#12](https://github.com/Code
 
 
 
-[🦑 Repository](https://github.com/Codeception/module-mongodb) | [📦 Releases](https://github.com/Codeception/module-mongodb/releases) 
+[🦑 Repository](https://github.com/Codeception/module-mongodb) | [📦 Releases](https://github.com/Codeception/module-mongodb/releases) | [📖 Docs](/docs/modules/mongodb) 
 
 
 ## module-doctrine2 1.1.1: Support PHP 8
@@ -360,7 +360,7 @@ Add support for IS NOT NULL in database assertions [#12](https://github.com/Code
 
 
 
-[🦑 Repository](https://github.com/Codeception/module-doctrine2) | [📦 Releases](https://github.com/Codeception/module-doctrine2/releases) 
+[🦑 Repository](https://github.com/Codeception/module-doctrine2) | [📦 Releases](https://github.com/Codeception/module-doctrine2/releases) | [📖 Docs](/docs/modules/doctrine2) 
 
 
 ## module-laminas 1.0.0: First release
@@ -372,7 +372,7 @@ Add support for IS NOT NULL in database assertions [#12](https://github.com/Code
 * Supports PHP 8
 
 
-[🦑 Repository](https://github.com/Codeception/module-laminas) | [📦 Releases](https://github.com/Codeception/module-laminas/releases) 
+[🦑 Repository](https://github.com/Codeception/module-laminas) | [📦 Releases](https://github.com/Codeception/module-laminas/releases) | [📖 Docs](/docs/modules/laminas) 
 
 
 ## module-mezzio 2.0.2: Support PHP 8
@@ -383,7 +383,7 @@ Add support for IS NOT NULL in database assertions [#12](https://github.com/Code
 
 
 
-[🦑 Repository](https://github.com/Codeception/module-mezzio) | [📦 Releases](https://github.com/Codeception/module-mezzio/releases) 
+[🦑 Repository](https://github.com/Codeception/module-mezzio) | [📦 Releases](https://github.com/Codeception/module-mezzio/releases) | [📖 Docs](/docs/modules/mezzio) 
 
 
 ## Codeception 4.1.12: 
@@ -405,7 +405,7 @@ Add support for IS NOT NULL in database assertions [#12](https://github.com/Code
 
 
 
-[🦑 Repository](https://github.com/Codeception/module-soap) | [📦 Releases](https://github.com/Codeception/module-soap/releases) 
+[🦑 Repository](https://github.com/Codeception/module-soap) | [📦 Releases](https://github.com/Codeception/module-soap/releases) | [📖 Docs](/docs/modules/soap) 
 
 
 ## Codeception 4.1.11: bugfix release
@@ -430,7 +430,7 @@ Add support for IS NOT NULL in database assertions [#12](https://github.com/Code
 
 
 
-[🦑 Repository](https://github.com/Codeception/module-queue) | [📦 Releases](https://github.com/Codeception/module-queue/releases) 
+[🦑 Repository](https://github.com/Codeception/module-queue) | [📦 Releases](https://github.com/Codeception/module-queue/releases) | [📖 Docs](/docs/modules/queue) 
 
 
 ## module-sequence 1.0.1: Support PHP 8
@@ -441,7 +441,7 @@ Add support for IS NOT NULL in database assertions [#12](https://github.com/Code
 
 
 
-[🦑 Repository](https://github.com/Codeception/module-sequence) | [📦 Releases](https://github.com/Codeception/module-sequence/releases) 
+[🦑 Repository](https://github.com/Codeception/module-sequence) | [📦 Releases](https://github.com/Codeception/module-sequence/releases) | [📖 Docs](/docs/modules/sequence) 
 
 
 ## module-memcache 1.0.1: Support PHP 8
@@ -452,7 +452,7 @@ Add support for IS NOT NULL in database assertions [#12](https://github.com/Code
 
 
 
-[🦑 Repository](https://github.com/Codeception/module-memcache) | [📦 Releases](https://github.com/Codeception/module-memcache/releases) 
+[🦑 Repository](https://github.com/Codeception/module-memcache) | [📦 Releases](https://github.com/Codeception/module-memcache/releases) | [📖 Docs](/docs/modules/memcache) 
 
 
 ## module-laravel5 1.1.1: Support PHP 8
@@ -463,7 +463,7 @@ Add support for IS NOT NULL in database assertions [#12](https://github.com/Code
 Depends on Laravel libraries actually supporting PHP 8
 
 
-[🦑 Repository](https://github.com/Codeception/module-laravel5) | [📦 Releases](https://github.com/Codeception/module-laravel5/releases) 
+[🦑 Repository](https://github.com/Codeception/module-laravel5) | [📦 Releases](https://github.com/Codeception/module-laravel5/releases) | [📖 Docs](/docs/modules/laravel5) 
 
 
 ## module-ftp 1.0.2: Support PHP 8
@@ -474,7 +474,7 @@ Depends on Laravel libraries actually supporting PHP 8
 
 
 
-[🦑 Repository](https://github.com/Codeception/module-ftp) | [📦 Releases](https://github.com/Codeception/module-ftp/releases) 
+[🦑 Repository](https://github.com/Codeception/module-ftp) | [📦 Releases](https://github.com/Codeception/module-ftp/releases) | [📖 Docs](/docs/modules/ftp) 
 
 
 ## module-apc 1.0.2: Support PHP 8
@@ -485,7 +485,7 @@ Depends on Laravel libraries actually supporting PHP 8
 
 
 
-[🦑 Repository](https://github.com/Codeception/module-apc) | [📦 Releases](https://github.com/Codeception/module-apc/releases) 
+[🦑 Repository](https://github.com/Codeception/module-apc) | [📦 Releases](https://github.com/Codeception/module-apc/releases) | [📖 Docs](/docs/modules/apc) 
 
 
 ## module-phpbrowser 1.0.2: Support PHP 8
@@ -496,7 +496,7 @@ Depends on Laravel libraries actually supporting PHP 8
 
 
 
-[🦑 Repository](https://github.com/Codeception/module-phpbrowser) | [📦 Releases](https://github.com/Codeception/module-phpbrowser/releases) 
+[🦑 Repository](https://github.com/Codeception/module-phpbrowser) | [📦 Releases](https://github.com/Codeception/module-phpbrowser/releases) | [📖 Docs](/docs/modules/phpbrowser) 
 
 
 ## module-filesystem 1.0.3: PHP 8
@@ -509,7 +509,7 @@ Depends on Laravel libraries actually supporting PHP 8
 * Use wrapper methods to avoid PHPUnit 9 deprecation messages and keep it working with PHPUnit 10
 
 
-[🦑 Repository](https://github.com/Codeception/module-filesystem) | [📦 Releases](https://github.com/Codeception/module-filesystem/releases) 
+[🦑 Repository](https://github.com/Codeception/module-filesystem) | [📦 Releases](https://github.com/Codeception/module-filesystem/releases) | [📖 Docs](/docs/modules/filesystem) 
 
 
 ## Codeception 4.1.9: PHP 8
@@ -534,7 +534,7 @@ Depends on Laravel libraries actually supporting PHP 8
 * Reverted docblock change to fix static analysis ([#9](https://github.com/Codeception/module-asserts/issues/9) by **[edwinkortman](https://github.com/edwinkortman)**)
 
 
-[🦑 Repository](https://github.com/Codeception/module-asserts) | [📦 Releases](https://github.com/Codeception/module-asserts/releases) 
+[🦑 Repository](https://github.com/Codeception/module-asserts) | [📦 Releases](https://github.com/Codeception/module-asserts/releases) | [📖 Docs](/docs/modules/asserts) 
 
 
 ## Codeception 4.1.8: 
@@ -665,7 +665,7 @@ Depends on Laravel libraries actually supporting PHP 8
 * Add persisted services before bootstrap
 
 
-[🦑 Repository](https://github.com/Codeception/module-zf2) | [📦 Releases](https://github.com/Codeception/module-zf2/releases) 
+[🦑 Repository](https://github.com/Codeception/module-zf2) | [📦 Releases](https://github.com/Codeception/module-zf2/releases) | [📖 Docs](/docs/modules/zf2) 
 
 
 ## Codeception 4.0.3: Fixed command autocompletion
