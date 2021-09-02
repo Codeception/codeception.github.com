@@ -1979,6 +1979,19 @@ $I->seeNumberOfElements('tr', [0,10]); // between 0 and 10 elements
 __not documented__
 
 
+#### seeNumberOfTabs
+ 
+Checks current number of opened tabs
+
+{% highlight php %}
+
+<?php
+$I->seeNumberOfTabs(2);
+
+{% endhighlight %}
+ * `param` $number number of tabs
+
+
 #### seeOptionIsSelected
  
 Checks that the given option is selected.
@@ -2365,6 +2378,32 @@ $I->executeInSelenium(function (\Facebook\WebDriver\Remote\RemoteWebDriver $webd
 {% endhighlight %}
 
  * `param string|null` $name
+
+
+#### type
+ 
+Type in characters on active element.
+With a second parameter you can specify delay between key presses. 
+
+{% highlight php %}
+
+<?php
+// activate input element
+$I->click('#input');
+
+// type text in active element
+$I->type('Hello world');
+
+// type text with a 1sec delay between chars
+$I->type('Hello World', 1);
+
+{% endhighlight %}
+
+This might be useful when you an input reacts to typing and you need to slow it down to emulate human behavior.
+For instance, this is how Credit Card fields can be filled in.
+
+ * `param` $text
+ * `param` $delay [sec]
 
 
 #### typeInPopup
