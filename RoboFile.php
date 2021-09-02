@@ -647,14 +647,17 @@ EOF;
         foreach ($releases as $release) {
             $repo = $release['repo'] ?? 'Codeception';
             $isModule = isset($release['repo']);
-            $changelog .= sprintf("\n\n## %s %s: %s\n\n", $repo, $release['tag_name'], $release['name']);
+            $changelog .= sprintf("\n\n### %s %s: %s\n\n", $repo, $release['tag_name'], $release['name']);
 
-            $changelog .= sprintf("Released by [![](%s)%s](%s) on %s\n",
+            $changelog .= sprintf("Released by [![](%s) %s](%s) on %s",
                 $release['author']['avatar_url'] . '&s=16',
                 $release['author']['login'],
                 $release['author']['html_url'],
                 date_format(date_create($release['published_at']),"Y/m/d H:i:s")
             );
+
+            $changelog .= " / [🦑 Repository](https://github.com/Codeception/$repo)  ";
+            $changelog .= " / [📦 Releases](https://github.com/Codeception/$repo/releases)\n\n";
 
             $body = $release['body'];
             //user
@@ -667,8 +670,7 @@ EOF;
                 $body
             );
 
-            $body .= "\n\n\n[🦑 Repository](https://github.com/Codeception/$repo) ";
-            $body .= " [📦 Releases](https://github.com/Codeception/$repo/releases) ";
+
 
 
             $changelog .= "\n\n$body\n";
