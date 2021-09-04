@@ -4,7 +4,17 @@ layout: bootstrap
 <div class="row pt">
   <div class="col-sm-12 col-lg-8">
     <div class="content page" id="page">
-      {{ content }}
+      {% if page.url == '/changelog' %}
+
+        <div class="changelog-wrapper">
+          {{ content }}
+        </div>
+
+      {% else%}
+
+        {{ content }}
+
+      {% endif %}
     </div>
   </div>
 
