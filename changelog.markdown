@@ -541,7 +541,7 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 
 
 **New features:**
- - `Laravel 6`, `Laravel 7`, and `Lavarel 8` compatibility.
+ - `Laravel 6`, `Laravel 7`, and `Laravel 8` compatibility.
  - Module documentation updated.
  - Added typed arguments.
  - Updated the module's code base following PHP 7.3+ standards.
