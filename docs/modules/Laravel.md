@@ -100,6 +100,7 @@ modules:
     * haveRecord
     * make
     * makeMultiple
+    * seedDatabase
     * seeNumRecords
     * seeRecord
 
@@ -247,6 +248,18 @@ $this->getModule('Laravel')->_savePageSource(codecept_output_dir().'page.html');
  * `param` $filename
 
 
+#### amActingAs
+ 
+Set the given user object to the current or specified Guard.
+
+{% highlight php %}
+
+<?php
+$I->amActingAs($user);
+
+{% endhighlight %}
+
+
 #### amHttpAuthenticated
  
 Authenticates user for HTTP_AUTH
@@ -258,8 +271,8 @@ Authenticates user for HTTP_AUTH
 #### amLoggedAs
  
 Set the currently logged in user for the application.
-Takes either an object that implements the User interface or
-an array of credentials.
+Unlike 'amActingAs', this method does update the session, fire the login events
+and remember the user as it assigns the corresponding Cookie.
 
 {% highlight php %}
 
@@ -267,14 +280,14 @@ an array of credentials.
 // provide array of credentials
 $I->amLoggedAs(['username' => 'jane@example.com', 'password' => 'password']);
 
-// provide User object
+// provide User object that implements the User interface
 $I->amLoggedAs( new User );
 
 // can be verified with $I->seeAuthentication();
 
 {% endhighlight %}
  * `param Authenticatable|array` $user
- * `param string|null` $guardName The guard name
+ * `param string|null` $guardName
 
 
 #### amOnAction
@@ -328,6 +341,48 @@ $I->amOnRoute('posts.create');
  * `param mixed` $params
 
 
+#### assertAuthenticatedAs
+ 
+Assert that the user is authenticated as the given user.
+
+{% highlight php %}
+
+<?php
+$I->assertAuthenticatedAs($user);
+
+{% endhighlight %}
+
+
+#### assertCredentials
+ 
+Assert that the given credentials are valid.
+
+{% highlight php %}
+
+<?php
+$I->assertCredentials([
+    'email' => 'john_doe@gmail.com',
+    'password' => '123456'
+]);
+
+{% endhighlight %}
+
+
+#### assertInvalidCredentials
+ 
+Assert that the given credentials are invalid.
+
+{% highlight php %}
+
+<?php
+$I->assertInvalidCredentials([
+    'email' => 'john_doe@gmail.com',
+    'password' => 'wrong_password'
+]);
+
+{% endhighlight %}
+
+
 #### attachFile
  
 Attaches a file relative to the Codeception `_data` directory to the given file upload field.
@@ -358,9 +413,6 @@ $I->callArtisan('command:name', ['parameter' => 'value']);
 {% endhighlight %}
 Use 3rd parameter to pass in custom `OutputInterface`
 
- * `param string` $command
- * `param array` $parameters
- * `param OutputInterface|null` $output
  * `return` string|void
 
 
@@ -483,6 +535,8 @@ $I->disableMiddleware();
 
 {% endhighlight %}
 
+ * `param string|array|null` $middleware
+
 
 #### disableModelEvents
  
@@ -532,9 +586,13 @@ For checking the raw source code, use `seeInSource()`.
 #### dontSeeAuthentication
  
 Check that user is not authenticated.
-You can specify the guard that should be use as second parameter.
 
- * `param string|null` $guard
+{% highlight php %}
+
+<?php
+$I->dontSeeAuthentication();
+
+{% endhighlight %}
 
 
 #### dontSeeCheckboxIsChecked
@@ -729,6 +787,22 @@ $I->dontSeeInFormFields('#form-id', [
  * `param` $params
 
 
+#### dontSeeInSession
+ 
+Assert that a session attribute does not exist, or is not equal to the passed value.
+
+{% highlight php %}
+
+<?php
+$I->dontSeeInSession('attribute');
+$I->dontSeeInSession('attribute', 'value');
+
+{% endhighlight %}
+
+ * `param string|array` $key
+ * `param mixed|null` $value
+
+
 #### dontSeeInSource
  
 Checks that the current page contains the given string in its
@@ -795,12 +869,13 @@ You can pass the name of a database table or the class name of an Eloquent model
 {% highlight php %}
 
 <?php
-$I->dontSeeRecord('users', ['name' => 'davert']);
-$I->dontSeeRecord('App\Models\User', ['name' => 'davert']);
+$I->dontSeeRecord($user);
+$I->dontSeeRecord('users', ['name' => 'Davert']);
+$I->dontSeeRecord('App\Models\User', ['name' => 'Davert']);
 
 {% endhighlight %}
 
- * `param string` $table
+ * `param string|class-string|object` $table
  * `param array` $attributes
  * `[Part]` orm
 
@@ -821,6 +896,19 @@ $I->dontSeeResponseCodeIs(\Codeception\Util\HttpCode::OK);
  * `param int` $code
 
 
+#### dontSeeSessionHasValues
+ 
+Assert that the session does not have a particular list of values.
+
+{% highlight php %}
+
+<?php
+$I->dontSeeSessionHasValues(['key1', 'key2']);
+$I->dontSeeSessionHasValues(['key1' => 'value1', 'key2' => 'value2']);
+
+{% endhighlight %}
+
+
 #### enableExceptionHandling
  
 Enable Laravel exception handling.
@@ -831,6 +919,20 @@ Enable Laravel exception handling.
 $I->enableExceptionHandling();
 
 {% endhighlight %}
+
+
+#### enableMiddleware
+ 
+Enable the given middleware for the next requests.
+
+{% highlight php %}
+
+<?php
+$I->enableMiddleware();
+
+{% endhighlight %}
+
+ * `param string|array|null` $middleware
 
 
 #### fillField
@@ -850,6 +952,18 @@ $I->fillField(['name' => 'email'], 'jon@example.com');
  * `param` $value
 
 
+#### flushSession
+ 
+Flush all of the current session data.
+
+{% highlight php %}
+
+<?php
+$I->flushSession();
+
+{% endhighlight %}
+
+
 #### followRedirect
  
 Follow pending redirect if there is one.
@@ -867,7 +981,12 @@ $I->followRedirect();
  
 Provides access the Laravel application object.
 
- * `return` \Illuminate\Contracts\Foundation\Application
+{% highlight php %}
+
+<?php
+$app = $I->getApplication();
+
+{% endhighlight %}
 
 
 #### grabAttributeFrom
@@ -955,14 +1074,11 @@ You can pass the name of a database table or the class name of an Eloquent model
 {% highlight php %}
 
 <?php
-$I->grabNumRecords('users', ['name' => 'davert']);
-$I->grabNumRecords('App\Models\User', ['name' => 'davert']);
+$I->grabNumRecords('users', ['name' => 'Davert']);
+$I->grabNumRecords('App\Models\User', ['name' => 'Davert']);
 
 {% endhighlight %}
 
- * `param string` $table
- * `param array` $attributes
- * `return` int
  * `[Part]` orm
 
 
@@ -983,8 +1099,8 @@ You can also pass the class name of an Eloquent model, in that case this method 
 {% highlight php %}
 
 <?php
-$record = $I->grabRecord('users', ['name' => 'davert']); // returns array
-$record = $I->grabRecord('App\Models\User', ['name' => 'davert']); // returns Eloquent model
+$record = $I->grabRecord('users', ['name' => 'Davert']); // returns array
+$record = $I->grabRecord('App\Models\User', ['name' => 'Davert']); // returns Eloquent model
 
 {% endhighlight %}
 
@@ -997,7 +1113,7 @@ $record = $I->grabRecord('App\Models\User', ['name' => 'davert']); // returns El
 #### grabService
  
 Return an instance of a class from the Laravel service container.
-(https://laravel.com/docs/master/container)
+(https://laravel.com/docs/7.x/container)
 
 {% highlight php %}
 
@@ -1014,7 +1130,6 @@ $service = $I->grabService('foo');
 
 {% endhighlight %}
 
- * `param string` $class
 
 
 #### grabTextFrom
@@ -1057,10 +1172,8 @@ $I->have('App\Models\User', [], 'admin');
 
 {% endhighlight %}
 
-@see https://laravel.com/docs/6.x/database-testing#using-factories
- * `param string` $model
- * `param array` $attributes
- * `param string` $name
+@see https://laravel.com/docs/7.x/database-testing#using-factories
+
  * `[Part]` orm
 
 
@@ -1078,13 +1191,11 @@ $I->haveApplicationHandler(function($app) {
 
 {% endhighlight %}
 
- * `param callable` $handler
-
 
 #### haveBinding
  
 Add a binding to the Laravel service container.
-(https://laravel.com/docs/master/container)
+(https://laravel.com/docs/7.x/container)
 
 {% highlight php %}
 
@@ -1101,7 +1212,7 @@ $I->haveBinding('My\Interface', 'My\Implementation');
 #### haveContextualBinding
  
 Add a contextual binding to the Laravel service container.
-(https://laravel.com/docs/master/container)
+(https://laravel.com/docs/7.x/container)
 
 {% highlight php %}
 
@@ -1151,10 +1262,22 @@ $I->haveHttpHeader('Client&#95;Id', 'Codeception');
        requests
 
 
+#### haveInSession
+ 
+Set the session to the given array.
+
+{% highlight php %}
+
+<?php
+$I->haveInSession(['myKey' => 'MyValue']);
+
+{% endhighlight %}
+
+
 #### haveInstance
  
 Add an instance binding to the Laravel service container.
-(https://laravel.com/docs/master/container)
+(https://laravel.com/docs/7.x/container)
 
 {% highlight php %}
 
@@ -1162,9 +1285,6 @@ Add an instance binding to the Laravel service container.
 $I->haveInstance('App\MyClass', new App\MyClass());
 
 {% endhighlight %}
-
- * `param string` $abstract
- * `param mixed` $instance
 
 
 #### haveMultiple
@@ -1180,11 +1300,9 @@ $I->haveMultiple('App\Models\User', 10, [], 'admin');
 
 {% endhighlight %}
 
-@see https://laravel.com/docs/6.x/database-testing#using-factories
- * `param string` $model
- * `param int` $times
- * `param array` $attributes
- * `param string` $name
+@see https://laravel.com/docs/7.x/database-testing#using-factories
+
+ * `return` EloquentModel|EloquentCollection
  * `[Part]` orm
 
 
@@ -1203,7 +1321,7 @@ $user = $I->haveRecord('App\Models\User', ['name' => 'Davert']); // returns Eloq
 {% endhighlight %}
 
  * `param string` $table
- * `param array`  $attributes
+ * `param array` $attributes
  * `return` EloquentModel|int
 @throws RuntimeException
  * `[Part]` orm
@@ -1225,7 +1343,7 @@ $I->haveServerParameter('name', 'value');
 #### haveSingleton
  
 Add a singleton binding to the Laravel service container.
-(https://laravel.com/docs/master/container)
+(https://laravel.com/docs/7.x/container)
 
 {% highlight php %}
 
@@ -1242,6 +1360,13 @@ $I->haveSingleton('App\MyInterface', 'App\MySingleton');
  
 Logout user.
 
+{% highlight php %}
+
+<?php
+$I->logout();
+
+{% endhighlight %}
+
 
 #### make
  
@@ -1256,10 +1381,9 @@ $I->make('App\Models\User', [], 'admin');
 
 {% endhighlight %}
 
-@see https://laravel.com/docs/6.x/database-testing#using-factories
- * `param string` $model
- * `param array` $attributes
- * `param string` $name
+@see https://laravel.com/docs/7.x/database-testing#using-factories
+
+ * `return` EloquentCollection|EloquentModel
  * `[Part]` orm
 
 
@@ -1293,11 +1417,9 @@ $I->makeMultiple('App\Models\User', 10, [], 'admin');
 
 {% endhighlight %}
 
-@see https://laravel.com/docs/6.x/database-testing#using-factories
- * `param string` $model
- * `param int` $times
- * `param array` $attributes
- * `param string` $name
+@see https://laravel.com/docs/7.x/database-testing#using-factories
+
+ * `return` EloquentCollection|EloquentModel
  * `[Part]` orm
 
 
@@ -1356,9 +1478,13 @@ For checking the raw source code, use `seeInSource()`.
 #### seeAuthentication
  
 Checks that a user is authenticated.
-You can specify the guard that should be use as second parameter.
 
- * `param string|null` $guard
+{% highlight php %}
+
+<?php
+$I->seeAuthentication();
+
+{% endhighlight %}
 
 
 #### seeCheckboxIsChecked
@@ -1410,8 +1536,6 @@ $I->seeCurrentActionIs(PostsController::class . '@index');
 
 {% endhighlight %}
 
- * `param string` $action
-
 
 #### seeCurrentRouteIs
  
@@ -1423,7 +1547,6 @@ Checks that current url matches route
 $I->seeCurrentRouteIs('posts.index');
 
 {% endhighlight %}
- * `param string` $routeName
 
 
 #### seeCurrentUrlEquals
@@ -1515,8 +1638,6 @@ $I->seeFormErrorMessage('username');
 $I->seeFormErrorMessage('username', 'Invalid Username');
 
 {% endhighlight %}
- * `param string` $field
- * `param string|null` $errorMessage
 
 
 #### seeFormErrorMessages
@@ -1551,8 +1672,6 @@ $I->seeFormErrorMessages([
 ]);
 
 {% endhighlight %}
-
- * `param array` $expectedErrors
 
 
 #### seeFormHasErrors
@@ -1751,14 +1870,11 @@ You can pass the name of a database table or the class name of an Eloquent model
 {% highlight php %}
 
 <?php
-$I->seeNumRecords(1, 'users', ['name' => 'davert']);
-$I->seeNumRecords(1, 'App\Models\User', ['name' => 'davert']);
+$I->seeNumRecords(1, 'users', ['name' => 'Davert']);
+$I->seeNumRecords(1, 'App\Models\User', ['name' => 'Davert']);
 
 {% endhighlight %}
 
- * `param int` $expectedNum
- * `param string` $table
- * `param array` $attributes
  * `[Part]` orm
 
 
@@ -1808,12 +1924,13 @@ You can pass the name of a database table or the class name of an Eloquent model
 {% highlight php %}
 
 <?php
-$I->seeRecord('users', ['name' => 'davert']);
-$I->seeRecord('App\Models\User', ['name' => 'davert']);
+$I->seeRecord($user);
+$I->seeRecord('users', ['name' => 'Davert']);
+$I->seeRecord('App\Models\User', ['name' => 'Davert']);
 
 {% endhighlight %}
 
- * `param string` $table
+ * `param string|class-string|object` $table
  * `param array` $attributes
  * `[Part]` orm
 
@@ -1875,7 +1992,12 @@ $I->seeSessionHasValues(['key1' => 'value1', 'key2' => 'value2']);
 
 {% endhighlight %}
 
- * `param array` $bindings
+
+#### seedDatabase
+ 
+Seed a given database connection.
+
+ * `param class-string|class-string[]` $seeders
 
 
 #### selectOption
@@ -1973,8 +2095,7 @@ $I->sendAjaxRequest('PUT', '/posts/7', ['title' => 'new title']);
 
 
 #### setApplication
- 
- * `param \Illuminate\Contracts\Foundation\Application` $app
+__not documented__
 
 
 #### setCookie

@@ -9,6 +9,34 @@ title: Codeception Changelog
 
 
 
+### module-laravel 2.1.0: 2.1.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/09/10 05:09:10 / [🦑 Repository](https://github.com/Codeception/module-laravel)   / [📦 Releases](https://github.com/Codeception/module-laravel/releases)
+
+
+
+New methods:
+
+- `amActingAs`
+- `assertAuthenticatedAs`
+- `assertCredentials`
+- `assertInvalidCredentials`
+- `dontSeeInSession`
+- `dontSeeSessionHasValues`
+- `enableMiddleware`
+- `flushSession`
+- `haveInSession`
+- `seedDatabase`
+
+Non-logical changes:
+
+- added missing docs and fixed broken links.
+
+This release includes a general refactoring of the code ([#30](https://github.com/Codeception/module-laravel/issues/30)) that makes it easier to navigate and read, especially using an IDE.
+
+See the full list of changes [here](https://github.com/Codeception/module-laravel/milestone/3). 
+
+
 ### module-amqp 1.1.1: seeMessageInQueueContainsText acks message
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/09/05 07:47:08 / [🦑 Repository](https://github.com/Codeception/module-amqp)   / [📦 Releases](https://github.com/Codeception/module-amqp/releases)
