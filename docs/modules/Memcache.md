@@ -109,7 +109,7 @@ $users_count = $I->grabValueFromMemcached('users_count');
 {% endhighlight %}
 
  * `param` $key
- * `return` array|string
+ * `return array|string` 
 
 
 #### haveInMemcached

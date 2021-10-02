@@ -206,7 +206,7 @@ Returns an instance of created user.
  * `param string` $name
  * `param array` $extraAttrs
 
- * `return` object
+ * `return object` 
 
 
 #### haveMultiple
@@ -224,7 +224,7 @@ $I->haveMultiple('User', 10, ['is_active' => true]); // create 10 active users
  * `param int` $times
  * `param array` $extraAttrs
 
- * `return` \object[]
+ * `return \object[]` 
 
 
 #### make
@@ -245,7 +245,7 @@ Returns an instance of created user without creating a record in database.
  * `param string` $name
  * `param array` $extraAttrs
 
- * `return` object
+ * `return object` 
 
 
 #### onReconfigure

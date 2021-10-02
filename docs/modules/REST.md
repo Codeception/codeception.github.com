@@ -335,7 +335,7 @@ Element is matched by either CSS or XPath
 
  * `param` $cssOrXPath
  * `param` $attribute
- * `return` string
+ * `return string` 
  * `[Part]` xml
 
 
@@ -356,7 +356,7 @@ $I->sendPut('/user', array('id' => $firstUserId[0], 'name' => 'davert'));
 {% endhighlight %}
 
  * `param string` $jsonPath
- * `return` array Array of matching items
+ * `return array` Array of matching items
 @throws \Exception
  * `[Part]` json
 
@@ -388,7 +388,7 @@ $I->sendPut('/user', array('id' => $user_id, 'name' => 'davert'));
 
 {% endhighlight %}
 
- * `return` string
+ * `return string` 
  * `[Part]` json
  * `[Part]` xml
 
@@ -399,7 +399,7 @@ Finds and returns text contents of element.
 Element is matched by either CSS or XPath
 
  * `param` $cssOrXPath
- * `return` string
+ * `return string` 
  * `[Part]` xml
 
 

@@ -253,7 +253,7 @@ Grabber method to get the current number of messages on the queue/tube (pending/
 {% endhighlight %}
  * `param string` $queue Queue Name
 
- * `return` int Count
+ * `return int` Count
 
 
 #### grabQueueTotalCount
@@ -270,7 +270,7 @@ Grabber method to get the total number of messages on the queue/tube
 
  * `param` $queue Queue Name
 
- * `return` int Count
+ * `return int` Count
 
 
 #### grabQueues
@@ -285,7 +285,7 @@ $queues = $I->grabQueues();
 
 {% endhighlight %}
 
- * `return` array List of Queues/Tubes
+ * `return array` List of Queues/Tubes
 
 
 #### seeEmptyQueue

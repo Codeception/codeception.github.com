@@ -83,7 +83,7 @@ WebDriver module returns `Facebook\WebDriver\Remote\RemoteWebElement` instances
 PhpBrowser and Framework modules return `Symfony\Component\DomCrawler\Crawler` instances
 
  * `param` $locator
- * `return` array of interactive elements
+ * `return array` of interactive elements
 
 
 #### _getResponseContent
@@ -104,7 +104,7 @@ public function seeResponseContains($text)
 
 {% endhighlight %}
 
- * `return` string
+ * `return string` 
 @throws ModuleException
 
 
@@ -155,7 +155,7 @@ To load arbitrary page for interaction, use `_loadPage` method.
  * `param string` $method
  * `param string` $uri
  * `param string` $content
- * `return` string
+ * `return string` 
 @throws ExternalUrlException
 @see `_loadPage`
 
@@ -662,7 +662,7 @@ $aLinks = $I->grabMultiple('a', 'href');
 
  * `param` $cssOrXpath
  * `param` $attribute
- * `return` string[]
+ * `return string[]` 
 
 
 #### grabPageSource
@@ -670,7 +670,7 @@ $aLinks = $I->grabMultiple('a', 'href');
 Grabs current page source code.
 
 @throws ModuleException if no page was opened.
- * `return` string Current page source code.
+ * `return string` Current page source code.
 
 
 #### grabTextFrom
@@ -697,7 +697,7 @@ $value = $I->grabTextFrom('~<input value=(.*?)]~sgi'); // match with a regex
  
  * `param` $field
 
- * `return` array|mixed|null|string
+ * `return array|mixed|null|string` 
 
 
 #### haveHttpHeader
@@ -901,7 +901,6 @@ $I->seeElement(['css' => 'form input'], ['name' => 'login']);
 
  * `param` $selector
  * `param array` $attributes
-@return
 
 
 #### seeInCurrentUrl

@@ -132,7 +132,7 @@ WebDriver module returns `Facebook\WebDriver\Remote\RemoteWebElement` instances
 PhpBrowser and Framework modules return `Symfony\Component\DomCrawler\Crawler` instances
 
  * `param` $locator
- * `return` array of interactive elements
+ * `return array` of interactive elements
 
 
 #### _getResponseContent
@@ -153,7 +153,7 @@ public function seeResponseContains($text)
 
 {% endhighlight %}
 
- * `return` string
+ * `return string` 
 @throws ModuleException
 
 
@@ -204,7 +204,7 @@ To load arbitrary page for interaction, use `_loadPage` method.
  * `param string` $method
  * `param string` $uri
  * `param string` $content
- * `return` string
+ * `return string` 
 @throws ExternalUrlException
 @see `_loadPage`
 
@@ -1007,7 +1007,7 @@ $I->assertSame('john_doe@example.com', $address->getAddress());
 
 {% endhighlight %}
 
- * `return` \Symfony\Component\Mime\Email|null
+ * `return \Symfony\Component\Mime\Email|null` 
 
 
 #### grabMultiple
@@ -1037,7 +1037,7 @@ $aLinks = $I->grabMultiple('a', 'href');
 
  * `param` $cssOrXpath
  * `param` $attribute
- * `return` string[]
+ * `return string[]` 
 
 
 #### grabNumRecords
@@ -1054,7 +1054,7 @@ $I->grabNumRecords('User::class', ['name' => 'davert']);
 
  * `param string` $entityClass  The entity class
  * `param array` $criteria      Optional query criteria
- * `return` int
+ * `return int` 
 
 
 #### grabPageSource
@@ -1062,7 +1062,7 @@ $I->grabNumRecords('User::class', ['name' => 'davert']);
 Grabs current page source code.
 
 @throws ModuleException if no page was opened.
- * `return` string Current page source code.
+ * `return string` Current page source code.
 
 
 #### grabParameter
@@ -1077,7 +1077,7 @@ $I->grabParameter('app.business_name');
 {% endhighlight %}
 
  * `param string` $name
- * `return` mixed|null
+ * `return mixed|null` 
 
 
 #### grabRepository
@@ -1096,7 +1096,7 @@ $I->grabRepository(UserRepositoryInterface::class);
 {% endhighlight %}
 
  * `param object|string` $mixed
- * `return` \Doctrine\ORM\EntityRepository|null
+ * `return \Doctrine\ORM\EntityRepository|null` 
 
 
 #### grabSentEmails
@@ -1114,7 +1114,7 @@ $emails = $I->grabSentEmails();
 
 {% endhighlight %}
 
- * `return` \Symfony\Component\Mime\Email[]
+ * `return \Symfony\Component\Mime\Email[]` 
 
 
 #### grabService
@@ -1133,7 +1133,7 @@ $em = $I->grabService('doctrine');
 
  * `[Part]` services
  * `param string` $serviceId
- * `return` object
+ * `return object` 
 
 
 #### grabTextFrom
@@ -1160,7 +1160,7 @@ $value = $I->grabTextFrom('~<input value=(.*?)]~sgi'); // match with a regex
  
  * `param` $field
 
- * `return` array|mixed|null|string
+ * `return array|mixed|null|string` 
 
 
 #### haveHttpHeader
@@ -1324,7 +1324,7 @@ $result = $I->runSymfonyConsoleCommand('hello:world', ['arg' => 'argValue', 'opt
  * `param array`  $parameters       Parameters (arguments and options) to pass to the command
  * `param array`  $consoleInputs    Console inputs (e.g. used for interactive questions)
  * `param int`    $expectedExitCode The expected exit code of the command
- * `return` string Returns the console output of the command
+ * `return string` Returns the console output of the command
 
 
 #### see
@@ -1507,7 +1507,6 @@ $I->seeElement(['css' => 'form input'], ['name' => 'login']);
 
  * `param` $selector
  * `param array` $attributes
-@return
 
 
 #### seeEmailIsSent

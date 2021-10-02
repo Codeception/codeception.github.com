@@ -228,7 +228,7 @@ $pwd = $I->grabDirectory();
 
 {% endhighlight %}
 
- * `return` string
+ * `return string` 
 
 
 #### grabFileCount
@@ -246,7 +246,7 @@ $count = $I->grabFileCount('TEST', false); // Include . .. .thumbs.db
 
  * `param string` $path
  * `param bool` $ignore - suppress '.', '..' and '.thumbs.db'
- * `return` int
+ * `return int` 
 
 
 #### grabFileList
@@ -264,7 +264,7 @@ $count = $I->grabFileList('TEST', false); // Include . .. .thumbs.db
 
  * `param string` $path
  * `param bool` $ignore - suppress '.', '..' and '.thumbs.db'
- * `return` array
+ * `return array` 
 
 
 #### grabFileModified
@@ -280,7 +280,7 @@ $time = $I->grabFileModified('test.txt');
 {% endhighlight %}
 
  * `param` $filename
- * `return` bool
+ * `return bool` 
 
 
 #### grabFileSize
@@ -296,7 +296,7 @@ $size = $I->grabFileSize('test.txt');
 {% endhighlight %}
 
  * `param` $filename
- * `return` bool
+ * `return bool` 
 
 
 #### loginAs

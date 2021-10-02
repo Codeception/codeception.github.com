@@ -153,7 +153,7 @@ $I->dontSeeRedisKeyContains('example:hash', 'magic', 32);
  * `param null`   $itemValue Optional and only used for zsets and hashes. If
 specified, the method will also check that the $item has this value/score
 
- * `return` bool
+ * `return bool` 
 
 
 #### grabFromRedis
@@ -308,7 +308,7 @@ $I->seeRedisKeyContains('example:hash', 'magic', 32);
  * `param null`   $itemValue Optional and only used for zsets and hashes. If
 specified, the method will also check that the $item has this value/score
 
- * `return` bool
+ * `return bool` 
 
 
 #### sendCommandToRedis

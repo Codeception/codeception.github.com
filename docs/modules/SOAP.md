@@ -112,7 +112,7 @@ Element is matched by either CSS or XPath
  * `Available since` 1.1
  * `param` $cssOrXPath
  * `param` $attribute
- * `return` string
+ * `return string` 
 
 
 #### grabTextContentFrom
@@ -122,7 +122,7 @@ Element is matched by either CSS or XPath
 
  * `Available since` 1.1
  * `param` $cssOrXPath
- * `return` string
+ * `return string` 
 
 
 #### haveSoapHeader

@@ -384,7 +384,7 @@ $this->getModule('WebDriver')->webDriver->getKeyboard()->sendKeys('hello, webdri
  
 Returns current WebDriver session for saving
 
- * `return` RemoteWebDriver
+ * `return RemoteWebDriver` 
 
 
 #### _capabilities
@@ -485,7 +485,7 @@ $el = $module->_findClickable($topBar, 'Click Me');
 {% endhighlight %}
  * `param RemoteWebDriver` $page WebDriver instance or an element to search within
  * `param` $link a link text or locator to click
- * `return` WebDriverElement
+ * `return WebDriverElement` 
 
 
 #### _findElements
@@ -515,7 +515,7 @@ WebDriver module returns `Facebook\WebDriver\Remote\RemoteWebElement` instances
 PhpBrowser and Framework modules return `Symfony\Component\DomCrawler\Crawler` instances
 
  * `param` $locator
- * `return` array of interactive elements
+ * `return array` of interactive elements
 
 
 #### _getCurrentUri
@@ -523,7 +523,7 @@ PhpBrowser and Framework modules return `Symfony\Component\DomCrawler\Crawler` i
 *hidden API method, expected to be used from Helper classes*
  
 Uri of currently opened page.
- * `return` string
+ * `return string` 
 @throws ModuleException
 
 
@@ -1304,7 +1304,7 @@ $aLinks = $I->grabMultiple('a', 'href');
 
  * `param` $cssOrXpath
  * `param` $attribute
- * `return` string[]
+ * `return string[]` 
 
 
 #### grabPageSource
@@ -1313,7 +1313,7 @@ Grabs current page source code.
 
 @throws ModuleException if no page was opened.
 
- * `return` string Current page source code.
+ * `return string` Current page source code.
 
 
 #### grabTextFrom
@@ -1756,7 +1756,6 @@ $I->seeElement(['css' => 'form input'], ['name' => 'login']);
 
  * `param` $selector
  * `param array` $attributes
-@return
 
 
 #### seeElementInDOM

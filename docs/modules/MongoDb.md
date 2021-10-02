@@ -114,7 +114,7 @@ $count = $I->grabCollectionCount('users', array('isAdmin' => true));
 
  * `param` $collection
  * `param array` $criteria
- * `return` integer
+ * `return integer` 
 
 
 #### grabFromCollection
@@ -130,7 +130,7 @@ $user = $I->grabFromCollection('users', array('name' => 'miles'));
 
  * `param` $collection
  * `param array` $criteria
- * `return` array
+ * `return array` 
 
 
 #### haveInCollection

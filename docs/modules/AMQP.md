@@ -91,7 +91,7 @@ $I->bindQueueToExchange(
  * `param bool` $nowait
  * `param array` $arguments
  * `param int` $ticket
- * `return` mixed|null
+ * `return mixed|null` 
 
 
 #### declareExchange
@@ -119,7 +119,7 @@ $I->declareExchange(
  * `param bool` $nowait
  * `param array` $arguments
  * `param int` $ticket
- * `return` mixed|null
+ * `return mixed|null` 
 
 
 #### declareQueue
@@ -145,7 +145,7 @@ $I->declareQueue(
  * `param bool` $nowait
  * `param array` $arguments
  * `param int` $ticket
- * `return` mixed|null
+ * `return mixed|null` 
 
 
 #### dontSeeQueueIsEmpty
@@ -177,7 +177,7 @@ $message = $I->grabMessageFromQueue('queue.emails');
 {% endhighlight %}
 
  * `param string` $queue
- * `return` \PhpAmqpLib\Message\AMQPMessage
+ * `return \PhpAmqpLib\Message\AMQPMessage` 
 
 
 #### purgeAllQueues

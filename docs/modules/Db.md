@@ -345,7 +345,7 @@ $mails = $I->grabColumnFromDatabase('users', 'email', array('name' => 'RebOOter'
  * `param string` $column
  * `param array` $criteria
 
- * `return` array
+ * `return array` 
 
 
 #### grabFromDatabase
@@ -375,7 +375,7 @@ Supported operators: `<`, `>`, `>=`, `<=`, `!=`, `like`.
  * `param string` $column
  * `param array` $criteria
 
- * `return` mixed Returns a single column value or false
+ * `return mixed` Returns a single column value or false
 
 
 #### grabNumRecords
@@ -385,7 +385,7 @@ Returns the number of rows in a database
  * `param string` $table    Table name
  * `param array`  $criteria Search criteria [Optional]
 
- * `return` int
+ * `return int` 
 
 
 #### haveInDatabase
