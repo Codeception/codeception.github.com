@@ -35,8 +35,6 @@ Warning. Using PHAR file and composer in the same project can cause unexpected e
 This module allows you to run tests inside the Laminas Project.
 Uses `tests/application.config.php` config file by default.
 
-Note: services part and Doctrine integration is not compatible with Laminas yet
-
 ### Status
 
 * Maintainer: **Naktibalda**
@@ -199,11 +197,6 @@ Adds service to a Laminas container
 
  * `[Part]` services
 
- * `param string` $name
- * `param object` $service
-
- * `return void` 
-
 
 #### amHttpAuthenticated
  
@@ -233,19 +226,14 @@ $I->amOnPage('/register');
 #### amOnRoute
  
 Opens web page using route name and parameters.
+
 {% highlight php %}
 
 <?php
 $I->amOnRoute('posts.create');
 $I->amOnRoute('posts.show', array('id' => 34));
-?>
 
 {% endhighlight %}
-
- * `param string` $routeName
- * `param array`  $params
-
- * `return void` 
 
 
 #### attachFile
@@ -730,12 +718,9 @@ Recommended to use for unit testing.
 
 <?php
 $em = $I->grabServiceFromContainer('Doctrine\ORM\EntityManager');
-?>
 
 {% endhighlight %}
  * `[Part]` services
-
- * `param string` $service
 
 
 
@@ -921,14 +906,9 @@ Checks that current url matches route.
 <?php
 $I->seeCurrentRouteIs('posts.index');
 $I->seeCurrentRouteIs('posts.show', ['id' => 8]));
-?>
 
 {% endhighlight %}
 
- * `param string` $routeName
- * `param array`  $params
-
- * `return void` 
 
 
 #### seeCurrentUrlEquals

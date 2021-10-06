@@ -9,6 +9,18 @@ title: Codeception Changelog
 
 
 
+### module-laminas 1.1.0: 1.1.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/10/06 00:34:16 / [🦑 Repository](https://github.com/Codeception/module-laminas)   / [📦 Releases](https://github.com/Codeception/module-laminas/releases)
+
+
+
+- Support for PHP versions lower than 7.3 is removed.
+- Code standards updated to PHP 7.3 by **[TavoNiievez](https://github.com/TavoNiievez)** .
+- Remove dependency on laminas/laminas-console ([#13](https://github.com/Codeception/module-laminas/issues/13)) by **[javabudd](https://github.com/javabudd)** .
+- Various documentation improvements by **[Naktibalda](https://github.com/Naktibalda)** and **[Arhell](https://github.com/Arhell)** .
+
+
 ### module-laravel 2.1.0: 2.1.0
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/09/10 05:09:10 / [🦑 Repository](https://github.com/Codeception/module-laravel)   / [📦 Releases](https://github.com/Codeception/module-laravel/releases)
