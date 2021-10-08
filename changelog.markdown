@@ -9,6 +9,15 @@ title: Codeception Changelog
 
 
 
+### module-rest 1.3.2: 1.3.2
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/10/08 09:37:07 / [🦑 Repository](https://github.com/Codeception/module-rest)   / [📦 Releases](https://github.com/Codeception/module-rest/releases)
+
+
+
+* Preserve zero fraction when encoding json [#63](https://github.com/Codeception/module-rest/issues/63) by **[RusiPapazov](https://github.com/RusiPapazov)**
+
+
 ### module-laminas 1.1.0: 1.1.0
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/10/06 00:34:16 / [🦑 Repository](https://github.com/Codeception/module-laminas)   / [📦 Releases](https://github.com/Codeception/module-laminas/releases)
