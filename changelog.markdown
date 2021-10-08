@@ -9,6 +9,20 @@ title: Codeception Changelog
 
 
 
+### module-redis 1.2.0: 1.2.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/10/08 15:41:43 / [🦑 Repository](https://github.com/Codeception/module-redis)   / [📦 Releases](https://github.com/Codeception/module-redis/releases)
+
+
+
+- The minimum version of PHP is now 7.1
+- Added strict types and return types
+
+Other minor changes:
+- Add debug info to redis cleanup ([#1](https://github.com/Codeception/module-redis/issues/1)) by **[convenient](https://github.com/convenient)**
+- Add changelog to `README` file ([#10](https://github.com/Codeception/module-redis/issues/10)) by **[Arhell](https://github.com/Arhell)**
+
+
 ### module-rest 1.3.2: 1.3.2
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/10/08 09:37:07 / [🦑 Repository](https://github.com/Codeception/module-rest)   / [📦 Releases](https://github.com/Codeception/module-rest/releases)
