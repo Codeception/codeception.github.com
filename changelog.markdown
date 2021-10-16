@@ -9,6 +9,15 @@ title: Codeception Changelog
 
 
 
+### module-laminas 1.2.0: addFactoryToContainer
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/10/16 08:01:31 / [🦑 Repository](https://github.com/Codeception/module-laminas)   / [📦 Releases](https://github.com/Codeception/module-laminas/releases)
+
+
+
+* Add addFactoryToContainer method [#17](https://github.com/Codeception/module-laminas/issues/17) by **[olexp](https://github.com/olexp)** 
+
+
 ### module-redis 1.2.0: 1.2.0
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/10/08 15:41:43 / [🦑 Repository](https://github.com/Codeception/module-redis)   / [📦 Releases](https://github.com/Codeception/module-redis/releases)

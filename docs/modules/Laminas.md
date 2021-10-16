@@ -191,6 +191,16 @@ $this->getModule('Laminas')->_savePageSource(codecept_output_dir().'page.html');
  * `param` $filename
 
 
+#### addFactoryToContainer
+ 
+Adds factory to a Laminas container
+
+ * `param string` $name
+ * `param string|callable|FactoryInterface` $factory
+ * `return void` 
+ * `[Part]` services
+
+
 #### addServiceToContainer
  
 Adds service to a Laminas container
