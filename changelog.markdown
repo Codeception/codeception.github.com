@@ -9,6 +9,15 @@ title: Codeception Changelog
 
 
 
+### module-laminas 1.2.1: 1.2.1
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/10/19 17:56:16 / [🦑 Repository](https://github.com/Codeception/module-laminas)   / [📦 Releases](https://github.com/Codeception/module-laminas/releases)
+
+
+
+Fix incorrect type hint ([#19](https://github.com/Codeception/module-laminas/issues/19)) by **[olexp](https://github.com/olexp)** and **[TavoNiievez](https://github.com/TavoNiievez)** .
+
+
 ### module-laminas 1.2.0: addFactoryToContainer
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/10/16 08:01:31 / [🦑 Repository](https://github.com/Codeception/module-laminas)   / [📦 Releases](https://github.com/Codeception/module-laminas/releases)

@@ -206,6 +206,7 @@ Adds factory to a Laminas container
 Adds service to a Laminas container
 
  * `[Part]` services
+ * `param array|object` $service
 
 
 #### amHttpAuthenticated
