@@ -17,7 +17,7 @@ $(document).ready(function () {
     success: function(data,status) {
 
       $.each(data.data, function (key, contributor) {
-        var image = "<img src=\"" + contributor.avatar_url + "\" width=\"48\" height=\"48\">";
+        var image = "<img src=\"" + contributor.avatar_url + "\" width=\"48\" height=\"48\" alt=\"" + contributor.login + "\">";
         var link = $(document.createElement('a'));
         link.attr('href','https://github.com/'+contributor.login);
         link.attr('target', "_blank");
