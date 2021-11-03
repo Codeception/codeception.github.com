@@ -1,10 +1,10 @@
 - name: Allure Codeception Adapter
-  link: http://github.com/allure-framework/allure-codeception
+  link: https://github.com/allure-framework/allure-codeception
   description: This is a Codeception adapter for [Allure Framework](http://allure.qatools.ru) 
 
 - name: ReportPortal Agent
   link: https://github.com/reportportal/agent-php-Codeception
-  description: Integration with [ReportPortal.io](http://reportportal.io) AI-powered test automation dashboard
+  description: Integration with [ReportPortal.io](https://reportportal.io/) AI-powered test automation dashboard
   
 - name: Wiremock Extension
   description: Allows developers and testers to use WireMock to mock external services when running codeception tests. codeception-wiremock-extension connects to an already running instance of WireMock or can also run automatically a local standalone one. And, it is able to download the version of wiremock you preffer and run it too
@@ -15,11 +15,11 @@
   description: Docker Selenium Chrome for Codeception is a extension to integrate automatic selenium with chrome in your codeception tests.
 
 - name: PhpBuiltinServer
-  link: http://github.com/tiger-seo/PhpBuiltinServer
+  link: https://github.com/tiger-seo/PhpBuiltinServer
   description: Extension for starting and stopping built-in PHP server. Works on Windows, Mac, Linux.
   
 - name: Phantoman
-  link: http://github.com/site5/phantoman
+  link: https://github.com/site5/phantoman
   description: Extension for automatically starting and stopping PhantomJS when running tests.
   
 - name: Phiremock
@@ -32,34 +32,34 @@
   image: /images/extensions/codeception-progress-reporter.png  
 
 - name: DrushDb
-  link: http://github.com/pfaocle/DrushDb
+  link: https://github.com/pfaocle/DrushDb
   image: https://www.drupal.org/files/druplicon-small.png  
   description: DrushDb is a Codeception extension to populate and cleanup test **Drupal** sites during test runs using Drush aliases and the sql-sync command.
 
 - name: Notifier
-  link: http://github.com/Codeception/Notifier
+  link: https://github.com/Codeception/Notifier
   description: Flexible notifications with notificator library.
 
 - name: WPBrowser, WPDatabase, WPLoader
-  link: http://github.com/lucatume/wp-browser
+  link: https://github.com/lucatume/wp-browser
   image: https://s.w.org/about/images/desktops/wp-light-lo-640x960.png
   description: WordPress specific extensions of PHPBrowser and Db modules to allow for more streamlined testing of themes and plugins and a WordPress automated testing suite wrapper.
 
 - name: Joomla-Browser
-  link: http://github.com/joomla-projects/joomla-browser
+  link: https://github.com/joomla-projects/joomla-browser
   description: An extended Webdriver Browser to navigate through Joomla sites with Codeception.
-  image: http://codeception.com/images/frameworks/joomla.png  
+  image: https://codeception.com/images/frameworks/joomla.png
 
 - name: TestStatistics
-  link: http://github.com/redCOMPONENT-COM/teststatistics#teststatistics
+  link: https://github.com/redCOMPONENT-COM/teststatistics#teststatistics
   description: TestStatistics is a Codeception Extension to measure the performance of your tests. The extension lists your slower steps, probably meaning that the used locator is not performant. Is a smart tool to improve the speed of your Acceptance tests, and serves as example to create your own reporting extensions.
 
 - name: TeamCity
-  link: http://github.com/neronmoon/TeamcityCodeception
+  link: https://github.com/neronmoon/TeamcityCodeception
   description: Integration with TeamCity CI server by service-messages
 
 - name: EventsScripting
-  link: http://github.com/oprudkyi/codeception-events-scripting
+  link: https://github.com/oprudkyi/codeception-events-scripting
   description: Run shell scripts on events - before/after suites/environments/full test run
 
 - name: PauseOnFail
@@ -67,14 +67,14 @@
   description: Pause execution on failure/error - allow debugging from failed point onwardss
 
 - name: SecureShell
-  link: http://github.com/edno/codeception-secureshell
+  link: https://github.com/edno/codeception-secureshell
   description: The Codeception module for SSH commands, SFTP access and SSH tunnels
 
 - name: TestRail
-  link: http://github.com/bookitcom/codeception-testrail
+  link: https://github.com/bookitcom/codeception-testrail
   image: https://blog.gurock.com/wp-content/themes/gurock/assets/images/blog/bottom-testrail-ad.png
-  description: Integration with [TestRail TestCase Management](http://www.gurock.com/testrail/)
+  description: Integration with [TestRail TestCase Management](https://www.gurock.com/testrail/)
 
 - name: Gherkin-Dependsload
-  link: http://github.com/labbots/codeception-gherkin-dependsload
+  link: https://github.com/labbots/codeception-gherkin-dependsload
   description: The Codeception extension for Gherkin features to load and execute dependent scenarios. This extension provides `@dependsload` annotation which lets adding dependencies to gherkin scenarios.
