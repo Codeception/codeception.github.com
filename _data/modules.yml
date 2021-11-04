@@ -69,7 +69,7 @@
   color: "#FFF5C4" 
 
 - name: GherkinParam
-  link: http://github.com/edno/codeception-gherkin-param
+  link: https://github.com/edno/codeception-gherkin-param
   description: The Codeception module for supporting parameter notation in Gherkin scenario.
 
 - name: HighlightCeption
