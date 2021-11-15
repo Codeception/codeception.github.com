@@ -109,7 +109,7 @@ modules:
 * `extensions`: allows to enable and configure [Codeception extensions](http://codeception.com/docs/08-Customization#Extension), [Group Objects](http://codeception.com/docs/08-Customization#Group-Objects), and [Custom Commands](http://codeception.com/docs/08-Customization#Custom-Commands).
 * `reporters`: allows to [change default reporters](http://codeception.com/docs/08-Customization#Custom-Reporters) of Codeception
 * `coverage`: [CodeCoverage](http://codeception.com/docs/11-Codecoverage#Configuration) settings.
-* `params`: allows to pass [external parameters](http://codeception.com/docs/06-ModulesAndHelpers#Dynamic-Configuration-With-Params) into module configuration.
+* `params`: allows to pass [external parameters](http://codeception.com/docs/06-ModulesAndHelpers#Dynamic-Configuration-With-Parameters) into module configuration.
 * `gherkin`: BDD-specific [Gherkin options](http://codeception.com/docs/07-BDD#Configuration).
 * `bootstrap`:  bootstrap script that will be executed before all suites. A script should be put into `tests` directory.
 
