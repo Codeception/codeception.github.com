@@ -905,6 +905,13 @@ Sends a HTTP request.
  
 Sends DELETE request to given uri.
 
+{% highlight php %}
+
+<?php
+$I->sendDelete('/message/1');
+
+{% endhighlight %}
+
  * `param` $url
  * `param array` $params
  * `param array` $files
@@ -915,6 +922,16 @@ Sends DELETE request to given uri.
 #### sendGet
  
 Sends a GET request to given uri.
+
+{% highlight php %}
+
+<?php
+$response = $I->sendGet('/users');
+
+// send get with query params
+$I->sendGet('/orders', ['id' => 1])
+
+{% endhighlight %}
 
  * `param` $url
  * `param array` $params
@@ -960,6 +977,13 @@ Sends an OPTIONS request to given uri.
  
 Sends PATCH request to given uri.
 
+{% highlight php %}
+
+<?php
+$response = $I->sendPatch('/message/1', ['subject' => 'Read this!']);
+
+{% endhighlight %}
+
  * `param`       $url
  * `param array|string|\JsonSerializable` $params
  * `param array` $files
@@ -976,7 +1000,7 @@ Example:
 
 <?php
 //simple POST call
-$I->sendPost('/message', ['subject' => 'Read this!', 'to' => 'johndoe@example.com']);
+$response = $I->sendPost('/message', ['subject' => 'Read this!', 'to' => 'johndoe@example.com']);
 //simple upload method
 $I->sendPost('/message/24', ['inline' => 0], ['attachmentFile' => codecept_data_dir('sample_file.pdf')]);
 //uploading a file with a custom name and mime-type. This is also useful to simulate upload errors.
@@ -1013,6 +1037,13 @@ $I->sendPost('/add-task', ['form' => [
 #### sendPut
  
 Sends PUT request to given uri.
+
+{% highlight php %}
+
+<?php
+$response = $I->sendPut('/message/1', ['subject' => 'Read this!']);
+
+{% endhighlight %}
 
  * `param` $url
  * `param array|string|\JsonSerializable` $params
