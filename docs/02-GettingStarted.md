@@ -270,7 +270,7 @@ Learn more about the [Cest format](http://codeception.com/docs/07-AdvancedUsage#
 It's hard to write a complete test at once. 
 You will need to try different commands with different arguments before you find a correct path.
 
-Since Codeception 3.0 you can pause the execution at any point and enter an interactive shell where you will be able to try different commands in action.
+Execution can be paused at any point and enter an interactive shell where you will be able to try different commands in action.
 All you need to do is **call `$I->pause()`** somewhere in your test, then run the test in [debug mode](#Debugging).
 
 Interactive Pause requires [`hoa/console`](https://hoa-project.net/) which is not installed by default. To install it, run:

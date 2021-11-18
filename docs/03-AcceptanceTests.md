@@ -567,7 +567,7 @@ $I->seeNumberOfElements(['css' => 'button.link'], 5); // DISABLED, can wait only
 
 When it's hard to define condition to wait for, we can retry a command few times until it succeeds.
 For instance, if you try to click while it's animating you can try to do it few times until it freezes.
-Since Codeception 3.0 each action and assertion have an alias prefixed with `retry` which allows to retry a flaky command.
+Each action and assertion have an alias prefixed with `retry` which allows to retry a flaky command.
 
 {% highlight php %}
 
