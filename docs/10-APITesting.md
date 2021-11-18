@@ -102,10 +102,10 @@ class CreateUserCest
 If API endpoint accepts JSON you can use a `send` methods with `AsJson` suffix to convert data automatically:
 
 {% highlight php %}
+$I->sendPostAsJson('/users', ['name' => 'old name']);
 $users = $I->sendGetAsJson('/users');
 $I->sendPutAsJson('/users/' . $users[0]['id'], ['name' => 'new name']);
 $I->sendDeleteAsJson('/users/' . $users[1]);
-
 {% endhighlight %}
 
 To enable steps with `AsJson` suffix enable `Codeception\Step\AsJson` step decorator in suite config:
@@ -114,6 +114,12 @@ To enable steps with `AsJson` suffix enable `Codeception\Step\AsJson` step decor
 actor: ApiTester
 step_decorators:
     - \Codeception\Step\AsJson
+```
+and rebuild actions:
+
+```
+php vendor/bin/codecept build
+
 ```
 
 > `sendGetAsJson`, `sendPutAsJson`, and others, are implemented with a [Step Decorator](https://codeception.com/docs/08-Customization#Step-Decorators). It adds `application/json` Content-Type, checks JSON response and returns JSON response as associative array.
