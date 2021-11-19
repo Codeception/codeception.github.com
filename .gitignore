@@ -8,3 +8,4 @@ Gemfile.lock
 /package/composer.lock
 /package/vendor
 /vendor
+.jekyll-cache
