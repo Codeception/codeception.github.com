@@ -97,32 +97,6 @@ class CreateUserCest
 
 {% endhighlight %}
 
-> New in codeception/module-rest 1.4.1:
-
-If API endpoint accepts JSON you can use a `send` methods with `AsJson` suffix to convert data automatically:
-
-{% highlight php %}
-$I->sendPostAsJson('/users', ['name' => 'old name']);
-$users = $I->sendGetAsJson('/users');
-$I->sendPutAsJson('/users/' . $users[0]['id'], ['name' => 'new name']);
-$I->sendDeleteAsJson('/users/' . $users[1]['id']);
-{% endhighlight %}
-
-To enable steps with `AsJson` suffix enable `Codeception\Step\AsJson` step decorator in suite config:
-
-```yaml
-actor: ApiTester
-step_decorators:
-    - \Codeception\Step\AsJson
-```
-and rebuild actions:
-
-```
-php vendor/bin/codecept build
-```
-
-> `sendGetAsJson`, `sendPutAsJson`, and others, are implemented with a [Step Decorator](https://codeception.com/docs/08-Customization#Step-Decorators). It adds `application/json` Content-Type, checks JSON response and returns JSON response as associative array.
-
 ### Authorization
 
 To authorize requests to external resources, usually provider requires you to authorize using headers. Additional headers can be set before request using `haveHttpHeader` command:
@@ -161,20 +135,55 @@ When headers are set, you can send a request. To obtain data use `sendGet`:
 
 <?php
 // pass in query params in second argument
-$I->sendGet('/posts', [ 'status' => 'pending' ]);
+$response = $I->sendGet('/posts', [ 'status' => 'pending' ]);
 $I->seeResponseCodeIs(200);
 $I->seeResponseIsJson();
 
 {% endhighlight %}
 
-> `sendGet` won't return any value. However, you can access data from a response and perform assertions using other available methods of REST module.
-
 To create or update data you can use other common methods:
 
 * `sendPost`
 * `sendPut`
+* `sendPatch`
 * `sendDelete`
 * `sendPatch`
+
+To send a request with custom method use `send` action:
+
+{% highlight php %}
+
+<?php
+$response = $I->send('TRACE', '/posts');
+{% endhighlight %}
+
+> sendAsJson methods were introduced in module-rest 1.4.1
+
+If API endpoint accepts JSON you can use `send` methods with `AsJson` suffix to convert data automatically.
+In this case `Content-Type` header is sent with `application/json` value and response if JSON is parsed:
+
+{% highlight php %}
+$I->sendPostAsJson('/users', ['name' => 'old name']);
+$users = $I->sendGetAsJson('/users');
+$I->sendPutAsJson('/users/' . $users[0]['id'], ['name' => 'new name']);
+$I->sendDeleteAsJson('/users/' . $users[1]['id']);
+{% endhighlight %}
+
+To enable steps with `AsJson` suffix enable `Codeception\Step\AsJson` step decorator in suite config:
+
+```yaml
+actor: ApiTester
+step_decorators:
+    - \Codeception\Step\AsJson
+```
+and rebuild actions:
+
+```
+php vendor/bin/codecept build
+```
+
+> `sendGetAsJson`, `sendPutAsJson`, and others, are implemented as a [Step Decorator](https://codeception.com/docs/08-Customization#Step-Decorators).
+
 
 ### JSON Structure Validation
 
