@@ -21,8 +21,8 @@ And finally we are back green on Travis. We had some issues with Travis infrastr
 
 ### Update
 
-Please [redownload](http://codeception.com/thanks.html) your `codeception.phar` for update:
+Please [redownload](https://codeception.com/thanks.html) your `codeception.phar` for update:
 
 {% highlight bash %}
-wget http://codeception.com/codecept.phar -O codecept.phar
+wget https://codeception.com/codecept.phar -O codecept.phar
 {% endhighlight %}

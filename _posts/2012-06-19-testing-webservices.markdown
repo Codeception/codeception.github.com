@@ -8,17 +8,17 @@ Codeception testing framework got significant improvements during last week. The
 
 So Installation is much simplier now:
 
-1. [Download](http://codeception.com/thanks.html) archive.
+1. [Download](https://codeception.com/thanks.html) archive.
 
 2. Execute it with PHP `php codecept.phar`
 
 Now you can start generating a test suite with  `php codecept.phar bootstrap` or execute existing tests with `php codecept.phar run`.
 
-[Documentation](http://codeception.com/doc) section was created. New section Reference was added. There you can review Codeception commands and configuration values.
+[Documentation](https://codeception.com/doc) section was created. New section Reference was added. There you can review Codeception commands and configuration values.
 
 But the most cool stuff is new module for *testing web services*!
 
-Modules for [SOAP](http://codeception.com/docs/modules/SOAP) and [REST](http://codeception.com/docs/modules/REST) were added recently. You know it's always hard to test the API manually. So why not to automate it?
+Modules for [SOAP](https://codeception.com/docs/modules/SOAP) and [REST](https://codeception.com/docs/modules/REST) were added recently. You know it's always hard to test the API manually. So why not to automate it?
 
 This API modules keeps simple manner in describing tests. Take a look at sample REST test.
 
@@ -51,13 +51,13 @@ $I->sendSoapRequest('CreateUser', Soap::request()
 $I->seeSoapResponseIncludes(Soap::response()->result->val(1));
 {% endhighlight %}
 
-Ok, the one thing you may have noticed. We are working with JSON in first case and XML in second. But there is no JSON or XML in code! Well, we could have used it, but we didn't. Just because we can use PHP to set data in this formats. Json is built from PHP arrays and for XML is used jQuery-like styled [XMLBuilder](http://codeception.com/docs/reference/xmlbuilder) class. But you could possibly add a raw json or XMl into your tests. No problems with that!
+Ok, the one thing you may have noticed. We are working with JSON in first case and XML in second. But there is no JSON or XML in code! Well, we could have used it, but we didn't. Just because we can use PHP to set data in this formats. Json is built from PHP arrays and for XML is used jQuery-like styled [XMLBuilder](https://codeception.com/docs/reference/xmlbuilder) class. But you could possibly add a raw json or XMl into your tests. No problems with that!
 
 Modules themselves are already documented and tested. Soon a complete guide on WebService API testing will be added.
 
-The other thing worth to mention is new *finalizers* in test scenarios. If you need to execute code after test is finished and you don't want to put it in helper use the `$scenario->finilize` method. See it's usage example in new [Manual Cleanup](http://codeception.com/docs/08-Data#manual-cleanup) section of Guides.
+The other thing worth to mention is new *finalizers* in test scenarios. If you need to execute code after test is finished and you don't want to put it in helper use the `$scenario->finilize` method. See it's usage example in new [Manual Cleanup](https://codeception.com/docs/08-Data#manual-cleanup) section of Guides.
 
-This is Codeception 1.0.11. Download [new version](http://codeception.com/thanks.html) to run tests or update
+This is Codeception 1.0.11. Download [new version](https://codeception.com/thanks.html) to run tests or update
 
 via PEAR
 

@@ -5,7 +5,7 @@ date: 2012-02-15 22:03:50
 ---
 
 
-Codeception is new BDD-style testing framework for PHP. It makes testing easier than it was before. Yep, really. If you are not a fan of testing, that might as well be because you haven't used the proper tools. We've already showed you how simple it is to automate testing for any web application by writing [acceptance tests](http://codeception.com/01-20-2012/starting-acceptance.html). Today we will dig deeper into the code and show you how it can be tested.
+Codeception is new BDD-style testing framework for PHP. It makes testing easier than it was before. Yep, really. If you are not a fan of testing, that might as well be because you haven't used the proper tools. We've already showed you how simple it is to automate testing for any web application by writing [acceptance tests](https://codeception.com/01-20-2012/starting-acceptance.html). Today we will dig deeper into the code and show you how it can be tested.
 
 With BDD approach in Codeception, any test, even the unit test, is written as a scenario. By this scenario you declare what you are doing and what results you expect to see. In traditional xUnit scheme your test is just a piece of code that uses the method being tested. This piece of code becomes a mess when you test complex units depending on other classes or when you need to check data in a database, etc. Codeception always keeps your unit tests simple and readable.
 
@@ -150,7 +150,7 @@ class UserCest {
 ?>
 {% endhighlight %}
 
-By this test we have 100% covered the 'create' method with test and isolated its environment. As a bonus, we can improve our documentation by the text of this scenario. If we use [DocBlox, we can set up Codeception plugin](http://codeception.com/02-14-2012/generators-release-1-0-3.html) and generate documentation for User class 'create' method.
+By this test we have 100% covered the 'create' method with test and isolated its environment. As a bonus, we can improve our documentation by the text of this scenario. If we use [DocBlox, we can set up Codeception plugin](https://codeception.com/02-14-2012/generators-release-1-0-3.html) and generate documentation for User class 'create' method.
 
 {% highlight html %}
 With this method I can create new users by name.
@@ -183,6 +183,6 @@ We can say that the 'create' method is fully described by this text.
 
 What we've got by writing the test for the _create_ method of user class? We've made sure that by using this method the user is always validated and saved when created. We've also made sure the default role is 'member'. Well, that's all. But that's all that 'create' function is doing. 
 
-For further reading on Codeception unit tests see our [documentation](http://codeception.com/docs/07-UnitTestsPractice). 
+For further reading on Codeception unit tests see our [documentation](https://codeception.com/docs/07-UnitTestsPractice). 
 
-In the next post we will simplify the model test by breaking some isolation rules. Subscribe to our [RSS](http://codeception.com/rss.xml) channel to stay in touch.
+In the next post we will simplify the model test by breaking some isolation rules. Subscribe to our [RSS](https://codeception.com/rss.xml) channel to stay in touch.

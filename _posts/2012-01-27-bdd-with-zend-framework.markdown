@@ -7,7 +7,7 @@ date: 2012-01-27 22:03:50
 Codeception is testing framework in which all tests are written in a single descriptive manner. 
 It's aim is to make tests easy to read, easy to write and easy to debug. Every single test you write can be run either in Selenium, in PHP Browser emulator, or as a functional test for **Zend Framework**. Today we will look how Codeception can be used for testing your Zend application.
 
-Most of CRUD applications use forms for creating or editing content. It's hard to test every form on site after each release manually. But we will automate this process. For testing Zend applications you probably used it's [Zend_Test_PHPUnit](http://framework.zend.com/manual/1.11/en/zend.test.phpunit.html) class, which is build on top of PHPUnit's TestCase. Codeception is built on top of PHPUnit too. And takes similar approaches from **Zend_Test_PHPUnit_ControllerTestCase**. But commands available in tests being made intuitively simple and much more human friendly then they are in Zend_Test_PHPUnit.
+Most of CRUD applications use forms for creating or editing content. It's hard to test every form on site after each release manually. But we will automate this process. For testing Zend applications you probably used it's [Zend_Test_PHPUnit](https://framework.zend.com/manual/1.11/en/zend.test.phpunit.html) class, which is build on top of PHPUnit's TestCase. Codeception is built on top of PHPUnit too. And takes similar approaches from **Zend_Test_PHPUnit_ControllerTestCase**. But commands available in tests being made intuitively simple and much more human friendly then they are in Zend_Test_PHPUnit.
 
 We take a code from Zend_Test_PHPUnit tutorial:
 
@@ -78,7 +78,7 @@ resources.db.params.dbname = "zfblog"
 
 Database should be populated with _zend_blog.sql_ dump from the project root.
 
-To start covering it with tests [Codeception should be installed](http://codeception.com/install). 
+To start covering it with tests [Codeception should be installed](https://codeception.com/install). 
 
 Run bootstrap command from root of ZFBlog:
 
@@ -89,9 +89,9 @@ $ codecept build
 
 This will create a default test suites. Now some steps for configuration should be done.
 
-For interacting with Zend Framework a [ZF1](http://codeception.com/docs/modules/ZF1) module is used.
+For interacting with Zend Framework a [ZF1](https://codeception.com/docs/modules/ZF1) module is used.
 It should be enabled in functional tests configuration: _tests/functional.suite.yml_.
-For database repopulation after each step add [Db](http://codeception.com/docs/modules/Db) module too.
+For database repopulation after each step add [Db](https://codeception.com/docs/modules/Db) module too.
 
 {% highlight yaml %}
 class_name: TestGuy

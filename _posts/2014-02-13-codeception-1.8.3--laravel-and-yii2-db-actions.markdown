@@ -49,7 +49,7 @@ Thanks to **Ragazzo** for Yii2 module contributions and bughunting.
 
 ### Update
 
-[redownload](http://codeception.com/thanks.html) your `codeception.phar` for update:
+[redownload](https://codeception.com/thanks.html) your `codeception.phar` for update:
 
 #### 1.8.3
 {% highlight bash %}

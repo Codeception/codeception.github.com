@@ -8,7 +8,7 @@ date: 2013-07-31 22:03:50
 *William S. Burroughs*
 
 
-We already announced [AspectMock](https://github.com/Codeception/AspectMock), the mocking framework that may dramatically change the way you do testing in PHP. [In this video this Jeffrey Way](http://jeffrey-way.com/blog/2013/07/24/aspectmock-is-pretty-neat/) shows how AspectMock is different from others. In this post we will demonstrate its powers too, and we will try to break some stereotypes about PHP testing.
+We already announced [AspectMock](https://github.com/Codeception/AspectMock), the mocking framework that may dramatically change the way you do testing in PHP. [In this video this Jeffrey Way](https://jeffrey-way.com/blog/2013/07/24/aspectmock-is-pretty-neat/) shows how AspectMock is different from others. In this post we will demonstrate its powers too, and we will try to break some stereotypes about PHP testing.
 
 To get the code tested, you should always keep in mind how you would write a test for it. 
 We know unit testing requires some good practices to follow and bad practices to avoid.
@@ -205,7 +205,7 @@ Go adds a parent proxy class to any loaded PHP class on the fly. So If we get ba
 But it has a wide potential. It is very simple and easy to use. It has very tiny api easy to remember and understand. 
 That's why tests developed with AspectMock are very clean and readable.
 
-**AspectMock is not a testing tool for the bad code.** The good code is efficient code. WordPress is much popular then any PHP framework, because of its efficiency. Magento does not have unit tests (only integration), but is the most popular ecommerce platform. We can't say how many there are unit tests in Facebook, but we can bet, it started without unit tests. Code should do its job. Code should be readable and maintanable. Overusing dependency injection does not make the code more efficient in any sense. By the way, [in Ruby dependency injection is not widely used](http://david.heinemeierhansson.com/2012/dependency-injection-is-not-a-virtue.html), but as you may know ruby developers are very passionate about testing.
+**AspectMock is not a testing tool for the bad code.** The good code is efficient code. WordPress is much popular then any PHP framework, because of its efficiency. Magento does not have unit tests (only integration), but is the most popular ecommerce platform. We can't say how many there are unit tests in Facebook, but we can bet, it started without unit tests. Code should do its job. Code should be readable and maintanable. Overusing dependency injection does not make the code more efficient in any sense. By the way, [in Ruby dependency injection is not widely used](https://david.heinemeierhansson.com/2012/dependency-injection-is-not-a-virtue.html), but as you may know ruby developers are very passionate about testing.
 
 **AspectMock is not a tool for newbies** who just didn't manage to learn the good practices.
 It is advanced tool, that require you to set dependencies explicitly in a test. That may require deep knowledge on internals of framework you use.

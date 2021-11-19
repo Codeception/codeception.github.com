@@ -44,7 +44,7 @@ codecept init unit
 
 But the best thing about installation templates that they can be created by anyone! They can be placed inside a separate package and loaded by `init` command. A template class should be placed into `Codeception\Template` namespace and then it can be autoloaded. Installation templates are pretty simple, learn how to build your own by taking a look at [Acceptance template as an example](https://github.com/Codeception/Codeception/blob/master/src/Codeception/Template/Acceptance.php#L67).
 
-We have added Installation templates to [Customization](http://codeception.com/docs/08-Customization#Installation-Templates) guide and added a reference to [Codeception\InitTemplate](http://codeception.com/docs/reference/InitTemplate) class.
+We have added Installation templates to [Customization](https://codeception.com/docs/08-Customization#Installation-Templates) guide and added a reference to [Codeception\InitTemplate](https://codeception.com/docs/reference/InitTemplate) class.
 
 ## Configuration Improvements
 
@@ -123,7 +123,7 @@ or by providing a full class name
 codecept run --ext "Codeception\Extension\Recorder"
 ```
 
-This can be used to enable a custom reporter. For this reason, the new [DotReporter](http://codeception.com/extensions#DotReporter) has been added:
+This can be used to enable a custom reporter. For this reason, the new [DotReporter](https://codeception.com/extensions#DotReporter) has been added:
 
 ```
 codecept run --ext DotReporter
@@ -159,7 +159,7 @@ Important notice: we changed defaults for Db module, so **`cleanup` and `populat
 ---
 
 Codeception 2.2.12 has been released as well.
-See complete [changelog](http://codeception.com/changelog) for all notable changes.
+See complete [changelog](https://codeception.com/changelog) for all notable changes.
 
 ---
 

@@ -12,9 +12,9 @@ This release brings lots of changes. Finally we got working DataProviders (the i
 <img src="https://lh3.googleusercontent.com/-wjtJgs6HLwc/AAAAAAAAAAI/AAAAAAAAAD4/IvimRkefmI4/s120-c/photo.jpg" alt="Phalcon" style="float: right">
 
 
-[Phalcon](http://phalconphp.com/) is the fastest PHP framework in the world. And that's not just a marketing slogan. Phalcon was developed as C extension, so it is already precompiled and loads into memory only once. Phalcon is modern framework with DI container, ORM (inspired by Doctrine), and templating engine (inspired by Twig). It is one of the most innovative projects in PHP world, so you should at least check it out. 
+[Phalcon](https://phalcon.io/) is the fastest PHP framework in the world. And that's not just a marketing slogan. Phalcon was developed as C extension, so it is already precompiled and loads into memory only once. Phalcon is modern framework with DI container, ORM (inspired by Doctrine), and templating engine (inspired by Twig). It is one of the most innovative projects in PHP world, so you should at least check it out. 
 
-If you already work with Phalcon, here is a good news for you. Codeception got [Phalcon1](http://codeception.com/docs/modules/Phalcon1) module, that allows you to write functional tests with minimum setup. Besides standard framework interface this module provides actions for session and database access. It also wraps all tests into nested transactions, and rollbacks them in the end. Thus, all your database tests run superfast.
+If you already work with Phalcon, here is a good news for you. Codeception got [Phalcon1](https://codeception.com/docs/modules/Phalcon1) module, that allows you to write functional tests with minimum setup. Besides standard framework interface this module provides actions for session and database access. It also wraps all tests into nested transactions, and rollbacks them in the end. Thus, all your database tests run superfast.
 
 Is there any Phalcon project tested with Codeception? Yes, it is the official [Phalcon's forum](https://github.com/phalcon/forum).
 
@@ -48,7 +48,7 @@ env:
 
 {% endhighlight %}
 
-[Advanced Usage](http://codeception.com/docs/07-AdvancedUsage#Environments) chapter was updated.
+[Advanced Usage](https://codeception.com/docs/07-AdvancedUsage#Environments) chapter was updated.
 
 
 ## DataProviders
@@ -70,7 +70,7 @@ foreach ($posts as $post) {
 ## Depends
 
 Declare depending tests in Cest and Test files. Works just as the original `@depends` of PHPUnit.
-In Cests you can combine this with `@before` annotation. More information in [Advanced Usage](http://codeception.com/docs/07-AdvancedUsage).
+In Cests you can combine this with `@before` annotation. More information in [Advanced Usage](https://codeception.com/docs/07-AdvancedUsage).
 
 ## Debug
 
@@ -115,23 +115,23 @@ Just disable `Unit` module. Thanks
 
 If you prefer stability over features you can stay on 1.7 or 1.6 releases. We've got them updated too.
 
-[redownload](http://codeception.com/thanks.html) your `codeception.phar` for update:
+[redownload](https://codeception.com/thanks.html) your `codeception.phar` for update:
 
 #### 1.8.0
 {% highlight bash %}
-wget http://codeception.com/codecept.phar -O codecept.phar
+wget https://codeception.com/codecept.phar -O codecept.phar
 {% endhighlight %}
 
 #### 1.7.3
 
 {% highlight bash %}
-wget http://codeception.com/releases/1.7.3/codecept.phar -O codecept.phar
+wget https://codeception.com/releases/1.7.3/codecept.phar -O codecept.phar
 {% endhighlight %}
 
 #### 1.6.12
 
 {% highlight bash %}
-wget http://codeception.com/releases/1.6.12/codecept.phar -O codecept.phar
+wget https://codeception.com/releases/1.6.12/codecept.phar -O codecept.phar
 {% endhighlight %}
 
 for composer version

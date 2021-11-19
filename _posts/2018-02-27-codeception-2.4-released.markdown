@@ -50,5 +50,5 @@ We try to keep Codeception going and bring more releases to you. If your company
 
 Please show this form to your company bosses. If you want to have stable reliable product it's ok to pay for that. Be our first official sponsors!
 
-Yes, we also provide [enterprise support](http://sdclabs.com/codeception?utm_source=codeception.com&utm_medium=top_menu&utm_term=link&utm_campaign=reference) and [trainings](http://sdclabs.com/trainings?utm_source=codeception.com&utm_medium=top_menu&utm_term=link&utm_campaign=reference). This is another way you can support the development. Thank you!
+Yes, we also provide [enterprise support](https://sdclabs.com/codeception?utm_source=codeception.com&utm_medium=top_menu&utm_term=link&utm_campaign=reference) and [trainings](https://sdclabs.com/trainings?utm_source=codeception.com&utm_medium=top_menu&utm_term=link&utm_campaign=reference). This is another way you can support the development. Thank you!
 

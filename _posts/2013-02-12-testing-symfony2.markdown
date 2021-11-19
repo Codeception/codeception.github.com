@@ -14,7 +14,7 @@ Let's list all of them:
 * testing REST and SOAP services built on Symfony
 * fastest data cleanup when using with Doctrine2
 
-The installation is pretty simple. You can use [Composer](http://codeception.com/install) (as you are used to it), but we'd recommend to try [phar package](http://codeception.com/thanks). In this case you can avoid unnecessary dependencies. But all this versions are equal. And when you installed Codeception and executed a `bootstrap` command you should configure your functional test suite.
+The installation is pretty simple. You can use [Composer](https://codeception.com/install) (as you are used to it), but we'd recommend to try [phar package](https://codeception.com/thanks). In this case you can avoid unnecessary dependencies. But all this versions are equal. And when you installed Codeception and executed a `bootstrap` command you should configure your functional test suite.
 
 In file `tests/functional.suite.yml`:
 
@@ -43,7 +43,7 @@ $I->fillField('username', 'admin');
 
 And so on. Unlike standard Symfony2 tests you don't need to deal with filters, CSS, and XPaths. Well, you can use CSS or XPath in any selector, if you need to. But on start you can keep your test simple and compact. 
 
-The commands we use here are common for most modules that perform testing of web application. That means, that once you discover a need for Selenium, this test can be executed inside a web browser using Selenium2 module. But some commands are unique to Symfony2 module. For example, you can use `seeEmailIsSent` command that checks if application has submitted an email during the last request. Check [Symfony2](http://codeception.com/docs/modules/Symfony2) module reference for all commands we provide.
+The commands we use here are common for most modules that perform testing of web application. That means, that once you discover a need for Selenium, this test can be executed inside a web browser using Selenium2 module. But some commands are unique to Symfony2 module. For example, you can use `seeEmailIsSent` command that checks if application has submitted an email during the last request. Check [Symfony2](https://codeception.com/docs/modules/Symfony2) module reference for all commands we provide.
 
 ## Unit Testing
 
@@ -84,6 +84,6 @@ Then you can put this test into bundle.
 
 ## Conclusion
 
-Ok, you will probably ask: why is it better then Behat. We have a [wide answer for that](http://codeception.com/12-20-2012/not-bdd.html). A short is: Codeception is for testing, Behat is for Behavior Driven Development. If you need a professional testing tool that supports [PageObject](http://codeception.com/10-30-2012/pro-tips-1.html) pattern, complex [Locators](http://codeception.com/09-24-2012/locator.html), refactoring capabilities and [CodeCoverage](http://codeception.com/docs/11-Codecoverage) - Codeception is a good choice for that. 
+Ok, you will probably ask: why is it better then Behat. We have a [wide answer for that](https://codeception.com/12-20-2012/not-bdd.html). A short is: Codeception is for testing, Behat is for Behavior Driven Development. If you need a professional testing tool that supports [PageObject](https://codeception.com/10-30-2012/pro-tips-1.html) pattern, complex [Locators](https://codeception.com/09-24-2012/locator.html), refactoring capabilities and [CodeCoverage](https://codeception.com/docs/11-Codecoverage) - Codeception is a good choice for that. 
 
 We say thanks to @everzet for wonderful Mink (that is used for acceptance tests) and to Sebastian Bergmann for it's PHPUnit. Codeception uses their powers, but makes them a bit simpler in use.

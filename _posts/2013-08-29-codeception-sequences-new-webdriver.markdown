@@ -33,10 +33,10 @@ No matter how much times you execute this test, each time you see a new post is 
 
 ### Update
 
-[redownload](http://codeception.com/thanks.html) your `codeception.phar` for update:
+[redownload](https://codeception.com/thanks.html) your `codeception.phar` for update:
 
 {% highlight bash %}
-wget http://codeception.com/codecept.phar -O codecept.phar
+wget https://codeception.com/codecept.phar -O codecept.phar
 {% endhighlight %}
 
 for composer version
@@ -56,7 +56,7 @@ Pretty tricky, right?
 
 Currently there are 3 WebDriver bindings in PHP. 
 
-* [Selenium2TestCase of PHPUnit](http://phpunit.de/manual/current/en/selenium.html#selenium.selenium2testcase) which is the most old, the most complete and the most OOP webdriver implementation. But if you have worked with its api, you understand how robust it is to learn and use.
+* [Selenium2TestCase of PHPUnit](https://phpunit.de/manual/current/en/selenium.html#selenium.selenium2testcase) which is the most old, the most complete and the most OOP webdriver implementation. But if you have worked with its api, you understand how robust it is to learn and use.
 * [Element34 fork](https://github.com/Element-34/php-webdriver) based on initial facebook/webdriver bindings, but with hooks to solve common pitfalls.
 * [Selenium2Driver](https://github.com/Behat/MinkSelenium2Driver) of Mink which incorporates Element34 bindings and _Syn.js_ library to perform most of interactions via JavaScript bypassing WebDriver API.
 
@@ -74,7 +74,7 @@ WebDriver module does not implement everyhting the Selenium2 module has. There i
 * `selectOption` and `checkOption` now both work with radio buttons.
 * `seeElementInDOM` to check the invisible elements.
 * `waitForElementChange` to wait that element changed
-* [implicit waits](http://docs.seleniumhq.org/docs/04_webdriver_advanced.jsp#implicit-waits) with `wait` config prameter (default is 5 secs).
+* [implicit waits](https://docs.seleniumhq.org/docs/04_webdriver_advanced.jsp#implicit-waits) with `wait` config prameter (default is 5 secs).
 * `maximizeWindow` specially for **@aditya-** :). 
 
 In all other ways its pretty compatible with Selenium2 module. Try it on your own risk or wait for stable versions.

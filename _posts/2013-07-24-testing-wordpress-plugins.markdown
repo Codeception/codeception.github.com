@@ -10,7 +10,7 @@ Does it work after your last change?
 
 Oh yes, releasing the plugin means to make it reliable. This why we highly recommend to use automated testing in your development. Its not that really hard as you expect. Quite the contrary: automated testing saves your time for clicking and filling forms on a page.
 
-In this post we will examine how can you test a sample WordPress plugin with Codeception framework. Our patient is [User Submitted Posts](http://wordpress.org/plugins/user-submitted-posts/) plugin by Jeffrey Starr.
+In this post we will examine how can you test a sample WordPress plugin with Codeception framework. Our patient is [User Submitted Posts](https://wordpress.org/plugins/user-submitted-posts/) plugin by Jeffrey Starr.
 
 This plugin allows regular users to submit a posts to your WordPress blog.
 
@@ -40,10 +40,10 @@ Automation of testing allows us to write a script one time and replay it wheneve
 
 ### Install Codeception
 
-Codeception can be easily installed. It requires **PHP 5.3** and higher. You can [download it here](http://codeception.com/thanks) or grab from site with `wget`:
+Codeception can be easily installed. It requires **PHP 5.3** and higher. You can [download it here](https://codeception.com/thanks) or grab from site with `wget`:
 
 {% highlight bash %}
-wget http://codeception.com/codecept.phar
+wget https://codeception.com/codecept.phar
 {% endhighlight %}
 
 Downloaded `codecept.phar` file should be placed into your WordPress directory.
@@ -135,7 +135,7 @@ $I->wantTo('submitted a post by user and publish it as admin');
 $I->amOnPage('/');
 $I->click('Submit a Post');
 $I->fillField('Your Name', 'Michael');
-$I->fillField('Your URL','http://drone-rules.com');
+$I->fillField('Your URL','https://drone-rules.com');
 $I->fillField('Post Title', 'Game of Drones Review');
 $I->fillField('Post Tags', 'review book rob-starkraft');
 $I->selectOption('Post Category', 'Game of Drones');
@@ -157,7 +157,7 @@ $I->wantTo('submitted a post by user and publish it as admin');
 $I->amOnPage('/');
 $I->click('Submit a Post');
 $I->fillField('Your Name', 'Michael');
-$I->fillField('Your URL','http://drone-rules.com');
+$I->fillField('Your URL','https://drone-rules.com');
 $I->fillField('Post Title', 'Game of Drones Review');
 $I->fillField('Post Tags', 'review book rob-starkraft');
 $I->selectOption('Post Category', 'Game of Drones');
@@ -217,7 +217,7 @@ $I->wantTo('submitted a post by user and publish it as admin');
 $I->amOnPage('/');
 $I->click('Submit a Post');
 $I->fillField('Your Name', 'Michael');
-$I->fillField('Your URL','http://drone-rules.com');
+$I->fillField('Your URL','https://drone-rules.com');
 $I->fillField('Post Title', 'Game of Drones Review');
 $I->fillField('Post Tags', 'review book rob-starkraft');
 $I->selectOption('select[name=user-submitted-category]', 'Game of Drones');
@@ -237,4 +237,4 @@ As you see it is pretty straight forward. And there is nothing hard in writing s
 
 Before we proceed, try to reproduce the following steps locally and prepare the testing environment. You can [download this demo project](https://github.com/Codeception/WordPress-plugin-testing/archive/lesson-1.zip) or [clone it from GitHub](https://github.com/Codeception/WordPress-plugin-testing/tree/lesson-1). And try to write and run some tests on your own.
 
-[**Continue to Part2 >**](http://codeception.com/08-01-2013/testing-wordpress-plugins-2.html)
+[**Continue to Part2 >**](https://codeception.com/08-01-2013/testing-wordpress-plugins-2.html)

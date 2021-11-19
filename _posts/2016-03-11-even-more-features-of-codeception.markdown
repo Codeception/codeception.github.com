@@ -5,13 +5,13 @@ date: 2016-03-10 01:03:50
 ---
 
 Today we continue to show you new features of Codeception 2.2, planned to release this March.
-In previous post we've got you acquainted with [Test Dependencies, Params, and Conflicts](http://codeception.com/03-05-2016/codeception-2.2.-upcoming-features.html). This post will continue this overview, and we will start with some nice modules, which might be useful to you. 
+In previous post we've got you acquainted with [Test Dependencies, Params, and Conflicts](https://codeception.com/03-05-2016/codeception-2.2.-upcoming-features.html). This post will continue this overview, and we will start with some nice modules, which might be useful to you. 
 
 As you know, in Codeception we try to help developers and testers share their experience by providing set of shared pieces, and not to reinvent the wheel. Modules play exactly that role: you just include modules to fit your project, and write your tests, concentrating on its business logic, and not on implementation. 90% test steps in functional and acceptance tests are covered with out modules. So what do we have prepared for 2.2?
 
 ### DataFactory
 
-This module should solve problem of generating and populating data for tests. Right now we have [Db module](http://codeception.com/docs/modules/Db), [MongoDb](http://codeception.com/docs/modules/MongoDb) with really limited functionality, methods like `haveRecord`, `seeRecord` in various frameworks, and [Sequence module](http://codeception.com/docs/modules/Sequence) for generating unique keys for data. However, they didn't provide any way to generate data needed exactly for a particular test. 
+This module should solve problem of generating and populating data for tests. Right now we have [Db module](https://codeception.com/docs/modules/Db), [MongoDb](https://codeception.com/docs/modules/MongoDb) with really limited functionality, methods like `haveRecord`, `seeRecord` in various frameworks, and [Sequence module](https://codeception.com/docs/modules/Sequence) for generating unique keys for data. However, they didn't provide any way to generate data needed exactly for a particular test. 
 
 DataFactory module should solve this with fixture generators, called factories. The original idea take from popular Ruby gem **FactoryGirl** and implemented in php in [FactoryMuffin](https://github.com/thephpleague/factory-muffin) library, which we use. Laravel 5 users are already aware of using factories. Now you can use them with all PHP frameworks with ActiveRecord pattern and in **Doctrine**.
 
@@ -42,7 +42,7 @@ and deletes them after the test. As we said that will work for Doctrine as well,
 
 ### AngularJS
 
-AngularJS is probably the most popular framework for building single page web applications. It provides its own tool for acceptance testing - [Protractor](https://angular.github.io/protractor/#/) but what if you already use Codeception and you are not so passionate to switch to NodeJS? Well if you actually do, please check out our side-project [CodeceptJS](http://codecept.io) which brings Codeception concepts to JavaScript world. However, in case of Angular testing there is less reasons to switch, as we brought you Protractor experience in new AngularJS module.
+AngularJS is probably the most popular framework for building single page web applications. It provides its own tool for acceptance testing - [Protractor](https://angular.github.io/protractor/#/) but what if you already use Codeception and you are not so passionate to switch to NodeJS? Well if you actually do, please check out our side-project [CodeceptJS](https://codecept.io) which brings Codeception concepts to JavaScript world. However, in case of Angular testing there is less reasons to switch, as we brought you Protractor experience in new AngularJS module.
 
 It simply wraps WebDriver module, and adds an asynchronous script between steps to ensure that all client-side operations finished before proceed. This way no new actions are taken before Angular finishes rendering. Also you've got new strict locator to use:
 
@@ -135,4 +135,4 @@ if (isset($capabilities['platform'])) {
 ---
 
 That's all for today, but not for Codeception 2.2
-The most important and most impressive feature is waiting for you in next post. Subscribe to our [Twitter](http://twitter.com/codeception)  to not miss it. Stay tuned!
+The most important and most impressive feature is waiting for you in next post. Subscribe to our [Twitter](https://twitter.com/codeception)  to not miss it. Stay tuned!

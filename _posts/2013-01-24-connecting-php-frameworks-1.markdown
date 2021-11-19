@@ -16,7 +16,7 @@ There are **Laravel 4** and **Drupal 8** that adopted HttpKernel interface. And 
 
 So in case you want to integrate Laravel or Drupal, or you know that your framework uses HttpKernel, you should follow this guide.
 
-If you are not aware of what HttpKernel class is, please follow **Fabien Potencier**'s' series of posts [Create your own framework... on top of the Symfony2 Components](http://fabien.potencier.org/article/50/create-your-own-framework-on-top-of-the-symfony2-components-part-1)
+If you are not aware of what HttpKernel class is, please follow **Fabien Potencier**'s' series of posts [Create your own framework... on top of the Symfony2 Components](https://fabien.potencier.org/article/50/create-your-own-framework-on-top-of-the-symfony2-components-part-1)
 
 ### Contributor's Notice
 

@@ -4,12 +4,12 @@ title: "Continuous Integration In Practice: Codeception, Jenkins, Xvfb"
 date: 2013-05-24 22:03:50
 ---
 
-<img src="http://jenkins-ci.org/sites/default/files/images/headshot.png" style="float: left;" />
+<img src="https://jenkins-ci.org/sites/default/files/images/headshot.png" style="float: left;" />
 *Another guest post from **Ragazzo** containing some practical tips on configuring CI server. If you ever wanted to ask how you could use Codeception with Jenkins, you are in a right place.*
 
-It is very good to automate maximum of the things you can. Once we automated testing process, build should be automated too. I use [Jenkins](http://jenkins-ci.org/) as my primary continuous integration server. It can be installed and executed on all popular operating systems with Java enabled. 
+It is very good to automate maximum of the things you can. Once we automated testing process, build should be automated too. I use [Jenkins](https://www.jenkins.io/) as my primary continuous integration server. It can be installed and executed on all popular operating systems with Java enabled. 
 
-As for PHPUnit I use **JUnit** format for error reports and some **Jenkins** plugins to make it work with Code Coverage. For **Behat** and **Codeception** I also use JUnit output log format and [Jenkins PHPUnit Plugin](http://jenkins-php.org/). 
+As for PHPUnit I use **JUnit** format for error reports and some **Jenkins** plugins to make it work with Code Coverage. For **Behat** and **Codeception** I also use JUnit output log format and [Jenkins PHPUnit Plugin](https://jenkins-php.org/). 
 
 Thus, my application have 4 jobs in Jenkins they named in that way:
 
@@ -53,7 +53,7 @@ Also you may want to add the `--html` option for execution. That would produce a
 
 ### Using Selenium2 and Xvfb
 
-To run acceptance web tests correctly on server you don't need to install desktop environment like Gnome or XFCE just to launch a browser. Better to use Virtual Framebuffer [Xvfb](http://en.wikipedia.org/wiki/Xvfb) for running Selenium tests without showing them on screen. 
+To run acceptance web tests correctly on server you don't need to install desktop environment like Gnome or XFCE just to launch a browser. Better to use Virtual Framebuffer [Xvfb](https://en.wikipedia.org/wiki/Xvfb) for running Selenium tests without showing them on screen. 
 
 You need to install Xfvb and then run Selenium2 with this options:
 

@@ -18,7 +18,7 @@ Some tasty features were added too. But let's start with error reporting.
 ### XML-RPC Module
 **[Tiger SEO](https://github.com/tiger-seo)** added just another useful module for testing XML-RPC web services. 
 It requires 'php_xmlrpc' extension and `PhpBrowser` module to run. With this module you can perform XMLRPC calls and check the responses.
-You can review the code at [GitHub](https://github.com/Codeception/Codeception/blob/master/src/Codeception/Module/XMLRPC.php) or [read the docs](http://codeception.com/docs/modules/XMLRPC). 
+You can review the code at [GitHub](https://github.com/Codeception/Codeception/blob/master/src/Codeception/Module/XMLRPC.php) or [read the docs](https://codeception.com/docs/modules/XMLRPC). 
 
 ### Minor Features and Bugfixes
 
@@ -44,7 +44,7 @@ $I->amOnPage('/'); // required!
 Also, we did some changes for 2-steps tests loading, intrudoced in 1.1. At the first stage we read the test contents, in the next we execute it. From now on this stages are isolated, variables from preload will not pass to run. This will require loading of bootstrap file two times. Be prepared for that and optimize your bootstrap file.
 
 
-As usual, Codeception 1.1.5 can be [downloaded from site](http://codeception.com/thanks.html),
+As usual, Codeception 1.1.5 can be [downloaded from site](https://codeception.com/thanks.html),
 
 installed via PEAR
 

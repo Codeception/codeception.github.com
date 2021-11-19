@@ -6,7 +6,7 @@ date: 2014-10-23 01:03:50
 
 One of the greatest things of testing Ruby on Rails applications was usage of Factories, managed by [FactoryGirl](https://github.com/thoughtbot/factory_girl). It changed the way the test data was managed in test. Instead of defining fixtures one by one, in a single `.yml` configuration, it allowed to generate required models per test. This concept is very convenient, however it is not widespread in PHP world. Probably, this was because, there is no single ORM in PHP, like ActiveRecord is for Ruby. We have Doctrine, Eloquent, and each major framework has its own ORM layer, so that we it is pretty hard to deal with models of those frameworks in one manner.
 
-But it looks like factories finally came to PHP! [The League of Extraordinary Packages](http://thephpleague.com/) produced a great package, self-claimed as factory_girl for PHP. Meet [Factory Muffin](http://factory-muffin.thephpleague.com/). It allows simple generation of database records for integration and functional testing. Let's see how it can be used with Codeception.
+But it looks like factories finally came to PHP! [The League of Extraordinary Packages](https://thephpleague.com/) produced a great package, self-claimed as factory_girl for PHP. Meet [Factory Muffin](https://factory-muffin.thephpleague.com/). It allows simple generation of database records for integration and functional testing. Let's see how it can be used with Codeception.
 
 ## Setup in Codeception
 
@@ -181,6 +181,6 @@ class UserTest extends \Codeception\TestCase\Test
 ## Conclusion
 
 As you see, factories make your tests clean and expressive. 
-Forget about managing test data manually, forget about fixtures. Use [FactoryMuffin](http://factory-muffin.thephpleague.com/).
+Forget about managing test data manually, forget about fixtures. Use [FactoryMuffin](https://factory-muffin.thephpleague.com/).
 
 **Update** [FactoryHelper for Symfony2 and Doctrine modules](https://github.com/DavertMik/SymfonyCodeceptionApp/blob/factories/tests/_support/FactoryHelper.php)

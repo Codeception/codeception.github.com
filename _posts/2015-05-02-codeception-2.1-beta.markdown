@@ -6,7 +6,7 @@ date: 2015-05-02 01:03:50
 
 We are glad to announce the first release of Codeception 2.1. It was a long time of developing the next major version of our testing framework. We delayed the release many times trying to bring as many cool features as we could. Today we can say that master branch is stabilized and we are prepared to share results of our work with you. Codeception 2.1 tries to do its best in test codebase organizing, improving ux, and customization.  
 
-[Take a look](http://codeception.com/slides/codecept21) what is landed in Codeception 2.1.
+[Take a look](https://codeception.com/slides/codecept21) what is landed in Codeception 2.1.
 
 
 <script async class="speakerdeck-embed" data-id="aa35edd4591343369f634ce29944134d" data-ratio="1.41436464088398" src="//speakerdeck.com/assets/embed.js"></script>

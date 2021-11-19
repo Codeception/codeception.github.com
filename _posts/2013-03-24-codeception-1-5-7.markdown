@@ -54,19 +54,19 @@ Next major release will be called **The Platform**. In Platform we will introduc
 * Controllers - classes to define similar scenario logic.
 * Multiple Sessions - ability to execute same tests with different config (i.e. inside chrome then firefox)
 
-More about [PageObjects and Controllers you can read on PHPMaster](http://phpmaster.com/ruling-the-swarm-of-tests-with-codeception/).
+More about [PageObjects and Controllers you can read on PHPMaster](https://phpmaster.com/ruling-the-swarm-of-tests-with-codeception/).
 
 ### Help from Community 
 
-And we'd like to ask you for help (once again). **Please [pass this survey](http://surveymonkey.com/s/982RCG9)**. 
-We develop a bugtracker [Bugira](http://bugira.com) specially for web developments. And to get it running we need your feedback. 
+And we'd like to ask you for help (once again). **Please [pass this survey](https://surveymonkey.com/s/982RCG9)**. 
+We develop a bugtracker [Bugira](https://bugira.com) specially for web developments. And to get it running we need your feedback. 
 
 ### Update
 
- [redownload](http://codeception.com/thanks.html) your `codeception.phar` for update:
+ [redownload](https://codeception.com/thanks.html) your `codeception.phar` for update:
 
 {% highlight bash %}
-wget http://codeception.com/codecept.phar -O codecept.phar
+wget https://codeception.com/codecept.phar -O codecept.phar
 {% endhighlight %}
 
 for composer version
@@ -75,4 +75,4 @@ for composer version
 $ php composer.phar update
 {% endhighlight %}
 
-P.S. It's only 3 minutes of your time: [pass this survey](http://surveymonkey.com/s/982RCG9). Thanks
+P.S. It's only 3 minutes of your time: [pass this survey](https://surveymonkey.com/s/982RCG9). Thanks

@@ -10,7 +10,7 @@ If you didn't track for the changes in master we will list all the new features 
 
 * We added [Recorder](https://github.com/Codeception/Codeception/tree/master/ext#codeceptionextensionrecorder) extension, which is probably the most fancy feature you may try. Using it you can record test execution history by saving a screenshot of each step. This is handy for running tests on CI, debugging tests executed via *PhantomJS* or showing nice reports to your boss.
 
- ![recorder](http://codeception.com/images/recorder.gif)
+ ![recorder](https://codeception.com/images/recorder.gif)
 
 * **Updated to Guzzle 6**. Codeception can now work both with Guzzle v5 and Guzzle v6. PhpBrowser chooses right connector depending on Guzzle version installed.
 * **PSR-4**: all support classes moved to `tests/_support` by default. Actors, Helpers, PageObjects, StepObjects, GroupObjects to follow PSR-4 naming style. New `AcceptanceTester`, `FunctionalTester`, `UnitTester` classes are expected to be extended with methods of common behaviors there. For instance, it is a good idea to place `login` method into  the actor class:
@@ -67,7 +67,7 @@ class UserCest
 modules:
     enabled:
         - WebDriver:
-            url: http://codeception.com
+            url: https://codeception.com
             browser: firefox
         - \Helper\Acceptance
 ```
@@ -170,6 +170,6 @@ Try Codeception 2.1 today by installing it via Composer:
 composer require "codeception/codeception:*" --dev
 ```
 
-or by downloading it as [Phar archive](http://codeception.com/codecept.phar)
+or by downloading it as [Phar archive](https://codeception.com/codecept.phar)
 
 And provide a feedback!
