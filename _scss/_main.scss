@@ -1706,6 +1706,13 @@ body #footer .links {
 
 .changelog-wrapper {
   h3 {
-    margin-top: 60px;
+    margin-top: 4rem;
+    text-transform: none;
+
+    code {
+      font-size: 24px;
+      color: #45414B;
+      padding: 0;
+    }
   }
 }

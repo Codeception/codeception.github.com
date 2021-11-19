@@ -223,12 +223,24 @@ $I->seeResponseMatchesJsonType([
 
 Codeception uses this simple and lightweight definitions format which can be [easily learned and extended](http://codeception.com/docs/modules/REST#seeResponseMatchesJsonType).
 
-### Taking Data From Responses
+### Working with Responses
+
+Responses are returned from `send*` methods:
+
+{% highlight php %}
+<?php
+
+$users = $I->sendGet('/users');
+
+// alternatively
+
+$users = $I->grabResponse();
+
+{% endhighlight %}
 
 When you need to obtain a value from a response and use it in next requests you can use `grab*` methods. For instance, use `grabDataFromResponseByJsonPath` allows to query JSON for a value.
 
 {% highlight php %}
-
 <?php
 list($id) = $I->grabDataFromResponseByJsonPath('$.id');
 $I->sendGet('/pet/' . $id);
