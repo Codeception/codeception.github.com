@@ -111,5 +111,5 @@ If you are interested consider sponsoring us:
 <p class="text-center">
 <a href="https://docs.google.com/forms/d/e/1FAIpQLSeVJWu2HJTjAE81SLiYJ1xqxAXeNNSCR_GO9R0_4CKka_nFvA/viewform?usp=send_form" class="btn btn-lg btn-success" role="button">Sponsor Codeception</a></p>
 
-Yes, we also provide [enterprise support](http://sdclabs.com/codeception?utm_source=codeception.com&utm_medium=top_menu&utm_term=link&utm_campaign=reference) and [trainings](http://sdclabs.com/trainings?utm_source=codeception.com&utm_medium=top_menu&utm_term=link&utm_campaign=reference). This is another way you can support the development. Thank you!
+Yes, we also provide [enterprise support](https://sdclabs.com/codeception?utm_source=codeception.com&utm_medium=top_menu&utm_term=link&utm_campaign=reference) and [trainings](https://sdclabs.com/trainings?utm_source=codeception.com&utm_medium=top_menu&utm_term=link&utm_campaign=reference). This is another way you can support the development. Thank you!
 

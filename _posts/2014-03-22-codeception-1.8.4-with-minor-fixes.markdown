@@ -27,7 +27,7 @@ All those features were included in 2.0-beta. Thanks to all contributors!
 
 ### Update
 
-[redownload](http://codeception.com/thanks.html) your `codeception.phar` for update:
+[redownload](https://codeception.com/thanks.html) your `codeception.phar` for update:
 
 #### 1.8.4
 {% highlight bash %}

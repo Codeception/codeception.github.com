@@ -97,7 +97,7 @@ may take table name (Laravel) or model name (Phalcon, Yii2).
 
 ## Who is that Tester?
 
-`$this->tester` object used here is instance of [Actor class](http://codeception.com/docs/02-GettingStarted#Actors) and contain all methods of  modules and helpers used in unit suite. It would be a good idea to put any shared code into helpers, and reuse across test cases by accessing `$this->tester`. This object is injected into any testcase that extends `Codeception\TestCase\Test`. 
+`$this->tester` object used here is instance of [Actor class](https://codeception.com/docs/02-GettingStarted#Actors) and contain all methods of  modules and helpers used in unit suite. It would be a good idea to put any shared code into helpers, and reuse across test cases by accessing `$this->tester`. This object is injected into any testcase that extends `Codeception\TestCase\Test`. 
 
 ## Conclusion
 

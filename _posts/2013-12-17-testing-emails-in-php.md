@@ -6,9 +6,9 @@ date: 2013-12-15 22:03:50
 
 So how do you check that your applications sends email correctly? It looks like dealing with emails is always a challenge. How would you verify that an email message is formatted and delivered correctly, without actually sending them to your clients? That's the first question. And the second question is: how can we automate the testing of emails?
 
-For both questions we have an answer. There are two awesome services that have been developed to help developers in dealing with email hell. They are [Mailtrap](http://mailtrap.io) and [Mailcatcher](http://mailcatcher.me/). Both services run an SMTP server that does not deliver emails, but stores them locally. They both have a web interface in which you can review all the outgoing emails. The difference between these services are: mailtrap runs as a web service, and mailcatcher is a ruby gem that can be installed locally. 
+For both questions we have an answer. There are two awesome services that have been developed to help developers in dealing with email hell. They are [Mailtrap](https://mailtrap.io) and [Mailcatcher](https://mailcatcher.me/). Both services run an SMTP server that does not deliver emails, but stores them locally. They both have a web interface in which you can review all the outgoing emails. The difference between these services are: mailtrap runs as a web service, and mailcatcher is a ruby gem that can be installed locally. 
 
-![mailcatcher](http://f.cl.ly/items/3w2T1p0F3g003b2i1F2z/Screen%20shot%202011-06-23%20at%2011.39.03%20PM.png)
+![mailcatcher](https://f.cl.ly/items/3w2T1p0F3g003b2i1F2z/Screen%20shot%202011-06-23%20at%2011.39.03%20PM.png)
 
 It's up to you which one to use. Definitely they will simplify your life while developing a web application. Do they have something to offer for testing? Sure! We can access all handled emails via REST API and verify our assertions.
 

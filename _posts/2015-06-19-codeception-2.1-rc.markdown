@@ -26,7 +26,7 @@ That should be enough to have everything upgraded. We already prepared [updated 
 Codeception 2.1 can be used with latest Guzzle 6 (as well as previous Guzzle releases). That's the most important change since the beta version. See [the changelog](https://github.com/Codeception/Codeception/blob/master/CHANGELOG.md) for more info. We are preparing site updates and demo apps to reflect new changes. Stay tuned!
 
 
-[Download 2.1.0-rc phar](http://codeception.com/releases/2.1.0-rc1/codecept.phar)
+[Download 2.1.0-rc phar](https://codeception.com/releases/2.1.0-rc1/codecept.phar)
 
 via `composer.json`:
 

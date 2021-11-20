@@ -59,7 +59,7 @@ $I->see('Editing Article #1');
 {% endhighlight %}
 
 We have moved some logic into the PageObject class, and so we can reuse its methods in other tests.
-[Read more on generating PageObjects on newly updated Guides page](http://codeception.com/docs/07-AdvancedUsage#PageObjects).
+[Read more on generating PageObjects on newly updated Guides page](https://codeception.com/docs/07-AdvancedUsage#PageObjects).
 
 ## StepObject
 
@@ -80,7 +80,7 @@ $I->seeInCurrentUrl('/admin');
 
 `AdminSteps` class inherits from `WebGuy` class, thus you have common actions from modules, as well as newly defined customized actions like `createUser`, `login`, `logout` in your tests.
 
-[StepObjects are now in Guides too.](http://codeception.com/docs/07-AdvancedUsage#StepObjects)
+[StepObjects are now in Guides too.](https://codeception.com/docs/07-AdvancedUsage#StepObjects)
 
 ## Groups && Extensions
 
@@ -109,7 +109,7 @@ class AdminGroup extends \Codeception\Platform\Group {
 ?>
 {% endhighlight %}
 
-[Read more about Groups and Extensions](http://codeception.com/docs/08-Customization#Extension-classes).
+[Read more about Groups and Extensions](https://codeception.com/docs/08-Customization#Extension-classes).
 
 ## Conditional Asserts
 
@@ -124,7 +124,7 @@ $I->see('Hello World');
 
 This two assertions do just the same, but if `canSee` fails to match 'Hello World' text on a page, it doesn't stop the test. Still failed assertion will be displayed in final report.
 
-[Guides section about that](http://codeception.com/docs/04-AcceptanceTests#Conditional-Assertions).
+[Guides section about that](https://codeception.com/docs/04-AcceptanceTests#Conditional-Assertions).
 
 ### Assertion Failure Messages Improved
 
@@ -155,10 +155,10 @@ Also this update has lots of changes, if you have an issues with them, please re
 If you have issues updating, fall back to previous version for now.
 We are planning to introduce more humane stability politics soon. Wait for announcements.
 
-[redownload](http://codeception.com/thanks.html) your `codeception.phar` for update:
+[redownload](https://codeception.com/thanks.html) your `codeception.phar` for update:
 
 {% highlight bash %}
-wget http://codeception.com/codecept.phar -O codecept.phar
+wget https://codeception.com/codecept.phar -O codecept.phar
 {% endhighlight %}
 
 for composer version

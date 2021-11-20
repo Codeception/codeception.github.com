@@ -11,7 +11,7 @@ So what was added in the last release?
 
 ## RunProcess
 
-[RunProcess extension](http://codeception.com/extensions#RunProcess) was introduced.
+[RunProcess extension](https://codeception.com/extensions#RunProcess) was introduced.
 Use it to easily start/stop Selenium Server, ChromeDriver, or other required services for a test suite. 
 
 Enable it in suite config or in environment:
@@ -41,9 +41,9 @@ Depending on the environment (dev host, CI server) you can easily switch setups 
 
 ## SmartWaits
 
-This is the new unique feature of Codeception which incorporates [implicit waits](http://www.seleniumhq.org/docs/04_webdriver_advanced.jsp#implicit-waits). By itself, the implicit wait was available in Codeception with `wait: ` option in WebDriver config. However, it was not usable, because by design it slowed down test execution. In this release, we introduce the **SmartWait concept**. Implicit waits are used only when they are really needed and disabled for all other cases. This makes tests extremely stable and fast. 
+This is the new unique feature of Codeception which incorporates [implicit waits](https://www.seleniumhq.org/docs/04_webdriver_advanced.jsp#implicit-waits). By itself, the implicit wait was available in Codeception with `wait: ` option in WebDriver config. However, it was not usable, because by design it slowed down test execution. In this release, we introduce the **SmartWait concept**. Implicit waits are used only when they are really needed and disabled for all other cases. This makes tests extremely stable and fast. 
 
-Thus, a test won't fail if expected element didn't yet appear on a page but waits for it a few seconds more. Just set `wait: 5` to WebDriver config to try it and [read the documentation](http://codeception.com/docs/03-AcceptanceTests#SmartWait).
+Thus, a test won't fail if expected element didn't yet appear on a page but waits for it a few seconds more. Just set `wait: 5` to WebDriver config to try it and [read the documentation](https://codeception.com/docs/03-AcceptanceTests#SmartWait).
 
 ## Customization
 
@@ -130,7 +130,7 @@ This `@prepare` can be used not only for browser tests but everywhere. Use it wi
 
 Is that all? Almost.
 
-We also updated WebDriver docs to include more options for [Local Testing](http://codeception.com/docs/modules/WebDriver#Local-Testing), like ChromeDriver. We also published a [reference on running Chrome in Headless mode](http://phptest.club/t/how-to-run-headless-chrome-in-codeception/1544).
+We also updated WebDriver docs to include more options for [Local Testing](https://codeception.com/docs/modules/WebDriver#Local-Testing), like ChromeDriver. We also published a [reference on running Chrome in Headless mode](https://phptest.club/t/how-to-run-headless-chrome-in-codeception/1544).
 
 Update to the latest `2.3.4` version to try all the new features.
 

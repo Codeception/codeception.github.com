@@ -12,7 +12,7 @@ Guzzle changed their package name and namespace in latest release. If you were u
 
 ## PHPBrowser additional configuration
 
-Guzzle4 got very flexible configuration. You may omit `CURL_` constants and use [request parameters](http://docs.guzzlephp.org/en/latest/clients.html#request-options) to set headers, auth, cookies, and SSL verification. Codeception now accepts all request parameters of Guzzle in module configuration part:
+Guzzle4 got very flexible configuration. You may omit `CURL_` constants and use [request parameters](https://docs.guzzlephp.org/en/latest/clients.html#request-options) to set headers, auth, cookies, and SSL verification. Codeception now accepts all request parameters of Guzzle in module configuration part:
 
 {% highlight yaml %} 
 modules:
@@ -37,7 +37,7 @@ As usual we need your feedback. Guzzle upgrade is very dramatic change and we re
 Download:
 
 {% highlight bash %}
-wget http://codeception.com/releases/2.0.0-RC2/codecept.phar
+wget https://codeception.com/releases/2.0.0-RC2/codecept.phar
 {% endhighlight %}
 
 Via Composer:

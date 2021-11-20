@@ -14,9 +14,9 @@ In such situations it would have been nice if a developer who wrote the test at 
 
 Proper test structure and readability is the only way to maintainable tests. **Tests must not turn to a legacy code.** Is there a way to write better tests?
 
-The rule, dictated by BDD, is quite simple: write tests for specifications. Do not test just methods, test the behavior. As you know, there are plenty of BDD frameworks that replace classical unit testing with specification testing. You may have heard of [RSpec](http://rspec.info/) in Ruby, [Jasmine](http://pivotal.github.io/jasmine/), [Mocha](http://visionmedia.github.io/mocha/) [and others](http://jster.net/category/testing-frameworks#/bdd) in JavaScript.
+The rule, dictated by BDD, is quite simple: write tests for specifications. Do not test just methods, test the behavior. As you know, there are plenty of BDD frameworks that replace classical unit testing with specification testing. You may have heard of [RSpec](https://rspec.info/) in Ruby, [Jasmine](https://pivotal.github.io/jasmine/), [Mocha](https://visionmedia.github.io/mocha/) [and others](https://jster.net/category/testing-frameworks#/bdd) in JavaScript.
 
-If you ever did testing in JavaScript you know how popular mentioned BDD frameworks are. Why can't we have something similar in PHP? We got [PHPSpec](http://www.phpspec.net/) which is nice, but looks much different from mentioned frameworks. What if we want something more usual? Something like **Jasmine** in PHP?
+If you ever did testing in JavaScript you know how popular mentioned BDD frameworks are. Why can't we have something similar in PHP? We got [PHPSpec](https://www.phpspec.net/) which is nice, but looks much different from mentioned frameworks. What if we want something more usual? Something like **Jasmine** in PHP?
 
 Even if we had such BDD framework none will ever adopt it as we have PHPUnit for all kind of testing in PHP. We won't switch PHPUnit in favor of some geeky BDD tool. But actually to write BDD-styled tests, inspired by Jasmine we don't need to do dramatic changes.
 

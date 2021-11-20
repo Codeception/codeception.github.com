@@ -100,7 +100,7 @@ We'd like to ask you to try Codeception 2.0 on your projects. Before the release
 Download:
 
 {% highlight bash %}
-wget http://codeception.com/releases/2.0.0-alpha/codecept.phar
+wget https://codeception.com/releases/2.0.0-alpha/codecept.phar
 {% endhighlight %}
 
 Via Composer:

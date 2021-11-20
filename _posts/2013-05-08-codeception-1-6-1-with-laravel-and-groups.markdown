@@ -87,7 +87,7 @@ All public methods of Cest classes become tests. You can use private and prected
 
 ## Good news to Laravel fans
 
-Yes, yes. Finally we've got a module for [Laravel4](http://codeception.com/docs/modules/Laravel4) framework functional testing. We couldn't test it well, as there are not to much Laravel4 apps available on GitHub. But we run some basic tests on a CRUD app, and it worked nicely. Thanks to HttpFoundation component inside Laravel4 framework. 
+Yes, yes. Finally we've got a module for [Laravel4](https://codeception.com/docs/modules/Laravel4) framework functional testing. We couldn't test it well, as there are not to much Laravel4 apps available on GitHub. But we run some basic tests on a CRUD app, and it worked nicely. Thanks to HttpFoundation component inside Laravel4 framework. 
 
 Larvael module is zero configuration. You should just bootstrap a project in your Laravel app directory and include `Laravel4` module into your functional test suite. 
 
@@ -103,10 +103,10 @@ Take a look into [sample Laravel project](https://github.com/Codeception/sample-
 
 ### Update
 
-[redownload](http://codeception.com/thanks.html) your `codeception.phar` for update:
+[redownload](https://codeception.com/thanks.html) your `codeception.phar` for update:
 
 {% highlight bash %}
-wget http://codeception.com/codecept.phar -O codecept.phar
+wget https://codeception.com/codecept.phar -O codecept.phar
 {% endhighlight %}
 
 for composer version

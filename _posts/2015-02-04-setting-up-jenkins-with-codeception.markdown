@@ -6,7 +6,7 @@ date: 2015-02-04 01:03:50
 
 ![Jenkins](/images/jenkins/Jenk1.png)
 
-A frequent question that appear from time to time is How to set up Codeception with [Jenkins](http://jenkins-ci.org/). Despite the growth of popularity of various Continuous Integration solutions Jenkins is still the most popular open-source solution on market. It is easy to setup and is easy to customize by applying various 3rd-party plugins. In this post we will take a look on how to setup testing process of **PHP project with Jenkins CI and Codeception**.  
+A frequent question that appear from time to time is How to set up Codeception with [Jenkins](https://jenkins-ci.org/). Despite the growth of popularity of various Continuous Integration solutions Jenkins is still the most popular open-source solution on market. It is easy to setup and is easy to customize by applying various 3rd-party plugins. In this post we will take a look on how to setup testing process of **PHP project with Jenkins CI and Codeception**.  
 
 ![Create new job in Jenkins](/images/jenkins/Jenk2.png)
 

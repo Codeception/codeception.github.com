@@ -4,7 +4,7 @@ title: "Testing WordPress Plugins with Codeception. Part 2"
 date: 2013-08-01 22:03:50
 ---
 
-In [previous part of this tutorial](http://codeception.com/07-24-2013/testing-wordpress-plugins.html) we installed Codeception and got a simple test for [User Submitted Posts](http://wordpress.org/plugins/user-submitted-posts/) plugin. We tested that user can send a post and see a message that the post was successfully sent. Nothing more. 
+In [previous part of this tutorial](https://codeception.com/07-24-2013/testing-wordpress-plugins.html) we installed Codeception and got a simple test for [User Submitted Posts](https://wordpress.org/plugins/user-submitted-posts/) plugin. We tested that user can send a post and see a message that the post was successfully sent. Nothing more. 
 
 Let's remind the test `SubmitPostCept` we done previously:
 
@@ -15,7 +15,7 @@ $I->wantTo('submitted a post by user and publish it as admin');
 $I->amOnPage('/');
 $I->click('Submit a Post');
 $I->fillField('Your Name', 'Michael');
-$I->fillField('Your URL','http://drone-rules.com');
+$I->fillField('Your URL','https://drone-rules.com');
 $I->fillField('Post Title', 'Game of Drones Review');
 $I->fillField('Post Tags', 'review book rob-starkraft');
 $I->selectOption('select[name=user-submitted-category]', 'Game of Drones');
@@ -141,7 +141,7 @@ $I->wantTo('submitted a post by user and publish it as admin');
 $I->amOnPage('/');
 $I->click('Submit a Post');
 $I->fillField('Your Name', 'Michael');
-$I->fillField('Your URL','http://drone-rules.com');
+$I->fillField('Your URL','https://drone-rules.com');
 $I->fillField('Post Title', 'Game of Drones Review');
 $I->fillField('Post Tags', 'review book rob-starkraft');
 $I->selectOption('select[name=user-submitted-category]', 'Game of Drones');
@@ -179,7 +179,7 @@ $I->amGoingTo('submit a post as a regular user');
 $I->amOnPage('/');
 $I->click('Submit a Post');
 $I->fillField('Your Name', 'Michael');
-$I->fillField('Your URL','http://drone-rules.com');
+$I->fillField('Your URL','https://drone-rules.com');
 $I->fillField('Post Title', 'Game of Drones Review');
 $I->fillField('Post Tags', 'review book rob-starkraft');
 $I->selectOption('select[name=user-submitted-category]', 'Game of Drones');
@@ -229,7 +229,7 @@ But the only thing left. After we executed tests several times, we got this pict
 
 We have attack of clones here. Yep, each test created its own post and published it. Probably, it is not a good idea to pollute the blog with dozens of posts with similar names. We use post title and content in a test, so probably we can't be sure, what post we are dealing with: current one or the post from a previous test.
 
-That will lead us to the idea of **data cleanup**. Probably we should delete post after it was published, to revert all our changes. Alternatively we can install [WordPress Reset Plugin](http://wordpress.org/plugins/wordpress-reset/) to reset WordPress to its initial state. In both cases we will need to append some steps to our test to get data cleaned before the next test.
+That will lead us to the idea of **data cleanup**. Probably we should delete post after it was published, to revert all our changes. Alternatively we can install [WordPress Reset Plugin](https://wordpress.org/plugins/wordpress-reset/) to reset WordPress to its initial state. In both cases we will need to append some steps to our test to get data cleaned before the next test.
 
 ---
 

@@ -13,7 +13,7 @@ There is a very basic schema for proper the testing suite. It is called the **Py
 
 ![Testing Pyramid](https://dl.dropboxusercontent.com/u/930833/CodeceptionHotcodePresentation/pictures/pyramid.png)
 
-This concept was originally proposed by [by Mike Cohn, his book "Succeeding with Agile"](http://www.amazon.com/gp/product/0321579364) and became the one of the fundamentals in testing. In this schema all tests are divided into 3 or 4 layers and states the dependencies for those layers. You won't build a pyramid having only top and bottom of it. That means that your acceptance tests depend on your integration (functional) tests, and they depend on unit tests. Also pyramid shows you the proportion for tests that should be written. You should have lots of unit tests, some functional, and few of acceptance. 
+This concept was originally proposed by [by Mike Cohn, his book "Succeeding with Agile"](https://www.amazon.com/gp/product/0321579364) and became the one of the fundamentals in testing. In this schema all tests are divided into 3 or 4 layers and states the dependencies for those layers. You won't build a pyramid having only top and bottom of it. That means that your acceptance tests depend on your integration (functional) tests, and they depend on unit tests. Also pyramid shows you the proportion for tests that should be written. You should have lots of unit tests, some functional, and few of acceptance. 
 
 ### When to skip unit tests.
 
@@ -28,9 +28,9 @@ If you can't figure out how to test the most important application parts on the 
 
 ### Getting it tested with Codeception
 
-*If you are new to Codeception, [check our guides](http://codeception.com/docs/02-GettingStarted).*
+*If you are new to Codeception, [check our guides](https://codeception.com/docs/02-GettingStarted).*
 
-We recommend to start with **covering most crucial parts of your application with functional tests**, [if your framework supports them](http://codeception.com/docs/05-FunctionalTests#Frameworks). Be aware, that stability of framework modules in Codeception can vary. If Codeception does not have a module for your framework, you can stick to [PhpBrowser](http://codeception.com/docs/modules/PhpBrowser). Actually you should think of it as level of functional / integration testing. It does not work with GUI, it does not require a browser, thus it runs much faster then acceptance tests. So if you don't plan to use one of the frameworks module, place PhpBrowser to functional testing suite and use TestGuy to manipulate it.
+We recommend to start with **covering most crucial parts of your application with functional tests**, [if your framework supports them](https://codeception.com/docs/05-FunctionalTests#Frameworks). Be aware, that stability of framework modules in Codeception can vary. If Codeception does not have a module for your framework, you can stick to [PhpBrowser](https://codeception.com/docs/modules/PhpBrowser). Actually you should think of it as level of functional / integration testing. It does not work with GUI, it does not require a browser, thus it runs much faster then acceptance tests. So if you don't plan to use one of the frameworks module, place PhpBrowser to functional testing suite and use TestGuy to manipulate it.
 
 When your most important functionality is covered with functional tests, you should cement the basement with unit tests and build a top with Selenium acceptance tests. 
 

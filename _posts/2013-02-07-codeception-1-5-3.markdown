@@ -8,7 +8,7 @@ date: 2013-02-08 01:03:50
 
 ### Modules
 
-In this release we also introduce very basic implementation of **Yii** module by [Ragazzo](https://github.com/Ragazzo). If you use **Yii**, please try it and help us improve Yii integration. To start using, please review the [module documentation](http://codeception.com/docs/modules/Yii1) and [issue description](https://github.com/Codeception/Codeception/pull/115) on Github.
+In this release we also introduce very basic implementation of **Yii** module by [Ragazzo](https://github.com/Ragazzo). If you use **Yii**, please try it and help us improve Yii integration. To start using, please review the [module documentation](https://codeception.com/docs/modules/Yii1) and [issue description](https://github.com/Codeception/Codeception/pull/115) on Github.
 
 Also we've got some improvements for [AMQP](/docs/modules/AMQP) module. Not only queues are cleaned up between tests, but also you can check if messages came to queue, grab them from queues, or publish new messages. This module was tested with RabbitMQ, but it should work with other AMQP providers too. This module is based on [php-amqplib](https://github.com/videlalvaro/php-amqplib).
 
@@ -36,10 +36,10 @@ php codecept.phar generate:phpunit unit "\Entity\User"
 
 ### Update
 
- [redownload](http://codeception.com/thanks.html) your `codeception.phar` for update:
+ [redownload](https://codeception.com/thanks.html) your `codeception.phar` for update:
 
 {% highlight bash %}
-wget http://codeception.com/codecept.phar -O codecept.phar
+wget https://codeception.com/codecept.phar -O codecept.phar
 {% endhighlight %}
 
 for composer version

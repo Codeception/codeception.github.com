@@ -5,9 +5,9 @@ date: 2012-02-05 01:03:50
 ---
 
 As you may know, **Codeception a BDD-style testing framework** has tools for cleaning up tested database between tests.
-This week tools for database repopulation in Codeception were improved and it's usage was covered in [new chapter of Guides](http://codeception.com/docs/08-Data). To get your database populated before tests, just provide an SQL dump and set up PDO connection. For functional and unit testing best way to clean up your database faster is not to pollute it at all. All database queries can be taken into transaction and rolled back at test end. This behavior is introduced within new [Dbh](http://codeception.com/docs/modules/Dbh) module, and in ORM modules for Doctrine1 and Doctrine2. To speed up data repopulation in acceptance tests we recommend you to move database to SQLite.
+This week tools for database repopulation in Codeception were improved and it's usage was covered in [new chapter of Guides](https://codeception.com/docs/08-Data). To get your database populated before tests, just provide an SQL dump and set up PDO connection. For functional and unit testing best way to clean up your database faster is not to pollute it at all. All database queries can be taken into transaction and rolled back at test end. This behavior is introduced within new [Dbh](https://codeception.com/docs/modules/Dbh) module, and in ORM modules for Doctrine1 and Doctrine2. To speed up data repopulation in acceptance tests we recommend you to move database to SQLite.
 
-Database repopulation is the subject of the new Guide: [Working with Data](http://codeception.com/docs/08-Data) was started. It explains different strategies for database cleanups and usage of fixtures in Codeception. 
+Database repopulation is the subject of the new Guide: [Working with Data](https://codeception.com/docs/08-Data) was started. It explains different strategies for database cleanups and usage of fixtures in Codeception. 
 
 Codeception is now tested for loading and cleaning up SQLite, MySQL, and PostgreSQL dumps.
 

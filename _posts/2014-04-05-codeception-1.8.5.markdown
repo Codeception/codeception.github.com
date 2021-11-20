@@ -8,7 +8,7 @@ New improvements and bugfixes came during the last month into the 1.8 branch. We
 
 ## Ecosystem
 
-But before we proceed you should check out the new [Addons](http://codeception.com/addons) section on this site. We had only extensions listed there, but now you can find new modules and even applications there. And let's name at least two projects you should definitely be aware of:
+But before we proceed you should check out the new [Addons](https://codeception.com/addons) section on this site. We had only extensions listed there, but now you can find new modules and even applications there. And let's name at least two projects you should definitely be aware of:
 
 * [WebCeption](https://github.com/jayhealey/Webception) - web interface for Codeception.
 * [VisualCeption](https://github.com/DigitalProducts/codeception-module-visualception) - module for visual regression tests.
@@ -31,7 +31,7 @@ Thank you for all extensions and modules developers. If you developed a module, 
 
 ### Update
 
-[redownload](http://codeception.com/thanks.html) your `codeception.phar` for update:
+[redownload](https://codeception.com/thanks.html) your `codeception.phar` for update:
 
 #### 1.8.5
 {% highlight bash %}

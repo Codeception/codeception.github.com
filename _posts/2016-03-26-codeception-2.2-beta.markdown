@@ -10,8 +10,8 @@ And yes, by *something* we mean a **beta version of Codeception 2.2**!
 
 We already announced lots of changes in Codeception:
 
-* [Test Dependencies, Params, and Conflicts](http://codeception.com/03-05-2016/codeception-2.2.-upcoming-features.html)
-* [DataFactory, AngularJS, Examples, Custom Commands, ...](http://codeception.com/03-10-2016/even-more-features-of-codeception.html)
+* [Test Dependencies, Params, and Conflicts](https://codeception.com/03-05-2016/codeception-2.2.-upcoming-features.html)
+* [DataFactory, AngularJS, Examples, Custom Commands, ...](https://codeception.com/03-10-2016/even-more-features-of-codeception.html)
 
 but we forgot the most important one. It is **Gherkin Support**, which allows you to combine business requirements with functional testing. Yes, `*.feature` files are now part of a family with Cest, Cept and Tests. Codeception is a tool for running all kind of tests and in this release we significantly improved test internal architecture and test formats.
 
@@ -50,7 +50,7 @@ codecept gherkin:snippets <suiteName>
 You will get a list of methods which should be included into your actor class (let's say AcceptanceTester). 
 Then you should have it implemented. In theory, you can use any method of any class annotated with `@Given`, `@When`, `@Then` to be the step definition. So don't worry you will end up with everything to put in one context, you will have option to use multiple contexts depending on role, tags, etc. More about it in BDD guide coming in next weeks.
 
-For those of you, who set your dependencies as "codeception/codecepton:*" and (with no settings of `"minimum-stability": "stable"` you will probably have some wonderful time once you get back from holidays. This release is considered minor, so it won't break everything, but still has some breaking changes. We notified of breaking changes in earlier versions by "deprecation warnings", and we actually removed lots of deprecated stuff. The most important breaking change is proper implementation of [Conflicts API](http://codeception.com/03-05-2016/codeception-2.2.-upcoming-features.html#conflicts). Please make sure you are not using modules of the same kinds in your configs.
+For those of you, who set your dependencies as "codeception/codecepton:*" and (with no settings of `"minimum-stability": "stable"` you will probably have some wonderful time once you get back from holidays. This release is considered minor, so it won't break everything, but still has some breaking changes. We notified of breaking changes in earlier versions by "deprecation warnings", and we actually removed lots of deprecated stuff. The most important breaking change is proper implementation of [Conflicts API](https://codeception.com/03-05-2016/codeception-2.2.-upcoming-features.html#conflicts). Please make sure you are not using modules of the same kinds in your configs.
 
 ---
 

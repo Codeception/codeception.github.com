@@ -57,7 +57,7 @@ you will be notified on all methods which do not exist in modules, and you will 
 
 XPath locators are very powerful but are pretty hard to write and maintain. We decided to provide some useful functions to help writing locators better. Try new `Codeception\Util\Locator` for that. It will be described in next blogpost. Stay in touch.
 
-As usual, Codeception 1.1.4 can be [downloaded from site](http://codeception.com/thanks.html),
+As usual, Codeception 1.1.4 can be [downloaded from site](https://codeception.com/thanks.html),
 
 installed via PEAR
 

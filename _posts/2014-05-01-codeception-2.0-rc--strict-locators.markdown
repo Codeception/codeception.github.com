@@ -66,7 +66,7 @@ Also `makeScreenshot` method of WebDriver was simplified. Filename of saved scre
 Download:
 
 {% highlight bash %}
-wget http://codeception.com/releases/2.0.0-RC/codecept.phar
+wget https://codeception.com/releases/2.0.0-RC/codecept.phar
 {% endhighlight %}
 
 Via Composer:
