@@ -53,10 +53,10 @@ Actually, `E_ALL & ~E_STRICT & ~E_DEPRECATED` is default error level for now. Th
 
 ### Update
 
- [redownload](http://codeception.com/thanks.html) your `codeception.phar` for update:
+ [redownload](https://codeception.com/thanks.html) your `codeception.phar` for update:
 
 {% highlight bash %}
-wget http://codeception.com/codecept.phar -O codecept.phar
+wget https://codeception.com/codecept.phar -O codecept.phar
 {% endhighlight %}
 
 for composer version

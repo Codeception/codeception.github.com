@@ -9,8 +9,8 @@ author: Michael Bodnarchuk @davert
 
 Before writing any line of test code we should think of how meaningful this test would be. The best code is the code you never write, you know. So if you ever begin to think of which parts of the application you should cover with tests.
 
-* [Part 1: Expectation vs Implementation](http://codeception.com/12-21-2016/writing-better-tests-expectation-vs-implementation.html)
-* [Part 2: Obtaining Specification](http://codeception.com/04-21-2017/writing-better-tests-obtaining-specification.html)
+* [Part 1: Expectation vs Implementation](https://codeception.com/12-21-2016/writing-better-tests-expectation-vs-implementation.html)
+* [Part 2: Obtaining Specification](https://codeception.com/04-21-2017/writing-better-tests-obtaining-specification.html)
 
 Let's start with a heart of your application, the Business Logic.
 
@@ -68,7 +68,7 @@ $handler = new RegisterUserHandler($eventDispatcher, $busDispatcher);
 // ... 
 ```
 
-Here we also mix [implementation with a specification](http://codeception.com/12-21-2016/writing-better-tests-expectation-vs-implementation.html), which is a pure sin. What if `dispatch` method will be renamed? What if we fire more than 2 commands in a call? How is this related to business?
+Here we also mix [implementation with a specification](https://codeception.com/12-21-2016/writing-better-tests-expectation-vs-implementation.html), which is a pure sin. What if `dispatch` method will be renamed? What if we fire more than 2 commands in a call? How is this related to business?
 
 Even you can mock services you shouldn't always do it.
 
@@ -135,4 +135,4 @@ Write meaningful stable tests that will last.
 
 *Written by Michael Bodnarchuk*
 
-<p style="background: rgba(255,255,0,0.3)">We provide <a href=" http://sdclabs.com/codeception?utm_source=codeception.com&utm_medium=post&utm_term=link&utm_campaign=reference">consulting services</a> and trainings on Codeception and automated testing in general.</p>
+<p style="background: rgba(255,255,0,0.3)">We provide <a href=" https://sdclabs.com/codeception?utm_source=codeception.com&utm_medium=post&utm_term=link&utm_campaign=reference">consulting services</a> and trainings on Codeception and automated testing in general.</p>

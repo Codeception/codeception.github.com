@@ -21,17 +21,17 @@ But If you want to get more features with some instabilities - connect to 1.7
 
 ### Update
 
-[redownload](http://codeception.com/thanks.html) your `codeception.phar` for update:
+[redownload](https://codeception.com/thanks.html) your `codeception.phar` for update:
 
 #### 1.7.1
 {% highlight bash %}
-wget http://codeception.com/codecept.phar -O codecept.phar
+wget https://codeception.com/codecept.phar -O codecept.phar
 {% endhighlight %}
 
 #### 1.6.10
 
 {% highlight bash %}
-wget http://codeception.com/releases/1.6.10/codecept.phar -O codecept.phar
+wget https://codeception.com/releases/1.6.10/codecept.phar -O codecept.phar
 {% endhighlight %}
 
 for composer version

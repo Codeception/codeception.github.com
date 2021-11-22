@@ -66,7 +66,7 @@ But what if the actual result is not important to us? What if we want to ensure 
 This makes a difference between **testing behavior or testing result**. Probably in most cases you want to test the real outcome, a result, but in some important areas you may need to test the behavior as well.
 
 To test a result **we should rely on public interfaces only. We can validate class only by calling public method of this class and its collaborators**
-In this case we need to call `$filesystem->exists('app/code/test/test')`, and make a class with in-memory filesystem. We can even make this class without using any mocking framework, just with [anonymous classes](http://php.net/manual/en/language.oop5.anonymous.php).
+In this case we need to call `$filesystem->exists('app/code/test/test')`, and make a class with in-memory filesystem. We can even make this class without using any mocking framework, just with [anonymous classes](https://php.net/manual/en/language.oop5.anonymous.php).
 
 By making a test bound to implementation we are copying parts of that implementation into a test. This breaks the *DRY* principle. At some point test and code can be unsynchronized and this leads to fragility. If you change class, the test using a mock of that class may still pass, but actual code using it will fail, and this false positiveness is dangerous.
 

@@ -10,7 +10,7 @@ The next notable change is `see` method of WebDriver module. Now it checks for a
 
 ### Update
 
-[redownload](http://codeception.com/thanks.html) your `codeception.phar` for update:
+[redownload](https://codeception.com/thanks.html) your `codeception.phar` for update:
 
 {% highlight bash %}
 php codecept.phar self-update

@@ -47,7 +47,7 @@ class EventMachineCest  {
 
 For full EventMachineCest example see my [Gist on Github](https://gist.github.com/1862951).
 
-Codeception generates a pretty good documentation with [DocBlox](http://codeception.com/02-15-2012/unit-testing.html) based on your scenario. The @doc annotation marks that a getState method documentation will be updated by current test scenario.
+Codeception generates a pretty good documentation with [DocBlox](https://codeception.com/02-15-2012/unit-testing.html) based on your scenario. The @doc annotation marks that a getState method documentation will be updated by current test scenario.
 
 {% highlight bash %}
 I want to have initial state

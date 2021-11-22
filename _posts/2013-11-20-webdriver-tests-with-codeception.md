@@ -5,13 +5,13 @@ date: 2013-11-20 22:03:50
 ---
 
 
-[Last time](http://codeception.com/11-12-2013/working-with-phpunit-and-selenium-webdriver.html) we discovered API of new [WebDriver PHP](https://github.com/facebook/php-webdriver) bindings. We wrote a basic test in PHPUnit that uses Selenium and Firefox browser to find `php-webdriver` library on Github. Today we will reimplement the same test with Codeception.
+[Last time](https://codeception.com/11-12-2013/working-with-phpunit-and-selenium-webdriver.html) we discovered API of new [WebDriver PHP](https://github.com/facebook/php-webdriver) bindings. We wrote a basic test in PHPUnit that uses Selenium and Firefox browser to find `php-webdriver` library on Github. Today we will reimplement the same test with Codeception.
 
 
 ### Installation
 
 
-Depending on your preferences you can install Codeception either by downloading [`codecept.phar`](http://codeception.com/thanks.html) archive from the site, or alternatively by using composer.
+Depending on your preferences you can install Codeception either by downloading [`codecept.phar`](https://codeception.com/thanks.html) archive from the site, or alternatively by using composer.
 
 {% highlight json %}
 {
@@ -29,7 +29,7 @@ php composer.phar install
 
 In previous tutorial we did installation using Composer, so in current examples we will be using it as well.
 
-Sure, we also need [Selenium server](http://code.google.com/p/selenium/downloads/detail?name=selenium-server-standalone-2.37.0.jar&can=2&q=selenium-server-standalone-2) executable as well. You need Java installed in order to run the Selenium server. You can launch it by running this:
+Sure, we also need [Selenium server](https://code.google.com/p/selenium/downloads/detail?name=selenium-server-standalone-2.37.0.jar&can=2&q=selenium-server-standalone-2) executable as well. You need Java installed in order to run the Selenium server. You can launch it by running this:
 
 {% highlight bash %}
 java -jar selenium-server-standalone-2.37.0.jar
@@ -63,7 +63,7 @@ modules:
         - WebHelper
     config:
         WebDriver:
-            url: 'http://github.com'
+            url: 'https://github.com'
             browser: 'firefox'
 {% endhighlight %}
 
@@ -87,7 +87,7 @@ $I->seeInTitle('GitHub');
 ?>
 {% endhighlight %}
 
-We are using the `wantTo` command just to give a test clean description. `amOnPage` command opens browser on the github home page, and all the commands that start with `see` are assertions you can use. There are lots of commands in WebGuy class you can use writing the test. All them are taking from corresponging [modules](http://codeception.com/docs/03-ModulesAndHelpers), in our case it is [WebDriver](http://codeception.com/docs/modules/WebDriver) module. If you use IDE you can check them all with autocompletion.
+We are using the `wantTo` command just to give a test clean description. `amOnPage` command opens browser on the github home page, and all the commands that start with `see` are assertions you can use. There are lots of commands in WebGuy class you can use writing the test. All them are taking from corresponging [modules](https://codeception.com/docs/03-ModulesAndHelpers), in our case it is [WebDriver](https://codeception.com/docs/modules/WebDriver) module. If you use IDE you can check them all with autocompletion.
 
 ![Codeception Autocomplete](/images/webdriver/codecept-wb.png)
 
@@ -122,7 +122,7 @@ OK (1 test, 1 assertion)
 You may have noticed that Codeception is itself powered by PHPUnit. Basically you can execute native PHPUnit tests inside Codeception, but the main idea of Codeception is scenario driven tests written from an eye of a tester. Each test should descibe user's actions in simple words: I see, I click, etc. Let's see how using just this simple terms with no OOP complexity we can write a bit more complex test.
 
 Our test should open github in a browser and use the search form to get to "facebook/php-webdriver" library page.
-Before writing the test we did some research of GitHub page to find selectors we can use to match elements on page. This was described in [previous tutorial](http://codeception.com/11-12-2013/working-with-phpunit-and-selenium-webdriver.html).
+Before writing the test we did some research of GitHub page to find selectors we can use to match elements on page. This was described in [previous tutorial](https://codeception.com/11-12-2013/working-with-phpunit-and-selenium-webdriver.html).
 
 {% highlight php %}
 <?php
@@ -179,7 +179,7 @@ modules:
         - WebHelper
     config:
         WebDriver:
-            url: 'http://github.com'
+            url: 'https://github.com'
             browser: 'firefox'
             wait: 0
 {% endhighlight %}

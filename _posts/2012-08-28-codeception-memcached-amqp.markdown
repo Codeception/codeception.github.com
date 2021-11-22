@@ -5,7 +5,7 @@ date: 2012-08-28 01:03:50
 ---
 
 Good news, everyone! Codeception 1.1.2 released. And it's hard to list everything that were improved and fixed, but i will try.
-With the help of our active contributor **[tiger.seo](https://github.com/tiger-seo)** Codeception got an [AMQP](http://codeception.com/docs/modules/AMQP) module wich allows to manipulate queue engines, like **RabbitMQ**. You can use this module if you need to clear queues between tests. Also, new [Memcache](http://codeception.com/docs/modules/Memcache) module was introduced. You can perform simple checks and use data from your Memcache storage in tests. Guys, it's very simple to contribute to Codeception. All new modules are welcome, they can grow from your local helpers and become part of this library. Just fork Codeception, add a module and send me a pull request!
+With the help of our active contributor **[tiger.seo](https://github.com/tiger-seo)** Codeception got an [AMQP](https://codeception.com/docs/modules/AMQP) module wich allows to manipulate queue engines, like **RabbitMQ**. You can use this module if you need to clear queues between tests. Also, new [Memcache](https://codeception.com/docs/modules/Memcache) module was introduced. You can perform simple checks and use data from your Memcache storage in tests. Guys, it's very simple to contribute to Codeception. All new modules are welcome, they can grow from your local helpers and become part of this library. Just fork Codeception, add a module and send me a pull request!
 
 ### UX Improvements
 
@@ -28,7 +28,7 @@ PEAR package was completely redesigned. Codeception is not using PEAR as a depen
 * unable to send more than 1 parameters using [SOAP.sendSoapRequest](https://github.com/Codeception/Codeception/pull/54) by [lostintime](https://github.com/lostintime)
 * [DB module is not cleaned](https://github.com/Codeception/Codeception/pull/43) after the last test. By tiger.seo.
 
-Codeception 1.1.2 can be [downloaded from site](http://codeception.com/thanks.html),
+Codeception 1.1.2 can be [downloaded from site](https://codeception.com/thanks.html),
 
 via PEAR
 

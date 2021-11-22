@@ -9,7 +9,7 @@ I'm satisfied but today's release, because all changes were made by new Codecept
 
 ## Features
 
-A new module for [Social Engine](http://codeception.com/docs/modules/SocialEngine) was created by [Artem Kovradin](http://tvorzasp.com/). He took the code of Zend Framework module and adopted it for Social Engine, which is build with powered by Zend Framework. With now on, you can simply test you social networks built on top of Social Engine.
+A new module for [Social Engine](https://codeception.com/docs/modules/SocialEngine) was created by [Artem Kovradin](https://tvorzasp.com/). He took the code of Zend Framework module and adopted it for Social Engine, which is build with powered by Zend Framework. With now on, you can simply test you social networks built on top of Social Engine.
 
 ## Bugfixes
 

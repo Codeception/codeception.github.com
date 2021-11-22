@@ -11,7 +11,7 @@ Today we start new **The Platform** iteration. After 1.6 Codeception would becom
 Within the interactive console you can try various commands without running a test.
 It is quite useful when you deal with Selenium sessions for example. It always takes a long time to start and shutdown Selenium session. So it's unpleasent to see that your test fails and it should checked saved and executed once again and once again.
 
-![Interactive console](http://img267.imageshack.us/img267/204/003nk.png)
+![Interactive console](https://img267.imageshack.us/img267/204/003nk.png)
 
 Interactive console should simplify writing tests as you can play with different selectors and commands.
 Also it may be useful when you want to try your new RESTful API. In console you can execute Codeception commands as you use in tests, but receive immediate result.
@@ -59,10 +59,10 @@ Sorry if some bugs were not fixed. Any help and pull requests are highly appreci
 
 ### Update
 
- [redownload](http://codeception.com/thanks.html) your `codeception.phar` for update:
+ [redownload](https://codeception.com/thanks.html) your `codeception.phar` for update:
 
 {% highlight bash %}
-wget http://codeception.com/codecept.phar -O codecept.phar
+wget https://codeception.com/codecept.phar -O codecept.phar
 {% endhighlight %}
 
 for composer version

@@ -30,9 +30,9 @@ It's pretty clear, isn't it? But here goes another feature of Codeception: this 
 Codeception is all about behavior-driven testing. For each part of application you describe user actions and the results you are expecting them to see. Users interact with your web application through a web browser. They open the page, click on links, fill the forms, and in the end they see the site has generated a proper result in response. In Codeception you record user's steps and make testing engine reproduce them. You need a web server running to perform requests through a web browser.
 
 Writing tests is just about choosing actions from a list and injecting proper parameters.
-![IDE autocomplition demo](http://dl.dropbox.com/u/930833/codecept.png)
+![IDE autocomplition demo](https://dl.dropbox.com/u/930833/codecept.png)
 
-If you are ready to start writing first Codeception test, just follow the [installation steps](http://codeception.com/install).
+If you are ready to start writing first Codeception test, just follow the [installation steps](https://codeception.com/install).
 After you install package and its dependencies, select a project you want to test (I suppose you have one) and run a bootstrap command in its root:
 
 {% highlight bash %}

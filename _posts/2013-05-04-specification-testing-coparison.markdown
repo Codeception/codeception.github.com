@@ -141,11 +141,11 @@ Overall, my choice in Codeception is to use "PhpBrowser" module (requires a web-
 
 ### Links to read and get more info
 
-* <http://codeception.com>
-* <http://behat.org>
-* <http://mink.behat.org/>
-* [Stop simulating BDD](http://codeception.com/12-20-2012/not-bdd.html)
-* [Ruling the swarm of tests with Codeception](http://phpmaster.com/ruling-the-swarm-of-tests-with-codeception/)
+* <https://codeception.com>
+* <https://behat.org>
+* <https://mink.behat.org/>
+* [Stop simulating BDD](https://codeception.com/12-20-2012/not-bdd.html)
+* [Ruling the swarm of tests with Codeception](https://phpmaster.com/ruling-the-swarm-of-tests-with-codeception/)
 
 
 *This post was intended to be a start to series. In next posts you will learn how to use newcoming Cest format for testing and integrate Codeception with Continious integration tools. Stay tuned!*

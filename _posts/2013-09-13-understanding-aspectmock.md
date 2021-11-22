@@ -42,9 +42,9 @@ To summarize: AspectMock has no side effects on unit testing process. Its magic 
 ## Dark Magic Inside
 
 Before implementing AspectMock into your project you might want to know, how it works in details.
-AspectMock is powered by [Go Aop Framework](http://go.aopphp.com/). 
+AspectMock is powered by [Go Aop Framework](https://go.aopphp.com/). 
 
-Go AOP Framework uses [**php stream wrappers with filter**](http://php.net/manual/en/wrappers.php.php) to parse PHP files before requiring them. That may even happen in runtime.
+Go AOP Framework uses [**php stream wrappers with filter**](https://php.net/manual/en/wrappers.php.php) to parse PHP files before requiring them. That may even happen in runtime.
 Thus, by analyzing file, we can find all its methods, and inject mocking code into it. To do so, all `requires`should include a filter. This will look like: 
 
 {% highlight php %}

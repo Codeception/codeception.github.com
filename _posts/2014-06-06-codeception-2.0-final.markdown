@@ -65,7 +65,7 @@ Let's briefly name some important changes added in Codeception 2.0
 
 ### Guides
 
-Guides were reviewed and updated for 2.0 release. [Unit Testing](http://codeception.com/docs/06-UnitTests) guide was completely rewritten, and new chapter [Parallel Execution](http://codeception.com/docs/12-ParallelExecution) was added. Please note that parallel running tests is advanced feature and will require some time for you for set everything up correctly. But If your tests run longer then 30 minutes, you will get a real benefit out of it.
+Guides were reviewed and updated for 2.0 release. [Unit Testing](https://codeception.com/docs/06-UnitTests) guide was completely rewritten, and new chapter [Parallel Execution](https://codeception.com/docs/12-ParallelExecution) was added. Please note that parallel running tests is advanced feature and will require some time for you for set everything up correctly. But If your tests run longer then 30 minutes, you will get a real benefit out of it.
 
 ### The Most Important Bug Fixed
 
@@ -78,7 +78,7 @@ The Most Important Bug was reported by many of our users:
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
-<blockquote class="twitter-tweet" lang="uk"><p>Oh <a href="https://twitter.com/codeception">@codeception</a> !!!!!! Should _really_ fix this. lol. &lt;3&lt;3&lt;3 <a href="http://t.co/Wi3szPMKMN">pic.twitter.com/Wi3szPMKMN</a></p>&mdash; Darren Nolan (@DarrenNolan_) <a href="https://twitter.com/DarrenNolan_/statuses/469972297613185026">May 23, 2014</a></blockquote>
+<blockquote class="twitter-tweet" lang="uk"><p>Oh <a href="https://twitter.com/codeception">@codeception</a> !!!!!! Should _really_ fix this. lol. &lt;3&lt;3&lt;3 <a href="https://t.co/Wi3szPMKMN">pic.twitter.com/Wi3szPMKMN</a></p>&mdash; Darren Nolan (@DarrenNolan_) <a href="https://twitter.com/DarrenNolan_/statuses/469972297613185026">May 23, 2014</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 We decided to fix it for 2.0 release. Now the date in footer is displayed **correctly** according to PHP rules (using `<?=`). 
@@ -100,7 +100,7 @@ If you have issues during upgrade send issues to GitHub and we will make upgrade
 
 
 {% highlight bash %}
-wget http://codeception.com/codecept.phar
+wget https://codeception.com/codecept.phar
 {% endhighlight %}
 
 Via Composer:

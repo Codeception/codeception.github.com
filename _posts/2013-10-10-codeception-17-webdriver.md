@@ -4,7 +4,7 @@ title: "Codeception 1.7: WebDriver"
 date: 2013-10-11 22:03:50
 ---
 
-This is new Codeception with awaited **WebDriver** module in it. WebDriver module is new incarnation of Selenium implementation. As it was mentioned in [previous post](http://codeception.com/08-29-2013/codeception-sequences-new-webdriver.html) this WebDriver module is based on [facebook/php-webdriver](https://github.com/facebook/php-webdriver) bindings. The most valuable thing in new Selenium bindings that they can be used just the same way Selenium is used in Java. It's very important project for PHP community, and we say "thank you" to all the Facebook behind it. One day PHP will be used in acceptance testing as widely as Java or Ruby is used. 
+This is new Codeception with awaited **WebDriver** module in it. WebDriver module is new incarnation of Selenium implementation. As it was mentioned in [previous post](https://codeception.com/08-29-2013/codeception-sequences-new-webdriver.html) this WebDriver module is based on [facebook/php-webdriver](https://github.com/facebook/php-webdriver) bindings. The most valuable thing in new Selenium bindings that they can be used just the same way Selenium is used in Java. It's very important project for PHP community, and we say "thank you" to all the Facebook behind it. One day PHP will be used in acceptance testing as widely as Java or Ruby is used. 
 
 ## WebDriver
 
@@ -57,7 +57,7 @@ You can invoke WebDriver methods directly with `executeInSelenium`
 {% highlight php %}
 <?php
 $I->executeInSelenium(function(\WebDriver $webdriver) {
-  $webdriver->get('http://google.com');
+  $webdriver->get('https://google.com');
 });
 ?>
 {% endhighlight %}
@@ -122,7 +122,7 @@ class ModeratorCest {
 
 Just by using annotations you can control the invokations of methods of the Cest class. Sure, you should define your support methods with `protected`, so they won't be executed as tests themselves. Another thing worth to mention, that callbacks defined in `after` annotation will be called even the main test has failed, thus it makes them useful for clean ups.
 
-We still maintain and bugfix 1.6 branch and there will be 1.6 bugfix releases. The old release `1.6.9` (yep, 1.6.9 was released to with minor bugfixes) can be downloaded from [http://codeception.com/releases/1.6.9/codecept.phar](http://codeception.com/releases/1.6.9/codecept.phar).
+We still maintain and bugfix 1.6 branch and there will be 1.6 bugfix releases. The old release `1.6.9` (yep, 1.6.9 was released to with minor bugfixes) can be downloaded from [https://codeception.com/releases/1.6.9/codecept.phar](https://codeception.com/releases/1.6.9/codecept.phar).
 
 ## Removed Dependencies
 
@@ -140,10 +140,10 @@ If you use phar version - nothing is changed for you.
 
 ### Update
 
-[redownload](http://codeception.com/thanks.html) your `codeception.phar` for update:
+[redownload](https://codeception.com/thanks.html) your `codeception.phar` for update:
 
 {% highlight bash %}
-wget http://codeception.com/codecept.phar -O codecept.phar
+wget https://codeception.com/codecept.phar -O codecept.phar
 {% endhighlight %}
 
 for composer version

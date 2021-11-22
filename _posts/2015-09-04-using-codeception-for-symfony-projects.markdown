@@ -19,7 +19,7 @@ Today we will write how Codeception can be installed into a Symfony project and 
 
 ![symfony-demo](https://farm8.staticflickr.com/7720/17002708897_fb52f39a39_o.png)
 
-We will use official [symfony-demo](http://symfony.com/blog/introducing-the-symfony-demo-application) application in this example. Once you get it [installed](https://github.com/symfony/symfony-demo#installation) you should add Codeception testing framework to dev dependencies list in `composer.json`:  
+We will use official [symfony-demo](https://symfony.com/blog/introducing-the-symfony-demo-application) application in this example. Once you get it [installed](https://github.com/symfony/symfony-demo#installation) you should add Codeception testing framework to dev dependencies list in `composer.json`:  
 
 {% highlight bash %}
 composer require --dev "codeception/codeception:~2.1"
@@ -39,7 +39,7 @@ php bin/codecept g:suite acceptance
 
 Acceptance tests are expected to test the site from an end-user's perspective. No matter how many unit tests you have in your projects you can't get without acceptance testing. What if you see a blank page even all unit tests passed. How could this happen? Maybe you rendered wrong template, maybe some scripts or styles were not loaded. Those things can't be handled with internal: unit or functional testing, however with acceptance tests you may be confident that UI is available for customers. 
 
-That's why we recommend to have tests with real browser interaction. You can [learn more about acceptance testing](http://codeception.com/docs/03-AcceptanceTests) from our guides.
+That's why we recommend to have tests with real browser interaction. You can [learn more about acceptance testing](https://codeception.com/docs/03-AcceptanceTests) from our guides.
 
 But what about unit and functional tests? As we decided we will put them into bundles. *Symfony-demo* has only *AppBundle* included, so we will create new Codeception setup in `src/AppBundle`. Take a note that we want those tests to be placed in their own namespace:
 
@@ -142,7 +142,7 @@ Time: 274 ms, Memory: 36.00Mb
 OK (1 test, 1 assertion)
 {% endhighlight %}
 
-But you can do much more with functional testing. You can insert/assert data with Doctrine by using prepared methods like `haveInRepository`, `seeInRepository` of [Doctrine2](http://codeception.com/docs/modules/Doctrine2) module. You can perform complex web interactions like filling forms, clicking links, following redirects and much more with methods of [Symfony2](http://codeception.com/docs/modules/Symfony2) module. Those modules are combined together and their methods are available in `FunctionalTester` class you are supposed to use for writing functional tests. If you are interested to see more complex Codeception tests, we've got [them for you](https://github.com/Codeception/symfony-demo/blob/2.1/src%2FAppBundle%2Ftest%2Ffunctional%2FPostCrudCest.php).
+But you can do much more with functional testing. You can insert/assert data with Doctrine by using prepared methods like `haveInRepository`, `seeInRepository` of [Doctrine2](https://codeception.com/docs/modules/Doctrine2) module. You can perform complex web interactions like filling forms, clicking links, following redirects and much more with methods of [Symfony2](https://codeception.com/docs/modules/Symfony2) module. Those modules are combined together and their methods are available in `FunctionalTester` class you are supposed to use for writing functional tests. If you are interested to see more complex Codeception tests, we've got [them for you](https://github.com/Codeception/symfony-demo/blob/2.1/src%2FAppBundle%2Ftest%2Ffunctional%2FPostCrudCest.php).
 
 Btw, you can use Symfony2 and Doctrine2 module for writing your unit and integration tests as well. 
 
@@ -173,4 +173,4 @@ which we configured in the manner we described in this post. Please use similar 
 
 Start using Codeception and discover how complex things can be tested in really simple manner. And once again, even functional and integration tests are really fast, as we start transaction before each test and rollback it afterwards. Write them as many as you need to, do not rely on unit tests only!
 
-**P.S.** Symfony2 and Doctrine2 module is seeking for an active maintainer. If you work with Symfony and Codeception please [contact us](http://codeception.com/credits) to join Codeception team!
+**P.S.** Symfony2 and Doctrine2 module is seeking for an active maintainer. If you work with Symfony and Codeception please [contact us](https://codeception.com/credits) to join Codeception team!

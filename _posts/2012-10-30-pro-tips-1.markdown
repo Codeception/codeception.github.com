@@ -4,7 +4,7 @@ title: ProTips in Managing UI
 date: 2012-10-30 01:03:50
 ---
 
-Hi, we've decided to start a pro tips post series on Codeception. We hadn't too much time recently, because of the work on our startup [Bugira](http://bugira.com), and the release of community-driven catalog oj Javascript libraries - [Jster](http://jster.net). You should definitely visit Jster (and add it to bookmarks), as it contains more then **800 javascript libraries** for any needs in frontend development. But finally, We can get back to Codeception and tell about it's best usage practices.
+Hi, we've decided to start a pro tips post series on Codeception. We hadn't too much time recently, because of the work on our startup [Bugira](https://bugira.com), and the release of community-driven catalog oj Javascript libraries - [Jster](https://jster.net). You should definitely visit Jster (and add it to bookmarks), as it contains more then **800 javascript libraries** for any needs in frontend development. But finally, We can get back to Codeception and tell about it's best usage practices.
 
 ### Tip 1: Variables for UI elements
 

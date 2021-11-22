@@ -75,7 +75,7 @@ As usual, we need your feedback to get 2.0 released as stable.
 Download:
 
 {% highlight bash %}
-wget http://codeception.com/releases/2.0.0-beta/codecept.phar
+wget https://codeception.com/releases/2.0.0-beta/codecept.phar
 {% endhighlight %}
 
 Via Composer:
@@ -84,4 +84,4 @@ Via Composer:
 composer require --dev "codeception/codeception:2.0.0-beta" 
 {% endhighlight %}
 
-**P.S.** Our sponsors [**2Amigos** updated their site and logo](http://2amigos.us/). Check it out!
+**P.S.** Our sponsors [**2Amigos** updated their site and logo](https://2amigos.us/). Check it out!

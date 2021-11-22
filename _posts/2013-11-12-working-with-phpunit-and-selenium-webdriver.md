@@ -8,11 +8,11 @@ In this post we will explore some basics of user acceptance testing with **Selen
 
 Selenium allows us to record user actions that we do inside a browser and then automate them. PHPUnit will be used to do various assertions and check them for fallacy. And `php-webdriver` is used to connect PHP with Selenium, in order to do browser manipulation in PHP.  
 
-Probably you know, that PHPUnit itself can do Selenium manipulations via PHPUnit. There is [PHPUnit_Selenium](http://phpunit.de/manual/3.7/en/selenium.html) extension you may use. We will use php-webdriver instead because this implementation is modern and its API is more clean and looks much the same way as original Java Selenium API. That's why it is easier to learn, and much powerful, then the PHPUnit's one. For example, it allows you use send native touch events, which is important in era of mobile-ready web applications.
+Probably you know, that PHPUnit itself can do Selenium manipulations via PHPUnit. There is [PHPUnit_Selenium](https://phpunit.de/manual/3.7/en/selenium.html) extension you may use. We will use php-webdriver instead because this implementation is modern and its API is more clean and looks much the same way as original Java Selenium API. That's why it is easier to learn, and much powerful, then the PHPUnit's one. For example, it allows you use send native touch events, which is important in era of mobile-ready web applications.
 
 ### Grab the tools
 
-Let's install all the required tools using [Composer](http://packagist.org). For this we will need to have `composer.json` file created:
+Let's install all the required tools using [Composer](https://packagist.org). For this we will need to have `composer.json` file created:
 
 {% highlight json %}
 {
@@ -29,7 +29,7 @@ We won't develop any application, thus we are ok, with `require-dev` section onl
 php composer.phar install
 {% endhighlight %}
 
-and grab the latest versions of both libraries. We also will need [Selenium server](http://code.google.com/p/selenium/downloads/detail?name=selenium-server-standalone-2.37.0.jar&can=2&q=selenium-server-standalone-2) executable as well. You need Java installed in order to run the Selenium server. You can launch it by running this:
+and grab the latest versions of both libraries. We also will need [Selenium server](https://code.google.com/p/selenium/downloads/detail?name=selenium-server-standalone-2.37.0.jar&can=2&q=selenium-server-standalone-2) executable as well. You need Java installed in order to run the Selenium server. You can launch it by running this:
 
 {% highlight bash %}
 java -jar selenium-server-standalone-2.37.0.jar
@@ -69,7 +69,7 @@ class GitHubTests extends PHPUnit_Framework_TestCase {
 ?>
 {% endhighlight %}
 
-This initialization part is taken from php-webdriver README file. We don't have any test yet, so let's write something a very basic. Something like: "If I open http://github.com, page title should contain GitHub".
+This initialization part is taken from php-webdriver README file. We don't have any test yet, so let's write something a very basic. Something like: "If I open https://github.com, page title should contain GitHub".
 
 {% highlight php %}
 <?php
@@ -240,7 +240,7 @@ That is how we got search field id: `#js-command-bar-field`. Doing the sample st
 <?php
 class GitHubTest extends PHPUnit_Framework_TestCase {
 
-    protected $url = 'http://github.com';
+    protected $url = 'https://github.com';
     /**
      * @var \RemoteWebDriver
      */
@@ -283,7 +283,7 @@ class GitHubTest extends PHPUnit_Framework_TestCase {
         
         // checking current url
         $this->assertEquals(
-        	'http://github.org/facebook/php-webdriver', 
+        	'https://github.org/facebook/php-webdriver', 
         	$this->webDriver->getCurrentURL()
         );
     }
@@ -332,7 +332,7 @@ We will use newly created `assertElementNotFound` method to check that there is 
 <?php
 class GitHubTest extends PHPUnit_Framework_TestCase {
 
-    protected $url = 'http://github.com';
+    protected $url = 'https://github.com';
     /**
      * @var \RemoteWebDriver
      */
@@ -413,7 +413,7 @@ The complete demo project, after this basic refactoring, you can [find on GitHub
 
 ## And what about Codeception?
 
-So you did notice that this is Codeception blog. But we didn't use [Codeception framework](http://codeception.com) at all in this tutorial. Sure, we need to mention, that Codeception includes php-webdriver library and [WebDriver](http://codeception.com/docs/modules/WebDriver) module out of the box starting from version 1.7. In Codeception you can perform all the web manipulations in a [much simpler manner using the WebGuy APIs](http://codeception.com/docs/03-AcceptanceTests). If you use Codeception you don't need to implement your own WebDriver assertions nor write boilerplate code.
+So you did notice that this is Codeception blog. But we didn't use [Codeception framework](https://codeception.com) at all in this tutorial. Sure, we need to mention, that Codeception includes php-webdriver library and [WebDriver](https://codeception.com/docs/modules/WebDriver) module out of the box starting from version 1.7. In Codeception you can perform all the web manipulations in a [much simpler manner using the WebGuy APIs](https://codeception.com/docs/03-AcceptanceTests). If you use Codeception you don't need to implement your own WebDriver assertions nor write boilerplate code.
 
 ## Conclusions
 
