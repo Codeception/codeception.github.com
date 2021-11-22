@@ -1716,3 +1716,14 @@ body #footer .links {
     }
   }
 }
+
+.cloud-banner {
+  width: 100%;
+  img {
+    float: none !important;
+    top: 0 !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-bottom: 20px;
+  }
+}
