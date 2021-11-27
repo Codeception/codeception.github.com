@@ -27,5 +27,5 @@ algolia:
     - "2014-"
 banner:
   # disable content to show last blogpost
-  content: '🎉 Codeception truns 10! <a href="https://calendar.google.com/event?action=TEMPLATE&tmeid=OThib3BkM2ViaWlxbmgwcXViaGc0cDFwMDQgZGF2ZXJ0LnVhQG0&tmsrc=davert.ua%40gmail.com">Join online celebration</a> on November 30!'
+  content: '🎉 Codeception truns 10! <a href="https://calendar.google.com/event?action=TEMPLATE&tmeid=NTBucXFnaGFpM2k3dHZ2YmNuYjE5MWdzdGYgMzBsbTRvNXU4NXBndGs3NTZtbmo4OTdvZWdAZw&tmsrc=30lm4o5u85pgtk756mnj897oeg%40group.calendar.google.com">Join online celebration</a> on November 30!'
   # content: '<a href="https://opencollective.com/codeception">Codeception is on OpenCollective! Support us 💖</a>'
