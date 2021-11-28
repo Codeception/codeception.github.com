@@ -12,6 +12,12 @@
 
 .algolia__initial-content {
   display: block;
+  .btn-group {
+    float: none !important;
+    @media (min-width: 1380px) {
+      float: right !important;
+    }
+  }
 }
 
 .algolia__initial-content--hidden, .algolia__search-content {
