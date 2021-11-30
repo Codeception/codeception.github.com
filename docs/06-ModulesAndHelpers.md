@@ -542,7 +542,7 @@ $this->getModule('WebDriver')->_restart();
 
 {% endhighlight %}
 
-You cannot change "basic" configuration like `depends` at runtime.
+> You cannot change static test configurations like `depends` at runtime.
 
 At the end of a test all configuration changes will be rolled back to the original configuration values.
 
