@@ -16,40 +16,47 @@ Generates Feature file (in Gherkin):
 
 
 
-## Bootstrap
+## GherkinSnippets
 
-Creates default config, tests directory and sample suites for current project.
-Use this command to start building a test suite.
+Generates code snippets for matched feature files in a suite.
+Code snippets are expected to be implemented in Actor or PageObjects
 
-By default it will create 3 suites **acceptance**, **functional**, and **unit**.
+Usage:
 
-* `codecept bootstrap` - creates `tests` dir and `codeception.yml` in current dir.
-* `codecept bootstrap --empty` - creates `tests` dir without suites
-* `codecept bootstrap --namespace Frontend` - creates tests, and use `Frontend` namespace for actor classes and helpers.
-* `codecept bootstrap --actor Wizard` - sets actor as Wizard, to have `TestWizard` actor in tests.
-* `codecept bootstrap path/to/the/project` - provide different path to a project, where tests should be placed
-
-
-
-
-## GenerateHelper
-
-Creates empty Helper class.
-
-* `codecept g:helper MyHelper`
-* `codecept g:helper "My\Helper"`
+* `codecept gherkin:snippets acceptance` - snippets from all feature of acceptance tests
+* `codecept gherkin:snippets acceptance/feature/users` - snippets from `feature/users` dir of acceptance tests
+* `codecept gherkin:snippets acceptance user_account.feature` - snippets from a single feature file
+* `codecept gherkin:snippets acceptance/feature/users/user_accout.feature` - snippets from feature file in a dir
 
 
 
 
-## GherkinSteps
+## GenerateGroup
 
-Prints all steps from all Gherkin contexts for a specific suite
+Creates empty GroupObject - extension which handles all group events.
 
-{% highlight yaml %}
-codecept gherkin:steps acceptance
+* `codecept g:group Admin`
 
-{% endhighlight %}
+
+
+## CompletionFallback
+
+
+
+## GenerateCept
+
+@deprecated
+
+
+
+## GenerateSuite
+
+Create new test suite. Requires suite name and actor name
+
+* ``
+* `codecept g:suite api` -> api + ApiTester
+* `codecept g:suite integration Code` -> integration + CodeTester
+* `codecept g:suite frontend Front` -> frontend + FrontTester
 
 
 
@@ -66,37 +73,6 @@ If suite name is provided, an actor class will be included into placeholder
 
 
 
-## SelfUpdate
-
-Auto-updates phar archive from official site: 'http://codeception.com/codecept.phar' .
-
-* `php codecept.phar self-update`
-
-@author Franck Cassedanne <franck@cassedanne.com>
-
-
-
-## GenerateScenarios
-
-Generates user-friendly text scenarios from scenario-driven tests (Cest).
-
-* `codecept g:scenarios acceptance` - for all acceptance tests
-* `codecept g:scenarios acceptance --format html` - in html format
-* `codecept g:scenarios acceptance --path doc` - generate scenarios to `doc` dir
-
-
-
-## GeneratePageObject
-
-Generates PageObject. Can be generated either globally, or just for one suite.
-If PageObject is generated globally it will act as UIMap, without any logic in it.
-
-* `codecept g:page Login`
-* `codecept g:page Registration`
-* `codecept g:page acceptance Login`
-
-
-
 ## Console
 
 Try to execute test commands in run-time. You may try commands before writing the test.
@@ -105,41 +81,12 @@ Try to execute test commands in run-time. You may try commands before writing th
 
 
 
-## GenerateEnvironment
+## GenerateHelper
 
-Generates empty environment configuration file into envs dir:
+Creates empty Helper class.
 
- * `codecept g:env firefox`
-
-Required to have `envs` path to be specified in `codeception.yml`
-
-
-
-## GenerateCest
-
-Generates Cest (scenario-driven object-oriented test) file:
-
-* `codecept generate:cest suite Login`
-* `codecept g:cest suite subdir/subdir/testnameCest.php`
-* `codecept g:cest suite LoginCest -c path/to/project`
-* `codecept g:cest "App\Login"`
-
-
-
-
-## GenerateCept
-
-@deprecated
-
-
-
-## Build
-
-Generates Actor classes (initially Guy classes) from suite configs.
-Starting from Codeception 2.0 actor classes are auto-generated. Use this command to generate them manually.
-
-* `codecept build`
-* `codecept build path/to/project`
+* `codecept g:helper MyHelper`
+* `codecept g:helper "My\Helper"`
 
 
 
@@ -260,7 +207,15 @@ Options:
 
 
 
-## CompletionFallback
+## GherkinSteps
+
+Prints all steps from all Gherkin contexts for a specific suite
+
+{% highlight yaml %}
+codecept gherkin:steps acceptance
+
+{% endhighlight %}
+
 
 
 
@@ -276,21 +231,29 @@ Shows step by step execution process for scenario driven tests without actually 
 
 
 
-## GenerateGroup
+## Bootstrap
 
-Creates empty GroupObject - extension which handles all group events.
+Creates default config, tests directory and sample suites for current project.
+Use this command to start building a test suite.
 
-* `codecept g:group Admin`
+By default it will create 3 suites **acceptance**, **functional**, and **unit**.
+
+* `codecept bootstrap` - creates `tests` dir and `codeception.yml` in current dir.
+* `codecept bootstrap --empty` - creates `tests` dir without suites
+* `codecept bootstrap --namespace Frontend` - creates tests, and use `Frontend` namespace for actor classes and helpers.
+* `codecept bootstrap --actor Wizard` - sets actor as Wizard, to have `TestWizard` actor in tests.
+* `codecept bootstrap path/to/the/project` - provide different path to a project, where tests should be placed
 
 
 
 
-## Clean
+## GenerateEnvironment
 
-Recursively cleans `output` directory and generated code.
+Generates empty environment configuration file into envs dir:
 
-* `codecept clean`
+ * `codecept g:env firefox`
 
+Required to have `envs` path to be specified in `codeception.yml`
 
 
 
@@ -304,17 +267,56 @@ Generates StepObject class. You will be asked for steps you want to implement.
 
 
 
-## GherkinSnippets
+## GeneratePageObject
 
-Generates code snippets for matched feature files in a suite.
-Code snippets are expected to be implemented in Actor or PageObjects
+Generates PageObject. Can be generated either globally, or just for one suite.
+If PageObject is generated globally it will act as UIMap, without any logic in it.
 
-Usage:
+* `codecept g:page Login`
+* `codecept g:page Registration`
+* `codecept g:page acceptance Login`
 
-* `codecept gherkin:snippets acceptance` - snippets from all feature of acceptance tests
-* `codecept gherkin:snippets acceptance/feature/users` - snippets from `feature/users` dir of acceptance tests
-* `codecept gherkin:snippets acceptance user_account.feature` - snippets from a single feature file
-* `codecept gherkin:snippets acceptance/feature/users/user_accout.feature` - snippets from feature file in a dir
+
+
+## Build
+
+Generates Actor classes (initially Guy classes) from suite configs.
+Starting from Codeception 2.0 actor classes are auto-generated. Use this command to generate them manually.
+
+* `codecept build`
+* `codecept build path/to/project`
+
+
+
+
+## GenerateCest
+
+Generates Cest (scenario-driven object-oriented test) file:
+
+* `codecept generate:cest suite Login`
+* `codecept g:cest suite subdir/subdir/testnameCest.php`
+* `codecept g:cest suite LoginCest -c path/to/project`
+* `codecept g:cest "App\Login"`
+
+
+
+
+## SelfUpdate
+
+Auto-updates phar archive from official site: 'http://codeception.com/codecept.phar' .
+
+* `php codecept.phar self-update`
+
+@author Franck Cassedanne <franck@cassedanne.com>
+
+
+
+## Clean
+
+Recursively cleans `output` directory and generated code.
+
+* `codecept clean`
+
 
 
 
@@ -327,15 +329,13 @@ Generates skeleton for Unit Test that extends `Codeception\TestCase\Test`.
 
 
 
-## GenerateSuite
+## GenerateScenarios
 
-Create new test suite. Requires suite name and actor name
+Generates user-friendly text scenarios from scenario-driven tests (Cest).
 
-* ``
-* `codecept g:suite api` -> api + ApiTester
-* `codecept g:suite integration Code` -> integration + CodeTester
-* `codecept g:suite frontend Front` -> frontend + FrontTester
-
+* `codecept g:scenarios acceptance` - for all acceptance tests
+* `codecept g:scenarios acceptance --format html` - in html format
+* `codecept g:scenarios acceptance --path doc` - generate scenarios to `doc` dir
 
 
 

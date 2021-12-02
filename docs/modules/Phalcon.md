@@ -5,7 +5,7 @@ title: Phalcon - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/module-Phalcon/releases">Changelog</a><a class="btn btn-default" href="https://github.com/Codeception/module-phalcon/tree/master/src/Codeception/Module/Phalcon.php"><strong>source</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/3.1/docs/modules/Phalcon.md">3.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.5/docs/modules/Phalcon.md">2.5</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Phalcon.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/module-Phalcon/releases">Releases</a><a class="btn btn-default" href="https://github.com/Codeception/module-phalcon/tree/master/src/Codeception/Module/Phalcon.php"><strong>source</strong></a></div>
 
 # Phalcon
 ### Installation

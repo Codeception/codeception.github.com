@@ -5,7 +5,7 @@ title: Laravel - Codeception - Documentation
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/module-Laravel/releases">Changelog</a><a class="btn btn-default" href="https://github.com/Codeception/module-laravel/tree/master/src/Codeception/Module/Laravel.php"><strong>source</strong></a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/3.1/docs/modules/Laravel.md">3.1</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/2.5/docs/modules/Laravel.md">2.5</a><a class="btn btn-default" href="https://github.com/Codeception/Codeception/blob/1.8/docs/modules/Laravel.md">1.8</a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/module-Laravel/releases">Releases</a><a class="btn btn-default" href="https://github.com/Codeception/module-laravel/tree/master/src/Codeception/Module/Laravel.php"><strong>source</strong></a></div>
 
 # Laravel
 ### Installation

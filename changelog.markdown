@@ -9,6 +9,15 @@ title: Codeception Changelog
 
 
 
+### module-yii2 1.1.4: 1.1.4
+
+Released by [![](https://avatars.githubusercontent.com/u/47294?v=4&s=16) samdark](https://github.com/samdark) on 2021/11/26 05:58:14 / [🦑 Repository](https://github.com/Codeception/module-yii2)   / [📦 Releases](https://github.com/Codeception/module-yii2/releases)
+
+
+
+- Allow PHP 8.1 (@saatsazov)
+
+
 ### module-rest 1.4.2: Added JSON check to `AsJson`
 
 Released by [![](https://avatars.githubusercontent.com/u/220264?v=4&s=16) DavertMik](https://github.com/DavertMik) on 2021/11/18 19:12:32 / [🦑 Repository](https://github.com/Codeception/module-rest)   / [📦 Releases](https://github.com/Codeception/module-rest/releases)
