@@ -699,10 +699,6 @@ body {
   }
 }
 
-body .navbar-inverse .navbar-toggle .icon-bar {
-  background-color: #000;
-}
-
 @media screen and (min-width: 1030px) {
   .navbar-collapse.collapse {
     position: relative;
@@ -1251,6 +1247,16 @@ body .panel-info > .panel-heading {
 
 .navbar-toggle {
   margin-right: 0;
+  width: 44px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  .fa {
+    font-size: 20px;
+    color: #333333;
+  }
 
   &:hover {
     background-color: #dddddd !important;
