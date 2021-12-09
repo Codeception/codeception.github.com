@@ -1249,17 +1249,16 @@ body .panel-info > .panel-heading {
   margin-right: 0;
   width: 44px;
   height: 34px;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
-  .fa {
-    font-size: 20px;
-    color: #333333;
-  }
-
   &:hover {
     background-color: #dddddd !important;
+  }
+
+  @media (min-width: 768px) {
+    display: none;
   }
 }
 
