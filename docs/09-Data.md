@@ -34,7 +34,7 @@ modules:
 {% endhighlight %}
 
 <div class="alert alert-notice">
-Use <a href="http://codeception.com/docs/06-ModulesAndHelpers#Dynamic-Configuration-With-Params">module parameters</a>
+Use <a href="https://codeception.com/docs/06-ModulesAndHelpers#Dynamic-Configuration-With-Params">module parameters</a>
 to set the database credentials from environment variables or from application configuration files.
 </div>
 
@@ -73,7 +73,7 @@ modules:
 
 {% endhighlight %}
 
-See the [Db module reference](http://codeception.com/docs/modules/Db#SQL-data-dump) for more examples.
+See the [Db module reference](https://codeception.com/docs/modules/Db#SQL-data-dump) for more examples.
 
 To ensure database dump is loaded before all tests add `populate: true`. To clean current database and reload dump between tests use `cleanup: true`.
 
@@ -90,7 +90,7 @@ and to perform automatic clean-ups.
 The Db module provides actions to create and verify data inside a database.
 
 If you want to create a special database record for one test,
-you can use [`haveInDatabase`](http://codeception.com/docs/modules/Db#haveInDatabase) method of `Db` module:
+you can use [`haveInDatabase`](https://codeception.com/docs/modules/Db#haveInDatabase) method of `Db` module:
 
 {% highlight php %}
 
@@ -109,7 +109,7 @@ $I->see('Top 10 Testing Frameworks');
 All added records will be deleted at the end of the test.
 
 If you want to check that a table record was created
-use [`seeInDatabase`](http://codeception.com/docs/modules/Db#haveInDatabase) method:
+use [`seeInDatabase`](https://codeception.com/docs/modules/Db#haveInDatabase) method:
 
 {% highlight php %}
 
@@ -121,17 +121,17 @@ $I->seeInDatabase('comments', ['body' => 'This is nice!']);
 
 {% endhighlight %}
 
-See the module [reference](http://codeception.com/docs/modules/Db) for other methods you can use for database testing.
+See the module [reference](https://codeception.com/docs/modules/Db) for other methods you can use for database testing.
 
-There are also modules for [MongoDb](http://codeception.com/docs/modules/MongoDb),
-[Redis](http://codeception.com/docs/modules/Redis),
-and [Memcache](http://codeception.com/docs/modules/Memcache) which behave in a similar manner.
+There are also modules for [MongoDb](https://codeception.com/docs/modules/MongoDb),
+[Redis](https://codeception.com/docs/modules/Redis),
+and [Memcache](https://codeception.com/docs/modules/Memcache) which behave in a similar manner.
 
 ### Sequence
 
 If the database clean-up takes too long, you can follow a different strategy: create new data for each test.
 This way, the only problem you might face is duplication of data records.
-[Sequence](http://codeception.com/docs/modules/Sequence) was created to solve this.
+[Sequence](https://codeception.com/docs/modules/Sequence) was created to solve this.
 It provides the `sq()` function which generates unique suffixes for creating data in tests.
 
 ## ORM modules
@@ -220,7 +220,7 @@ modules:
 ### Doctrine
 
 Doctrine is also a popular ORM, unlike some others it implements the DataMapper pattern and is not bound to any framework.
-The [Doctrine2](http://codeception.com/docs/modules/Doctrine2) module requires an `EntityManager` instance to work with.
+The [Doctrine2](https://codeception.com/docs/modules/Doctrine2) module requires an `EntityManager` instance to work with.
 It can be obtained from a Symfony framework or Zend Framework (configured with Doctrine):
 
 {% highlight yaml %}
@@ -260,7 +260,7 @@ Preparing data for testing is a very creative, although boring, task. If you cre
 you need to fill in all the fields of the model. It is much easier to use [Faker](https://github.com/fzaninotto/Faker)
 for this task, which is more effective to set up data generation rules for models.
 Such a set of rules is called *factories*
-and are provided by the [DataFactory](http://codeception.com/docs/modules/DataFactory) module.
+and are provided by the [DataFactory](https://codeception.com/docs/modules/DataFactory) module.
 
 Once configured, it can create records with ease:
 
@@ -301,7 +301,7 @@ modules:
 {% endhighlight %}
 
 DataFactory provides a powerful solution for managing data in integration/functional/acceptance tests.
-Read the [full reference](http://codeception.com/docs/modules/DataFactory) to learn how to set this module up.
+Read the [full reference](https://codeception.com/docs/modules/DataFactory) to learn how to set this module up.
 
 ## Testing Dynamic Data with Snapshots
 
