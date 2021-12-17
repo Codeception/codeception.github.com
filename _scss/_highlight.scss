@@ -10,7 +10,8 @@
     font-style: italic;
   }
 
-  .err {}
+  .err {
+  }
 
   .k {
     color: #444;
@@ -228,7 +229,7 @@
   }
 
   > pre {
-    font-family: "Roboto Mono",monospace;
+    font-family: "Roboto Mono", monospace;
     background: #F5F9FD;
     font-size: 85%;
     padding: 5px;
@@ -303,7 +304,7 @@
 /* Literal.Number.Integer.Long */
 
 pre.highlight {
-  font-family: "Roboto Mono",monospace;
+  font-family: "Roboto Mono", monospace;
   background: #F5F9FD;
   font-size: 85%;
   padding: 5px;
@@ -318,7 +319,7 @@ pre.highlight {
 p code, li code {
   color: #333;
   background: #f5f9fd;
-  font-family: "Roboto Mono",monospace;
+  font-family: "Roboto Mono", monospace;
   padding: 0 5px;
   border: none;
 }

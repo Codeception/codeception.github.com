@@ -336,7 +336,8 @@ body {
     }
   }
 
-  .toc {}
+  .toc {
+  }
 }
 
 .toc-h3 {
@@ -481,7 +482,8 @@ ul {
     max-height: none;
   }
 
-  &.navbar-nav {}
+  &.navbar-nav {
+  }
 }
 
 @media (max-width: 767px) {
@@ -1253,6 +1255,7 @@ body .panel-info > .panel-heading {
   display: flex;
   align-items: center;
   justify-content: center;
+
   &:hover {
     background-color: #dddddd !important;
   }
@@ -1724,6 +1727,7 @@ body #footer .links {
 
 .cloud-banner {
   width: 100%;
+
   img {
     float: none !important;
     top: 0 !important;
