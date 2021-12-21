@@ -203,7 +203,7 @@ Default namespace of actor, support classes and tests.
 
 Default namespace for new tests of this suite (ignores `namespace` option)
 
-## Config Templates (dist)
+## Configuration Templates: `*.dist.yml`
 
 To provide the same configuration template for your development team, you can create a `codeception.dist.yml` config file, which will be loaded before `codeception.yml`. The dist config provides shared options, while local `codeception.yml` files override them on a per-installation basis. Therefore, `codeception.yml` should be ignored by your VCS system.
 
