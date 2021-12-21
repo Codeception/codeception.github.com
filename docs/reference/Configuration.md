@@ -134,52 +134,74 @@ settings:
 
 {% endhighlight %}
 
-## Suite Configuration
+## Suite Configuration: `unit.suite.yml`, `functional.suite.yml` etc.
 
-Each generated suite have its own configuration inside directory set by `paths: tests: ` configuration option in `codeception.yml`. Each suite configuration is named like `suitename.suite.yml`. It allows to enable and configure modules, and more.
+Each suite has its own configuration inside the directory set by `paths: tests: ` in `codeception.yml`. Alphabetical list of options:
 
-* `actor`: name of the actor class for current suite.
-* `modules`: list of enabled modules with their configuration.
+### `actor`
+
+Name of the "Actor" class of the current suite.
+
+### `bootstrap`
+
+Bootstrap script that will be executed before current suite. A script should be put into suite directory.
+
+### `coverage`
+
+Per suite [CodeCoverage](https://codeception.com/docs/11-Codecoverage#Configuration) settings.
+
+### `env`
+
+Override any configuration per [environment](https://codeception.com/docs/07-AdvancedUsage#Environments).
+
+### `error_level`
+
+[error level](https://codeception.com/docs/04-FunctionalTests#Error-Reporting) for runner in the current suite. Can be specified for unit, integration, functional tests. Passes value to `error_reporting` function.
+
+### `extends`
+
+Allows you to specify a file (relative to `*.suite.yml`) that holds some already pre-defined values. This can be used to always use the same configuration for modules or whatever.
+
+### `gherkin`
+
+Per suite [Gherkin](https://codeception.com/docs/07-BDD#Configuration) settings.
+
+### `groups`
+
+[groups](https://codeception.com/docs/07-AdvancedUsage#Groups) with the list of tests of for corresponding group.
+
+### `formats`
+
+[formats](https://codeception.com/docs/07-AdvancedUsage#Formats) with the list of extra test format classes.
+
+### `modules`
+
+List of enabled modules with their configuration.
 
 {% highlight yaml %}
-
 modules:
-    # enabled modules and helpers
     enabled:
-        # built-in modules are listed by their names
-        - PhpBrowser:
-            # module configuration
-            url: http://localhost
-        # this module is pre-configured in global config
-        - Db
+        - PhpBrowser: # built-in modules are listed by their names
+            url: http://localhost # module configuration
+        - Db # Module without configuration (or inherited from `codeception.yml`)
+        - \Helper\Acceptance # helper names are listed by their class names, starting with `\`
 
-        # helper names are listed by their class names
-        # by convention their names start with \
-        - \Helper\Acceptance
-
-    # additional modules configuration
-    # can be used for modules which are not currently enabled
+    # Additional modules configuration; can be used for modules which are not currently enabled
     config:
         WebDriver:
             browser: firefox
 
-    # list of modules disabled for this suite
     disabled:
-        - WebDriver
-
-
+        - WebDriver # modules disabled for this suite
 {% endhighlight %}
 
-* `extends`: allows you to specify a file (relative to the `*.suite.yml` file) that holds some already pre-defined values. This can be used to always use the same configuration for modules or whatever.
-* `namespace`: default namespace of actor, support classes and tests.
-* `suite_namespace`: default namespace for new tests of this suite (ignores `namespace` option)
-* `env`: override any configuration per [environment](https://codeception.com/docs/07-AdvancedUsage#Environments).
-* `groups`: [groups](https://codeception.com/docs/07-AdvancedUsage#Groups) with the list of tests of for corresponding group.
-* `formats`: [formats](https://codeception.com/docs/07-AdvancedUsage#Formats) with the list of extra test format classes.
-* `coverage`: per suite [CodeCoverage](https://codeception.com/docs/11-Codecoverage#Configuration) settings.
-* `gherkin`: per suite [BDD Gherkin](https://codeception.com/docs/07-BDD#Configuration) settings.
-* `error_level`: [error level](https://codeception.com/docs/04-FunctionalTests#Error-Reporting) for runner in current suite. Can be specified for unit, integration, functional tests. Passes value to `error_reporting` function. Suite specific value will override the global value.
-* `bootstrap`:  bootstrap script that will be executed before current suites. A script should be put into suite directory.
+### `namespace`
+
+Default namespace of actor, support classes and tests.
+
+### `suite_namespace`
+
+Default namespace for new tests of this suite (ignores `namespace` option)
 
 ## Config Templates (dist)
 
