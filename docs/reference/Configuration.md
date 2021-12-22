@@ -92,6 +92,10 @@ Possible settings:
 * `be_strict_about_changes_to_global_state: false`: PHPUnit can be strict about tests that manipulate global state, see https://phpunit.de/manual/current/en/risky-tests.html#risky-tests.global-state-manipulation
 * `colors: true`: By default this is false on Windows. Use [ANSICON](https://github.com/adoxa/ansicon) to colorize output.
 * `disallow_test_output: false`: PHPUnit can be strict about output during tests, see https://phpunit.de/manual/current/en/risky-tests.html#risky-tests.output-during-test-execution
+* `editor_url: 'atom://core/open/file?filename=%%file%%&line=%%line%%'`: In the console output, the test runner will replace all references to files with "clickable" URL's, allowing you to open the file directly in your IDE. Depending on your operating system, you may have to set up an appropriate uri handler. Examples for some common editors:
+    * PhpStorm: 'phpstorm://open?file=%%file%%&line=%%line%%'
+    * Visual Studio Code: 'vscode://file/%%file%%:%%line%%'
+    * Atom: 'atom://core/open/file?filename=%%file%%&line=%%line%%'
 * `error_level: E_ALL & ~E_STRICT & ~E_DEPRECATED`: Set the error_reporting level. You can specify either a predefined constant or an integer value, see https://www.php.net/manual/en/function.error-reporting.php and https://www.php.net/manual/en/errorfunc.constants.php
 * `memory_limit: 1024M`: Tests (especially functional) can take a lot of memory. We set a high limit for them by default.
 * `lint: true`: Enable/disable syntax of test files before loading. For PHP < 7 `exec('php -l')` is used. Disable if you need to speed up tests execution.
