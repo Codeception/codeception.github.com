@@ -80,59 +80,25 @@ Allows to [change default reporters](https://codeception.com/docs/08-Customizati
 
 Provide additional options for the test runner. They may dramatically change the way Codeception is executed. For instance, take a note of `shuffle` option which allows to randomize tests execution order and `lint` option that toggles parsing a test file (using `php -l`) before loading it.
 
+Syntax example:
 {% highlight yaml %}
-
 settings:
-
-    # enable/disable syntax of test files before loading
-    # for php < 7 exec('php -l') is used
-    # disable if you need to speed up tests execution
-    lint: true
-
-    # randomize test order
-    shuffle: true
-
-    # by default it's false on Windows
-    # use [ANSICON](https://github.com/adoxa/ansicon) to colorize output.
     colors: true
-
-    # Generate XML JUnit report using strict schema
-    # Avoid putting additional report fields like steps or scenario names to it
-    # Required for XML reports on Jenkins CI
-    strict_xml: false
-
-    # Tests (especially functional) can take a lot of memory
-    # We set a high limit for them by default.
-    memory_limit: 1024M
-
-    # This value controls whether PHPUnit attempts to backup global variables
-    # See https://phpunit.de/manual/current/en/appendixes.annotations.html#appendixes.annotations.backupGlobals
-    backup_globals: true
-
-    # PHPUnit can be strict about tests that do not test anything
-    # See https://phpunit.de/manual/current/en/risky-tests.html#risky-tests.useless-tests
-    report_useless_tests: false
-
-    # PHPUnit can be strict about output during tests.
-    # See https://phpunit.de/manual/current/en/risky-tests.html#risky-tests.output-during-test-execution
-    disallow_test_output: false
-
-    # PHPUnit can be strict about tests that manipulate global state.
-    # See https://phpunit.de/manual/current/en/risky-tests.html#risky-tests.global-state-manipulation
-    be_strict_about_changes_to_global_state: false
-
-    # Log the incomplete and skipped tests into junit report
-    # See https://phpunit.de/manual/current/en/appendixes.configuration.html
-    # Section logging > junit
-    log_incomplete_skipped: false
-
-    # Set the error_reporting level
-    # You can specify either a predefined constant or an integer value
-    # See https://www.php.net/manual/en/function.error-reporting.php
-    # See https://www.php.net/manual/en/errorfunc.constants.php
-    error_level: E_ALL & ~E_STRICT & ~E_DEPRECATED
-
 {% endhighlight %}
+
+Possible settings:
+
+* `backup_globals: true`: Controls whether PHPUnit attempts to backup global variables, see https://phpunit.de/manual/current/en/appendixes.annotations.html#appendixes.annotations.backupGlobals
+* `be_strict_about_changes_to_global_state: false`: PHPUnit can be strict about tests that manipulate global state, see https://phpunit.de/manual/current/en/risky-tests.html#risky-tests.global-state-manipulation
+* `colors: true`: By default this is false on Windows. Use [ANSICON](https://github.com/adoxa/ansicon) to colorize output.
+* `disallow_test_output: false`: PHPUnit can be strict about output during tests, see https://phpunit.de/manual/current/en/risky-tests.html#risky-tests.output-during-test-execution
+* `error_level: E_ALL & ~E_STRICT & ~E_DEPRECATED`: Set the error_reporting level. You can specify either a predefined constant or an integer value, see https://www.php.net/manual/en/function.error-reporting.php and https://www.php.net/manual/en/errorfunc.constants.php
+* `memory_limit: 1024M`: Tests (especially functional) can take a lot of memory. We set a high limit for them by default.
+* `lint: true`: Enable/disable syntax of test files before loading. For PHP < 7 `exec('php -l')` is used. Disable if you need to speed up tests execution.
+* `log_incomplete_skipped: false`: Log the incomplete and skipped tests into junit report ,see https://phpunit.de/manual/current/en/appendixes.configuration.html Section logging > junit
+* `report_useless_tests: false`: PHPUnit can be strict about tests that do not test anything, see https://phpunit.de/manual/current/en/risky-tests.html#risky-tests.useless-tests
+* `shuffle: true`: Randomize test order
+* `strict_xml: false`: Generate XML JUnit report using strict schema. Avoid putting additional report fields like steps or scenario names to it. Required for XML reports on Jenkins CI
 
 ## Suite Configuration: `unit.suite.yml`, `functional.suite.yml` etc.
 
