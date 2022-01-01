@@ -1,15 +1,15 @@
 # Contributing
 
 ## Important notes
-Please don't edit files in the `dist` subdirectory as they are generated via [Grunt](http://gruntjs.com/). You'll find source code in the `src` subdirectory!
+Please don't edit files in the `dist` subdirectory as they are generated via [Grunt](https://gruntjs.com/). You'll find source code in the `src` subdirectory!
 
 ### Code style
 Regarding code style like indentation and whitespace, **follow the conventions you see used in the source already.**
 
 ## Modifying the code
-First, ensure that you have the latest [Node.js](http://nodejs.org/) and [npm](http://npmjs.org/) installed.
+First, ensure that you have the latest [Node.js](https://nodejs.org/) and [npm](https://npmjs.org/) installed.
 
-Test that Grunt's CLI is installed by running `grunt --version`.  If the command isn't found, run `npm install -g grunt-cli`.  For more information about installing Grunt, see the [getting started with Grunt guide](http://gruntjs.com/getting-started).
+Test that Grunt's CLI is installed by running `grunt --version`.  If the command isn't found, run `npm install -g grunt-cli`.  For more information about installing Grunt, see the [getting started with Grunt guide](https://gruntjs.com/getting-started).
 
 1. Fork and clone the repo.
 1. Run `npm install` to install all build dependencies (including Grunt).

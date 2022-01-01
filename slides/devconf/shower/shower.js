@@ -339,7 +339,7 @@ window.shower = window.shower || (function(window, document, undefined) {
 		}
 
 		// As fast as you can ;-)
-		// http://jsperf.com/for-vs-foreach/46
+		// https://jsperf.com/for-vs-foreach/46
 		for (; i >= 0; --i) {
 			if (slideId === shower.slideList[i].id) {
 				slideNumber = i;
@@ -602,7 +602,7 @@ window.shower = window.shower || (function(window, document, undefined) {
 			currentSlideId = url.hash.substr(1);
 
 		// As fast as you can ;-)
-		// http://jsperf.com/for-vs-foreach/46
+		// https://jsperf.com/for-vs-foreach/46
 		for (; i >= 0; --i) {
 			if (currentSlideId === shower.slideList[i].id) {
 				return i;

@@ -2,7 +2,7 @@
 
 Version: 8.3.0
 
-Bundles the [Highlight.js](http://highlightjs.org/) syntax themes in a form that allows easy integration in [Reveal.js](http://lab.hakim.se/reveal-js).
+Bundles the [Highlight.js](https://highlightjs.org/) syntax themes in a form that allows easy integration in [Reveal.js](https://lab.hakim.se/reveal-js).
 
 Reveal.js internally uses Highlight.js for syntax highlighting in code blocks, but uses a slightly different format for the CSS. This project provides the original Highlight.js themes adapted to the Reveal.js format.
 
@@ -29,7 +29,7 @@ Simply put in the name of the desired stylesheet and your presentation should no
 
 ## Credits
 
-* Highlight.js: The original syntax themes are part of the [Highlight.js](http://highlightjs.org/) project. Please see the project's [license file](https://github.com/isagalaev/highlight.js/blob/master/LICENSE) for licensing information.
+* Highlight.js: The original syntax themes are part of the [Highlight.js](https://highlightjs.org/) project. Please see the project's [license file](https://github.com/isagalaev/highlight.js/blob/master/LICENSE) for licensing information.
 
 ## License
 Copyright (c) 2014 Nils Winkler. Licensed under the MIT license.
