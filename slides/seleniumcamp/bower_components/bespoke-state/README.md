@@ -1,4 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/markdalgleish/bespoke-state.png)](http://travis-ci.org/markdalgleish/bespoke-state)
+[![Build Status](https://secure.travis-ci.org/markdalgleish/bespoke-state.png)](https://travis-ci.org/markdalgleish/bespoke-state)
 
 # bespoke-state
 
@@ -17,7 +17,7 @@ Download the [production version][min] or the [development version][max].
 
 ### Bower
 
-Bespoke-state can be installed from [Bower](http://twitter.github.com/bower/) using the following command:
+Bespoke-state can be installed from [Bower](https://twitter.github.com/bower/) using the following command:
 
 ```bash
 $ bower install bespoke-state
@@ -56,10 +56,10 @@ Finally, add `data-bespoke-state` attributes to your slides.
 
 ## Questions?
 
-Contact me on GitHub or Twitter: [@markdalgleish](http://twitter.com/markdalgleish)
+Contact me on GitHub or Twitter: [@markdalgleish](https://twitter.com/markdalgleish)
 
 ## License
 
 Copyright 2013, Mark Dalgleish  
 This content is released under the MIT license  
-http://markdalgleish.mit-license.org
+https://markdalgleish.mit-license.org

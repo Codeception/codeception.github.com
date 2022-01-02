@@ -1,10 +1,10 @@
-[![Build Status](https://secure.travis-ci.org/markdalgleish/bespoke.js.png)](http://travis-ci.org/markdalgleish/bespoke.js)
+[![Build Status](https://secure.travis-ci.org/markdalgleish/bespoke.js.png)](https://travis-ci.org/markdalgleish/bespoke.js)
 
 # Bespoke.js
 
 ### DIY Presentation Micro-Framework
 
-[Bespoke.js](http://markdalgleish.com/projects/bespoke.js) is a super minimal (<1KB min'd and gzipped), modular presentation library for modern browsers, designed to foster a rich [plugin ecosystem](#plugins).
+[Bespoke.js](https://markdalgleish.com/projects/bespoke.js) is a super minimal (<1KB min'd and gzipped), modular presentation library for modern browsers, designed to foster a rich [plugin ecosystem](#plugins).
 
 The core library [sets up the presentation](#javascript), provides a simple [control API](#control-api), manages [events](#events) and adds [classes](#CSS) to the slides to allow CSS transitions.
 
@@ -12,9 +12,9 @@ Any other functionality, from [keyboard](https://github.com/markdalgleish/bespok
 
 ## Creating a Presentation
 
-Due to the highly modular nature of Bespoke.js, the quickest way to get started is with [Bespoke.js Generator](https://github.com/markdalgleish/generator-bespoke), a [Yeoman](http://yeoman.io) generator that scaffolds a boilerplate presentation with a [Grunt](http://gruntjs.com) build system.
+Due to the highly modular nature of Bespoke.js, the quickest way to get started is with [Bespoke.js Generator](https://github.com/markdalgleish/generator-bespoke), a [Yeoman](https://yeoman.io) generator that scaffolds a boilerplate presentation with a [Grunt](https://gruntjs.com) build system.
 
-Assuming you have [Node.js](http://nodejs.org) installed, in a blank directory:
+Assuming you have [Node.js](https://nodejs.org) installed, in a blank directory:
 
 ```bash
 $ npm install -g generator-bespoke
@@ -29,7 +29,7 @@ In your newly scaffolded project, you can use the following Grunt tasks:
 
 For more detailed instructions, check out the [Bespoke.js Generator](https://github.com/markdalgleish/generator-bespoke) repo.
 
-If you'd prefer to craft a new presentation from scratch, you can install Bespoke.js from [Bower](http://bower.io) with `bower install bespoke.js`, from [npm](http://npmjs.org) with `npm install bespoke`, or manually download either the [production version][min] or the [development version][max]. The Bespoke.js core is extremely lightweight, so you'll probably want to include some [plugins](#plugins).
+If you'd prefer to craft a new presentation from scratch, you can install Bespoke.js from [Bower](https://bower.io) with `bower install bespoke.js`, from [npm](https://npmjs.org) with `npm install bespoke`, or manually download either the [production version][min] or the [development version][max]. The Bespoke.js core is extremely lightweight, so you'll probably want to include some [plugins](#plugins).
 
 [min]: https://raw.github.com/markdalgleish/bespoke.js/master/dist/bespoke.min.js
 [max]: https://raw.github.com/markdalgleish/bespoke.js/master/dist/bespoke.js
@@ -157,15 +157,15 @@ All official plugins can be installed from Bower or npm, e.g. `$ bower install b
 
 ### Third-Party Plugins
 
- - [bespoke-fx](https://github.com/ebow/bespoke-fx) by [@tdhc](http://twitter.com/tdhc), for configurable slide transitions.
- - [bespoke-dir](https://github.com/ryanseddon/bespoke-dir) by [@ryanseddon](http://twitter.com/ryanseddon), for direction-based deck classes.
- - [bespoke-spotlight](https://github.com/mobz/bespoke-spotlight) by [@mobz](http://twitter.com/mobz), for quick-searching slide content.
- - [bespoke-blackout](https://github.com/originell/bespoke-blackout) by [@originell](http://twitter.com/originell), for temporarily blacking out the screen.
+ - [bespoke-fx](https://github.com/ebow/bespoke-fx) by [@tdhc](https://twitter.com/tdhc), for configurable slide transitions.
+ - [bespoke-dir](https://github.com/ryanseddon/bespoke-dir) by [@ryanseddon](https://twitter.com/ryanseddon), for direction-based deck classes.
+ - [bespoke-spotlight](https://github.com/mobz/bespoke-spotlight) by [@mobz](https://twitter.com/mobz), for quick-searching slide content.
+ - [bespoke-blackout](https://github.com/originell/bespoke-blackout) by [@originell](https://twitter.com/originell), for temporarily blacking out the screen.
  - [bespoke-secondary](https://github.com/joelpurra/bespoke-secondary) by [@joelpurra](https://github.com/joelpurra), for slide notes in a secondary window.
  - [bespoke-advanced](https://github.com/joelpurra/bespoke-advanced) by [@joelpurra](https://github.com/joelpurra), to automatically advance slides on a timer.
  - [bespoke-jumpy](https://github.com/joelpurra/bespoke-jumpy) by [@joelpurra](https://github.com/joelpurra), for keyboard shortcuts to jump straight to specific slides.
 
-If you'd like your plugin added to this list, [let me know](http://twitter.com/markdalgleish).
+If you'd like your plugin added to this list, [let me know](https://twitter.com/markdalgleish).
 
 ## Advanced Usage
 
@@ -380,24 +380,24 @@ bespoke.plugins.myPlugin = function(deck) {
 
 ## Presentations
 
- - [DIY Presentations With Bespoke.js](http://markdalgleish.com/presentations/bespoke.js/) by [Mark Dalgleish](http://twitter.com/markdalgleish)
- - [Bespoke.js: The Road to 1KB](http://markdalgleish.github.io/presentation-bespoke.js-the-road-to-1kb/) by [Mark Dalgleish](http://twitter.com/markdalgleish)
- - [Javascript's Slightly Stricter Mode](http://geelen.github.io/web-directions-talk/) by [Glen Maddern](http://twitter.com/glenmaddern)
- - [The Trials of Transition Height: Auto](http://superhighfives.github.io/tweetflight-presentation/) by [Charlie Gleason](http://twitter.com/superhighfives)
- - [Welcome Our New ES5 Overlords](http://mikemaccana.github.io/rejectjs2013) by [Mike MacCana](https://twitter.com/mikemaccana)
- - [Rapid Web App Dev With Yeoman](http://mjt01.github.io/slides-yeoman/) by [Michael Taranto](http://twitter.com/michaeltaranto)
- - [Projects vs Products](http://joho.github.io/wdyk/) by [John Barton](http://twitter.com/johnbarton)
- - [Learn You The Node.js For Much Win](http://r.va.gg/presentations/campjs-learn-you-node/) by [Rod Vagg](http://twitter.com/rvagg)
- - [A Real Database Rethink](http://r.va.gg/presentations/nodeconfeu.2013) by [Rod Vagg](http://twitter.com/rvagg)
- - [Feature Flags with Directives](http://mjt01.github.io/slides-feature-flags/) by [Michael Taranto](http://twitter.com/michaeltaranto)
- - [Introduction to hapi](http://wolfe.id.au/presentations/hapi/) by [Mark Wolfe](http://twitter.com/wolfeidau)
+ - [DIY Presentations With Bespoke.js](https://markdalgleish.com/presentations/bespoke.js/) by [Mark Dalgleish](https://twitter.com/markdalgleish)
+ - [Bespoke.js: The Road to 1KB](https://markdalgleish.github.io/presentation-bespoke.js-the-road-to-1kb/) by [Mark Dalgleish](https://twitter.com/markdalgleish)
+ - [Javascript's Slightly Stricter Mode](https://geelen.github.io/web-directions-talk/) by [Glen Maddern](https://twitter.com/glenmaddern)
+ - [The Trials of Transition Height: Auto](https://superhighfives.github.io/tweetflight-presentation/) by [Charlie Gleason](https://twitter.com/superhighfives)
+ - [Welcome Our New ES5 Overlords](https://mikemaccana.github.io/rejectjs2013) by [Mike MacCana](https://twitter.com/mikemaccana)
+ - [Rapid Web App Dev With Yeoman](https://mjt01.github.io/slides-yeoman/) by [Michael Taranto](https://twitter.com/michaeltaranto)
+ - [Projects vs Products](https://joho.github.io/wdyk/) by [John Barton](https://twitter.com/johnbarton)
+ - [Learn You The Node.js For Much Win](https://r.va.gg/presentations/campjs-learn-you-node/) by [Rod Vagg](https://twitter.com/rvagg)
+ - [A Real Database Rethink](https://r.va.gg/presentations/nodeconfeu.2013) by [Rod Vagg](https://twitter.com/rvagg)
+ - [Feature Flags with Directives](https://mjt01.github.io/slides-feature-flags/) by [Michael Taranto](https://twitter.com/michaeltaranto)
+ - [Introduction to hapi](https://wolfe.id.au/presentations/hapi/) by [Mark Wolfe](https://twitter.com/wolfeidau)
 
-Made a presentation with Bespoke.js? [Let me know](http://twitter.com/markdalgleish).
+Made a presentation with Bespoke.js? [Let me know](https://twitter.com/markdalgleish).
 
 ## Questions?
 
-Contact me on GitHub or Twitter: [@markdalgleish](http://twitter.com/markdalgleish)
+Contact me on GitHub or Twitter: [@markdalgleish](https://twitter.com/markdalgleish)
 
 ## License
 
-[MIT License](http://markdalgleish.mit-license.org)
+[MIT License](https://markdalgleish.mit-license.org)

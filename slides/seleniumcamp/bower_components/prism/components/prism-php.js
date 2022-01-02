@@ -1,6 +1,6 @@
 /**
- * Original by Aaron Harun: http://aahacreative.com/2012/07/31/php-syntax-highlighting-prism/
- * Modified by Miles Johnson: http://milesj.me
+ * Original by Aaron Harun: https://aahacreative.com/2012/07/31/php-syntax-highlighting-prism/
+ * Modified by Miles Johnson: https://milesj.me
  *
  * Supports the following:
  * 		- Extends clike syntax

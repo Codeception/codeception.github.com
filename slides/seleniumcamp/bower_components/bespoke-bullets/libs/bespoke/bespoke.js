@@ -3,7 +3,7 @@
  *
  * Copyright 2013, Mark Dalgleish
  * This content is released under the MIT license
- * http://mit-license.org/markdalgleish
+ * https://mit-license.org/markdalgleish
  */
 
 (function(moduleName, window, document) {
@@ -85,7 +85,7 @@
 			activate(0);
 
 			addClass(parent, 'parent');
-			
+
 			slides.map(function(slide) {
 				addClass(slide, 'slide');
 			});

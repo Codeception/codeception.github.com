@@ -8,8 +8,8 @@
     <link rel="stylesheet" type="text/css" href="bower_components/prism/themes/prism-tomorrow.css">
     <link rel="stylesheet" type="text/css" href="styles/main.css">
     <link rel="stylesheet" type="text/css" href="bower_components/prism/prism-tomorrow.css">
-    <link href="http://fonts.googleapis.com/css?family=Underdog&amp;subset=latin,cyrillic" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Scada&amp;subset=latin,cyrillic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Underdog&amp;subset=latin,cyrillic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Scada&amp;subset=latin,cyrillic" rel="stylesheet" type="text/css">
     <!-- endbuild-->
   </head>
   <body>
@@ -62,7 +62,7 @@
   if (strval($_SESSION['state']) !== strval($_GET['state'])) {
     die('The session state did not match.');
   }
-  
+
   $client->authenticate($_GET['code']);
   $_SESSION['token'] = $client->getAccessToken();
   header('Location: ' . $redirect);
@@ -217,7 +217,7 @@ $this->assertRegExp('/davert/i', $welcome);
       </section>
       <section>
         <h2>Демо</h2>
-        <pre><code class="language-php">$wd->open("http://api.jquery.com/dblclick/");
+        <pre><code class="language-php">$wd->open("https://api.jquery.com/dblclick/");
 $iframe = $wd->element(PHPWebDriver_WebDriverBy::CSS_SELECTOR, "iframe");
 $wd->moveto(array("element" => $iframe->getID()));
 $wd->switch_to_frame($iframe);
@@ -226,7 +226,7 @@ $clazz = $e->attribute('class');
 $this->assertEquals(null, $clazz);
 $ac = new PHPWebDriver_WebDriverActionChains($wd);
 $ac->doubleClick($wd->element(PHPWebDriver_WebDriverBy::CSS_SELECTOR, "div"));
-$ac->perform();            
+$ac->perform();
 </code></pre>
       </section>
       <section>
@@ -289,7 +289,7 @@ $firstResult->click();
       <section>
         <h2>Сравним их!</h2>
         <p><img src="images/train.jpg" style="width: 80%"></p>
-        <p>Закажем билеты на сайте <a href="http://booking.uz.gov.ua/">http://booking.uz.gov.ua/</a></p>
+        <p>Закажем билеты на сайте <a href="https://booking.uz.gov.ua/">https://booking.uz.gov.ua/</a></p>
       </section>
       <section>
         <h2>Мы написали тесты для всех клиентов</h2>
@@ -355,7 +355,7 @@ $firstResult->click();
   In order to see a word definition
   As a website user
   I need to be able to search for a word
-  
+
   Scenario: Searching for a page that does exist
     Given I am on "/wiki/Main_Page"
     When I fill in "search" with "Behavior Driven Development"
@@ -374,10 +374,10 @@ public function iChangeMyPassword()
     $page->login('kuba', '123123')
        ->changePassword('abcabc')
        ->logout();
-}            
+}
 </code></pre>
       </section>
-      <section>       
+      <section>
         <p><img src="images/codeception.png" style="width: 80%"></p>
         <h2>Codeception</h2>
         <ul>
@@ -414,7 +414,7 @@ $I->see('page created');
 $I = new WebGuy($scenario);
 $I->wantTo('create wiki page');
 $I->createPage('Hobbit', 'By Peter Jackson');
-$I->see('page created'); // notice generated            
+$I->see('page created'); // notice generated
 
 </code></pre>
       </section>
@@ -446,11 +446,11 @@ $I->see('page created'); // notice generated
         <h2>Спасибо за внимание. Боднарчук Михаил @davert</h2>
         <ul>
           <li>Сравнение клиентов <a href="https://github.com/DavertMik/WebDriverDemos">github.com/DavertMik/WebDriverDemos          </a></li>
-          <li>PHPUnit Selenium <a href="http://phpunit.de/manual/3.7/en/selenium.html">phpunit.de/manual/3.7/en/selenium.html</a></li>
+          <li>PHPUnit Selenium <a href="https://phpunit.de/manual/3.7/en/selenium.html">phpunit.de/manual/3.7/en/selenium.html</a></li>
           <li>Instaclick <a href="https://github.com/instaclick/php-webdriver">github.com/instaclick/php-webdriver</a></li>
           <li>Facebook php-webdriver<a href="https://github.com/facebook/php-webdriver">github.com/facebook/php-webdriver</a></li>
           <li>Behat <a href="behat.org">behat.org</a></li>
-          <li>Codeception <a href="http://codeception.com">codeception.com</a></li>
+          <li>Codeception <a href="https://codeception.com">codeception.com</a></li>
           <li>спасибо <b>Сереже Акулинину</b> и <b>Диме Жарию</b> за помощь в подготовке демок</li>
         </ul>
       </section>

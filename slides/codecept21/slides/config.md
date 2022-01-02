@@ -4,7 +4,7 @@
 modules:
     enabled:
         - WebDriver:
-            url: http://codeception.com
+            url: https://codeception.com
             browser: firefox
         - \Helper\Acceptance
 ```

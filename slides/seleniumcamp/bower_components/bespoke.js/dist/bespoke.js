@@ -3,7 +3,7 @@
  *
  * Copyright 2014, Mark Dalgleish
  * This content is released under the MIT license
- * http://mit-license.org/markdalgleish
+ * https://mit-license.org/markdalgleish
  */
 
 (function(moduleName, window) {

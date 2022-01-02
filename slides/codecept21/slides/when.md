@@ -4,4 +4,4 @@
 * backwards compatible (no major breaks)
 * try it now in `master` branch!
 
-http://codeception.com
+https://codeception.com

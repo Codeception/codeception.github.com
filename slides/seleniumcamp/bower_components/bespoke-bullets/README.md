@@ -1,4 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/markdalgleish/bespoke-bullets.png)](http://travis-ci.org/markdalgleish/bespoke-bullets)
+[![Build Status](https://secure.travis-ci.org/markdalgleish/bespoke-bullets.png)](https://travis-ci.org/markdalgleish/bespoke-bullets)
 
 # bespoke-bullets
 
@@ -15,7 +15,7 @@ Download the [production version][min] or the [development version][max].
 
 ### Bower
 
-Bespoke-bullets can be installed from [Bower](http://twitter.github.com/bower/) using the following command:
+Bespoke-bullets can be installed from [Bower](https://twitter.github.com/bower/) using the following command:
 
 ```bash
 $ bower install bespoke-bullets
@@ -97,10 +97,10 @@ bespoke.horizontal.from('article', {
 
 ## Questions?
 
-Contact me on GitHub or Twitter: [@markdalgleish](http://twitter.com/markdalgleish)
+Contact me on GitHub or Twitter: [@markdalgleish](https://twitter.com/markdalgleish)
 
 ## License
 
 Copyright 2013, Mark Dalgleish  
 This content is released under the MIT license  
-http://markdalgleish.mit-license.org
+https://markdalgleish.mit-license.org

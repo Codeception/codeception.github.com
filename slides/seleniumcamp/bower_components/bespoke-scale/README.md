@@ -2,7 +2,7 @@
 
 # bespoke-scale
 
-Responsive Slide Scaling for [Bespoke.js](http://markdalgleish.com/projects/bespoke.js)
+Responsive Slide Scaling for [Bespoke.js](https://markdalgleish.com/projects/bespoke.js)
 
 ## Download
 
@@ -58,7 +58,7 @@ $ bower install bespoke-scale
 $ npm install bespoke-scale
 ```
 
-The bespoke-scale npm package is designed for use with [browserify](http://browserify.org/), e.g.
+The bespoke-scale npm package is designed for use with [browserify](https://browserify.org/), e.g.
 
 ```js
 require('bespoke');
@@ -71,4 +71,4 @@ This plugin was built with [generator-bespokeplugin](https://github.com/markdalg
 
 ## License
 
-[MIT License](http://en.wikipedia.org/wiki/MIT_License)
+[MIT License](https://en.wikipedia.org/wiki/MIT_License)

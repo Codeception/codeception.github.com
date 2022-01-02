@@ -2,7 +2,7 @@
 
 # bespoke-keys
 
-Keyboard Support for [Bespoke.js](http://markdalgleish.com/projects/bespoke.js)
+Keyboard Support for [Bespoke.js](https://markdalgleish.com/projects/bespoke.js)
 
 ## Download
 
@@ -47,7 +47,7 @@ $ bower install bespoke-keys
 $ npm install bespoke-keys
 ```
 
-The bespoke-keys npm package is designed for use with [browserify](http://browserify.org/), e.g.
+The bespoke-keys npm package is designed for use with [browserify](https://browserify.org/), e.g.
 
 ```js
 require('bespoke');
@@ -60,4 +60,4 @@ This plugin was built with [generator-bespokeplugin](https://github.com/markdalg
 
 ## License
 
-[MIT License](http://en.wikipedia.org/wiki/MIT_License)
+[MIT License](https://en.wikipedia.org/wiki/MIT_License)
