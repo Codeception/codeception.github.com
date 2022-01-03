@@ -10,7 +10,7 @@ Regarding code style like indentation and whitespace, **follow the conventions y
 See the [Why does grunt complain that PhantomJS isn't installed?](https://github.com/gruntjs/grunt/blob/master/docs/faq.md#why-does-grunt-complain-that-phantomjs-isnt-installed) guide in the [Grunt FAQ](https://github.com/gruntjs/grunt/blob/master/docs/faq.md) for help with installing or troubleshooting PhantomJS.
 
 ## Modifying the code
-First, ensure that you have the latest [Node.js](http://nodejs.org/) and [npm](http://npmjs.org/) installed.
+First, ensure that you have the latest [Node.js](https://nodejs.org/) and [npm](https://npmjs.org/) installed.
 
 Test that grunt is installed globally by running `grunt --version` at the command-line.  If grunt isn't installed globally, run `npm install -g grunt` to install the latest version. _You may need to run `sudo npm install -g grunt`._
 

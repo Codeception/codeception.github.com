@@ -19,9 +19,9 @@
  * Brings an environment as close to ECMAScript 5 compliance
  * as is possible with the facilities of erstwhile engines.
  *
- * Annotated ES5: http://es5.github.com/ (specific links below)
- * ES5 Spec: http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf
- * Required reading: http://javascriptweblog.wordpress.com/2011/12/05/extending-javascript-natives/
+ * Annotated ES5: https://es5.github.com/ (specific links below)
+ * ES5 Spec: https://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf
+ * Required reading: https://javascriptweblog.wordpress.com/2011/12/05/extending-javascript-natives/
  */
 
 //
@@ -30,7 +30,7 @@
 //
 
 // ES-5 15.3.4.5
-// http://es5.github.com/#x15.3.4.5
+// https://es5.github.com/#x15.3.4.5
 
 function Empty() {}
 
@@ -183,7 +183,7 @@ if ((supportsAccessors = owns(prototypeOfObject, "__defineGetter__"))) {
 //
 
 // ES5 15.4.4.12
-// http://es5.github.com/#x15.4.4.12
+// https://es5.github.com/#x15.4.4.12
 // Default value for second param
 // [bugfix, ielt9, old browsers]
 // IE < 9 bug: [1,2].splice(0).join("") == "" but should be "12"
@@ -202,7 +202,7 @@ if ([1,2].splice(0).length != 2) {
 }
 
 // ES5 15.4.4.12
-// http://es5.github.com/#x15.4.4.13
+// https://es5.github.com/#x15.4.4.13
 // Return len+argCount.
 // [bugfix, ielt8]
 // IE < 8 bug: [].unshift(0) == undefined but should be "1"
@@ -215,7 +215,7 @@ if ([].unshift(0) != 1) {
 }
 
 // ES5 15.4.3.2
-// http://es5.github.com/#x15.4.3.2
+// https://es5.github.com/#x15.4.3.2
 // https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/isArray
 if (!Array.isArray) {
     Array.isArray = function isArray(obj) {
@@ -236,7 +236,7 @@ if (!Array.isArray) {
 // expressions.
 
 // ES5 15.4.4.18
-// http://es5.github.com/#x15.4.4.18
+// https://es5.github.com/#x15.4.4.18
 // https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/array/forEach
 
 // Check failure of by-index access of string characters (IE < 9)
@@ -271,7 +271,7 @@ if (!Array.prototype.forEach) {
 }
 
 // ES5 15.4.4.19
-// http://es5.github.com/#x15.4.4.19
+// https://es5.github.com/#x15.4.4.19
 // https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Array/map
 if (!Array.prototype.map) {
     Array.prototype.map = function map(fun /*, thisp*/) {
@@ -297,7 +297,7 @@ if (!Array.prototype.map) {
 }
 
 // ES5 15.4.4.20
-// http://es5.github.com/#x15.4.4.20
+// https://es5.github.com/#x15.4.4.20
 // https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Array/filter
 if (!Array.prototype.filter) {
     Array.prototype.filter = function filter(fun /*, thisp */) {
@@ -328,7 +328,7 @@ if (!Array.prototype.filter) {
 }
 
 // ES5 15.4.4.16
-// http://es5.github.com/#x15.4.4.16
+// https://es5.github.com/#x15.4.4.16
 // https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/every
 if (!Array.prototype.every) {
     Array.prototype.every = function every(fun /*, thisp */) {
@@ -354,7 +354,7 @@ if (!Array.prototype.every) {
 }
 
 // ES5 15.4.4.17
-// http://es5.github.com/#x15.4.4.17
+// https://es5.github.com/#x15.4.4.17
 // https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/some
 if (!Array.prototype.some) {
     Array.prototype.some = function some(fun /*, thisp */) {
@@ -380,7 +380,7 @@ if (!Array.prototype.some) {
 }
 
 // ES5 15.4.4.21
-// http://es5.github.com/#x15.4.4.21
+// https://es5.github.com/#x15.4.4.21
 // https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Array/reduce
 if (!Array.prototype.reduce) {
     Array.prototype.reduce = function reduce(fun /*, initial*/) {
@@ -429,7 +429,7 @@ if (!Array.prototype.reduce) {
 }
 
 // ES5 15.4.4.22
-// http://es5.github.com/#x15.4.4.22
+// https://es5.github.com/#x15.4.4.22
 // https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Array/reduceRight
 if (!Array.prototype.reduceRight) {
     Array.prototype.reduceRight = function reduceRight(fun /*, initial*/) {
@@ -477,7 +477,7 @@ if (!Array.prototype.reduceRight) {
 }
 
 // ES5 15.4.4.14
-// http://es5.github.com/#x15.4.4.14
+// https://es5.github.com/#x15.4.4.14
 // https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/indexOf
 if (!Array.prototype.indexOf || ([0, 1].indexOf(1, 2) != -1)) {
     Array.prototype.indexOf = function indexOf(sought /*, fromIndex */ ) {
@@ -507,7 +507,7 @@ if (!Array.prototype.indexOf || ([0, 1].indexOf(1, 2) != -1)) {
 }
 
 // ES5 15.4.4.15
-// http://es5.github.com/#x15.4.4.15
+// https://es5.github.com/#x15.4.4.15
 // https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/lastIndexOf
 if (!Array.prototype.lastIndexOf || ([0, 1].lastIndexOf(0, -3) != -1)) {
     Array.prototype.lastIndexOf = function lastIndexOf(sought /*, fromIndex */) {
@@ -540,9 +540,9 @@ if (!Array.prototype.lastIndexOf || ([0, 1].lastIndexOf(0, -3) != -1)) {
 //
 
 // ES5 15.2.3.14
-// http://es5.github.com/#x15.2.3.14
+// https://es5.github.com/#x15.2.3.14
 if (!Object.keys) {
-    // http://whattheheadsaid.com/2010/10/a-safer-object-keys-compatibility-implementation
+    // https://whattheheadsaid.com/2010/10/a-safer-object-keys-compatibility-implementation
     var hasDontEnumBug = true,
         dontEnums = [
             "toString",
@@ -594,7 +594,7 @@ if (!Object.keys) {
 //
 
 // ES5 15.9.5.43
-// http://es5.github.com/#x15.9.5.43
+// https://es5.github.com/#x15.9.5.43
 // This function returns a String value represent the instance in time
 // represented by this Date object. The format of the String is the Date Time
 // string format defined in 15.9.1.15. All fields are present in the String.
@@ -648,7 +648,7 @@ if (
 
 
 // ES5 15.9.5.44
-// http://es5.github.com/#x15.9.5.44
+// https://es5.github.com/#x15.9.5.44
 // This function provides a String representation of a Date object for use by
 // JSON.stringify (15.12.3).
 var dateToJSONIsSupported = false;
@@ -703,9 +703,9 @@ if (!dateToJSONIsSupported) {
 }
 
 // ES5 15.9.4.2
-// http://es5.github.com/#x15.9.4.2
+// https://es5.github.com/#x15.9.4.2
 // based on work shared by Daniel Friesen (dantman)
-// http://gist.github.com/303249
+// https://gist.github.com/303249
 if (!Date.parse || "Date.parse is buggy") {
     // XXX global assignment won't work in embeddings that use
     // an alternate object for the context.
@@ -844,7 +844,7 @@ if (!Date.parse || "Date.parse is buggy") {
 }
 
 // ES5 15.9.4.4
-// http://es5.github.com/#x15.9.4.4
+// https://es5.github.com/#x15.9.4.4
 if (!Date.now) {
     Date.now = function now() {
         return new Date().getTime();
@@ -859,7 +859,7 @@ if (!Date.now) {
 
 
 // ES5 15.5.4.14
-// http://es5.github.com/#x15.5.4.14
+// https://es5.github.com/#x15.5.4.14
 // [bugfix, chrome]
 // If separator is undefined, then the result array contains just one String,
 // which is the this value (converted to a String). If limit is not undefined,
@@ -897,13 +897,13 @@ if("".substr && "0b".substr(-1) !== "b") {
 }
 
 // ES5 15.5.4.20
-// http://es5.github.com/#x15.5.4.20
+// https://es5.github.com/#x15.5.4.20
 var ws = "\x09\x0A\x0B\x0C\x0D\x20\xA0\u1680\u180E\u2000\u2001\u2002\u2003" +
     "\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\u2028" +
     "\u2029\uFEFF";
 if (!String.prototype.trim || ws.trim()) {
-    // http://blog.stevenlevithan.com/archives/faster-trim-javascript
-    // http://perfectionkills.com/whitespace-deviations/
+    // https://blog.stevenlevithan.com/archives/faster-trim-javascript
+    // https://perfectionkills.com/whitespace-deviations/
     ws = "[" + ws + "]";
     var trimBeginRegexp = new RegExp("^" + ws + ws + "*"),
         trimEndRegexp = new RegExp(ws + ws + "*$");
@@ -923,8 +923,8 @@ if (!String.prototype.trim || ws.trim()) {
 //
 
 // ES5 9.4
-// http://es5.github.com/#x9.4
-// http://jsperf.com/to-integer
+// https://es5.github.com/#x9.4
+// https://jsperf.com/to-integer
 
 function toInteger(n) {
     n = +n;
@@ -970,7 +970,7 @@ function toPrimitive(input) {
 }
 
 // ES5 9.9
-// http://es5.github.com/#x9.9
+// https://es5.github.com/#x9.9
 var toObject = function (o) {
     if (o == null) { // this matches both null and undefined
         throw new TypeError("can't convert "+o+" to object");

@@ -5,7 +5,7 @@
   "description": "Slide-Specific Deck Styles for Bespoke.js",
   "author": {
     "name": "Mark Dalgleish",
-    "url": "http://markdalgleish.com"
+    "url": "https://markdalgleish.com"
   },
   "engines": {
     "node": ">= 0.8.0"
@@ -25,7 +25,7 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "http://mit-license.org/markdalgleish"
+      "url": "httsp://mit-license.org/markdalgleish"
     }
   ],
   "keywords": [

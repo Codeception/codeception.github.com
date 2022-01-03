@@ -1,6 +1,6 @@
 /**
  * Touch-based remote controller for your presentation courtesy 
- * of the folks at http://remotes.io
+ * of the folks at https://remotes.io
  */
 
 (function(window){

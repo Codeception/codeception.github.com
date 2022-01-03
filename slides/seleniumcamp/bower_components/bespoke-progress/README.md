@@ -2,7 +2,7 @@
 
 # bespoke-progress
 
-Progress Bar for [Bespoke.js](http://markdalgleish.com/projects/bespoke.js)
+Progress Bar for [Bespoke.js](https://markdalgleish.com/projects/bespoke.js)
 
 ## Download
 
@@ -37,7 +37,7 @@ $ bower install bespoke-progress
 $ npm install bespoke-progress
 ```
 
-The bespoke-progress npm package is designed for use with [browserify](http://browserify.org/), e.g.
+The bespoke-progress npm package is designed for use with [browserify](https://browserify.org/), e.g.
 
 ```js
 require('bespoke');
@@ -50,4 +50,4 @@ This plugin was built with [generator-bespokeplugin](https://github.com/markdalg
 
 ## License
 
-[MIT License](http://en.wikipedia.org/wiki/MIT_License)
+[MIT License](https://en.wikipedia.org/wiki/MIT_License)
