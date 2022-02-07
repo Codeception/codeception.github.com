@@ -61,7 +61,7 @@ modules:
 
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-  Continue to <a href="http://codeception.com/docs/04-FunctionalTests">Functional Testing Guide &raquo;</a>
+  Continue to <a href="https://codeception.com/docs/04-FunctionalTests">Functional Testing Guide &raquo;</a>
 </div>
 
 Codeception will also use **Eloquent to cleanup changes to database** by wrapping tests into transaction and rolling it back in the end of a test. This makes tests isolated and fast. Laravel module allows to access services from DIC container, user authentication methods, fixture generators, check form validations and more. 
@@ -84,7 +84,7 @@ Enable Laravel module in `unit.suite.yml` to have its methods inside a testcase.
 
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-  Continue to <a href="http://codeception.com/docs/05-UnitTests">Unit Testing Guide &raquo;</a>.
+  Continue to <a href="https://codeception.com/docs/05-UnitTests">Unit Testing Guide &raquo;</a>.
 </div>
 
 
@@ -152,7 +152,7 @@ Laravel module actions like `amOnPage` or `see` should not be available for test
 
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-  Continue to <a href="http://codeception.com/docs/10-APITesting#REST-API">REST API Testing Guide &raquo;</a>.
+  Continue to <a href="https://codeception.com/docs/10-APITesting#REST-API">REST API Testing Guide &raquo;</a>.
 </div>
 
 ### BDD
@@ -175,5 +175,5 @@ In the same manner features can be set up as functional tests.
 
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-  Continue to <a href="http://codeception.com/docs/07-BDD">Behavior Driven Development Guide &raquo;</a>
+  Continue to <a href="https://codeception.com/docs/07-BDD">Behavior Driven Development Guide &raquo;</a>
 </div>
