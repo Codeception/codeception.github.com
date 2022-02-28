@@ -25,7 +25,8 @@ algolia:
     - "2012-"
     - "2013-"
     - "2014-"
-# banner:
+banner:
   # disable content to show last blogpost
   # content: '🎉 Codeception truns 10! <a href="https://calendar.google.com/event?action=TEMPLATE&tmeid=NTBucXFnaGFpM2k3dHZ2YmNuYjE5MWdzdGYgMzBsbTRvNXU4NXBndGs3NTZtbmo4OTdvZWdAZw&tmsrc=30lm4o5u85pgtk756mnj897oeg%40group.calendar.google.com">Join online celebration</a> on November 30!'
   # content: '<a href="https://opencollective.com/codeception">Codeception is on OpenCollective! Support us 💖</a>'
+  content: '🇺🇦 Codeception was born in Kyiv 10 years ago. Today Kyiv is now under rocket attack. <a href="https://bank.gov.ua/en/news/all/natsionalniy-bank-vidkriv-spetsrahunok-dlya-zboru-koshtiv-na-potrebi-armiyi">You can help to stop this madness. Ukraine needs your support!</a>'
