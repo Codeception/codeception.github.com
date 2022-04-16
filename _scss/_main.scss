@@ -1685,6 +1685,9 @@ body #footer .links {
 
   .btn {
     width: 100%;
+    @media (max-width: 1199px) {
+      margin-bottom: 15px;
+    }
   }
 
   pre {
