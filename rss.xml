@@ -5,8 +5,8 @@ layout: nil
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Codeception</title>
-    <link>http://codeception.com/</link>
-    <atom:link href="http://codeception.com/rss.xml" rel="self" type="application/rss+xml" />
+    <link>https://codeception.com/</link>
+    <atom:link href="https://codeception.com/rss.xml" rel="self" type="application/rss+xml" />
     <description>Codeception: BDD-style testing in PHP</description>
     <language>en-us</language>
     <pubDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
@@ -15,10 +15,10 @@ layout: nil
     {% for post in site.posts %}
     <item>
       <title>{{ post.title }}</title>
-      <link>http://codeception.com{{ post.url }}</link>
+      <link>https://codeception.com{{ post.url }}</link>
       <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
       <author>codeception@davert.mail.ua (Michael Bodnarchuk)</author>
-      <guid>http://codeception.com{{ post.id }}</guid>
+      <guid>https://codeception.com{{ post.id }}</guid>
       <description><![CDATA[ {{ post.content }} ]]></description>
     </item>
     {% endfor %}
