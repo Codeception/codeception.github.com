@@ -260,63 +260,6 @@ class TaskCrudCest
 
 Learn more about the [Cest format](https://codeception.com/docs/07-AdvancedUsage#Cest-Classes) in the Advanced Testing section.
 
-## Interactive Pause
-
-It's hard to write a complete test at once. 
-You will need to try different commands with different arguments before you find a correct path.
-
-Execution can be paused at any point and enter an interactive shell where you will be able to try different commands in action.
-All you need to do is **call `$I->pause()`** somewhere in your test, then run the test in [debug mode](#Debugging).
-
-Interactive Pause requires [`hoa/console`](https://hoa-project.net/) which is not installed by default. To install it, run:
-
-{% highlight bash %}
-
-php composer.phar require --dev hoa/console
-
-{% endhighlight %}
-
-{% highlight php %}
-
-<?php
-// use pause inside a test:
-$I->pause(); 
-
-{% endhighlight %}
-
-The execution of the test is stopped at this point, and a console is shown where you can try all available commands "live". 
-This can be very useful when you write functional, acceptance, or api test.
-
-![](https://user-images.githubusercontent.com/220264/54929617-875ad180-4f1e-11e9-8fea-fc1b02423050.gif)
-
-Inside Interactive Pause you can use the entire power of the PHP interpreter: variables, functions, etc.
-You can access the result of the last executed command in a variable called `$result`.
-
-In acceptance or functional test you can save page screenshot or html snapshot.
-
-{% highlight php %}
-
-<?php
-// inside PhpBrowser, WebDriver, frameworks
-// saves current HTML and prints a path to created file 
-$I->makeHtmlSnapshot();
-
-// inside WebDriver
-// saves screenshot and prints a path to created file
-$I->makeScreenshot();
-
-{% endhighlight %}
-
-To try commands without running a single test you can launch interactive console:
-
-{% highlight bash %}
-
-$ php vendor/bin/codecept console suitename
-
-{% endhighlight %}
-
-Now you can execute all the commands of a corresponding Actor class and see the results immediately.
-
 ## BDD
 
 Codeception allows execution of user stories in Gherkin format in a similar manner as is done in Cucumber or Behat.
@@ -401,18 +344,11 @@ php vendor/bin/codecept run --steps --xml --html
 
 This command will run all tests for all suites, displaying the steps, and building HTML and XML reports. Reports will be stored in the `tests/_output/` directory.
 
-To see all the available options, run the following command:
-
-{% highlight bash %}
-
-php vendor/bin/codecept help run
-
-{% endhighlight %}
-
 ## Debugging
 
 To receive detailed output, tests can be executed with the `--debug` option.
-You may print any information inside a test using the `codecept_debug` function.
+
+Learn more about [debugging](/docs/Debugging).
 
 ### Generators
 
