@@ -128,6 +128,31 @@ class RoboFile extends \Robo\Tasks
         $this->changelog();
     }
 
+    public function buildDocsGuides() {
+        $guides = Finder::create()
+            ->ignoreVCS(true)
+            ->depth('== 0')
+            ->name('*.md')
+            ->sortByName()
+            ->in('guides');
+
+        $guidesLinks = [];
+
+        foreach ($guides as $file) {
+            $name = substr($file->getBasename(), 0, -3);
+            $title = preg_replace("(\d+-)", '', $name);
+            $this->_copy($file->getPathname(), 'docs' . DIRECTORY_SEPARATOR . $file->getBasename());
+            $this->_copy($file->getPathname(), 'docs' . DIRECTORY_SEPARATOR . $title . '.md');
+
+            $link = "/docs/$title";
+            $title = preg_replace('/([A-Z]+)([A-Z][a-z])/', '\\1 \\2', $title);
+            $title = preg_replace('/([a-z\d])([A-Z])/', '\\1 \\2', $title);
+
+            $guidesLinks[] = "<li><a href=\"$link\">$title</a></li>";
+        }
+        file_put_contents('_includes/guides.html', implode("\n", $guidesLinks));
+    }
+
     public function buildDocsModules()
     {
         $this->taskCleanDir('docs/modules')->run();
@@ -648,8 +673,8 @@ EOF;
                 date_format(date_create($release['published_at']),"Y/m/d H:i:s")
             );
 
-            $changelog .= " / [🦑 Repository](https://github.com/Codeception/$repo)  ";
-            $changelog .= " / [📦 Releases](https://github.com/Codeception/$repo/releases)\n\n";
+            $changelog .= " / [Repository](https://github.com/Codeception/$repo)  ";
+            $changelog .= " / [Releases](https://github.com/Codeception/$repo/releases)\n\n";
 
             $body = $release['body'];
             //user
