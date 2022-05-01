@@ -1,8 +1,3 @@
----
-layout: doc
-title: 07-AdvancedUsage - Codeception - Documentation
----
-
 # Advanced Usage
 
 In this chapter we will cover some techniques and options that you can use to improve your testing experience

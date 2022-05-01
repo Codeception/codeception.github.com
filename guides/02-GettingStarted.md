@@ -1,8 +1,3 @@
----
-layout: doc
-title: 02-GettingStarted - Codeception - Documentation
----
-
 # Getting Started
 
 Let's take a look at Codeception's architecture. We'll assume that you have already [installed](https://codeception.com/install) it

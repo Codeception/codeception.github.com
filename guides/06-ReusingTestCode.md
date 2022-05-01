@@ -1,8 +1,3 @@
----
-layout: doc
-title: 06-ReusingTestCode - Codeception - Documentation
----
-
 # Reusing Test Code
 
 Codeception uses modularity to create a comfortable testing environment for every test suite you write.

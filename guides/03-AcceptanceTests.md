@@ -1,8 +1,3 @@
----
-layout: doc
-title: 03-AcceptanceTests - Codeception - Documentation
----
-
 # Acceptance Testing
 
 Acceptance testing can be performed by a non-technical person. That person can be your tester, manager or even client.

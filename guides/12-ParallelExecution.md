@@ -1,12 +1,6 @@
----
-layout: doc
-title: 12-ParallelExecution - Codeception - Documentation
----
-
 # Parallel Execution
 
 When execution time of your tests is longer than a coffee break, it is a good reason to think about making your tests faster. If you have already tried to run them on SSD drive, and the execution time still upsets you, it might be a good idea to run your tests in parallel. However, PHP runs in a single-process and you can't parallelize tests natively similarly to how this works in Java or in NodeJS. In this guide we will overview the options you have to run your tests in parallel.
-
 
 Parallel Test Execution consists of 3 steps:
 
@@ -14,14 +8,73 @@ Parallel Test Execution consists of 3 steps:
 * running tests in parallel
 * merging results
 
-We propose to perform those steps using a task runner. In this guide we will use [**Robo**](https://robo.li) task runner. It is a modern PHP task runner that is very easy to use. It uses [Symfony Process](https://symfony.com/doc/current/components/process.html) to spawn background and parallel processes. Just what we need for the step 2! What about steps 1 and 3? We have created robo [tasks](https://github.com/Codeception/robo-paracept) for splitting tests into groups and merging resulting JUnit XML reports.
+Depending on the project size and requirements you can choose the proper way to implement parallel testing.
+In this guide we will overview possible options.
 
-To conclude, we need:
+## Continuous Integration
+
+If you use modern Continuous Integration setup you can split your tests by jobs and run them in parallel.
+In this case the burden of parallelization lies on CI server.
+This makes a lot of sense as a single machine has limited resources. So even if PHP could spawn multiple processes with tests at one point you would still need to split tests in CI jobs.
+If you split tests into CI jobs, you are limited only to the number of agents (build servers) that the CI can provide. For cloud-based services like GitHub Actions, GitLab CI, CircleCI, etc, this number is unlimited.
+
+![](images/codeception-pipeline.png)
+
+On the first stage, tests should be split into groups. The group file should be committed into the repository or passed to next stage as an artifact.
+
+On the second stage tests are executed. XML, HTML, and CodeCoverage reports must be stored as artifacts.
+
+On the third stage the results from previous jobs must be collected or aggregated.
+
+## Sharding
+
+Minimal setup can be implemented by executing several independent CI jobs and running.
+Sharding in Codeception allows to combine stages 1 and 2 so tests could be split by groups on the fly. 
+In this case a pipeline could be simplified to one stage with several jobs.  
+
+![](/images/codeception-sharding.png)
+
+Each job should have Codeception running a subset of tests set by `--shard` option:
+
+```
+# first job
+./venodor/bin/codecept run --shard 1/3
+
+# second job
+./venodor/bin/codecept run --shard 2/3
+
+# third job
+./venodor/bin/codecept run --shard 3/3
+```
+
+For each job you specify on how many groups tests should be split and the group that should be executed on this agent.
+I.e. `--shard` option takes 2 params: `--shard {currentGroup}/{numberOfGroups}`. So to split tests on 5 machines you need to create 5 jobs with Codeception running these shards: 1/5, 2/5, 3/5, 4/5, 5/5.
+
+Splitting test by shards is done automatically with zero-config. However, in this case you receive as many reports as jobs you have. To aggregate jobs store HTML, XML, and CodeCoverage results as artifacts and add an extra job in the end to merge them. Merging can be done with Robo-paracept toolset described below. 
+
+
+To get an aggregated report without an extra stage and without managing artifacts use [Testomat.io](https://testomat.io). This is a SaaS platform that can receive test results from different parallel run and show them in the one interface.
+
+![](images/testomatio-report.png)
+
+By running tests with Testomat.io reporter attached results will be sent to a centralized server. By default each execution will create its own report. To store results from different shards in one report set the Run title for them. You can use a common environment variable, like number of a build, to create the unique title which will be the same for all jobs. If build id is stored as $BUILDID variable, execution script for shard #3 can be following: 
+
+```
+TESTOMATIO={apiKey} TESTOMATIO_TITLE="Build $BUILDID" ./vendor/bin/codecept run --shard 3/4
+```
+
+## Building Pipeline  
+
+To get more control on how the jobs are split excuted and results aggregated you can use a task runner.  
+
+Codeception provides a toolset for [Robo task runner](https://robo.li) called [robo-paracept](https://github.com/Codeception/robo-paracept) for splitting tests into groups and merging resulting JUnit XML reports.
+
+To sum up, we need to install:
 
 * [Robo](https://robo.li), a task runner.
 * [robo-paracept](https://github.com/Codeception/robo-paracept) - Codeception tasks for parallel execution.
 
-## Preparing Robo and Robo-paracept
+## Using Robo and Robo-paracept
 
 Execute this command in an empty folder to install Robo and Robo-paracept :
 {% highlight bash %}
@@ -37,7 +90,7 @@ $ composer require codeception/codeception
 
 {% endhighlight %}
 
-### Preparing Robo
+### Setting up Robo
 
 Initializes basic RoboFile in the root of your project
 
@@ -289,31 +342,3 @@ To create one command to rule them all we can define new public method `parallel
 
 
 {% endhighlight %}
-
-## Continuous Integration
-
-If you use modern Continuous Integration setup you can split your tests by jobs and run them in parallel. 
-In this case the burden of parallelization lies on CI server. 
-This makes a lot of sense as a single machine has limited resources. So even if PHP could spawn multiple processes with tests at one point you would still need to split tests in CI jobs.
-If you split tests into CI jobs, you are limited only to the number of agents (build servers) that the CI can provide. For cloud-based services like GitHub Actions, GitLab CI, CircleCI, etc, this number is unlimited.
-
-Setting up a pipeline for CI server is similar to setting up parallelization with Robo except the second step. 
-
-![](images/codeception-pipeline.png)
-
-On the first stage, tests should be split into groups. The group file should be committed into the repository or passed to next stage as an artifact.
-
-On the second stage tests are executed. XML, HTML, and CodeCoverage reports must be stored as artifacts.
-
-On the third stage the results from previous jobs must be collected or aggregated. 
-
-> A minimal parallel setup can be done without 1st and 3rd stages. Split tests before the commit (maybe, using pre-commit hooks). If you don't need an aggregated report you can use results from each build jobs. This can also be convenient, as you still see what job has failed and which tests were affected. 
-
-To get an aggregated report without the need of dealing with artifacts use [Testomat.io](https://testomat.io).
-This is a SaaS platform that can receive test results from different parallel run and show them in the one interface.
-
-![](images/testomatio-report.png)
-
-## Conclusion
-
-Codeception does not provide tools for parallel test execution. This is a complex task and solutions may vary depending on a project. We use [Robo](https://robo.li) task runner as an external tool to perform all required steps. To prepare our tests to be executed in parallel we use Codeception features of dynamic groups and environments. To do even more we can create Extensions and Group classes to perform dynamic configuration depending on a test process.

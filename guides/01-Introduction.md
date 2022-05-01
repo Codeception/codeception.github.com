@@ -1,8 +1,3 @@
----
-layout: doc
-title: 01-Introduction - Codeception - Documentation
----
-
 # Introduction
 
 The idea behind testing is not new. You can't sleep well if you are not confident

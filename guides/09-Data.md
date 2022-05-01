@@ -1,8 +1,3 @@
----
-layout: doc
-title: 09-Data - Codeception - Documentation
----
-
 # Working with Data
 
 Tests should not affect each other. That's a rule of thumb. When tests interact with a database,

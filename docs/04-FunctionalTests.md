@@ -1,5 +1,11 @@
 ---
 layout: doc
+title: Functional Tests - Codeception Docs
+---
+
+
+---
+layout: doc
 title: 04-FunctionalTests - Codeception - Documentation
 ---
 
@@ -273,10 +279,4 @@ and manipulate their internal state. This makes your tests shorter and faster. I
 if you don't use frameworks there is no practical reason to write functional tests.
 If you are using a framework other than the ones listed here, create a module for it and share it with the community.
 
-
-
-
-* **Next Chapter: [UnitTests >](/docs/05-UnitTests)**
-* **Previous Chapter: [< AcceptanceTests](/docs/03-AcceptanceTests)**
-
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/04-FunctionalTests.md"><strong>Edit</strong> this page on GitHub</a></div>
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/guides/04-FunctionalTests.md"><strong>Improve</strong> this guide</a></div>

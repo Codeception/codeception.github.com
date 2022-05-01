@@ -140,13 +140,28 @@ class RoboFile extends \Robo\Tasks
 
         foreach ($guides as $file) {
             $name = substr($file->getBasename(), 0, -3);
-            $title = preg_replace("(\d+-)", '', $name);
-            $this->_copy($file->getPathname(), 'docs' . DIRECTORY_SEPARATOR . $file->getBasename());
-            $this->_copy($file->getPathname(), 'docs' . DIRECTORY_SEPARATOR . $title . '.md');
+            $titleName = preg_replace("(\d+-)", '', $name);
 
-            $link = "/docs/$title";
-            $title = preg_replace('/([A-Z]+)([A-Z][a-z])/', '\\1 \\2', $title);
+            $link = "/docs/$titleName";
+            $editLink = 'https://github.com/Codeception/codeception.github.com/edit/master/guides/' . $file->getBasename();
+            $title = preg_replace('/([A-Z]+)([A-Z][a-z])/', '\\1 \\2', $titleName);
             $title = preg_replace('/([a-z\d])([A-Z])/', '\\1 \\2', $title);
+
+            $contents = file_get_contents($file->getPathname());
+
+            foreach ([$file->getBasename(), $titleName . '.md'] as $filename) {
+                $this->taskWriteToFile('docs/' . $filename)
+                    ->line('---')
+                    ->line('layout: doc')
+                    ->line("title: $title - Codeception Docs")
+                    ->line('---')
+                    ->line('')
+                    ->line('')
+                    ->text($contents)
+                    ->line('')
+                    ->line('<div class="alert alert-warning"><a href="'.$editLink.'"><strong>Improve</strong> this guide</a></div>')
+                    ->run();
+            }
 
             $guidesLinks[] = "<li><a href=\"$link\">$title</a></li>";
         }

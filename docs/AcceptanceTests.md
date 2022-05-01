@@ -1,5 +1,11 @@
 ---
 layout: doc
+title: Acceptance Tests - Codeception Docs
+---
+
+
+---
+layout: doc
 title: 03-AcceptanceTests - Codeception - Documentation
 ---
 
@@ -916,10 +922,4 @@ You can easily test your Joomla, Drupal, WordPress sites, as well as those made 
 Writing acceptance tests is like describing a tester's actions in PHP. They are quite readable and very easy to write.
 If you need to access the database, you can use the [Db Module](https://codeception.com/docs/modules/Db).
 
-
-
-
-* **Next Chapter: [FunctionalTests >](/docs/04-FunctionalTests)**
-* **Previous Chapter: [< GettingStarted](/docs/02-GettingStarted)**
-
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/03-AcceptanceTests.md"><strong>Edit</strong> this page on GitHub</a></div>
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/guides/03-AcceptanceTests.md"><strong>Improve</strong> this guide</a></div>

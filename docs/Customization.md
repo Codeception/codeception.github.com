@@ -1,5 +1,11 @@
 ---
 layout: doc
+title: Customization - Codeception Docs
+---
+
+
+---
+layout: doc
 title: 08-Customization - Codeception - Documentation
 ---
 
@@ -495,8 +501,4 @@ If you see you have a problem that can be solved using these extensions, then gi
 
 
 
-
-* **Next Chapter: [Data >](/docs/09-Data)**
-* **Previous Chapter: [< BDD](/docs/07-BDD)**
-
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/08-Customization.md"><strong>Edit</strong> this page on GitHub</a></div>
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/guides/08-Customization.md"><strong>Improve</strong> this guide</a></div>

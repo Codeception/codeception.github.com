@@ -1,5 +1,11 @@
 ---
 layout: doc
+title: BDD - Codeception Docs
+---
+
+
+---
+layout: doc
 title: 07-BDD - Codeception - Documentation
 ---
 
@@ -639,7 +645,4 @@ Inside `@depends` block you should use test signature. Execute your feature with
 If you like the concept of Behavior Driven Development or prefer to keep test scenarios in human readable format, Codeception allows you to write and execute scenarios in Gherkin. Feature files is just another test format inside Codeception, so it can be combined with Cept and Cest files inside the same suite. Steps definitions of your scenarios can use all the power of Codeception modules, PageObjects, and StepObjects.
 
 
-
-
-* **Next Chapter: [Customization >](/docs/08-Customization)**
-* **Previous Chapter: [< AdvancedUsage](/docs/07-AdvancedUsage)**
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/guides/07-BDD.md"><strong>Improve</strong> this guide</a></div>

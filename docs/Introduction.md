@@ -1,5 +1,11 @@
 ---
 layout: doc
+title: Introduction - Codeception Docs
+---
+
+
+---
+layout: doc
 title: 01-Introduction - Codeception - Documentation
 ---
 
@@ -129,9 +135,4 @@ It allows writing unit, functional, integration, and acceptance tests in a singl
 All Codeception tests are written in a descriptive manner.
 Just by looking at the test body, you can clearly understand what is being tested and how it is performed.
 
-
-
-
-* **Next Chapter: [GettingStarted >](/docs/02-GettingStarted)**
-
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/01-Introduction.md"><strong>Edit</strong> this page on GitHub</a></div>
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/guides/01-Introduction.md"><strong>Improve</strong> this guide</a></div>

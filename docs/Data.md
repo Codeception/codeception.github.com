@@ -1,5 +1,11 @@
 ---
 layout: doc
+title: Data - Codeception Docs
+---
+
+
+---
+layout: doc
 title: 09-Data - Codeception - Documentation
 ---
 
@@ -418,9 +424,4 @@ and cleaning up are bundled within the `Db` module. If you use ORM, you can use 
 to operate with database through a data abstraction layer, and use the DataFactory module to generate new records with ease.
 
 
-
-
-* **Next Chapter: [APITesting >](/docs/10-APITesting)**
-* **Previous Chapter: [< Customization](/docs/08-Customization)**
-
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/09-Data.md"><strong>Edit</strong> this page on GitHub</a></div>
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/guides/09-Data.md"><strong>Improve</strong> this guide</a></div>

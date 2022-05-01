@@ -1,5 +1,11 @@
 ---
 layout: doc
+title: Modules And Helpers - Codeception Docs
+---
+
+
+---
+layout: doc
 title: 06-ModulesAndHelpers - Codeception - Documentation
 ---
 
@@ -612,10 +618,4 @@ you are free to write your own! Use Helpers (custom modules) for everything that
 Helpers also can be used to extend the functionality of the original modules.
 
 
-
-
-* **Next Chapter: [ReusingTestCode >](/docs/06-ReusingTestCode)**
-* **Previous Chapter: [< UnitTests](/docs/05-UnitTests)**
-
-
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/06-ModulesAndHelpers.md"><strong>Edit</strong> this page on GitHub</a></div>
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/guides/06-ModulesAndHelpers.md"><strong>Improve</strong> this guide</a></div>

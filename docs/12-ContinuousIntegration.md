@@ -1,5 +1,11 @@
 ---
 layout: doc
+title: Continuous Integration - Codeception Docs
+---
+
+
+---
+layout: doc
 title: 12-ContinuousIntegration - Codeception - Documentation
 ---
 
@@ -207,7 +213,5 @@ test:
 
 It is highly recommended to use Continuous Integration system in development. Codeception is easy to install and run in any CI systems. However, each of them has their differences you should take into account. You can use different reporters to provide output in format expected by CI system.
 
-* **Next Chapter: [ParallelExecution >](/docs/12-ParallelExecution)**
-* **Previous Chapter: [< Codecoverage](/docs/11-Codecoverage)**
 
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/12-ContinuousIntegration.md"><strong>Edit</strong> this page on GitHub</a></div>
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/guides/12-ContinuousIntegration.md"><strong>Improve</strong> this guide</a></div>

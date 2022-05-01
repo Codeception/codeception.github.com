@@ -1,8 +1,3 @@
----
-layout: doc
-title: 05-UnitTests - Codeception - Documentation
----
-
 # Unit & Integration Tests
 
 Codeception uses PHPUnit as a backend for running its tests. Thus, any PHPUnit test can be added to a Codeception test suite

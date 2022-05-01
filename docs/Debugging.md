@@ -1,3 +1,9 @@
+---
+layout: doc
+title: Debugging - Codeception Docs
+---
+
+
 # Debugging
 
 Writing a test is always the process of learning the code and the application.
@@ -63,3 +69,5 @@ $I->pause(['user' => $user])
 codecept_pause(['user' => $user]);
 {% endhighlight %}
 
+
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/guides/06-Debugging.md"><strong>Improve</strong> this guide</a></div>

@@ -1,5 +1,11 @@
 ---
 layout: doc
+title: Reusing Test Code - Codeception Docs
+---
+
+
+---
+layout: doc
 title: 06-ReusingTestCode - Codeception - Documentation
 ---
 
@@ -292,7 +298,4 @@ Scenario-driven tests should not contain anything more complex than `$I->doSomet
 Following this approach will allow you to keep your tests clean, readable, stable and make them easy to maintain.
 
 
-
-
-* **Next Chapter: [AdvancedUsage >](/docs/07-AdvancedUsage)**
-* **Previous Chapter: [< ModulesAndHelpers](/docs/06-ModulesAndHelpers)**
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/guides/06-ReusingTestCode.md"><strong>Improve</strong> this guide</a></div>
