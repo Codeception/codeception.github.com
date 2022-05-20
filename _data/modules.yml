@@ -52,12 +52,7 @@
   
 - name: Date/Time
   link: https://github.com/nathanmac/datetime-codeception-module
-  description: This module provides additional helpers for your test to help with date and time comparisons.
-
-- name: Doctrine1
-  link: https://github.com/Codeception/Doctrine1Module
-  description: Module for Doctrine 1.x ORM (deprecated in Codeception 2.1).
-  color: "#eee"
+  description: Additional helpers for date and time comparisons, e.g. seeDateIsToday()
 
 - name: Drupal
   link: https://github.com/guncha25/drupal-codeception
@@ -153,11 +148,6 @@
 - name: Stepler
   link: https://github.com/nicholascus/codeception-stepler
   description: Enabling step-by-step console execution in bebugging mode.
-
-- name: Symfony1
-  link: https://github.com/Codeception/symfony1module
-  description: Module for symfony 1.x framework (deprecated in Codeception 2.1).
-  color: "#eee"
 
 - name: VisualCeption
   link: https://github.com/Codeception/VisualCeption
