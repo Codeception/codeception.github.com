@@ -23,6 +23,6 @@
     "codeception/module-soap": "*",
     "codeception/module-webdriver": "*",
     "hoa/console": "*",
-    "padraic/phar-updater": "^1.0"
+    "laravel-zero/phar-updater": "^1.0"
   }
 }
