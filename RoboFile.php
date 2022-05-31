@@ -500,7 +500,9 @@ EOF;
         $this->stopOnFail();
 
         $this->taskFilesystemStack()->mkdir('build/72')->run();
+        $this->setCodeceptionVersionTo('^4.1');
         $this->setPlatformVersionTo('7.2.0');
+        $this->requireHoaConsole();
         $buildFile = 'build/72/codecept.phar';
         $this->buildPhar($buildFile);
         $this->updateVersionFile($buildFile, 'codecept.version');
@@ -521,7 +523,9 @@ EOF;
         $this->stopOnFail();
 
         $this->taskFilesystemStack()->mkdir('build/56')->run();
+        $this->setCodeceptionVersionTo('^4.1');
         $this->setPlatformVersionTo('5.6.4');
+        $this->requireHoaConsole();
         //filenames must be different, because Phar refuses to build second file with the same name
         $buildFile = 'build/56/codecept.phar';
         $this->buildPhar($buildFile);
@@ -534,12 +538,14 @@ EOF;
             ->remove('php56/codecept.phar')
             ->symlink("../$versionedFile", 'php56/codecept.phar')
             ->run();
-
     }
 
-    public function findReleases()
+    private function requireHoaConsole(): void
     {
-
+        $this->taskComposerRequire()
+            ->dependency('hoa/console')
+            ->workingDir('package')
+            ->run();
     }
 
     public function release()

@@ -22,7 +22,6 @@
     "codeception/module-sequence": "*",
     "codeception/module-soap": "*",
     "codeception/module-webdriver": "*",
-    "hoa/console": "*",
     "laravel-zero/phar-updater": "^1.0"
   }
 }
