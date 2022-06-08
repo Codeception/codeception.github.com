@@ -44,9 +44,7 @@ With acceptance tests, you can be confident that users, following all the define
 
 #### Sample acceptance test
 
-{% highlight php %}
-
-<?php
+```php
 $I->amOnPage('/');
 $I->click('Sign Up');
 $I->submitForm('#signup', [
@@ -54,8 +52,7 @@ $I->submitForm('#signup', [
   'email' => 'miles@davis.com'
 ]);
 $I->see('Thank you for Signing Up!');
-
-{% endhighlight %}
+```
 
 ### Functional Tests
 
@@ -68,17 +65,14 @@ For functional tests, your application needs to be structured in order to run in
 
 #### Sample functional test
 
-{% highlight php %}
-
-<?php
+```php
 $I->amOnPage('/');
 $I->click('Sign Up');
 $I->submitForm('#signup', ['username' => 'MilesDavis', 'email' => 'miles@davis.com']);
 $I->see('Thank you for Signing Up!');
 $I->seeEmailSent('miles@davis.com', 'Thank you for registration');
 $I->seeInDatabase('users', ['email' => 'miles@davis.com']);
-
-{% endhighlight %}
+```
 
 > This looks very similar to acceptance tests. The behavior is the same, however, the test is executed inside PHP without launching a browser.
 
@@ -98,9 +92,7 @@ The better you understand the testing scenario, the faster you can update it for
 
 #### Sample integration test
 
-{% highlight php %}
-
-<?php
+```php
 public function testSavingUser()
 {
     $user = new User();
@@ -113,8 +105,7 @@ public function testSavingUser()
       'surname' => 'Davis'
     ]);
 }
-
-{% endhighlight %}
+```
 
 ## Conclusion
 

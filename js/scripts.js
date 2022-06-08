@@ -60,20 +60,10 @@ $(document).ready(function () {
     });
   }
 
-  var cpContainer = $(".cp:contains('<?php')");
-  var cpContains = $(".cp:contains('?>')");
   var page = $('#page table');
   var tocNext = $('#toc');
   var tocNextUl = $('#toc > ul');
   var tocNextUlLi = $('#toc ul.list li a');
-
-  if(cpContainer.length) {
-    cpContainer.css({ visibility : 'hidden' });
-  }
-
-  if(cpContains.length) {
-    cpContains.css({ visibility : 'hidden' });
-  }
 
   if(page.length) {
     page.addClass('table table-striped table-bordered');

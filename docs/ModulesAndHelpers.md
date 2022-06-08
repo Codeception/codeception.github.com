@@ -4,11 +4,6 @@ title: Modules And Helpers - Codeception Docs
 ---
 
 
----
-layout: doc
-title: 06-ModulesAndHelpers - Codeception - Documentation
----
-
 # Modules and Helpers
 
 Codeception uses modularity to create a comfortable testing environment for every test suite you write.

@@ -4,11 +4,6 @@ title: Codecoverage - Codeception Docs
 ---
 
 
----
-layout: doc
-title: 11-Codecoverage - Codeception - Documentation
----
-
 # Code Coverage
 
 At some point you want to review which parts of your application are tested well and which are not.

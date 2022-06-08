@@ -4,11 +4,6 @@ title: Advanced Usage - Codeception Docs
 ---
 
 
----
-layout: doc
-title: 07-AdvancedUsage - Codeception - Documentation
----
-
 # Advanced Usage
 
 In this chapter we will cover some techniques and options that you can use to improve your testing experience
@@ -112,25 +107,23 @@ passing all dependencies as arguments. This may be useful when working with Help
 {% highlight php %}
 
 <?php
+namespace Tests\Unit;
+use Tests\TestSupport\AcceptanceTester;
+use Tests\TestSupport\Helper\SignUp;
+use Tests\TestSupport\Helper\NavBar;
+
 class SignUpCest
 {
-    /**
-     * @var Helper\SignUp
-     */
-    protected $signUp;
+    protected SignUp $signUp;
+    protected NavBar $navBar;
 
-    /**
-     * @var Helper\NavBarHelper
-     */
-    protected $navBar;
-
-    protected function _inject(\Helper\SignUp $signUp, \Helper\NavBar $navBar)
+    protected function _inject(SignUp $signUp, NavBar $navBar)
     {
         $this->signUp = $signUp;
         $this->navBar = $navBar;
     }
 
-    public function signUp(\AcceptanceTester $I)
+    public function signUp(AcceptanceTester $I)
     {
         $this->navBar->click('Sign up');
         $this->signUp->register([
@@ -150,17 +143,12 @@ And for Test classes:
 {% highlight php %}
 
 <?php
+namespace Tests\Unit;
+
 class MathTest extends \Codeception\TestCase\Test
 {
-   /**
-    * @var \UnitTester
-    */
-    protected $tester;
-
-    /**
-     * @var Helper\Math
-     */
-    protected $math;
+    protected UnitTester $tester;
+    protected Helper\Math $math;
 
     protected function _inject(\Helper\Math $math)
     {

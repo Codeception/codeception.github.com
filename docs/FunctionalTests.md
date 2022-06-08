@@ -4,11 +4,6 @@ title: Functional Tests - Codeception Docs
 ---
 
 
----
-layout: doc
-title: 04-FunctionalTests - Codeception - Documentation
----
-
 # Functional Tests
 
 Now that we've written some acceptance tests, functional tests are almost the same, with one major difference:

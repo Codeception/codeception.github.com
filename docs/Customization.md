@@ -4,11 +4,6 @@ title: Customization - Codeception Docs
 ---
 
 
----
-layout: doc
-title: 08-Customization - Codeception - Documentation
----
-
 # Customization
 
 In this chapter we will explain how you can extend and customize the file structure and test execution routines.

@@ -4,11 +4,6 @@ title: API Testing - Codeception Docs
 ---
 
 
----
-layout: doc
-title: 10-APITesting - Codeception - Documentation
----
-
 # API Testing
 
 The same way we tested a web site, Codeception allows you to test web services. They are very hard to test manually, so it's a really good idea to automate web service testing. We have SOAP and REST as standards, which are represented in corresponding modules, which we will cover in this chapter.
