@@ -91,6 +91,7 @@ Possible settings:
 * `backup_globals: true`: Controls whether PHPUnit attempts to backup global variables, see https://phpunit.de/manual/current/en/appendixes.annotations.html#appendixes.annotations.backupGlobals
 * `be_strict_about_changes_to_global_state: false`: PHPUnit can be strict about tests that manipulate global state, see https://phpunit.de/manual/current/en/risky-tests.html#risky-tests.global-state-manipulation
 * `colors: true`: By default this is false on Windows. Use [ANSICON](https://github.com/adoxa/ansicon) to colorize output.
+* `convert_deprecations_to_exceptions: false` Converts E_DEPRECATED and E_USER_DEPRECATED events to exceptions. Introduced in Codeception 4.2.0
 * `disallow_test_output: false`: PHPUnit can be strict about output during tests, see https://phpunit.de/manual/current/en/risky-tests.html#risky-tests.output-during-test-execution
 * `editor_url: 'atom://core/open/file?filename=%%file%%&line=%%line%%'`: In the console output, the test runner will replace all references to files with "clickable" URL's, allowing you to open the file directly in your IDE. Depending on your operating system, you may have to set up an appropriate uri handler. Syntax for some common editors (same as in [PHPStan](https://phpstan.org/user-guide/output-format#opening-file-in-an-editor)):
     * PhpStorm: `'phpstorm://open?file=%%file%%&line=%%line%%'`
