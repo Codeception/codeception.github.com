@@ -10,7 +10,7 @@ class RoboFile extends \Robo\Tasks
     use DocumentationHelpers;
 
     const REPO_BLOB_URL = 'https://github.com/Codeception/Codeception/blob';
-    const STABLE_BRANCH = '4.1';
+    const STABLE_BRANCH = '4.2';
 
     function post()
     {
