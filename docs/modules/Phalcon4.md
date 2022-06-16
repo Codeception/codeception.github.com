@@ -32,7 +32,7 @@ Warning. Using PHAR file and composer in the same project can cause unexpected e
 
 
 
-This module provides integration with [Phalcon framework](https://www.phalcon.io/) (4.x).
+This module provides integration with [Phalcon framework](http://www.phalcon.io/) (4.x).
 Please try it and leave your feedback.
 
 ### Status

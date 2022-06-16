@@ -9,6 +9,1407 @@ title: Codeception Changelog
 
 
 
+### Codeception 4.2.0: 4.2.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/06/16 05:51:13 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Improved multi-application experience, allow filtering suites by name ([#6435](https://github.com/Codeception/Codeception/issues/6435)) by **[calvinalkan](https://github.com/calvinalkan)**
+* Configuration override is passed to included suites ([#5978](https://github.com/Codeception/Codeception/issues/5978)) by **[calvinalkan](https://github.com/calvinalkan)**
+* Made dry-run command work with module methods having return types ([#6470](https://github.com/Codeception/Codeception/issues/6470))
+* Support for expectError/Warning/Notice/Deprecation methods in unit tests (Requires PHPUnit 8.4+)
+* Implemented new setting `convert_deprecations_to_exceptions` ([#6469](https://github.com/Codeception/Codeception/issues/6469))
+* Action file generator: Do not return when return type is never ([#6462](https://github.com/Codeception/Codeception/issues/6462))
+* Backported test.useless event from Codeception 5.0 ([#6459](https://github.com/Codeception/Codeception/issues/6459))
+
+
+### Codeception 4.2.0: 4.2.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/06/16 05:51:13 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Improved multi-application experience, allow filtering suites by name ([#6435](https://github.com/Codeception/Codeception/issues/6435)) by **[calvinalkan](https://github.com/calvinalkan)**
+* Configuration override is passed to included suites ([#5978](https://github.com/Codeception/Codeception/issues/5978)) by **[calvinalkan](https://github.com/calvinalkan)**
+* Made dry-run command work with module methods having return types ([#6470](https://github.com/Codeception/Codeception/issues/6470))
+* Support for expectError/Warning/Notice/Deprecation methods in unit tests (Requires PHPUnit 8.4+)
+* Implemented new setting `convert_deprecations_to_exceptions` ([#6469](https://github.com/Codeception/Codeception/issues/6469))
+* Action file generator: Do not return when return type is never ([#6462](https://github.com/Codeception/Codeception/issues/6462))
+* Backported test.useless event from Codeception 5.0 ([#6459](https://github.com/Codeception/Codeception/issues/6459))
+
+
+### module-phalcon5 v2.0.0: v2.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/1073784?v=4&s=16) niden](https://github.com/niden) on 2022/06/03 15:20:26 / [🦑 Repository](https://github.com/Codeception/module-phalcon5)   / [📦 Releases](https://github.com/Codeception/module-phalcon5/releases)
+
+
+
+Supports PHP versions: 8.0, 8.1
+
+* Use of Codeception v5+
+* Use of Phalcon 5.0.0RC1+
+* Corrected namespaces
+* Cosmetic changes
+
+
+### module-sequence 3.0.0: 3.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/05/31 05:48:59 / [🦑 Repository](https://github.com/Codeception/module-sequence)   / [📦 Releases](https://github.com/Codeception/module-sequence/releases)
+
+
+
+* Support for Codeception 5
+
+
+### module-queue 3.0.0: 3.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/05/30 06:22:13 / [🦑 Repository](https://github.com/Codeception/module-queue)   / [📦 Releases](https://github.com/Codeception/module-queue/releases)
+
+
+
+* Support Codeception 5
+
+
+### module-queue 2.1.0: 2.1.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/05/30 06:18:31 / [🦑 Repository](https://github.com/Codeception/module-queue)   / [📦 Releases](https://github.com/Codeception/module-queue/releases)
+
+
+
+* Declared more types in method signatures
+
+
+### module-symfony 3.1.0: 3.1.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2022/05/27 22:41:40 / [🦑 Repository](https://github.com/Codeception/module-symfony)   / [📦 Releases](https://github.com/Codeception/module-symfony/releases)
+
+
+
+## What's Changed
+* Symfony 6.0 support: Session Assertions by **[semaz](https://github.com/semaz)** in https://github.com/Codeception/module-symfony/pull/157 and **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-symfony/pull/158
+* Symfony 6.0 Support: Form Assertions by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-symfony/pull/158
+
+**Full Changelog**: https://github.com/Codeception/module-symfony/compare/3.0.0...3.1.0
+
+
+### module-mongodb 3.0.0: 3.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/05/27 06:42:29 / [🦑 Repository](https://github.com/Codeception/module-mongodb)   / [📦 Releases](https://github.com/Codeception/module-mongodb/releases)
+
+
+
+* Support Codeception 5
+
+
+### module-memcache 3.0.0: 3.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/05/27 05:49:34 / [🦑 Repository](https://github.com/Codeception/module-memcache)   / [📦 Releases](https://github.com/Codeception/module-memcache/releases)
+
+
+
+* Support for Codeception 5
+* Use mixed type in method signatures
+
+
+### module-memcache 2.0.1: 2.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/05/27 05:40:50 / [🦑 Repository](https://github.com/Codeception/module-memcache)   / [📦 Releases](https://github.com/Codeception/module-memcache/releases)
+
+
+
+* Specified types in more method signatures
+
+
+### module-ftp 3.0.0: 3.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/05/26 05:55:16 / [🦑 Repository](https://github.com/Codeception/module-ftp)   / [📦 Releases](https://github.com/Codeception/module-ftp/releases)
+
+
+
+* Support Codeception 5
+
+
+### module-ftp 2.0.3: 2.0.3
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/05/26 05:52:13 / [🦑 Repository](https://github.com/Codeception/module-ftp)   / [📦 Releases](https://github.com/Codeception/module-ftp/releases)
+
+
+
+* Specified parameter types for more methods
+
+
+### module-ftp 2.0.2: 2.0.2
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/05/26 05:43:35 / [🦑 Repository](https://github.com/Codeception/module-ftp)   / [📦 Releases](https://github.com/Codeception/module-ftp/releases)
+
+
+
+* Fixed return types of `grabFileSize` and `grabFileModified`
+* `$contents` parameter of `writeToFile` must be string.
+* Added types to signatures were possible.
+* Fixed assignment to `$this->filePath`
+
+
+### module-apc 3.0.0: 3.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/05/26 04:56:29 / [🦑 Repository](https://github.com/Codeception/module-apc)   / [📦 Releases](https://github.com/Codeception/module-apc/releases)
+
+
+
+* Support for Codeception 5
+* Removed support for APC extension
+* Stricter types
+
+
+### module-phpbrowser 1.0.3: 1.0.3
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/05/21 13:52:31 / [🦑 Repository](https://github.com/Codeception/module-phpbrowser)   / [📦 Releases](https://github.com/Codeception/module-phpbrowser/releases)
+
+
+
+* Updated dependencies
+
+
+### module-phpbrowser 2.0.3: 2.0.3
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/05/21 13:49:33 / [🦑 Repository](https://github.com/Codeception/module-phpbrowser)   / [📦 Releases](https://github.com/Codeception/module-phpbrowser/releases)
+
+
+
+* Updated dependencies
+
+
+### Codeception 5.0.0-RC3: 5.0.0-RC3
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/04/22 10:32:33 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Fix incorrect type declaration in InitTemplate by **[ziadoz](https://github.com/ziadoz)**
+* Stricter check for phpdotenv v5 (older versions are not supported)
+* Throw exception if actor setting is missing in suite configuration
+* Use correct types in ParamsLoader and Configuration classes, avoid type errors
+
+
+### Codeception 5.0.0-RC3: 5.0.0-RC3
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/04/22 10:32:33 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Fix incorrect type declaration in InitTemplate by **[ziadoz](https://github.com/ziadoz)**
+* Stricter check for phpdotenv v5 (older versions are not supported)
+* Throw exception if actor setting is missing in suite configuration
+* Use correct types in ParamsLoader and Configuration classes, avoid type errors
+
+
+### module-laravel 3.0.0: 3.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/04/20 10:13:08 / [🦑 Repository](https://github.com/Codeception/module-laravel)   / [📦 Releases](https://github.com/Codeception/module-laravel/releases)
+
+
+
+* Support for Codeception 5
+* Only Laravel 8 is supported
+
+
+### module-webdriver 3.1.1: 3.1.1
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/04/09 08:33:11 / [🦑 Repository](https://github.com/Codeception/module-webdriver)   / [📦 Releases](https://github.com/Codeception/module-webdriver/releases)
+
+
+
+* Removed dontSeeCheckboxIsChecked parameter type declaration to permit arrays
+
+
+### Codeception 5.0.0-RC2: 5.0.0-RC2
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/04/08 07:05:05 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Added `--shard`, `--grep`, `--filter` options ([#6399](https://github.com/Codeception/Codeception/issues/6399))
+* Added new code coverage settings ([#6423](https://github.com/Codeception/Codeception/issues/6423))
+* Dynamic configuration with parameters can use arrays and other non-string types ([#6409](https://github.com/Codeception/Codeception/issues/6409))
+* Introduced `codecept_pause` function and `$this->pause()` in unit tests ([#6387](https://github.com/Codeception/Codeception/issues/6387))
+* Interactive console is executed in the scope of paused test class.
+* Array of variables can be passed to all `pause` functions/methods
+* Replaced Hoa Console with PsySH in `codecept console`
+* Used Symfony VarDumper in `codecept_debug` ([#6406](https://github.com/Codeception/Codeception/issues/6406))
+* Fixed type error in code coverage exclude filter by **[W0rma](https://github.com/W0rma)**
+* Fix type error in Recorder extension
+
+
+### Codeception 5.0.0-RC2: 5.0.0-RC2
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/04/08 07:05:05 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Added `--shard`, `--grep`, `--filter` options ([#6399](https://github.com/Codeception/Codeception/issues/6399))
+* Added new code coverage settings ([#6423](https://github.com/Codeception/Codeception/issues/6423))
+* Dynamic configuration with parameters can use arrays and other non-string types ([#6409](https://github.com/Codeception/Codeception/issues/6409))
+* Introduced `codecept_pause` function and `$this->pause()` in unit tests ([#6387](https://github.com/Codeception/Codeception/issues/6387))
+* Interactive console is executed in the scope of paused test class.
+* Array of variables can be passed to all `pause` functions/methods
+* Replaced Hoa Console with PsySH in `codecept console`
+* Used Symfony VarDumper in `codecept_debug` ([#6406](https://github.com/Codeception/Codeception/issues/6406))
+* Fixed type error in code coverage exclude filter by **[W0rma](https://github.com/W0rma)**
+* Fix type error in Recorder extension
+
+
+### module-rest 2.0.2: 2.0.2
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/30 05:43:05 / [🦑 Repository](https://github.com/Codeception/module-rest)   / [📦 Releases](https://github.com/Codeception/module-rest/releases)
+
+
+
+* Don't pass NULL to isBinaryData in `_failed`.
+
+
+### module-lumen 3.0.0: 3.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/29 18:00:52 / [🦑 Repository](https://github.com/Codeception/module-lumen)   / [📦 Releases](https://github.com/Codeception/module-lumen/releases)
+
+
+
+* Compatibility with Codeception 5
+
+
+### module-phpbrowser 3.0.0: 3.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/20 09:45:52 / [🦑 Repository](https://github.com/Codeception/module-phpbrowser)   / [📦 Releases](https://github.com/Codeception/module-phpbrowser/releases)
+
+
+
+* Support for Codeception 5
+
+
+### module-amqp 3.0.0: 3.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/20 09:26:33 / [🦑 Repository](https://github.com/Codeception/module-amqp)   / [📦 Releases](https://github.com/Codeception/module-amqp/releases)
+
+
+
+* Support for Codeception 5, thanks to **[W0rma](https://github.com/W0rma)** 
+
+
+### module-symfony 3.0.0: 3.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/16 08:53:07 / [🦑 Repository](https://github.com/Codeception/module-symfony)   / [📦 Releases](https://github.com/Codeception/module-symfony/releases)
+
+
+
+* Support for Codeception 5
+
+
+### module-filesystem 2.0.2: 2.0.2
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/14 18:52:49 / [🦑 Repository](https://github.com/Codeception/module-filesystem)   / [📦 Releases](https://github.com/Codeception/module-filesystem/releases)
+
+
+
+* Improved error handling [#19](https://github.com/Codeception/module-filesystem/issues/19) 
+
+
+### module-filesystem 3.0.0: 3.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/14 18:51:07 / [🦑 Repository](https://github.com/Codeception/module-filesystem)   / [📦 Releases](https://github.com/Codeception/module-filesystem/releases)
+
+
+
+* Support for Codeception 5
+
+
+### Codeception 5.0.0-RC1: 5.0.0-RC1
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/13 18:42:02 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Use PHPUnit 9 until PHPUnit 10 is released.
+* Read about earlier change in [CHANGELOG](https://github.com/Codeception/Codeception/blob/5.0/CHANGELOG-5.x.md).
+
+
+### Codeception 5.0.0-RC1: 5.0.0-RC1
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/13 18:42:02 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Use PHPUnit 9 until PHPUnit 10 is released.
+* Read about earlier change in [CHANGELOG](https://github.com/Codeception/Codeception/blob/5.0/CHANGELOG-5.x.md).
+
+
+### Codeception 4.1.31: 4.1.31
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/13 17:17:13 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* RunBefore extension prints error output and stops execution if command failed
+* Action file generator: Fixed handling of intersection types
+* Action file generator: Fixed handling of self and parent types
+
+
+### Codeception 4.1.31: 4.1.31
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/13 17:17:13 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* RunBefore extension prints error output and stops execution if command failed
+* Action file generator: Fixed handling of intersection types
+* Action file generator: Fixed handling of self and parent types
+
+
+### module-webdriver 3.1.0: 3.1.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/11 17:08:21 / [🦑 Repository](https://github.com/Codeception/module-webdriver)   / [📦 Releases](https://github.com/Codeception/module-webdriver/releases)
+
+
+
+* Moved WebDriver constraints from codeception/codeception
+* Moved code shared with lib-innerbrowser to codeception/lib-web
+* Improved code style
+
+
+### module-soap 3.0.0: 3.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/11 16:39:18 / [🦑 Repository](https://github.com/Codeception/module-soap)   / [📦 Releases](https://github.com/Codeception/module-soap/releases)
+
+
+
+* Compatibility with Codeception 5
+* Uses lib-xml
+
+
+### Codeception 5.0.0-alpha3: 5.0.0-alpha3
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/11 11:02:50 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Support intersection types in actions
+* Introduced PSR-12 code style
+* Extracted some code to modules and shared libs
+* Fixed new incompatibilities with PHPUnit 10
+
+
+
+### Codeception 5.0.0-alpha3: 5.0.0-alpha3
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/11 11:02:50 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Support intersection types in actions
+* Introduced PSR-12 code style
+* Extracted some code to modules and shared libs
+* Fixed new incompatibilities with PHPUnit 10
+
+
+
+### module-rest 3.1.0: 3.1.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/11 11:00:56 / [🦑 Repository](https://github.com/Codeception/module-rest)   / [📦 Releases](https://github.com/Codeception/module-rest/releases)
+
+
+
+* Moved JSON constraints from codeception/codeception to module-rest
+* XML related code shared with SOAP module was moved to codeception/lib-xml
+
+
+### module-db 1.2.0: 1.2.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/05 19:47:19 / [🦑 Repository](https://github.com/Codeception/module-db)   / [📦 Releases](https://github.com/Codeception/module-db/releases)
+
+
+
+* Add `skip_cleanup_if_failed` option for not cleaning up failed tests
+* Null safety in destructor [#30](https://github.com/Codeception/module-db/issues/30) by **[Archanium](https://github.com/Archanium)**
+
+
+### module-db 2.0.2: 2.0.2
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/05 19:36:19 / [🦑 Repository](https://github.com/Codeception/module-db)   / [📦 Releases](https://github.com/Codeception/module-db/releases)
+
+
+
+* Add `skip_cleanup_if_failed` option for not cleaning up failed tests
+* Null safety in destructor [#30](https://github.com/Codeception/module-db/issues/30) by **[Archanium](https://github.com/Archanium)**
+
+
+### module-db 3.0.1: 3.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/05 19:29:02 / [🦑 Repository](https://github.com/Codeception/module-db)   / [📦 Releases](https://github.com/Codeception/module-db/releases)
+
+
+
+* Add `skip_cleanup_if_failed` option for not cleaning up failed tests
+* Null safety in destructor [#30](https://github.com/Codeception/module-db/issues/30) by **[Archanium](https://github.com/Archanium)**
+
+
+### Codeception 4.1.30: 4.1.30
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/05 18:45:01 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Fix handling of previous exception in ExtensionException
+* Improved parser fix for PHP keywords as named parameters
+* Add link to https://helpukrainewin.org
+
+
+### Codeception 4.1.30: 4.1.30
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/05 18:45:01 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Fix handling of previous exception in ExtensionException
+* Improved parser fix for PHP keywords as named parameters
+* Add link to https://helpukrainewin.org
+
+
+### module-redis 3.0.0: 3.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/02/20 17:41:06 / [🦑 Repository](https://github.com/Codeception/module-redis)   / [📦 Releases](https://github.com/Codeception/module-redis/releases)
+
+
+
+* Support for Codeception 5
+
+
+### module-db 1.1.1: 1.1.1
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/02/20 17:06:05 / [🦑 Repository](https://github.com/Codeception/module-db)   / [📦 Releases](https://github.com/Codeception/module-db/releases)
+
+
+
+* Fix Sqlite primary key column detection on PHP 8.1
+
+
+### module-db 2.0.1: 2.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/02/20 17:05:36 / [🦑 Repository](https://github.com/Codeception/module-db)   / [📦 Releases](https://github.com/Codeception/module-db/releases)
+
+
+
+* Fix Sqlite primary key column detection on PHP 8.1
+
+
+### module-db 3.0.0: 3.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/02/20 17:03:37 / [🦑 Repository](https://github.com/Codeception/module-db)   / [📦 Releases](https://github.com/Codeception/module-db/releases)
+
+
+
+* Codeception 5 support
+
+
+### module-mezzio 4.0.0: 4.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/02/20 16:38:14 / [🦑 Repository](https://github.com/Codeception/module-mezzio)   / [📦 Releases](https://github.com/Codeception/module-mezzio/releases)
+
+
+
+* Support Codeception 5
+
+
+### module-rest 3.0.1: 3.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/02/20 16:32:01 / [🦑 Repository](https://github.com/Codeception/module-rest)   / [📦 Releases](https://github.com/Codeception/module-rest/releases)
+
+
+
+* Don't pass NULL to isBinaryData in `_failed`.
+
+
+### module-webdriver 3.0.0: 3.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/02/20 16:31:03 / [🦑 Repository](https://github.com/Codeception/module-webdriver)   / [📦 Releases](https://github.com/Codeception/module-webdriver/releases)
+
+
+
+* Codeception 5 support
+
+
+### module-laminas 3.0.0: 3.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/02/20 15:37:34 / [🦑 Repository](https://github.com/Codeception/module-laminas)   / [📦 Releases](https://github.com/Codeception/module-laminas/releases)
+
+
+
+* Support for Codeception 5
+
+
+### module-asserts 3.0.0: 3.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/02/20 10:53:01 / [🦑 Repository](https://github.com/Codeception/module-asserts)   / [📦 Releases](https://github.com/Codeception/module-asserts/releases)
+
+
+
+* Codeception 5 support
+
+
+### module-doctrine2 3.0.0: 3.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/02/20 10:51:03 / [🦑 Repository](https://github.com/Codeception/module-doctrine2)   / [📦 Releases](https://github.com/Codeception/module-doctrine2/releases)
+
+
+
+* Codeception 5 support
+
+
+### module-rest 3.0.0: 3.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/02/20 10:50:18 / [🦑 Repository](https://github.com/Codeception/module-rest)   / [📦 Releases](https://github.com/Codeception/module-rest/releases)
+
+
+
+* Codeception 5 support
+* Update to min php8 ([#70](https://github.com/Codeception/module-rest/issues/70)) by **[pbojan](https://github.com/pbojan)**
+
+
+### Codeception 5.0.0-alpha2: 5.0.0-alpha2
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/02/19 19:33:46 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Generators create namespaced test suites by default ([#6071](https://github.com/Codeception/Codeception/issues/6071)) by **[DavertMik](https://github.com/DavertMik)**
+* Test can be filtered by data provider case number or name ([#6363](https://github.com/Codeception/Codeception/issues/6363)) by **[Naktibalda](https://github.com/Naktibalda)**
+* Removed `generate:cept` command (Cept format is deprecated)
+* Removed settings `disallow_test_output` and `log_incomplete_skipped`.
+* Removed setting `paths.log` (it was replaced by `paths.output` in Codeception 2.3)
+* Removed suite setting `class_name` (replaced by `actor` in Codeception 2.3)
+* Removed global setting `actor` (replaced by `actor_prefix` in Codeception 2.3)
+* Removed `Configuration::logDir` method (replaced by `Configuration::logDir` in 2.0)
+* ParamLoader throws exception if xml file is used but simplexml extension is missing ([#6346](https://github.com/Codeception/Codeception/issues/6346)) by **[mdoelker](https://github.com/mdoelker)**
+* Updated codebase to use PHP 8.0 features by **[TavoNiievez](https://github.com/TavoNiievez)**
+* Don't report test as useless if it failed (fixed bug introduced in alpha1)
+* Don't report local test coverage for remote suites (fixed bug introduced in alpha1)
+* Moved XmlBuilder class to module-soap
+
+
+### Codeception 5.0.0-alpha2: 5.0.0-alpha2
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/02/19 19:33:46 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Generators create namespaced test suites by default ([#6071](https://github.com/Codeception/Codeception/issues/6071)) by **[DavertMik](https://github.com/DavertMik)**
+* Test can be filtered by data provider case number or name ([#6363](https://github.com/Codeception/Codeception/issues/6363)) by **[Naktibalda](https://github.com/Naktibalda)**
+* Removed `generate:cept` command (Cept format is deprecated)
+* Removed settings `disallow_test_output` and `log_incomplete_skipped`.
+* Removed setting `paths.log` (it was replaced by `paths.output` in Codeception 2.3)
+* Removed suite setting `class_name` (replaced by `actor` in Codeception 2.3)
+* Removed global setting `actor` (replaced by `actor_prefix` in Codeception 2.3)
+* Removed `Configuration::logDir` method (replaced by `Configuration::logDir` in 2.0)
+* ParamLoader throws exception if xml file is used but simplexml extension is missing ([#6346](https://github.com/Codeception/Codeception/issues/6346)) by **[mdoelker](https://github.com/mdoelker)**
+* Updated codebase to use PHP 8.0 features by **[TavoNiievez](https://github.com/TavoNiievez)**
+* Don't report test as useless if it failed (fixed bug introduced in alpha1)
+* Don't report local test coverage for remote suites (fixed bug introduced in alpha1)
+* Moved XmlBuilder class to module-soap
+
+
+### Codeception 5.0.0-alpha1: 5.0.0-alpha1
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/01/30 18:56:34 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Decoupled test execution and reporting from PHPUnit
+* Custom reporters implementing TestListener are no longer supported and must be converted to Extensions
+* Tests of all formats are reported as useless if they perform no assertions and reports_useless_tests setting is enabled
+* Added path_coverage setting to enable path and branch coverage [#6158](https://github.com/Codeception/Codeception/issues/6158) by **[s0lus](https://github.com/s0lus)**
+* Added optional value to fail-fast option ([#6275](https://github.com/Codeception/Codeception/issues/6275)) by **[Verest](https://github.com/Verest)**
+* Removed JSON and TAP loggers
+* Removed code coverage blacklist functionality
+* Removed deprecated class aliases
+  - Codeception\TestCase\Test
+  - Codeception\Platform\Group
+  - Codeception\Platform\Group
+  - Codeception\TestCase
+* Removed settings disallow_test_output, log_incomplete_skipped and report_useless_tests
+* Introduced strict types in the code base by **[TavoNiievez](https://github.com/TavoNiievez)** 
+* Compatible with PHPUnit 10 only
+* Compatible with Symfony 4.4 - 6.0
+* Requires PHP 8.0 or higher
+
+
+### Codeception 5.0.0-alpha1: 5.0.0-alpha1
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/01/30 18:56:34 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Decoupled test execution and reporting from PHPUnit
+* Custom reporters implementing TestListener are no longer supported and must be converted to Extensions
+* Tests of all formats are reported as useless if they perform no assertions and reports_useless_tests setting is enabled
+* Added path_coverage setting to enable path and branch coverage [#6158](https://github.com/Codeception/Codeception/issues/6158) by **[s0lus](https://github.com/s0lus)**
+* Added optional value to fail-fast option ([#6275](https://github.com/Codeception/Codeception/issues/6275)) by **[Verest](https://github.com/Verest)**
+* Removed JSON and TAP loggers
+* Removed code coverage blacklist functionality
+* Removed deprecated class aliases
+  - Codeception\TestCase\Test
+  - Codeception\Platform\Group
+  - Codeception\Platform\Group
+  - Codeception\TestCase
+* Removed settings disallow_test_output, log_incomplete_skipped and report_useless_tests
+* Introduced strict types in the code base by **[TavoNiievez](https://github.com/TavoNiievez)** 
+* Compatible with PHPUnit 10 only
+* Compatible with Symfony 4.4 - 6.0
+* Requires PHP 8.0 or higher
+
+
+### Codeception 4.1.29: 4.1.29
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/01/29 17:00:53 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Fixed duplicate test runs when codeception.yml and codeception.dist.yml are present in multi-app setup by **[calvinalkan](https://github.com/calvinalkan)**
+* Action generator handles mixed type correctly
+* Parser fix to allow named parameters named class and namespace
+
+
+### Codeception 4.1.29: 4.1.29
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/01/29 17:00:53 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Fixed duplicate test runs when codeception.yml and codeception.dist.yml are present in multi-app setup by **[calvinalkan](https://github.com/calvinalkan)**
+* Action generator handles mixed type correctly
+* Parser fix to allow named parameters named class and namespace
+
+
+### module-doctrine2 2.0.1: 2.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/01/28 18:34:39 / [🦑 Repository](https://github.com/Codeception/module-doctrine2)   / [📦 Releases](https://github.com/Codeception/module-doctrine2/releases)
+
+
+
+* Binary strings don't break (dont)seeInRepository by **[frankverhoeven](https://github.com/frankverhoeven)**
+
+
+### module-webdriver 2.0.2: 2.0.2
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/01/23 12:00:55 / [🦑 Repository](https://github.com/Codeception/module-webdriver)   / [📦 Releases](https://github.com/Codeception/module-webdriver/releases)
+
+
+
+* Fixed TypeError in `grabTextFrom` when array is used as parameter by **[olexp](https://github.com/olexp)** 
+* Changed `assertEquals` to `assertSame` is many methods by **[TavoNiievez](https://github.com/TavoNiievez)** 
+
+
+### module-yii2 1.1.5: 1.1.5
+
+Released by [![](https://avatars.githubusercontent.com/u/47294?v=4&s=16) samdark](https://github.com/samdark) on 2022/01/10 10:29:36 / [🦑 Repository](https://github.com/Codeception/module-yii2)   / [📦 Releases](https://github.com/Codeception/module-yii2/releases)
+
+
+
+- [#54](https://github.com/Codeception/module-yii2/issues/54): Annotate throws with FQN (@DBX12)
+- [#56](https://github.com/Codeception/module-yii2/issues/56): Move tests from codeception/yii2-tests (@DBX12)
+- [#59](https://github.com/Codeception/module-yii2/issues/59): Allow installing on PHP 8.1.1 (@Krakozaber)
+
+
+
+### module-soap 2.0.2: 2.0.2
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/01/06 17:03:47 / [🦑 Repository](https://github.com/Codeception/module-soap)   / [📦 Releases](https://github.com/Codeception/module-soap/releases)
+
+
+
+* Fixed type of client property
+
+
+### Codeception 4.1.28: 4.1.28
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/01/05 16:50:04 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Strictly compare test hashes to avoid skipping tests [#6320](https://github.com/Codeception/Codeception/issues/6320) by **[michel-cetina](https://github.com/michel-cetina)**
+* Fixed deprecation message in codecept build [#6311](https://github.com/Codeception/Codeception/issues/6311) by **[barmax](https://github.com/barmax)**
+
+
+### Codeception 4.1.28: 4.1.28
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/01/05 16:50:04 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Strictly compare test hashes to avoid skipping tests [#6320](https://github.com/Codeception/Codeception/issues/6320) by **[michel-cetina](https://github.com/michel-cetina)**
+* Fixed deprecation message in codecept build [#6311](https://github.com/Codeception/Codeception/issues/6311) by **[barmax](https://github.com/barmax)**
+
+
+### module-webdriver 2.0.1: 2.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/12/29 16:57:38 / [🦑 Repository](https://github.com/Codeception/module-webdriver)   / [📦 Releases](https://github.com/Codeception/module-webdriver/releases)
+
+
+
+* Respect `performOn` with `fillField` [#80](https://github.com/Codeception/module-webdriver/issues/80) by **[mbrodala](https://github.com/mbrodala)** 
+* `submitForm` considers only elements having `name` attribute [#83](https://github.com/Codeception/module-webdriver/issues/83) by **[dahaupt](https://github.com/dahaupt)** 
+* Fixed type error in `wait` method [#85](https://github.com/Codeception/module-webdriver/issues/85) by **[marc-mabe](https://github.com/marc-mabe)** 
+* Fixed types in method signatures and docblocks [#88](https://github.com/Codeception/module-webdriver/issues/88) by **[Naktibalda](https://github.com/Naktibalda)** 
+
+
+### module-mezzio 3.0.2: 3.0.2
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/12/26 17:51:01 / [🦑 Repository](https://github.com/Codeception/module-mezzio)   / [📦 Releases](https://github.com/Codeception/module-mezzio/releases)
+
+
+
+* Added support for laminas-diactoros v2 by **[samuelnogueira](https://github.com/samuelnogueira)**
+
+
+### module-lumen 2.1.0: 2.1.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/24 20:16:08 / [🦑 Repository](https://github.com/Codeception/module-lumen)   / [📦 Releases](https://github.com/Codeception/module-lumen/releases)
+
+
+
+## What's Changed
+
+* PHP 7.4 or higher is required.
+* Updated code base to PHP 7.4 (https://github.com/Codeception/module-lumen/pull/15)
+* Update dependencies (https://github.com/Codeception/module-lumen/pull/16)
+* The changelog has been added to the Readme file, by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-lumen/pull/14
+
+
+### module-laravel 2.2.0: 2.2.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/24 20:11:04 / [🦑 Repository](https://github.com/Codeception/module-laravel)   / [📦 Releases](https://github.com/Codeception/module-laravel/releases)
+
+
+
+## What's Changed
+
+* PHP 7.4 or higher is required.
+* Update codebase to PHP 7.4 (https://github.com/Codeception/module-laravel/pull/36)
+* Update dependencies (https://github.com/Codeception/module-laravel/pull/38)
+
+
+### module-rest 2.0.1: 2.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/24 14:32:30 / [🦑 Repository](https://github.com/Codeception/module-rest)   / [📦 Releases](https://github.com/Codeception/module-rest/releases)
+
+
+
+* Update dependencies (https://github.com/Codeception/module-rest/pull/67)
+* Updating docs to new default algo sha1 by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/module-rest/pull/66
+
+
+### Codeception 4.1.27: 4.1.27
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/12/22 06:49:04 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Renamed editorUrl setting to editor_url for consistency
+* Fixed wildcard matching of group files ([#6302](https://github.com/Codeception/Codeception/issues/6302)) by **[DavertMik](https://github.com/DavertMik)**
+
+
+### Codeception 4.1.27: 4.1.27
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/12/22 06:49:04 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Renamed editorUrl setting to editor_url for consistency
+* Fixed wildcard matching of group files ([#6302](https://github.com/Codeception/Codeception/issues/6302)) by **[DavertMik](https://github.com/DavertMik)**
+
+
+### Codeception 4.1.26: 4.1.26
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/12/21 19:25:44 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Added editorUrl setting to codeception.yml ([#6261](https://github.com/Codeception/Codeception/issues/6261)) by **[ThomasLandauer](https://github.com/ThomasLandauer)**
+* Reverted optional value to fail-fast option because it was breaking change ([#6290](https://github.com/Codeception/Codeception/issues/6290))
+* Fixed E_DEPRECATED warnings in Example class on PHP 8.1 ([#6298](https://github.com/Codeception/Codeception/issues/6298)) by **[fabacino](https://github.com/fabacino)**
+
+
+### Codeception 4.1.26: 4.1.26
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/12/21 19:25:44 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Added editorUrl setting to codeception.yml ([#6261](https://github.com/Codeception/Codeception/issues/6261)) by **[ThomasLandauer](https://github.com/ThomasLandauer)**
+* Reverted optional value to fail-fast option because it was breaking change ([#6290](https://github.com/Codeception/Codeception/issues/6290))
+* Fixed E_DEPRECATED warnings in Example class on PHP 8.1 ([#6298](https://github.com/Codeception/Codeception/issues/6298)) by **[fabacino](https://github.com/fabacino)**
+
+
+### module-phpbrowser 2.0.2: 2.0.2
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/21 15:23:57 / [🦑 Repository](https://github.com/Codeception/module-phpbrowser)   / [📦 Releases](https://github.com/Codeception/module-phpbrowser/releases)
+
+
+
+* **Small bug fix**: Fix some types (https://github.com/Codeception/module-phpbrowser/pull/21)
+
+
+### module-redis 1.4.1: 1.4.1
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/21 02:02:03 / [🦑 Repository](https://github.com/Codeception/module-redis)   / [📦 Releases](https://github.com/Codeception/module-redis/releases)
+
+
+
+* Update dependencies (https://github.com/Codeception/module-redis/pull/15)
+
+
+### Codeception 4.1.25: 4.1.25
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/21 01:58:17 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Update dependencies (https://github.com/Codeception/Codeception/pull/6296)
+
+
+### Codeception 4.1.25: 4.1.25
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/21 01:58:17 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Update dependencies (https://github.com/Codeception/Codeception/pull/6296)
+
+
+### module-asserts 2.0.1: 2.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/18 17:11:54 / [🦑 Repository](https://github.com/Codeception/module-asserts)   / [📦 Releases](https://github.com/Codeception/module-asserts/releases)
+
+
+
+## What's Changed
+
+* Removed the use statement to not make static analysis trip over by **[Rockylars](https://github.com/Rockylars)** in https://github.com/Codeception/module-asserts/pull/19
+* Update dependencies by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-asserts/pull/20
+
+
+### module-ftp 2.0.1: 2.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/18 15:18:57 / [🦑 Repository](https://github.com/Codeception/module-ftp)   / [📦 Releases](https://github.com/Codeception/module-ftp/releases)
+
+
+
+## What's Changed
+
+* Update dependencies by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-ftp/pull/6
+
+
+### module-symfony 2.1.1: 2.1.1
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/18 14:41:02 / [🦑 Repository](https://github.com/Codeception/module-symfony)   / [📦 Releases](https://github.com/Codeception/module-symfony/releases)
+
+
+
+## What's Changed
+
+* Update dependencies by **[ThomasLandauer](https://github.com/ThomasLandauer)** and **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-symfony/pull/149
+
+
+### module-laminas 1.3.1: 1.3.1
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/18 14:39:53 / [🦑 Repository](https://github.com/Codeception/module-laminas)   / [📦 Releases](https://github.com/Codeception/module-laminas/releases)
+
+
+
+## What's Changed
+
+* Update dependencies by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-laminas/pull/21
+
+
+### module-soap 2.0.1: 2.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/18 14:37:02 / [🦑 Repository](https://github.com/Codeception/module-soap)   / [📦 Releases](https://github.com/Codeception/module-soap/releases)
+
+
+
+## What's Changed
+
+* Update dependencies by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-soap/pull/13
+
+
+### module-phpbrowser 2.0.1: 2.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/18 14:26:57 / [🦑 Repository](https://github.com/Codeception/module-phpbrowser)   / [📦 Releases](https://github.com/Codeception/module-phpbrowser/releases)
+
+
+
+* Update dependencies by **[TavoNiievez](https://github.com/TavoNiievez)** and **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/module-phpbrowser/pull/20
+
+
+### module-mezzio 3.0.1: 3.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/18 14:26:02 / [🦑 Repository](https://github.com/Codeception/module-mezzio)   / [📦 Releases](https://github.com/Codeception/module-mezzio/releases)
+
+
+
+## What's Changed
+
+* Update dependencies by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-mezzio/pull/14
+
+
+### module-filesystem 2.0.1: 2.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/18 14:24:07 / [🦑 Repository](https://github.com/Codeception/module-filesystem)   / [📦 Releases](https://github.com/Codeception/module-filesystem/releases)
+
+
+
+## What's Changed
+
+* Update dependencies by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-filesystem/pull/15
+
+
+### module-phalcon5 v1.0.1: v1.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/1073784?v=4&s=16) niden](https://github.com/niden) on 2021/12/16 13:04:49 / [🦑 Repository](https://github.com/Codeception/module-phalcon5)   / [📦 Releases](https://github.com/Codeception/module-phalcon5/releases)
+
+
+
+Corrections for Packagist descriptions and PHP minimum version
+
+
+### Codeception 4.1.24: 
+
+Released by [![](https://avatars.githubusercontent.com/u/220264?v=4&s=16) DavertMik](https://github.com/DavertMik) on 2021/12/16 12:59:45 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Fixed running tests from group files in included configs ([#6292](https://github.com/Codeception/Codeception/issues/6292)) by **[DavertMik](https://github.com/DavertMik)**
+
+In this example, tests listed in `slow.txt` will be executed from backend/tests and frontend/tests:
+```yml
+# included configs
+include:
+  - backend/tests
+  - frontend/tests
+
+# groups defined in files
+groups:
+  slow: slow.txt
+```
+
+
+### Codeception 4.1.24: 
+
+Released by [![](https://avatars.githubusercontent.com/u/220264?v=4&s=16) DavertMik](https://github.com/DavertMik) on 2021/12/16 12:59:45 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Fixed running tests from group files in included configs ([#6292](https://github.com/Codeception/Codeception/issues/6292)) by **[DavertMik](https://github.com/DavertMik)**
+
+In this example, tests listed in `slow.txt` will be executed from backend/tests and frontend/tests:
+```yml
+# included configs
+include:
+  - backend/tests
+  - frontend/tests
+
+# groups defined in files
+groups:
+  slow: slow.txt
+```
+
+
+### module-phalcon5 v1.0.0: v1.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/1073784?v=4&s=16) niden](https://github.com/niden) on 2021/12/15 18:51:06 / [🦑 Repository](https://github.com/Codeception/module-phalcon5)   / [📦 Releases](https://github.com/Codeception/module-phalcon5/releases)
+
+
+
+Initial release of the Codeception module for Phalcon 5.
+
+
+### module-redis 1.4.0: 1.4.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/12/13 06:06:22 / [🦑 Repository](https://github.com/Codeception/module-redis)   / [📦 Releases](https://github.com/Codeception/module-redis/releases)
+
+
+
+* seeInRedis displays a difference between expected value and actual value 
+
+
+### Codeception 4.1.23: 4.1.23
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/12/11 18:36:16 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Compatibility with PHP 8.1 ([#6252](https://github.com/Codeception/Codeception/issues/6252))
+* Added optional value to fail-fast option ([#6275](https://github.com/Codeception/Codeception/issues/6275)) by #Verest
+* Code coverage covers .php files only ([#6265](https://github.com/Codeception/Codeception/issues/6265))
+* Functions are autoloaded by composer ([#6263](https://github.com/Codeception/Codeception/issues/6263)) by **[StuTheWebGuy](https://github.com/StuTheWebGuy)**
+* Fixed broken URL in bootstrap deprecation message by **[p810](https://github.com/p810)**
+* `codecept init api` adds AsJson decorators to suite configuration (See https://github.com/Codeception/module-rest/releases/tag/1.4.1)
+* Dockerfile upgraded to use xdebug 3.0.4 ([#6250](https://github.com/Codeception/Codeception/issues/6250)) by **[PavelBulat](https://github.com/PavelBulat)**
+
+
+### Codeception 4.1.23: 4.1.23
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/12/11 18:36:16 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Compatibility with PHP 8.1 ([#6252](https://github.com/Codeception/Codeception/issues/6252))
+* Added optional value to fail-fast option ([#6275](https://github.com/Codeception/Codeception/issues/6275)) by #Verest
+* Code coverage covers .php files only ([#6265](https://github.com/Codeception/Codeception/issues/6265))
+* Functions are autoloaded by composer ([#6263](https://github.com/Codeception/Codeception/issues/6263)) by **[StuTheWebGuy](https://github.com/StuTheWebGuy)**
+* Fixed broken URL in bootstrap deprecation message by **[p810](https://github.com/p810)**
+* `codecept init api` adds AsJson decorators to suite configuration (See https://github.com/Codeception/module-rest/releases/tag/1.4.1)
+* Dockerfile upgraded to use xdebug 3.0.4 ([#6250](https://github.com/Codeception/Codeception/issues/6250)) by **[PavelBulat](https://github.com/PavelBulat)**
+
+
+### module-symfony 2.1.0: 2.1.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 15:18:21 / [🦑 Repository](https://github.com/Codeception/module-symfony)   / [📦 Releases](https://github.com/Codeception/module-symfony/releases)
+
+
+
+## What's Changed
+
+By **[TavoNiievez](https://github.com/TavoNiievez)**:
+* PHP 7.4 or higher is required.
+* Support PHP 8.1
+* Updated code base to PHP 7.4 ( https://github.com/Codeception/module-symfony/pull/146 )
+* Fix broken links in docs ( https://github.com/Codeception/module-symfony/pull/142 )
+* Encapsulate the Client ( https://github.com/Codeception/module-symfony/pull/140 )
+
+By **[ThomasLandauer](https://github.com/ThomasLandauer)**:
+
+* Improving error message for `public` services ( https://github.com/Codeception/module-symfony/pull/145 )
+* Updating Cest file location ( https://github.com/Codeception/module-symfony/pull/144 )
+* Changing `Symfony.php` -> trait ( https://github.com/Codeception/module-symfony/pull/143 )
+
+**Full Changelog**: https://github.com/Codeception/module-symfony/compare/2.0.5...2.1.0
+
+
+### module-asserts 2.0.0: 2.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 15:06:26 / [🦑 Repository](https://github.com/Codeception/module-asserts)   / [📦 Releases](https://github.com/Codeception/module-asserts/releases)
+
+
+
+## What's Changed
+
+* PHP 7.4 or higher is required.
+* Support PHP 8.1
+* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-asserts/pull/13 and https://github.com/Codeception/module-asserts/pull/17
+* Replace `Codeception\Util\Stub` with `Codeception\Stub` in tests by **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/module-asserts/pull/11
+* The changelog has been added to the Readme file, by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-asserts/pull/16
+
+**Full Changelog**: https://github.com/Codeception/module-asserts/compare/1.3.1...2.0.0
+
+
+### module-datafactory 2.0.0: 2.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 15:00:26 / [🦑 Repository](https://github.com/Codeception/module-datafactory)   / [📦 Releases](https://github.com/Codeception/module-datafactory/releases)
+
+
+
+## What's Changed
+
+* PHP 7.4 or higher is required.
+* Support PHP 8.1
+* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-datafactory/pull/9 and https://github.com/Codeception/module-datafactory/pull/14
+* Documentation changes by **[DavertMik](https://github.com/DavertMik)** in https://github.com/Codeception/module-datafactory/pull/11
+* The changelog has been added to the Readme file, by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-datafactory/pull/13
+
+**Full Changelog**: https://github.com/Codeception/module-datafactory/compare/1.1.0...2.0.0
+
+
+### module-mongodb 2.0.0: 2.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 14:55:38 / [🦑 Repository](https://github.com/Codeception/module-mongodb)   / [📦 Releases](https://github.com/Codeception/module-mongodb/releases)
+
+
+
+## What's Changed
+
+* PHP 7.4 or higher is required.
+* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-mongodb/pull/7 and https://github.com/Codeception/module-mongodb/pull/11
+* The changelog has been added to the Readme file, by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-mongodb/pull/10
+
+**Full Changelog**: https://github.com/Codeception/module-mongodb/compare/1.1.1...2.0.0
+
+
+### module-sequence 2.0.0: 2.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 14:36:31 / [🦑 Repository](https://github.com/Codeception/module-sequence)   / [📦 Releases](https://github.com/Codeception/module-sequence/releases)
+
+
+
+## What's Changed
+
+* PHP 7.4 or higher is required.
+* Support PHP 8.1
+* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-sequence/pull/4
+* The changelog has been added to the Readme file, by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-sequence/pull/3
+
+**Full Changelog**: https://github.com/Codeception/module-sequence/compare/1.0.1...2.0.0
+
+
+### module-webdriver 2.0.0: 2.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 14:34:27 / [🦑 Repository](https://github.com/Codeception/module-webdriver)   / [📦 Releases](https://github.com/Codeception/module-webdriver/releases)
+
+
+
+## What's Changed
+
+* PHP 7.4 or higher is required.
+* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-webdriver/pull/82
+* Fixed type incompatibility in Webdriver by **[grossmannmartin](https://github.com/grossmannmartin)** in https://github.com/Codeception/module-webdriver/pull/78
+
+**Full Changelog**: https://github.com/Codeception/module-webdriver/compare/1.4.0...2.0.0
+
+
+### module-redis 1.3.0: 1.3.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 14:25:54 / [🦑 Repository](https://github.com/Codeception/module-redis)   / [📦 Releases](https://github.com/Codeception/module-redis/releases)
+
+
+
+## What's Changed
+
+* PHP 7.4 or higher is required.
+* Support PHP 8.1
+* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-redis/pull/11
+
+**Full Changelog**: https://github.com/Codeception/module-redis/compare/1.2.0...1.3.0
+
+
+### module-queue 2.0.0: 2.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 14:20:38 / [🦑 Repository](https://github.com/Codeception/module-queue)   / [📦 Releases](https://github.com/Codeception/module-queue/releases)
+
+
+
+## What's Changed
+
+* PHP 7.4 or higher is required.
+* Support PHP 8.1
+* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-queue/pull/6
+* The changelog has been added to the Readme file, by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-queue/pull/5
+
+**Full Changelog**: https://github.com/Codeception/module-queue/compare/1.1.1...2.0.0
+
+
+### module-memcache 2.0.0: 2.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 14:17:46 / [🦑 Repository](https://github.com/Codeception/module-memcache)   / [📦 Releases](https://github.com/Codeception/module-memcache/releases)
+
+
+
+## What's Changed
+
+* PHP 7.4 or higher is required.
+* Support PHP 8.1
+* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-memcache/pull/6
+* The changelog has been added to the Readme file, by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-memcache/pull/3
+* Fix status badge by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-memcache/pull/5
+
+**Full Changelog**: https://github.com/Codeception/module-memcache/compare/1.0.1...2.0.0
+
+
+### module-filesystem 2.0.0: 2.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 13:37:45 / [🦑 Repository](https://github.com/Codeception/module-filesystem)   / [📦 Releases](https://github.com/Codeception/module-filesystem/releases)
+
+
+
+## What's Changed
+
+* PHP 7.4 or higher is required.
+* Support PHP 8.1
+* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-filesystem/pull/9 and https://github.com/Codeception/module-filesystem/pull/13
+* Replace `Codeception\Util\Stub` with `Codeception\Stub` in tests by **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/module-filesystem/pull/5
+* Improved tests in order to run them from `vendor/` directory by **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/module-filesystem/pull/6
+* The changelog has been added to the Readme file, by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-filesystem/pull/12
+
+**Full Changelog**: https://github.com/Codeception/module-filesystem/compare/1.0.3...2.0.0
+
+
+### module-ftp 2.0.0: 2.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 13:32:34 / [🦑 Repository](https://github.com/Codeception/module-ftp)   / [📦 Releases](https://github.com/Codeception/module-ftp/releases)
+
+
+
+## What's Changed
+
+* PHP 7.4 or higher is required.
+* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-ftp/pull/5
+* The changelog has been added to the Readme file, by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-ftp/pull/4
+
+**Full Changelog**: https://github.com/Codeception/module-ftp/compare/1.0.2...2.0.0
+
+
+### module-cli 2.0.0: 2.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 06:11:12 / [🦑 Repository](https://github.com/Codeception/module-cli)   / [📦 Releases](https://github.com/Codeception/module-cli/releases)
+
+
+
+## What's Changed
+
+* PHP 7.4 or higher is required.
+* Support PHP 8.1
+* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-cli/pull/10
+* The changelog has been added to the Readme file, by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-cli/pull/9
+
+**Full Changelog**: https://github.com/Codeception/module-cli/compare/1.1.1...2.0.0
+
+
+### module-mezzio 3.0.0: 3.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 06:04:58 / [🦑 Repository](https://github.com/Codeception/module-mezzio)   / [📦 Releases](https://github.com/Codeception/module-mezzio/releases)
+
+
+
+## What's Changed
+
+* PHP 7.4 or higher is required.
+* Support PHP 8.1
+* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-mezzio/pull/9 and https://github.com/Codeception/module-mezzio/pull/12
+* The changelog has been added to the Readme file, by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-mezzio/pull/11
+
+**Full Changelog**: https://github.com/Codeception/module-mezzio/compare/2.0.2...3.0.0
+
+
+### module-doctrine2 2.0.0: 2.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 05:59:34 / [🦑 Repository](https://github.com/Codeception/module-doctrine2)   / [📦 Releases](https://github.com/Codeception/module-doctrine2/releases)
+
+
+
+## What's Changed
+
+* PHP 7.4 or higher is required.
+* Support PHP 8.1
+* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-doctrine2/pull/40 and https://github.com/Codeception/module-doctrine2/pull/47
+* Added phpstan by **[b1rdex](https://github.com/b1rdex)** in https://github.com/Codeception/module-doctrine2/pull/46
+* Use hash to store repository mock by **[olexp](https://github.com/olexp)** in https://github.com/Codeception/module-doctrine2/pull/45 and https://github.com/Codeception/module-doctrine2/pull/48
+* Better explaining `depends` by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/module-doctrine2/pull/23
+* Adding link to `doctrine/data-fixtures` by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/module-doctrine2/pull/39
+* The changelog has been added to the Readme file, by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-doctrine2/pull/43
+
+**Full Changelog**: https://github.com/Codeception/module-doctrine2/compare/1.1.1...2.0.0
+
+
+### module-apc 2.0.0: 2.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 05:51:33 / [🦑 Repository](https://github.com/Codeception/module-apc)   / [📦 Releases](https://github.com/Codeception/module-apc/releases)
+
+
+
+## What's Changed
+
+* PHP 7.4 or higher is required.
+* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-apc/pull/6
+* The changelog has been added to the Readme file, by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-apc/pull/5
+
+**Full Changelog**: https://github.com/Codeception/module-apc/compare/1.0.2...2.0.0
+
+
+### module-amqp 2.0.0: 2.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 05:47:28 / [🦑 Repository](https://github.com/Codeception/module-amqp)   / [📦 Releases](https://github.com/Codeception/module-amqp/releases)
+
+
+
+## What's Changed
+
+* PHP 7.4 or higher is required.
+* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-amqp/pull/12
+
+**Full Changelog**: https://github.com/Codeception/module-amqp/compare/1.1.1...2.0.0
+
+
+### module-laminas 1.3.0: 1.3.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 05:44:00 / [🦑 Repository](https://github.com/Codeception/module-laminas)   / [📦 Releases](https://github.com/Codeception/module-laminas/releases)
+
+
+
+## What's Changed
+
+* PHP 7.4 or higher is required.
+* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-laminas/pull/18
+
+**Full Changelog**: https://github.com/Codeception/module-laminas/compare/1.2.1...1.3.0
+
+
+### module-db 2.0.0: 2.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 05:38:52 / [🦑 Repository](https://github.com/Codeception/module-db)   / [📦 Releases](https://github.com/Codeception/module-db/releases)
+
+
+
+## What's Changed
+
+* PHP 7.4 or higher is required.
+* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-db/pull/26
+* Replace `Codeception\Util\Stub` with `Codeception\Stub` in tests by **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/module-db/pull/13
+* The changelog has been added to the Readme file, by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-db/pull/24
+
+**Full Changelog**: https://github.com/Codeception/module-db/compare/1.1.0...2.0.0
+
+
+### module-soap 2.0.0: 2.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 05:35:42 / [🦑 Repository](https://github.com/Codeception/module-soap)   / [📦 Releases](https://github.com/Codeception/module-soap/releases)
+
+
+
+## What's Changed
+
+* PHP 7.4 or higher is required.
+* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-soap/pull/8 and https://github.com/Codeception/module-soap/pull/12
+* The changelog has been added to the Readme file, by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-soap/pull/11
+
+**Full Changelog**: https://github.com/Codeception/module-soap/compare/1.0.1...2.0.0
+
+
+### module-rest 2.0.0: 2.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 05:27:57 / [🦑 Repository](https://github.com/Codeception/module-rest)   / [📦 Releases](https://github.com/Codeception/module-rest/releases)
+
+
+
+## What's Changed
+
+* PHP 7.4 or higher is required.
+* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-rest/pull/57 and https://github.com/Codeception/module-rest/pull/65
+
+**Full Changelog**: https://github.com/Codeception/module-rest/compare/1.4.2...2.0.0
+
+
+### module-phpbrowser 2.0.0: 2.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 05:24:45 / [🦑 Repository](https://github.com/Codeception/module-phpbrowser)   / [📦 Releases](https://github.com/Codeception/module-phpbrowser/releases)
+
+
+
+## What's Changed
+
+* PHP 7.4 or higher is required.
+* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-phpbrowser/pull/12 and https://github.com/Codeception/module-phpbrowser/pull/17
+* Cast uri to string by **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/module-phpbrowser/pull/14
+* The changelog has been added to the Readme file, by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-phpbrowser/pull/16
+
+**Full Changelog**: https://github.com/Codeception/module-phpbrowser/compare/1.0.2...2.0.0
+
+
 ### module-yii2 1.1.4: 1.1.4
 
 Released by [![](https://avatars.githubusercontent.com/u/47294?v=4&s=16) samdark](https://github.com/samdark) on 2021/11/26 05:58:14 / [🦑 Repository](https://github.com/Codeception/module-yii2)   / [📦 Releases](https://github.com/Codeception/module-yii2/releases)
@@ -1255,38 +2656,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 
-### Codeception 4.1.8: 
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/10/11 18:07:26 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Support Covertura code coverage format [#5994](https://github.com/Codeception/Codeception/issues/5994) by **[zachkknowbe4](https://github.com/zachkknowbe4)**
-* Compatibility with vlucas/phpdotenv v5 [#5975](https://github.com/Codeception/Codeception/issues/5975) by **[johanzandstra](https://github.com/johanzandstra)**
-* Support absolute output dir path on Windows [#5966](https://github.com/Codeception/Codeception/issues/5966) by **[Naktibalda](https://github.com/Naktibalda)**
-* Fix --no-redirect option for run command [#5967](https://github.com/Codeception/Codeception/issues/5967) by **[convenient](https://github.com/convenient)**
-* Code coverage: Don't make request to c3.php if remote=false [#5991](https://github.com/Codeception/Codeception/issues/5991) by **[dereuromark](https://github.com/dereuromark)**
-* Gherkin: Fail on ambiguous step definition [#5866](https://github.com/Codeception/Codeception/issues/5866) by **[matthiasnoback](https://github.com/matthiasnoback)**
-* Removed complicated merge logic for environment configurations [#5948](https://github.com/Codeception/Codeception/issues/5948) by **[Sasti](https://github.com/Sasti)**
-* Logger extension: add .log to suite log files [#5982](https://github.com/Codeception/Codeception/issues/5982) by **[varp](https://github.com/varp)**
-
-
-### Codeception 4.1.8: 
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/10/11 18:07:26 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Support Covertura code coverage format [#5994](https://github.com/Codeception/Codeception/issues/5994) by **[zachkknowbe4](https://github.com/zachkknowbe4)**
-* Compatibility with vlucas/phpdotenv v5 [#5975](https://github.com/Codeception/Codeception/issues/5975) by **[johanzandstra](https://github.com/johanzandstra)**
-* Support absolute output dir path on Windows [#5966](https://github.com/Codeception/Codeception/issues/5966) by **[Naktibalda](https://github.com/Naktibalda)**
-* Fix --no-redirect option for run command [#5967](https://github.com/Codeception/Codeception/issues/5967) by **[convenient](https://github.com/convenient)**
-* Code coverage: Don't make request to c3.php if remote=false [#5991](https://github.com/Codeception/Codeception/issues/5991) by **[dereuromark](https://github.com/dereuromark)**
-* Gherkin: Fail on ambiguous step definition [#5866](https://github.com/Codeception/Codeception/issues/5866) by **[matthiasnoback](https://github.com/matthiasnoback)**
-* Removed complicated merge logic for environment configurations [#5948](https://github.com/Codeception/Codeception/issues/5948) by **[Sasti](https://github.com/Sasti)**
-* Logger extension: add .log to suite log files [#5982](https://github.com/Codeception/Codeception/issues/5982) by **[varp](https://github.com/varp)**
-
-
 ### module-rest 1.2.3: amNTLMAuthenticated supports Guzzle 7
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/09/17 13:38:02 / [🦑 Repository](https://github.com/Codeception/module-rest)   / [📦 Releases](https://github.com/Codeception/module-rest/releases)
@@ -1344,32 +2713,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Validation errors for haveRecord method [#10](https://github.com/Codeception/module-yii2/issues/10) by **[ianikanov](https://github.com/ianikanov)** 
 
 
-### Codeception 4.1.7: Compatibility with PHPUnit 9.3
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/08/28 06:43:25 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Compatibility with PhpCodeCoverage 9 and PHPUnit 9.3
-* Show snapshot diff on fail [#5930](https://github.com/Codeception/Codeception/issues/5930) by **[fkupper](https://github.com/fkupper)**
-* Ability to store non-json snapshots [#5945](https://github.com/Codeception/Codeception/issues/5945) by **[fkupperr](https://github.com/fkupperr)**
-* Fixed step decorators in generated configuration file [#5936](https://github.com/Codeception/Codeception/issues/5936) by **[rene-hermenau](https://github.com/rene-hermenau)**
-* Fixed single line style dataprovider [#5944](https://github.com/Codeception/Codeception/issues/5944) by **[edno](https://github.com/edno)**
-
-
-### Codeception 4.1.7: Compatibility with PHPUnit 9.3
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/08/28 06:43:25 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Compatibility with PhpCodeCoverage 9 and PHPUnit 9.3
-* Show snapshot diff on fail [#5930](https://github.com/Codeception/Codeception/issues/5930) by **[fkupper](https://github.com/fkupper)**
-* Ability to store non-json snapshots [#5945](https://github.com/Codeception/Codeception/issues/5945) by **[fkupperr](https://github.com/fkupperr)**
-* Fixed step decorators in generated configuration file [#5936](https://github.com/Codeception/Codeception/issues/5936) by **[rene-hermenau](https://github.com/rene-hermenau)**
-* Fixed single line style dataprovider [#5944](https://github.com/Codeception/Codeception/issues/5944) by **[edno](https://github.com/edno)**
-
-
 ### module-phalcon4 v1.0.4: v1.0.4
 
 Released by [![](https://avatars.githubusercontent.com/u/7444246?v=4&s=16) ruudboon](https://github.com/ruudboon) on 2020/08/26 09:34:29 / [🦑 Repository](https://github.com/Codeception/module-phalcon4)   / [📦 Releases](https://github.com/Codeception/module-phalcon4/releases)
@@ -1398,24 +2741,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 
-### Codeception 4.1.6: Compatibility with PHPUnit 9.2
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/06/07 16:37:13 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-
-
-
-### Codeception 4.1.6: Compatibility with PHPUnit 9.2
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/06/07 16:37:13 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-
-
-
 ### module-webdriver 1.1.0: switchToFrame
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/05/31 08:52:02 / [🦑 Repository](https://github.com/Codeception/module-webdriver)   / [📦 Releases](https://github.com/Codeception/module-webdriver/releases)
@@ -1423,28 +2748,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 * Introduced switchToFrame method [#9](https://github.com/Codeception/module-webdriver/issues/9) 
-
-
-### Codeception 4.1.5: 4.1.5
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/05/24 14:03:59 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Fixed docker images
-* Fixed indentation in generated Actor class, by **[cebe](https://github.com/cebe)**
-* Added addToAssertionCount method to AssertionCounter trait, [#5918](https://github.com/Codeception/Codeception/issues/5918) by **[Archanium](https://github.com/Archanium)**
-
-
-### Codeception 4.1.5: 4.1.5
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/05/24 14:03:59 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Fixed docker images
-* Fixed indentation in generated Actor class, by **[cebe](https://github.com/cebe)**
-* Added addToAssertionCount method to AssertionCounter trait, [#5918](https://github.com/Codeception/Codeception/issues/5918) by **[Archanium](https://github.com/Archanium)**
 
 
 ### module-webdriver 1.0.8: Suppress UnknownErrorException in _closeSession
@@ -1516,26 +2819,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * haveMultiple doesn't pass $name argument to factory(), because Laravel 7 does not support it anymore.
 
 
-### Codeception 4.1.4: Another build return type bugfix
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/03/23 17:18:20 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Build: Fix bug with void type not being picked up correctly [#5880](https://github.com/Codeception/Codeception/issues/5880) by **[Jamesking56](https://github.com/Jamesking56)**
-* Test --report flag (the bugfix in phpunit-wrapper library)
-
-
-### Codeception 4.1.4: Another build return type bugfix
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/03/23 17:18:20 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Build: Fix bug with void type not being picked up correctly [#5880](https://github.com/Codeception/Codeception/issues/5880) by **[Jamesking56](https://github.com/Jamesking56)**
-* Test --report flag (the bugfix in phpunit-wrapper library)
-
-
 ### module-webdriver 1.0.6: Fixed setCookie in w3c mode
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/03/23 17:15:52 / [🦑 Repository](https://github.com/Codeception/module-webdriver)   / [📦 Releases](https://github.com/Codeception/module-webdriver/releases)
@@ -1543,26 +2826,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 Modern browsers reject cookies with singlepart domain names, the best option is not to set domain property unless explicitly specified.
-
-
-### Codeception 4.1.3: Build command: return type hint improvements
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/03/17 16:56:14 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Build: Use non-deprecated method to get return type hint on PHP 7.1+ [#5876](https://github.com/Codeception/Codeception/issues/5876)
-* Build: Ensure that the return keyword is not used when method returns void type [#5878](https://github.com/Codeception/Codeception/issues/5878) by **[Jamesking56](https://github.com/Jamesking56)**
-
-
-### Codeception 4.1.3: Build command: return type hint improvements
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/03/17 16:56:14 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Build: Use non-deprecated method to get return type hint on PHP 7.1+ [#5876](https://github.com/Codeception/Codeception/issues/5876)
-* Build: Ensure that the return keyword is not used when method returns void type [#5878](https://github.com/Codeception/Codeception/issues/5878) by **[Jamesking56](https://github.com/Jamesking56)**
 
 
 ### module-mezzio 2.0.1: 2.0.1
@@ -1576,32 +2839,6 @@ Released by [![](https://avatars.githubusercontent.com/u/152236?v=4&s=16) Slamdu
 **Fixed bugs:**
 
 - Session persistance: clean up $_SESSION between tests [\[#3](https://github.com/Codeception/module-mezzio/issues/3)](https://github.com/Codeception/module-mezzio/pull/3)
-
-
-### Codeception 4.1.2: Bugfixes
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/03/14 16:54:45 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Fixed --no-redirect option does not exist error [#5857](https://github.com/Codeception/Codeception/issues/5857) by **[liamjtoohey](https://github.com/liamjtoohey)**
-* Init command: Check the composer option config.vendor_dir when updating composer [#5871](https://github.com/Codeception/Codeception/issues/5871) by **[gabriel-lima96](https://github.com/gabriel-lima96)**
-* Add return type hint to the generated actions above PHP 7.0 [#5862](https://github.com/Codeception/Codeception/issues/5862) by **[pezia](https://github.com/pezia)**
-* Prevent merged config array ballooning in memory [#5871](https://github.com/Codeception/Codeception/issues/5871) by **[AndrewFeeney](https://github.com/AndrewFeeney)**
-* Do not truncate arguments for --html options [#5870](https://github.com/Codeception/Codeception/issues/5870) by **[adaniloff](https://github.com/adaniloff)**
-
-
-### Codeception 4.1.2: Bugfixes
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/03/14 16:54:45 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Fixed --no-redirect option does not exist error [#5857](https://github.com/Codeception/Codeception/issues/5857) by **[liamjtoohey](https://github.com/liamjtoohey)**
-* Init command: Check the composer option config.vendor_dir when updating composer [#5871](https://github.com/Codeception/Codeception/issues/5871) by **[gabriel-lima96](https://github.com/gabriel-lima96)**
-* Add return type hint to the generated actions above PHP 7.0 [#5862](https://github.com/Codeception/Codeception/issues/5862) by **[pezia](https://github.com/pezia)**
-* Prevent merged config array ballooning in memory [#5871](https://github.com/Codeception/Codeception/issues/5871) by **[AndrewFeeney](https://github.com/AndrewFeeney)**
-* Do not truncate arguments for --html options [#5870](https://github.com/Codeception/Codeception/issues/5870) by **[adaniloff](https://github.com/adaniloff)**
 
 
 ### module-webdriver 1.0.5: Fixed compatibility with PHP 5.6
@@ -1640,26 +2877,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 
-### Codeception 4.1.1: Minor improvements
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/02/19 17:02:05 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* --no-artifacts flag for run command [#5646](https://github.com/Codeception/Codeception/issues/5646) by **[Mitrichius](https://github.com/Mitrichius)**
-* Fix recorder filename with special chars [#5846](https://github.com/Codeception/Codeception/issues/5846) by **[gimler](https://github.com/gimler)**
-
-
-### Codeception 4.1.1: Minor improvements
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/02/19 17:02:05 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* --no-artifacts flag for run command [#5646](https://github.com/Codeception/Codeception/issues/5646) by **[Mitrichius](https://github.com/Mitrichius)**
-* Fix recorder filename with special chars [#5846](https://github.com/Codeception/Codeception/issues/5846) by **[gimler](https://github.com/gimler)**
-
-
 ### module-webdriver 1.0.3: Fixed cookie domain match
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/02/15 21:26:34 / [🦑 Repository](https://github.com/Codeception/module-webdriver)   / [📦 Releases](https://github.com/Codeception/module-webdriver/releases)
@@ -1667,24 +2884,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 [#5](https://github.com/Codeception/module-webdriver/issues/5) by **[Josh-G](https://github.com/Josh-G)** 
-
-
-### Codeception 4.1.0: Support PHPUnit 9.0
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/02/07 20:34:19 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-
-
-
-### Codeception 4.1.0: Support PHPUnit 9.0
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/02/07 20:34:19 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-
 
 
 ### module-cli 1.0.2: Fixed dontSeeInShellOutput for older versions of PHPUnit
@@ -1761,24 +2960,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 [#7](https://github.com/Codeception/module-rest/issues/7) by **[svycka](https://github.com/svycka)** 
 
 
-### Codeception 4.0.3: Fixed command autocompletion
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/01/24 07:41:14 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Fixed command autocompletion [#5806](https://github.com/Codeception/Codeception/issues/5806) by **[svycka](https://github.com/svycka)**
-
-
-### Codeception 4.0.3: Fixed command autocompletion
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/01/24 07:41:14 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Fixed command autocompletion [#5806](https://github.com/Codeception/Codeception/issues/5806) by **[svycka](https://github.com/svycka)**
-
-
 ### module-zf2 1.0.2: Empty request content can't be null
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/01/23 17:55:51 / [🦑 Repository](https://github.com/Codeception/module-zf2)   / [📦 Releases](https://github.com/Codeception/module-zf2/releases)
@@ -1824,24 +3005,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 
-### Codeception 4.0.2: 4.0.2
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/01/14 14:54:31 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Fixed errors in bootstrap scripts [#5806](https://github.com/Codeception/Codeception/issues/5806)
-
-
-### Codeception 4.0.2: 4.0.2
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/01/14 14:54:31 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Fixed errors in bootstrap scripts [#5806](https://github.com/Codeception/Codeception/issues/5806)
-
-
 ### module-phalcon4 1.0.3: v1.0.3
 
 Released by [![](https://avatars.githubusercontent.com/u/7444246?v=4&s=16) ruudboon](https://github.com/ruudboon) on 2020/01/11 17:02:24 / [🦑 Repository](https://github.com/Codeception/module-phalcon4)   / [📦 Releases](https://github.com/Codeception/module-phalcon4/releases)
@@ -1881,44 +3044,6 @@ Released by [![](https://avatars.githubusercontent.com/u/7444246?v=4&s=16) ruudb
 
 
 Initial release of the Codeception module for Phalcon 4.
-
-
-### Codeception 4.0.1: Bugfix release
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/12/21 16:26:45 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Fixed error reporting error in upgrade4 script
-* Symfony 5 compatibility: Improved detection of event-dispatcher version
-
-
-### Codeception 4.0.1: Bugfix release
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/12/21 16:26:45 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Fixed error reporting error in upgrade4 script
-* Symfony 5 compatibility: Improved detection of event-dispatcher version
-
-
-### Codeception 4.0.0: First release without modules
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/12/19 16:54:29 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-
-
-
-### Codeception 4.0.0: First release without modules
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/12/19 16:54:29 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-
 
 
 ### module-db 1.0.1: Mysql: use single quotes for string value in getPrimaryKey
