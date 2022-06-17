@@ -372,14 +372,14 @@ List of available step decorators:
 - [TryTo](https://github.com/Codeception/Codeception/blob/4.0/src/Codeception/Step/TryTo.php) - failed action will be ignored.
 - [Retry](https://github.com/Codeception/Codeception/blob/4.0/src/Codeception/Step/Retry.php) - failed action will be retried automatically.
 
-Step decorators can be added to suite config inside `steps` block:
+Step decorators can be added to suite config inside `step_decorators` block:
 
 {% highlight yaml %}
 yml
 step_decorators:
-    - Codeception/Step/TryTo
-    - Codeception/Step/Retry
-    - Codeception/Step/ConditionalAssertion
+    - Codeception\Step\TryTo
+    - Codeception\Step\Retry
+    - Codeception\Step\ConditionalAssertion
 
 {% endhighlight %}
 
