@@ -9,6 +9,37 @@ title: Codeception Changelog
 
 
 
+### Codeception 4.2.1: 4.2.1
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/06/22 06:26:08 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Execute setupBeforeClass/tearDownAfterClass only once ([#6481](https://github.com/Codeception/Codeception/issues/6481))
+* Handle action with intersection return type correctly in dry-run command
+
+
+### Codeception 4.2.1: 4.2.1
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/06/22 06:26:08 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Execute setupBeforeClass/tearDownAfterClass only once ([#6481](https://github.com/Codeception/Codeception/issues/6481))
+* Handle action with intersection return type correctly in dry-run command
+
+
+### module-yii2 1.1.6: 1.1.6
+
+Released by [![](https://avatars.githubusercontent.com/u/47294?v=4&s=16) samdark](https://github.com/samdark) on 2022/06/21 11:05:32 / [🦑 Repository](https://github.com/Codeception/module-yii2)   / [📦 Releases](https://github.com/Codeception/module-yii2/releases)
+
+
+
+- [#8](https://github.com/Codeception/module-yii2/issues/8): Add log from Yii to artifacts when test fails (@aywan)
+- [#65](https://github.com/Codeception/module-yii2/issues/65): Codeception 5 support (@developedsoftware and **[TavoNiievez](https://github.com/TavoNiievez)**)
+
+
+
 ### Codeception 4.2.0: 4.2.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/06/16 05:51:13 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
@@ -2585,28 +2616,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 * Support PHP 8 (no code changes)
 * Require stable version of codeception/codeception
-
-
-### Codeception 4.1.9: PHP 8
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/10/23 18:03:56 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Support PHP 8 [#5999](https://github.com/Codeception/Codeception/issues/5999)
-* Generate correct default values in Actions files [#5999](https://github.com/Codeception/Codeception/issues/5999)
-* Use sendGet in Api template [#5998](https://github.com/Codeception/Codeception/issues/5998) by **[ThomasLandauer](https://github.com/ThomasLandauer)**
-
-
-### Codeception 4.1.9: PHP 8
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/10/23 18:03:56 / [🦑 Repository](https://github.com/Codeception/Codeception)   / [📦 Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Support PHP 8 [#5999](https://github.com/Codeception/Codeception/issues/5999)
-* Generate correct default values in Actions files [#5999](https://github.com/Codeception/Codeception/issues/5999)
-* Use sendGet in Api template [#5998](https://github.com/Codeception/Codeception/issues/5998) by **[ThomasLandauer](https://github.com/ThomasLandauer)**
 
 
 ### module-cli 1.0.4: Support PHP 8
