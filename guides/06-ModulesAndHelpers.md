@@ -329,8 +329,6 @@ To display additional information, use the `debug` and `debugSection` methods of
 Here is an example of how it works for PhpBrowser:
 
 ```php
-
-<?php
 $this->debugSection('Request', $params);
 $this->client->request($method, $uri, $params);
 $this->debug('Response Code: ' . $this->client->getStatusCode());

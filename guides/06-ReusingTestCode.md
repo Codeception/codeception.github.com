@@ -40,7 +40,9 @@ Let's see what's inside the `AcceptanceTester` class, which is located inside th
 <?php
 
 declare(strict_types=1);
+
 namespace Tests\Support;
+
 /**
  * Inherited Methods
  * @method void wantToTest($text)
@@ -120,6 +122,8 @@ Let's define a `login` method in this class:
 ```php
 namespace Tests\Support\Page\Acceptance;
 
+use Tests\Support\AcceptanceTester;
+
 class Login
 {
     public static $URL = '/login';
@@ -131,7 +135,7 @@ class Login
     protected AcceptanceTester $tester;
 
     // we inject AcceptanceTester into our class
-    public function __construct(\AcceptanceTester $I)
+    public function __construct(AcceptanceTester $I)
     {
         $this->tester = $I;
     }
@@ -223,6 +227,7 @@ The `loginAsAdmin` method may be implemented like this:
 
 ```php
 <?php
+
 namespace Tests\Support\Step\Acceptance;
 
 use Tests\Support\AcceptanceTester;
