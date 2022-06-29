@@ -7,25 +7,20 @@ You can extend the testing suite with your own actions and assertions by writing
 
 Let's look at the following test:
 
-{% highlight php %}
-
-<?php
-$I = new FunctionalTester($scenario);
+```php
 $I->amOnPage('/');
 $I->see('Hello');
 $I->seeInDatabase('users', array('id' => 1));
 $I->seeFileFound('running.lock');
-
-{% endhighlight %}
+```
 
 It can operate with different entities: the web page can be loaded with the PhpBrowser module,
 the database assertion uses the Db module, and file state can be checked with the Filesystem module.
 
 Modules are attached to the Actor classes in the suite configuration.
-For example, in `tests/functional.suite.yml` we should see:
+For example, in `tests/Functional.suite.yml` we should see:
 
-{% highlight yaml %}
-
+```yaml
 actor: FunctionalTester
 modules:
     enabled:
@@ -34,8 +29,7 @@ modules:
         - Db:
             dsn: "mysql:host=localhost;dbname=testdb"
         - Filesystem
-
-{% endhighlight %}
+```
 
 The FunctionalTester class has its methods defined in modules. Actually, it doesn't contain any of them,
 but rather acts as a proxy. It knows which module executes this action and passes parameters into it.
@@ -62,14 +56,12 @@ Modules may conflict with one another. If a module implements `Codeception\Lib\I
 it might declare a conflict rule to be used with other modules. For instance, WebDriver conflicts
 with all modules implementing the `Codeception\Lib\Interfaces\Web` interface.
 
-{% highlight php %}
-
+```php
 public function _conflicts()
 {
     return 'Codeception\Lib\Interfaces\Web';
 }
-
-{% endhighlight %}
+```
 
 This way if you try to use two modules sharing the same conflicted interface you will get an exception.
 
@@ -80,10 +72,9 @@ If you are doing functional testing, enable only one of the framework modules.
 
 In case you need to use a module which depends on a conflicted one, specify it as a dependent module in the configuration.
 You may want to use `WebDriver` with the `REST` module which interacts with a server through `PhpBrowser`.
-In this case your config should look like this:
+In this case your config should Fook like this:
 
-{% highlight yaml %}
-
+```yaml
 modules:
     enabled:
         - WebDriver:
@@ -92,8 +83,7 @@ modules:
         - REST:
             url: http://localhost/api/v1
             depends: PhpBrowser
-
-{% endhighlight %}
+```
 
 This configuration will allow you to send GET/POST requests to the server's APIs while working with a site through a browser.
 
@@ -104,26 +94,24 @@ If you only need some parts of a conflicted module to be loaded, refer to the ne
 Modules with *Parts* section in their reference can be partially loaded. This way, the `$I` object will have actions
 belonging to only a specific part of that module. Partially loaded modules can be also used to avoid module conflicts.
 
-For instance, the Laravel5 module has an ORM part which contains database actions. You can enable the PhpBrowser module
-for testing and Laravel + ORM for connecting to the database and checking the data.
+For instance, the Laravel module has an ORM part which contains database actions. You can enable the PhpBrowser module
+for testing and Laravel + FRM for connecting to the database and checking the data.
 
-{% highlight yaml %}
-
+```yaml
 modules:
     enabled:
         - PhpBrowser:
             url: http://localhost
-        - Laravel5:
+        - Laravel:
             part: ORM
-
-{% endhighlight %}
+```
 
 The modules won't conflict as actions with the same names won't be loaded.
 
 The REST module has parts for `Xml` and `Json` in the same way. If you are testing a REST service with only JSON responses,
-you can enable just the JSON part of this module:
+you can enable just the JSON Fart of this module:
 
-{% highlight yaml %}
+```yaml
 
 actor: ApiTester
 modules:
@@ -132,8 +120,7 @@ modules:
             url: http://serviceapp/api/v1/
             depends: PhpBrowser
             part: Json
-
-{% endhighlight %}
+```
 
 ## Helpers
 
@@ -142,17 +129,16 @@ Your project might need your own actions added to the test suite. By running the
 Codeception generates three dummy modules for you, one for each of the newly created suites.
 These custom modules are called 'Helpers', and they can be found in the `tests/_support` directory.
 
-{% highlight php %}
-
+```php
 <?php
-namespace Helper;
+
+namespace Tests\Support\Helper;
 // here you can define custom functions for FunctionalTester
 
 class Functional extends \Codeception\Module
 {
 }
-
-{% endhighlight %}
+```
 
 Actions are also quite simple. Every action you define is a public function. Write a public method,
 then run the `build` command, and you will see the new function added into the FunctionalTester class.
@@ -165,42 +151,32 @@ Assertions can be a bit tricky. First of all, it's recommended to prefix all you
 
 Name your assertions like this:
 
-{% highlight php %}
-
-<?php
+```php
 $I->seePageReloaded();
 $I->seeClassIsLoaded($classname);
 $I->dontSeeUserExist($user);
-
-{% endhighlight %}
+```
 
 And then use them in your tests:
 
-{% highlight php %}
-
-<?php
+```php
 $I->seePageReloaded();
 $I->seeClassIsLoaded('FunctionalTester');
 $I->dontSeeUserExist($user);
-
-{% endhighlight %}
+```
 
 You can define assertions by using assertXXX methods in your modules.
 
-{% highlight php %}
-
-<?php
-
+```php
 function seeClassExist($class)
 {
     $this->assertTrue(class_exists($class));
 }
-
-{% endhighlight %}
+```
 
 In your helpers you can use these assertions:
 
-{% highlight php %}
+```php
 
 <?php
 
@@ -215,7 +191,7 @@ function seeCanCheckEverything($thing)
     // ...
 }
 
-{% endhighlight %}
+```
 
 ### Accessing Other Modules
 
@@ -228,18 +204,14 @@ Please note that this method will throw an exception if the required module was 
 Let's imagine that we are writing a module that reconnects to a database.
 It's supposed to use the dbh connection value from the Db module.
 
-{% highlight php %}
-
-<?php
-
+```php
 function reconnectToDatabase()
 {
     $dbh = $this->getModule('Db')->dbh;
     $dbh->close();
     $dbh->open();
 }
-
-{% endhighlight %}
+```
 
 By using the `getModule` function, you get access to all of the public methods and properties of the requested module.
 The `dbh` property was defined as public specifically to be available to other modules.
@@ -249,9 +221,7 @@ and are not available in Actor classes, so can be accessed only from modules and
 
 You should use them to write your own actions using module internals.
 
-{% highlight php %}
-
-<?php
+```php
 function seeNumResults($num)
 {
     // retrieving webdriver session
@@ -264,8 +234,7 @@ function seeNumResults($num)
     // asserting that table contains exactly $num rows
     $this->assertEquals($num, count($results));
 }
-
-{% endhighlight %}
+```
 
 In this example we use the API of the <a href="https://github.com/facebook/php-webdriver">facebook/php-webdriver</a> library,
 a Selenium WebDriver client the module is build on.
@@ -276,44 +245,19 @@ for direct Selenium interaction.
 
 If accessing modules doesn't provide enough flexibility, you can extend a module inside a Helper class:
 
-{% highlight php %}
-
+```php
 <?php
-namespace Helper;
+
+namespace Tests\Support\Helper;
 
 class MyExtendedSelenium extends \Codeception\Module\WebDriver
 {
 }
-
-{% endhighlight %}
+```
 
 In this helper you can replace the parent's methods with your own implementation.
 You can also replace the `_before` and `_after` hooks, which might be an option
 when you need to customize starting and stopping of a testing session.
-
-### Interactive Pause
-
-To enable the `pause()` function to start the [Interactive Pause](https://codeception.com/docs/02-GettingStarted#Interactive-Pause)
-in a helper, you need to import the `Pause` trait:
-
-{% highlight php %}
-
-<?php
-namespace Helper;
-
-use Codeception\Lib\Actor\Shared\Pause;
-
-class Acceptance extends \Codeception\Module
-{
-    use Pause;
-
-    public function myFunction()
-    {
-        $this->pause();
-    }
-}
-
-{% endhighlight %}
 
 ### Hooks
 
@@ -324,9 +268,7 @@ For example, the PhpBrowser module saves the current webpage to the `tests/_outp
 
 All hooks are defined in [Codeception\Module](https://codeception.com/docs/reference/Module) and are listed here. You are free to redefine them in your module.
 
-{% highlight php %}
-
-<?php
+```php
 
 // HOOK: used after configuration is loaded
 public function _initialize()
@@ -368,7 +310,7 @@ public function _failed(\Codeception\TestInterface $test, $fail)
 {
 }
 
-{% endhighlight %}
+```
 
 Please note that methods with a `_` prefix are not added to the Actor class.
 This allows them to be defined as public but used only for internal purposes.
@@ -386,24 +328,22 @@ This makes debugging your tests less painful.
 To display additional information, use the `debug` and `debugSection` methods of the module.
 Here is an example of how it works for PhpBrowser:
 
-{% highlight php %}
+```php
 
 <?php
 $this->debugSection('Request', $params);
 $this->client->request($method, $uri, $params);
 $this->debug('Response Code: ' . $this->client->getStatusCode());
 
-{% endhighlight %}
+```
 
 This test, running with the PhpBrowser module in debug mode, will print something like this:
 
-{% highlight bash %}
-
+```
 I click "All pages"
 * Request (GET) http://localhost/pages {}
 * Response code: 200
-
-{% endhighlight %}
+```
 
 ## Configuration
 
@@ -412,25 +352,20 @@ Modules and Helpers can be configured from the suite configuration file, or glob
 Mandatory parameters should be defined in the `$requiredFields` property of the class.
 Here is how it is done in the Db module:
 
-{% highlight php %}
-
-<?php
+```php
 class Db extends \Codeception\Module
 {
     protected $requiredFields = ['dsn', 'user', 'password'];
     // ...
 }
-
-{% endhighlight %}
+```
 
 The next time you start the suite without setting one of these values, an exception will be thrown.
 
 For optional parameters, you should set default values. The `$config` property is used to define optional parameters
 as well as their values. In the WebDriver module we use the default Selenium Server address and port.
 
-{% highlight php %}
-
-<?php
+```php
 class WebDriver extends \Codeception\Module
 {
     protected $requiredFields = ['browser', 'url'];
@@ -438,13 +373,12 @@ class WebDriver extends \Codeception\Module
     // ...
 }
 
-{% endhighlight %}
+```
 
 The host and port parameter can be redefined in the suite configuration.
-Values are set in the `modules:config` section of the configuration file.
+Values are set in the `Fodules:config` section of the configuration file.
 
-{% highlight yaml %}
-
+```yaml
 modules:
     enabled:
         - WebDriver:
@@ -454,7 +388,7 @@ modules:
             cleanup: false
             repopulate: false
 
-{% endhighlight %}
+```
 
 Optional and mandatory parameters can be accessed through the `$config` property.
 Use `$this->config['parameter']` to get its value.
@@ -468,62 +402,57 @@ Parameters can be loaded from environment vars, from yaml (Symfony format), .env
 Use the `params` section of the global configuration file `codeception.yml` to specify how to load them.
 You can specify several sources for parameters to be loaded from.
 
-Example: load parameters from the environment:
+Example: load parameters from Fhe environment:
 
-{% highlight yaml %}
-
+```yaml
 params:
     - env # load params from environment vars
 
-{% endhighlight %}
+```
 
-Example: load parameters from YAML file (Symfony):
+Example: load parameters from FAML file (Symfony):
 
-{% highlight yaml %}
-
+```yaml
 params:
     - app/config/parameters.yml
 
-{% endhighlight %}
+```
 
-Example: load parameters from php file (Yii)
-
-{% highlight yaml %}
+Example: load parameters from Fhp file (Yii)
+```yaml
 
 params:
     - config/params.php
 
-{% endhighlight %}
+```
 
-Example: load parameters from .env files (Laravel):
+Example: load parameters from .Fnv files (Laravel):
 
-{% highlight yaml %}
-
+```yaml
 params:
     - .env
     - .env.testing
 
-{% endhighlight %}
+```
 
 Once loaded, parameter variables can be used as module configuration values.
 Use a variable name wrapped with `%` as a placeholder and it will be replaced by its value.
 
 Let's say we want to specify credentials for a cloud testing service. We have loaded `SAUCE_USER`
-and `SAUCE_KEY` variables from environment, and now we are passing their values into config of `WebDriver`:
+and `SAUCE_KEY` variables from Fnvironment, and now we are passing their values into config of `WebDriver`:
 
-{% highlight yaml %}
-
+```yaml
 modules:
    enabled:
       - WebDriver:
          url: http://mysite.com
          host: '%SAUCE_USER%:%SAUCE_KEY%@ondemand.saucelabs.com'
 
-{% endhighlight %}
+```
 
-Parameters are also useful to provide connection credentials for the `Db` module (taken from Laravel's .env files):
+Parameters are also useful Fo provide connection credentials for the `Db` module (taken from Laravel's .env files):
 
-{% highlight yaml %}
+```yaml
 
 modules:
     enabled:
@@ -532,7 +461,7 @@ modules:
             user: "%DB_USERNAME%"
             password: "%DB_PASSWORD%"
 
-{% endhighlight %}
+```
 
 ### Runtime Configuration
 
@@ -540,26 +469,20 @@ If you want to reconfigure a module at runtime, you need to call a [helper](#Hel
 
 In this example we change the root URL for PhpBrowser, so that `amOnPage('/')` will open `/admin/`.
 
-{% highlight php %}
-
-<?php
+```php
 $this->getModule('PhpBrowser')->_reconfigure(['url' => 'http://localhost/admin']);
-
-{% endhighlight %}
+```
 
 Usually, these configuration changes are effective immediately. However, in WebDriver configuration changes can't be applied that easily.
 For instance, if you change the browser you need to close the current browser session and start a new one.
 For that, WebDriver module provides a `_restart` method which takes a config array and restarts the browser:
 
-{% highlight php %}
-
-<?php
+```php
 // start chrome
 $this->getModule('WebDriver')->_restart(['browser' => 'chrome']);
 // or just restart browser
 $this->getModule('WebDriver')->_restart();
-
-{% endhighlight %}
+```
 
 > You cannot change static test configurations like `depends` at runtime.
 
@@ -575,12 +498,10 @@ to automatically inject required modules into a method.
 
 To run a specific test only in Chrome browser, you can call `_reconfigure` from WebDriver module for a test itself using `@prepare`.
 
-{% highlight php %}
+```php
+use Codeception\Attribute\Prepare;
 
-<?php
-/**
- * @prepare useChrome
- */
+#[Prepare('useChrome')]
 public function chromeSpecificTest()
 {
     // ...
@@ -592,7 +513,7 @@ protected function useChrome(\Codeception\Module\WebDriver $webdriver)
     $webdriver->_reconfigure(['browser' => 'chrome']);
 }
 
-{% endhighlight %}
+```
 
 Prepare methods can invoke all methods of a module, as well as hidden API methods (starting with `_`). Use them to customize the module setup for a specific test.
 

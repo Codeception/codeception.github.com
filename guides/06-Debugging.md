@@ -9,9 +9,9 @@ By looking into the following debugging practices you will learn how to get all 
 Codeception provides `codecept_debug` function to print a debug output when running test. 
 Think of it as `var_dump` but for testing:
 
-{% highlight php %}
+```php
 codecept_debug($user);
-{% endhighlight %}
+```
 
 Unlinke var_dump, the output will be printed to screen only if tests are executed with `--debug` flag.
 
@@ -27,13 +27,13 @@ This function is loaded only by Codeception, so the application may be broken tr
 Inside a [Helper](/docs/06-ModulesAndHelpers#Helpers) you can use analogs of this function to provide a debug output for a complex action. 
 
 
-{% highlight php %}
+```php
 // print variable from helper
 $this->debug($response);
 
 // print variable with a short comment
 $this->debugSection('Response', $response);
-{% endhighlight %}
+```
 
 Codeception Modules use debug output to give more information to user about the data used by a test. For instance, in debug mode you can see request and responses body when testing REST API.
 
@@ -44,10 +44,10 @@ When running acceptance or functional test it might be needed to pause execution
 
 Writing a new acceptance from scratch can be more convenient if you hold a browser window open. It is recommended to start writing a new acceptance test with these two commands:
 
-{% highlight php %}
+```php
 $I->amOnPage('/');
 $I->pause();
-{% endhighlight %}
+```
 
 Interactive pause is launched only when `--debug ` option is enabled:
 
@@ -57,9 +57,9 @@ php vendor/bin/codecept run --debug
 
 To launch interactive pause in a context when the `$I` object is not available, use `codecept_pause` function instead. To inspect local variables pass them into interactive shell using an array:
 
-{% highlight php %}
+```php
 $I->pause(['user' => $user])
 // or
 codecept_pause(['user' => $user]);
-{% endhighlight %}
+```
 
