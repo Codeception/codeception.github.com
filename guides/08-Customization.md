@@ -469,39 +469,6 @@ class MyFormat implements \Codeception\Test\Loader\LoaderInterface
 }
 ```
 
-## Custom Reporters
-
-Alternative reporters can be implemented as extension.
-There are [DotReporter](https://codeception.com/extensions#DotReporter) and [SimpleReporter](https://codeception.com/extensions#SimpleReporter) extensions included.
-Use them to change output or use them as an example to build your own reporter. They can be easily enabled with `--ext` option
-
-```bash
-
-php vendor/bin/codecept run --ext DotReporter
-
-```
-
-![](https://cloud.githubusercontent.com/assets/220264/26132800/4d23f336-3aab-11e7-81ba-2896a4c623d2.png)
-
-If you want to use it as default reporter enable it in `codeception.yml`.
-
-But what if you need to change the output format of the XML or JSON results triggered with the `--xml` or `--json` options?
-Codeception uses PHPUnit printers and overrides them. If you need to customize one of the standard reporters you can override them too.
-If you are thinking on implementing your own reporter you should add a `reporters` section to `codeception.yml`
-and override one of the standard printer classes with one of your own:
-
-```yaml
-reporters:
-    xml: Codeception\PHPUnit\Log\JUnit
-    html: Codeception\PHPUnit\ResultPrinter\HTML
-    report: Codeception\PHPUnit\ResultPrinter\Report
-
-```
-
-All PHPUnit printers implement the
-[PHPUnit_Framework_TestListener](https://phpunit.de/manual/current/en/extending-phpunit.html#extending-phpunit.PHPUnit_Framework_TestListener)
-interface. It is recommended to read the code of the original reporter before overriding it.
-
 ## Installation Templates
 
 Codeception setup can be customized for the needs of your application.

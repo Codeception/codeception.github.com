@@ -125,5 +125,13 @@ php vendor/bin/codecept run --xml
 Custom reporter can be built as an [Extension](https://codeception.com/docs/08-Customization#Extension). Extension can listen to all test events and log data from them.
 Look into the basic reporting extensions like [DotReporter](https://codeception.com/extensions#DotReporter) or [Logger](https://codeception.com/extensions#Logger) to learn how to build your own. 
 
+Use them to change output or use them as an example to build your own reporter. They can be easily enabled with `--ext` option
 
+```bash
+php vendor/bin/codecept run --ext DotReporter
+```
+
+![](https://cloud.githubusercontent.com/assets/220264/26132800/4d23f336-3aab-11e7-81ba-2896a4c623d2.png)
+
+If you want to use it as default reporter enable extension in `codeception.yml`.
 
