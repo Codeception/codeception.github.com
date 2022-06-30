@@ -89,6 +89,101 @@ public function _passed(AcceptanceTester $I)
 }
 ```
 
+## Skip Tests
+
+To mark test as skipped `Skip` attribute can be used:
+
+```php
+<?php
+namespace Tests\Acceptance;
+
+use Codeception\Attribute\Skip;
+use Tests\Support\AcceptanceTester
+
+class UserCest {
+
+    #[Skip]
+    public function notImportantTest(AcceptanceTester $I)
+    {
+        // this test should not be executed
+    }
+
+    // you can explain the reason to skip test in attribute
+    #[Skip('this one is not needed anymore')]
+    public function alsoNotImportantTest(AcceptanceTester $I)
+    {
+    }
+}
+```
+
+If you need skipping a test on condition, inject `\Codeception\Scenario` into the test:
+
+```php
+public function worksOnCondition(AcceptanceTester $I, \Codeception\Scenario $scenario)
+{
+    // some condition to execute test or not
+    if ($this->shouldNotBeExecuted) {
+        // skip test on condition
+        // please not that `_before` is still executed for this test
+        // and browser is launched in case of acceptance test
+        $scenario->skip('This test is skipped on this condition');
+    }
+    // test body
+}
+```
+
+For unit tests tests can be skipped via attribute or by `markTestSkipped` method:
+
+```php
+<?php
+
+namespace Tests\Unit;
+
+use Codeception\Attribute\Skip;
+
+class UserTest extends \Codeception\Test\Unit
+{
+
+    #[Skip]
+    public function testToBeSkipped()
+    {
+    }
+
+    #[Skip('this one is flaky')]
+    public function testToAlsoBeSkipped()
+    {
+    }
+
+    public function testToSkipOnCondition()
+    {
+        if ($this->shouldNotBeExecuted) {
+            $this->markTestSkipped();
+        }
+    }
+}
+```
+
+## Incomplete Tests
+
+Tests can be marked as Incomplete, in this case they also will be skipped.
+To mark a test as incomplete use `Codeception\Attribute\Incomplete` which should be used similarly to `Skip` attribute:
+
+```php
+use Codeception\Attribute\Incomplete;
+
+// ---
+
+#[Incomplete]
+public function testNotReadyYet()
+{
+}
+
+#[Incomplete('I will implement it tomorrow, I promise')]
+public function testNotReadyToday()
+{
+}
+```
+
 ## Groups
 
 There are several ways to execute a bunch of tests. You can run tests from a specific directory:
