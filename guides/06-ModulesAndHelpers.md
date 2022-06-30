@@ -400,31 +400,28 @@ Parameters can be loaded from environment vars, from yaml (Symfony format), .env
 Use the `params` section of the global configuration file `codeception.yml` to specify how to load them.
 You can specify several sources for parameters to be loaded from.
 
-Example: load parameters from Fhe environment:
+Example: load parameters from the environment:
 
 ```yaml
 params:
     - env # load params from environment vars
-
 ```
 
-Example: load parameters from FAML file (Symfony):
+Example: load parameters from YAML file (Symfony):
 
 ```yaml
 params:
     - app/config/parameters.yml
-
 ```
 
-Example: load parameters from Fhp file (Yii)
-```yaml
+Example: load parameters from php file (Yii)
 
+```yaml
 params:
     - config/params.php
-
 ```
 
-Example: load parameters from .Fnv files (Laravel):
+Example: load parameters from .Env files (Laravel):
 
 ```yaml
 params:
@@ -451,7 +448,6 @@ modules:
 Parameters are also useful Fo provide connection credentials for the `Db` module (taken from Laravel's .env files):
 
 ```yaml
-
 modules:
     enabled:
         - Db:
@@ -459,6 +455,16 @@ modules:
             user: "%DB_USERNAME%"
             password: "%DB_PASSWORD%"
 
+```
+
+Parameters can set in JSON format. So objects, arrays, booleans and strings can also be passed into config.
+
+```yaml
+modules:
+    enabled:
+        - \Tests\Support\DataHelper:
+            users: %USERS_ARRAY%
+            books: %BOOKS_ARRAY%
 ```
 
 ### Runtime Configuration
