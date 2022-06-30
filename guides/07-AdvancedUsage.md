@@ -498,6 +498,18 @@ class UserCest
 
 This way you can easily control which tests will be executed for each environment.
 
+It is possible to combine environments. For instance, if a test should be executed only in chrome on staging, this can be declared as a combined environment:
+
+```php
+#[Env('chrome,staging')]
+```
+
+Test marked with this attribute will be executed only if both environments are set:
+
+```php
+php vendor/bin/codecept run --env chrome,staging
+```
+
 ## Get Test Metadata
 
 Sometimes you may need to change the test behavior in real time.
