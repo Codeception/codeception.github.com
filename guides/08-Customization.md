@@ -531,3 +531,13 @@ settings:
 You should also specify the path to the `log` directory, where the reports and logs will be saved.
 
 > Wildcards (`*`) can be used to specify multiple directories at once.
+
+It is possible to run specific suites from included applications:
+
+* `codecept run` ⬅ Execute all tests from all apps and all suites
+* `codecept run unit` ⬅ Runs unit suite from the current app
+* `codecept run admin::unit` ⬅ Runs unit suite from admin app
+* `codecept run *::unit` ⬅ Runs unit suites from all included apps and NOT the root suite
+* `codecept run unit,*::unit` ⬅ Runs included unit suites AND root unit suite
+* `codecept run functional,*::unit` ⬅ Runs included unit suites and root functional suite
+
