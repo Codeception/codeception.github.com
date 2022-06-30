@@ -22,12 +22,11 @@ or locally but running through web server. It may look hard to collect code cove
 
 To enable code coverage put these lines in the global configuration file `codeception.yml`:
 
-{% highlight yaml %}
 
+```yaml
 coverage:
     enabled: true
-
-{% endhighlight %}
+```
 
 That's ok for now. But what files should be present in final coverage report?
 Pass an array of files or directory to include/exclude sections. The path ending with '\*' matches the directory.
@@ -35,49 +34,45 @@ Also you can use '\*' mask in a file name, i.e. `app/models/*Model.php` to match
 
 There is a shortcut if you don't need that complex filters:
 
-{% highlight yaml %}
 
+```yaml
 coverage:
     enabled: true
     include:
         - app/*
     exclude:
         - app/cache/*
-
-{% endhighlight %}
+```
 Include and exclude options can be redefined for each suite in corresponding config files.
 
 By default, if coverage is reported to be < 35% it is marked as low, and >70% is high coverage.
 You can also define high and low boundaries with `low_limit` and `high_limit` config options:
 
-{% highlight yaml %}
 
+```yaml
 coverage:
     enabled: true
     low_limit: 30
     high_limit: 60
-
-{% endhighlight %}
+```
 
 By default, show all whitelisted files in `--coverage-text` output not just the ones with coverage information is set to false, config option:
 
-{% highlight yaml %}
 
+```yaml
 coverage:
     enabled: true
     show_uncovered: false
-
-{% endhighlight %}
+```
 
 By default, show only the coverage report summary in `--coverage-text` output is set to false, config option:
 
-{% highlight yaml %}
 
+```yaml
 coverage:
     enabled: true
     show_only_summary: false
-
-{% endhighlight %}
+```
 
 For further information please refer to the [PHPUnit configuration docs](https://phpunit.readthedocs.io/en/latest/configuration.html)
 
@@ -89,11 +84,10 @@ All you need is to execute codeception with `--coverage` option.
 
 To generate a clover xml report or a tasty html report append also `--coverage-xml` and `--coverage-html` options.
 
-{% highlight yaml %}
 
-codecept run --coverage --coverage-xml --coverage-html
-
-{% endhighlight %}
+```yaml
+php vendor/bin/codecept run --coverage --coverage-xml --coverage-html
+```
 
 XML and HTML reports are stored to the `_output` directory. The best way to review report is to open `index.html` from `tests/_output/coverage` in your browser.
 XML clover reports are used by IDEs (like PHPStorm) or Continuous Integration servers (like Jenkins).
@@ -118,13 +112,12 @@ Please, follow installation instructions described in a [readme file](https://gi
 To connect to `c3` Codeception uses url config from PhpBrowser or WebDriver module.
 But URL of index with `c3.php` included can be specified explicitly with `c3_url` parameter defined:
 
-{% highlight yaml %}
 
+```yaml
 coverage:
     # url of file which includes c3 router.
     c3_url: 'http://127.0.0.1:8000/index-test.php/'
-
-{% endhighlight %}
+```
 > note: we can't have multiple `c3_url` on same host difference only by port. Please, use alias of domain 
 (i.e. `frontend.test:8000`,`backend.test:8080`) instead.
 
@@ -141,24 +134,22 @@ Codeception will run code coverage only for the domain set in the url of the  `W
 thus leaving out other subdomains from code coverage. To avoid that and to include all relevant subdomains in code
 covereage, it's advised to set `.mysite.com` as the cookie domain option:
 
-{% highlight yaml %}
 
+```yaml
 coverage:
     cookie_domain: ".mysite.com"
-
-{% endhighlight %}
+```
 
 ### Remote Server
 
 But if you run tests on different server (or your webserver doesn't use code from current directory) a single option `remote` should be added to config.
 For example, let's turn on remote coverage for acceptance suite in `acceptance.suite.yml`:
 
-{% highlight yaml %}
 
+```yaml
 coverage:
     remote: true
-
-{% endhighlight %}
+```
 
 In this case remote Code Coverage results won't be merged with local ones, if this option is enabled.
 Merging is possible only in case a remote and local files have the same path.
@@ -172,28 +163,27 @@ If your remote server is accessed through a shared mount, or a mounted folder (I
 Use the `work_dir` option to specify the work directory. When CodeCoverage runs, Codeception will update any path that matches the `work_dir` option to match the local current project directory.
 
 Given a docker command similar to:
-{% highlight bash %}
 
+```
 docker run -v $(pwd):/workdir -w /workdir...
-
-{% endhighlight %}
+```
 
 Use the below configuration to allow coverage mergers.
-{% highlight yaml %}
 
+```yaml
 coverage:
     remote: false
     work_dir: /workdir
 
-
-{% endhighlight %}
+```
 
 ### Remote Context Options
 
 HTML report generation can at times take a little more time than the default 30 second timeout. Or maybe you want to alter SSL settings (verify_peer, for example)
 To alter the way c3 sends it's service requests to your webserver (be it a local or a remote one), you can use the `remote_context_options` key in `coverage` settings.
 
-{% highlight yaml %}
+
+```yaml
 
 coverage:
     remote_context_options:
@@ -201,12 +191,6 @@ coverage:
             timeout: 60
         ssl:
             verify_peer: false
-
-{% endhighlight %}
+```
 
 Context stream options are [well documented at php.net](https://php.net/manual/en/context.php)
-
-## Conclusion
-
-It's never been easier to setup local and remote code coverage. Just one config and one additional file to include!
-**With Codeception you can easily generate CodeCoverage reports for your Selenium tests** (or other acceptance or api tests). Mixing reports for `acceptance`, `functional`, and `unit` suites provides you with the most complete information on which parts of your applications are tested and which are not.

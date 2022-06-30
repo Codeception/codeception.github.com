@@ -30,10 +30,9 @@ At first we need to create build project. Depending on your needs you can set up
 
 We need to define build steps. The most simple setup may look like this:
 
-{% highlight php %}
- vendor/bin/codecept run
-
-{% endhighlight %}
+```
+php vendor/bin/codecept run
+```
 
 ![Jenkins Codeception Build Step](https://codeception.com/images/jenkins/Jenk5.png)
 
@@ -47,10 +46,9 @@ But we don't want to analyze console output for each failing build. Especially I
 
 Now let's update our build step to generate xml:
 
-{% highlight php %}
- vendor/bin/codecept run --xml
-
-{% endhighlight %}
+```php
+php vendor/bin/codecept run --xml
+```
 
 and ask Jenkins to collect resulted XML. This can be done as part of Post-build actions. Let's add *Publish xUnit test result report* action and configure it to use with PHPUnit reports.
 
@@ -66,10 +64,9 @@ Now for all builds we will see results trend graph that shows us percentage of p
 
 To get more details on steps executed you can generate HTML report and use Jenkins to display them.
 
-{% highlight php %}
- vendor/bin/codecept run --html
-
-{% endhighlight %}
+```php
+php vendor/bin/codecept run --html
+```
 
 Now we need HTML Publisher plugin configured to display generated HTML files. It should be added as post-build action similar way we did it for XML reports.
 
@@ -86,21 +83,18 @@ Jenkins should locate `report.html` at `tests/_output/`. Now Jenkins will displa
 
 TeamCity is a hosted solution from JetBrains. The setup of it can be a bit tricky as TeamCity uses its own reporter format for parsing test results. PHPUnit since version 5.x has integrated support for this format, so does Codeception. What we need to do is to configure Codeception to use custom reporter. By default there is `--report` option which provides an alternative output. You can change the reporter class in `codeception.yml` configuration:
 
-{% highlight yaml %}
-
+```yaml
 reporters:
-  report: PHPUnit_Util_Log_TeamCity
-
-{% endhighlight %}
+  report: PHPUnit\Util\Log\TeamCity
+```
 
 As an alternative you can use 3rd-party [TeamCity extension](https://github.com/neronmoon/TeamcityCodeception) for better reporting.
 
 After you create build project you should define build step with Codeception which is
 
-{% highlight php %}
- vendor/bin/codecept run --report
-
-{% endhighlight %}
+```php
+php vendor/bin/codecept run --report
+```
 
 ![build step](https://codeception.com/images/teamcity/build.png)
 
@@ -114,24 +108,19 @@ Once you execute your first build you should see detailed report inside TeamCity
 
 Travis CI is popular service CI with good GitHub integration. Codeception is self-tested with Travis CI. There nothing special about configuration. Just add to the bottom line of travis configuration:
 
-{% highlight yaml %}
-
+```
 php vendor/bin/codecept run
-
-{% endhighlight %}
-
-More details on configuration can be learned from Codeception's [`.travis.yml`](https://github.com/Codeception/Codeception/blob/3.0/.travis.yml).
+```
 
 Travis doesn't provide visualization for XML or HTML reports so you can't view reports in format any different than console output. However, Codeception produces nice console output with detailed error reports.
 
-## GitLab
+## GitLab CI
 
 ![report](https://codeception.com/images/gitlab/logo.png)
 
 If a file `.gitlab-ci.yml` exists in the root of the git repository, GitLab will run a pipeline each time you push to the gitlab server. The file configures the docker image that will be called. Below is a sample which loads a php7 docker image, clones your files, installs composer dependencies, runs the built-in php webserver and finally runs codeception:
 
-{% highlight yaml %}
-
+```yaml
 # Select image from https://hub.docker.com/_/php/
 image: php:7.0
 
@@ -154,16 +143,13 @@ before_script:
 test:
   script:
   - vendor/bin/codecept run
-
-{% endhighlight %}
+```
 
 ![report](https://codeception.com/images/gitlab/build.png)
 
 For acceptance testing you can use `codeception/codeception` docker image as base. See example below:
 
-{% highlight yaml %}
-
-
+```yaml
 image:
   name: codeception/codeception
   # clear image entrypoint to make bash being available
@@ -194,11 +180,4 @@ test:
     # make the report available in Gitlab UI. see https://docs.gitlab.com/ee/ci/unit_test_reports.html
     reports:
       junit: tests/_output/report.xml
-
-{% endhighlight %}
-
-
-## Conclusion
-
-It is highly recommended to use Continuous Integration system in development. Codeception is easy to install and run in any CI systems. However, each of them has their differences you should take into account. You can use different reporters to provide output in format expected by CI system.
-
+```
