@@ -5,11 +5,12 @@ and keep your project better organized.
 
 ## Cest Classes
 
-If you want to get a class-like structure for your Cepts, you can use the Cest format instead of plain PHP.
-It is very simple and is fully compatible with Cept scenarios. It means that if you feel that your test is long enough
-and you want to split it, you can easily move it into classes.
+Cest is a common test format for Codeception, it is "Test" firth first C letter in it.
+It is scenario-driven format so all tests written in it are executed step by steps.
+Unless you need direct access to application code inside a test, Cest format is recommended to use.
+As it provides more readable code for functional, api, and acceptance tests.
 
-You can create a Cest file by running the command:
+A new Cest class can be created via `g:cest` command:
 
 ```
 php vendor/bin/codecept generate:cest suitename CestName
