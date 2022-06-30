@@ -77,42 +77,45 @@ Jenkins should locate `report.html` at `tests/_output/`. Now Jenkins will displa
 ![Jenkins HTML Report](https://codeception.com/images/jenkins/Jenki10.png)
 ![Jenkins Codeception HTML Results](https://codeception.com/images/jenkins/Jenki11.png)
 
-## TeamCity
+## GitHub Actions
 
-![TeamCity](https://codeception.com/images/teamcity/logo.jpg)
-
-TeamCity is a hosted solution from JetBrains. The setup of it can be a bit tricky as TeamCity uses its own reporter format for parsing test results. PHPUnit since version 5.x has integrated support for this format, so does Codeception. What we need to do is to configure Codeception to use custom reporter. By default there is `--report` option which provides an alternative output. You can change the reporter class in `codeception.yml` configuration:
+GitHub Actions CI can be used to launch tests. Install PHP and Composer and execute tests:
 
 ```yaml
-reporters:
-  report: PHPUnit\Util\Log\TeamCity
+on:
+  pull_request:
+    branches-ignore: gh-pages
+  push:
+    branches-ignore: gh-pages
+
+name: Codeception Tests
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: curl, mbstring, openssl, pdo, pdo_sqlite
+          ini-values: memory_limit=-1, date.timezone='UTC'
+          coverage: xdebug
+          tools: composer:v2
+
+    - name: Validate composer.json and composer.lock
+      run: composer validate
+
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress --no-interaction --no-suggest
+
+    - name: Run tests
+      run: php vendor/bin/codecept run
 ```
-
-As an alternative you can use 3rd-party [TeamCity extension](https://github.com/neronmoon/TeamcityCodeception) for better reporting.
-
-After you create build project you should define build step with Codeception which is
-
-```php
-php vendor/bin/codecept run --report
-```
-
-![build step](https://codeception.com/images/teamcity/build.png)
-
-Once you execute your first build you should see detailed report inside TeamCity interface:
-
-![report](https://codeception.com/images/teamcity/report2.png)
-
-## TravisCI
-
-![Travis CI](https://codeception.com/images/travis.png)
-
-Travis CI is popular service CI with good GitHub integration. Codeception is self-tested with Travis CI. There nothing special about configuration. Just add to the bottom line of travis configuration:
-
-```
-php vendor/bin/codecept run
-```
-
-Travis doesn't provide visualization for XML or HTML reports so you can't view reports in format any different than console output. However, Codeception produces nice console output with detailed error reports.
 
 ## GitLab CI
 
@@ -181,3 +184,15 @@ test:
     reports:
       junit: tests/_output/report.xml
 ```
+
+## TravisCI
+
+![Travis CI](https://codeception.com/images/travis.png)
+
+Travis CI is popular service CI with good GitHub integration. Codeception is self-tested with Travis CI. There nothing special about configuration. Just add to the bottom line of travis configuration:
+
+```
+php vendor/bin/codecept run
+```
+
+Travis doesn't provide visualization for XML or HTML reports so you can't view reports in format any different than console output. However, Codeception produces nice console output with detailed error reports.
