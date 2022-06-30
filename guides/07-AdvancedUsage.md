@@ -293,7 +293,7 @@ class PageCest
 
 ```
 
-`DataProvider` attribute is also available for [unit tests](https://codeception.com/docs/05-UnitTests), in this case the data provider **method must be public method**, so its name should have `_` prefix.
+> `DataProvider` attribute is **not available** for [unit tests](https://codeception.com/docs/05-UnitTests). Use [Data Providers from PHPUnit](https://phpunit.readthedocs.io/en/9.5/writing-tests-for-phpunit.html?highlight=data%20provider#data-providers) to implement them.
 
 ## Before/After Attributes 
 
