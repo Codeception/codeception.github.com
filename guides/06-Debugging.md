@@ -2,7 +2,17 @@
 
 Writing a test is always the process of learning the code and the application.
 It is ok, if a test can't be writtng from scratch or you don't understand the effects of the code. 
-By looking into the following debugging practices you will learn how to get all required information inside a test to finish it. 
+By looking into the following debugging practices you will learn how to get all required information inside a test to finish it.
+
+## Re-Running Failed Tests
+
+Codeception saves the list of failed tests. To re-run failed test run tests from `failed` group:
+
+```php
+php vendor/bin/codecept run -g failed
+```
+
+If no tests have failed this group will be empty.
 
 ## Output
 
