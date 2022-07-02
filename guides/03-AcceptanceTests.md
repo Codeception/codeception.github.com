@@ -23,7 +23,7 @@ $I->click('LOGIN');
 $I->see('Welcome, Davert!');
 ```
 
-**This scenario can be performed either by PhpBrowser or by a "real" browser through WebDriver**.
+**This scenario can be performed either by PhpBrowser or by a real browser through WebDriver**.
 
 | | PhpBrowser | WebDriver |
 | --- | --- | --- |

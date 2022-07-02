@@ -463,9 +463,11 @@ Parameters can set in JSON format. So objects, arrays, booleans and strings can 
 modules:
     enabled:
         - \Tests\Support\DataHelper:
-            users: %USERS_ARRAY%
-            books: %BOOKS_ARRAY%
+            users: "%USERS_ARRAY%"
+            books: "%BOOKS_ARRAY%"
 ```
+
+In this case `USER_ARRAY` and `BOOKS_ARRAY` are JSON-fromatted arrays. Codeception turns them into array while parsing configuration.
 
 ### Runtime Configuration
 
@@ -496,11 +498,11 @@ At the end of a test all configuration changes will be rolled back to the origin
 
 Sometimes it is needed to set custom configuration for a specific test only.
 For [Cest](https://codeception.com/docs/07-AdvancedUsage#Cest-Classes) and [Test\Unit](https://codeception.com/docs/05-UnitTests)
-formats you can use `@prepare` annotation which can execute the code before other hooks are executed. This allows `@prepare`
-to change the module configuration in runtime. `@prepare` uses [dependency injection](https://codeception.com/docs/07-AdvancedUsage#Dependency-Injection)
+formats you can use `#[Prepare]` attribute which executes the code before other hooks are executed. This allows `#[Prepare]`
+to change the module configuration in runtime. `#[Prepare]` uses [dependency injection](https://codeception.com/docs/07-AdvancedUsage#Dependency-Injection)
 to automatically inject required modules into a method.
 
-To run a specific test only in Chrome browser, you can call `_reconfigure` from WebDriver module for a test itself using `@prepare`.
+To run a specific test only in Chrome browser, you can call `_reconfigure` from WebDriver module for a test itself using `#[Prepare]`.
 
 ```php
 use Codeception\Attribute\Prepare;
