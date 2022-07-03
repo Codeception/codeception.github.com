@@ -1,13 +1,13 @@
 # Advanced Usage
 
-In this chapter we will cover some techniques and options that you can use to improve your testing experience
+In this chapter, we will cover some techniques and options that you can use to improve your testing experience
 and keep your project better organized.
 
 ## Cest Classes
 
-Cest is a common test format for Codeception, it is "Test" firth first C letter in it.
-It is scenario-driven format so all tests written in it are executed step by steps.
-Unless you need direct access to application code inside a test, Cest format is recommended to use.
+Cest is a common test format for Codeception, it is "Test" with the first C letter in it.
+It is scenario-driven format so all tests written in it are executed step by step.
+Unless you need direct access to application code inside a test, Cest format is recommended.
 As it provides more readable code for functional, api, and acceptance tests.
 
 A new Cest class can be created via `g:cest` command:
@@ -75,8 +75,8 @@ that may be used in child classes. But don't forget to make these methods `prote
 
 Cest format also can contain hooks based on test results:
 
-* `_failed` will be executed on failed test
-* `_passed` will be executed on passed test
+* `_failed` will be executed for failed test
+* `_passed` will be executed for passed test
 
 ```php
 public function _failed(AcceptanceTester $I)
@@ -117,7 +117,7 @@ class UserCest {
 }
 ```
 
-If you need skipping a test on condition, inject `\Codeception\Scenario` into the test:
+If you need to skip a test on a condition, inject `\Codeception\Scenario` into the test:
 
 ```php
 public function worksOnCondition(AcceptanceTester $I, \Codeception\Scenario $scenario)
@@ -133,7 +133,7 @@ public function worksOnCondition(AcceptanceTester $I, \Codeception\Scenario $sce
 }
 ```
 
-For unit tests tests can be skipped via attribute or by `markTestSkipped` method:
+Unit tests can be skipped via the attribute or by using `markTestSkipped` method:
 
 ```php
 <?php
@@ -166,7 +166,7 @@ class UserTest extends \Codeception\Test\Unit
 
 ## Incomplete Tests
 
-Tests can be marked as Incomplete, in this case they also will be skipped.
+Tests can be marked as Incomplete, in this case, they also will be skipped.
 To mark a test as incomplete use `Codeception\Attribute\Incomplete` which should be used similarly to `Skip` attribute:
 
 ```php
@@ -199,7 +199,7 @@ You can execute one (or several) specific groups of tests:
 php vendor/bin/codecept run -g admin -g editor
 ```
 
-The concept of groups was taken from PHPUnit and behave in the same way.
+The concept of groups was taken from PHPUnit and behaves in the same way.
 
 For Test and Cest files you can use the `Group` attribute to add a test to a group.
 
@@ -213,7 +213,7 @@ use Tests\Support\AcceptanceTester
 class UserCest {
 
     #[Group('admin')] // set a group for this test
-    #[Group('slow', 'important')] // add more groups
+    #[Group('slow', 'important')] // add groups in a single attribute
     public function testAdminUser(AcceptanceTester $I)
     {
     }
@@ -345,7 +345,7 @@ class ModeratorCest {
 
 ### Dependencies
 
-With the `Depends` attribute you can specify a test that should be passed before the current one.
+With the `Depends` attribute, you can specify a test that should be passed before the current one.
 If that test fails, the current test will be skipped. You should pass the method name of the test you are relying on.
 
 ```php
@@ -385,11 +385,11 @@ Codeception reorders tests so dependent tests will always be executed before the
 
 ## Environments
 
-For cases where you need to run tests with different configurations you can define different config environments.
+For cases where you need to run tests with different configurations, you can define different config environments.
 The most typical use cases are running acceptance tests in different browsers,
 or running database tests using different database engines.
 
-Let's demonstrate the usage of environments for the browsers case.
+Let's demonstrate the usage of environments for multi-browser testing.
 
 We need to add some new lines to `acceptance.suite.yml`:
 
@@ -427,8 +427,7 @@ paths:
 
 ```
 
-The names of these files are used as environments names
-(e.g. `chrome.yml` or `chrome.dist.yml` for an environment named `chrome`).
+The names of these files are used as environment names (e.g. `chrome.yml` or `chrome.dist.yml` for an environment named `chrome`).
 You can generate a new file with this environment configuration by using the `generate:environment` command:
 
 ```
@@ -496,6 +495,12 @@ class UserCest
 }
 ```
 
+Multiple values can be set in one attribute:
+
+```php
+#[Env('chrome', 'firefox')]
+```
+
 This way you can easily control which tests will be executed for each environment.
 
 It is possible to combine environments. For instance, if a test should be executed only in chrome on staging, this can be declared as a combined environment:
@@ -512,9 +517,9 @@ php vendor/bin/codecept run --env chrome,staging
 
 ## Get Test Metadata
 
-Sometimes you may need to change the test behavior in real time.
+Sometimes you may need to change the test behavior in real-time.
 For instance, the behavior of the same test may differ in Firefox and in Chrome.
-In runtime we can retrieve the current environment name, test name,
+In runtime, we can retrieve the current environment name, test name,
 or list of enabled modules by calling the `$scenario->current()` method.
 
 ```php
@@ -554,7 +559,7 @@ public function myTest(\Codeception\Scenario $scenario)
 
 ## Shuffle
 
-By default Codeception runs tests in alphabetic order. 
+By default, Codeception runs tests in alphabetic order.
 To ensure that tests are not depending on each other (unless explicitly declared via `@depends`) you can enable `shuffle` option.
 
 ```yaml
@@ -564,15 +569,15 @@ settings:
 
 ```
 
-Alternatively, you may run tests in shuffle without changing the config:
+Alternatively, you may run tests in the shuffle without changing the config:
 
 ```yaml
 codecept run -o "settings: shuffle: true"
 ```
 
 
-Tests will be randomly reordered on each run. When tests executed in shuffle mode a seed value will be printed. 
-Copy this seed value from output to be able to rerun tests in the same order.
+Tests will be randomly reordered on each run. When tests are executed in shuffle mode a seed value will be printed.
+Copy this seed value from the output to be able to rerun tests in the same order.
 
 ```yaml
 $ codecept run
@@ -663,7 +668,7 @@ which can be constructed with arguments known to Codeception.
 
 In order to make auto-wiring work, you will need to implement the `_inject()` method with the list of desired arguments.
 It is important to specify the type of arguments, so Codeception can guess which objects are expected to be received.
-The `_inject()` will only be invoked once, just after creation of the TestCase object (either Cest or Test).
+The `_inject()` will only be invoked once, just after the creation of the TestCase object (either Cest or Test).
 Dependency Injection will also work in a similar manner for Helper and Actor classes.
 
 Each test of a Cest class can declare its own dependencies and receive them from method arguments:
@@ -694,9 +699,4 @@ Moreover, Codeception can resolve dependencies recursively (when `A` depends on 
 and handle parameters of primitive types with default values (like `$param = 'default'`).
 Of course, you are not allowed to have *cyclic dependencies*.
 
-## Conclusion
-
-Codeception is a framework which may look simple at first glance
-but it allows you to build powerful tests with a single API, refactor them,
-and write them faster using the interactive console. Codeception tests can be easily organized in groups or Cest classes.
 
