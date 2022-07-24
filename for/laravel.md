@@ -74,7 +74,7 @@ php vendor/bin/codecept g:cest functional Login
 
 ## Unit Tests
 
-Codeception is powered by PHPUnit so unit and integration test work in a similar manner. To genereate a unit test run:
+To generate a unit test run:
 
 ```
 php vendor/bin/codecept g:test unit "Foo\Bar"
