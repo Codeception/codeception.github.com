@@ -552,8 +552,7 @@ Copy this seed value from output to be able to rerun tests in the same order.
 
 {% highlight yaml %}
 $ codecept run 
-Codeception PHP Testing Framework v2.4.5
-Powered by PHPUnit 5.7.27 by Sebastian Bergmann and contributors.
+Codeception PHP Testing Framework v5.0.0 https://helpukrainewin.org
 [Seed] 1872290562
 
 {% endhighlight %}
