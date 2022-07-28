@@ -296,8 +296,7 @@ $I->haveSoapHeader('Auth', ['username' => 'Miles', 'password' => '123456']);
 ```
 will produce this XML header
 
-{% highlight xml %}
-
+```xml
 <soap:Header>
 <Auth>
   <username>Miles</username>
@@ -316,8 +315,7 @@ $I->sendSoapRequest('CreateUser', '<name>Miles Davis</name><email>miles@davis.co
 
 This call will be translated to XML:
 
-{% highlight xml %}
-
+```xml
 <soap:Body>
 <ns:CreateUser>
   <name>Miles Davis</name>
