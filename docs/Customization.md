@@ -373,14 +373,14 @@ List of available step decorators:
 - [TryTo](https://github.com/Codeception/Codeception/blob/4.0/src/Codeception/Step/TryTo.php) - failed action will be ignored.
 - [Retry](https://github.com/Codeception/Codeception/blob/4.0/src/Codeception/Step/Retry.php) - failed action will be retried automatically.
 
-Step decorators can be added to suite config inside `step_decorators` block:
+Step decorators can be added to suite config inside `steps` block:
 
 {% highlight yaml %}
 yml
 step_decorators:
-    - Codeception\Step\TryTo
-    - Codeception\Step\Retry
-    - Codeception\Step\ConditionalAssertion
+    - Codeception/Step/TryTo
+    - Codeception/Step/Retry
+    - Codeception/Step/ConditionalAssertion
 
 {% endhighlight %}
 
@@ -486,23 +486,6 @@ You should also specify the path to the `log` directory, where the reports and l
 
 > Wildcards (*) can be used to specify multiple directories at once.
 
-Since Codeception 4.2.0 it is possible to execute specific suites from multiple applications.
-
-{% highlight bash %}
-
-# Run unit suites from all included apps and NOT the root suite
-codecept run *::unit
-
-# Run unit and functional suites from all included apps and NOT the root suite
-codecept run *::unit,*::functional
-
-# Run included unit suites AND root unit suite
-codecept run unit,*::unit
-
-# Run included unit suites and root functional suite
-codecept run functional,*::unit
-
-{% endhighlight %}
 
 ## Conclusion
 

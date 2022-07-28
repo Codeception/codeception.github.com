@@ -129,6 +129,46 @@ class RoboFile extends \Robo\Tasks
         $this->changelog();
     }
 
+    public function buildDocsGuides() {
+        $guides = Finder::create()
+            ->ignoreVCS(true)
+            ->depth('== 0')
+            ->name('*.md')
+            ->sortByName()
+            ->in('guides');
+
+        $guidesLinks = [];
+
+        foreach ($guides as $file) {
+            $name = substr($file->getBasename(), 0, -3);
+            $titleName = preg_replace("(\d+-)", '', $name);
+
+            $link = "/docs/$titleName";
+            $editLink = 'https://github.com/Codeception/codeception.github.com/edit/master/guides/' . $file->getBasename();
+            $title = preg_replace('/([A-Z]+)([A-Z][a-z])/', '\\1 \\2', $titleName);
+            $title = preg_replace('/([a-z\d])([A-Z])/', '\\1 \\2', $title);
+
+            $contents = file_get_contents($file->getPathname());
+
+            foreach ([$file->getBasename(), $titleName . '.md'] as $filename) {
+                $this->taskWriteToFile('docs/' . $filename)
+                    ->line('---')
+                    ->line('layout: doc')
+                    ->line("title: $title - Codeception Docs")
+                    ->line('---')
+                    ->line('')
+                    ->line('')
+                    ->text($contents)
+                    ->line('')
+                    ->line('<div class="alert alert-warning"><a href="'.$editLink.'"><strong>Improve</strong> this guide</a></div>')
+                    ->run();
+            }
+
+            $guidesLinks[] = "<li><a href=\"$link\">$title</a></li>";
+        }
+        file_put_contents('_includes/guides.html', implode("\n", $guidesLinks));
+    }
+
     public function buildDocsModules()
     {
         $this->taskCleanDir('docs/modules')->run();
@@ -701,8 +741,8 @@ EOF;
                 date_format(date_create($release['published_at']),"Y/m/d H:i:s")
             );
 
-            $changelog .= " / [🦑 Repository](https://github.com/Codeception/$repo)  ";
-            $changelog .= " / [📦 Releases](https://github.com/Codeception/$repo/releases)\n\n";
+            $changelog .= " / [Repository](https://github.com/Codeception/$repo)  ";
+            $changelog .= " / [Releases](https://github.com/Codeception/$repo/releases)\n\n";
 
             $body = $release['body'];
             //user

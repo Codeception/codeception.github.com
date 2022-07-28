@@ -1,9 +1,3 @@
----
-layout: doc
-title: Acceptance Tests - Codeception Docs
----
-
-
 # Acceptance Testing
 
 Acceptance testing can be performed by a non-technical person. That person can be your tester, manager or even client.
@@ -29,7 +23,7 @@ $I->click('LOGIN');
 $I->see('Welcome, Davert!');
 ```
 
-**This scenario can be performed either by PhpBrowser or by a "real" browser through WebDriver**.
+**This scenario can be performed either by PhpBrowser or by a real browser through WebDriver**.
 
 | | PhpBrowser | WebDriver |
 | --- | --- | --- |
@@ -763,25 +757,9 @@ WebDriver module provides advanced methods for the browser session, however, the
 
 Those methods can be used to create custom commands like `$I->startBrowser()` or used in [before/after](https://codeception.com/docs/06-ModulesAndHelpers#Hooks) hooks.
 
-## Error Reporting
-
-By default Codeception uses the `E_ALL & ~E_STRICT & ~E_DEPRECATED` error reporting level.
-In acceptance tests you might want to change this level depending on your framework's error policy.
-The error reporting level can be set in the suite configuration file:
-
-```yaml
-actor: AcceptanceTester
-# ...
-error_level: E_ALL & ~E_STRICT & ~E_DEPRECATED
-```
-
-`error_level` can also be set globally in `codeception.yml` file. In order to do that, you need to specify `error_level` as a part of `settings`. For more information, see [Global Configuration](https://codeception.com/docs/reference/Configuration). Note that suite specific `error_level` value will override global value.
-
 ## Conclusion
 
 Writing acceptance tests with Codeception and PhpBrowser is a good start.
 You can easily test your Joomla, Drupal, WordPress sites, as well as those made with frameworks.
 Writing acceptance tests is like describing a tester's actions in PHP. They are quite readable and very easy to write.
 If you need to access the database, you can use the [Db Module](https://codeception.com/docs/modules/Db).
-
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/guides/03-AcceptanceTests.md"><strong>Improve</strong> this guide</a></div>

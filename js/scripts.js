@@ -95,6 +95,78 @@ $(document).ready(function () {
 
 // js
 $(document).ready(function () {
+  function randomCarousel(id) {
+    var num = $(id + ' .item').length;
+    var slide = Math.floor((Math.random() * num));
+    $(id + ' .item').each(function (index) {
+      if (index == slide) {
+        $(this).addClass('active');
+      } else {
+        $(this).removeClass('active');
+      }
+    });
+  }
+
+  randomCarousel('#carousel-tweets');
+  randomCarousel('#carousel-companies');
+
+  var toc = $('#toc');
+  if(toc.length) {
+    toc.toc({
+      'selectors': 'h2',
+      'prefix': 'toc',
+      'container': '#page',
+      'anchorName': function (i, heading, prefix) { //custom function for anchor name
+        return $(heading).text().replace(/\s/g, '-').replace(/[^\w-]/g, '');
+      },
+    });
+  }
+
+  var page = $('#page table');
+  var tocNext = $('#toc');
+  var tocNextUl = $('#toc > ul');
+  var tocNextUlLi = $('#toc ul.list li a');
+
+  if(page.length) {
+    page.addClass('table table-striped table-bordered');
+  }
+
+  if(tocNext.length) {
+    tocNext.toc({
+      'selectors': 'h2,h3,h4',
+      'prefix': 'toc',
+      'container': '#page',
+      //custom function for anchor name
+      'anchorName': function(i, heading, prefix) {
+        return $(heading).text().replace(/\s/g, '-').replace(/[^\w-]/g, '');
+      },
+    });
+  }
+
+  // List.js
+  if(tocNextUl.length) {
+    tocNextUl.addClass('list');
+  }
+
+  if(tocNextUlLi.length) {
+    tocNextUlLi.addClass('searchitem');
+  }
+
+  var options = {
+    valueNames: [ 'searchitem' ]
+  };
+  var userList = new List('searchable', options);
+  // end List.js
+  // docrdy
+
+  // Adding this layout functionality for mobile views with the homepage hero
+  var navbarToggle = $('.navbar-toggle')
+  if(navbarToggle.length) {
+    navbarToggle.click(function(){
+      $('.row.home').toggleClass('no-padding-top');
+    });
+  }
+=======
     function randomCarousel(id) {
         var num = $(id + ' .item').length;
         var slide = Math.floor((Math.random() * num));

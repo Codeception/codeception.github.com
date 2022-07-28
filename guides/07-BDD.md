@@ -1,9 +1,3 @@
----
-layout: doc
-title: BDD - Codeception Docs
----
-
-
 # Behavior Driven Development
 
 Behavior Driven Development (BDD) is a popular software development methodology. BDD is considered an extension of TDD, and is greatly inspired by [Agile](https://agilemanifesto.org/) practices. The primary reason to choose BDD as your development process is to break down communication barriers between business and technical teams. BDD encourages the use of automated testing to verify all documented features of a project from the very beginning. This is why it is common to talk about BDD in the context of test frameworks (like Codeception). The BDD approach, however, is about much more than testing - it is a common language for all team members to use during the development process.
@@ -47,20 +41,18 @@ Such talks should produce written stories. There should be an actor that doing s
 
 We can try to write such simple story:
 
-{% highlight yaml %}
+```yaml
 As a customer I want to buy several products
 I put first product with $600 price to my cart
 And then another one with $1000 price
 When I go to checkout process
 I should see that total number of products I want to buy is 2
-And my order amount is $1600
-
-{% endhighlight %}
+Andmy order amount is $1600
+```
 
 As we can see this simple story highlights core concepts that are called *contracts*. We should fulfill those contracts to model software correctly. But how we can verify that those contracts are being satisfied? [Cucumber](https://cucumber.io) introduced a special language for such stories called **Gherkin**. Same story transformed to Gherkin will look like this:
 
-{% highlight gherkin %}
-
+```gherkin
 Feature: checkout process
   In order to buy products
   As a customer
@@ -72,8 +64,7 @@ Feature: checkout process
     When I go to checkout process
     Then I should see that total number of products is 2
     And my order amount is $1600
-
-{% endhighlight %}
+```
 
 Cucumber, Behat, and sure, **Codeception** can execute this scenario step by step as an automated test.
 Every step in this scenario requires a code which defines it.
@@ -89,35 +80,29 @@ Whenever you start writing a story you are describing a specific feature of an a
 Feature file is written in Gherkin format. Codeception can generate a feature file for you.
 We will assume that we will use scenarios in feature files for acceptance tests, so feature files to be placed in `acceptance` suite directory:
 
-{% highlight bash %}
-
+```bash
 php vendor/bin/codecept g:feature acceptance checkout
-
-{% endhighlight %}
+```
 
 Generated template will look like this:
 
-{% highlight gherkin %}
-
+```gherkin
 Feature: checkout
   In order to ...
   As a ...
   I need to ...
 
   Scenario: try checkout
-
-{% endhighlight %}
+```
 
 This template can be fulfilled by setting actor and goals:
 
-{% highlight gherkin %}
-
+```gherkin
 Feature: checkout
   In order to buy product
   As a customer
   I need to be able to checkout the selected products
-
-{% endhighlight %}
+```
 
 Next, we will describe this feature by writing examples for it
 
@@ -125,55 +110,44 @@ Next, we will describe this feature by writing examples for it
 
 Scenarios are live examples of feature usage. Inside a feature file it should be written inside a *Feature* block. Each scenario should contain its title:
 
-{% highlight gherkin %}
-
+```gherkin
 Feature: checkout
   In order to buy product
   As a customer
   I need to be able to checkout the selected products
 
 Scenario: order several products
-
-{% endhighlight %}
+```
 
 Scenarios are written in step-by-step manner using Given-When-Then approach. At start, scenario should describe its context with **Given** keyword:
 
-{% highlight gherkin %}
-
+```gherkin
   Given I have product with $600 price in my cart
   And I have product with $1000 price in my cart
-
-{% endhighlight %}
+```
 
 Here we also use word **And** to extend the Given and not to repeat it in each line.
 
 This is how we described the initial conditions. Next, we perform some action. We use **When** keyword for it:
 
-{% highlight gherkin %}
-
+```gherkin
   When I go to checkout process
-
-{% endhighlight %}
+```
 
 And in the end we are verifying our expectation using **Then** keyword. The action changed the initial given state, and produced some results. Let's check that those results are what we actually expect.
 
-{% highlight gherkin %}
-
+```gherkin
   Then I should see that total number of products is 2
   And my order amount is $1600
-
-{% endhighlight %}
+```
 
 We can test this scenario by executing it in dry-run mode. In this mode test won't be executed (actually, we didn't define any step for it, so it won't be executed in any case).
 
-{% highlight bash %}
+```bash
+php vendor/bin/codecept dry-run acceptance checkout.feature
+```
 
-$ codecept dry-run acceptance checkout.feature
-
-{% endhighlight %}
-
-{% highlight bash %}
-
+```bash
 checkout: order several products
 Signature: checkout:order several products
 Test: tests/acceptance/checkout.feature:order several products
@@ -194,79 +168,73 @@ Step definition for `I go to checkout process` not found in contexts
 Step definition for `I should see that total number of products is 2` not found in contexts
 Step definition for `my order amount is $1600` not found in contexts
 Run gherkin:snippets to define missing steps
-
-{% endhighlight %}
+```
 
 Besides the scenario steps listed we got the notification that our steps are not defined yet.
 We can define them easily by executing `gherkin:snippets` command for the given suite:
 
-{% highlight bash %}
-
-codecept gherkin:snippets acceptance
-
-{% endhighlight %}
+```bash
+php vendor/bin/codecept gherkin:snippets acceptance
+```
 
 This will produce code templates for all undefined steps in all feature files of this suite.
 Our next step will be to define those steps and transforming feature-file into valid test.
 
 ### Step Definitions
 
-To match steps from a feature file to PHP code we use annotation which are added to class methods.
-By default Codeception expects that all methods marked with `@Given`, `@When`, `@Then` annotation.
-Each annotation should contain a step string.
+To match steps from a feature file to PHP code we use attribute which are added to class methods.
+By default Codeception expects steps in methods marked with `Given`, `When`, `Then` attributes.
+Attributes can be loaded from `Codeception\Attribute` namespace:
 
-{% highlight yaml %}
-/** @Given I am logged as admin */
+```php
+use Codeception\Attribute\Given;
+use Codeception\Attribute\When;
+use Codeception\Attribute\Then;
+```
 
-{% endhighlight %}
+Each attribute should contain a step string.
+
+```php
+#[Given('I am logged as admin')]
+```
 
 Steps can also be matched with regex expressions. This way we can make more flexible steps
 
-{% highlight yaml %}
-/** @Given /I am (logged|authorized) as admin/  */
+```php
+#[Given('/I am (logged|authorized) as admin/')]
+```
 
-{% endhighlight %}
+Regular expressions should start and end with `/` char. Regex is also used to match parameters and pass them as arguments into methods.
 
-Please note that regular expressions should start and end with `/` char. Regex is also used to match parameters and pass them as arguments into methods.
-
-{% highlight php %}
-
-<?php
-/**
-* @Given /I am (?:logged|authorized) as "(\w+)"/
-*/
-function amAuthorized($role)
+```php
+#[Given('/I am (?:logged|authorized) as "(\w+)"/')]
+public function amAuthorized($role)
 {
   // logged or authorized does not matter to us
   // so we added ?: for this capture group
 }
-
-{% endhighlight %}
+```
 
 Parameters can be also passed in non-regex strings using ":" params placeholder.
 
-{% highlight yaml %}
-/** @Given I am logged in as :role */
-
-{% endhighlight %}
+```php
+#[Given('Given I am logged in as :role')
+```
 
 This will match any word (passed in double quotes) or a number passed:
 
-{% highlight yaml %}
+```bash
 Given I am logged in as "admin"
 Given I am logged in as 1
-
-{% endhighlight %}
+```
 
 Steps are defined in Context files. Default context is an actor class, i.e. for acceptance testing suite default context is `AcceptanceTester` class. However, you can define steps in any classes and include them as contexts. It is useful to define steps in StepObject and PageObject classes.
 
 To list all defined steps run `gherkin:steps` command:
 
-{% highlight bash %}
-
-codecept gherkin:steps
-
-{% endhighlight %}
+```bash
+php vendor/bin/php codecept gherkin:steps
+```
 
 ## Testing Behavior
 
@@ -278,63 +246,62 @@ There is no restrictions in the way how those scenarios are supposed to be teste
 
 As we generated snippets for missing steps with `gherkin:snippets` command, we will define them in `AcceptanceTester` file.
 
-{% highlight php %}
-
+```php
 <?php
+namespace Tests\Support;
+
+use Codeception\Attribute\Given;
+use Codeception\Attribute\When;
+use Codeception\Attribute\Then;
+
 class AcceptanceTester extends \Codeception\Actor
 {
     use _generated\AcceptanceTesterActions;
 
-    /**
-     * @Given I have product with :num1 price in my cart
-     */
+     #[Given('I have product with :num1 price in my cart')]
      public function iHaveProductWithPriceInMyCart($num1)
      {
         throw new \PHPUnit\Framework\IncompleteTestError("Step `I have product with :num1 price in my cart` is not defined");
      }
 
-    /**
-     * @When I go to checkout process
-     */
+     #[When('I go to checkout process')]
      public function iGoToCheckoutProcess()
      {
         throw new \PHPUnit\Framework\IncompleteTestError("Step `I go to checkout process` is not defined");
      }
 
-    /**
-     * @Then I should see that total number of products is :num1
-     */
+     #[Then('I should see that total number of products is :num1')]
      public function iShouldSeeThatTotalNumberOfProductsIs($num1)
      {
         throw new \PHPUnit\Framework\IncompleteTestError("Step `I should see that total number of products is :num1` is not defined");
      }
 
-    /**
-     * @Then my order amount is :num1
-     */
+     #[Then('my order amount is :num1')]
      public function myOrderAmountIs($num1)
      {
         throw new \PHPUnit\Framework\IncompleteTestError("Step `my order amount is :num1` is not defined");
      }
 }
-
-{% endhighlight %}
+```
 
 Please note that `:num1` placeholder can be used for strings and numbers (may contain currency sign).
 In current case `:num1` matches `$600` and `$num1` is assigned to be 600. If you need to receive exact string, wrap the value into quotes: `"600$"`
 
 By default they throw Incomplete exceptions to ensure test with missing steps won't be accidentally marked as successful. We will need to implement those steps. As we are in acceptance suite we are probably using [PHPBrowser](https://codeception.com/docs/modules/PhpBrowser) or [WebDriver](https://codeception.com/docs/modules/WebDriver) modules. This means that we can use their methods inside Tester file, as we do with writing tests using `$I->`. You can use `amOnPage`, `click`, `see` methods inside a step definitions, so each Gherkin scenario step to be extended with basic Codeception steps. Let's show how it can be implemented in our case:
 
-{% highlight php %}
-
+```php
 <?php
+namespace Tests\Support;
+
+use Codeception\Attribute\Given;
+use Codeception\Attribute\When;
+use Codeception\Attribute\Then;
+
 class AcceptanceTester extends \Codeception\Actor
 {
     use _generated\AcceptanceTesterActions;
 
-    /**
-     * @Given I have product with :num1 price in my cart
-     */
+     #[Given('I have product with :num1 price in my cart')]
      public function iHaveProductWithPriceInMyCart($num1)
      {
         // haveRecord method is available in Laravel, Phalcon, Yii modules
@@ -343,39 +310,31 @@ class AcceptanceTester extends \Codeception\Actor
         $this->click('Order');
      }
 
-    /**
-     * @When I go to checkout process
-     */
+     #[When('I go to checkout process')]
      public function iGoToCheckoutProcess()
      {
         $this->amOnPage('/checkout');
      }
 
-    /**
-     * @Then I should see that total number of products is :num1
-     */
+     #[Then('I should see that total number of products is :num1')]
      public function iShouldSeeThatTotalNumberOfProductsIs($num1)
      {
         $this->see($num1, '.products-count');
      }
 
-    /**
-     * @Then my order amount is :num1
-     */
+     #[Then('my order amount is :num1')]
      public function myOrderAmountIs($num1)
      {
         $this->see($num1, '.total');
      }
 }
-
-{% endhighlight %}
+```
 
 To make testing more effective we assumed that we are using one of the ActiveRecord frameworks like Laravel, Yii, or Phalcon so we are able to dynamically create records in database with `haveRecord` method. After that we are opening browser and testing our web pages to see that after selecting those products we really see the price was calculated correctly.
 
 We can dry-run (or run) our feature file to see that Given/When/Then are expanded with substeps:
 
-{% highlight bash %}
-
+```bash
  Given i have product with $600 price in my cart
    I have record 'Product',{"name":"randomProduct571fad4f88a04","price":"600"}
    I am on page "/item/1"
@@ -390,8 +349,7 @@ We can dry-run (or run) our feature file to see that Given/When/Then are expande
    I see "2",".products-count"
  And my order amount is $1600
    I see "1600",".total"
-
-{% endhighlight %}
+```
 
 This way feature file runs just the same as any other Codeception test. Substeps give us detailed information of how the scenario is being executed.
 
@@ -405,8 +363,7 @@ Let's improve our BDD suite by using the advanced features of Gherkin language.
 
 If a group of scenarios have the same initial steps, let's that for dashboard we always need to be logged in as administrator. We can use *Background* section to do the required preparations and not to repeat same steps across scenarios.
 
-{% highlight gherkin %}
-
+```gherkin
 Feature: Dashboard
   In order to view current state of business
   As an owner
@@ -415,8 +372,7 @@ Feature: Dashboard
   Background:
     Given I am logged in as administrator
     And I open dashboard page
-
-{% endhighlight %}
+```
 
 Steps in background are defined the same way as in scenarios.
 
@@ -424,45 +380,37 @@ Steps in background are defined the same way as in scenarios.
 
 Scenarios can become more descriptive when you represent repeating data as tables. Instead of writing several steps "I have product with :num1 $ price in my cart" we can have one step with multiple values in it.
 
-{% highlight gherkin %}
-
+```gherkin
   Given i have products in my cart
     | name         | category    | price  |
     | Harry Potter | Books       | 5      |
     | iPhone 5     | Smartphones | 1200   |
     | Nuclear Bomb | Weapons     | 100000 |
-
-{% endhighlight %}
+```
 
 Tables is a recommended ways to pass arrays into test scenarios.
 Inside a step definition data is stored in argument passed as `\Behat\Gherkin\Node\TableNode` instance.
 
-{% highlight php %}
-
-<?php
-    /**
-     * @Given i have products in my cart
-     */
-    public function iHaveProductsInCart(\Behat\Gherkin\Node\TableNode $products)
-    {
-        // iterate over all rows
-        foreach ($node->getRows() as $index => $row) {
-            if ($index === 0) { // first row to define fields
-                $keys = $row;
-                continue;
-            }
-            $this->haveRecord('Product', array_combine($keys, $row));
-        }
-    }
-
-{% endhighlight %}
+```php
+  #[Given('i have products in my cart')
+  public function iHaveProductsInCart(\Behat\Gherkin\Node\TableNode $products)
+  {
+      // iterate over all rows
+      foreach ($node->getRows() as $index => $row) {
+          if ($index === 0) { // first row to define fields
+              $keys = $row;
+              continue;
+          }
+          $this->haveRecord('Product', array_combine($keys, $row));
+      }
+  }
+```
 
 ### Examples
 
 In case scenarios represent the same logic but differ on data, we can use *Scenario Outline* to provide different examples for the same behavior. Scenario outline is just like a basic scenario with some values replaced with placeholders, which are filled from a table. Each set of values is executed as a different test.
 
-{% highlight gherkin %}
-
+```gherkin
   Scenario Outline: order discount
     Given I have product with price <price>$ in my cart
     And discount for orders greater than $20 is 10 %
@@ -476,15 +424,13 @@ In case scenarios represent the same logic but differ on data, we can use *Scena
       | 21    | 18.9  |
       | 30    | 27    |
       | 50    | 45    |
-
-{% endhighlight %}
+```
 
 ### Long Strings
 
 Text values inside a scenarios can be set inside a `"""` block:
 
-{% highlight gherkin %}
-
+```gherkin
   Then i see in file "codeception.yml"
 """
 paths:
@@ -494,17 +440,12 @@ paths:
     helpers: tests/_support
     envs: tests/_envs
 """
-
-{% endhighlight %}
+```
 
 This string is passed as a standard PHP string parameter
 
-{% highlight php %}
-
-<?php
-    /**
-     * @Then i see in file :filename
-     */
+```php
+    #[Then('i see in file :filename')
     public function seeInFile($fileName, $fileContents)
     {
         // note: module "Asserts" is enabled in this suite
@@ -513,19 +454,16 @@ This string is passed as a standard PHP string parameter
         }
         $this->assertEquals(file_get_contents($fileName), $fileContents);
     }
-
-{% endhighlight %}
+```
 
 ### Tags
 
 Gherkin scenarios and features can contain tags marked with `@`. Tags are equal to groups in Codeception.
 This way if you define a feature with `@important` tag, you can execute it inside `important` group by running:
 
-{% highlight bash %}
-
-codecept run -g important
-
-{% endhighlight %}
+```bash
+php vendor/bin/codecept run -g important
+```
 
 Tag should be placed before *Scenario:* or before *Feature:* keyword. In the last case all scenarios of that feature will be added to corresponding group.
 
@@ -533,76 +471,70 @@ Tag should be placed before *Scenario:* or before *Feature:* keyword. In the las
 
 As we mentioned earlier, steps should be defined inside context classes. By default all the steps are defined inside an Actor class, for instance, `AcceptanceTester`. However, you can include more contexts. This can be configured inside global `codeception.yml` or suite configuration file:
 
-{% highlight yaml %}
+```yaml
 
 gherkin:
     contexts:
         default:
             - AcceptanceTester
             - AdditionalSteps
-
-{% endhighlight %}
+```
 
 `AdditionalSteps` file should be accessible by autoloader and can be created by `Codeception\Lib\Di`. This means that practically any class can be a context. If a class receives an actor class in constructor or in `_inject` method, DI can inject it into it.
 
-{% highlight php %}
-
+```php
 <?php
+
+use Codeception\Attribute\When;
+
 class AdditionalSteps
 {
   protected $I;
 
-  function __construct(AcceptanceTester $I)
+  function __construct(\Tests\Support\AcceptanceTester $I)
   {
       $this->I = $I;
   }
 
-  /**
-   * @When I do something
-   */
+  #[When('I do something')]
   function additionalActions()
   {
   }
 }
-
-{% endhighlight %}
+```
 This way PageObjects, Helpers and StepObjects can become contexts as well. But more preferable to include context classes by their tags or roles.
 
 If you have `Step\Admin` class which defines only admin steps, it is a good idea to use it as context for all features containing with "As an admin". In this case "admin" is a role and we can configure it to use additional context.
 
-{% highlight yaml %}
-
+```yaml
 gherkin:
     contexts:
         role:
             admin:
                 - "Step\Admin"
-
-{% endhighlight %}
+```
 
 Contexts can be attached to tags as well. This may be useful if you want to redefine steps for some scenarios. Let's say we want to bypass login steps for some scenarios loading already defined session. In this case we can create `Step\FastLogin` class with redefined step "I am logged in as".
 
-{% highlight yaml %}
+```yaml
 
 gherkin:
     contexts:
         tag:
             fastlogin:
                 - "Step\FastLogin"
-
-{% endhighlight %}
+```
 
 Contexts can be autoloaded as well:
-{% highlight yaml %}
 
+```yaml
 gherkin:
     contexts:
-        path: tests/_support/Steps
-        namespace_prefix: Steps
+        path: tests/Steps
+        namespace_prefix: Tests\Steps
         default:
-            - AcceptanceTester
-
-{% endhighlight %}
+            - Tests\Support\AcceptanceTester
+```
 This will load all context from the given path and prefix it with the given namespace.
 
 ## Migrating From Behat
@@ -611,11 +543,9 @@ While Behat is a great tool for Behavior Driven Development, you still may prefe
 
 If you decided to run your features with Codeception, we recommend to start with symlinking your `features` directory into one of the test suites:
 
-{% highlight bash %}
-
+```bash
 ln -s $PWD/features tests/acceptance
-
-{% endhighlight %}
+```
 
 Then you will need to implement all step definitions. Run `gherkin:snippets` to generate stubs for them.
 By default it is recommended to place step definitions into actor class (Tester) and use its methods for steps implementation.
@@ -628,10 +558,9 @@ In Codeception you can combine tests written in Gherkin format with tests writte
 
 Corresponding features and tests can be attached to the same group. And what is more interesting, you can make tests to depend on feature scenarios. Let's say we have `login.feature` file with "Log regular user" scenario in it. In this case you can specify that every test which requires login to pass to depend on "Log regular user" scenario:
 
-{% highlight yaml %}
+```yaml
 @depends login:Log regular user
-
-{% endhighlight %}
+```
 
 Inside `@depends` block you should use test signature. Execute your feature with `dry-run` to see  signatures for all scenarios in it. By marking tests with `@depends` you ensure that this test won't be executed before the test it depends on.
 
@@ -639,5 +568,3 @@ Inside `@depends` block you should use test signature. Execute your feature with
 
 If you like the concept of Behavior Driven Development or prefer to keep test scenarios in human readable format, Codeception allows you to write and execute scenarios in Gherkin. Feature files is just another test format inside Codeception, so it can be combined with Cept and Cest files inside the same suite. Steps definitions of your scenarios can use all the power of Codeception modules, PageObjects, and StepObjects.
 
-
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/guides/07-BDD.md"><strong>Improve</strong> this guide</a></div>

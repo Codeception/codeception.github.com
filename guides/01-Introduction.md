@@ -1,9 +1,3 @@
----
-layout: doc
-title: Introduction - Codeception Docs
----
-
-
 # Introduction
 
 The idea behind testing is not new. You can't sleep well if you are not confident
@@ -120,5 +114,3 @@ It allows writing unit, functional, integration, and acceptance tests in a singl
 
 All Codeception tests are written in a descriptive manner.
 Just by looking at the test body, you can clearly understand what is being tested and how it is performed.
-
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/guides/01-Introduction.md"><strong>Improve</strong> this guide</a></div>
