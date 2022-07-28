@@ -529,7 +529,7 @@ EOF;
             ->mkdir($releaseDir)
             ->copy($buildFile, $versionedFile)
             ->remove('php80/codecept.phar')
-            ->symlink($versionedFile, 'php80/codecept.phar')
+            ->symlink("../$versionedFile", 'php80/codecept.phar')
             ->run();
     }
 
