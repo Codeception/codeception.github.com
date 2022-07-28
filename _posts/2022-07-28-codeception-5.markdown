@@ -111,13 +111,13 @@ In this case, you specify the batch of tests that should be executed independent
 
 ```
 # first job
-./venodor/bin/codecept run --shard 1/3
+./vendor/bin/codecept run --shard 1/3
 
 # second job
-./venodor/bin/codecept run --shard 2/3
+./vendor/bin/codecept run --shard 2/3
 
 # third job
-./venodor/bin/codecept run --shard 3/3
+./vendor/bin/codecept run --shard 3/3
 ```
 
 This feature reduces the need for complex configuration and usage of `robo` task runner to split tests.
@@ -129,7 +129,7 @@ It is recommended to use sharding to parallelize tests between multiple jobs as 
 New options `--grep` and `--filter` were introduced to select tests by part of their name. Actually, it is the same option and an alias. `--grep` is a common way to select tests to execute in NodeJS test runners, so we ported it to Codeception. But as usual, specific tests can also be executed by group or specifying a test signature.
 
 ```
-php venodor/bin/codecept run --grep "user"
+./vendor/bin/codecept run --grep "user"
 ```
 
 ## Other Changes
@@ -166,7 +166,7 @@ Please go through the list of changes introduced to see if they don't affect you
 
 We really happy that we are finally here with Codeception 5. This release was crafted during wartime, which happens in Ukraine. It is mentally and morally hard to work on tech products knowing that at any point this peaceful virtual life can end at any moment by a random missile. Codeception was created in 2011 by Michael Bodnarchuk in Kyiv, and today in 2022 he also stays there writing this post. If you want to support Codeception, all the Ukrainian PHP community, and all our brave nation who stands for democracy against barbaric Russian invasion, consider **[donating to Ukrainian charities](https://stand-with-ukraine.pp.ua)**. Not a single time. Every month until the war ends. Every time you travel or enjoy tasty food in a restaurant think of people who are forced to defend their land, or who fled their homes. Glory to Ukraine!
 
-This release wouldn't be possible without the hard work of [Gintautas Misselis](https://github.com/Naktibalda) who keeps constant work on modernizing internals and keeping Codeception up to date. Also we are really thankful to [Gustavo Nieves
+This release wouldn't be possible without the hard work of [Gintautas Miselis](https://github.com/Naktibalda) who keeps constant work on modernizing internals and keeping Codeception up to date. Also we are really thankful to [Gustavo Nieves
 ](https://github.com/TavoNiievez) who did a lot of work transitioning Codeception to new Symfony and more! Thanks to our maintainers! If you want to support our work we have [OpenCollective](https://opencollective.com/codeception)!
 
 
