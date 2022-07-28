@@ -34,19 +34,19 @@ This class provides various helper methods for building customized setup
 
  *public* __construct($input, $output) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.2/src/Codeception/InitTemplate.php#L66)
+[See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/InitTemplate.php#L66)
 
 #### addModulesToComposer()
 
  *protected* addModulesToComposer($modules) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.2/src/Codeception/InitTemplate.php#L260)
+[See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/InitTemplate.php#L260)
 
 #### addStyles()
 
  *public* addStyles($output) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.2/src/Codeception/InitTemplate.php#L9)
+[See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/InitTemplate.php#L9)
 
 #### ask()
 
@@ -70,25 +70,25 @@ $this->ask('do you want to proceed (y/n)', true);
  * `param mixed` $answer
  * `return` mixed|string
 
-[See source](https://github.com/Codeception/Codeception/blob/4.2/src/Codeception/InitTemplate.php#L108)
+[See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/InitTemplate.php#L108)
 
 #### breakParts()
 
  *protected* breakParts($class) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.2/src/Codeception/InitTemplate.php#L6)
+[See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/InitTemplate.php#L6)
 
 #### checkInstalled()
 
  *protected* checkInstalled($dir = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.2/src/Codeception/InitTemplate.php#L218)
+[See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/InitTemplate.php#L218)
 
 #### completeSuffix()
 
  *protected* completeSuffix($filename, $suffix) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.2/src/Codeception/InitTemplate.php#L25)
+[See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/InitTemplate.php#L25)
 
 #### createActor()
 
@@ -101,13 +101,13 @@ Requires a suite config as array in 3rd parameter.
  * `param` $directory
  * `param` $suiteConfig
 
-[See source](https://github.com/Codeception/Codeception/blob/4.2/src/Codeception/InitTemplate.php#L233)
+[See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/InitTemplate.php#L233)
 
 #### createDirectoryFor()
 
  *protected* createDirectoryFor($basePath, $className = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.2/src/Codeception/InitTemplate.php#L10)
+[See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/InitTemplate.php#L10)
 
 #### createEmptyDirectory()
 
@@ -116,13 +116,13 @@ Requires a suite config as array in 3rd parameter.
 Create an empty directory and add a placeholder file into it
  * `param` $dir
 
-[See source](https://github.com/Codeception/Codeception/blob/4.2/src/Codeception/InitTemplate.php#L205)
+[See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/InitTemplate.php#L205)
 
 #### createFile()
 
  *protected* createFile($filename, $contents, $force = null, $flags = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.2/src/Codeception/InitTemplate.php#L46)
+[See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/InitTemplate.php#L46)
 
 #### createHelper()
 
@@ -133,37 +133,37 @@ Create a helper class inside a directory
  * `param` $name
  * `param` $directory
 
-[See source](https://github.com/Codeception/Codeception/blob/4.2/src/Codeception/InitTemplate.php#L184)
+[See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/InitTemplate.php#L184)
 
 #### getNamespaceHeader()
 
  *protected* getNamespaceHeader($class) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.2/src/Codeception/InitTemplate.php#L25)
+[See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/InitTemplate.php#L25)
 
 #### getNamespaceString()
 
  *protected* getNamespaceString($class) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.2/src/Codeception/InitTemplate.php#L19)
+[See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/InitTemplate.php#L19)
 
 #### getNamespaces()
 
  *protected* getNamespaces($class) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.2/src/Codeception/InitTemplate.php#L34)
+[See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/InitTemplate.php#L34)
 
 #### getShortClassName()
 
  *protected* getShortClassName($class) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.2/src/Codeception/InitTemplate.php#L13)
+[See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/InitTemplate.php#L13)
 
 #### gitIgnore()
 
  *protected* gitIgnore($path) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.2/src/Codeception/InitTemplate.php#L211)
+[See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/InitTemplate.php#L211)
 
 #### initDir()
 
@@ -171,13 +171,13 @@ Create a helper class inside a directory
 
 Change the directory where Codeception should be installed.
 
-[See source](https://github.com/Codeception/Codeception/blob/4.2/src/Codeception/InitTemplate.php#L76)
+[See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/InitTemplate.php#L76)
 
 #### removeSuffix()
 
  *protected* removeSuffix($classname, $suffix) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.2/src/Codeception/InitTemplate.php#L40)
+[See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/InitTemplate.php#L40)
 
 #### say()
 
@@ -195,7 +195,7 @@ $this->say('Welcome to Setup');
 
  * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/4.2/src/Codeception/InitTemplate.php#L137)
+[See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/InitTemplate.php#L137)
 
 #### sayError()
 
@@ -204,7 +204,7 @@ $this->say('Welcome to Setup');
 Print error message
  * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/4.2/src/Codeception/InitTemplate.php#L155)
+[See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/InitTemplate.php#L155)
 
 #### sayInfo()
 
@@ -213,7 +213,7 @@ Print error message
 Print info message
  * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/4.2/src/Codeception/InitTemplate.php#L173)
+[See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/InitTemplate.php#L173)
 
 #### saySuccess()
 
@@ -222,7 +222,7 @@ Print info message
 Print a successful message
  * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/4.2/src/Codeception/InitTemplate.php#L146)
+[See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/InitTemplate.php#L146)
 
 #### sayWarning()
 
@@ -231,7 +231,7 @@ Print a successful message
 Print warning message
  * `param` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/4.2/src/Codeception/InitTemplate.php#L164)
+[See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/InitTemplate.php#L164)
 
 #### setup()
 
@@ -240,12 +240,12 @@ Print warning message
 Override this class to create customized setup.
  * `return` mixed
 
-[See source](https://github.com/Codeception/Codeception/blob/4.2/src/Codeception/InitTemplate.php#L89)
+[See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/InitTemplate.php#L89)
 
 #### updateComposerClassMap()
 
  *private* updateComposerClassMap($vendorDir = null) 
 
-[See source](https://github.com/Codeception/Codeception/blob/4.2/src/Codeception/InitTemplate.php#L336)
+[See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/InitTemplate.php#L336)
 
-<p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/blob/4.2/src/Codeception/InitTemplate.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/InitTemplate.php">Help us to improve documentation. Edit module reference</a></div>
