@@ -878,6 +878,14 @@ body {
 
   list-style: none;
   padding-left: 10px;
+
+  li {
+    @media (min-width: 768px) {
+      &:last-child {
+        margin-bottom: 10px;
+      }
+    }
+  }
 }
 
 @media (max-width: 767px) {
@@ -1685,6 +1693,9 @@ body #footer .links {
 
   .btn {
     width: 100%;
+    @media (max-width: 1199px) {
+      margin-bottom: 15px;
+    }
   }
 
   pre {

@@ -36,7 +36,7 @@ This will create `tests` directory and configuration file `codeception.yml`. Thi
 
 ### Unit Testing
 
-Codeception is powered by PHPUnit so unit and integration tests work in a similar manner. Add Phalcon to your unit test by adding the following to your `unit.suite.yml`:
+Add Phalcon to your unit test by adding the following to your `unit.suite.yml`:
 ```yaml
 # Codeception Test Suite Configuration
 #

@@ -153,7 +153,7 @@ you should use a tunnel application provided by a service.
 
 #### SauceLabs
 
-1. Create an account at [SauceLabs.com](https://SauceLabs.com) to get your username and access key
+1. Create an account at [SauceLabs.com](http://SauceLabs.com) to get your username and access key
 2. In the module configuration use the format `username`:`access_key`@ondemand.saucelabs.com' for `host`
 3. Configure `platform` under `capabilities` to define the [Operating System](https://docs.saucelabs.com/reference/platforms-configurator/#/)
 4. run a tunnel app if your site can't be accessed from Internet
@@ -605,7 +605,7 @@ $this->getModule('WebDriver')->_saveScreenshot(codecept_output_dir().'screenshot
  
 Accepts the active JavaScript native popup window, as created by `window.alert`|`window.confirm`|`window.prompt`.
 Don't confuse popups with modal windows,
-as created by [various libraries](https://jster.net/category/windows-modals-popups).
+as created by [various libraries](http://jster.net/category/windows-modals-popups).
 
 
 #### amOnPage
@@ -1179,7 +1179,7 @@ If Codeception commands are not enough, this allows you to use Selenium WebDrive
 {% highlight php %}
 
 $I->executeInSelenium(function(\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver) {
-  $webdriver->get('https://google.com');
+  $webdriver->get('http://google.com');
 });
 
 {% endhighlight %}

@@ -32,7 +32,7 @@ Warning. Using PHAR file and composer in the same project can cause unexpected e
 
 
 
-This module provides integration with [Yii framework](https://www.yiiframework.com/) (2.0).
+This module provides integration with [Yii framework](http://www.yiiframework.com/) (2.0).
 
 It initializes the Yii framework in a test environment and provides actions
 for functional testing.
@@ -140,7 +140,7 @@ modules:
 ### Fixtures
 
 This module allows to use
-[fixtures](https://www.yiiframework.com/doc-2.0/guide-test-fixtures.html)
+[fixtures](http://www.yiiframework.com/doc-2.0/guide-test-fixtures.html)
 inside a test. There are two ways to do that. Fixtures can either be loaded
 with the [haveFixtures](#haveFixtures) method inside a test:
 
@@ -334,7 +334,7 @@ $I->amLoggedInAs($admin);
 Requires the `user` component to be enabled and configured.
 
  * `param` $user
-@throws ModuleException
+@throws \Codeception\Exception\ModuleException
 
 
 #### amOnPage
@@ -825,7 +825,7 @@ $mailer = $I->grabComponent('mailer');
 {% endhighlight %}
 
  * `param` $component
-@throws ModuleException
+@throws \Codeception\Exception\ModuleException
 @deprecated in your tests you can use \Yii::$app directly.
 
 
@@ -860,7 +860,7 @@ $user = $I->grabFixture('users', 'user1');
 {% endhighlight %}
 
  * `param` $name
-@throws ModuleException if the fixture is not found
+@throws \Codeception\Exception\ModuleException if the fixture is not found
  * `[Part]` fixtures
 
 
@@ -976,7 +976,7 @@ $I->assertEquals('admin@site,com', $messages[0]->getTo());
 
  * `[Part]` email
  * `return array` 
-@throws ModuleException
+@throws \Codeception\Exception\ModuleException
 
 
 #### grabTextFrom
@@ -1284,7 +1284,7 @@ $I->seeEmailIsSent(3);
 {% endhighlight %}
 
  * `param int` $num
-@throws ModuleException
+@throws \Codeception\Exception\ModuleException
  * `[Part]` email
 
 
@@ -1644,7 +1644,7 @@ $I->sendAjaxRequest('PUT', '/posts/7', ['title' => 'new title']);
  
 Sets a cookie and, if validation is enabled, signs it.
  * `param string` $name The name of the cookie
- * `param string` $value The value of the cookie
+ * `param string` $val The value of the cookie
  * `param array` $params Additional cookie params like `domain`, `path`, `expires` and `secure`.
 
 
