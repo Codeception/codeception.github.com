@@ -702,36 +702,39 @@ EOF;
         if ($token) {
             $client->authenticate(getenv('GH_PAT'), null, \Github\Client::AUTH_ACCESS_TOKEN);
         }
-        $codeceptionReleases = $client->repo()->releases()->all('codeception', 'Codeception');
-        $moduleReleases = [];
+        $allReleases = [];
 
         $repositories = $client->repos()->org('Codeception', ['per_page' => 100]);
         foreach ($repositories as $repository) {
-            if ($repository['name'] !== 'Codeception' && !str_starts_with($repository['name'], 'module-')) continue;
-            $this->say($repository['name']);
-            if ($repository['disabled'] || $repository['archived']) continue;
+            $repositoryName = $repository['name'];
+            if ($repositoryName !== 'Codeception' && !str_starts_with($repositoryName, 'module-') && !str_starts_with($repositoryName, 'lib-')) {
+                continue;
+            }
+            $this->say($repositoryName);
+
+            if ($repository['disabled'] || $repository['archived']) {
+                continue;
+            }
             try {
-                $releases = $client->repo()->releases()->all('codeception', $repository['name']);
+                $releases = $client->repo()->releases()->all('codeception', $repositoryName);
                 foreach ($releases as $k=> $release) {
-                    $releases[$k]['repo'] = $repository['name'];
+                    $releases[$k]['repo'] = $repositoryName;
                 }
-                $moduleReleases = array_merge($moduleReleases, $releases);
+                $allReleases = array_merge($allReleases, $releases);
             } catch (\Exception $err) {
 //                $this->say("Repository not available " . $repository['name']);
 //                $this->say($err->getMessage());
             }
         }
 
-        $releases = array_merge($codeceptionReleases, $moduleReleases);
-        usort($releases, function($r1, $r2) {
-          return strtotime($r1['published_at']) > strtotime($r2['published_at']) ? -1 : 1;
+        usort($allReleases, function($r1, $r2) {
+          return -(strtotime($r1['published_at']) <=> strtotime($r2['published_at']));
         });
 
         $changelog = "";
 
-        foreach ($releases as $release) {
+        foreach ($allReleases as $release) {
             $repo = $release['repo'] ?? 'Codeception';
-            $isModule = isset($release['repo']);
             $changelog .= sprintf("\n\n### %s %s: %s\n\n", $repo, $release['tag_name'], $release['name']);
 
             $changelog .= sprintf("Released by [![](%s) %s](%s) on %s",
@@ -754,12 +757,7 @@ EOF;
                 "[#$1](https://github.com/Codeception/$repo/issues/$1)",
                 $body
             );
-
-
-
-
             $changelog .= "\n\n$body\n";
-
         }
 
         return $changelog;
