@@ -4,7 +4,6 @@ In this chapter, we will cover some techniques and options that you can use to i
 and keep your project better organized.
 
 ## Cest Classes
-
 Cest is a common test format for Codeception, it is "Test" with the first C letter in it.
 It is scenario-driven format so all tests written in it are executed step by step.
 Unless you need direct access to application code inside a test, Cest format is recommended.
