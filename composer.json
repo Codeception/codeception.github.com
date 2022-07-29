@@ -5,7 +5,7 @@
   "license":"MIT",
 
   "require": {
-    "codeception/codeception": "^4.1",
+    "codeception/codeception": "^5.0",
     "codeception/module-amqp": "*",
     "codeception/module-apc": "*",
     "codeception/module-asserts": "*",
@@ -21,8 +21,7 @@
     "codeception/module-memcache": "*",
     "codeception/module-mezzio": "*",
     "codeception/module-mongodb": "*",
-    "codeception/module-phalcon": "*",
-    "codeception/module-phalcon4": "*",
+    "codeception/module-phalcon5": "*",
     "codeception/module-phpbrowser": "*",
     "codeception/module-queue": "*",
     "codeception/module-redis": "*",
