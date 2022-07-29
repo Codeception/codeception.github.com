@@ -334,7 +334,7 @@ $I->amLoggedInAs($admin);
 Requires the `user` component to be enabled and configured.
 
  * `param` $user
-@throws \Codeception\Exception\ModuleException
+@throws ModuleException
 
 
 #### amOnPage
@@ -825,7 +825,7 @@ $mailer = $I->grabComponent('mailer');
 {% endhighlight %}
 
  * `param` $component
-@throws \Codeception\Exception\ModuleException
+@throws ModuleException
 @deprecated in your tests you can use \Yii::$app directly.
 
 
@@ -860,7 +860,7 @@ $user = $I->grabFixture('users', 'user1');
 {% endhighlight %}
 
  * `param` $name
-@throws \Codeception\Exception\ModuleException if the fixture is not found
+@throws ModuleException if the fixture is not found
  * `[Part]` fixtures
 
 
@@ -976,7 +976,7 @@ $I->assertEquals('admin@site,com', $messages[0]->getTo());
 
  * `[Part]` email
  * `return array` 
-@throws \Codeception\Exception\ModuleException
+@throws ModuleException
 
 
 #### grabTextFrom
@@ -1284,7 +1284,7 @@ $I->seeEmailIsSent(3);
 {% endhighlight %}
 
  * `param int` $num
-@throws \Codeception\Exception\ModuleException
+@throws ModuleException
  * `[Part]` email
 
 
@@ -1644,7 +1644,7 @@ $I->sendAjaxRequest('PUT', '/posts/7', ['title' => 'new title']);
  
 Sets a cookie and, if validation is enabled, signs it.
  * `param string` $name The name of the cookie
- * `param string` $val The value of the cookie
+ * `param string` $value The value of the cookie
  * `param array` $params Additional cookie params like `domain`, `path`, `expires` and `secure`.
 
 

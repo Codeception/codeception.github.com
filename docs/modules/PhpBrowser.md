@@ -270,8 +270,8 @@ Open web page at the given absolute URL and sets its hostname as the base host.
 {% highlight php %}
 
 <?php
-$I->amOnUrl('https://codeception.com');
-$I->amOnPage('/quickstart'); // moves to https://codeception.com/quickstart
+$I->amOnUrl('http://codeception.com');
+$I->amOnPage('/quickstart'); // moves to http://codeception.com/quickstart
 ?>
 
 {% endhighlight %}

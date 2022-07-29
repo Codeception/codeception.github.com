@@ -74,7 +74,7 @@ if you run into problems loading dumps and cleaning databases.
 * ssl_cipher - list of one or more permissible ciphers to use for SSL encryption (MySQL specific, @see http://php.net/manual/de/ref.pdo-mysql.php#pdo.constants.mysql-attr-cipher)
 * databases - include more database configs and switch between them in tests.
 * initial_queries - list of queries to be executed right after connection to the database has been initiated, i.e. creating the database if it does not exist or preparing the database collation
-* skip_cleanup_if_failed - Do not perform the cleanup if the tests failed. If this is used, manual cleanup might be required when re-running
+
 ### Example
 
     modules:
@@ -88,7 +88,6 @@ if you run into problems loading dumps and cleaning databases.
              cleanup: true
              reconnect: true
              waitlock: 10
-             skip_cleanup_if_failed: true
              ssl_key: '/path/to/client-key.pem'
              ssl_cert: '/path/to/client-cert.pem'
              ssl_ca: '/path/to/ca-cert.pem'
@@ -391,8 +390,7 @@ Returns the number of rows in a database
 
 #### haveInDatabase
  
-Inserts an SQL record into a database. This record will be erased after the test, 
-unless you've configured "skip_cleanup_if_failed", and the test fails. 
+Inserts an SQL record into a database. This record will be erased after the test.
 
 {% highlight php %}
 

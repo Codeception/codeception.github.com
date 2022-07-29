@@ -21,15 +21,22 @@ In this case a pipeline could be simplified to one stage with several jobs.
 
 Each job should have Codeception running a subset of tests set by `--shard` option:
 
+First job
+
 ```
-# first job
-./venodor/bin/codecept run --shard 1/3
+php venodor/bin/codecept run --shard 1/3
+```
 
-# second job
-./venodor/bin/codecept run --shard 2/3
+Second job
 
-# third job
-./venodor/bin/codecept run --shard 3/3
+```
+php venodor/bin/codecept run --shard 2/3
+```
+
+Third job
+
+```
+php venodor/bin/codecept run --shard 3/3
 ```
 
 For each job you specify on how many groups tests should be split and the group that should be executed on this agent.
@@ -47,7 +54,6 @@ By running tests with Testomat.io reporter attached results will be sent to a ce
 ```
 TESTOMATIO={apiKey} TESTOMATIO_TITLE="Build $BUILDID" ./vendor/bin/codecept run --shard 3/4
 ```
-
 
 ## Building Pipeline
 
@@ -72,37 +78,34 @@ To sum up, we need to install:
 ## Using Robo and Robo-paracept
 
 Execute this command in an empty folder to install Robo and Robo-paracept :
-{% highlight bash %}
 
-$ composer require codeception/robo-paracept --dev
-
-{% endhighlight %}
+```php
+composer require codeception/robo-paracept --dev
+```
 
 ### Setting up Robo
 
 Initializes basic RoboFile in the root of your project
 
-{% highlight bash %}
-robo init
-{% endhighlight %}
+
+```bash
+php vendor/bin/robo init
+```
 
 Open `RoboFile.php` to edit it
 
-{% highlight php %}
-
+```php
 <?php
 
 class RoboFile extends \Robo\Tasks
 {
     // define public methods as commands
 }
-
-{% endhighlight %}
+```
 
 Each public method in robofile can be executed as a command from console. Let's define commands for 3 stages and include autoload.
 
-{% highlight php %}
-
+```php
 <?php
 require_once 'vendor/autoload.php';
 
@@ -126,8 +129,7 @@ class Robofile extends \Robo\Tasks
 
     }
 }
-
-{% endhighlight %}
+```
 
 When running `robo` you should see all 3 that these methods availble as CLI commands:
 
@@ -139,42 +141,37 @@ parallel:merge-results
 
 #### Step 1: Split Tests
 
-Codeception can organize tests into [groups](https://codeception.com/docs/07-AdvancedUsage#Groups). Starting from 2.0 it can load information about a group from a files. Sample text file with a list of file names can be treated as a dynamically configured group. Take a look into sample group file:
+Codeception can organize tests into [groups](https://codeception.com/docs/AdvancedUsage#Groups). Starting from 2.0 it can load information about a group from a files. Sample text file with a list of file names can be treated as a dynamically configured group. Take a look into sample group file:
 
-{% highlight bash %}
 
+```bash
 tests/functional/LoginCept.php
 tests/functional/AdminCest.php:createUser
 tests/functional/AdminCest.php:deleteUser
-
-{% endhighlight %}
+```
 
 Tasks from `\Codeception\Task\SplitTestsByGroups` will generate non-intersecting group files.  You can either split your tests by files or by single tests:
 
-{% highlight php %}
+```php
+public function parallelSplitTests()
+{
+    // Split your tests by files
+    $this->taskSplitTestFilesByGroups(5)
+        ->projectRoot('.')
+        ->testsFrom('tests/acceptance')
+        ->groupsTo('tests/_data/paracept_')
+        ->run();
 
-<?php
-    function parallelSplitTests()
-    {
-        // Split your tests by files
-        $this->taskSplitTestFilesByGroups(5)
-            ->projectRoot('.')
-            ->testsFrom('tests/acceptance')
-            ->groupsTo('tests/_data/paracept_')
-            ->run();
-
-        /*
-        // Split your tests by single tests (alternatively)
-        $this->taskSplitTestsByGroups(5)
-            ->projectRoot('.')
-            ->testsFrom('tests/acceptance')
-            ->groupsTo('tests/_data/paracept_')
-            ->run();
-        */
-    }
-
-
-{% endhighlight %}
+    /*
+    // Split your tests by single tests (alternatively)
+    $this->taskSplitTestsByGroups(5)
+        ->projectRoot('.')
+        ->testsFrom('tests/acceptance')
+        ->groupsTo('tests/_data/paracept_')
+        ->run();
+    */
+}
+```
 
 But what if one group of your tests runs for 5 mins and other for 20mins. In this case, you can balance execution time by using [SplitTestsByTime](https://github.com/Codeception/robo-paracept#splittestsbytime) task. It will generate balanced groups taking the execution speed into account. 
  
@@ -182,9 +179,13 @@ But what if one group of your tests runs for 5 mins and other for 20mins. In thi
 
 Let's prepare group files:
 
-{% highlight bash %}
-$ robo parallel:split-tests
+```bash
+php vendor/bin/robo parallel:split-tests
+```
 
+The output should be similar to this:
+
+```
  [Codeception\Task\SplitTestFilesByGroupsTask] Processing 33 files
  [Codeception\Task\SplitTestFilesByGroupsTask] Writing tests/_data/paracept_1
  [Codeception\Task\SplitTestFilesByGroupsTask] Writing tests/_data/paracept_2
@@ -192,24 +193,21 @@ $ robo parallel:split-tests
  [Codeception\Task\SplitTestFilesByGroupsTask] Writing tests/_data/paracept_4
  [Codeception\Task\SplitTestFilesByGroupsTask] Writing tests/_data/paracept_5
 
-{% endhighlight %}
+```
 
 Now we have group files. We should update `codeception.yml` to load generated group files. In our case we have groups: *paracept_1*, *paracept_2*, *paracept_3*, *paracept_4*, *paracept_5*.
 
-{% highlight yaml %}
-
+```yaml
 groups:
     paracept_*: tests/_data/paracept_*
-
-{% endhighlight %}
+```
 
 Let's try to execute tests from the second group:
 
-{% highlight bash %}
 
-$ php vendor/bin/codecept run acceptance -g paracept_2
-
-{% endhighlight %}
+```bash
+php vendor/bin/codecept run acceptance -g paracept_2
+```
 
 #### Step 2: Running Tests
 
@@ -222,9 +220,7 @@ In some situations you may want to keep tests running on the same machine and sc
 
 To execute tests in multiple processes Robo has `ParallelExec` task to spawn background processes.
 
-{% highlight php %}
-
-<?php
+```php
 public function parallelRun()
 {
     $parallel = $this->taskParallelExec();
@@ -238,55 +234,49 @@ public function parallelRun()
     }
     return $parallel->run();
 }
-
-{% endhighlight %}
+```
 
 After the `parallelRun` method is defined you can execute tests with
 
-{% highlight bash %}
 
-$ robo parallel:run
-
-{% endhighlight %}
+```bash
+php vendor/bin/robo parallel:run
+```
 
 #### Step 3: Merge Results
 
 In case of `parallelExec` task we recommend to save results as JUnit XML, which can be merged and plugged into Continuous Integration server.
 
-{% highlight php %}
-<?php
-    public function parallelMergeResults()
-    {
-        $merge = $this->taskMergeXmlReports();
-        for ($i=1; $i<=5; $i++) {
-            $merge->from("tests/_output/result_paracept_$i.xml");
-        }
-        $merge->into("tests/_output/result_paracept.xml")->run();
+```php
+public function parallelMergeResults()
+{
+    $merge = $this->taskMergeXmlReports();
+    for ($i=1; $i<=5; $i++) {
+        $merge->from("tests/_output/result_paracept_$i.xml");
     }
-{% endhighlight %}
+    $merge->into("tests/_output/result_paracept.xml")->run();
+}
+```
 Now, we can execute :
-{% highlight bash %}
 
-$ robo parallel:merge-results
-
-{% endhighlight %}
+```bash
+php vendor/bin/robo parallel:merge-results
+```
 
 `result_paracept.xml` file will be generated. It can be processed and analyzed.
 
 If you prefer HTML reports, they can be generated in the same way:
 
-{% highlight php %}
-    public function parallelMergeResults()
-    {
-        $merge = $this->taskMergeHtmlReports();
-        for ($i=1; $i<=5; $i++) {
-            $merge->from("tests/_output/result_$i.html");
-        }
-        $merge->into("tests/_output/result.html")->run();
+```php
+public function parallelMergeResults()
+{
+    $merge = $this->taskMergeHtmlReports();
+    for ($i=1; $i<=5; $i++) {
+        $merge->from("tests/_output/result_$i.html");
     }
-
-{% endhighlight %}
-
+    $merge->into("tests/_output/result.html")->run();
+}
+```
 
 
 <div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/guides/12-ParallelExecution.md"><strong>Improve</strong> this guide</a></div>

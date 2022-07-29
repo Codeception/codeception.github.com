@@ -16,24 +16,20 @@ It might look like Codeception limits you in testing, but that's not true. You c
 with your own actions and assertions, by writing them into a custom module, called a Helper.
 We will get back to this later in this chapter, but for now let's look at the following test:
 
-{% highlight php %}
-
-<?php
+```php
 $I->amOnPage('/');
 $I->see('Hello');
 $I->seeInDatabase('users', ['id' => 1]);
 $I->seeFileFound('running.lock');
-
-{% endhighlight %}
+```
 
 It can operate with different entities: the web page can be loaded with the PhpBrowser module,
 the database assertion uses the Db module, and the file state can be checked with the Filesystem module.
 
 Modules are attached to Actor classes in the suite config.
-For example, in `tests/acceptance.suite.yml` we should see:
+For example, in `tests/Acceptance.suite.yml` we should see:
 
-{% highlight yaml %}
-
+```yaml
 actor: AcceptanceTester
 modules:
     enabled:
@@ -41,15 +37,18 @@ modules:
             url: http://localhost
         - Db
         - Filesystem
-
-{% endhighlight %}
+```
 
 The AcceptanceTester class has its methods defined in modules.
-Let's see what's inside the `AcceptanceTester` class, which is located inside the `tests/_support` directory:
+Let's see what's inside the `AcceptanceTester` class, which is located inside the `tests/Support` directory:
 
-{% highlight php %}
-
+```php
 <?php
+
+declare(strict_types=1);
+
+namespace Tests\Support;
+
 /**
  * Inherited Methods
  * @method void wantToTest($text)
@@ -73,8 +72,7 @@ class AcceptanceTester extends \Codeception\Actor
     * Define custom actions here
     */
 }
-
-{% endhighlight %}
+```
 
 The most important part is the `_generated\AcceptanceTesterActions` trait, which is used as a proxy for enabled modules.
 It knows which module executes which action and passes parameters into it.
@@ -95,11 +93,9 @@ Do not hard-code complex CSS or XPath locators in your tests but rather move the
 
 Codeception can generate a PageObject class for you with command:
 
-{% highlight bash %}
-
+```
 php vendor/bin/codecept generate:pageobject acceptance Login
-
-{% endhighlight %}
+```
 
 > It is recommended to use page objects for acceptance testing only
 
@@ -108,10 +104,10 @@ The basic PageObject is nothing more than an empty class with a few stubs.
 
 It is expected that you will populate it with the UI locators of a page it represents. Locators can be added as public properties:
 
-{% highlight php %}
-
+```php
 <?php
-namespace Page\Acceptance;
+
+namespace Tests\Support\Page\Acceptance;
 
 class Login
 {
@@ -123,17 +119,16 @@ class Login
 
     // ...
 }
-
-{% endhighlight %}
+```
 
 But let's move further. The PageObject concept specifies that the methods for the page interaction should also be stored in a PageObject class. 
 
 Let's define a `login` method in this class:
 
-{% highlight php %}
+```php
+namespace Tests\Support\Page\Acceptance;
 
-<?php
-namespace Page\Acceptance;
+use Tests\Support\AcceptanceTester;
 
 class Login
 {
@@ -143,13 +138,10 @@ class Login
     public $passwordField = '#mainForm input[name=password]';
     public $loginButton = '#mainForm input[type=submit]';
 
-    /**
-     * @var AcceptanceTester
-     */
-    protected $tester;
+    protected AcceptanceTester $tester;
 
     // we inject AcceptanceTester into our class
-    public function __construct(\AcceptanceTester $I)
+    public function __construct(AcceptanceTester $I)
     {
         $this->tester = $I;
     }
@@ -164,26 +156,29 @@ class Login
         $I->click($this->loginButton);
     }
 }
-
-{% endhighlight %}
+```
 
 If you specify which object you need for a test, Codeception will try to create it using the dependency injection container.
 In the case of a PageObject you should declare a class as a parameter for a test method:
 
-{% highlight php %}
-
+```php
 <?php
+
+namespace Tests\Acceptance;
+
+use \Tests\Support\AcceptanceTester;
+use \Tests\Support\Page\Acceptance\Login;
+
 class UserCest
 {
-    function showUserProfile(AcceptanceTester $I, \Page\Acceptance\Login $loginPage)
+    function showUserProfile(AcceptanceTester $I, Login $loginPage)
     {
         $loginPage->login('bill evans', 'debby');
         $I->amOnPage('/profile');
         $I->see('Bill Evans Profile', 'h1');
     }
 }
-
-{% endhighlight %}
+```
 
 The dependency injection container can construct any object that requires any known class type.
 For instance, `Page\Login` required `AcceptanceTester`, and so it was injected into `Page\Login` constructor,
@@ -200,52 +195,50 @@ We call such a classes StepObjects.
 
 Lets create an Admin StepObject with the generator:
 
-{% highlight bash %}
-
+```
 php vendor/bin/codecept generate:stepobject acceptance Admin
-
-{% endhighlight %}
+```
 
 You can supply optional action names. Enter one at a time, followed by a newline.
 End with an empty line to continue to StepObject creation.
 
-{% highlight bash %}
-
+```
 php vendor/bin/codecept generate:stepobject acceptance Admin
 Add action to StepObject class (ENTER to exit): loginAsAdmin
 Add action to StepObject class (ENTER to exit):
 StepObject was created in /tests/acceptance/_support/Step/Acceptance/Admin.php
-
-{% endhighlight %}
+```
 
 This will generate a class in `/tests/_support/Step/Acceptance/Admin.php` similar to this:
 
-{% highlight php %}
-
+```php
 <?php
-namespace Step\Acceptance;
+namespace Tests\Support\Step\Acceptance;
 
-class Admin extends \AcceptanceTester
+use Tests\Support\AcceptanceTester;
+
+class Admin extends AcceptanceTester
 {
     public function loginAsAdmin()
     {
         $I = $this;
     }
 }
-
-{% endhighlight %}
+```
 
 As you see, this class is very simple. It extends the `AcceptanceTester` class,
 meaning it can access all the methods and properties of `AcceptanceTester`.
 
 The `loginAsAdmin` method may be implemented like this:
 
-{% highlight php %}
-
+```php
 <?php
-namespace Step\Acceptance;
 
-class Admin extends \AcceptanceTester
+namespace Tests\Support\Step\Acceptance;
+
+use Tests\Support\AcceptanceTester;
+
+class Admin extends AcceptanceTester
 {
     public function loginAsAdmin()
     {
@@ -256,33 +249,33 @@ class Admin extends \AcceptanceTester
         $I->click('Login');
     }
 }
-
-{% endhighlight %}
+```
 
 
 StepObject can be instantiated automatically when used inside the Cest format:
 
-{% highlight php %}
-
+```php
 <?php
+namespace Tests\Acceptance;
+
+use Tests\Support\Step\Acceptance\Admin;
+
 class UserCest
 {
-    function showUserProfile(\Step\Acceptance\Admin $I)
+    function showUserProfile(Admin $I)
     {
         $I->loginAsAdmin();
         $I->amOnPage('/admin/profile');
         $I->see('Admin Profile', 'h1');
     }
 }
-
-{% endhighlight %}
+```
 
 If you have a complex interaction scenario, you may use several step objects in one test.
 If you feel like adding too many actions into your Actor class
 (which is AcceptanceTester in this case) consider moving some of them into separate StepObjects.
 
 > Use StepObjects when you have multiple areas of applications or multiple roles.
-
 
 ## Conclusion
 
