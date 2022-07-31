@@ -122,6 +122,7 @@ class RoboFile extends \Robo\Tasks
         $this->taskComposerUpdate()->preferSource()->run();
         $this->buildDocsModules();
         $this->buildDocsUtils();
+        $this->buildDocsGuides();
         $this->buildDocsCommands();
         $this->buildDocsStub();
         $this->buildDocsApi();
