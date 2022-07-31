@@ -56,13 +56,13 @@ While HTML report can be pretty good for a single test run, more advanced report
 
 Testomat.io reports are easy to set up and without storing artifacts on CI system. 
 
-![](images/testomatio-report.png)
+![](/images/testomatio-report.png)
 
 > 😻 Testomat.io is free for small teams, so you can use its reporting features with Codeception.
 
 Testomat.io imports all tests into UI, so your managers, business analysts, and manual QAs can see all your unit, funcitonal, and acceptance tests listed in one place:
 
-![](images/testomatio-import.png)
+![](/images/testomatio-import.png)
 
 To start, create a new project at Testomat.io and import all your Codeception tests into it. Install testomatio packages for reporting and importing Codeception tests:
 
@@ -116,7 +116,7 @@ php vendor/bin/codecept run --xml
 
 ## Allure
 
-![](images/codecept-allure.png)
+![](/images/codecept-allure.png)
 
 [Allure](https://docs.qameta.io/allure/) is a popular open-source reporting tool. It can be paired with Codeception to get a detailed run report. Use [Allure extension](https://github.com/allure-framework/allure-codeception) to generate report which can be passed to Allure to display it.
 
