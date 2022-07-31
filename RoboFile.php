@@ -192,6 +192,12 @@ class RoboFile extends \Robo\Tasks
         $this->taskFilesystemStack()->symlink('Mezzio.md', 'docs/modules/ZendExpressive.md')->run();
         $this->taskFilesystemStack()->symlink('Laravel.md', 'docs/modules/Laravel5.md')->run();
         $this->taskFilesystemStack()->symlink('Laminas.md', 'docs/modules/ZF2.md')->run();
+
+        // Don't update old Phalcon modules
+        $this->taskGitStack()
+            ->stopOnFail()
+            ->checkout('-- docs/modules/Phalcon.md docs/modules/Phalcon4.md')
+            ->run();
     }
 
     private function postProcessModuleDocFile($documentationFile, $name, $source)

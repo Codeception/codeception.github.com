@@ -5,6 +5,8 @@ _site/
 /composer.lock
 Gemfile.lock
 /docs/modules/AbstractAsserts.md
+/docs/modules/Phalcon.md
+/docs/modules/Phalcon4.md
 /package/composer.lock
 /package/vendor
 /vendor
