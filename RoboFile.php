@@ -234,7 +234,9 @@ class RoboFile extends \Robo\Tasks
                 $documentationFile = 'docs/reference/' . $utilName . '.md';
                 $this->documentApiClass($documentationFile, $className, false, $repositoryName);
                 $this->postProcessFile($utilName, $documentationFile);
-            } catch ($err) {}
+            } catch ($err) {
+
+            }
         }
     }
 
