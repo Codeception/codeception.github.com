@@ -230,9 +230,11 @@ class RoboFile extends \Robo\Tasks
 
         foreach ($utils as $utilName => $repositoryName) {
             $className         = '\Codeception\Util\\' . $utilName;
-            $documentationFile = 'docs/reference/' . $utilName . '.md';
-            $this->documentApiClass($documentationFile, $className, false, $repositoryName);
-            $this->postProcessFile($utilName, $documentationFile);
+            try {
+                $documentationFile = 'docs/reference/' . $utilName . '.md';
+                $this->documentApiClass($documentationFile, $className, false, $repositoryName);
+                $this->postProcessFile($utilName, $documentationFile);
+            } catch ($err) {}
         }
     }
 
