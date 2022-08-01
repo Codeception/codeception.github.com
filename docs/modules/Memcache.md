@@ -64,7 +64,6 @@ Be sure you don't use the production server to connect.
 
 * **memcache** - instance of _Memcache_ or _Memcached_ object
 
-
 ### Actions
 
 #### clearMemcache
@@ -86,12 +85,8 @@ $I->dontSeeInMemcached('users_count');
 
 // Checks a 'users_count' exists does not exist or its value is not the one provided
 $I->dontSeeInMemcached('users_count', 200);
-?>
 
 {% endhighlight %}
-
- * `param` $key
- * `param` $value
 
 
 #### grabValueFromMemcached
@@ -104,21 +99,13 @@ Example:
 
 <?php
 $users_count = $I->grabValueFromMemcached('users_count');
-?>
 
 {% endhighlight %}
-
- * `param` $key
- * `return array|string` 
 
 
 #### haveInMemcached
  
 Stores an item `$value` with `$key` on the Memcached server.
-
- * `param string` $key
- * `param mixed` $value
- * `param int` $expiration
 
 
 #### seeInMemcached
@@ -135,11 +122,7 @@ $I->seeInMemcached('users_count');
 
 // Checks a 'users_count' exists and has the value 200
 $I->seeInMemcached('users_count', 200);
-?>
 
 {% endhighlight %}
-
- * `param` $key
- * `param` $value
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-memcache/tree/master/src/Codeception/Module/Memcache.php">Help us to improve documentation. Edit module reference</a></div>

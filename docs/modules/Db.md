@@ -74,7 +74,7 @@ if you run into problems loading dumps and cleaning databases.
 * ssl_cipher - list of one or more permissible ciphers to use for SSL encryption (MySQL specific, @see http://php.net/manual/de/ref.pdo-mysql.php#pdo.constants.mysql-attr-cipher)
 * databases - include more database configs and switch between them in tests.
 * initial_queries - list of queries to be executed right after connection to the database has been initiated, i.e. creating the database if it does not exist or preparing the database collation
-
+* skip_cleanup_if_failed - Do not perform the cleanup if the tests failed. If this is used, manual cleanup might be required when re-running
 ### Example
 
     modules:
@@ -88,6 +88,7 @@ if you run into problems loading dumps and cleaning databases.
              cleanup: true
              reconnect: true
              waitlock: 10
+             skip_cleanup_if_failed: true
              ssl_key: '/path/to/client-key.pem'
              ssl_cert: '/path/to/client-cert.pem'
              ssl_ca: '/path/to/ca-cert.pem'
@@ -294,7 +295,7 @@ $I->seeNumRecords(30, 'books');  //executed on db_books database
 //All the next queries will be on db_books
 
 {% endhighlight %}
- * `param` $databaseKey
+
 @throws ModuleConfigException
 
 
@@ -325,9 +326,6 @@ $I->dontSeeInDatabase('users', ['email like' => 'miles%']);
 
 Supported operators: `<`, `>`, `>=`, `<=`, `!=`, `like`.
 
- * `param string` $table
- * `param array` $criteria
-
 
 #### grabColumnFromDatabase
  
@@ -340,12 +338,6 @@ Provide table name, desired column and criteria.
 $mails = $I->grabColumnFromDatabase('users', 'email', array('name' => 'RebOOter'));
 
 {% endhighlight %}
-
- * `param string` $table
- * `param string` $column
- * `param array` $criteria
-
- * `return array` 
 
 
 #### grabFromDatabase
@@ -371,10 +363,6 @@ $user = $I->grabFromDatabase('users', ['email like' => 'miles%']);
 
 Supported operators: `<`, `>`, `>=`, `<=`, `!=`, `like`.
 
- * `param string` $table
- * `param string` $column
- * `param array` $criteria
-
  * `return mixed` Returns a single column value or false
 
 
@@ -384,26 +372,20 @@ Returns the number of rows in a database
 
  * `param string` $table    Table name
  * `param array`  $criteria Search criteria [Optional]
-
  * `return int` 
 
 
 #### haveInDatabase
  
-Inserts an SQL record into a database. This record will be erased after the test.
+Inserts an SQL record into a database. This record will be erased after the test, 
+unless you've configured "skip_cleanup_if_failed", and the test fails. 
 
 {% highlight php %}
 
 <?php
 $I->haveInDatabase('users', array('name' => 'miles', 'email' => 'miles@davis.com'));
-?>
 
 {% endhighlight %}
-
- * `param string` $table
- * `param array` $data
-
- * `return integer` $id
 
 
 #### performInDatabase
@@ -444,7 +426,7 @@ Actions executed from array or ActionSequence will print debug output for action
 exception on failure.
 
  * `param` $databaseKey
- * `param \Codeception\Util\ActionSequence|array|callable` $actions
+ * `param ActionSequence|array|callable` $actions
 @throws ModuleConfigException
 
 
@@ -473,9 +455,6 @@ $I->seeInDatabase('users', ['email like' => 'miles@davis.com']);
 
 Supported operators: `<`, `>`, `>=`, `<=`, `!=`, `like`.
 
- * `param string` $table
- * `param array` $criteria
-
 
 #### seeNumRecords
  
@@ -485,7 +464,6 @@ Asserts that the given number of records were found in the database.
 
 <?php
 $I->seeNumRecords(1, 'users', ['name' => 'davert'])
-?>
 
 {% endhighlight %}
 
@@ -502,12 +480,7 @@ Update an SQL record into a database.
 
 <?php
 $I->updateInDatabase('users', array('isAdmin' => true), array('email' => 'miles@davis.com'));
-?>
 
 {% endhighlight %}
-
- * `param string` $table
- * `param array` $data
- * `param array` $criteria
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-db/tree/master/src/Codeception/Module/Db.php">Help us to improve documentation. Edit module reference</a></div>

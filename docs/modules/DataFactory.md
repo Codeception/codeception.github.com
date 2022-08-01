@@ -45,10 +45,14 @@ This module requires packages installed:
 
 {% endhighlight %}
 
-Generation rules can be defined in a factories file. You will need to create `factories.php` (it is recommended to store it in `_support` dir)
-Follow [FactoryMuffin documentation](https://github.com/thephpleague/factory-muffin) to set valid rules.
-Random data provided by [Faker](https://github.com/fzaninotto/Faker) library.
+Generation rules can be defined in a factories file.
+Create a folder for factories files: `tests/_support/factories`.
 
+Create an empty PHP file inside that folder `factories.php`.
+Follow [FactoryMuffin documentation](https://github.com/thephpleague/factory-muffin) to set valid rules.
+Randomly generated data provided by [Faker](https://github.com/fzaninotto/Faker) library.
+
+Here is the sample factory file:
 {% highlight php %}
 
 <?php
@@ -82,12 +86,9 @@ modules:
 
 {% endhighlight %}
 
-(you can also use Laravel5 and Phalcon).
+(you can also use Laravel and Phalcon).
 
-In this example factories are loaded from `tests/_support/factories` directory. Please note that this directory is relative from the codeception.yml file (so for Yii2 it would be codeception/_support/factories).
-You should create this directory manually and create PHP files in it with factories definitions following [official documentation](https://github.com/thephpleague/factory-muffin#usage).
-
-In cases you want to use data from database inside your factory definitions you can define them in Helper.
+In cases you want to use data from database inside your factory definitions you can define them in a Helper.
 For instance, if you use Doctrine, this allows you to access `EntityManager` inside a definition.
 
 To proceed you should create Factories helper via `generate:helper` command and enable it:
@@ -203,11 +204,6 @@ $I->have('User', ['is_active' => true]); // creates active user
 
 Returns an instance of created user.
 
- * `param string` $name
- * `param array` $extraAttrs
-
- * `return object` 
-
 
 #### haveMultiple
  
@@ -220,11 +216,7 @@ $I->haveMultiple('User', 10, ['is_active' => true]); // create 10 active users
 
 {% endhighlight %}
 
- * `param string` $name
- * `param int` $times
- * `param array` $extraAttrs
-
- * `return \object[]` 
+ * `return object[]` 
 
 
 #### make
@@ -241,11 +233,6 @@ $activeUser = $I->make('User', ['is_active' => true]); // return active user ins
 {% endhighlight %}
 
 Returns an instance of created user without creating a record in database.
-
- * `param string` $name
- * `param array` $extraAttrs
-
- * `return object` 
 
 
 #### onReconfigure

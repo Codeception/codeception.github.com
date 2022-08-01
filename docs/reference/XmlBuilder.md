@@ -13,7 +13,6 @@ That's a pretty simple yet powerful class to build XML structures in jQuery-like
 With no XML line actually written!
 Uses DOM extension to manipulate XML data.
 
-
 {% highlight php %}
 
 <?php
@@ -73,7 +72,7 @@ Export:
  * `$xml->getDom` - get a DOMDocument object
  * `$xml->__toString` - get a string representation of XML.
 
-[Source code](https://github.com/Codeception/Codeception/blob/4.0/src/Codeception/Util/XmlBuilder.php)
+[Source code](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Util/XmlBuilder.php)
 
 
 #### __construct()
@@ -88,16 +87,13 @@ Export:
 
 Appends child node
 
- * `param` $tag
- * `return` XmlBuilder
-
-[See source](https://github.com/Codeception/lib-xml/blob/master/src/Codeception/Util/XmlBuilder.php#L93)
+[See source](https://github.com/Codeception/lib-xml/blob/master/src/Codeception/Util/XmlBuilder.php#L89)
 
 #### __toString()
 
  *public* __toString() 
 
-[See source](https://github.com/Codeception/lib-xml/blob/master/src/Codeception/Util/XmlBuilder.php#L165)
+[See source](https://github.com/Codeception/lib-xml/blob/master/src/Codeception/Util/XmlBuilder.php#L152)
 
 #### attr()
 
@@ -105,47 +101,35 @@ Appends child node
 
 Sets attribute for current node
 
- * `param` $attr
- * `param` $val
- * `return` XmlBuilder
-
-[See source](https://github.com/Codeception/lib-xml/blob/master/src/Codeception/Util/XmlBuilder.php#L120)
+[See source](https://github.com/Codeception/lib-xml/blob/master/src/Codeception/Util/XmlBuilder.php#L106)
 
 #### getDom()
 
  *public* getDom() 
- * `return` \DOMDocument
 
-[See source](https://github.com/Codeception/lib-xml/blob/master/src/Codeception/Util/XmlBuilder.php#L173)
+[See source](https://github.com/Codeception/lib-xml/blob/master/src/Codeception/Util/XmlBuilder.php#L162)
 
 #### parent()
 
  *public* parent() 
 
 Traverses to parent
- * `return` XmlBuilder
 
-[See source](https://github.com/Codeception/lib-xml/blob/master/src/Codeception/Util/XmlBuilder.php#L131)
+[See source](https://github.com/Codeception/lib-xml/blob/master/src/Codeception/Util/XmlBuilder.php#L118)
 
 #### parents()
 
- *public* parents($tag) 
+ *public* parents($tagName) 
 
-Traverses to parent with $name
+Traverses to parent with $tagName
+ * `throws` Exception
 
- * `param` $tag
- * `return` XmlBuilder
- * `throws` \Exception
-
-[See source](https://github.com/Codeception/lib-xml/blob/master/src/Codeception/Util/XmlBuilder.php#L145)
+[See source](https://github.com/Codeception/lib-xml/blob/master/src/Codeception/Util/XmlBuilder.php#L132)
 
 #### val()
 
  *public* val($val) 
 
- * `param` $val
- * `return` XmlBuilder
-
-[See source](https://github.com/Codeception/lib-xml/blob/master/src/Codeception/Util/XmlBuilder.php#L106)
+[See source](https://github.com/Codeception/lib-xml/blob/master/src/Codeception/Util/XmlBuilder.php#L97)
 
 <p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/lib-xml/blob/master/src/Codeception/Util/XmlBuilder.php">Help us to improve documentation. Edit module reference</a></div>

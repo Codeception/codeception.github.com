@@ -32,7 +32,6 @@ Warning. Using PHAR file and composer in the same project can cause unexpected e
 
 
 
-
 Works with Queue servers.
 
 Testing with a selection of remote/local queueing services, including Amazon's SQS service
@@ -40,9 +39,9 @@ Iron.io service and beanstalkd service.
 
 Supported and tested queue types are:
 
-* [Iron.io](http://iron.io/)
-* [Beanstalkd](http://kr.github.io/beanstalkd/)
-* [Amazon SQS](http://aws.amazon.com/sqs/)
+* [Iron.io](https://www.iron.io/)
+* [Beanstalkd](https://beanstalkd.github.io/)
+* [Amazon SQS](https://aws.amazon.com/sqs/)
 
 The following dependencies are needed for the listed queue servers:
 
@@ -87,7 +86,7 @@ service.
                  aws_secret_access_key = YOUR_AWS_SECRET_ACCESS_KEY
          - Note: Using IAM roles is the preferred technique for providing credentials
                  to applications running on Amazon EC2
-                 http://docs.aws.amazon.com/aws-sdk-php/v3/guide/guide/credentials.html?highlight=credentials
+                 https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/guide_credentials.html?highlight=credentials
 
 * region - A region parameter is also required for AWS, refer to the AWS documentation for possible values list.
 
@@ -144,7 +143,6 @@ service.
              'type': 'aws',
              'region': 'us-west-2'
 
-
 ### Actions
 
 #### addMessageToQueue
@@ -155,12 +153,11 @@ Add a message to a queue/tube
 
 <?php
 $I->addMessageToQueue('this is a messages', 'default');
-?>
 
 {% endhighlight %}
 
  * `param string` $message Message Body
- * `param string` $queue Queue Name
+ * `param string` $queue   Queue name
 
 
 #### clearQueue
@@ -171,11 +168,10 @@ Clear all messages of the queue/tube
 
 <?php
 $I->clearQueue('default');
-?>
 
 {% endhighlight %}
 
- * `param string` $queue Queue Name
+ * `param string` $queue Queue name
 
 
 #### dontSeeEmptyQueue
@@ -186,11 +182,10 @@ Check if a queue/tube is NOT empty of all messages
 
 <?php
 $I->dontSeeEmptyQueue('default');
-?>
 
 {% endhighlight %}
 
- * `param string` $queue Queue Name
+ * `param string` $queue Queue name
 
 
 #### dontSeeQueueExists
@@ -201,11 +196,10 @@ Check if a queue/tube does NOT exist on the queueing server.
 
 <?php
 $I->dontSeeQueueExists('default');
-?>
 
 {% endhighlight %}
 
- * `param string` $queue Queue Name
+ * `param string` $queue Queue name
 
 
 #### dontSeeQueueHasCurrentCount
@@ -216,12 +210,11 @@ Check if a queue/tube does NOT have a given current number of messages
 
 <?php
 $I->dontSeeQueueHasCurrentCount('default', 10);
-?>
 
 {% endhighlight %}
 
- * `param string` $queue Queue Name
- * `param int` $expected Number of messages expected
+ * `param string` $queue    Queue name
+ * `param int`    $expected Number of messages expected
 
 
 #### dontSeeQueueHasTotalCount
@@ -232,12 +225,11 @@ Check if a queue/tube does NOT have a given total number of messages
 
 <?php
 $I->dontSeeQueueHasTotalCount('default', 10);
-?>
 
 {% endhighlight %}
 
- * `param string` $queue Queue Name
- * `param int` $expected Number of messages expected
+ * `param string` $queue    Queue name
+ * `param int`    $expected Number of messages expected
 
 
 #### grabQueueCurrentCount
@@ -248,11 +240,10 @@ Grabber method to get the current number of messages on the queue/tube (pending/
 
 <?php
     $I->grabQueueCurrentCount('default');
-?>
 
 {% endhighlight %}
- * `param string` $queue Queue Name
 
+ * `param`  string $queue Queue name
  * `return int` Count
 
 
@@ -264,12 +255,10 @@ Grabber method to get the total number of messages on the queue/tube
 
 <?php
     $I->grabQueueTotalCount('default');
-?>
 
 {% endhighlight %}
 
- * `param` $queue Queue Name
-
+ * `param`  string $queue Queue name
  * `return int` Count
 
 
@@ -281,11 +270,10 @@ Grabber method to get the list of queues/tubes on the server
 
 <?php
 $queues = $I->grabQueues();
-?>
 
 {% endhighlight %}
 
- * `return array` List of Queues/Tubes
+ * `return string[]` List of Queues/Tubes
 
 
 #### seeEmptyQueue
@@ -296,11 +284,10 @@ Check if a queue/tube is empty of all messages
 
 <?php
 $I->seeEmptyQueue('default');
-?>
 
 {% endhighlight %}
 
- * `param string` $queue Queue Name
+ * `param string` $queue Queue name
 
 
 #### seeQueueExists
@@ -311,11 +298,10 @@ Check if a queue/tube exists on the queueing server.
 
 <?php
 $I->seeQueueExists('default');
-?>
 
 {% endhighlight %}
 
- * `param string` $queue Queue Name
+ * `param string` $queue Queue name
 
 
 #### seeQueueHasCurrentCount
@@ -326,12 +312,11 @@ Check if a queue/tube has a given current number of messages
 
 <?php
 $I->seeQueueHasCurrentCount('default', 10);
-?>
 
 {% endhighlight %}
 
- * `param string` $queue Queue Name
- * `param int` $expected Number of messages expected
+ * `param string` $queue    Queue name
+ * `param int`    $expected Number of messages expected
 
 
 #### seeQueueHasTotalCount
@@ -342,11 +327,10 @@ Check if a queue/tube has a given total number of messages
 
 <?php
 $I->seeQueueHasTotalCount('default', 10);
-?>
 
 {% endhighlight %}
 
- * `param string` $queue Queue Name
- * `param int` $expected Number of messages expected
+ * `param string` $queue    Queue name
+ * `param int`    $expected Number of messages expected
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-queue/tree/master/src/Codeception/Module/Queue.php">Help us to improve documentation. Edit module reference</a></div>

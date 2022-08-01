@@ -75,8 +75,8 @@ modules:
 
 ### JSONPath
 
-[JSONPath](http://goessner.net/articles/JsonPath/) is the equivalent to XPath, for querying JSON data structures.
-Here's an [Online JSONPath Expressions Tester](http://jsonpath.curiousconcept.com/)
+[JSONPath](https://goessner.net/articles/JsonPath/) is the equivalent to XPath, for querying JSON data structures.
+Here's an [Online JSONPath Expressions Tester](https://jsonpath.curiousconcept.com/)
 
 ### Public Properties
 
@@ -119,10 +119,8 @@ Code:
 
 <?php
 $I->amAWSAuthenticated();
-?>
 
 {% endhighlight %}
- * `param array` $additionalAWSConfig
 @throws ConfigurationException
 
 
@@ -130,7 +128,6 @@ $I->amAWSAuthenticated();
  
 Adds Bearer authentication via access token.
 
- * `param` $accessToken
  * `[Part]` json
  * `[Part]` xml
 
@@ -139,8 +136,6 @@ Adds Bearer authentication via access token.
  
 Adds Digest authentication via username/password.
 
- * `param` $username
- * `param` $password
  * `[Part]` json
  * `[Part]` xml
 
@@ -149,8 +144,6 @@ Adds Digest authentication via username/password.
  
 Adds HTTP authentication via username/password.
 
- * `param` $username
- * `param` $password
  * `[Part]` json
  * `[Part]` xml
 
@@ -166,12 +159,9 @@ Example:
 
 <?php
 $I->amNTLMAuthenticated('jon_snow', 'targaryen');
-?>
 
 {% endhighlight %}
 
- * `param` $username
- * `param` $password
 @throws ModuleException
  * `[Part]` json
  * `[Part]` xml
@@ -191,7 +181,6 @@ $I->sendGet('test-headers.php');
 // ...
 $I->deleteHeader('X-Requested-With');
 $I->sendPost('some-other-page.php');
-?>
 
 {% endhighlight %}
 
@@ -208,7 +197,6 @@ Checks if the hash of a binary response is not the same as provided.
 
 <?php
 $I->dontSeeBinaryResponseEquals("8c90748342f19b195b9c6b4eff742ded");
-?>
 
 {% endhighlight %}
 Opposite to `seeBinaryResponseEquals`
@@ -224,7 +212,6 @@ Opposite to `seeBinaryResponseEquals`
 Checks over the given HTTP header and (optionally)
 its value, asserting that are not there
 
- * `param` $name
  * `param` $value
  * `[Part]` json
  * `[Part]` xml
@@ -246,14 +233,12 @@ $I->dontSeeResponseCodeIs(\Codeception\Util\HttpCode::OK);
 
  * `[Part]` json
  * `[Part]` xml
- * `param` $code
 
 
 #### dontSeeResponseContains
  
 Checks whether last response do not contain text.
 
- * `param` $text
  * `[Part]` json
  * `[Part]` xml
 
@@ -263,7 +248,6 @@ Checks whether last response do not contain text.
 Opposite to seeResponseContainsJson
 
  * `[Part]` json
- * `param array` $json
 
 
 #### dontSeeResponseJsonMatchesJsonPath
@@ -271,7 +255,6 @@ Opposite to seeResponseContainsJson
 See [#jsonpath](#jsonpath) for general info on JSONPath.
 Opposite to [`seeResponseJsonMatchesJsonPath()`](#seeResponseJsonMatchesJsonPath)
 
- * `param string` $jsonPath
  * `[Part]` json
 
 
@@ -279,7 +262,6 @@ Opposite to [`seeResponseJsonMatchesJsonPath()`](#seeResponseJsonMatchesJsonPath
  
 Opposite to seeResponseJsonMatchesXpath
 
- * `param string` $xpath
  * `[Part]` json
 
 
@@ -289,7 +271,6 @@ Opposite to `seeResponseMatchesJsonType`.
 
  * `[Part]` json
  * `param array` $jsonType JsonType structure
- * `param string` $jsonPath
 @see seeResponseMatchesJsonType
 
 
@@ -300,7 +281,7 @@ Comparison is done by canonicalizing both xml`s.
 
 Parameter can be passed either as XmlBuilder, DOMDocument, DOMNode, XML string, or array (if no attributes).
 
- * `param` $xml
+ * `param mixed` $xml
  * `[Part]` xml
 
 
@@ -310,7 +291,7 @@ Checks XML response does not include provided XML.
 Comparison is done by canonicalizing both xml`s.
 Parameter can be passed either as XmlBuilder, DOMDocument, DOMNode, XML string, or array (if no attributes).
 
- * `param` $xml
+ * `param mixed` $xml
  * `[Part]` xml
 
 
@@ -325,7 +306,6 @@ $I->dontSeeXmlResponseMatchesXpath('//root/user[@id=1]');
 
 {% endhighlight %}
  * `[Part]` xml
- * `param` $xpath
 
 
 #### grabAttributeFromXmlElement
@@ -333,9 +313,6 @@ $I->dontSeeXmlResponseMatchesXpath('//root/user[@id=1]');
 Finds and returns attribute of element.
 Element is matched by either CSS or XPath
 
- * `param` $cssOrXPath
- * `param` $attribute
- * `return string` 
  * `[Part]` xml
 
 
@@ -351,13 +328,11 @@ Example:
 // match the first `user.id` in json
 $firstUserId = $I->grabDataFromResponseByJsonPath('$..users[0].id');
 $I->sendPut('/user', array('id' => $firstUserId[0], 'name' => 'davert'));
-?>
 
 {% endhighlight %}
 
- * `param string` $jsonPath
  * `return array` Array of matching items
-@throws \Exception
+@throws Exception
  * `[Part]` json
 
 
@@ -365,9 +340,7 @@ $I->sendPut('/user', array('id' => $firstUserId[0], 'name' => 'davert'));
  
 Returns the value of the specified header name
 
- * `param` $name
- * `param Boolean` $first Whether to return the first value or all header values
-
+ * `param bool` $first Whether to return the first value or all header values
  * `return string|array The first header value if` $first is true, an array of values otherwise
  * `[Part]` json
  * `[Part]` xml
@@ -384,11 +357,9 @@ Example:
 <?php
 $user_id = $I->grabResponse();
 $I->sendPut('/user', array('id' => $user_id, 'name' => 'davert'));
-?>
 
 {% endhighlight %}
 
- * `return string` 
  * `[Part]` json
  * `[Part]` xml
 
@@ -398,8 +369,7 @@ $I->sendPut('/user', array('id' => $user_id, 'name' => 'davert'));
 Finds and returns text contents of element.
 Element is matched by either CSS or XPath
 
- * `param` $cssOrXPath
- * `return string` 
+ * `param mixed` $cssOrXPath
  * `[Part]` xml
 
 
@@ -412,12 +382,9 @@ Sets a HTTP header to be used for all subsequent requests. Use [`deleteHeader`](
 <?php
 $I->haveHttpHeader('Content-Type', 'application/json');
 // all next requests will contain this header
-?>
 
 {% endhighlight %}
 
- * `param` $name
- * `param` $value
  * `[Part]` json
  * `[Part]` xml
 
@@ -436,27 +403,25 @@ $I->haveServerParameter('name', 'value');
 #### seeBinaryResponseEquals
  
 Checks if the hash of a binary response is exactly the same as provided.
-Parameter can be passed as any hash string supported by hash(), with an
-optional second parameter to specify the hash type, which defaults to md5.
+Parameter can be passed as any hash string supported by `hash()`, with an
+optional second parameter to specify the hash type, which defaults to sha1.
 
-Example: Using md5 hash key
+Example: Using sha1 hash key
 
 {% highlight php %}
 
 <?php
-$I->seeBinaryResponseEquals("8c90748342f19b195b9c6b4eff742ded");
-?>
+$I->seeBinaryResponseEquals("df589122eac0f6a7bd8795436e692e3675cadc3b");
 
 {% endhighlight %}
 
-Example: Using md5 for a file contents
+Example: Using sha1 for a file contents
 
 {% highlight php %}
 
 <?php
 $fileData = file_get_contents("test_file.jpg");
 $I->seeBinaryResponseEquals(md5($fileData));
-?>
 
 {% endhighlight %}
 Example: Using sha256 hash
@@ -466,12 +431,11 @@ Example: Using sha256 hash
 <?php
 $fileData = '/9j/2wBDAAMCAgICAgMCAgIDAwMDBAYEBAQEBAgGBgUGCQgKCgkICQkKDA8MCgsOCwkJDRENDg8QEBEQCgwSExIQEw8QEBD/yQALCAABAAEBAREA/8wABgAQEAX/2gAIAQEAAD8A0s8g/9k='; // very small jpeg
 $I->seeBinaryResponseEquals(hash("sha256", base64_decode($fileData)), 'sha256');
-?>
 
 {% endhighlight %}
 
  * `param string` $hash the hashed data response expected
- * `param string` $algo the hash algorithm to use. Default md5.
+ * `param string` $algo the hash algorithm to use. Default sha1.
  * `[Part]` json
  * `[Part]` xml
 
@@ -481,7 +445,6 @@ $I->seeBinaryResponseEquals(hash("sha256", base64_decode($fileData)), 'sha256');
 Checks over the given HTTP header and (optionally)
 its value, asserting that are there
 
- * `param` $name
  * `param` $value
  * `[Part]` json
  * `[Part]` xml
@@ -497,11 +460,9 @@ You can check that you didn't accidentally sent the same header twice.
 
 <?php
 $I->seeHttpHeaderOnce('Cache-Control');
-?>>
 
 {% endhighlight %}
 
- * `param` $name
  * `[Part]` json
  * `[Part]` xml
 
@@ -522,7 +483,6 @@ $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK);
 
  * `[Part]` json
  * `[Part]` xml
- * `param` $code
 
 
 #### seeResponseCodeIsClientError
@@ -561,7 +521,6 @@ Checks that the response code is 2xx
  
 Checks whether the last response contains text.
 
- * `param` $text
  * `[Part]` json
  * `[Part]` xml
 
@@ -584,13 +543,11 @@ $I->seeResponseContainsJson(array('name' => 'john'));
 // response {user: john, profile: { email: john@gmail.com }}
 $I->seeResponseContainsJson(array('email' => 'john@gmail.com'));
 
-?>
 
 {% endhighlight %}
 
 This method recursively checks if one array can be found inside of another.
 
- * `param array` $json
  * `[Part]` json
 
 
@@ -600,7 +557,6 @@ Checks if response is exactly the same as provided.
 
  * `[Part]` json
  * `[Part]` xml
- * `param` $response
 
 
 #### seeResponseIsJson
@@ -616,10 +572,8 @@ This is done with json_last_error function.
 Checks whether last response matches the supplied json schema (https://json-schema.org/)
 Supply schema as relative file path in your project directory or an absolute path
 
-@see codecept_absolute_path()
-
- * `param string` $schemaFilename
  * `[Part]` json
+@see codecept_absolute_path()
 
 
 #### seeResponseIsValidOnJsonSchemaString
@@ -646,11 +600,9 @@ $schema = [
 ];
 $I->seeResponseIsValidOnJsonSchemaString(json_encode($schema));
 
-?>
 
 {% endhighlight %}
 
- * `param string` $schema
  * `[Part]` json
 
 
@@ -700,11 +652,9 @@ $I->seeResponseJsonMatchesJsonPath('$.store.book[*].author');
 $I->seeResponseJsonMatchesJsonPath('$.store.book[0].author');
 // at least one item in store has price
 $I->seeResponseJsonMatchesJsonPath('$.store..price');
-?>
 
 {% endhighlight %}
 
- * `param string` $jsonPath
  * `[Part]` json
 
 
@@ -747,10 +697,8 @@ $I->seeResponseJsonMatchesXpath('//store/book/author');
 $I->seeResponseJsonMatchesXpath('//store/book[1]/author');
 // at least one item in store has price
 $I->seeResponseJsonMatchesXpath('/store//price');
-?>
 
 {% endhighlight %}
- * `param string` $xpath
  * `[Part]` json
 
 
@@ -776,7 +724,6 @@ $I->seeResponseMatchesJsonType([
 // narrow down matching with JsonPath:
 // {"users": [{ "name": "davert"}, {"id": 1}]}
 $I->seeResponseMatchesJsonType(['name' => 'string'], '$.users[0]');
-?>
 
 {% endhighlight %}
 
@@ -800,7 +747,6 @@ $I->seeResponseMatchesJsonType([
      'user_id' => 'integer|string', // multiple types
      'company' => ['name' => 'string']
 ]);
-?>
 
 {% endhighlight %}
 
@@ -813,7 +759,7 @@ Here is the list of possible filters:
 * `integer:<{val}` - checks that integer is lower than {val} (works with float and string types too).
 * `string:url` - checks that value is valid url.
 * `string:date` - checks that value is date in JavaScript format: https://weblog.west-wind.com/posts/2014/Jan/06/JavaScript-JSON-Date-Parsing-and-real-Dates
-* `string:email` - checks that value is a valid email according to http://emailregex.com/
+* `string:email` - checks that value is a valid email according to https://emailregex.com/
 * `string:regex({val})` - checks that string matches a regex provided with {val}
 
 This is how filters can be used:
@@ -831,16 +777,13 @@ $I->seeResponseMatchesJsonType([
 $I->seeResponseMatchesJsonType([
      'user_id' => 'string:>0', // works with strings as well
 ]);
-?>
 
 {% endhighlight %}
 
 You can also add custom filters by using `{@link JsonType::addCustomFilter()}`.
-See [JsonType reference](http://codeception.com/docs/reference/JsonType).
+See [JsonType reference](https://codeception.com/docs/reference/JsonType).
 
  * `[Part]` json
- * `param array` $jsonType
- * `param string` $jsonPath
 @see JsonType
 
 
@@ -851,7 +794,7 @@ Comparison is done by canonicalizing both xml`s.
 
 Parameters can be passed either as DOMDocument, DOMNode, XML string, or array (if no attributes).
 
- * `param` $xml
+ * `param mixed` $xml
  * `[Part]` xml
 
 
@@ -867,11 +810,10 @@ Example:
 
 <?php
 $I->seeXmlResponseIncludes("<result>1</result>");
-?>
 
 {% endhighlight %}
 
- * `param` $xml
+ * `param mixed` $xml
  * `[Part]` xml
 
 
@@ -886,17 +828,13 @@ $I->seeXmlResponseMatchesXpath('//root/user[@id=1]');
 
 {% endhighlight %}
  * `[Part]` xml
- * `param` $xpath
 
 
 #### send
  
 Sends a HTTP request.
 
- * `param` $method
- * `param` $url
- * `param array|string|\JsonSerializable` $params
- * `param array` $files
+ * `param array|string|JsonSerializable` $params
  * `[Part]` json
  * `[Part]` xml
 
@@ -912,9 +850,6 @@ $I->sendDelete('/message/1');
 
 {% endhighlight %}
 
- * `param` $url
- * `param array` $params
- * `param array` $files
  * `[Part]` json
  * `[Part]` xml
 
@@ -933,8 +868,6 @@ $I->sendGet('/orders', ['id' => 1])
 
 {% endhighlight %}
 
- * `param` $url
- * `param array` $params
  * `[Part]` json
  * `[Part]` xml
 
@@ -943,8 +876,6 @@ $I->sendGet('/orders', ['id' => 1])
  
 Sends a HEAD request to given uri.
 
- * `param` $url
- * `param array` $params
  * `[Part]` json
  * `[Part]` xml
 
@@ -953,10 +884,9 @@ Sends a HEAD request to given uri.
  
 Sends LINK request to given uri.
 
- * `param`       $url
  * `param array` $linkEntries (entry is array with keys "uri" and "link-param")
 
-@link http://tools.ietf.org/html/rfc2068#section-19.6.2.4
+@link https://tools.ietf.org/html/rfc2068#section-19.6.2.4
 
 @author samva.ua@gmail.com
  * `[Part]` json
@@ -967,8 +897,6 @@ Sends LINK request to given uri.
  
 Sends an OPTIONS request to given uri.
 
- * `param` $url
- * `param array` $params
  * `[Part]` json
  * `[Part]` xml
 
@@ -984,9 +912,7 @@ $response = $I->sendPatch('/message/1', ['subject' => 'Read this!']);
 
 {% endhighlight %}
 
- * `param`       $url
- * `param array|string|\JsonSerializable` $params
- * `param array` $files
+ * `param array|string|JsonSerializable` $params
  * `[Part]` json
  * `[Part]` xml
 
@@ -1022,13 +948,12 @@ $I->sendPost('/add-task', ['form' => [
 
 {% endhighlight %}
 
- * `param` $url
- * `param array|string|\JsonSerializable` $params
+ * `param array|string|JsonSerializable` $params
  * `param array` $files A list of filenames or "mocks" of $_FILES (each entry being an array with the following
                     keys: name, type, error, size, tmp_name (pointing to the real file path). Each key works
                     as the "name" attribute of a file input field.
 
-@see http://php.net/manual/en/features.file-upload.post-method.php
+@see https://php.net/manual/en/features.file-upload.post-method.php
 @see codecept_data_dir()
  * `[Part]` json
  * `[Part]` xml
@@ -1045,9 +970,7 @@ $response = $I->sendPut('/message/1', ['subject' => 'Read this!']);
 
 {% endhighlight %}
 
- * `param` $url
- * `param array|string|\JsonSerializable` $params
- * `param array` $files
+ * `param array|string|JsonSerializable` $params
  * `[Part]` json
  * `[Part]` xml
 
@@ -1056,9 +979,8 @@ $response = $I->sendPut('/message/1', ['subject' => 'Read this!']);
  
 Sends UNLINK request to given uri.
 
- * `param`       $url
  * `param array` $linkEntries (entry is array with keys "uri" and "link-param")
-@link http://tools.ietf.org/html/rfc2068#section-19.6.2.4
+@link https://tools.ietf.org/html/rfc2068#section-19.6.2.4
 @author samva.ua@gmail.com
  * `[Part]` json
  * `[Part]` xml

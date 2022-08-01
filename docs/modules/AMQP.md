@@ -85,13 +85,6 @@ $I->bindQueueToExchange(
 
 {% endhighlight %}
 
- * `param string` $queue
- * `param string` $exchange
- * `param string` $routing_key
- * `param bool` $nowait
- * `param array` $arguments
- * `param int` $ticket
- * `return mixed|null` 
 
 
 #### declareExchange
@@ -110,16 +103,6 @@ $I->declareExchange(
 
 {% endhighlight %}
 
- * `param string` $exchange
- * `param string` $type
- * `param bool` $passive
- * `param bool` $durable
- * `param bool` $auto_delete
- * `param bool` $internal
- * `param bool` $nowait
- * `param array` $arguments
- * `param int` $ticket
- * `return mixed|null` 
 
 
 #### declareQueue
@@ -137,15 +120,6 @@ $I->declareQueue(
 
 {% endhighlight %}
 
- * `param string` $queue
- * `param bool` $passive
- * `param bool` $durable
- * `param bool` $exclusive
- * `param bool` $auto_delete
- * `param bool` $nowait
- * `param array` $arguments
- * `param int` $ticket
- * `return mixed|null` 
 
 
 #### dontSeeQueueIsEmpty
@@ -157,11 +131,8 @@ Checks if queue is not empty.
 <?php
 $I->pushToQueue('queue.emails', 'Hello, davert');
 $I->dontSeeQueueIsEmpty('queue.emails');
-?>
 
 {% endhighlight %}
-
- * `param string` $queue
 
 
 #### grabMessageFromQueue
@@ -172,12 +143,8 @@ Takes last message from queue.
 
 <?php
 $message = $I->grabMessageFromQueue('queue.emails');
-?>
 
 {% endhighlight %}
-
- * `param string` $queue
- * `return \PhpAmqpLib\Message\AMQPMessage` 
 
 
 #### purgeAllQueues
@@ -188,7 +155,6 @@ Purge all queues defined in config.
 
 <?php
 $I->purgeAllQueues();
-?>
 
 {% endhighlight %}
 
@@ -201,11 +167,8 @@ Purge a specific queue defined in config.
 
 <?php
 $I->purgeQueue('queue.emails');
-?>
 
 {% endhighlight %}
-
- * `param string` $queueName
 
 
 #### pushToExchange
@@ -219,13 +182,8 @@ and (optionally) a routing key
 $I->pushToExchange('exchange.emails', 'thanks');
 $I->pushToExchange('exchange.emails', new AMQPMessage('Thanks!'));
 $I->pushToExchange('exchange.emails', new AMQPMessage('Thanks!'), 'severity');
-?>
 
 {% endhighlight %}
-
- * `param string` $exchange
- * `param string|\PhpAmqpLib\Message\AMQPMessage` $message
- * `param string` $routing_key
 
 
 #### pushToQueue
@@ -237,19 +195,13 @@ Sends message to queue
 <?php
 $I->pushToQueue('queue.jobs', 'create user');
 $I->pushToQueue('queue.jobs', new AMQPMessage('create'));
-?>
 
 {% endhighlight %}
-
- * `param string` $queue
- * `param string|\PhpAmqpLib\Message\AMQPMessage` $message
 
 
 #### scheduleQueueCleanup
  
 Add a queue to purge list
-
- * `param string` $queue
 
 
 #### seeMessageInQueueContainsText
@@ -264,12 +216,8 @@ Checks if message containing text received.
 <?php
 $I->pushToQueue('queue.emails', 'Hello, davert');
 $I->seeMessageInQueueContainsText('queue.emails','davert');
-?>
 
 {% endhighlight %}
-
- * `param string` $queue
- * `param string` $text
 
 
 #### seeNumberOfMessagesInQueue
@@ -281,12 +229,8 @@ Checks that queue have expected number of message
 <?php
 $I->pushToQueue('queue.emails', 'Hello, davert');
 $I->seeNumberOfMessagesInQueue('queue.emails',1);
-?>
 
 {% endhighlight %}
-
- * `param string` $queue
- * `param int` $expected
 
 
 #### seeQueueIsEmpty
@@ -299,11 +243,7 @@ Checks that queue is empty
 $I->pushToQueue('queue.emails', 'Hello, davert');
 $I->purgeQueue('queue.emails');
 $I->seeQueueIsEmpty('queue.emails');
-?>
 
 {% endhighlight %}
-
- * `param string` $queue
- * `param int` $expected
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-amqp/tree/master/src/Codeception/Module/AMQP.php">Help us to improve documentation. Edit module reference</a></div>

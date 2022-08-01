@@ -25,8 +25,6 @@ $I->dontSeeResponseCodeIs(HttpCode::NOT_FOUND);
 {% endhighlight %}
 
 
-
-
 #### getDescription()
 
  *public static* getDescription($code) 
@@ -41,9 +39,6 @@ HttpCode::getDescription(401); // '401 (Unauthorized)'
 
 {% endhighlight %}
 
- * `param int` $code
- * `return` int|string
-
-[See source](https://github.com/Codeception/lib-innerbrowser/blob/master/src/Codeception/Util/HttpCode.php#L353)
+[See source](https://github.com/Codeception/lib-innerbrowser/blob/master/src/Codeception/Util/HttpCode.php#L350)
 
 <p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/lib-innerbrowser/blob/master/src/Codeception/Util/HttpCode.php">Help us to improve documentation. Edit module reference</a></div>
