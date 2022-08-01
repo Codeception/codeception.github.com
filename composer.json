@@ -21,7 +21,6 @@
     "codeception/module-memcache": "*",
     "codeception/module-mezzio": "*",
     "codeception/module-mongodb": "*",
-    "codeception/module-phalcon5": "*",
     "codeception/module-phpbrowser": "*",
     "codeception/module-queue": "*",
     "codeception/module-redis": "*",
@@ -37,8 +36,7 @@
     "http-interop/http-factory-guzzle": "^1.0"
   },
   "require-dev": {
-    "symfony/event-dispatcher": "4.4.*",
-    "consolidation/robo": "^3.0.0"
+    "consolidation/robo": "4.x-dev"
   },
   "config": {
     "platform": {
