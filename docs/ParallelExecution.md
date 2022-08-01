@@ -24,19 +24,19 @@ Each job should have Codeception running a subset of tests set by `--shard` opti
 First job
 
 ```
-php venodor/bin/codecept run --shard 1/3
+php vendor/bin/codecept run --shard 1/3
 ```
 
 Second job
 
 ```
-php venodor/bin/codecept run --shard 2/3
+php vendor/bin/codecept run --shard 2/3
 ```
 
 Third job
 
 ```
-php venodor/bin/codecept run --shard 3/3
+php vendor/bin/codecept run --shard 3/3
 ```
 
 For each job you specify on how many groups tests should be split and the group that should be executed on this agent.

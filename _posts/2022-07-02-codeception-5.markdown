@@ -111,13 +111,13 @@ In this case, you specify the batch of tests that should be executed independent
 
 ```
 # first job
-./venodor/bin/codecept run --shard 1/3
+./vendor/bin/codecept run --shard 1/3
 
 # second job
-./venodor/bin/codecept run --shard 2/3
+./vendor/bin/codecept run --shard 2/3
 
 # third job
-./venodor/bin/codecept run --shard 3/3
+./vendor/bin/codecept run --shard 3/3
 ```
 
 This feature reduces the need for complex configuration and usage of `robo` task runner to split tests.
@@ -129,7 +129,7 @@ It is recommended to use sharding to parallelize tests between multiple jobs as 
 New options `--grep` and `--filter` were introduced to select tests by part of their name. Actually, it is the same option and an alias. `--grep` is a common way to select tests to execute in NodeJS test runners, so we ported it to Codeception. But as usual, specific tests can also be executed by group or specifying a test signature.
 
 ```
-php venodor/bin/codecept run --grep "user"
+php vendor/bin/codecept run --grep "user"
 ```
 
 ## Other Changes
