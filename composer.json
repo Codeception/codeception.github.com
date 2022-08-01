@@ -36,7 +36,7 @@
     "http-interop/http-factory-guzzle": "^1.0"
   },
   "require-dev": {
-    "consolidation/robo": "4.x-dev"
+    "consolidation/robo": "3.x-dev"
   },
   "config": {
     "platform": {
