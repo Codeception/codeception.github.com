@@ -730,6 +730,16 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Codeception 5 support
 
 
+### module-rest 3.0.0: 3.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/02/20 10:50:18 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
+
+
+
+* Codeception 5 support
+* Update to min php8 ([#70](https://github.com/Codeception/module-rest/issues/70)) by **[pbojan](https://github.com/pbojan)**
+
+
 ### Codeception 5.0.0-alpha2: 5.0.0-alpha2
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/02/19 19:33:46 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
