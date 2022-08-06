@@ -9,6 +9,15 @@ title: Codeception Changelog
 
 
 
+### module-phpbrowser 2.5.0: 2.5.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/08/06 13:44:12 / [Repository](https://github.com/Codeception/module-phpbrowser)   / [Releases](https://github.com/Codeception/module-phpbrowser/releases)
+
+
+
+* 2.5 branch makes Codeception 5 compatible with Symfony 4.4 components
+
+
 ### Codeception 5.0.0: 5.0.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/07/28 08:41:10 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
