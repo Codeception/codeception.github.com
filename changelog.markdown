@@ -9,6 +9,15 @@ title: Codeception Changelog
 
 
 
+### module-laravel 3.0.1: 3.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2022/08/07 15:25:34 / [Repository](https://github.com/Codeception/module-laravel)   / [Releases](https://github.com/Codeception/module-laravel/releases)
+
+
+
+- Minor bug fix: Assign default value to client property by **[Naktibalda](https://github.com/Naktibalda)** ([#44](https://github.com/Codeception/module-laravel/issues/44))
+
+
 ### module-phpbrowser 2.5.0: 2.5.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/08/06 13:44:12 / [Repository](https://github.com/Codeception/module-phpbrowser)   / [Releases](https://github.com/Codeception/module-phpbrowser/releases)
