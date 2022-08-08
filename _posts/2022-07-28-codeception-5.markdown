@@ -67,6 +67,31 @@ extensions:
         - Codeception\Extension\RunFailed
 ```
 
+Next steps:
+
+1. Rename your suite configuration files:
+    `acceptance.suite.yml` => `Acceptance.suite.yml`
+    `functional.suite.yml` => `Functional.suite.yml`
+    `unit.suite.yml` => `Unit.suite.yml`
+2. Inside those configuration files, update to the new namespace:
+    ```yaml
+    modules:
+        enabled:
+            - Tests\Support\Helper\Unit
+    ```
+3. In your `composer.json`, update to the new namespace:
+    ```json
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    ```
+4. In your `tests/Support/Acceptance|Functional|UnitTester.php` files, update to the new namespace.
+5. Run `vendor/bin/codecept build` to create the files in `tests/Support/_generated`.
+6. Modify the namespaces in all your test/cest files.
+7. Run the tests with capitalized suite names: `vendor/bin/codecept run Unit`
+
 ## Attributes
 
 Annotations were an essential part of the Codeception testing framework. Even though they were not native language constructs, they proved to be quite good to separate a test from its metadata. We believe that test should not include code that doesn't belong to the test scenario.
