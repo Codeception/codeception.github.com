@@ -2506,6 +2506,15 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 
+### module-apc 1.0.2: Support PHP 8
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/10/26 06:16:30 / [Repository](https://github.com/Codeception/module-apc)   / [Releases](https://github.com/Codeception/module-apc/releases)
+
+
+
+
+
+
 ### module-webdriver 1.1.3: Support PHP 8
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/10/24 15:41:47 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
