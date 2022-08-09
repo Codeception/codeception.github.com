@@ -97,7 +97,7 @@ Now we've got a list of specification and code examples for each case. If one da
 
 Please note, that all the specification are grouped by context. In plain PHPUnit you would create each code block as a separate method. This way it's pretty hard to all the tests related to one specific feature, in our case - publishing.
 
-Ok, we got nice specifications. But can we also replace classical asserts with some more BDD stuff? Sure. We have another tiny package [Verify](https://github.com/Codeception/Verify) which is also inspired by Jasmine. `Assert` keyword is replaced either with `expect` (as Jasmine does) or `verify`. This asserts change the order of assetion to improve readability. 
+Ok, we got nice specifications. But can we also replace classical asserts with some more BDD stuff? Sure. We have another tiny package [Verify](https://github.com/Codeception/Verify) which is also inspired by Jasmine. `Assert` keyword is replaced either with `expect` (as Jasmine does) or `verify`. This asserts change the order of assertion to improve readability. 
 
 Let's rewrite our test with **Verify** so you could feel the difference.
 
