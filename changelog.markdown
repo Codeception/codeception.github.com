@@ -539,6 +539,16 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Improved code style
 
 
+### module-soap 3.0.0: 3.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/11 16:39:18 / [Repository](https://github.com/Codeception/module-soap)   / [Releases](https://github.com/Codeception/module-soap/releases)
+
+
+
+* Compatibility with Codeception 5
+* Uses lib-xml
+
+
 ### Codeception 5.0.0-alpha3: 5.0.0-alpha3
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/11 11:02:50 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
@@ -1035,6 +1045,17 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 ## What's Changed
 
 * Update dependencies by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-laminas/pull/21
+
+
+### module-soap 2.0.1: 2.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/18 14:37:02 / [Repository](https://github.com/Codeception/module-soap)   / [Releases](https://github.com/Codeception/module-soap/releases)
+
+
+
+## What's Changed
+
+* Update dependencies by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-soap/pull/13
 
 
 ### module-phpbrowser 2.0.1: 2.0.1
