@@ -685,6 +685,15 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Fix Sqlite primary key column detection on PHP 8.1
 
 
+### module-db 3.0.0: 3.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/02/20 17:03:37 / [Repository](https://github.com/Codeception/module-db)   / [Releases](https://github.com/Codeception/module-db/releases)
+
+
+
+* Codeception 5 support
+
+
 ### module-mezzio 4.0.0: 4.0.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/02/20 16:38:14 / [Repository](https://github.com/Codeception/module-mezzio)   / [Releases](https://github.com/Codeception/module-mezzio/releases)
@@ -1047,6 +1056,15 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 ## What's Changed
 
 * Update dependencies by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-soap/pull/13
+
+
+### module-phpbrowser 2.0.1: 2.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/18 14:26:57 / [Repository](https://github.com/Codeception/module-phpbrowser)   / [Releases](https://github.com/Codeception/module-phpbrowser/releases)
+
+
+
+* Update dependencies by **[TavoNiievez](https://github.com/TavoNiievez)** and **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/module-phpbrowser/pull/20
 
 
 ### module-mezzio 3.0.1: 3.0.1
@@ -2384,6 +2402,15 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 * Configurable purge mode - DELETE or TRUNCATE 
 * Catch MappingException thrown by Doctrine 2.9 
+
+
+### module-soap 1.0.1: Support PHP 8
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/11/07 20:10:24 / [Repository](https://github.com/Codeception/module-soap)   / [Releases](https://github.com/Codeception/module-soap/releases)
+
+
+
+
 
 
 ### module-rest 1.2.7: Fix deprecation error
