@@ -637,7 +637,6 @@ EOF;
     {
         $this->taskComposerRequire()
             ->dependency('codeception/codeception', $version)
-            ->ignorePlatformRequirements()
             ->workingDir('package')
             ->run();
     }
