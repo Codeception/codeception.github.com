@@ -9,6 +9,16 @@ title: Codeception Changelog
 
 
 
+### Codeception 4.2.2: 4.2.2
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/08/13 13:56:22 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Propagate --ext and --override parameters to included test suites ([#6536](https://github.com/Codeception/Codeception/issues/6536))
+* Fixed false negative message about stecman/symfony-console-completion package ([#6541](https://github.com/Codeception/Codeception/issues/6541))
+
+
 ### module-rest 3.2.0: 3.2.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/08/13 12:18:30 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
@@ -2069,18 +2079,6 @@ Released by [![](https://avatars.githubusercontent.com/u/3289702?v=4&s=16) Jecke
 
 Changed
 * Removed limitation of PHP 8.0 version in composer.json
-
-
-### Codeception 4.1.17: 
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/02/01 07:32:33 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Fix `codecept run suite` when suite name matches directory (bug introduced in 4.1.16)
-* `codecept run tests` is equivalent to `codecept run`
-* `codecept run :filter` works without specifying suite [#6105](https://github.com/Codeception/Codeception/issues/6105)
-* `codecept run tests:filter` works too
 
 
 ### lib-innerbrowser 1.4.0: 
