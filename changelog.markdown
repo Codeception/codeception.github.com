@@ -9,6 +9,18 @@ title: Codeception Changelog
 
 
 
+### Codeception 5.0.1: 5.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/08/13 16:49:00 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Propagate --ext and --override parameters to included test suites by **[calvinalkan](https://github.com/calvinalkan)** ([#6536](https://github.com/Codeception/Codeception/issues/6536))
+* Fixed false negative message about stecman/symfony-console-completion package by **[geega](https://github.com/geega)** ([#6541](https://github.com/Codeception/Codeception/issues/6541))
+* Fixed a number of issues in template functionality ([#6552](https://github.com/Codeception/Codeception/issues/6552))
+* Fixed DataProvider, to properly load dataProviders from abstract classes by **[Basster](https://github.com/Basster)** ([#6549](https://github.com/Codeception/Codeception/issues/6549))
+
+
 ### Codeception 4.2.2: 4.2.2
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/08/13 13:56:22 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
@@ -2040,17 +2052,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 Append query params to URL for HEAD requests
-
-
-### Codeception 4.1.18: 
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/02/23 17:12:18 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Fix cleanup of included test directories [#6117](https://github.com/Codeception/Codeception/issues/6117) by **[rolandsaven](https://github.com/rolandsaven)**
-* Clean command will not delete .gitkeep files in _output directory [#6118](https://github.com/Codeception/Codeception/issues/6118)
-* Add line break between opening tag and namespace in generated Cest and Test files [#6072](https://github.com/Codeception/Codeception/issues/6072)
 
 
 ### module-symfony 2.0.0: 2.0.0
