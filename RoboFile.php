@@ -667,6 +667,7 @@ EOF;
         $finder = Finder::create()->files()
             ->ignoreVCS(true)
             ->name('*.php')
+            ->name('*.php8')
             ->name('*.css')
             ->name('*.png')
             ->name('*.js')
