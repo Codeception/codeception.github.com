@@ -74,7 +74,7 @@ title: Quick Start Codeception
                 of a real user visiting your site.</p>
               <div class="highlight">
                 <p>
-                <pre>php vendor/bin/codecept generate:cest acceptance First</pre>
+                <pre>php vendor/bin/codecept generate:cest Acceptance First</pre>
               </div>
             </div> <!-- /.panel-body -->
           </div> <!-- /.panel -->
@@ -84,7 +84,7 @@ title: Quick Start Codeception
             <div class="panel-body">
               <p>Please make sure your local
                 <b>development server</b> is running. &nbsp;Put application URL into:&nbsp;
-                <b>tests/acceptance.suite.yml</b>&nbsp;</p>
+                <b>tests/Acceptance.suite.yml</b>&nbsp;</p>
               <div class="highlight">
                 <pre>
 actor: AcceptanceTester
@@ -92,7 +92,7 @@ modules:
     enabled:
         - PhpBrowser:
             url: {YOUR APP'S URL}
-        - \Helper\Acceptance
+        - Tests\Support\Helper\Acceptance
                 </pre>
               </div>
             </div> <!-- /.panel-body -->
@@ -104,7 +104,7 @@ modules:
             </div>
             <div class="panel-body">
               <p>It's now time to write your first test. Edit the file we've just created
-                <b>tests/acceptance/FirstCest.php</b>
+                <b>tests/Acceptance/FirstCest.php</b>
               </p>
               <div>
                 {% highlight php %}
@@ -120,7 +120,7 @@ class FirstCest
 }
                 {% endhighlight %}
               </div>
-              <p class="text-muted">It will check that your frontpage contains the word <b>Home</b> in it.</p>
+              <p class="text-muted">It will check if your frontpage contains the word <b>Home</b>.</p>
             </div> <!-- /.panel-body -->
           </div> <!-- /.panel -->
 
@@ -132,11 +132,10 @@ class FirstCest
                 <p>
                 <pre>php vendor/bin/codecept run --steps</pre>
               </div>
-              <p class="text-muted">This will execute our Welcome test with
-                <b>PhpBrowser</b>. It's PHP script that can check HTML page contents, click
-                links, fill forms, and submit POST and GET requests. For more complex tests
-                that require a browser use Selenium with
-                <b>WebDriver</b> module.</p>
+              <p class="text-muted">This will execute our test with
+                <a href="https://codeception.com/docs/modules/PhpBrowser">PhpBrowser</a>. It's PHP script that can check HTML page contents, click
+                links, fill forms, and submit POST and GET requests. For tests that require a real browser (e.g. JavaScript) use
+                the <a href="https://codeception.com/docs/modules/WebDriver">WebDriver</a> module.</p>
             </div> <!-- /.panel-body -->
           </div> <!-- /.panel -->
 
@@ -154,7 +153,7 @@ class FirstCest
             <h4>Acceptance Testing (only)</h4>
 
             <div class="highlight">
-              <pre>php vendor/bin/codecept init acceptance</pre>
+              <pre>php vendor/bin/codecept init Acceptance</pre>
             </div>
 
             <a class="btn btn-primary" role="button" data-toggle="collapse" href="#acceptance-demo" aria-expanded="false">
@@ -172,7 +171,7 @@ class FirstCest
             <h4>REST API Testing (only)</h4>
 
             <div class="highlight">
-              <pre>php vendor/bin/codecept init api</pre>
+              <pre>php vendor/bin/codecept init Api</pre>
             </div>
 
 
@@ -193,7 +192,7 @@ class FirstCest
             <h4>Unit Testing (only)</h4>
 
             <div class="highlight">
-              <pre>php vendor/bin/codecept init unit</pre>
+              <pre>php vendor/bin/codecept init Unit</pre>
             </div>
 
             <a class="btn btn-primary" role="button" data-toggle="collapse" href="#unit-demo" aria-expanded="false">
