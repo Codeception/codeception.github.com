@@ -24,19 +24,19 @@ Out of the box you have tools for writing unit, functional, and acceptance tests
 
 | | Unit Tests | Functional Tests | Acceptance Tests
 | --- | --- | --- | --- |
-| Scope of the test | Single PHP class | PHP Framework (Routing, Controllers, etc.) | Page in browser (Chrome, Firefox, or [PhpBrowser](https://codeception.com/docs/03-AcceptanceTests#PhpBrowser)) |
+| Scope of the test | Single PHP class | PHP Framework (Routing, Database, etc.) | Page in browser (Chrome, Firefox, or [PhpBrowser](https://codeception.com/docs/03-AcceptanceTests#PhpBrowser)) |
 | Testing computer needs access to project's PHP files | Yes | Yes | No |
 | Webserver required | No | No | Yes |
 | JavaScript  | No | No | Yes |
-| Additional software required | None | None | Selenium for browser testing |
-| Speed | Fast | Fast | Slow |
-| Configuration file | `unit.suite.yml` | `functional.suite.yml` | `acceptance.suite.yml` |
+| Additional software required | None | None | Drivers for Firefox/Chrome |
+| Test execution speed | Very fast | Fast | Slow |
+| Configuration file | `Unit.suite.yml` | `Functional.suite.yml` | `Acceptance.suite.yml` |
 
 One of the main advantages of Codeception is that you don't have to decide on just *one* type of testing. You should have all three!
 And chances are, that you will (sooner or later) need all three. That's why Codeception consists of three so-called "suites":
-A "unit suite" for all unit tests, a "functional suite" for all functional tests, and an "acceptance suite" for all acceptance tests.
+A "Unit suite" for all unit tests, a "functional suite" for all functional tests, and an "Acceptance suite" for all acceptance tests.
 
-Let's review those three testing types in reverse order.
+Let's review those three test types in reverse order.
 
 ### Acceptance Tests
 
@@ -63,11 +63,11 @@ $I->see('Thank you for Signing Up!');
 ### Functional Tests
 
 What if you could check our application without running it on a server?
-That way you could see detailed exceptions on errors, have our tests run faster, and check the database against predictable and expected results. That's what functional tests are for.
+That way you could see detailed exceptions on errors, have your tests run faster, and check the database against predictable and expected results. That's what functional tests are for.
 
 For functional tests, you emulate a web request (`$_GET` and `$_POST` variables) which returns the HTML response. Inside a test, you can make assertions about the response, and you can check if the data was successfully stored in the database.
 
-For functional tests, your application needs to be structured in order to run in a test environment. Codeception provides connectors to all popular PHP frameworks.
+For functional tests, your application needs to be structured in order to run in a test environment. Codeception provides modules for all popular PHP frameworks.
 
 #### Sample functional test
 
@@ -76,11 +76,11 @@ $I->amOnPage('/');
 $I->click('Sign Up');
 $I->submitForm('#signup', ['username' => 'MilesDavis', 'email' => 'miles@davis.com']);
 $I->see('Thank you for Signing Up!');
-$I->seeEmailSent('miles@davis.com', 'Thank you for registration');
+$I->seeEmailIsSent('miles@davis.com', 'Thank you for your registration');
 $I->seeInDatabase('users', ['email' => 'miles@davis.com']);
 ```
 
-> This looks very similar to acceptance tests. The behavior is the same, however, the test is executed inside PHP without launching a browser.
+> This looks very similar to acceptance tests. The behavior is the same, however, the test is executed inside PHP without launching a real browser.
 
 ### Unit Tests
 
