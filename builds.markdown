@@ -7,7 +7,8 @@ title: Codeception Builds
 ## 5.0
 *Requires: PHP 8.0 and higher + CURL*
 
-* **[Download Latest 5.0 Release](https://codeception.com/releases/5.0.20220813/codecept.phar)**
+* **[Download Latest 5.0 Release](https://codeception.com/releases/5.0.20220820/codecept.phar)**
+* [5.0.20220820](https://codeception.com/releases/5.0.20220820/codecept.phar)
 * [5.0.20220813](https://codeception.com/releases/5.0.20220813/codecept.phar)
 * [5.0.20220728](https://codeception.com/releases/5.0.20220728/codecept.phar)
 
