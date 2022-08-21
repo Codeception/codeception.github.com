@@ -283,7 +283,11 @@ SELECT COUNT(*) FROM `users` WHERE `name` IS NULL AND `email` IS NOT NULL
 ### Actions
 
 #### amConnectedToDatabase
- 
+
+* `param string` $databaseKey
+* `throws ModuleConfigException`
+* `return void`
+
 Make sure you are connected to the right database.
 
 {% highlight php %}
@@ -296,11 +300,13 @@ $I->seeNumRecords(30, 'books');  //executed on db_books database
 
 {% endhighlight %}
 
-@throws ModuleConfigException
-
 
 #### dontSeeInDatabase
- 
+
+* `param string` $table
+* `param array` $criteria
+* `return void`
+
 Effect is opposite to ->seeInDatabase
 
 Asserts that there is no record with the given column values in a database.
@@ -328,8 +334,14 @@ Supported operators: `<`, `>`, `>=`, `<=`, `!=`, `like`.
 
 
 #### grabColumnFromDatabase
- 
+
+* `param string` $table
+* `param string` $column
+* `param array` $criteria
+* `return array`
+
 Fetches all values from the column in database.
+
 Provide table name, desired column and criteria.
 
 {% highlight php %}
@@ -341,8 +353,14 @@ $mails = $I->grabColumnFromDatabase('users', 'email', array('name' => 'RebOOter'
 
 
 #### grabFromDatabase
- 
+
+* `param string` $table
+* `param string` $column
+* `param array` $criteria
+* `return mixed` Returns a single column value or false
+
 Fetches a single column value from a database.
+
 Provide table name, desired column and criteria.
 
 {% highlight php %}
@@ -363,22 +381,24 @@ $user = $I->grabFromDatabase('users', ['email like' => 'miles%']);
 
 Supported operators: `<`, `>`, `>=`, `<=`, `!=`, `like`.
 
- * `return mixed` Returns a single column value or false
-
 
 #### grabNumRecords
- 
-Returns the number of rows in a database
 
- * `param string` $table    Table name
- * `param array`  $criteria Search criteria [Optional]
- * `return int` 
+* `param string` $table Table name
+* `param array` $criteria Search criteria [Optional]
+* `return int`
+
+Returns the number of rows in a database
 
 
 #### haveInDatabase
- 
-Inserts an SQL record into a database. This record will be erased after the test, 
-unless you've configured "skip_cleanup_if_failed", and the test fails. 
+
+* `param string` $table
+* `param array` $data
+* `return int`
+
+Inserts an SQL record into a database. This record will be erased after the test,
+unless you've configured "skip_cleanup_if_failed", and the test fails.
 
 {% highlight php %}
 
@@ -389,7 +409,12 @@ $I->haveInDatabase('users', array('name' => 'miles', 'email' => 'miles@davis.com
 
 
 #### performInDatabase
- 
+
+* `param ` $databaseKey
+* `param ActionSequence|array|callable` $actions
+* `throws ModuleConfigException`
+* `return void`
+
 Can be used with a callback if you don't want to change the current database in your test.
 
 {% highlight php %}
@@ -425,14 +450,15 @@ Choose the syntax you like the most and use it,
 Actions executed from array or ActionSequence will print debug output for actions, and adds an action name to
 exception on failure.
 
- * `param` $databaseKey
- * `param ActionSequence|array|callable` $actions
-@throws ModuleConfigException
-
 
 #### seeInDatabase
- 
+
+* `param string` $table
+* `param array` $criteria
+* `return void`
+
 Asserts that a row with the given column values exists.
+
 Provide table name and column values.
 
 {% highlight php %}
@@ -457,7 +483,12 @@ Supported operators: `<`, `>`, `>=`, `<=`, `!=`, `like`.
 
 
 #### seeNumRecords
- 
+
+* `param int` $expectedNumber Expected number
+* `param string` $table Table name
+* `param array` $criteria Search criteria [Optional]
+* `return void`
+
 Asserts that the given number of records were found in the database.
 
 {% highlight php %}
@@ -467,13 +498,14 @@ $I->seeNumRecords(1, 'users', ['name' => 'davert'])
 
 {% endhighlight %}
 
- * `param int` $expectedNumber Expected number
- * `param string` $table Table name
- * `param array` $criteria Search criteria [Optional]
-
 
 #### updateInDatabase
- 
+
+* `param string` $table
+* `param array` $data
+* `param array` $criteria
+* `return void`
+
 Update an SQL record into a database.
 
 {% highlight php %}

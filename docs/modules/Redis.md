@@ -75,14 +75,20 @@ Note: The full configuration list can be found on Predis' github.
 ### Actions
 
 #### cleanup
- 
-Delete all the keys in the Redis database
 
-@throws ModuleException
+* `throws ModuleException`
+* `return void`
+
+Delete all the keys in the Redis database
 
 
 #### dontSeeInRedis
- 
+
+* `param string` $key The key name
+* `param mixed` $value Optional. If specified, also checks the key has this
+value. Booleans will be converted to 1 and 0 (even inside arrays)
+* `return void`
+
 Asserts that a key does not exist or, optionally, that it doesn't have the
 provided $value
 
@@ -111,13 +117,15 @@ $I->dontSeeInRedis('example:hash', ['riri' => true, 'fifi' => 'Dewey', 'loulou' 
 
 {% endhighlight %}
 
- * `param string` $key   The key name
- * `param mixed`  $value Optional. If specified, also checks the key has this
-value. Booleans will be converted to 1 and 0 (even inside arrays)
-
 
 #### dontSeeRedisKeyContains
- 
+
+* `param string` $key The key
+* `param mixed` $item The item
+* `param mixed` $itemValue Optional and only used for zsets and hashes. If
+specified, the method will also check that the $item has this value/score
+* `return void`
+
 Asserts that a given key does not contain a given item
 
 Examples:
@@ -148,14 +156,13 @@ $I->dontSeeRedisKeyContains('example:hash', 'magic', 32);
 
 {% endhighlight %}
 
- * `param string` $key       The key
- * `param mixed`  $item      The item
- * `param mixed`  $itemValue Optional and only used for zsets and hashes. If
-specified, the method will also check that the $item has this value/score
-
 
 #### grabFromRedis
- 
+
+* `param string` $key The key name
+* `throws ModuleException` if the key does not exist
+* `return array|string|null`
+
 Returns the value of a given key
 
 Examples:
@@ -192,13 +199,15 @@ $I->grabFromRedis('example:hash', 'foo');
 
 {% endhighlight %}
 
- * `param string` $key The key name
-
-@throws ModuleException if the key does not exist
-
 
 #### haveInRedis
- 
+
+* `param string` $type The type of the key
+* `param string` $key The key name
+* `param mixed` $value The value
+* `throws ModuleException`
+* `return void`
+
 Creates or modifies keys
 
 If $key already exists:
@@ -228,15 +237,14 @@ $I->haveInRedis('hash', ['obladi' => 'oblada']);
 
 {% endhighlight %}
 
- * `param string` $type  The type of the key
- * `param string` $key   The key name
- * `param mixed`  $value The value
-
-@throws ModuleException
-
 
 #### seeInRedis
- 
+
+* `param string` $key The key name
+* `param mixed` $value Optional. If specified, also checks the key has this
+value. Booleans will be converted to 1 and 0 (even inside arrays)
+* `return void`
+
 Asserts that a key exists, and optionally that it has the provided $value
 
 Examples:
@@ -264,13 +272,15 @@ $I->seeInRedis('example:hash', ['riri' => true, 'fifi' => 'Dewey', 'loulou' => 2
 
 {% endhighlight %}
 
- * `param string` $key   The key name
- * `param mixed`  $value Optional. If specified, also checks the key has this
-value. Booleans will be converted to 1 and 0 (even inside arrays)
-
 
 #### seeRedisKeyContains
- 
+
+* `param string` $key The key
+* `param mixed` $item The item
+* `param mixed` $itemValue Optional and only used for zsets and hashes. If
+specified, the method will also check that the $item has this value/score
+* `return void`
+
 Asserts that a given key contains a given item
 
 Examples:
@@ -301,14 +311,12 @@ $I->seeRedisKeyContains('example:hash', 'magic', 32);
 
 {% endhighlight %}
 
- * `param string` $key       The key
- * `param mixed`  $item      The item
- * `param mixed`  $itemValue Optional and only used for zsets and hashes. If
-specified, the method will also check that the $item has this value/score
-
 
 #### sendCommandToRedis
- 
+
+* `param string` $command The command name
+* `return mixed`
+
 Sends a command directly to the Redis driver. See documentation at
 https://github.com/nrk/predis
 Every argument that follows the $command name will be passed to it.
@@ -325,7 +333,5 @@ $I->sendCommandToRedis('zRangeByScore', 'example:set', '-inf', '+inf', ['withsco
 $I->sendCommandToRedis('flushdb');
 
 {% endhighlight %}
-
- * `param string` $command The command name
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-redis/tree/master/src/Codeception/Module/Redis.php">Help us to improve documentation. Edit module reference</a></div>

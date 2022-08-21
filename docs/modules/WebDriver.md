@@ -382,16 +382,23 @@ $this->getModule('WebDriver')->webDriver->getKeyboard()->sendKeys('hello, webdri
 #### _backupSession
 
 *hidden API method, expected to be used from Helper classes*
- 
-Returns current WebDriver session for saving
 
+* `api` 
+* `return \Facebook\WebDriver\WebDriver`
+
+Returns current WebDriver session for saving
 
 
 #### _capabilities
 
 *hidden API method, expected to be used from Helper classes*
- 
+
+* `api` 
+* `param \Closure` $capabilityFunction
+* `return void`
+
 Change capabilities of WebDriver. Should be executed before starting a new browser session.
+
 This method expects a function to be passed which returns array or [WebDriver Desired Capabilities](https://github.com/php-webdriver/php-webdriver/blob/main/lib/Remote/DesiredCapabilities.php) object.
 Additional [Chrome options](https://github.com/php-webdriver/php-webdriver/wiki/ChromeOptions) (like adding extensions) can be passed as well.
 
@@ -438,11 +445,14 @@ public function _before(TestInterface $test)
 In this case, please ensure that `\Helper\Acceptance` is loaded before WebDriver so new capabilities could be applied.
 
 
-
 #### _closeSession
 
 *hidden API method, expected to be used from Helper classes*
- 
+
+* `api` 
+* `param RemoteWebDriver|null` $webDriver a specific webdriver session instance
+* `return void`
+
 Manually closes current WebDriver session.
 
 {% highlight php %}
@@ -456,13 +466,16 @@ $this->getModule('WebDriver')->_closeSession($webDriver);
 
 {% endhighlight %}
 
- * `param RemoteWebDriver|null` $webDriver a specific webdriver session instance
-
 
 #### _findClickable
 
 *hidden API method, expected to be used from Helper classes*
- 
+
+* `api` 
+* `param WebDriverSearchContext` $page WebDriver instance or an element to search within
+* `param string|array|WebDriverBy` $link A link text or locator to click
+* `return ?\Facebook\WebDriver\WebDriverElement`
+
 Locates a clickable element.
 
 Use it in Helpers or GroupObject or Extension classes:
@@ -482,14 +495,16 @@ $el = $module->_findClickable($topBar, 'Click Me');
 
 
 {% endhighlight %}
- * `param WebDriverSearchContext` $page WebDriver instance or an element to search within
- * `param string|array|WebDriverBy` $link A link text or locator to click
 
 
 #### _findElements
 
 *hidden API method, expected to be used from Helper classes*
- 
+
+* `api` 
+* `param ` $locator
+* `return array`
+
 Locates element using available Codeception locator types:
 
 * XPath
@@ -513,28 +528,35 @@ WebDriver module returns `Facebook\WebDriver\Remote\RemoteWebElement` instances
 PhpBrowser and Framework modules return `Symfony\Component\DomCrawler\Crawler` instances
 
 
-
 #### _getCurrentUri
 
 *hidden API method, expected to be used from Helper classes*
- 
+
+* `api` 
+* `throws ModuleException`
+* `return string`
+
 Uri of currently opened page.
-@throws ModuleException
 
 
 #### _getUrl
 
 *hidden API method, expected to be used from Helper classes*
- 
-Returns URL of a host.
 
-@throws ModuleConfigException
+* `api` 
+* `throws ModuleConfigException`
+* `return mixed`
+
+Returns URL of a host.
 
 
 #### _initializeSession
 
 *hidden API method, expected to be used from Helper classes*
- 
+
+* `api` 
+* `return void`
+
 Manually starts a new browser session.
 
 {% highlight php %}
@@ -545,21 +567,27 @@ $this->getModule('WebDriver')->_initializeSession();
 {% endhighlight %}
 
 
-
 #### _loadSession
 
 *hidden API method, expected to be used from Helper classes*
- 
-Loads current RemoteWebDriver instance as a session
 
- * `param RemoteWebDriver` $session
+* `api` 
+* `param RemoteWebDriver` $session
+* `return void`
+
+Loads current RemoteWebDriver instance as a session
 
 
 #### _restart
 
 *hidden API method, expected to be used from Helper classes*
- 
+
+* `api` 
+* `param array` $config
+* `return void`
+
 Restarts a web browser.
+
 Can be used with `_reconfigure` to open browser with different configuration
 
 {% highlight php %}
@@ -572,18 +600,23 @@ $this->getModule('WebDriver')->_restart(['browser' => $browser]); // reconfigure
 {% endhighlight %}
 
 
-
 #### _savePageSource
 
 *hidden API method, expected to be used from Helper classes*
- 
+
+* `param string` $filename
+* `return void`
+
 Saves HTML source of a page to a file
 
 
 #### _saveScreenshot
 
 *hidden API method, expected to be used from Helper classes*
- 
+
+* `api` 
+* `param string` $filename
+
 Saves screenshot of current page to a file
 
 {% highlight php %}
@@ -594,14 +627,20 @@ $this->getModule('WebDriver')->_saveScreenshot(codecept_output_dir().'screenshot
 
 
 #### acceptPopup
- 
+
+* `return void`
+
 Accepts the active JavaScript native popup window, as created by `window.alert`|`window.confirm`|`window.prompt`.
+
 Don't confuse popups with modal windows,
 as created by [various libraries](https://jster.net/category/windows-modals-popups).
 
 
 #### amOnPage
- 
+
+* `param ` $page
+* `return void`
+
 Opens the page for the given relative URI.
 
 {% highlight php %}
@@ -616,8 +655,12 @@ $I->amOnPage('/register');
 
 
 #### amOnSubdomain
- 
+
+* `param string` $subdomain
+* `return void`
+
 Changes the subdomain for the 'url' configuration parameter.
+
 Does not open a page; use `amOnPage` for that.
 
 {% highlight php %}
@@ -634,9 +677,11 @@ $I->amOnPage('/');
 {% endhighlight %}
 
 
-
 #### amOnUrl
- 
+
+* `param ` $url
+* `return void`
+
 Open web page at the given absolute URL and sets its hostname as the base host.
 
 {% highlight php %}
@@ -649,8 +694,14 @@ $I->amOnPage('/quickstart'); // moves to https://codeception.com/quickstart
 
 
 #### appendField
- 
+
+* `param string|array|WebDriverBy` $field
+* `param string` $value
+* `throws ElementNotFound`
+* `return void`
+
 Append the given text to the given element.
+
 Can also add a selection to a select box.
 
 {% highlight php %}
@@ -661,13 +712,13 @@ $I->appendField('#myTextField', 'appended');
 
 {% endhighlight %}
 
- * `param string|array|WebDriverBy` $field
- * `param string` $value
-@throws ElementNotFound
-
 
 #### attachFile
- 
+
+* `param ` $field
+* `param string` $filename
+* `return void`
+
 Attaches a file relative to the Codeception `_data` directory to the given file upload field.
 
 {% highlight php %}
@@ -680,12 +731,17 @@ $I->attachFile('input[@type="file"]', 'prices.xls');
 
 
 #### cancelPopup
- 
+
+* `return void`
+
 Dismisses the active JavaScript popup, as created by `window.alert`, `window.confirm`, or `window.prompt`.
 
 
 #### checkOption
- 
+
+* `param ` $option
+* `return void`
+
 Ticks a checkbox. For radio buttons, use the `selectOption` method instead.
 
 {% highlight php %}
@@ -697,7 +753,10 @@ $I->checkOption('#agree');
 
 
 #### clearField
- 
+
+* `param string|array|WebDriverBy` $field
+* `return void`
+
 Clears given field which isn't empty.
 
 {% highlight php %}
@@ -707,12 +766,15 @@ $I->clearField('#username');
 
 {% endhighlight %}
 
- * `param string|array|WebDriverBy` $field
-
 
 #### click
- 
+
+* `param string|array` $link
+* `param ` $context
+* `return void`
+
 Perform a click on a link or a button, given by a locator.
+
 If a fuzzy locator is given, the page will be searched for a button, link, or image matching the locator string.
 For buttons, the "value" attribute, "name" attribute, and inner text are searched.
 For links, the link text is searched.
@@ -739,12 +801,18 @@ $I->click('Logout', '#nav');
 $I->click(['link' => 'Login']);
 
 {% endhighlight %}
- * `param string|array` $link
 
 
 #### clickWithLeftButton
- 
+
+* `param null|string|array|WebDriverBy` $cssOrXPath css or xpath of the web element (body by default).
+* `param ?int` $offsetX
+* `param ?int` $offsetY
+* `throws ElementNotFound`
+* `return void`
+
 Performs click with the left mouse button on an element.
+
 If the first parameter `null` then the offset is relative to the actual mouse position.
 If the second and third parameters are given,
 then the mouse is moved to an offset of the element's top-left corner.
@@ -759,14 +827,17 @@ $I->clickWithLeftButton(['css' => '.checkout'], 20, 50);
 
 {% endhighlight %}
 
- * `param null|string|array|WebDriverBy` $cssOrXPath css or xpath of the web element (body by default).
-
-@throws ElementNotFound
-
 
 #### clickWithRightButton
- 
+
+* `param null|string|array|WebDriverBy` $cssOrXPath css or xpath of the web element (body by default).
+* `param ?int` $offsetX
+* `param ?int` $offsetY
+* `throws ElementNotFound`
+* `return void`
+
 Performs contextual click with the right mouse button on an element.
+
 If the first parameter `null` then the offset is relative to the actual mouse position.
 If the second and third parameters are given,
 then the mouse is moved to an offset of the element's top-left corner.
@@ -781,12 +852,11 @@ $I->clickWithRightButton(['css' => '.checkout'], 20, 50);
 
 {% endhighlight %}
 
- * `param null|string|array|WebDriverBy` $cssOrXPath css or xpath of the web element (body by default).
-@throws ElementNotFound
-
 
 #### closeTab
- 
+
+* `return void`
+
 Closes current browser tab and switches to previous active tab.
 
 {% highlight php %}
@@ -798,21 +868,31 @@ $I->closeTab();
 
 
 #### debugWebDriverLogs
- 
+
+* `param ?\Codeception\TestInterface` $test
+* `return void`
+
 Print out latest Selenium Logs in debug mode
 
 
 #### deleteSessionSnapshot
- 
+
+* `param ` $name
+* `return mixed`
+
 Deletes session snapshot.
 
 See [saveSessionSnapshot](#saveSessionSnapshot)
 
 
-
 #### dontSee
- 
+
+* `param array|string` $selector optional
+* `param ` $text
+* `return void`
+
 Checks that the current page doesn't contain the text specified (case insensitive).
+
 Give a locator as the second parameter to match a specific region.
 
 {% highlight php %}
@@ -839,11 +919,12 @@ But will ignore strings like:
 
 For checking the raw source code, use `seeInSource()`.
 
- * `param array|string` $selector optional
-
 
 #### dontSeeCheckboxIsChecked
- 
+
+* `param ` $checkbox
+* `return void`
+
 Check that the specified checkbox is unchecked.
 
 {% highlight php %}
@@ -856,16 +937,23 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
 
 
 #### dontSeeCookie
- 
-Checks that there isn't a cookie with the given name.
-You can set additional cookie params like `domain`, `path` as array passed in last argument.
 
- * `return mixed|void` 
+* `param ` $cookie
+* `param array` $params
+* `return mixed|void`
+
+Checks that there isn't a cookie with the given name.
+
+You can set additional cookie params like `domain`, `path` as array passed in last argument.
 
 
 #### dontSeeCurrentUrlEquals
- 
+
+* `param string` $uri
+* `return void`
+
 Checks that the current URL doesn't equal the given string.
+
 Unlike `dontSeeInCurrentUrl`, this only matches the full URL.
 
 {% highlight php %}
@@ -878,7 +966,10 @@ $I->dontSeeCurrentUrlEquals('/');
 
 
 #### dontSeeCurrentUrlMatches
- 
+
+* `param string` $uri
+* `return void`
+
 Checks that current url doesn't match the given regular expression.
 
 {% highlight php %}
@@ -891,8 +982,13 @@ $I->dontSeeCurrentUrlMatches('~^/users/(\d+)~');
 
 
 #### dontSeeElement
- 
+
+* `param ` $selector
+* `param array` $attributes
+* `return void`
+
 Checks that the given element is invisible or not present on the page.
+
 You can also specify expected attributes of this element.
 
 {% highlight php %}
@@ -907,14 +1003,19 @@ $I->dontSeeElement('input', ['value' => '123456']);
 
 
 #### dontSeeElementInDOM
- 
-Opposite of `seeElementInDOM`.
 
- * `param string|array|WebDriverBy` $selector
+* `param string|array|WebDriverBy` $selector
+* `param array` $attributes
+* `return void`
+
+Opposite of `seeElementInDOM`.
 
 
 #### dontSeeInCurrentUrl
- 
+
+* `param string` $uri
+* `return void`
+
 Checks that the current URI doesn't contain the given string.
 
 {% highlight php %}
@@ -926,8 +1027,13 @@ $I->dontSeeInCurrentUrl('/users/');
 
 
 #### dontSeeInField
- 
+
+* `param string|array` $field
+* `param ` $value
+* `return void`
+
 Checks that an input field or textarea doesn't contain the given value.
+
 For fuzzy locators, the field is matched by label text, CSS and XPath.
 
 {% highlight php %}
@@ -941,11 +1047,14 @@ $I->dontSeeInField('//form/*[@name=search]','Search');
 $I->dontSeeInField(['name' => 'search'], 'Search');
 
 {% endhighlight %}
- * `param string|array` $field
 
 
 #### dontSeeInFormFields
- 
+
+* `param ` $formSelector
+* `param array` $params
+* `return void`
+
 Checks if the array of form parameters (name => value) are not set on the form matched with
 the passed selector.
 
@@ -988,20 +1097,28 @@ $I->dontSeeInFormFields('#form-id', [
 
 
 #### dontSeeInPageSource
- 
+
+* `param string` $text
+* `return void`
+
 Checks that the page source doesn't contain the given string.
 
 
 #### dontSeeInPopup
- 
+
+* `param string` $text
+* `throws ModuleException`
+* `return void`
+
 Checks that the active JavaScript popup,
 as created by `window.alert`|`window.confirm`|`window.prompt`, does NOT contain the given string.
 
-@throws ModuleException
-
 
 #### dontSeeInSource
- 
+
+* `param ` $raw
+* `return void`
+
 Checks that the current page contains the given string in its
 raw source code.
 
@@ -1014,15 +1131,21 @@ $I->dontSeeInSource('<h1>Green eggs &amp; ham</h1>');
 
 
 #### dontSeeInTitle
- 
-Checks that the page title does not contain the given string.
 
- * `return mixed|void` 
+* `param ` $title
+* `return mixed|void`
+
+Checks that the page title does not contain the given string.
 
 
 #### dontSeeLink
- 
+
+* `param string` $text
+* `param string` $url
+* `return void`
+
 Checks that the page doesn't contain a link with the given string.
+
 If the second parameter is given, only links with a matching "href" attribute will be checked.
 
 {% highlight php %}
@@ -1035,7 +1158,11 @@ $I->dontSeeLink('Checkout now', '/store/cart.php');
 
 
 #### dontSeeOptionIsSelected
- 
+
+* `param ` $selector
+* `param ` $optionText
+* `return mixed|void`
+
 Checks that the given option is not selected.
 
 {% highlight php %}
@@ -1045,19 +1172,22 @@ $I->dontSeeOptionIsSelected('#form input[name=payment]', 'Visa');
 
 {% endhighlight %}
 
- * `return mixed|void` 
-
 
 #### doubleClick
- 
-Performs a double click on an element matched by CSS or XPath.
 
- * `param string|array|WebDriverBy` $cssOrXPath
-@throws ElementNotFound
+* `param string|array|WebDriverBy` $cssOrXPath
+* `throws ElementNotFound`
+* `return void`
+
+Performs a double click on an element matched by CSS or XPath.
 
 
 #### dragAndDrop
- 
+
+* `param string|array|WebDriverBy` $source (CSS ID or XPath)
+* `param string|array|WebDriverBy` $target (CSS ID or XPath)
+* `return void`
+
 Performs a simple mouse drag-and-drop operation.
 
 {% highlight php %}
@@ -1067,13 +1197,15 @@ $I->dragAndDrop('#drag', '#drop');
 
 {% endhighlight %}
 
- * `param string|array|WebDriverBy` $source (CSS ID or XPath)
- * `param string|array|WebDriverBy` $target (CSS ID or XPath)
-
 
 #### executeAsyncJS
- 
+
+* `param array` $arguments
+* `param string` $script
+* `return mixed`
+
 Executes asynchronous JavaScript.
+
 A callback should be executed by JavaScript to exit from a script.
 Callback is passed as a last element in `arguments` array.
 Additional arguments can be passed as array in second parameter.
@@ -1088,12 +1220,14 @@ $I->executeAsyncJS('setTimeout(arguments[1], arguments[0])', [$seconds]);
 
 {% endhighlight %}
 
- * `param array` $arguments
-
 
 #### executeInSelenium
- 
+
+* `param Closure` $function
+* `return mixed`
+
 Low-level API method.
+
 If Codeception commands are not enough, this allows you to use Selenium WebDriver methods directly:
 
 {% highlight php %}
@@ -1109,11 +1243,13 @@ This runs in the context of the
 Try not to use this command on a regular basis.
 If Codeception lacks a feature you need, please implement it and submit a patch.
 
- * `param Closure` $function
-
 
 #### executeJS
- 
+
+* `param array` $arguments
+* `param string` $script
+* `return mixed`
+
 Executes custom JavaScript.
 
 This example uses jQuery to get a value and assigns that value to a PHP variable:
@@ -1129,11 +1265,13 @@ $I->executeJS("window.alert(arguments[0])", ['Hello world']);
 
 {% endhighlight %}
 
- * `param array` $arguments
-
 
 #### fillField
- 
+
+* `param ` $field
+* `param ` $value
+* `return void`
+
 Fills a text field or textarea with the given string.
 
 {% highlight php %}
@@ -1146,8 +1284,13 @@ $I->fillField(['name' => 'email'], 'jon@example.com');
 
 
 #### grabAttributeFrom
- 
+
+* `param ` $cssOrXpath
+* `param ` $attribute
+* `return ?string`
+
 Grabs the value of the given attribute value from the given element.
+
 Fails if element is not found.
 
 {% highlight php %}
@@ -1159,15 +1302,24 @@ $I->grabAttributeFrom('#tooltip', 'title');
 
 
 #### grabCookie
- 
+
+* `param ` $cookie
+* `param array` $params
+* `return mixed`
+
 Grabs a cookie value.
+
 You can set additional cookie params like `domain`, `path` in array passed as last argument.
 If the cookie is set by an ajax request (XMLHttpRequest), there might be some delay caused by the browser, so try `$I->wait(0.1)`.
 
 
 #### grabFromCurrentUrl
- 
+
+* `param ` $uri
+* `return mixed`
+
 Executes the given regular expression against the current URI and returns the first capturing group.
+
 If no parameters are provided, the full URI is returned.
 
 {% highlight php %}
@@ -1180,7 +1332,11 @@ $uri = $I->grabFromCurrentUrl();
 
 
 #### grabMultiple
- 
+
+* `param ` $cssOrXpath
+* `param ` $attribute
+* `return string[]`
+
 Grabs either the text content, or attribute values, of nodes
 matched by $cssOrXpath and returns them as an array.
 
@@ -1203,20 +1359,22 @@ $aLinks = $I->grabMultiple('a', 'href');
 
 {% endhighlight %}
 
- * `return string[]` 
-
 
 #### grabPageSource
- 
-Grabs current page source code.
 
-@throws ModuleException if no page was opened.
- * `return string` Current page source code.
+* `throws ModuleException` if no page was opened.
+* `return string` Current page source code.
+
+Grabs current page source code.
 
 
 #### grabTextFrom
- 
+
+* `param ` $cssOrXPathOrRegex
+* `return mixed`
+
 Finds and returns the text contents of the given element.
+
 If a fuzzy locator is used, the element is found using CSS, XPath,
 and by matching the full page source by regular expression.
 
@@ -1231,8 +1389,12 @@ $value = $I->grabTextFrom('~<input value=(.*?)]~sgi'); // match with a regex
 
 
 #### grabValueFrom
- 
+
+* `param ` $field
+* `return ?string`
+
 Finds the value for the given form field.
+
 If a fuzzy locator is used, the field is found by field name, CSS, and XPath.
 
 {% highlight php %}
@@ -1247,16 +1409,23 @@ $name = $I->grabValueFrom(['name' => 'username']);
 
 
 #### loadSessionSnapshot
- 
+
+* `param ` $name
+* `return mixed`
+
 Loads cookies from a saved snapshot.
+
 Allows to reuse same session across tests without additional login.
 
 See [saveSessionSnapshot](#saveSessionSnapshot)
 
 
-
 #### makeElementScreenshot
- 
+
+* `param WebDriverBy|array` $selector
+* `param ?string` $name
+* `return void`
+
 Takes a screenshot of an element of the current window and saves it to `tests/_output/debug`.
 
 {% highlight php %}
@@ -1270,11 +1439,12 @@ $I->makeElementScreenshot('#dialog');
 
 {% endhighlight %}
 
- * `param WebDriverBy|array` $selector
-
 
 #### makeHtmlSnapshot
- 
+
+* `param ?string` $name
+* `return void`
+
 Use this method within an [interactive pause](https://codeception.com/docs/02-GettingStarted#Interactive-Pause) to save the HTML source code of the current page.
 
 {% highlight php %}
@@ -1289,7 +1459,10 @@ $I->makeHtmlSnapshot();
 
 
 #### makeScreenshot
- 
+
+* `param ?string` $name
+* `return void`
+
 Takes a screenshot of the current window and saves it to `tests/_output/debug`.
 
 {% highlight php %}
@@ -1305,23 +1478,36 @@ $I->makeScreenshot();
 
 
 #### maximizeWindow
- 
+
+* `return void`
+
 Maximizes the current window.
 
 
 #### moveBack
- 
+
+* `return void`
+
 Moves back in history.
 
 
 #### moveForward
- 
+
+* `return void`
+
 Moves forward in history.
 
 
 #### moveMouseOver
- 
+
+* `param null|string|array|WebDriverBy` $cssOrXPath css or xpath of the web element
+* `param ?int` $offsetX
+* `param ?int` $offsetY
+* `throws ElementNotFound`
+* `return void`
+
 Move mouse over the first element matched by the given locator.
+
 If the first parameter null then the page is used.
 If the second and third parameters are given,
 then the mouse is moved to an offset of the element's top-left corner.
@@ -1336,12 +1522,11 @@ $I->moveMouseOver(['css' => '.checkout'], 20, 50);
 
 {% endhighlight %}
 
- * `param null|string|array|WebDriverBy` $cssOrXPath css or xpath of the web element
-@throws ElementNotFound
-
 
 #### openNewTab
- 
+
+* `return void`
+
 Opens a new browser tab and switches to it.
 
 {% highlight php %}
@@ -1356,8 +1541,14 @@ The tab is opened with JavaScript's `window.open()`, which means:
 
 
 #### performOn
- 
+
+* `param string|array|WebDriverBy` $element
+* `param callable|array|ActionSequence` $actions
+* `param int` $timeout
+* `return void`
+
 Waits for element and runs a sequence of actions inside its context.
+
 Actions can be defined with array, callback, or `Codeception\Util\ActionSequence` instance.
 
 Actions as array are recommended for simple to combine "waitForElement" with assertions;
@@ -1401,13 +1592,17 @@ $I->performOn('.rememberMe', function (WebDriver $I) {
 
 In 3rd argument you can set number a seconds to wait for element to appear
 
- * `param string|array|WebDriverBy` $element
- * `param callable|array|ActionSequence` $actions
-
 
 #### pressKey
- 
+
+* `param string|array|WebDriverBy` $element
+* `param array<string|string[]>$chars` $ Can be char or array with modifier. You can provide several chars.
+* `param ` $chars
+* `throws ElementNotFound`
+* `return void`
+
 Presses the given key on the given element.
+
 To specify a character and modifier (e.g. <kbd>Ctrl</kbd>, Alt, Shift, Meta), pass an array for `$char` with
 the modifier as the first element and the character as the second.
 For special keys, use the constants from [`Facebook\WebDriver\WebDriverKeys`](https://github.com/php-webdriver/php-webdriver/blob/main/lib/WebDriverKeys.php).
@@ -1424,26 +1619,31 @@ $I->pressKey('#name', array('ctrl', 'a'), \Facebook\WebDriver\WebDriverKeys::DEL
 
 {% endhighlight %}
 
- * `param string|array|WebDriverBy` $element
-@param array<string|string[]>$chars Can be char or array with modifier. You can provide several chars.
-@throws ElementNotFound
-
 
 #### reloadPage
- 
+
+* `return void`
+
 Reloads the current page.
 
 
 #### resetCookie
- 
-Unsets cookie with the given name.
-You can set additional cookie params like `domain`, `path` in array passed as last argument.
 
- * `return mixed|void` 
+* `param ` $cookie
+* `param array` $params
+* `return mixed|void`
+
+Unsets cookie with the given name.
+
+You can set additional cookie params like `domain`, `path` in array passed as last argument.
 
 
 #### resizeWindow
- 
+
+* `param int` $width
+* `param int` $height
+* `return void`
+
 Resize the current window.
 
 {% highlight php %}
@@ -1456,9 +1656,13 @@ $I->resizeWindow(800, 600);
 
 
 #### saveSessionSnapshot
- 
+
+* `param ` $name
+* `return mixed`
+
 Saves current cookies into named snapshot in order to restore them in other tests
 This is useful to save session state between tests.
+
 For example, if user needs log in to site for each test this scenario can be executed once
 while other tests can just restore saved cookies.
 
@@ -1485,10 +1689,15 @@ public function login()
 {% endhighlight %}
 
 
-
 #### scrollTo
- 
+
+* `param string|array|WebDriverBy` $selector
+* `param ?int` $offsetX
+* `param ?int` $offsetY
+* `return void`
+
 Move to the middle of the given element matched by the given locator.
+
 Extra shift, calculated from the top-left corner of the element,
 can be set by passing $offsetX and $offsetY parameters.
 
@@ -1499,11 +1708,13 @@ $I->scrollTo(['css' => '.checkout'], 20, 50);
 
 {% endhighlight %}
 
- * `param string|array|WebDriverBy` $selector
-
 
 #### see
- 
+
+* `param array|string` $selector optional
+* `param ` $text
+* `return void`
+
 Checks that the current page contains the given string (case insensitive).
 
 You can specify a specific HTML element (via CSS or XPath) as the second
@@ -1533,11 +1744,12 @@ But will *not* be true for strings like:
 
 For checking the raw source code, use `seeInSource()`.
 
- * `param array|string` $selector optional
-
 
 #### seeCheckboxIsChecked
- 
+
+* `param ` $checkbox
+* `return void`
+
 Checks that the specified checkbox is checked.
 
 {% highlight php %}
@@ -1551,8 +1763,13 @@ $I->seeCheckboxIsChecked('//form/input[@type=checkbox and @name=agree]');
 
 
 #### seeCookie
- 
+
+* `param ` $cookie
+* `param array` $params
+* `return mixed|void`
+
 Checks that a cookie with the given name is set.
+
 You can set additional cookie params like `domain`, `path` as array passed in last argument.
 
 {% highlight php %}
@@ -1562,12 +1779,14 @@ $I->seeCookie('PHPSESSID');
 
 {% endhighlight %}
 
- * `return mixed|void` 
-
 
 #### seeCurrentUrlEquals
- 
+
+* `param string` $uri
+* `return void`
+
 Checks that the current URL is equal to the given string.
+
 Unlike `seeInCurrentUrl`, this only matches the full URL.
 
 {% highlight php %}
@@ -1580,7 +1799,10 @@ $I->seeCurrentUrlEquals('/');
 
 
 #### seeCurrentUrlMatches
- 
+
+* `param string` $uri
+* `return void`
+
 Checks that the current URL matches the given regular expression.
 
 {% highlight php %}
@@ -1593,8 +1815,13 @@ $I->seeCurrentUrlMatches('~^/users/(\d+)~');
 
 
 #### seeElement
- 
+
+* `param ` $selector
+* `param array` $attributes
+* `return void`
+
 Checks that the given element exists on the page and is visible.
+
 You can also specify expected attributes of this element.
 
 {% highlight php %}
@@ -1612,7 +1839,11 @@ $I->seeElement(['css' => 'form input'], ['name' => 'login']);
 
 
 #### seeElementInDOM
- 
+
+* `param string|array|WebDriverBy` $selector
+* `param array` $attributes
+* `return void`
+
 Checks that the given element exists on the page, even it is invisible.
 
 {% highlight php %}
@@ -1622,11 +1853,12 @@ $I->seeElementInDOM('//form/input[type=hidden]');
 
 {% endhighlight %}
 
- * `param string|array|WebDriverBy` $selector
-
 
 #### seeInCurrentUrl
- 
+
+* `param string` $uri
+* `return void`
+
 Checks that current URI contains the given string.
 
 {% highlight php %}
@@ -1641,8 +1873,13 @@ $I->seeInCurrentUrl('/users/');
 
 
 #### seeInField
- 
+
+* `param string|array` $field
+* `param ` $value
+* `return void`
+
 Checks that the given input field or textarea *equals* (i.e. not just contains) the given value.
+
 Fields are matched by label text, the "name" attribute, CSS, or XPath.
 
 {% highlight php %}
@@ -1657,11 +1894,13 @@ $I->seeInField(['name' => 'search'], 'Search');
 
 {% endhighlight %}
 
- * `param string|array` $field
-
 
 #### seeInFormFields
- 
+
+* `param ` $formSelector
+* `param array` $params
+* `return void`
+
 Checks if the array of form parameters (name => value) are set on the form matched with the
 passed selector.
 
@@ -1725,7 +1964,10 @@ $I->seeInFormFields('//form[@id=my-form]', string $form);
 
 
 #### seeInPageSource
- 
+
+* `param string` $text
+* `return void`
+
 Checks that the page source contains the given string.
 
 {% highlight php %}
@@ -1737,15 +1979,20 @@ $I->seeInPageSource('<link rel="apple-touch-icon"');
 
 
 #### seeInPopup
- 
+
+* `param string` $text
+* `throws ModuleException`
+* `return void`
+
 Checks that the active JavaScript popup,
 as created by `window.alert`|`window.confirm`|`window.prompt`, contains the given string.
 
-@throws ModuleException
-
 
 #### seeInSource
- 
+
+* `param ` $raw
+* `return void`
+
 Checks that the current page contains the given string in its
 raw source code.
 
@@ -1758,7 +2005,10 @@ $I->seeInSource('<h1>Green eggs &amp; ham</h1>');
 
 
 #### seeInTitle
- 
+
+* `param ` $title
+* `return mixed|void`
+
 Checks that the page title contains the given string.
 
 {% highlight php %}
@@ -1768,12 +2018,15 @@ $I->seeInTitle('Blog - Post #1');
 
 {% endhighlight %}
 
- * `return mixed|void` 
-
 
 #### seeLink
- 
+
+* `param string` $text
+* `param ?string` $url
+* `return void`
+
 Checks that there's a link with the specified text.
+
 Give a full URL as the second parameter to match links with that exact URL.
 
 {% highlight php %}
@@ -1786,7 +2039,11 @@ $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
 
 
 #### seeNumberOfElements
- 
+
+* `param int|int[]` $expected
+* `param ` $selector
+* `return void`
+
 Checks that there are a certain number of elements matched by the given locator on the page.
 
 {% highlight php %}
@@ -1797,18 +2054,19 @@ $I->seeNumberOfElements('tr', [0,10]); // between 0 and 10 elements
 
 {% endhighlight %}
 
- * `param int|int[]` $expected
-
 
 #### seeNumberOfElementsInDOM
- 
- * `param string|array|WebDriverBy` $selector
- * `param int|array` $expected
-@throws ModuleException
+
+* `param string|array|WebDriverBy` $selector
+* `param int|array` $expected
+* `throws ModuleException`
 
 
 #### seeNumberOfTabs
- 
+
+* `param int` $number
+* `return void`
+
 Checks current number of opened tabs
 
 {% highlight php %}
@@ -1820,7 +2078,11 @@ $I->seeNumberOfTabs(2);
 
 
 #### seeOptionIsSelected
- 
+
+* `param ` $selector
+* `param ` $optionText
+* `return mixed|void`
+
 Checks that the given option is selected.
 
 {% highlight php %}
@@ -1830,11 +2092,13 @@ $I->seeOptionIsSelected('#form input[name=payment]', 'Visa');
 
 {% endhighlight %}
 
- * `return mixed|void` 
-
 
 #### selectOption
- 
+
+* `param ` $select
+* `param ` $option
+* `return void`
+
 Selects an option in a select tag or in radio button group.
 
 {% highlight php %}
@@ -1867,8 +2131,15 @@ $I->selectOption('Which OS do you use?', array('value' => 'windows')); // Only s
 
 
 #### setCookie
- 
+
+* `param ` $name
+* `param ` $value
+* `param array` $params
+* `param ` $showDebug
+* `return mixed|void`
+
 Sets a cookie with the given name and value.
+
 You can set additional cookie params like `domain`, `path`, `expires`, `secure` in array passed as last argument.
 
 {% highlight php %}
@@ -1878,11 +2149,14 @@ $I->setCookie('PHPSESSID', 'el4ukv0kqbvoirg7nkp4dncpk3');
 
 {% endhighlight %}
 
- * `return mixed|void` 
-
 
 #### submitForm
- 
+
+* `param string|array|WebDriverBy` $selector
+* `param string|array|WebDriverBy|null` $button
+* `param array` $params
+* `return void`
+
 Submits the given form on the page, optionally with the given form
 values.  Give the form fields values as an array. Note that hidden fields
 can't be accessed.
@@ -2053,12 +2327,12 @@ For example, given the following HTML:
   - ['name' => 'submitButton']
   - WebDriverBy::name('submitButton')
 
- * `param string|array|WebDriverBy` $selector
- * `param string|array|WebDriverBy|null` $button
-
 
 #### switchToFrame
- 
+
+* `param string|null` $locator (name, CSS or XPath)
+* `return void`
+
 Switch to another frame on the page.
 
 Example:
@@ -2082,11 +2356,12 @@ $I->switchToFrame();
 
 {% endhighlight %}
 
- * `param string|null` $locator (name, CSS or XPath)
-
 
 #### switchToIFrame
- 
+
+* `param string|null` $locator (name, CSS or XPath)
+* `return void`
+
 Switch to another iframe on the page.
 
 Example:
@@ -2110,12 +2385,14 @@ $I->switchToIFrame();
 
 {% endhighlight %}
 
- * `param string|null` $locator (name, CSS or XPath)
-
 
 #### switchToNextTab
- 
+
+* `param int` $offset
+* `return void`
+
 Switches to next browser tab.
+
 An offset can be specified.
 
 {% highlight php %}
@@ -2130,8 +2407,12 @@ $I->switchToNextTab(2);
 
 
 #### switchToPreviousTab
- 
+
+* `param int` $offset
+* `return void`
+
 Switches to previous browser tab.
+
 An offset can be specified.
 
 {% highlight php %}
@@ -2146,7 +2427,10 @@ $I->switchToPreviousTab(2);
 
 
 #### switchToWindow
- 
+
+* `param ?string` $name
+* `return void`
+
 Switch to another window identified by name.
 
 The window can only be identified by name. If the $name parameter is blank, the parent window will be used.
@@ -2186,8 +2470,13 @@ $I->executeInSelenium(function (\Facebook\WebDriver\Remote\RemoteWebDriver $webd
 
 
 #### type
- 
+
+* `param int` $delay [sec]
+* `param string` $text
+* `return void`
+
 Type in characters on active element.
+
 With a second parameter you can specify delay between key presses.
 
 {% highlight php %}
@@ -2207,18 +2496,21 @@ $I->type('Hello World', 1);
 This might be useful when you an input reacts to typing and you need to slow it down to emulate human behavior.
 For instance, this is how Credit Card fields can be filled in.
 
- * `param int` $delay [sec]
-
 
 #### typeInPopup
- 
-Enters text into a native JavaScript prompt popup, as created by `window.prompt`.
 
-@throws ModuleException
+* `param string` $keys
+* `throws ModuleException`
+* `return void`
+
+Enters text into a native JavaScript prompt popup, as created by `window.prompt`.
 
 
 #### uncheckOption
- 
+
+* `param ` $option
+* `return void`
+
 Unticks a checkbox.
 
 {% highlight php %}
@@ -2230,24 +2522,32 @@ $I->uncheckOption('#notify');
 
 
 #### unselectOption
- 
-Unselect an option in the given select box.
 
- * `param string|array|WebDriverBy` $select
- * `param string|array|WebDriverBy` $option
+* `param string|array|WebDriverBy` $select
+* `param string|array|WebDriverBy` $option
+* `return void`
+
+Unselect an option in the given select box.
 
 
 #### wait
- 
-Wait for $timeout seconds.
 
- * `param int|float` $timeout secs
-@throws TestRuntimeException
+* `param int|float` $timeout secs
+* `throws TestRuntimeException`
+* `return void`
+
+Wait for $timeout seconds.
 
 
 #### waitForElement
- 
+
+* `param string|array|WebDriverBy` $element
+* `param int` $timeout seconds
+* `throws Exception`
+* `return void`
+
 Waits up to $timeout seconds for an element to appear on the page.
+
 If the element doesn't appear, a timeout exception is thrown.
 
 {% highlight php %}
@@ -2258,14 +2558,17 @@ $I->click('#agree_button');
 
 {% endhighlight %}
 
- * `param string|array|WebDriverBy` $element
- * `param int` $timeout seconds
-@throws Exception
-
 
 #### waitForElementChange
- 
+
+* `param string|array|WebDriverBy` $element
+* `param \Closure` $callback
+* `param int` $timeout
+* `throws ElementNotFound`
+* `return void`
+
 Waits up to $timeout seconds for the given element to change.
+
 Element "change" is determined by a callback function which is called repeatedly
 until the return value evaluates to true.
 
@@ -2279,13 +2582,16 @@ $I->waitForElementChange('#menu', function(WebDriverElement $el) {
 
 {% endhighlight %}
 
- * `param string|array|WebDriverBy` $element
-@throws ElementNotFound
-
 
 #### waitForElementClickable
- 
+
+* `param string|array|WebDriverBy` $element
+* `param int` $timeout seconds
+* `throws Exception`
+* `return void`
+
 Waits up to $timeout seconds for the given element to be clickable.
+
 If element doesn't become clickable, a timeout exception is thrown.
 
 {% highlight php %}
@@ -2296,14 +2602,16 @@ $I->click('#agree_button');
 
 {% endhighlight %}
 
- * `param string|array|WebDriverBy` $element
- * `param int` $timeout seconds
-@throws Exception
-
 
 #### waitForElementNotVisible
- 
+
+* `param string|array|WebDriverBy` $element
+* `param int` $timeout seconds
+* `throws Exception`
+* `return void`
+
 Waits up to $timeout seconds for the given element to become invisible.
+
 If element stays visible, a timeout exception is thrown.
 
 {% highlight php %}
@@ -2313,14 +2621,16 @@ $I->waitForElementNotVisible('#agree_button', 30); // secs
 
 {% endhighlight %}
 
- * `param string|array|WebDriverBy` $element
- * `param int` $timeout seconds
-@throws Exception
-
 
 #### waitForElementVisible
- 
+
+* `param string|array|WebDriverBy` $element
+* `param int` $timeout seconds
+* `throws Exception`
+* `return void`
+
 Waits up to $timeout seconds for the given element to be visible on the page.
+
 If element doesn't appear, a timeout exception is thrown.
 
 {% highlight php %}
@@ -2331,13 +2641,13 @@ $I->click('#agree_button');
 
 {% endhighlight %}
 
- * `param string|array|WebDriverBy` $element
- * `param int` $timeout seconds
-@throws Exception
-
 
 #### waitForJS
- 
+
+* `param int` $timeout seconds
+* `param string` $script
+* `return void`
+
 Executes JavaScript and waits up to $timeout seconds for it to return true.
 
 In this example we will wait up to 60 seconds for all jQuery AJAX requests to finish.
@@ -2349,11 +2659,15 @@ $I->waitForJS("return $.active == 0;", 60);
 
 {% endhighlight %}
 
- * `param int` $timeout seconds
-
 
 #### waitForText
- 
+
+* `param int` $timeout seconds
+* `param null|string|array|WebDriverBy` $selector
+* `param string` $text
+* `throws Exception`
+* `return void`
+
 Waits up to $timeout seconds for the given string to appear on the page.
 
 Can also be passed a selector to search in, be as specific as possible when using selectors.
@@ -2367,9 +2681,5 @@ $I->waitForText('foo', 30); // secs
 $I->waitForText('foo', 30, '.title'); // secs
 
 {% endhighlight %}
-
- * `param int` $timeout seconds
- * `param null|string|array|WebDriverBy` $selector
-@throws Exception
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-webdriver/tree/master/src/Codeception/Module/WebDriver.php">Help us to improve documentation. Edit module reference</a></div>

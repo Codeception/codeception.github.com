@@ -44,18 +44,28 @@ Wrapper for basic shell commands and shell output
 ### Actions
 
 #### dontSeeInShellOutput
- 
+
+* `param string` $text
+* `return void`
+
 Checks that output from latest command doesn't contain text
 
 
 #### grabShellOutput
- 
+
+* `return string`
+
 Returns the output from latest command
 
 
 #### runShellCommand
- 
+
+* `param string` $command
+* `param bool` $failNonZero
+* `return void`
+
 Executes a shell command.
+
 Fails if exit code is > 0. You can disable this by passing `false` as second argument
 
 {% highlight php %}
@@ -70,12 +80,18 @@ $I->runShellCommand('phpunit', false);
 
 
 #### seeInShellOutput
- 
+
+* `param string` $text
+* `return void`
+
 Checks that output from last executed command contains text
 
 
 #### seeResultCodeIs
- 
+
+* `param int` $code
+* `return void`
+
 Checks result code. To verify a result code > 0, you need to pass `false` as second argument to `runShellCommand()`
 
 {% highlight php %}
@@ -87,7 +103,10 @@ $I->seeResultCodeIs(0);
 
 
 #### seeResultCodeIsNot
- 
+
+* `param int` $code
+* `return void`
+
 Checks result code
 
 {% highlight php %}
@@ -99,6 +118,8 @@ $I->seeResultCodeIsNot(0);
 
 
 #### seeShellOutputMatches
-__not documented__
+
+* `param string` $regex
+* `return void`
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-cli/tree/master/src/Codeception/Module/Cli.php">Help us to improve documentation. Edit module reference</a></div>

@@ -147,7 +147,9 @@ Note that key is ignored, because actual field name is part of criteria and/or e
 ### Actions
 
 #### clearEntityManager
- 
+
+* `return void`
+
 Performs $em->clear():
 
 {% highlight php %}
@@ -158,22 +160,31 @@ $I->clearEntityManager();
 
 
 #### dontSeeInRepository
- 
-Flushes changes to database and performs `findOneBy()` call for current repository.
 
- * `param class-string` $entity
- * `param array` $params
- * `return void` 
+* `param class-string` $entity
+* `param array` $params
+* `return void`
+
+Flushes changes to database and performs `findOneBy()` call for current repository.
 
 
 #### flushToDatabase
- 
+
+* `return void`
+
 Performs $em->flush();
 
 
 #### grabEntitiesFromRepository
- 
+
+* `template` T of object
+* `version` 1.1
+* `param class-string<T>` $entity
+* `param array` $params . For `IS NULL`, use `['field' => null]`
+* `return list<T>`
+
 Selects entities from repository.
+
 It builds query based on array of parameters.
 You can use entity associations to build complex queries.
 
@@ -186,16 +197,17 @@ $users = $I->grabEntitiesFromRepository(User::class, ['name' => 'davert']);
 
 {% endhighlight %}
 
-@template T of object
- * `param class-string<T>` $entity
- * `param array` $params . For `IS NULL`, use `['field' => null]`
- * `return list<T>` 
- * `Available since` 1.1
-
 
 #### grabEntityFromRepository
- 
+
+* `template` T of object
+* `version` 1.1
+* `param class-string<T>` $entity
+* `param array` $params . For `IS NULL`, use `['field' => null]`
+* `return T`
+
 Selects a single entity from repository.
+
 It builds query based on array of parameters.
 You can use entity associations to build complex queries.
 
@@ -208,16 +220,17 @@ $user = $I->grabEntityFromRepository(User::class, ['id' => '1234']);
 
 {% endhighlight %}
 
-@template T of object
- * `param class-string<T>` $entity
- * `param array` $params . For `IS NULL`, use `['field' => null]`
- * `return T` 
- * `Available since` 1.1
-
 
 #### grabFromRepository
- 
+
+* `version` 1.1
+* `param class-string` $entity
+* `param string` $field
+* `param array` $params
+* `return mixed`
+
 Selects field value from repository.
+
 It builds query based on array of parameters.
 You can use entity associations to build complex queries.
 
@@ -230,14 +243,14 @@ $email = $I->grabFromRepository(User::class, 'email', ['name' => 'davert']);
 
 {% endhighlight %}
 
- * `param class-string` $entity
- * `param string` $field
- * `param array` $params
- * `Available since` 1.1
-
 
 #### haveFakeRepository
- 
+
+* `param class-string` $className
+* `param array<string,` $ callable> $methods
+* `param array` $methods
+* `return void`
+
 Mocks the repository.
 
 With this action you can redefine any method of any repository.
@@ -257,13 +270,16 @@ $I->haveFakeRepository(User::class, ['findByUsername' => function($username) { r
 This creates a stub class for Entity\User repository with redefined method findByUsername,
 which will always return the NULL value.
 
- * `param class-string` $className
- * `param array<string, callable>` $methods
-
 
 #### haveInRepository
- 
+
+* `template` T of object
+* `param class-string<T>|T` $classNameOrInstance
+* `param array` $data
+* `return mixed`
+
 Persists a record into the repository.
+
 This method creates an entity, and sets its properties directly (via reflection).
 Setters of the entity won't be executed, but you can create almost any entity and save it to the database.
 If the entity has a constructor, for optional parameters the default value will be used and for non-optional parameters the given fields (with a matching name) will be passed when calling the constructor before the properties get set directly (via reflection).
@@ -328,13 +344,15 @@ This works recursively, so you can create deep structures in a single call.
 
 Note that `$em->persist()`, `$em->refresh()`, and `$em->flush()` are called every time.
 
-@template T of object
- * `param class-string<T>|T` $classNameOrInstance
- * `param array` $data
-
 
 #### loadFixtures
- 
+
+* `param class-string<FixtureInterface>|class-string<FixtureInterface>[]|list<FixtureInterface>` $fixtures
+* `param bool` $append
+* `throws ModuleException`
+* `throws ModuleRequireException`
+* `return void`
+
 Loads fixtures. Fixture can be specified as a fully qualified class name,
 an instance, or an array of class names/instances.
 
@@ -359,19 +377,19 @@ $I->loadFixtures(AppFixtures::class, false);
 
 This method requires [`doctrine/data-fixtures`](https://github.com/doctrine/data-fixtures) to be installed.
 
- * `param class-string<FixtureInterface>|class-string<FixtureInterface>[]|list<FixtureInterface>` $fixtures
- * `param bool` $append
-@throws ModuleException
-@throws ModuleRequireException
-
 
 #### onReconfigure
- 
+
+* `return void`
+
 HOOK to be executed when config changes with `_reconfigure`.
 
 
 #### refreshEntities
- 
+
+* `param object|object[]` $entities
+* `return void`
+
 Performs $em->refresh() on every passed entity:
 
 {% highlight php %}
@@ -384,12 +402,15 @@ $I->refreshEntities([$post1, $post2, $post3]]);
 This can useful in acceptance tests where entity can become invalid due to
 external (relative to entity manager used in tests) changes.
 
- * `param object|object[]` $entities
-
 
 #### seeInRepository
- 
+
+* `param class-string` $entity
+* `param array` $params
+* `return void`
+
 Flushes changes to database, and executes a query with parameters defined in an array.
+
 You can use entity associations to build complex queries.
 
 Example:
@@ -404,9 +425,5 @@ $I->seeInRepository(Client::class, ['User' => ['Company' => ['name' => 'Codegyre
 {% endhighlight %}
 
 Fails if record for given criteria can\'t be found,
-
- * `param class-string` $entity
- * `param array` $params
- * `return void` 
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-doctrine2/tree/master/src/Codeception/Module/Doctrine2.php">Help us to improve documentation. Edit module reference</a></div>

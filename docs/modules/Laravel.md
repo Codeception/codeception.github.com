@@ -133,7 +133,11 @@ modules:
 #### _findElements
 
 *hidden API method, expected to be used from Helper classes*
- 
+
+* `api` 
+* `param mixed` $locator
+* `return iterable`
+
 Locates element using available Codeception locator types:
 
 * XPath
@@ -157,11 +161,14 @@ WebDriver module returns `Facebook\WebDriver\Remote\RemoteWebElement` instances
 PhpBrowser and Framework modules return `Symfony\Component\DomCrawler\Crawler` instances
 
 
-
 #### _getResponseContent
 
 *hidden API method, expected to be used from Helper classes*
- 
+
+* `api` 
+* `throws ModuleException`
+* `return string`
+
 Returns content of the last response
 Use it in Helpers when you want to retrieve response of request performed by another module.
 
@@ -176,14 +183,22 @@ public function seeResponseContains($text)
 
 {% endhighlight %}
 
-@throws ModuleException
-
 
 #### _loadPage
 
 *hidden API method, expected to be used from Helper classes*
- 
+
+* `api` 
+* `param string` $method
+* `param string` $uri
+* `param array` $parameters
+* `param array` $files
+* `param array` $server
+* `param ?string` $content
+* `return void`
+
 Opens a page with arbitrary request parameters.
+
 Useful for testing multi-step forms on a specific step.
 
 {% highlight php %}
@@ -197,12 +212,23 @@ public function openCheckoutFormStep2($orderId) {
 {% endhighlight %}
 
 
-
 #### _request
 
 *hidden API method, expected to be used from Helper classes*
- 
+
+* `api` 
+* `see` `_loadPage`
+* `param string` $method
+* `param string` $uri
+* `param array` $parameters
+* `param array` $files
+* `param array` $server
+* `param ?string` $content
+* `throws ExternalUrlException|ModuleException`
+* `return ?string`
+
 Send custom request to a backend using method, uri, parameters, etc.
+
 Use it in Helpers to create special request actions, like accessing API
 Returns a string with response body.
 
@@ -220,14 +246,15 @@ public function createUserByApi($name) {
 Does not load the response into the module so you can't interact with response page (click, fill forms).
 To load arbitrary page for interaction, use `_loadPage` method.
 
-@throws ExternalUrlException|ModuleException
-@see `_loadPage`
-
 
 #### _savePageSource
 
 *hidden API method, expected to be used from Helper classes*
- 
+
+* `api` 
+* `param string` $filename
+* `return void`
+
 Saves page source of to a file
 
 {% highlight php %}
@@ -238,7 +265,11 @@ $this->getModule('Laravel')->_savePageSource(codecept_output_dir().'page.html');
 
 
 #### amActingAs
- 
+
+* `param \Illuminate\Contracts\Auth\Authenticatable` $user
+* `param ?string` $guardName
+* `return void`
+
 Set the given user object to the current or specified Guard.
 
 {% highlight php %}
@@ -250,13 +281,22 @@ $I->amActingAs($user);
 
 
 #### amHttpAuthenticated
- 
+
+* `param string` $username
+* `param string` $password
+* `return void`
+
 Authenticates user for HTTP_AUTH
 
 
 #### amLoggedAs
- 
+
+* `param Authenticatable|array` $user
+* `param string|null` $guardName
+* `return void`
+
 Set the currently logged in user for the application.
+
 Unlike 'amActingAs', this method does update the session, fire the login events
 and remember the user as it assigns the corresponding Cookie.
 
@@ -272,12 +312,14 @@ $I->amLoggedAs( new User );
 // can be verified with $I->seeAuthentication();
 
 {% endhighlight %}
- * `param Authenticatable|array` $user
- * `param string|null` $guardName
 
 
 #### amOnAction
- 
+
+* `param string` $action
+* `param mixed` $parameters
+* `return void`
+
 Opens web page by action name
 
 {% highlight php %}
@@ -291,12 +333,12 @@ $I->amOnAction(PostsController::class . '@index');
 
 {% endhighlight %}
 
- * `param string` $action
- * `param mixed` $parameters
-
 
 #### amOnPage
- 
+
+* `param string` $page
+* `return void`
+
 Opens the page for the given relative URI.
 
 {% highlight php %}
@@ -311,7 +353,11 @@ $I->amOnPage('/register');
 
 
 #### amOnRoute
- 
+
+* `param string` $routeName
+* `param mixed` $params
+* `return void`
+
 Opens web page using route name and parameters.
 
 {% highlight php %}
@@ -321,12 +367,13 @@ $I->amOnRoute('posts.create');
 
 {% endhighlight %}
 
- * `param string` $routeName
- * `param mixed` $params
-
 
 #### assertAuthenticatedAs
- 
+
+* `param \Illuminate\Contracts\Auth\Authenticatable` $user
+* `param ?string` $guardName
+* `return void`
+
 Assert that the user is authenticated as the given user.
 
 {% highlight php %}
@@ -338,7 +385,11 @@ $I->assertAuthenticatedAs($user);
 
 
 #### assertCredentials
- 
+
+* `param array` $credentials
+* `param ?string` $guardName
+* `return void`
+
 Assert that the given credentials are valid.
 
 {% highlight php %}
@@ -353,7 +404,11 @@ $I->assertCredentials([
 
 
 #### assertInvalidCredentials
- 
+
+* `param array` $credentials
+* `param ?string` $guardName
+* `return void`
+
 Assert that the given credentials are invalid.
 
 {% highlight php %}
@@ -368,7 +423,11 @@ $I->assertInvalidCredentials([
 
 
 #### attachFile
- 
+
+* `param ` $field
+* `param string` $filename
+* `return void`
+
 Attaches a file relative to the Codeception `_data` directory to the given file upload field.
 
 {% highlight php %}
@@ -381,7 +440,12 @@ $I->attachFile('input[@type="file"]', 'prices.xls');
 
 
 #### callArtisan
- 
+
+* `param string` $command
+* `param array` $parameters
+* `param ?\Symfony\Component\Console\Output\OutputInterface` $output
+* `return string|void`
+
 Call an Artisan command.
 
 {% highlight php %}
@@ -393,11 +457,12 @@ $I->callArtisan('command:name', ['parameter' => 'value']);
 {% endhighlight %}
 Use 3rd parameter to pass in custom `OutputInterface`
 
- * `return string|void` 
-
 
 #### checkOption
- 
+
+* `param ` $option
+* `return void`
+
 Ticks a checkbox. For radio buttons, use the `selectOption` method instead.
 
 {% highlight php %}
@@ -409,7 +474,9 @@ $I->checkOption('#agree');
 
 
 #### clearApplicationHandlers
- 
+
+* `return void`
+
 Clear the registered application handlers.
 
 {% highlight php %}
@@ -421,8 +488,13 @@ $I->clearApplicationHandlers();
 
 
 #### click
- 
+
+* `param string|array` $link
+* `param ` $context
+* `return void`
+
 Perform a click on a link or a button, given by a locator.
+
 If a fuzzy locator is given, the page will be searched for a button, link, or image matching the locator string.
 For buttons, the "value" attribute, "name" attribute, and inner text are searched.
 For links, the link text is searched.
@@ -449,11 +521,13 @@ $I->click('Logout', '#nav');
 $I->click(['link' => 'Login']);
 
 {% endhighlight %}
- * `param string|array` $link
 
 
 #### deleteHeader
- 
+
+* `param string` $name the name of the header to delete.
+* `return void`
+
 Deletes the header with the passed name.  Subsequent requests
 will not have the deleted header in its request.
 
@@ -469,12 +543,13 @@ $I->amOnPage('some-other-page.php');
 
 {% endhighlight %}
 
- * `param string` $name the name of the header to delete.
-
 
 #### disableEvents
- 
+
+* `return void`
+
 Disable events for the next requests.
+
 This method does not disable model events.
 To disable model events you have to use the disableModelEvents() method.
 
@@ -487,7 +562,9 @@ $I->disableEvents();
 
 
 #### disableExceptionHandling
- 
+
+* `return void`
+
 Disable Laravel exception handling.
 
 {% highlight php %}
@@ -499,7 +576,10 @@ $I->disableExceptionHandling();
 
 
 #### disableMiddleware
- 
+
+* `param string|array|null` $middleware
+* `return void`
+
 Disable middleware for the next requests.
 
 {% highlight php %}
@@ -509,11 +589,11 @@ $I->disableMiddleware();
 
 {% endhighlight %}
 
- * `param string|array|null` $middleware
-
 
 #### disableModelEvents
- 
+
+* `return void`
+
 Disable model events for the next requests.
 
 {% highlight php %}
@@ -525,8 +605,13 @@ $I->disableModelEvents();
 
 
 #### dontSee
- 
+
+* `param array|string` $selector optional
+* `param string` $text
+* `return void`
+
 Checks that the current page doesn't contain the text specified (case insensitive).
+
 Give a locator as the second parameter to match a specific region.
 
 {% highlight php %}
@@ -553,11 +638,12 @@ But will ignore strings like:
 
 For checking the raw source code, use `seeInSource()`.
 
- * `param array|string` $selector optional
-
 
 #### dontSeeAuthentication
- 
+
+* `param ?string` $guardName
+* `return void`
+
 Check that user is not authenticated.
 
 {% highlight php %}
@@ -569,7 +655,10 @@ $I->dontSeeAuthentication();
 
 
 #### dontSeeCheckboxIsChecked
- 
+
+* `param ` $checkbox
+* `return void`
+
 Check that the specified checkbox is unchecked.
 
 {% highlight php %}
@@ -582,16 +671,23 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
 
 
 #### dontSeeCookie
- 
-Checks that there isn't a cookie with the given name.
-You can set additional cookie params like `domain`, `path` as array passed in last argument.
 
- * `return mixed|void` 
+* `param ` $cookie
+* `param ` $params
+* `return mixed|void`
+
+Checks that there isn't a cookie with the given name.
+
+You can set additional cookie params like `domain`, `path` as array passed in last argument.
 
 
 #### dontSeeCurrentUrlEquals
- 
+
+* `param string` $uri
+* `return void`
+
 Checks that the current URL doesn't equal the given string.
+
 Unlike `dontSeeInCurrentUrl`, this only matches the full URL.
 
 {% highlight php %}
@@ -604,7 +700,10 @@ $I->dontSeeCurrentUrlEquals('/');
 
 
 #### dontSeeCurrentUrlMatches
- 
+
+* `param string` $uri
+* `return void`
+
 Checks that current url doesn't match the given regular expression.
 
 {% highlight php %}
@@ -617,8 +716,13 @@ $I->dontSeeCurrentUrlMatches('~^/users/(\d+)~');
 
 
 #### dontSeeElement
- 
+
+* `param ` $selector
+* `param array` $attributes
+* `return void`
+
 Checks that the given element is invisible or not present on the page.
+
 You can also specify expected attributes of this element.
 
 {% highlight php %}
@@ -633,7 +737,10 @@ $I->dontSeeElement('input', ['value' => '123456']);
 
 
 #### dontSeeEventTriggered
- 
+
+* `param string|object|string[]` $expected
+* `return void`
+
 Make sure events did not fire during the test.
 
 {% highlight php %}
@@ -644,11 +751,12 @@ $I->dontSeeEventTriggered(new App\Events\MyEvent());
 $I->dontSeeEventTriggered(['App\MyEvent', 'App\MyOtherEvent']);
 
 {% endhighlight %}
- * `param string|object|string[]` $expected
 
 
 #### dontSeeFormErrors
- 
+
+* `return void`
+
 Assert that there are no form errors bound to the View.
 
 {% highlight php %}
@@ -660,7 +768,10 @@ $I->dontSeeFormErrors();
 
 
 #### dontSeeInCurrentUrl
- 
+
+* `param string` $uri
+* `return void`
+
 Checks that the current URI doesn't contain the given string.
 
 {% highlight php %}
@@ -672,8 +783,13 @@ $I->dontSeeInCurrentUrl('/users/');
 
 
 #### dontSeeInField
- 
+
+* `param string|array` $field
+* `param ` $value
+* `return void`
+
 Checks that an input field or textarea doesn't contain the given value.
+
 For fuzzy locators, the field is matched by label text, CSS and XPath.
 
 {% highlight php %}
@@ -687,11 +803,14 @@ $I->dontSeeInField('//form/*[@name=search]','Search');
 $I->dontSeeInField(['name' => 'search'], 'Search');
 
 {% endhighlight %}
- * `param string|array` $field
 
 
 #### dontSeeInFormFields
- 
+
+* `param ` $formSelector
+* `param array` $params
+* `return void`
+
 Checks if the array of form parameters (name => value) are not set on the form matched with
 the passed selector.
 
@@ -734,7 +853,11 @@ $I->dontSeeInFormFields('#form-id', [
 
 
 #### dontSeeInSession
- 
+
+* `param string|array` $key
+* `param mixed|null` $value
+* `return void`
+
 Assert that a session attribute does not exist, or is not equal to the passed value.
 
 {% highlight php %}
@@ -745,12 +868,12 @@ $I->dontSeeInSession('attribute', 'value');
 
 {% endhighlight %}
 
- * `param string|array` $key
- * `param mixed|null` $value
-
 
 #### dontSeeInSource
- 
+
+* `param string` $raw
+* `return void`
+
 Checks that the current page contains the given string in its
 raw source code.
 
@@ -763,15 +886,21 @@ $I->dontSeeInSource('<h1>Green eggs &amp; ham</h1>');
 
 
 #### dontSeeInTitle
- 
-Checks that the page title does not contain the given string.
 
- * `return mixed|void` 
+* `param ` $title
+* `return mixed|void`
+
+Checks that the page title does not contain the given string.
 
 
 #### dontSeeLink
- 
+
+* `param string` $text
+* `param string` $url
+* `return void`
+
 Checks that the page doesn't contain a link with the given string.
+
 If the second parameter is given, only links with a matching "href" attribute will be checked.
 
 {% highlight php %}
@@ -784,7 +913,11 @@ $I->dontSeeLink('Checkout now', '/store/cart.php');
 
 
 #### dontSeeOptionIsSelected
- 
+
+* `param ` $selector
+* `param ` $optionText
+* `return mixed|void`
+
 Checks that the given option is not selected.
 
 {% highlight php %}
@@ -794,12 +927,16 @@ $I->dontSeeOptionIsSelected('#form input[name=payment]', 'Visa');
 
 {% endhighlight %}
 
- * `return mixed|void` 
-
 
 #### dontSeeRecord
- 
+
+* `part` orm
+* `param string|class-string|object` $table
+* `param array` $attributes
+* `return void`
+
 Checks that record does not exist in database.
+
 You can pass the name of a database table or the class name of an Eloquent model as the first argument.
 
 {% highlight php %}
@@ -811,13 +948,12 @@ $I->dontSeeRecord('App\Models\User', ['name' => 'Davert']);
 
 {% endhighlight %}
 
- * `param string|class-string|object` $table
- * `param array` $attributes
- * `[Part]` orm
-
 
 #### dontSeeResponseCodeIs
- 
+
+* `param int` $code
+* `return void`
+
 Checks that response code is equal to value provided.
 
 {% highlight php %}
@@ -832,7 +968,10 @@ $I->dontSeeResponseCodeIs(\Codeception\Util\HttpCode::OK);
 
 
 #### dontSeeSessionHasValues
- 
+
+* `param array` $bindings
+* `return void`
+
 Assert that the session does not have a particular list of values.
 
 {% highlight php %}
@@ -845,7 +984,9 @@ $I->dontSeeSessionHasValues(['key1' => 'value1', 'key2' => 'value2']);
 
 
 #### enableExceptionHandling
- 
+
+* `return void`
+
 Enable Laravel exception handling.
 
 {% highlight php %}
@@ -857,7 +998,10 @@ $I->enableExceptionHandling();
 
 
 #### enableMiddleware
- 
+
+* `param string|array|null` $middleware
+* `return void`
+
 Enable the given middleware for the next requests.
 
 {% highlight php %}
@@ -867,11 +1011,13 @@ $I->enableMiddleware();
 
 {% endhighlight %}
 
- * `param string|array|null` $middleware
-
 
 #### fillField
- 
+
+* `param ` $field
+* `param ` $value
+* `return void`
+
 Fills a text field or textarea with the given string.
 
 {% highlight php %}
@@ -884,7 +1030,9 @@ $I->fillField(['name' => 'email'], 'jon@example.com');
 
 
 #### flushSession
- 
+
+* `return void`
+
 Flush all of the current session data.
 
 {% highlight php %}
@@ -896,7 +1044,9 @@ $I->flushSession();
 
 
 #### followRedirect
- 
+
+* `return void`
+
 Follow pending redirect if there is one.
 
 {% highlight php %}
@@ -908,7 +1058,9 @@ $I->followRedirect();
 
 
 #### getApplication
- 
+
+* `return \Illuminate\Contracts\Foundation\Application`
+
 Provides access the Laravel application object.
 
 {% highlight php %}
@@ -920,8 +1072,13 @@ $app = $I->getApplication();
 
 
 #### grabAttributeFrom
- 
+
+* `param ` $cssOrXpath
+* `param string` $attribute
+* `return mixed`
+
 Grabs the value of the given attribute value from the given element.
+
 Fails if element is not found.
 
 {% highlight php %}
@@ -933,15 +1090,24 @@ $I->grabAttributeFrom('#tooltip', 'title');
 
 
 #### grabCookie
- 
+
+* `param string` $cookie
+* `param array` $params
+* `return mixed`
+
 Grabs a cookie value.
+
 You can set additional cookie params like `domain`, `path` in array passed as last argument.
 If the cookie is set by an ajax request (XMLHttpRequest), there might be some delay caused by the browser, so try `$I->wait(0.1)`.
 
 
 #### grabFromCurrentUrl
- 
+
+* `param ?string` $uri
+* `return mixed`
+
 Executes the given regular expression against the current URI and returns the first capturing group.
+
 If no parameters are provided, the full URI is returned.
 
 {% highlight php %}
@@ -954,7 +1120,11 @@ $uri = $I->grabFromCurrentUrl();
 
 
 #### grabMultiple
- 
+
+* `param ` $cssOrXpath
+* `param ?string` $attribute
+* `return string[]`
+
 Grabs either the text content, or attribute values, of nodes
 matched by $cssOrXpath and returns them as an array.
 
@@ -977,11 +1147,14 @@ $aLinks = $I->grabMultiple('a', 'href');
 
 {% endhighlight %}
 
- * `return string[]` 
-
 
 #### grabNumRecords
- 
+
+* `part` orm
+* `param string` $table
+* `param array` $attributes
+* `return int`
+
 Retrieves number of records from database
 You can pass the name of a database table or the class name of an Eloquent model as the first argument.
 
@@ -993,21 +1166,25 @@ $I->grabNumRecords('App\Models\User', ['name' => 'Davert']);
 
 {% endhighlight %}
 
- * `[Part]` orm
-
 
 #### grabPageSource
- 
-Grabs current page source code.
 
-@throws ModuleException if no page was opened.
- * `return string` Current page source code.
+* `throws ModuleException` if no page was opened.
+* `return string` Current page source code.
+
+Grabs current page source code.
 
 
 #### grabRecord
- 
+
+* `part` orm
+* `param string` $table
+* `param array` $attributes
+* `return array|EloquentModel`
+
 Retrieves record from database
 If you pass the name of a database table as the first argument, this method returns an array.
+
 You can also pass the class name of an Eloquent model, in that case this method returns an Eloquent model.
 
 {% highlight php %}
@@ -1018,15 +1195,14 @@ $record = $I->grabRecord('App\Models\User', ['name' => 'Davert']); // returns El
 
 {% endhighlight %}
 
- * `param string` $table
- * `param array` $attributes
- * `return array|EloquentModel` 
- * `[Part]` orm
-
 
 #### grabService
- 
+
+* `param string` $class
+* `return mixed`
+
 Return an instance of a class from the Laravel service container.
+
 (https://laravel.com/docs/7.x/container)
 
 {% highlight php %}
@@ -1045,10 +1221,13 @@ $service = $I->grabService('foo');
 {% endhighlight %}
 
 
-
 #### grabTextFrom
- 
+
+* `param ` $cssOrXPathOrRegex
+* `return mixed`
+
 Finds and returns the text contents of the given element.
+
 If a fuzzy locator is used, the element is found using CSS, XPath,
 and by matching the full page source by regular expression.
 
@@ -1063,8 +1242,12 @@ $value = $I->grabTextFrom('~<input value=(.*?)]~sgi'); // match with a regex
 
 
 #### grabValueFrom
- 
+
+* `param ` $field
+* `return mixed`
+
 Finds the value for the given form field.
+
 If a fuzzy locator is used, the field is found by field name, CSS, and XPath.
 
 {% highlight php %}
@@ -1079,7 +1262,14 @@ $name = $I->grabValueFrom(['name' => 'username']);
 
 
 #### have
- 
+
+* `part` orm
+* `see` https://laravel.com/docs/7.x/database-testing#using-factories
+* `param string` $model
+* `param array` $attributes
+* `param string` $name
+* `return mixed`
+
 Use Laravel model factory to create a model.
 
 {% highlight php %}
@@ -1091,14 +1281,14 @@ $I->have('App\Models\User', [], 'admin');
 
 {% endhighlight %}
 
-@see https://laravel.com/docs/7.x/database-testing#using-factories
-
- * `[Part]` orm
-
 
 #### haveApplicationHandler
- 
+
+* `param callable` $handler
+* `return void`
+
 Register a handler than can be used to modify the Laravel application object after it is initialized.
+
 The Laravel application object will be passed as an argument to the handler.
 
 {% highlight php %}
@@ -1112,8 +1302,14 @@ $I->haveApplicationHandler(function($app) {
 
 
 #### haveBinding
- 
+
+* `param string` $abstract
+* `param Closure|string|null` $concrete
+* `param bool` $shared
+* `return void`
+
 Add a binding to the Laravel service container.
+
 (https://laravel.com/docs/7.x/container)
 
 {% highlight php %}
@@ -1123,14 +1319,16 @@ $I->haveBinding('My\Interface', 'My\Implementation');
 
 {% endhighlight %}
 
- * `param string` $abstract
- * `param Closure|string|null` $concrete
- * `param bool` $shared
-
 
 #### haveContextualBinding
- 
+
+* `param string` $concrete
+* `param string` $abstract
+* `param Closure|string` $implementation
+* `return void`
+
 Add a contextual binding to the Laravel service container.
+
 (https://laravel.com/docs/7.x/container)
 
 {% highlight php %}
@@ -1145,13 +1343,14 @@ $app->when('My\Class')
 
 {% endhighlight %}
 
- * `param string` $concrete
- * `param string` $abstract
- * `param Closure|string` $implementation
-
 
 #### haveHttpHeader
- 
+
+* `param string` $name the name of the request header
+* `param string` $value the value to set it to for subsequent
+       requests
+* `return void`
+
 Sets the HTTP header to the passed value - which is used on
 subsequent HTTP requests through PhpBrowser.
 
@@ -1176,13 +1375,12 @@ $I->haveHttpHeader('Client&#95;Id', 'Codeception');
 
 {% endhighlight %}
 
- * `param string` $name the name of the request header
- * `param string` $value the value to set it to for subsequent
-       requests
-
 
 #### haveInSession
- 
+
+* `param array` $data
+* `return void`
+
 Set the session to the given array.
 
 {% highlight php %}
@@ -1194,8 +1392,13 @@ $I->haveInSession(['myKey' => 'MyValue']);
 
 
 #### haveInstance
- 
+
+* `param string` $abstract
+* `param object` $instance
+* `return void`
+
 Add an instance binding to the Laravel service container.
+
 (https://laravel.com/docs/7.x/container)
 
 {% highlight php %}
@@ -1207,7 +1410,15 @@ $I->haveInstance('App\MyClass', new App\MyClass());
 
 
 #### haveMultiple
- 
+
+* `part` orm
+* `see` https://laravel.com/docs/7.x/database-testing#using-factories
+* `param string` $model
+* `param int` $times
+* `param array` $attributes
+* `param string` $name
+* `return EloquentModel|EloquentCollection`
+
 Use Laravel model factory to create multiple models.
 
 {% highlight php %}
@@ -1219,15 +1430,17 @@ $I->haveMultiple('App\Models\User', 10, [], 'admin');
 
 {% endhighlight %}
 
-@see https://laravel.com/docs/7.x/database-testing#using-factories
-
- * `return EloquentModel|EloquentCollection` 
- * `[Part]` orm
-
 
 #### haveRecord
- 
+
+* `part` orm
+* `param string` $table
+* `param array` $attributes
+* `throws RuntimeException`
+* `return EloquentModel|int`
+
 Inserts record into the database.
+
 If you pass the name of a database table as the first argument, this method returns an integer ID.
 You can also pass the class name of an Eloquent model, in that case this method returns an Eloquent model.
 
@@ -1239,15 +1452,13 @@ $user = $I->haveRecord('App\Models\User', ['name' => 'Davert']); // returns Eloq
 
 {% endhighlight %}
 
- * `param string` $table
- * `param array` $attributes
- * `return EloquentModel|int` 
-@throws RuntimeException
- * `[Part]` orm
-
 
 #### haveServerParameter
- 
+
+* `param string` $name
+* `param string` $value
+* `return void`
+
 Sets SERVER parameter valid for all next requests.
 
 {% highlight php %}
@@ -1258,8 +1469,13 @@ $I->haveServerParameter('name', 'value');
 
 
 #### haveSingleton
- 
+
+* `param string` $abstract
+* `param Closure|string|null` $concrete
+* `return void`
+
 Add a singleton binding to the Laravel service container.
+
 (https://laravel.com/docs/7.x/container)
 
 {% highlight php %}
@@ -1269,12 +1485,11 @@ $I->haveSingleton('App\MyInterface', 'App\MySingleton');
 
 {% endhighlight %}
 
- * `param string` $abstract
- * `param Closure|string|null` $concrete
-
 
 #### logout
- 
+
+* `return void`
+
 Logout user.
 
 {% highlight php %}
@@ -1286,7 +1501,14 @@ $I->logout();
 
 
 #### make
- 
+
+* `part` orm
+* `see` https://laravel.com/docs/7.x/database-testing#using-factories
+* `param string` $model
+* `param array` $attributes
+* `param string` $name
+* `return EloquentCollection|EloquentModel`
+
 Use Laravel model factory to make a model instance.
 
 {% highlight php %}
@@ -1298,14 +1520,12 @@ $I->make('App\Models\User', [], 'admin');
 
 {% endhighlight %}
 
-@see https://laravel.com/docs/7.x/database-testing#using-factories
-
- * `return EloquentCollection|EloquentModel` 
- * `[Part]` orm
-
 
 #### makeHtmlSnapshot
- 
+
+* `param ?string` $name
+* `return void`
+
 Use this method within an [interactive pause](https://codeception.com/docs/02-GettingStarted#Interactive-Pause) to save the HTML source code of the current page.
 
 {% highlight php %}
@@ -1320,7 +1540,15 @@ $I->makeHtmlSnapshot();
 
 
 #### makeMultiple
- 
+
+* `part` orm
+* `see` https://laravel.com/docs/7.x/database-testing#using-factories
+* `param string` $model
+* `param int` $times
+* `param array` $attributes
+* `param string` $name
+* `return EloquentCollection|EloquentModel`
+
 Use Laravel model factory to make multiple model instances.
 
 {% highlight php %}
@@ -1332,29 +1560,32 @@ $I->makeMultiple('App\Models\User', 10, [], 'admin');
 
 {% endhighlight %}
 
-@see https://laravel.com/docs/7.x/database-testing#using-factories
-
- * `return EloquentCollection|EloquentModel` 
- * `[Part]` orm
-
 
 #### moveBack
- 
-Moves back in history.
 
- * `param int` $numberOfSteps (default value 1)
+* `param int` $numberOfSteps (default value 1)
+* `return void`
+
+Moves back in history.
 
 
 #### resetCookie
- 
-Unsets cookie with the given name.
-You can set additional cookie params like `domain`, `path` in array passed as last argument.
 
- * `return mixed|void` 
+* `param ` $cookie
+* `param ` $params
+* `return mixed|void`
+
+Unsets cookie with the given name.
+
+You can set additional cookie params like `domain`, `path` in array passed as last argument.
 
 
 #### see
- 
+
+* `param array|string` $selector optional
+* `param string` $text
+* `return void`
+
 Checks that the current page contains the given string (case insensitive).
 
 You can specify a specific HTML element (via CSS or XPath) as the second
@@ -1384,11 +1615,12 @@ But will *not* be true for strings like:
 
 For checking the raw source code, use `seeInSource()`.
 
- * `param array|string` $selector optional
-
 
 #### seeAuthentication
- 
+
+* `param ?string` $guardName
+* `return void`
+
 Checks that a user is authenticated.
 
 {% highlight php %}
@@ -1400,7 +1632,10 @@ $I->seeAuthentication();
 
 
 #### seeCheckboxIsChecked
- 
+
+* `param ` $checkbox
+* `return void`
+
 Checks that the specified checkbox is checked.
 
 {% highlight php %}
@@ -1414,8 +1649,13 @@ $I->seeCheckboxIsChecked('//form/input[@type=checkbox and @name=agree]');
 
 
 #### seeCookie
- 
+
+* `param ` $cookie
+* `param ` $params
+* `return mixed|void`
+
 Checks that a cookie with the given name is set.
+
 You can set additional cookie params like `domain`, `path` as array passed in last argument.
 
 {% highlight php %}
@@ -1425,11 +1665,12 @@ $I->seeCookie('PHPSESSID');
 
 {% endhighlight %}
 
- * `return mixed|void` 
-
 
 #### seeCurrentActionIs
- 
+
+* `param string` $action
+* `return void`
+
 Checks that current url matches action
 
 {% highlight php %}
@@ -1445,7 +1686,10 @@ $I->seeCurrentActionIs(PostsController::class . '@index');
 
 
 #### seeCurrentRouteIs
- 
+
+* `param string` $routeName
+* `return void`
+
 Checks that current url matches route
 
 {% highlight php %}
@@ -1457,8 +1701,12 @@ $I->seeCurrentRouteIs('posts.index');
 
 
 #### seeCurrentUrlEquals
- 
+
+* `param string` $uri
+* `return void`
+
 Checks that the current URL is equal to the given string.
+
 Unlike `seeInCurrentUrl`, this only matches the full URL.
 
 {% highlight php %}
@@ -1471,7 +1719,10 @@ $I->seeCurrentUrlEquals('/');
 
 
 #### seeCurrentUrlMatches
- 
+
+* `param string` $uri
+* `return void`
+
 Checks that the current URL matches the given regular expression.
 
 {% highlight php %}
@@ -1484,8 +1735,13 @@ $I->seeCurrentUrlMatches('~^/users/(\d+)~');
 
 
 #### seeElement
- 
+
+* `param ` $selector
+* `param array` $attributes
+* `return void`
+
 Checks that the given element exists on the page and is visible.
+
 You can also specify expected attributes of this element.
 
 {% highlight php %}
@@ -1503,7 +1759,10 @@ $I->seeElement(['css' => 'form input'], ['name' => 'login']);
 
 
 #### seeEventTriggered
- 
+
+* `param string|object|string[]` $expected
+* `return void`
+
 Make sure events fired during the test.
 
 {% highlight php %}
@@ -1514,11 +1773,14 @@ $I->seeEventTriggered(new App\Events\MyEvent());
 $I->seeEventTriggered(['App\MyEvent', 'App\MyOtherEvent']);
 
 {% endhighlight %}
- * `param string|object|string[]` $expected
 
 
 #### seeFormErrorMessage
- 
+
+* `param string` $field
+* `param ?string` $errorMessage
+* `return void`
+
 Assert that a specific form error message is set in the view.
 
 If you want to assert that there is a form error message for a specific key
@@ -1537,7 +1799,10 @@ $I->seeFormErrorMessage('username', 'Invalid Username');
 
 
 #### seeFormErrorMessages
- 
+
+* `param array` $expectedErrors
+* `return void`
+
 Verifies that multiple fields on a form have errors.
 
 This method will validate that the expected error message
@@ -1571,7 +1836,9 @@ $I->seeFormErrorMessages([
 
 
 #### seeFormHasErrors
- 
+
+* `return void`
+
 Assert that form errors are bound to the View.
 
 {% highlight php %}
@@ -1583,7 +1850,10 @@ $I->seeFormHasErrors();
 
 
 #### seeInCurrentUrl
- 
+
+* `param string` $uri
+* `return void`
+
 Checks that current URI contains the given string.
 
 {% highlight php %}
@@ -1598,8 +1868,13 @@ $I->seeInCurrentUrl('/users/');
 
 
 #### seeInField
- 
+
+* `param string|array` $field
+* `param ` $value
+* `return void`
+
 Checks that the given input field or textarea *equals* (i.e. not just contains) the given value.
+
 Fields are matched by label text, the "name" attribute, CSS, or XPath.
 
 {% highlight php %}
@@ -1614,11 +1889,13 @@ $I->seeInField(['name' => 'search'], 'Search');
 
 {% endhighlight %}
 
- * `param string|array` $field
-
 
 #### seeInFormFields
- 
+
+* `param ` $formSelector
+* `param array` $params
+* `return void`
+
 Checks if the array of form parameters (name => value) are set on the form matched with the
 passed selector.
 
@@ -1682,7 +1959,11 @@ $I->seeInFormFields('//form[@id=my-form]', string $form);
 
 
 #### seeInSession
- 
+
+* `param string|array` $key
+* `param mixed|null` $value
+* `return void`
+
 Assert that a session variable exists.
 
 {% highlight php %}
@@ -1693,12 +1974,12 @@ $I->seeInSession('key', 'value');
 
 {% endhighlight %}
 
- * `param string|array` $key
- * `param mixed|null` $value
-
 
 #### seeInSource
- 
+
+* `param string` $raw
+* `return void`
+
 Checks that the current page contains the given string in its
 raw source code.
 
@@ -1711,7 +1992,10 @@ $I->seeInSource('<h1>Green eggs &amp; ham</h1>');
 
 
 #### seeInTitle
- 
+
+* `param ` $title
+* `return mixed|void`
+
 Checks that the page title contains the given string.
 
 {% highlight php %}
@@ -1721,12 +2005,15 @@ $I->seeInTitle('Blog - Post #1');
 
 {% endhighlight %}
 
- * `return mixed|void` 
-
 
 #### seeLink
- 
+
+* `param string` $text
+* `param ?string` $url
+* `return void`
+
 Checks that there's a link with the specified text.
+
 Give a full URL as the second parameter to match links with that exact URL.
 
 {% highlight php %}
@@ -1739,8 +2026,15 @@ $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
 
 
 #### seeNumRecords
- 
+
+* `part` orm
+* `param int` $expectedNum
+* `param string` $table
+* `param array` $attributes
+* `return void`
+
 Checks that number of given records were found in database.
+
 You can pass the name of a database table or the class name of an Eloquent model as the first argument.
 
 {% highlight php %}
@@ -1751,11 +2045,13 @@ $I->seeNumRecords(1, 'App\Models\User', ['name' => 'Davert']);
 
 {% endhighlight %}
 
- * `[Part]` orm
-
 
 #### seeNumberOfElements
- 
+
+* `param int|int[]` $expected
+* `param ` $selector
+* `return void`
+
 Checks that there are a certain number of elements matched by the given locator on the page.
 
 {% highlight php %}
@@ -1766,11 +2062,13 @@ $I->seeNumberOfElements('tr', [0,10]); // between 0 and 10 elements
 
 {% endhighlight %}
 
- * `param int|int[]` $expected
-
 
 #### seeOptionIsSelected
- 
+
+* `param ` $selector
+* `param ` $optionText
+* `return mixed|void`
+
 Checks that the given option is selected.
 
 {% highlight php %}
@@ -1780,17 +2078,23 @@ $I->seeOptionIsSelected('#form input[name=payment]', 'Visa');
 
 {% endhighlight %}
 
- * `return mixed|void` 
-
 
 #### seePageNotFound
- 
+
+* `return void`
+
 Asserts that current page has 404 response status code.
 
 
 #### seeRecord
- 
+
+* `part` orm
+* `param string|class-string|object` $table
+* `param array` $attributes
+* `return void`
+
 Checks that record exists in database.
+
 You can pass the name of a database table or the class name of an Eloquent model as the first argument.
 
 {% highlight php %}
@@ -1802,13 +2106,12 @@ $I->seeRecord('App\Models\User', ['name' => 'Davert']);
 
 {% endhighlight %}
 
- * `param string|class-string|object` $table
- * `param array` $attributes
- * `[Part]` orm
-
 
 #### seeResponseCodeIs
- 
+
+* `param int` $code
+* `return void`
+
 Checks that response code is equal to value provided.
 
 {% highlight php %}
@@ -1823,32 +2126,47 @@ $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK);
 
 
 #### seeResponseCodeIsBetween
- 
+
+* `param int` $from
+* `param int` $to
+* `return void`
+
 Checks that response code is between a certain range. Between actually means [from <= CODE <= to]
 
 
 #### seeResponseCodeIsClientError
- 
+
+* `return void`
+
 Checks that the response code is 4xx
 
 
 #### seeResponseCodeIsRedirection
- 
+
+* `return void`
+
 Checks that the response code 3xx
 
 
 #### seeResponseCodeIsServerError
- 
+
+* `return void`
+
 Checks that the response code is 5xx
 
 
 #### seeResponseCodeIsSuccessful
- 
+
+* `return void`
+
 Checks that the response code 2xx
 
 
 #### seeSessionHasValues
- 
+
+* `param array` $bindings
+* `return void`
+
 Assert that the session has a given list of values.
 
 {% highlight php %}
@@ -1861,14 +2179,19 @@ $I->seeSessionHasValues(['key1' => 'value1', 'key2' => 'value2']);
 
 
 #### seedDatabase
- 
-Seed a given database connection.
 
- * `param class-string|class-string[]` $seeders
+* `param class-string|class-string[]` $seeders
+* `return void`
+
+Seed a given database connection.
 
 
 #### selectOption
- 
+
+* `param ` $select
+* `param ` $option
+* `return void`
+
 Selects an option in a select tag or in radio button group.
 
 {% highlight php %}
@@ -1901,14 +2224,24 @@ $I->selectOption('Which OS do you use?', array('value' => 'windows')); // Only s
 
 
 #### sendAjaxGetRequest
- 
+
+* `param string` $uri
+* `param array` $params
+* `return void`
+
 Sends an ajax GET request with the passed parameters.
+
 See `sendAjaxPostRequest()`
 
 
 #### sendAjaxPostRequest
- 
+
+* `param string` $uri
+* `param array` $params
+* `return void`
+
 Sends an ajax POST request with the passed parameters.
+
 The appropriate HTTP header is added automatically:
 `X-Requested-With: XMLHttpRequest`
 Example:
@@ -1933,8 +2266,14 @@ $I->sendAjaxPostRequest('/add-task', ['form' => [
 
 
 #### sendAjaxRequest
- 
+
+* `param string` $method
+* `param string` $uri
+* `param array` $params
+* `return void`
+
 Sends an ajax request, using the passed HTTP method.
+
 See `sendAjaxPostRequest()`
 Example:
 {% highlight php %}
@@ -1946,12 +2285,20 @@ $I->sendAjaxRequest('PUT', '/posts/7', ['title' => 'new title']);
 
 
 #### setApplication
-__not documented__
+
+* `param \Illuminate\Contracts\Foundation\Application` $app
+* `return void`
 
 
 #### setCookie
- 
+
+* `param ` $name
+* `param ` $val
+* `param ` $params
+* `return mixed|void`
+
 Sets a cookie with the given name and value.
+
 You can set additional cookie params like `domain`, `path`, `expires`, `secure` in array passed as last argument.
 
 {% highlight php %}
@@ -1961,11 +2308,12 @@ $I->setCookie('PHPSESSID', 'el4ukv0kqbvoirg7nkp4dncpk3');
 
 {% endhighlight %}
 
- * `return mixed|void` 
-
 
 #### setMaxRedirects
- 
+
+* `param int` $maxRedirects
+* `return void`
+
 Sets the maximum number of redirects that the Client can follow.
 
 {% highlight php %}
@@ -1977,8 +2325,12 @@ $I->setMaxRedirects(2);
 
 
 #### setServerParameters
- 
+
+* `param array` $params
+* `return void`
+
 Sets SERVER parameters valid for all next requests.
+
 this will remove old ones.
 
 {% highlight php %}
@@ -1989,7 +2341,9 @@ $I->setServerParameters([]);
 
 
 #### startFollowingRedirects
- 
+
+* `return void`
+
 Enables automatic redirects to be followed by the client.
 
 {% highlight php %}
@@ -2001,7 +2355,9 @@ $I->startFollowingRedirects();
 
 
 #### stopFollowingRedirects
- 
+
+* `return void`
+
 Prevents automatic redirects to be followed by the client.
 
 {% highlight php %}
@@ -2013,7 +2369,12 @@ $I->stopFollowingRedirects();
 
 
 #### submitForm
- 
+
+* `param ` $selector
+* `param array` $params
+* `param ?string` $button
+* `return void`
+
 Submits the given form on the page, with the given form
 values.  Pass the form field's values as an array in the second
 parameter.
@@ -2203,7 +2564,10 @@ $I->submitForm('#my-form', [
 
 
 #### switchToIframe
- 
+
+* `param string` $name
+* `return void`
+
 Switch to iframe or frame on the page.
 
 Example:
@@ -2223,7 +2587,10 @@ $I->switchToIframe("another_frame");
 
 
 #### uncheckOption
- 
+
+* `param ` $option
+* `return void`
+
 Unticks a checkbox.
 
 {% highlight php %}

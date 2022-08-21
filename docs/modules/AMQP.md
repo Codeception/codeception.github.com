@@ -69,7 +69,15 @@ To use this module with Composer you need <em>"php-amqplib/php-amqplib": "~2.4"<
 ### Actions
 
 #### bindQueueToExchange
- 
+
+* `param string` $queue
+* `param string` $exchange
+* `param string` $routing_key
+* `param bool` $nowait
+* `param ?array` $arguments
+* `param ?int` $ticket
+* `return mixed`
+
 Binds a queue to an exchange
 
 This is an alias of method `queue_bind` of `PhpAmqpLib\Channel\AMQPChannel`.
@@ -86,9 +94,19 @@ $I->bindQueueToExchange(
 {% endhighlight %}
 
 
-
 #### declareExchange
- 
+
+* `param string` $exchange
+* `param string` $type
+* `param bool` $passive
+* `param bool` $durable
+* `param bool` $auto_delete
+* `param bool` $internal
+* `param bool` $nowait
+* `param ?array` $arguments
+* `param ?int` $ticket
+* `return mixed`
+
 Declares an exchange
 
 This is an alias of method `exchange_declare` of `PhpAmqpLib\Channel\AMQPChannel`.
@@ -104,9 +122,18 @@ $I->declareExchange(
 {% endhighlight %}
 
 
-
 #### declareQueue
- 
+
+* `param string` $queue
+* `param bool` $passive
+* `param bool` $durable
+* `param bool` $exclusive
+* `param bool` $auto_delete
+* `param bool` $nowait
+* `param ?array` $arguments
+* `param ?int` $ticket
+* `return mixed`
+
 Declares queue, creates if needed
 
 This is an alias of method `queue_declare` of `PhpAmqpLib\Channel\AMQPChannel`.
@@ -121,9 +148,11 @@ $I->declareQueue(
 {% endhighlight %}
 
 
-
 #### dontSeeQueueIsEmpty
- 
+
+* `param string` $queue
+* `return void`
+
 Checks if queue is not empty.
 
 {% highlight php %}
@@ -136,7 +165,10 @@ $I->dontSeeQueueIsEmpty('queue.emails');
 
 
 #### grabMessageFromQueue
- 
+
+* `param string` $queue
+* `return ?\PhpAmqpLib\Message\AMQPMessage`
+
 Takes last message from queue.
 
 {% highlight php %}
@@ -148,7 +180,9 @@ $message = $I->grabMessageFromQueue('queue.emails');
 
 
 #### purgeAllQueues
- 
+
+* `return void`
+
 Purge all queues defined in config.
 
 {% highlight php %}
@@ -160,7 +194,10 @@ $I->purgeAllQueues();
 
 
 #### purgeQueue
- 
+
+* `param string` $queueName
+* `return void`
+
 Purge a specific queue defined in config.
 
 {% highlight php %}
@@ -172,7 +209,12 @@ $I->purgeQueue('queue.emails');
 
 
 #### pushToExchange
- 
+
+* `param string` $exchange
+* `param \PhpAmqpLib\Message\AMQPMessage|string` $message
+* `param ?string` $routing_key
+* `return void`
+
 Sends message to exchange by sending exchange name, message
 and (optionally) a routing key
 
@@ -187,7 +229,11 @@ $I->pushToExchange('exchange.emails', new AMQPMessage('Thanks!'), 'severity');
 
 
 #### pushToQueue
- 
+
+* `param string` $queue
+* `param \PhpAmqpLib\Message\AMQPMessage|string` $message
+* `return void`
+
 Sends message to queue
 
 {% highlight php %}
@@ -200,12 +246,19 @@ $I->pushToQueue('queue.jobs', new AMQPMessage('create'));
 
 
 #### scheduleQueueCleanup
- 
+
+* `param string` $queue
+* `return void`
+
 Add a queue to purge list
 
 
 #### seeMessageInQueueContainsText
- 
+
+* `param string` $queue
+* `param string` $text
+* `return void`
+
 Checks if message containing text received.
 
 **This method drops message from queue**
@@ -221,7 +274,11 @@ $I->seeMessageInQueueContainsText('queue.emails','davert');
 
 
 #### seeNumberOfMessagesInQueue
- 
+
+* `param string` $queue
+* `param int` $expected
+* `return void`
+
 Checks that queue have expected number of message
 
 {% highlight php %}
@@ -234,7 +291,10 @@ $I->seeNumberOfMessagesInQueue('queue.emails',1);
 
 
 #### seeQueueIsEmpty
- 
+
+* `param string` $queue
+* `return void`
+
 Checks that queue is empty
 
 {% highlight php %}

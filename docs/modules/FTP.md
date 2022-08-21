@@ -119,12 +119,18 @@ This module extends the Filesystem module, file contents methods are inherited f
 ### Actions
 
 #### amInPath
- 
+
+* `param string` $path
+* `return void`
+
 Enters a directory on the ftp system - FTP root directory is used by default
 
 
 #### cleanDir
- 
+
+* `param string` $dirname
+* `return void`
+
 Erases directory contents on the FTP/SFTP server
 
 {% highlight php %}
@@ -136,12 +142,19 @@ $I->cleanDir('logs');
 
 
 #### copyDir
- 
+
+* `param string` $src
+* `param string` $dst
+* `return void`
+
 Currently not supported in this module, overwrite inherited method
 
 
 #### deleteDir
- 
+
+* `param string` $dirname
+* `return void`
+
 Deletes directory with all subdirectories on the remote FTP/SFTP server
 
 {% highlight php %}
@@ -153,7 +166,10 @@ $I->deleteDir('vendor');
 
 
 #### deleteFile
- 
+
+* `param string` $filename
+* `return void`
+
 Deletes a file on the remote FTP/SFTP system
 
 {% highlight php %}
@@ -165,23 +181,37 @@ $I->deleteFile('composer.lock');
 
 
 #### deleteThisFile
- 
+
+* `return void`
+
 Deletes a file
 
 
 #### dontSeeFileFound
- 
+
+* `param string` $filename
+* `param string` $path
+* `return void`
+
 Checks if file does not exist in path on the remote FTP/SFTP system
 
 
 #### dontSeeFileFoundMatches
- 
+
+* `param string` $regex
+* `param string` $path
+* `return void`
+
 Checks if file does not exist in path on the remote FTP/SFTP system, using regular expression as filename.
+
 DOES NOT OPEN the file when it's exists
 
 
 #### dontSeeInThisFile
- 
+
+* `param string` $text
+* `return void`
+
 Checks If opened file doesn't contain `text` in it
 
 {% highlight php %}
@@ -194,7 +224,9 @@ $I->dontSeeInThisFile('codeception/codeception');
 
 
 #### grabDirectory
- 
+
+* `return string`
+
 Grabber method to return current working directory
 
 {% highlight php %}
@@ -206,7 +238,11 @@ $pwd = $I->grabDirectory();
 
 
 #### grabFileCount
- 
+
+* `param bool` $ignore - suppress '.', '..' and '.thumbs.db'
+* `param string` $path
+* `return int`
+
 Grabber method for returning file/folders count in directory
 
 {% highlight php %}
@@ -217,11 +253,13 @@ $count = $I->grabFileCount('TEST', false); // Include . .. .thumbs.db
 
 {% endhighlight %}
 
- * `param bool` $ignore - suppress '.', '..' and '.thumbs.db'
-
 
 #### grabFileList
- 
+
+* `param bool` $ignore - suppress '.', '..' and '.thumbs.db'
+* `param string` $path
+* `return array`
+
 Grabber method for returning file/folders listing in an array
 
 {% highlight php %}
@@ -232,11 +270,12 @@ $count = $I->grabFileList('TEST', false); // Include . .. .thumbs.db
 
 {% endhighlight %}
 
- * `param bool` $ignore - suppress '.', '..' and '.thumbs.db'
-
 
 #### grabFileModified
- 
+
+* `param string` $filename
+* `return int`
+
 Grabber method to return last modified timestamp
 
 {% highlight php %}
@@ -248,7 +287,10 @@ $time = $I->grabFileModified('test.txt');
 
 
 #### grabFileSize
- 
+
+* `param string` $filename
+* `return int`
+
 Grabber method to return file size
 
 {% highlight php %}
@@ -260,7 +302,11 @@ $size = $I->grabFileSize('test.txt');
 
 
 #### loginAs
- 
+
+* `param string` $user
+* `param string` $password
+* `return void`
+
 Change the logged in user mid-way through your test, this closes the
 current connection to the server and initialises and new connection.
 
@@ -277,7 +323,10 @@ $I->loginAs('user','password');
 
 
 #### makeDir
- 
+
+* `param string` $dirname
+* `return void`
+
 Create a directory on the server
 
 {% highlight php %}
@@ -289,7 +338,10 @@ $I->makeDir('vendor');
 
 
 #### openFile
- 
+
+* `param string` $filename
+* `return void`
+
 Opens a file (downloads from the remote FTP/SFTP system to a tmp directory for processing)
 and stores it's content.
 
@@ -305,7 +357,11 @@ $I->seeInThisFile('codeception/codeception');
 
 
 #### renameDir
- 
+
+* `param string` $dirname
+* `param string` $rename
+* `return void`
+
 Rename/Move directory on the FTP/SFTP server
 
 {% highlight php %}
@@ -317,7 +373,11 @@ $I->renameDir('vendor', 'vendor_old');
 
 
 #### renameFile
- 
+
+* `param string` $filename
+* `param string` $rename
+* `return void`
+
 Rename/Move file on the FTP/SFTP server
 
 {% highlight php %}
@@ -329,8 +389,12 @@ $I->renameFile('composer.lock', 'composer_old.lock');
 
 
 #### seeFileContentsEqual
- 
+
+* `param string` $text
+* `return void`
+
 Checks the strict matching of file contents.
+
 Unlike `seeInThisFile` will fail if file has something more than expected lines.
 Better to use with HEREDOC strings.
 Matching is done after removing "\r" chars from file content.
@@ -345,8 +409,13 @@ $I->seeFileContentsEqual('3192');
 
 
 #### seeFileFound
- 
+
+* `param string` $filename
+* `param string` $path
+* `return void`
+
 Checks if file exists in path on the remote FTP/SFTP system.
+
 DOES NOT OPEN the file when it's exists
 
 {% highlight php %}
@@ -358,8 +427,13 @@ $I->seeFileFound('UserModel.php','app/models');
 
 
 #### seeFileFoundMatches
- 
+
+* `param string` $regex
+* `param string` $path
+* `return void`
+
 Checks if file exists in path on the remote FTP/SFTP system, using regular expression as filename.
+
 DOES NOT OPEN the file when it's exists
 
  {% highlight php %}
@@ -371,7 +445,10 @@ $I->seeFileFoundMatches('/^UserModel_([0-9]{6}).php$/','app/models');
 
 
 #### seeInThisFile
- 
+
+* `param string` $text
+* `return void`
+
 Checks If opened file has `text` in it.
 
 Usage:
@@ -386,7 +463,10 @@ $I->seeInThisFile('codeception/codeception');
 
 
 #### seeNumberNewLines
- 
+
+* `param int` $number New lines
+* `return void`
+
 Checks If opened file has the `number` of new lines.
 
 Usage:
@@ -399,17 +479,23 @@ $I->seeNumberNewLines(5);
 
 {% endhighlight %}
 
- * `param int` $number New lines
-
 
 #### seeThisFileMatches
- 
+
+* `param string` $regex
+* `return void`
+
 Checks that contents of currently opened file matches $regex
 
 
 #### writeToFile
- 
+
+* `param string` $filename
+* `param string` $contents
+* `return void`
+
 Saves contents to tmp file and uploads the FTP/SFTP system.
+
 Overwrites current file on server if exists.
 
 {% highlight php %}

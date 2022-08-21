@@ -14,7 +14,14 @@ and can be used to autoload your `Helper`, `Page`, and `Step` classes.
 
 #### addNamespace()
 
- *public static* addNamespace($prefix, $baseDir, $prepend = false) 
+ *public static* addNamespace($prefix, $baseDir, $prepend = false)
+
+
+* `param string` $prefix The namespace prefix.
+* `param string` $baseDir A base directory for class files in the namespace.
+* `param bool` $prepend If true, prepend the base directory to the stack instead of appending it;
+                     this causes it to be searched first rather than last.
+* `return void`
 
 Adds a base directory for a namespace prefix.
 
@@ -33,16 +40,15 @@ Autoload::addNamespace('app\Codeception', '/path/to/controllers');
 
 {% endhighlight %}
 
- * `param string` $prefix The namespace prefix.
- * `param string` $baseDir A base directory for class files in the namespace.
- * `param bool` $prepend If true, prepend the base directory to the stack instead of appending it;
-                     this causes it to be searched first rather than last.
-
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Util/Autoload.php#L53)
 
 #### load()
 
- *public static* load($class) 
+ *public static* load($class)
+
+
+* `param string` $class
+* `return string|false`
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Util/Autoload.php#L80)
 

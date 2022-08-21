@@ -146,7 +146,11 @@ service.
 ### Actions
 
 #### addMessageToQueue
- 
+
+* `param string` $message Message Body
+* `param string` $queue Queue name
+* `return void`
+
 Add a message to a queue/tube
 
 {% highlight php %}
@@ -156,12 +160,12 @@ $I->addMessageToQueue('this is a messages', 'default');
 
 {% endhighlight %}
 
- * `param string` $message Message Body
- * `param string` $queue   Queue name
-
 
 #### clearQueue
- 
+
+* `param string` $queue Queue name
+* `return void`
+
 Clear all messages of the queue/tube
 
 {% highlight php %}
@@ -171,11 +175,12 @@ $I->clearQueue('default');
 
 {% endhighlight %}
 
- * `param string` $queue Queue name
-
 
 #### dontSeeEmptyQueue
- 
+
+* `param string` $queue Queue name
+* `return void`
+
 Check if a queue/tube is NOT empty of all messages
 
 {% highlight php %}
@@ -185,11 +190,12 @@ $I->dontSeeEmptyQueue('default');
 
 {% endhighlight %}
 
- * `param string` $queue Queue name
-
 
 #### dontSeeQueueExists
- 
+
+* `param string` $queue Queue name
+* `return void`
+
 Check if a queue/tube does NOT exist on the queueing server.
 
 {% highlight php %}
@@ -199,11 +205,13 @@ $I->dontSeeQueueExists('default');
 
 {% endhighlight %}
 
- * `param string` $queue Queue name
-
 
 #### dontSeeQueueHasCurrentCount
- 
+
+* `param string` $queue Queue name
+* `param int` $expected Number of messages expected
+* `return void`
+
 Check if a queue/tube does NOT have a given current number of messages
 
 {% highlight php %}
@@ -213,12 +221,13 @@ $I->dontSeeQueueHasCurrentCount('default', 10);
 
 {% endhighlight %}
 
- * `param string` $queue    Queue name
- * `param int`    $expected Number of messages expected
-
 
 #### dontSeeQueueHasTotalCount
- 
+
+* `param string` $queue Queue name
+* `param int` $expected Number of messages expected
+* `return void`
+
 Check if a queue/tube does NOT have a given total number of messages
 
 {% highlight php %}
@@ -228,12 +237,12 @@ $I->dontSeeQueueHasTotalCount('default', 10);
 
 {% endhighlight %}
 
- * `param string` $queue    Queue name
- * `param int`    $expected Number of messages expected
-
 
 #### grabQueueCurrentCount
- 
+
+* `param string` $queue Queue name
+* `return int` Count
+
 Grabber method to get the current number of messages on the queue/tube (pending/ready)
 
 {% highlight php %}
@@ -243,12 +252,12 @@ Grabber method to get the current number of messages on the queue/tube (pending/
 
 {% endhighlight %}
 
- * `param`  string $queue Queue name
- * `return int` Count
-
 
 #### grabQueueTotalCount
- 
+
+* `param string` $queue Queue name
+* `return int` Count
+
 Grabber method to get the total number of messages on the queue/tube
 
 {% highlight php %}
@@ -258,12 +267,11 @@ Grabber method to get the total number of messages on the queue/tube
 
 {% endhighlight %}
 
- * `param`  string $queue Queue name
- * `return int` Count
-
 
 #### grabQueues
- 
+
+* `return string[]` List of Queues/Tubes
+
 Grabber method to get the list of queues/tubes on the server
 
 {% highlight php %}
@@ -273,11 +281,12 @@ $queues = $I->grabQueues();
 
 {% endhighlight %}
 
- * `return string[]` List of Queues/Tubes
-
 
 #### seeEmptyQueue
- 
+
+* `param string` $queue Queue name
+* `return void`
+
 Check if a queue/tube is empty of all messages
 
 {% highlight php %}
@@ -287,11 +296,12 @@ $I->seeEmptyQueue('default');
 
 {% endhighlight %}
 
- * `param string` $queue Queue name
-
 
 #### seeQueueExists
- 
+
+* `param string` $queue Queue name
+* `return void`
+
 Check if a queue/tube exists on the queueing server.
 
 {% highlight php %}
@@ -301,11 +311,13 @@ $I->seeQueueExists('default');
 
 {% endhighlight %}
 
- * `param string` $queue Queue name
-
 
 #### seeQueueHasCurrentCount
- 
+
+* `param string` $queue Queue name
+* `param int` $expected Number of messages expected
+* `return void`
+
 Check if a queue/tube has a given current number of messages
 
 {% highlight php %}
@@ -315,12 +327,13 @@ $I->seeQueueHasCurrentCount('default', 10);
 
 {% endhighlight %}
 
- * `param string` $queue    Queue name
- * `param int`    $expected Number of messages expected
-
 
 #### seeQueueHasTotalCount
- 
+
+* `param string` $queue Queue name
+* `param int` $expected Number of messages expected
+* `return void`
+
 Check if a queue/tube has a given total number of messages
 
 {% highlight php %}
@@ -329,8 +342,5 @@ Check if a queue/tube has a given total number of messages
 $I->seeQueueHasTotalCount('default', 10);
 
 {% endhighlight %}
-
- * `param string` $queue    Queue name
- * `param int`    $expected Number of messages expected
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-queue/tree/master/src/Codeception/Module/Queue.php">Help us to improve documentation. Edit module reference</a></div>

@@ -32,12 +32,17 @@
     "codeception/module-yii2": "*",
     "codeception/util-robohelpers": "dev-master",
     "knplabs/github-api": "^3.0",
-    "guzzlehttp/guzzle": "^7.0.1",
-    "http-interop/http-factory-guzzle": "^1.0"
+    "guzzlehttp/guzzle": "^7.0.1"
   },
   "require-dev": {
-    "consolidation/robo": "3.x-dev"
+    "consolidation/robo": "dev-document-method-parameters"
   },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/Naktibalda/robo.git"
+    }
+  ],
   "config": {
     "platform": {
       "ext-phalcon": "4.1.1"

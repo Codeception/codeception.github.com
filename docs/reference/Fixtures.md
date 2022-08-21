@@ -22,25 +22,41 @@ Fixtures::exists('user1');
 
 #### add()
 
- *public static* add($name, $data) 
+ *public static* add($name, $data)
+
+
+* `param string` $name
+* `param ` $data
+* `return void`
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Util/Fixtures.php#L23)
 
 #### cleanup()
 
- *public static* cleanup($name = '') 
+ *public static* cleanup($name = '')
+
+
+* `param string` $name
+* `return void`
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Util/Fixtures.php#L37)
 
 #### exists()
 
- *public static* exists($name) 
+ *public static* exists($name)
+
+
+* `param string` $name
+* `return bool`
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Util/Fixtures.php#L47)
 
 #### get()
 
- *public static* get($name) 
+ *public static* get($name)
+
+
+* `param string` $name
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Util/Fixtures.php#L28)
 

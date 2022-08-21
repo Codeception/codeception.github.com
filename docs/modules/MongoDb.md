@@ -85,7 +85,12 @@ HINT: This module can be used with [Mongofill](https://github.com/mongofill/mong
 ### Actions
 
 #### dontSeeInCollection
- 
+
+* `param array<string,` $ mixed> $criteria
+* `param string` $collection
+* `param array` $criteria
+* `return void`
+
 Checks if collection doesn't contain an item.
 
 {% highlight php %}
@@ -95,11 +100,14 @@ $I->dontSeeInCollection('users', ['name' => 'miles']);
 
 {% endhighlight %}
 
- * `param array<string, mixed>` $criteria
-
 
 #### grabCollectionCount
- 
+
+* `param array<string,` $ mixed> $criteria
+* `param string` $collection
+* `param array` $criteria
+* `return int`
+
 Grabs the documents count from a collection
 
 {% highlight php %}
@@ -111,11 +119,14 @@ $count = $I->grabCollectionCount('users', ['isAdmin' => true]);
 
 {% endhighlight %}
 
- * `param array<string, mixed>` $criteria
-
 
 #### grabFromCollection
- 
+
+* `param array<string,` $ mixed> $criteria
+* `param string` $collection
+* `param array` $criteria
+* `return object|array|null`
+
 Grabs a data from collection
 
 {% highlight php %}
@@ -125,11 +136,14 @@ $user = $I->grabFromCollection('users', ['name' => 'miles']);
 
 {% endhighlight %}
 
- * `param array<string, mixed>` $criteria
-
 
 #### haveInCollection
- 
+
+* `param array<string,` $ mixed> $data
+* `param string` $collection
+* `param array` $data
+* `return string`
+
 Inserts data into collection
 
 {% highlight php %}
@@ -140,11 +154,15 @@ $user_id = $I->haveInCollection('users', ['email' => 'john@coltrane.com']);
 
 {% endhighlight %}
 
- * `param array<string, mixed>` $data
-
 
 #### seeElementIsArray
- 
+
+* `param array<string,` $ mixed> $criteria
+* `param string` $collection
+* `param array` $criteria
+* `param string` $elementToCheck
+* `return void`
+
 Asserts that an element in a collection exists and is an Array
 
 {% highlight php %}
@@ -154,11 +172,15 @@ $I->seeElementIsArray('users', ['name' => 'John Doe'], 'data.skills');
 
 {% endhighlight %}
 
- * `param array<string, mixed>` $criteria
-
 
 #### seeElementIsObject
- 
+
+* `param array<string,` $ mixed> $criteria
+* `param string` $collection
+* `param array` $criteria
+* `param string` $elementToCheck
+* `return void`
+
 Asserts that an element in a collection exists and is an Object
 
 {% highlight php %}
@@ -168,11 +190,14 @@ $I->seeElementIsObject('users', ['name' => 'John Doe'], 'data');
 
 {% endhighlight %}
 
- * `param array<string, mixed>` $criteria
-
 
 #### seeInCollection
- 
+
+* `param array<string,` $ mixed> $criteria
+* `param string` $collection
+* `param array` $criteria
+* `return void`
+
 Checks if collection contains an item.
 
 {% highlight php %}
@@ -182,11 +207,15 @@ $I->seeInCollection('users', ['name' => 'miles']);
 
 {% endhighlight %}
 
- * `param array<string, mixed>` $criteria
-
 
 #### seeNumElementsInCollection
- 
+
+* `param array<string,` $ mixed> $criteria
+* `param string` $collection
+* `param int` $expected
+* `param array` $criteria
+* `return void`
+
 Count number of records in a collection
 
 {% highlight php %}
@@ -197,11 +226,12 @@ $I->seeNumElementsInCollection('users', 1, ['name' => 'miles']);
 
 {% endhighlight %}
 
- * `param array<string, mixed>` $criteria
-
 
 #### useDatabase
- 
+
+* `param string` $dbName
+* `return void`
+
 Specify the database to use
 
 {% highlight php %}
