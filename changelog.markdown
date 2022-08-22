@@ -9,6 +9,15 @@ title: Codeception Changelog
 
 
 
+### module-rest 3.3.0: 3.3.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/08/22 07:11:50 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
+
+
+
+* Improved handling of boolean and null values in xpath methods ([#88](https://github.com/Codeception/module-rest/issues/88)) by **[pamoller](https://github.com/pamoller)**
+
+
 ### Codeception 5.0.2: 5.0.2
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/08/20 18:24:07 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
