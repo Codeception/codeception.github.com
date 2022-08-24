@@ -633,6 +633,15 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Fix constraint names
 
 
+### lib-innerbrowser 3.1.0: 3.1.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/11 10:18:41 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
+
+
+
+* Extracted constraints , exception and interfaces shared with module-webdriver to codeception/lib-web
+
+
 ### lib-xml 1.0.0: Initial release
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/11 10:04:52 / [Repository](https://github.com/Codeception/lib-xml)   / [Releases](https://github.com/Codeception/lib-xml/releases)
