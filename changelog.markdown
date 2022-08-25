@@ -1018,15 +1018,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Fixed E_DEPRECATED warnings in Example class on PHP 8.1 ([#6298](https://github.com/Codeception/Codeception/issues/6298)) by **[fabacino](https://github.com/fabacino)**
 
 
-### module-phpbrowser 2.0.2: 2.0.2
-
-Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/21 15:23:57 / [Repository](https://github.com/Codeception/module-phpbrowser)   / [Releases](https://github.com/Codeception/module-phpbrowser/releases)
-
-
-
-* **Small bug fix**: Fix some types (https://github.com/Codeception/module-phpbrowser/pull/21)
-
-
 ### lib-innerbrowser 2.0.1: 2.0.1
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/21 02:04:00 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
