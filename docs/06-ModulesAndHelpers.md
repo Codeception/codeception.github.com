@@ -3,6 +3,7 @@ layout: doc
 title: Modules And Helpers - Codeception Docs
 ---
 
+<div class="alert alert-success"><b>You are viewing docs for Codeception 5</b>. <a href="https://github.com/Codeception/codeception.github.com/blob/4.x/docs/06-ModulesAndHelpers.md">Switch to previous version of this guide</a> if you still use Codeception 4.x</div>
 
 # Modules and Helpers
 

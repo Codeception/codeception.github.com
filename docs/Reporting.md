@@ -4,6 +4,7 @@ title: Reporting - Codeception Docs
 ---
 
 
+
 ## Reporting
 
 Clear reports gives a picture of the current state of the system. Which tests are passed, which tests are failed, and if failed what was the reason. Reports may vary on the level of detail and by the technical information collected. Codeception provides as built-in reporters and customizable API to create your own reporter.      

@@ -4,6 +4,7 @@ title: Debugging - Codeception Docs
 ---
 
 
+
 # Debugging
 
 Writing a test is always the process of learning the code and the application.

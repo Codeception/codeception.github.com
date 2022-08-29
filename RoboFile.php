@@ -42,76 +42,7 @@ class RoboFile extends \Robo\Tasks
             ->push()
             ->run();
     }
-
-
-    /**
-     * builds docs for specific branch
-     */
-    function docsBranch($branch)
-    {
-        $this->yell("Creating docs for $branch");
-        $dir = "docs-$branch";
-
-        $this->taskGitStack()
-            ->cloneRepo('git@github.com:Codeception/Codeception.git', 'source')
-            ->run();
-
-        $this->taskGitStack()
-            ->dir('source')
-            ->checkout($branch)
-            ->run();
-
-        $this->taskCleanDir($dir)->run();
-
-        $this->taskWriteToFile("_includes/doc_$branch.html")
-            ->text('<div class="alert alert-danger">')
-            ->text('You are viewing documentation for Codeception <strong>' . $branch . '</strong>. ')
-            ->text('Switch to <a href="/docs">latest stable &raquo;</a>')
-            ->text('</div>')
-            ->run();
-
-
-        $indexFile = $this->taskWriteToFile($dir . '/index.md')
-            ->line('---')
-            ->line('layout: doc')
-            ->line("title: Codeception $branch Documentation")
-            ->line('---')
-            ->text("\n\n{% include doc_$branch.html %}\n\n\n")
-            ->line("# Codeception $branch Guides\n\n");
-
-        $guides = Finder::create()
-            ->ignoreVCS(true)
-            ->depth('== 0')
-            ->name('*.md')
-            ->sortByName()
-            ->in('source/docs');
-
-
-        foreach ($guides as $file) {
-            $contents = file_get_contents($file->getRealPath());
-            $name     = substr($file->getBasename(), 0, -3);
-            $title    = preg_replace("(\d+-)", '', $name);
-            if (preg_match('/^# (.*)$/m', $contents, $matches)) {
-                $title = $matches[1];
-            }
-            $indexFile->line("* [$title](/$dir/$name)");
-
-            $this->taskWriteToFile($dir . '/' . $file->getBasename())
-                ->line('---')
-                ->line('layout: doc')
-                ->line('title: Codeception Documentation')
-                ->line('---')
-                ->line('')
-                ->line('')
-                ->text("{% include doc_$branch.html %}")
-                ->line('')
-                ->line('')
-                ->text($contents)
-                ->run();
-        }
-        $indexFile->run();
-        // $this->taskDeleteDir('source')->run();
-    }
+    
 
     /**
      * @desc generates modules reference from source files
@@ -138,6 +69,9 @@ class RoboFile extends \Robo\Tasks
             ->sortByName()
             ->in('guides');
 
+        $prevVersionDocs = [
+            '01-Introduction.md', '02-GettingStarted.md', '03-AcceptanceTests.md', '04-FunctionalTests.md', '05-UnitTests.md', '06-ModulesAndHelpers.md', '06-ReusingTestCode.md', '07-AdvancedUsage.md', '07-BDD.md', '08-Customization.md', '09-Data.md', '10-APITesting.md', '11-Codecoverage.md', '12-ContinuousIntegration.md', '12-ParallelExecution.md','APITesting', 'AcceptanceTests', 'AdvancedUsage', 'BDD', 'Codecoverage', 'ContinuousIntegration', 'Customization', 'Data', 'Debugging', 'FunctionalTests', 'GettingStarted', 'Introduction', 'ModulesAndHelpers', 'ParallelExecution', 'Reporting', 'ReusingTestCode', 'UnitTests',
+        ];
         $guidesLinks = [];
 
         foreach ($guides as $file) {
@@ -150,6 +84,7 @@ class RoboFile extends \Robo\Tasks
             $title = preg_replace('/([a-z\d])([A-Z])/', '\\1 \\2', $title);
 
             $contents = file_get_contents($file->getPathname());
+            $pervVersionLink = in_array($file->getBasename(), $prevVersionDocs) ? '<div class="alert alert-success"><b>You are viewing docs for Codeception 5</b>. <a href="https://github.com/Codeception/codeception.github.com/blob/4.x/docs/' . $file->getBasename() . '">Switch to previous version of this guide</a> for Codeception 4.x</div>' : '';
 
             foreach ([$file->getBasename(), $titleName . '.md'] as $filename) {
                 $this->taskWriteToFile('docs/' . $filename)
@@ -158,6 +93,7 @@ class RoboFile extends \Robo\Tasks
                     ->line("title: $title - Codeception Docs")
                     ->line('---')
                     ->line('')
+                    ->line($pervVersionLink)
                     ->line('')
                     ->text($contents)
                     ->line('')
