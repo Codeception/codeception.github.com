@@ -128,7 +128,8 @@ To send a request with custom method use `send` action:
 
 ```php
 <?php
-$response = $I->send('TRACE', '/posts');```
+$response = $I->send('TRACE', '/posts');
+```
 
 > sendAsJson methods were introduced in module-rest 1.4.1
 
@@ -138,7 +139,8 @@ In this case `Content-Type` header is sent with `application/json` value and res
 ```php$I->sendPostAsJson('/users', ['name' => 'old name']);
 $users = $I->sendGetAsJson('/users');
 $I->sendPutAsJson('/users/' . $users[0]['id'], ['name' => 'new name']);
-$I->sendDeleteAsJson('/users/' . $users[1]['id']);```
+$I->sendDeleteAsJson('/users/' . $users[1]['id']);
+```
 
 To enable steps with `AsJson` suffix enable `Codeception\Step\AsJson` step decorator in suite config:
 
