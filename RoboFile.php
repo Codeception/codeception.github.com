@@ -84,7 +84,7 @@ class RoboFile extends \Robo\Tasks
             $title = preg_replace('/([a-z\d])([A-Z])/', '\\1 \\2', $title);
 
             $contents = file_get_contents($file->getPathname());
-            $pervVersionLink = in_array($file->getBasename(), $prevVersionDocs) ? '<div class="alert alert-success"><b>You are viewing docs for Codeception 5</b>. <a href="https://github.com/Codeception/codeception.github.com/blob/4.x/docs/' . $file->getBasename() . '">Switch to previous version of this guide</a> for Codeception 4.x</div>' : '';
+            $pervVersionLink = in_array($file->getBasename(), $prevVersionDocs) ? '<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="https://github.com/Codeception/codeception.github.com/blob/4.x/docs/' . $file->getBasename() . '">Read for 4.x</a></div>' : '';
 
             foreach ([$file->getBasename(), $titleName . '.md'] as $filename) {
                 $this->taskWriteToFile('docs/' . $filename)
