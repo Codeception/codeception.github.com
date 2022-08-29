@@ -3,7 +3,7 @@ layout: doc
 title: API Testing - Codeception Docs
 ---
 
-<div class="alert alert-success"><b>You are viewing docs for Codeception 5</b>. <a href="https://github.com/Codeception/codeception.github.com/blob/4.x/docs/10-APITesting.md">Switch to previous version of this guide</a> if you still use Codeception 4.x</div>
+<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="https://github.com/Codeception/codeception.github.com/blob/4.x/docs/10-APITesting.md">Read for 4.x</a></div>
 
 # API Testing
 
@@ -135,7 +135,8 @@ To send a request with custom method use `send` action:
 
 ```php
 <?php
-$response = $I->send('TRACE', '/posts');```
+$response = $I->send('TRACE', '/posts');
+```
 
 > sendAsJson methods were introduced in module-rest 1.4.1
 
@@ -145,7 +146,8 @@ In this case `Content-Type` header is sent with `application/json` value and res
 ```php$I->sendPostAsJson('/users', ['name' => 'old name']);
 $users = $I->sendGetAsJson('/users');
 $I->sendPutAsJson('/users/' . $users[0]['id'], ['name' => 'new name']);
-$I->sendDeleteAsJson('/users/' . $users[1]['id']);```
+$I->sendDeleteAsJson('/users/' . $users[1]['id']);
+```
 
 To enable steps with `AsJson` suffix enable `Codeception\Step\AsJson` step decorator in suite config:
 
