@@ -156,8 +156,6 @@ $editLinks = $this->getModule('Laravel')->_findElements(['link' => 'Edit']);
 WebDriver module returns `Facebook\WebDriver\Remote\RemoteWebElement` instances
 PhpBrowser and Framework modules return `Symfony\Component\DomCrawler\Crawler` instances
 
- * `param` $locator
- * `return array` of interactive elements
 
 
 #### _getResponseContent
@@ -178,7 +176,6 @@ public function seeResponseContains($text)
 
 {% endhighlight %}
 
- * `return string` 
 @throws ModuleException
 
 
@@ -199,9 +196,6 @@ public function openCheckoutFormStep2($orderId) {
 
 {% endhighlight %}
 
- * `param string` $method
- * `param string` $uri
- * `param string` $content
 
 
 #### _request
@@ -226,11 +220,7 @@ public function createUserByApi($name) {
 Does not load the response into the module so you can't interact with response page (click, fill forms).
 To load arbitrary page for interaction, use `_loadPage` method.
 
- * `param string` $method
- * `param string` $uri
- * `param string` $content
- * `return string` 
-@throws ExternalUrlException
+@throws ExternalUrlException|ModuleException
 @see `_loadPage`
 
 
@@ -245,7 +235,6 @@ Saves page source of to a file
 $this->getModule('Laravel')->_savePageSource(codecept_output_dir().'page.html');
 
 {% endhighlight %}
- * `param` $filename
 
 
 #### amActingAs
@@ -263,9 +252,6 @@ $I->amActingAs($user);
 #### amHttpAuthenticated
  
 Authenticates user for HTTP_AUTH
-
- * `param string` $username
- * `param string` $password
 
 
 #### amLoggedAs
@@ -322,8 +308,6 @@ $I->amOnPage('/');
 $I->amOnPage('/register');
 
 {% endhighlight %}
-
- * `param string` $page
 
 
 #### amOnRoute
@@ -392,12 +376,8 @@ Attaches a file relative to the Codeception `_data` directory to the given file 
 <?php
 // file is stored in 'tests/_data/prices.xls'
 $I->attachFile('input[@type="file"]', 'prices.xls');
-?>
 
 {% endhighlight %}
-
- * `param` $field
- * `param` $filename
 
 
 #### callArtisan
@@ -424,11 +404,8 @@ Ticks a checkbox. For radio buttons, use the `selectOption` method instead.
 
 <?php
 $I->checkOption('#agree');
-?>
 
 {% endhighlight %}
-
- * `param` $option
 
 
 #### clearApplicationHandlers
@@ -470,12 +447,9 @@ $I->click('//form/*[@type="submit"]');
 $I->click('Logout', '#nav');
 // using strict locator
 $I->click(['link' => 'Login']);
-?>
 
 {% endhighlight %}
-
- * `param` $link
- * `param` $context
+ * `param string|array` $link
 
 
 #### deleteHeader
@@ -579,7 +553,6 @@ But will ignore strings like:
 
 For checking the raw source code, use `seeInSource()`.
 
- * `param string` $text
  * `param array|string` $selector optional
 
 
@@ -604,11 +577,8 @@ Check that the specified checkbox is unchecked.
 <?php
 $I->dontSeeCheckboxIsChecked('#agree'); // I suppose user didn't agree to terms
 $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user didn't check the first checkbox in form.
-?>
 
 {% endhighlight %}
-
- * `param` $checkbox
 
 
 #### dontSeeCookie
@@ -616,9 +586,7 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
 Checks that there isn't a cookie with the given name.
 You can set additional cookie params like `domain`, `path` as array passed in last argument.
 
- * `param` $cookie
-
- * `param array` $params
+ * `return mixed|void` 
 
 
 #### dontSeeCurrentUrlEquals
@@ -631,11 +599,8 @@ Unlike `dontSeeInCurrentUrl`, this only matches the full URL.
 <?php
 // current url is not root
 $I->dontSeeCurrentUrlEquals('/');
-?>
 
 {% endhighlight %}
-
- * `param string` $uri
 
 
 #### dontSeeCurrentUrlMatches
@@ -647,11 +612,8 @@ Checks that current url doesn't match the given regular expression.
 <?php
 // to match root url
 $I->dontSeeCurrentUrlMatches('~^/users/(\d+)~');
-?>
 
 {% endhighlight %}
-
- * `param string` $uri
 
 
 #### dontSeeElement
@@ -666,12 +628,8 @@ $I->dontSeeElement('.error');
 $I->dontSeeElement('//form/input[1]');
 $I->dontSeeElement('input', ['name' => 'login']);
 $I->dontSeeElement('input', ['value' => '123456']);
-?>
 
 {% endhighlight %}
-
- * `param` $selector
- * `param array` $attributes
 
 
 #### dontSeeEventTriggered
@@ -709,11 +667,8 @@ Checks that the current URI doesn't contain the given string.
 
 <?php
 $I->dontSeeInCurrentUrl('/users/');
-?>
 
 {% endhighlight %}
-
- * `param string` $uri
 
 
 #### dontSeeInField
@@ -730,12 +685,9 @@ $I->dontSeeInField('form input[type=hidden]','hidden_value');
 $I->dontSeeInField('#searchform input','Search');
 $I->dontSeeInField('//form/*[@name=search]','Search');
 $I->dontSeeInField(['name' => 'search'], 'Search');
-?>
 
 {% endhighlight %}
-
- * `param` $field
- * `param` $value
+ * `param string|array` $field
 
 
 #### dontSeeInFormFields
@@ -750,7 +702,6 @@ $I->dontSeeInFormFields('form[name=myform]', [
      'input1' => 'non-existent value',
      'input2' => 'other non-existent value',
 ]);
-?>
 
 {% endhighlight %}
 
@@ -766,7 +717,6 @@ $I->dontSeeInFormFields('.form-class', [
          'And this value shouldn\'t be set',
      ],
 ]);
-?>
 
 {% endhighlight %}
 
@@ -779,12 +729,8 @@ $I->dontSeeInFormFields('#form-id', [
      'checkbox1' => true,        // fails if checked
      'checkbox2' => false,       // fails if unchecked
 ]);
-?>
 
 {% endhighlight %}
-
- * `param` $formSelector
- * `param` $params
 
 
 #### dontSeeInSession
@@ -815,15 +761,12 @@ $I->dontSeeInSource('<h1>Green eggs &amp; ham</h1>');
 
 {% endhighlight %}
 
- * `param`      $raw
-
 
 #### dontSeeInTitle
  
 Checks that the page title does not contain the given string.
 
- * `param` $title
-
+ * `return mixed|void` 
 
 
 #### dontSeeLink
@@ -836,12 +779,8 @@ If the second parameter is given, only links with a matching "href" attribute wi
 <?php
 $I->dontSeeLink('Logout'); // I suppose user is not logged in
 $I->dontSeeLink('Checkout now', '/store/cart.php');
-?>
 
 {% endhighlight %}
-
- * `param string` $text
- * `param string` $url optional
 
 
 #### dontSeeOptionIsSelected
@@ -852,13 +791,10 @@ Checks that the given option is not selected.
 
 <?php
 $I->dontSeeOptionIsSelected('#form input[name=payment]', 'Visa');
-?>
 
 {% endhighlight %}
 
- * `param` $selector
- * `param` $optionText
-
+ * `return mixed|void` 
 
 
 #### dontSeeRecord
@@ -893,7 +829,6 @@ $I->dontSeeResponseCodeIs(200);
 $I->dontSeeResponseCodeIs(\Codeception\Util\HttpCode::OK);
 
 {% endhighlight %}
- * `param int` $code
 
 
 #### dontSeeSessionHasValues
@@ -944,12 +879,8 @@ Fills a text field or textarea with the given string.
 <?php
 $I->fillField("//input[@type='text']", "Hello World!");
 $I->fillField(['name' => 'email'], 'jon@example.com');
-?>
 
 {% endhighlight %}
-
- * `param` $field
- * `param` $value
 
 
 #### flushSession
@@ -976,7 +907,6 @@ $I->followRedirect();
 {% endhighlight %}
 
 
-
 #### getApplication
  
 Provides access the Laravel application object.
@@ -998,13 +928,8 @@ Fails if element is not found.
 
 <?php
 $I->grabAttributeFrom('#tooltip', 'title');
-?>
 
 {% endhighlight %}
-
- * `param` $cssOrXpath
- * `param` $attribute
-
 
 
 #### grabCookie
@@ -1012,10 +937,6 @@ $I->grabAttributeFrom('#tooltip', 'title');
 Grabs a cookie value.
 You can set additional cookie params like `domain`, `path` in array passed as last argument.
 If the cookie is set by an ajax request (XMLHttpRequest), there might be some delay caused by the browser, so try `$I->wait(0.1)`.
-
- * `param` $cookie
-
- * `param array` $params
 
 
 #### grabFromCurrentUrl
@@ -1028,12 +949,8 @@ If no parameters are provided, the full URI is returned.
 <?php
 $user_id = $I->grabFromCurrentUrl('~^/user/(\d+)/~');
 $uri = $I->grabFromCurrentUrl();
-?>
 
 {% endhighlight %}
-
- * `param string` $uri optional
-
 
 
 #### grabMultiple
@@ -1057,12 +974,9 @@ $aLinkText = $I->grabMultiple('a');
 
 // would return ['#first', '#second', '#third']
 $aLinks = $I->grabMultiple('a', 'href');
-?>
 
 {% endhighlight %}
 
- * `param` $cssOrXpath
- * `param` $attribute
  * `return string[]` 
 
 
@@ -1144,19 +1058,24 @@ and by matching the full page source by regular expression.
 $heading = $I->grabTextFrom('h1');
 $heading = $I->grabTextFrom('descendant-or-self::h1');
 $value = $I->grabTextFrom('~<input value=(.*?)]~sgi'); // match with a regex
-?>
 
 {% endhighlight %}
-
- * `param` $cssOrXPathOrRegex
-
 
 
 #### grabValueFrom
  
- * `param` $field
+Finds the value for the given form field.
+If a fuzzy locator is used, the field is found by field name, CSS, and XPath.
 
- * `return array|mixed|null|string` 
+{% highlight php %}
+
+<?php
+$name = $I->grabValueFrom('Name');
+$name = $I->grabValueFrom('input[name=username]');
+$name = $I->grabValueFrom('descendant-or-self::form/descendant::input[@name = 'username']');
+$name = $I->grabValueFrom(['name' => 'username']);
+
+{% endhighlight %}
 
 
 #### have
@@ -1336,8 +1255,6 @@ Sets SERVER parameter valid for all next requests.
 $I->haveServerParameter('name', 'value');
 
 {% endhighlight %}
- * `param string` $name
- * `param string` $value
 
 
 #### haveSingleton
@@ -1401,8 +1318,6 @@ $I->makeHtmlSnapshot();
 
 {% endhighlight %}
 
- * `param null` $name
-
 
 #### makeMultiple
  
@@ -1435,9 +1350,7 @@ Moves back in history.
 Unsets cookie with the given name.
 You can set additional cookie params like `domain`, `path` in array passed as last argument.
 
- * `param` $cookie
-
- * `param array` $params
+ * `return mixed|void` 
 
 
 #### see
@@ -1471,7 +1384,6 @@ But will *not* be true for strings like:
 
 For checking the raw source code, use `seeInSource()`.
 
- * `param string` $text
  * `param array|string` $selector optional
 
 
@@ -1497,11 +1409,8 @@ Checks that the specified checkbox is checked.
 $I->seeCheckboxIsChecked('#agree'); // I suppose user agreed to terms
 $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user agreed to terms, If there is only one checkbox in form.
 $I->seeCheckboxIsChecked('//form/input[@type=checkbox and @name=agree]');
-?>
 
 {% endhighlight %}
-
- * `param` $checkbox
 
 
 #### seeCookie
@@ -1513,12 +1422,10 @@ You can set additional cookie params like `domain`, `path` as array passed in la
 
 <?php
 $I->seeCookie('PHPSESSID');
-?>
 
 {% endhighlight %}
 
- * `param` $cookie
- * `param array` $params
+ * `return mixed|void` 
 
 
 #### seeCurrentActionIs
@@ -1559,11 +1466,8 @@ Unlike `seeInCurrentUrl`, this only matches the full URL.
 <?php
 // to match root url
 $I->seeCurrentUrlEquals('/');
-?>
 
 {% endhighlight %}
-
- * `param string` $uri
 
 
 #### seeCurrentUrlMatches
@@ -1575,11 +1479,8 @@ Checks that the current URL matches the given regular expression.
 <?php
 // to match root url
 $I->seeCurrentUrlMatches('~^/users/(\d+)~');
-?>
 
 {% endhighlight %}
-
- * `param string` $uri
 
 
 #### seeElement
@@ -1597,12 +1498,8 @@ $I->seeElement('input', ['value' => '123456']);
 
 // strict locator in first arg, attributes in second
 $I->seeElement(['css' => 'form input'], ['name' => 'login']);
-?>
 
 {% endhighlight %}
-
- * `param` $selector
- * `param array` $attributes
 
 
 #### seeEventTriggered
@@ -1696,11 +1593,8 @@ Checks that current URI contains the given string.
 $I->seeInCurrentUrl('home');
 // to match: /users/1
 $I->seeInCurrentUrl('/users/');
-?>
 
 {% endhighlight %}
-
- * `param string` $uri
 
 
 #### seeInField
@@ -1717,12 +1611,10 @@ $I->seeInField('form input[type=hidden]','hidden_value');
 $I->seeInField('#searchform input','Search');
 $I->seeInField('//form/*[@name=search]','Search');
 $I->seeInField(['name' => 'search'], 'Search');
-?>
 
 {% endhighlight %}
 
- * `param` $field
- * `param` $value
+ * `param string|array` $field
 
 
 #### seeInFormFields
@@ -1737,7 +1629,6 @@ $I->seeInFormFields('form[name=myform]', [
      'input1' => 'value',
      'input2' => 'other value',
 ]);
-?>
 
 {% endhighlight %}
 
@@ -1757,7 +1648,6 @@ $I->seeInFormFields('.form-class', [
          'another checked value',
      ],
 ]);
-?>
 
 {% endhighlight %}
 
@@ -1770,7 +1660,6 @@ $I->seeInFormFields('#form-id', [
      'checkbox1' => true,        // passes if checked
      'checkbox2' => false,       // passes if unchecked
 ]);
-?>
 
 {% endhighlight %}
 
@@ -1785,15 +1674,11 @@ $form = [
      'checkbox1' => true,
      // ...
 ];
-$I->submitForm('//form[@id=my-form]', $form, 'submitButton');
+$I->submitForm('//form[@id=my-form]', string $form, 'submitButton');
 // $I->amOnPage('/path/to/form-page') may be needed
-$I->seeInFormFields('//form[@id=my-form]', $form);
-?>
+$I->seeInFormFields('//form[@id=my-form]', string $form);
 
 {% endhighlight %}
-
- * `param` $formSelector
- * `param` $params
 
 
 #### seeInSession
@@ -1824,8 +1709,6 @@ $I->seeInSource('<h1>Green eggs &amp; ham</h1>');
 
 {% endhighlight %}
 
- * `param`      $raw
-
 
 #### seeInTitle
  
@@ -1835,12 +1718,10 @@ Checks that the page title contains the given string.
 
 <?php
 $I->seeInTitle('Blog - Post #1');
-?>
 
 {% endhighlight %}
 
- * `param` $title
-
+ * `return mixed|void` 
 
 
 #### seeLink
@@ -1853,12 +1734,8 @@ Give a full URL as the second parameter to match links with that exact URL.
 <?php
 $I->seeLink('Logout'); // matches <a href="#">Logout</a>
 $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
-?>
 
 {% endhighlight %}
-
- * `param string` $text
- * `param string` $url optional
 
 
 #### seeNumRecords
@@ -1886,11 +1763,10 @@ Checks that there are a certain number of elements matched by the given locator 
 <?php
 $I->seeNumberOfElements('tr', 10);
 $I->seeNumberOfElements('tr', [0,10]); // between 0 and 10 elements
-?>
 
 {% endhighlight %}
- * `param` $selector
- * `param mixed` $expected int or int[]
+
+ * `param int|int[]` $expected
 
 
 #### seeOptionIsSelected
@@ -1901,13 +1777,10 @@ Checks that the given option is selected.
 
 <?php
 $I->seeOptionIsSelected('#form input[name=payment]', 'Visa');
-?>
 
 {% endhighlight %}
 
- * `param` $selector
- * `param` $optionText
-
+ * `return mixed|void` 
 
 
 #### seePageNotFound
@@ -1948,15 +1821,10 @@ $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK);
 
 {% endhighlight %}
 
- * `param int` $code
-
 
 #### seeResponseCodeIsBetween
  
 Checks that response code is between a certain range. Between actually means [from <= CODE <= to]
-
- * `param int` $from
- * `param int` $to
 
 
 #### seeResponseCodeIsClientError
@@ -2009,7 +1877,6 @@ Selects an option in a select tag or in radio button group.
 $I->selectOption('form select[name=account]', 'Premium');
 $I->selectOption('form input[name=payment]', 'Monthly');
 $I->selectOption('//form/select[@name=account]', 'Monthly');
-?>
 
 {% endhighlight %}
 
@@ -2019,7 +1886,6 @@ Provide an array for the second argument to select multiple options:
 
 <?php
 $I->selectOption('Which OS do you use?', array('Windows','Linux'));
-?>
 
 {% endhighlight %}
 
@@ -2030,21 +1896,14 @@ Or provide an associative array for the second argument to specifically define w
 <?php
 $I->selectOption('Which OS do you use?', array('text' => 'Windows')); // Only search by text 'Windows'
 $I->selectOption('Which OS do you use?', array('value' => 'windows')); // Only search by value 'windows'
-?>
 
 {% endhighlight %}
-
- * `param` $select
- * `param` $option
 
 
 #### sendAjaxGetRequest
  
 Sends an ajax GET request with the passed parameters.
 See `sendAjaxPostRequest()`
-
- * `param` $uri
- * `param` $params
 
 
 #### sendAjaxPostRequest
@@ -2072,9 +1931,6 @@ $I->sendAjaxPostRequest('/add-task', ['form' => [
 
 {% endhighlight %}
 
- * `param string` $uri
- * `param array` $params
-
 
 #### sendAjaxRequest
  
@@ -2087,10 +1943,6 @@ Example:
 $I->sendAjaxRequest('PUT', '/posts/7', ['title' => 'new title']);
 
 {% endhighlight %}
-
- * `param` $method
- * `param` $uri
- * `param array` $params
 
 
 #### setApplication
@@ -2106,14 +1958,10 @@ You can set additional cookie params like `domain`, `path`, `expires`, `secure` 
 
 <?php
 $I->setCookie('PHPSESSID', 'el4ukv0kqbvoirg7nkp4dncpk3');
-?>
 
 {% endhighlight %}
 
- * `param` $name
- * `param` $val
- * `param array` $params
-
+ * `return mixed|void` 
 
 
 #### setMaxRedirects
@@ -2126,8 +1974,6 @@ Sets the maximum number of redirects that the Client can follow.
 $I->setMaxRedirects(2);
 
 {% endhighlight %}
-
- * `param int` $maxRedirects
 
 
 #### setServerParameters
@@ -2154,7 +2000,6 @@ $I->startFollowingRedirects();
 {% endhighlight %}
 
 
-
 #### stopFollowingRedirects
  
 Prevents automatic redirects to be followed by the client.
@@ -2165,7 +2010,6 @@ Prevents automatic redirects to be followed by the client.
 $I->stopFollowingRedirects();
 
 {% endhighlight %}
-
 
 
 #### submitForm
@@ -2357,10 +2201,6 @@ $I->submitForm('#my-form', [
 
 {% endhighlight %}
 
- * `param` $selector
- * `param` $params
- * `param` $button
-
 
 #### switchToIframe
  
@@ -2381,8 +2221,6 @@ $I->switchToIframe("another_frame");
 
 {% endhighlight %}
 
- * `param string` $name
-
 
 #### uncheckOption
  
@@ -2392,10 +2230,7 @@ Unticks a checkbox.
 
 <?php
 $I->uncheckOption('#notify');
-?>
 
 {% endhighlight %}
-
- * `param` $option
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-laravel/tree/master/src/Codeception/Module/Laravel.php">Help us to improve documentation. Edit module reference</a></div>

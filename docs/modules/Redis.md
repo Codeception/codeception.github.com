@@ -150,7 +150,7 @@ $I->dontSeeRedisKeyContains('example:hash', 'magic', 32);
 
  * `param string` $key       The key
  * `param mixed`  $item      The item
- * `param null`   $itemValue Optional and only used for zsets and hashes. If
+ * `param mixed`  $itemValue Optional and only used for zsets and hashes. If
 specified, the method will also check that the $item has this value/score
 
 
@@ -193,8 +193,6 @@ $I->grabFromRedis('example:hash', 'foo');
 {% endhighlight %}
 
  * `param string` $key The key name
-
- * `return array|string|null` 
 
 @throws ModuleException if the key does not exist
 
@@ -305,7 +303,7 @@ $I->seeRedisKeyContains('example:hash', 'magic', 32);
 
  * `param string` $key       The key
  * `param mixed`  $item      The item
- * `param null`   $itemValue Optional and only used for zsets and hashes. If
+ * `param mixed`  $itemValue Optional and only used for zsets and hashes. If
 specified, the method will also check that the $item has this value/score
 
 
@@ -329,6 +327,5 @@ $I->sendCommandToRedis('flushdb');
 {% endhighlight %}
 
  * `param string` $command The command name
-
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-redis/tree/master/src/Codeception/Module/Redis.php">Help us to improve documentation. Edit module reference</a></div>

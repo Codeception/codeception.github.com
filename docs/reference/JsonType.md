@@ -27,7 +27,6 @@ $jsonType->matches([
 $jsonType->matches([
   'id' => 'string',
 ]); // => `id: 1` is not of type string
-?>
 
 {% endhighlight %}
 
@@ -43,9 +42,9 @@ Creates instance of JsonType
 Pass an array or `\Codeception\Util\JsonArray` with data.
 If non-associative array is passed - the very first element of it will be used for matching.
 
- * `param` $jsonArray array|\Codeception\Util\JsonArray
+ * `param` $jsonArray array|JsonArray
 
-[See source](https://github.com/Codeception/module-rest/blob/master/src/Codeception/Util/JsonType.php#L43)
+[See source](https://github.com/Codeception/module-rest/blob/master/src/Codeception/Util/JsonType.php#L47)
 
 #### addCustomFilter()
 
@@ -70,14 +69,10 @@ JsonType::addCustomFilter('/len\((.*?)\)/', function($value, $len) {
   return strlen($value) == $len;
 });
 // use it as 'string:len(5)'
-?>
 
 {% endhighlight %}
 
- * `param`          $name
- * `param callable` $callable
-
-[See source](https://github.com/Codeception/module-rest/blob/master/src/Codeception/Util/JsonType.php#L76)
+[See source](https://github.com/Codeception/module-rest/blob/master/src/Codeception/Util/JsonType.php#L77)
 
 #### cleanCustomFilters()
 
@@ -85,7 +80,7 @@ JsonType::addCustomFilter('/len\((.*?)\)/', function($value, $len) {
 
 Removes all custom filters
 
-[See source](https://github.com/Codeception/module-rest/blob/master/src/Codeception/Util/JsonType.php#L84)
+[See source](https://github.com/Codeception/module-rest/blob/master/src/Codeception/Util/JsonType.php#L85)
 
 #### matches()
 
@@ -95,9 +90,6 @@ Checks data against passed JsonType.
 If matching fails function returns a string with a message describing failure.
 On success returns `true`.
 
- * `param array` $jsonType
- * `return` bool|string
-
-[See source](https://github.com/Codeception/module-rest/blob/master/src/Codeception/Util/JsonType.php#L97)
+[See source](https://github.com/Codeception/module-rest/blob/master/src/Codeception/Util/JsonType.php#L95)
 
 <p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/module-rest/blob/master/src/Codeception/Util/JsonType.php">Help us to improve documentation. Edit module reference</a></div>

@@ -122,8 +122,6 @@ This module extends the Filesystem module, file contents methods are inherited f
  
 Enters a directory on the ftp system - FTP root directory is used by default
 
- * `param` $path
-
 
 #### cleanDir
  
@@ -133,19 +131,13 @@ Erases directory contents on the FTP/SFTP server
 
 <?php
 $I->cleanDir('logs');
-?>
 
 {% endhighlight %}
-
- * `param` $dirname
 
 
 #### copyDir
  
 Currently not supported in this module, overwrite inherited method
-
- * `param` $src
- * `param` $dst
 
 
 #### deleteDir
@@ -156,11 +148,8 @@ Deletes directory with all subdirectories on the remote FTP/SFTP server
 
 <?php
 $I->deleteDir('vendor');
-?>
 
 {% endhighlight %}
-
- * `param` $dirname
 
 
 #### deleteFile
@@ -171,11 +160,8 @@ Deletes a file on the remote FTP/SFTP system
 
 <?php
 $I->deleteFile('composer.lock');
-?>
 
 {% endhighlight %}
-
- * `param` $filename
 
 
 #### deleteThisFile
@@ -187,17 +173,11 @@ Deletes a file
  
 Checks if file does not exist in path on the remote FTP/SFTP system
 
- * `param` $filename
- * `param string` $path
-
 
 #### dontSeeFileFoundMatches
  
 Checks if file does not exist in path on the remote FTP/SFTP system, using regular expression as filename.
 DOES NOT OPEN the file when it's exists
-
- * `param` $regex
- * `param string` $path
 
 
 #### dontSeeInThisFile
@@ -209,11 +189,8 @@ Checks If opened file doesn't contain `text` in it
 <?php
 $I->openFile('composer.json');
 $I->dontSeeInThisFile('codeception/codeception');
-?>
 
 {% endhighlight %}
-
- * `param string` $text
 
 
 #### grabDirectory
@@ -224,11 +201,8 @@ Grabber method to return current working directory
 
 <?php
 $pwd = $I->grabDirectory();
-?>
 
 {% endhighlight %}
-
- * `return string` 
 
 
 #### grabFileCount
@@ -240,13 +214,10 @@ Grabber method for returning file/folders count in directory
 <?php
 $count = $I->grabFileCount();
 $count = $I->grabFileCount('TEST', false); // Include . .. .thumbs.db
-?>
 
 {% endhighlight %}
 
- * `param string` $path
  * `param bool` $ignore - suppress '.', '..' and '.thumbs.db'
- * `return int` 
 
 
 #### grabFileList
@@ -258,13 +229,10 @@ Grabber method for returning file/folders listing in an array
 <?php
 $files = $I->grabFileList();
 $count = $I->grabFileList('TEST', false); // Include . .. .thumbs.db
-?>
 
 {% endhighlight %}
 
- * `param string` $path
  * `param bool` $ignore - suppress '.', '..' and '.thumbs.db'
- * `return array` 
 
 
 #### grabFileModified
@@ -275,12 +243,8 @@ Grabber method to return last modified timestamp
 
 <?php
 $time = $I->grabFileModified('test.txt');
-?>
 
 {% endhighlight %}
-
- * `param` $filename
- * `return bool` 
 
 
 #### grabFileSize
@@ -291,12 +255,8 @@ Grabber method to return file size
 
 <?php
 $size = $I->grabFileSize('test.txt');
-?>
 
 {% endhighlight %}
-
- * `param` $filename
- * `return bool` 
 
 
 #### loginAs
@@ -312,12 +272,8 @@ to anonymous user if not provided.
 
 <?php
 $I->loginAs('user','password');
-?>
 
 {% endhighlight %}
-
- * `param String` $user
- * `param String` $password
 
 
 #### makeDir
@@ -328,11 +284,8 @@ Create a directory on the server
 
 <?php
 $I->makeDir('vendor');
-?>
 
 {% endhighlight %}
-
- * `param` $dirname
 
 
 #### openFile
@@ -347,11 +300,8 @@ Usage:
 <?php
 $I->openFile('composer.json');
 $I->seeInThisFile('codeception/codeception');
-?>
 
 {% endhighlight %}
-
- * `param` $filename
 
 
 #### renameDir
@@ -362,12 +312,8 @@ Rename/Move directory on the FTP/SFTP server
 
 <?php
 $I->renameDir('vendor', 'vendor_old');
-?>
 
 {% endhighlight %}
-
- * `param` $dirname
- * `param` $rename
 
 
 #### renameFile
@@ -378,12 +324,8 @@ Rename/Move file on the FTP/SFTP server
 
 <?php
 $I->renameFile('composer.lock', 'composer_old.lock');
-?>
 
 {% endhighlight %}
-
- * `param` $filename
- * `param` $rename
 
 
 #### seeFileContentsEqual
@@ -398,11 +340,8 @@ Matching is done after removing "\r" chars from file content.
 <?php
 $I->openFile('process.pid');
 $I->seeFileContentsEqual('3192');
-?>
 
 {% endhighlight %}
-
- * `param string` $text
 
 
 #### seeFileFound
@@ -414,12 +353,8 @@ DOES NOT OPEN the file when it's exists
 
 <?php
 $I->seeFileFound('UserModel.php','app/models');
-?>
 
 {% endhighlight %}
-
- * `param` $filename
- * `param string` $path
 
 
 #### seeFileFoundMatches
@@ -431,12 +366,8 @@ DOES NOT OPEN the file when it's exists
 
 <?php
 $I->seeFileFoundMatches('/^UserModel_([0-9]{6}).php$/','app/models');
-?>
 
 {% endhighlight %}
-
- * `param` $regex
- * `param string` $path
 
 
 #### seeInThisFile
@@ -450,11 +381,8 @@ Usage:
 <?php
 $I->openFile('composer.json');
 $I->seeInThisFile('codeception/codeception');
-?>
 
 {% endhighlight %}
-
- * `param string` $text
 
 
 #### seeNumberNewLines
@@ -468,7 +396,6 @@ Usage:
 <?php
 $I->openFile('composer.json');
 $I->seeNumberNewLines(5);
-?>
 
 {% endhighlight %}
 
@@ -478,8 +405,6 @@ $I->seeNumberNewLines(5);
 #### seeThisFileMatches
  
 Checks that contents of currently opened file matches $regex
-
- * `param string` $regex
 
 
 #### writeToFile
@@ -491,11 +416,7 @@ Overwrites current file on server if exists.
 
 <?php
 $I->writeToFile('composer.json', 'some data here');
-?>
 
 {% endhighlight %}
-
- * `param` $filename
- * `param` $contents
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-ftp/tree/master/src/Codeception/Module/FTP.php">Help us to improve documentation. Edit module reference</a></div>

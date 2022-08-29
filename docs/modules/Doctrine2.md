@@ -43,12 +43,12 @@ modules:
     enabled:
         - Symfony # 'ZF2' or 'Symfony'
         - Doctrine2:
-            depends: Symfony
+            depends: Symfony # Tells Doctrine to fetch the Entity Manager through Symfony
             cleanup: true # All doctrine queries will be wrapped in a transaction, which will be rolled back at the end of each test
 
 {% endhighlight %}
 
-If you don't use Symfony or Zend Framework, you need to specify a callback function to retrieve the Entity Manager:
+If you don't provide a `depends` key, you need to specify a callback function to retrieve the Entity Manager:
 
 {% highlight yaml %}
 
@@ -79,13 +79,14 @@ modules:
 You cannot use `cleanup: true` in an acceptance test, since Codeception and your app (i.e. browser) are using two
 different connections to the database, so Codeception can't wrap changes made by the app into a transaction.
 
-Change purge mode of doctrine fixtures:
+Set the SQL statement that Doctrine fixtures ([`doctrine/data-fixtures`](https://github.com/doctrine/data-fixtures))
+are using to purge the database tables:
 {% highlight yaml %}
 
 modules:
     enabled:
         - Doctrine2:
-            purge_mode: 1 //1 - DELETE, 2 - TRUNCATE, default DELETE
+            purge_mode: 1 # 1: DELETE (=default), 2: TRUNCATE
 
 {% endhighlight %}
 
@@ -160,8 +161,9 @@ $I->clearEntityManager();
  
 Flushes changes to database and performs `findOneBy()` call for current repository.
 
- * `param` $entity
+ * `param class-string` $entity
  * `param array` $params
+ * `return void` 
 
 
 #### flushToDatabase
@@ -181,14 +183,14 @@ Example:
 
 <?php
 $users = $I->grabEntitiesFromRepository(User::class, ['name' => 'davert']);
-?>
 
 {% endhighlight %}
 
+@template T of object
+ * `param class-string<T>` $entity
+ * `param array` $params . For `IS NULL`, use `['field' => null]`
+ * `return list<T>` 
  * `Available since` 1.1
- * `param` $entity
- * `param array` $params. For `IS NULL`, use `['field' => null]`
- * `return array` 
 
 
 #### grabEntityFromRepository
@@ -203,14 +205,14 @@ Example:
 
 <?php
 $user = $I->grabEntityFromRepository(User::class, ['id' => '1234']);
-?>
 
 {% endhighlight %}
 
+@template T of object
+ * `param class-string<T>` $entity
+ * `param array` $params . For `IS NULL`, use `['field' => null]`
+ * `return T` 
  * `Available since` 1.1
- * `param` $entity
- * `param array` $params. For `IS NULL`, use `['field' => null]`
- * `return object` 
 
 
 #### grabFromRepository
@@ -225,14 +227,13 @@ Example:
 
 <?php
 $email = $I->grabFromRepository(User::class, 'email', ['name' => 'davert']);
-?>
 
 {% endhighlight %}
 
- * `Available since` 1.1
- * `param` $entity
- * `param` $field
+ * `param class-string` $entity
+ * `param string` $field
  * `param array` $params
+ * `Available since` 1.1
 
 
 #### haveFakeRepository
@@ -256,8 +257,8 @@ $I->haveFakeRepository(User::class, ['findByUsername' => function($username) { r
 This creates a stub class for Entity\User repository with redefined method findByUsername,
 which will always return the NULL value.
 
- * `param` $classname
- * `param array` $methods
+ * `param class-string` $className
+ * `param array<string, callable>` $methods
 
 
 #### haveInRepository
@@ -327,7 +328,8 @@ This works recursively, so you can create deep structures in a single call.
 
 Note that `$em->persist()`, `$em->refresh()`, and `$em->flush()` are called every time.
 
- * `param string|object` $classNameOrInstance
+@template T of object
+ * `param class-string<T>|T` $classNameOrInstance
  * `param array` $data
 
 
@@ -357,7 +359,7 @@ $I->loadFixtures(AppFixtures::class, false);
 
 This method requires [`doctrine/data-fixtures`](https://github.com/doctrine/data-fixtures) to be installed.
 
- * `param string|string[]|object[]` $fixtures
+ * `param class-string<FixtureInterface>|class-string<FixtureInterface>[]|list<FixtureInterface>` $fixtures
  * `param bool` $append
 @throws ModuleException
 @throws ModuleRequireException
@@ -366,11 +368,6 @@ This method requires [`doctrine/data-fixtures`](https://github.com/doctrine/data
 #### onReconfigure
  
 HOOK to be executed when config changes with `_reconfigure`.
-
-
-#### persistEntity
- 
-This method is deprecated in favor of `haveInRepository()`. Its functionality is exactly the same.
 
 
 #### refreshEntities
@@ -403,13 +400,13 @@ Example:
 $I->seeInRepository(User::class, ['name' => 'davert']);
 $I->seeInRepository(User::class, ['name' => 'davert', 'Company' => ['name' => 'Codegyre']]);
 $I->seeInRepository(Client::class, ['User' => ['Company' => ['name' => 'Codegyre']]]);
-?>
 
 {% endhighlight %}
 
 Fails if record for given criteria can\'t be found,
 
- * `param` $entity
+ * `param class-string` $entity
  * `param array` $params
+ * `return void` 
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-doctrine2/tree/master/src/Codeception/Module/Doctrine2.php">Help us to improve documentation. Edit module reference</a></div>

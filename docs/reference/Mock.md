@@ -9,7 +9,7 @@ Declare mocks inside `Codeception\Test\Unit` class.
 If you want to use mocks outside it, check the reference for [Codeception/Stub](https://github.com/Codeception/Stub) library.      
 
 
-#### *public* make($class, $params = null) 
+#### *public* make($class, array $params = array ( )) 
 Instantiates a class without executing a constructor.
 Properties and methods can be set as a second parameter.
 Even protected and private properties can be set.
@@ -19,7 +19,6 @@ Even protected and private properties can be set.
 <?php
 $this->make('User');
 $this->make('User', ['name' => 'davert']);
-?>
 
 {% endhighlight %}
 
@@ -29,7 +28,6 @@ Accepts either name of class or object of that class
 
 <?php
 $this->make(new User, ['name' => 'davert']);
-?>
 
 {% endhighlight %}
 
@@ -47,11 +45,11 @@ $this->make('User', ['save' => true]);
  * `param class-string<RealInstanceType>|RealInstanceType|callable(): class-string<RealInstanceType>` $class - A class to be mocked
  * `param array` $params - properties and methods to set
 
-@return \PHPUnit\Framework\MockObject\MockObject&RealInstanceType - mock
-@throws \RuntimeException when class does not exist
-@throws \Exception
+@return MockObject&RealInstanceType - mock
+@throws RuntimeException when class does not exist
+@throws Exception
 
-#### *public* makeEmpty($class, $params = null) 
+#### *public* makeEmpty($class, array $params = array ( )) 
 Instantiates class having all methods replaced with dummies.
 Constructor is not triggered.
 Properties and methods can be set as a second parameter.
@@ -81,19 +79,17 @@ and it's return value or callback function as parameter
 
 <?php
 $this->makeEmpty('User', ['save' => function () { return true; }]);
-$this->makeEmpty('User', ['save' => true));
+$this->makeEmpty('User', ['save' => true]);
 
 {% endhighlight %}
 
 @template RealInstanceType of object
  * `param class-string<RealInstanceType>|RealInstanceType|callable(): class-string<RealInstanceType>` $class - A class to be mocked
  * `param array` $params
- * `param bool|\PHPUnit\Framework\TestCase` $testCase
+@return MockObject&RealInstanceType
+@throws Exception
 
-@return \PHPUnit\Framework\MockObject\MockObject&RealInstanceType
-@throws \Exception
-
-#### *public* makeEmptyExcept($class, $method, $params = null) 
+#### *public* makeEmptyExcept($class, $method, array $params = array ( )) 
 Instantiates class having all methods replaced with dummies except one.
 Constructor is not triggered.
 Properties and methods can be replaced.
@@ -104,7 +100,6 @@ Even protected and private properties can be set.
 <?php
 $this->makeEmptyExcept('User', 'save');
 $this->makeEmptyExcept('User', 'save', ['name' => 'davert']);
-?>
 
 {% endhighlight %}
 
@@ -114,7 +109,6 @@ Accepts either name of class or object of that class
 
 <?php
 * $this->makeEmptyExcept(new User, 'save');
-?>
 
 {% endhighlight %}
 
@@ -131,13 +125,11 @@ $this->makeEmptyExcept('User', 'save', ['isValid' => true]);
 
 @template RealInstanceType of object
  * `param class-string<RealInstanceType>|RealInstanceType|callable(): class-string<RealInstanceType>` $class - A class to be mocked
- * `param string` $method
- * `param array` $params
 
 @return \PHPUnit\Framework\MockObject\MockObject&RealInstanceType
-@throws \Exception
+@throws Exception
 
-#### *public* construct($class, $constructorParams = null, $params = null) 
+#### *public* construct($class, array $constructorParams = array ( ), array $params = array ( )) 
 Instantiates a class instance by running constructor.
 Parameters for constructor passed as second argument
 Properties and methods can be set in third argument.
@@ -148,7 +140,6 @@ Even protected and private properties can be set.
 <?php
 $this->construct('User', ['autosave' => false]);
 $this->construct('User', ['autosave' => false], ['name' => 'davert']);
-?>
 
 {% endhighlight %}
 
@@ -158,7 +149,6 @@ Accepts either name of class or object of that class
 
 <?php
 $this->construct(new User, ['autosave' => false), ['name' => 'davert']);
-?>
 
 {% endhighlight %}
 
@@ -170,20 +160,15 @@ and it's return value or callback function as parameter
 <?php
 $this->construct('User', [], ['save' => function () { return true; }]);
 $this->construct('User', [], ['save' => true]);
-?>
 
 {% endhighlight %}
 
 @template RealInstanceType of object
  * `param class-string<RealInstanceType>|RealInstanceType|callable(): class-string<RealInstanceType>` $class - A class to be mocked
- * `param array` $constructorParams
- * `param array` $params
- * `param bool|\PHPUnit\Framework\TestCase` $testCase
+@return MockObject&RealInstanceType
+@throws Exception
 
-@return \PHPUnit\Framework\MockObject\MockObject&RealInstanceType
-@throws \Exception
-
-#### *public* constructEmpty($class, $constructorParams = null, $params = null) 
+#### *public* constructEmpty($class, array $constructorParams = array ( ), array $params = array ( )) 
 Instantiates a class instance by running constructor with all methods replaced with dummies.
 Parameters for constructor passed as second argument
 Properties and methods can be set in third argument.
@@ -230,12 +215,9 @@ $this->constructEmpty('User', [], [
 
 @template RealInstanceType of object
  * `param class-string<RealInstanceType>|RealInstanceType|callable(): class-string<RealInstanceType>` $class - A class to be mocked
- * `param array` $constructorParams
- * `param array` $params
+@return MockObject&RealInstanceType
 
-@return \PHPUnit\Framework\MockObject\MockObject&RealInstanceType
-
-#### *public* constructEmptyExcept($class, $method, $constructorParams = null, $params = null) 
+#### *public* constructEmptyExcept($class, $method, array $constructorParams = array ( ), array $params = array ( )) 
 Instantiates a class instance by running constructor with all methods replaced with dummies, except one.
 Parameters for constructor passed as second argument
 Properties and methods can be set in third argument.
@@ -246,7 +228,6 @@ Even protected and private properties can be set.
 <?php
 $this->constructEmptyExcept('User', 'save');
 $this->constructEmptyExcept('User', 'save', ['autosave' => false], ['name' => 'davert']);
-?>
 
 {% endhighlight %}
 
@@ -256,7 +237,6 @@ Accepts either name of class or object of that class
 
 <?php
 $this->constructEmptyExcept(new User, 'save', ['autosave' => false], ['name' => 'davert']);
-?>
 
 {% endhighlight %}
 
@@ -268,17 +248,12 @@ and it's return value or callback function as parameter
 <?php
 $this->constructEmptyExcept('User', 'save', [], ['save' => function () { return true; }]);
 $this->constructEmptyExcept('User', 'save', [], ['save' => true]);
-?>
 
 {% endhighlight %}
 
 @template RealInstanceType of object
  * `param class-string<RealInstanceType>|RealInstanceType|callable(): class-string<RealInstanceType>` $class - A class to be mocked
- * `param string` $method
- * `param array` $constructorParams
- * `param array` $params
-
-@return \PHPUnit\Framework\MockObject\MockObject&RealInstanceType
+@return MockObject&RealInstanceType
 
 
 
@@ -299,12 +274,10 @@ $user = $this->make('User', [
      'someMethod' => function() {}
 ]);
 $user->someMethod();
-?>
 
 {% endhighlight %}
 
  * `param mixed` $params
-@return StubMarshaler
 
 #### *public static* once($params = null) 
 Checks if a method has been invoked exactly one
@@ -327,7 +300,6 @@ $user = $this->make(
 );
 $userName = $user->getName();
 $this->assertEquals('Davert', $userName);
-?>
 
 {% endhighlight %}
 Alternatively, a function can be passed as parameter:
@@ -340,8 +312,6 @@ Expected::once(function() { return Faker::name(); });
 {% endhighlight %}
 
  * `param mixed` $params
-
-@return StubMarshaler
 
 #### *public static* atLeastOnce($params = null) 
 Checks if a method has been invoked at least one
@@ -364,7 +334,6 @@ $user = $this->make(
 $user->getName();
 $userName = $user->getName();
 $this->assertEquals('Davert', $userName);
-?>
 
 {% endhighlight %}
 
@@ -378,8 +347,6 @@ Expected::atLeastOnce(function() { return Faker::name(); });
 {% endhighlight %}
 
  * `param mixed` $params
-
-@return StubMarshaler
 
 #### *public static* exactly($count, $params = null) 
 Checks if a method has been invoked a certain amount
@@ -406,7 +373,6 @@ $user->getName();
 $user->getName();
 $userName = $user->getName();
 $this->assertEquals('Davert', $userName);
-?>
 
 {% endhighlight %}
 Alternatively, a function can be passed as parameter:
@@ -418,9 +384,6 @@ Expected::exactly(function() { return Faker::name() });
 
 {% endhighlight %}
 
- * `param int` $count
  * `param mixed` $params
-
-@return StubMarshaler
 
 

@@ -77,7 +77,6 @@ Populating Database:
 for ($i = 0; $i<10; $i++) {
      $I->haveInDatabase('users', array('login' => sq("user$i"), 'email' => sq("user$i").'@email.com');
 }
-?>
 
 {% endhighlight %}
 
@@ -103,7 +102,6 @@ class UserTest
         $I->removeUser(sqs('user') . '@mailserver.com');
     }
 }
-?>
 
 {% endhighlight %}
 

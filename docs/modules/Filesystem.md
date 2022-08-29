@@ -50,8 +50,6 @@ Module was developed to test Codeception itself.
 Enters a directory In local filesystem.
 Project root directory is used by default
 
- * `param string` $path
-
 
 #### cleanDir
  
@@ -61,11 +59,8 @@ Erases directory contents
 
 <?php
 $I->cleanDir('logs');
-?>
 
 {% endhighlight %}
-
- * `param string` $dirname
 
 
 #### copyDir
@@ -76,12 +71,8 @@ Copies directory with all contents
 
 <?php
 $I->copyDir('vendor','old_vendor');
-?>
 
 {% endhighlight %}
-
- * `param string` $src
- * `param string` $dst
 
 
 #### deleteDir
@@ -92,11 +83,8 @@ Deletes directory with all subdirectories
 
 <?php
 $I->deleteDir('vendor');
-?>
 
 {% endhighlight %}
-
- * `param string` $dirname
 
 
 #### deleteFile
@@ -107,11 +95,8 @@ Deletes a file
 
 <?php
 $I->deleteFile('composer.lock');
-?>
 
 {% endhighlight %}
-
- * `param string` $filename
 
 
 #### deleteThisFile
@@ -123,9 +108,6 @@ Deletes a file
  
 Checks if file does not exist in path
 
- * `param string` $filename
- * `param string` $path
-
 
 #### dontSeeInThisFile
  
@@ -136,11 +118,8 @@ Checks If opened file doesn't contain `text` in it
 <?php
 $I->openFile('composer.json');
 $I->dontSeeInThisFile('codeception/codeception');
-?>
 
 {% endhighlight %}
-
- * `param string` $text
 
 
 #### openFile
@@ -154,11 +133,8 @@ Usage:
 <?php
 $I->openFile('composer.json');
 $I->seeInThisFile('codeception/codeception');
-?>
 
 {% endhighlight %}
-
- * `param string` $filename
 
 
 #### seeFileContentsEqual
@@ -173,11 +149,8 @@ Matching is done after removing "\r" chars from file content.
 <?php
 $I->openFile('process.pid');
 $I->seeFileContentsEqual('3192');
-?>
 
 {% endhighlight %}
-
- * `param string` $text
 
 
 #### seeFileFound
@@ -189,12 +162,8 @@ Opens a file when it's exists
 
 <?php
 $I->seeFileFound('UserModel.php','app/models');
-?>
 
 {% endhighlight %}
-
- * `param string` $filename
- * `param string` $path
 
 
 #### seeInThisFile
@@ -208,11 +177,8 @@ Usage:
 <?php
 $I->openFile('composer.json');
 $I->seeInThisFile('codeception/codeception');
-?>
 
 {% endhighlight %}
-
- * `param string` $text
 
 
 #### seeNumberNewLines
@@ -226,7 +192,6 @@ Usage:
 <?php
 $I->openFile('composer.json');
 $I->seeNumberNewLines(5);
-?>
 
 {% endhighlight %}
 
@@ -237,14 +202,9 @@ $I->seeNumberNewLines(5);
  
 Checks that contents of currently opened file matches $regex
 
- * `param string` $regex
-
 
 #### writeToFile
  
 Saves contents to file
-
- * `param string` $filename
- * `param string` $contents
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-filesystem/tree/master/src/Codeception/Module/Filesystem.php">Help us to improve documentation. Edit module reference</a></div>

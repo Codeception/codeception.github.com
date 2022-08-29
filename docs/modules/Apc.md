@@ -32,8 +32,8 @@ Warning. Using PHAR file and composer in the same project can cause unexpected e
 
 
 
-This module interacts with the [Alternative PHP Cache (APC)](http://php.net/manual/en/intro.apcu.php)
-using either _APCu_ or _APC_ extension.
+This module interacts with the [Alternative PHP Cache (APC)](https://php.net/manual/en/intro.apcu.php)
+using _APCu_ extension.
 
 Performs a cleanup by flushing all values after each test run.
 
@@ -59,7 +59,7 @@ Be sure you don't use the production server to connect.
 
 #### dontSeeInApc
  
-Checks item in APC(u) doesn't exist or is the same as expected.
+Checks item in APCu doesn't exist or is the same as expected.
 
 Examples:
 
@@ -71,22 +71,18 @@ $I->dontSeeInApc('users_count');
 
 // Checks a 'users_count' exists does not exist or its value is not the one provided
 $I->dontSeeInApc('users_count', 200);
-?>
 
 {% endhighlight %}
-
- * `param string|string[]` $key
- * `param mixed` $value
 
 
 #### flushApc
  
-Clears the APC(u) cache
+Clears the APCu cache
 
 
 #### grabValueFromApc
  
-Grabs value from APC(u) by key.
+Grabs value from APCu by key.
 
 Example:
 
@@ -94,16 +90,13 @@ Example:
 
 <?php
 $users_count = $I->grabValueFromApc('users_count');
-?>
 
 {% endhighlight %}
-
- * `param string|string[]` $key
 
 
 #### haveInApc
  
-Stores an item `$value` with `$key` on the APC(u).
+Stores an item `$value` with `$key` on the APCu.
 
 Examples:
 
@@ -123,18 +116,13 @@ $entries['key2'] = 'value2';
 $entries['key3'] = ['value3a','value3b'];
 $entries['key4'] = 4;
 $I->haveInApc($entries, null);
-?>
 
 {% endhighlight %}
-
- * `param string|array` $key
- * `param mixed` $value
- * `param int` $expiration
 
 
 #### seeInApc
  
-Checks item in APC(u) exists and the same as expected.
+Checks item in APCu exists and the same as expected.
 
 Examples:
 
@@ -146,11 +134,8 @@ $I->seeInApc('users_count');
 
 // Checks a 'users_count' exists and has the value 200
 $I->seeInApc('users_count', 200);
-?>
 
 {% endhighlight %}
 
- * `param string|string[]` $key
- * `param mixed` $value
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-apc/tree/master/src/Codeception/Module/Apc.php">Help us to improve documentation. Edit module reference</a></div>

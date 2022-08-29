@@ -1,9 +1,9 @@
 # Getting Started
 
 Let's take a look at Codeception's architecture. We'll assume that you have already [installed](https://codeception.com/install) it
-and bootstrapped your first test suites. Codeception has generated three of them: unit, functional, and acceptance.
+and bootstrapped your first test suites. Codeception has generated three of them: Unit, Functional, and Acceptance.
 They are well described in the [previous chapter](https://codeception.com/docs/01-Introduction). Inside your __/tests__ folder you will have three `.yml` config files and three directories
-with names corresponding to these suites: `Unit`, `Functional`, `Acceptance`. Suites are independent groups of tests with a common purpose.
+with names corresponding to these suites: `Unit`, `Functional`, `Acceptance`.
 
 ## The Codeception Syntax
 
@@ -37,22 +37,22 @@ $I->assertEquals('post', $method);
 
 ## Actors
 
-One of the main concepts of Codeception is representation of tests as actions of a person. We have a UnitTester, who executes functions and tests the code. We also have a FunctionalTester, a qualified tester,
-who tests the application as a whole, with knowledge of its internals. Lastly we have an AcceptanceTester, a user who works with our application
-through an interface that we provide.
+One of the main concepts of Codeception is representation of tests as actions of a person. We have a "UnitTester", who executes functions and tests the code. We also have a "FunctionalTester", a qualified tester,
+who tests the application as a whole, with knowledge of its internals. Lastly we have an "AcceptanceTester", a user who works with our application
+in a real browser.
 
 Methods of actor classes are generally taken from [Codeception Modules](https://codeception.com/docs/06-ModulesAndHelpers). Each module provides predefined actions for different testing purposes, and they can be combined to fit the testing environment.
 Codeception tries to solve 90% of possible testing issues in its modules, so you don't have to reinvent the wheel.
 We think that you can spend more time on writing tests and less on writing support code to make those tests run.
-By default, AcceptanceTester relies on PhpBrowser module, which is set in the `tests/acceptance.suite.yml` configuration file:
+By default, AcceptanceTester relies on [PhpBrowser](https://codeception.com/docs/modules/PhpBrowser) module, which is set in the `tests/Acceptance.suite.yml` configuration file:
 
 ```yaml
 actor: AcceptanceTester
 modules:
     enabled:
         - PhpBrowser:
-            url: http://localhost/myapp/
-        - \Helper\Acceptance
+            url: 'http://localhost/myapp/'
+        - Tests\Support\Helper\Acceptance
 ```
 
 
@@ -67,7 +67,7 @@ php vendor/bin/codecept build
 
 ## Writing a Sample Test
 
-Codeception has its own testing format called Cest (Codecept + Test). 
+Codeception has its own testing format called "Cest" ("Codecept" + "Test"). 
 To start writing a test we need to create a new Cest file. We can do that by running the following command:
 
 ```bash
@@ -82,7 +82,7 @@ This will generate `SigninCest.php` file inside `tests/Acceptance` directory. Le
 
 namespace Tests\Acceptance;
 
-use \Tests\Support\AcceptanceTester;
+use Tests\Support\AcceptanceTester;
 
 class SigninCest
 {

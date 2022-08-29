@@ -67,7 +67,6 @@ If you use PHP SoapServer with framework, try to block call to this method in te
 #### dontSeeSoapResponseContainsStructure
  
 Opposite to `seeSoapResponseContainsStructure`
- * `param` $xml
 
 
 #### dontSeeSoapResponseContainsXPath
@@ -78,11 +77,10 @@ Checks XML response doesn't contain XPath locator
 
 <?php
 $I->dontSeeSoapResponseContainsXPath('//root/user[@id=1]');
-?>
 
 {% endhighlight %}
 
- * `param` $xpath
+ * `param string` $xPath
 
 
 #### dontSeeSoapResponseEquals
@@ -92,7 +90,6 @@ Comparison is done by canonicalizing both xml`s.
 
 Parameter can be passed either as XmlBuilder, DOMDocument, DOMNode, XML string, or array (if no attributes).
 
- * `param` $xml
 
 
 #### dontSeeSoapResponseIncludes
@@ -101,7 +98,7 @@ Checks XML response does not include provided XML.
 Comparison is done by canonicalizing both xml`s.
 Parameter can be passed either as XmlBuilder, DOMDocument, DOMNode, XML string, or array (if no attributes).
 
- * `param` $xml
+ * `param XmlBuilder|DOMDocument|string` $xml
 
 
 #### grabAttributeFrom
@@ -110,9 +107,6 @@ Finds and returns attribute of element.
 Element is matched by either CSS or XPath
 
  * `Available since` 1.1
- * `param` $cssOrXPath
- * `param` $attribute
- * `return string` 
 
 
 #### grabTextContentFrom
@@ -121,8 +115,6 @@ Finds and returns text contents of element.
 Element is matched by either CSS or XPath
 
  * `Available since` 1.1
- * `param` $cssOrXPath
- * `return string` 
 
 
 #### haveSoapHeader
@@ -152,15 +144,12 @@ Will produce header:
 
 {% endhighlight %}
 
- * `param` $header
- * `param array` $params
-
 
 #### seeSoapResponseCodeIs
  
 Checks response code from server.
 
- * `param` $code
+ * `param string` $code
 
 
 #### seeSoapResponseContainsStructure
@@ -176,7 +165,6 @@ Example:
 <?php
 
 $I->seeSoapResponseContainsStructure("<query><name></name></query>");
-?>
 
 {% endhighlight %}
 
@@ -184,7 +172,6 @@ Use this method to check XML of valid structure is returned.
 This method does not use schema for validation.
 This method does not require path from root to match the structure.
 
- * `param` $xml
 
 
 #### seeSoapResponseContainsXPath
@@ -195,11 +182,10 @@ Checks XML response with XPath locator
 
 <?php
 $I->seeSoapResponseContainsXPath('//root/user[@id=1]');
-?>
 
 {% endhighlight %}
 
- * `param` $xpath
+ * `param string` $xPath
 
 
 #### seeSoapResponseEquals
@@ -220,10 +206,7 @@ $dom = new \DOMDocument();
 $dom->load($file);
 $I->seeSoapRequestIncludes($dom);
 
-
 {% endhighlight %}
-
- * `param` $xml
 
 
 #### seeSoapResponseIncludes
@@ -240,14 +223,13 @@ Example:
 $I->seeSoapResponseIncludes("<result>1</result>");
 $I->seeSoapRequestIncludes(\Codeception\Utils\Soap::response()->result->val(1));
 
-$dom = new \DDOMDocument();
+$dom = new \DOMDocument();
 $dom->load('template.xml');
 $I->seeSoapRequestIncludes($dom);
-?>
 
 {% endhighlight %}
 
- * `param` $xml
+ * `param XmlBuilder|DOMDocument|string` $xml
 
 
 #### sendSoapRequest
@@ -270,7 +252,7 @@ $I->sendSoapRequest('UpdateUser', \Codeception\Utils\Soap::request()->user
 
 {% endhighlight %}
 
- * `param` $request
- * `param` $body
+ * `param string` $action
+ * `param object|string` $body
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-soap/tree/master/src/Codeception/Module/SOAP.php">Help us to improve documentation. Edit module reference</a></div>

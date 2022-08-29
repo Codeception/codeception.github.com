@@ -9,6 +9,76 @@ title: Codeception Changelog
 
 
 
+### module-rest 3.3.0: 3.3.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/08/22 07:11:50 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
+
+
+
+* Improved handling of boolean and null values in xpath methods ([#88](https://github.com/Codeception/module-rest/issues/88)) by **[pamoller](https://github.com/pamoller)**
+
+
+### Codeception 5.0.2: 5.0.2
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/08/20 18:24:07 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Fixed remote code coverage for namespaced suites ([#6533](https://github.com/Codeception/Codeception/issues/6533))
+* Fixed data provider in abstract Cest class **[p-golovin](https://github.com/p-golovin)** ([#6560](https://github.com/Codeception/Codeception/issues/6560))
+* Fixed issue when include groups and test groups empty **[geega](https://github.com/geega)** ([#6557](https://github.com/Codeception/Codeception/issues/6557))
+
+
+### Codeception 5.0.1: 5.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/08/13 16:49:00 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Propagate --ext and --override parameters to included test suites by **[calvinalkan](https://github.com/calvinalkan)** ([#6536](https://github.com/Codeception/Codeception/issues/6536))
+* Fixed false negative message about stecman/symfony-console-completion package by **[geega](https://github.com/geega)** ([#6541](https://github.com/Codeception/Codeception/issues/6541))
+* Fixed a number of issues in template functionality ([#6552](https://github.com/Codeception/Codeception/issues/6552))
+* Fixed DataProvider, to properly load dataProviders from abstract classes by **[Basster](https://github.com/Basster)** ([#6549](https://github.com/Codeception/Codeception/issues/6549))
+
+
+### Codeception 4.2.2: 4.2.2
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/08/13 13:56:22 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Propagate --ext and --override parameters to included test suites ([#6536](https://github.com/Codeception/Codeception/issues/6536))
+* Fixed false negative message about stecman/symfony-console-completion package ([#6541](https://github.com/Codeception/Codeception/issues/6541))
+
+
+### module-rest 3.2.0: 3.2.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/08/13 12:18:30 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
+
+
+
+* Add (dont)seeResponseJsonXpathEvaluatesTo methods [#85](https://github.com/Codeception/module-rest/issues/85)
+* Fixed return type of grabHttpHeader method  [#86](https://github.com/Codeception/module-rest/issues/86) 
+
+
+### module-laravel 3.0.1: 3.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2022/08/07 15:25:34 / [Repository](https://github.com/Codeception/module-laravel)   / [Releases](https://github.com/Codeception/module-laravel/releases)
+
+
+
+- Minor bug fix: Assign default value to client property by **[Naktibalda](https://github.com/Naktibalda)** ([#44](https://github.com/Codeception/module-laravel/issues/44))
+
+
+### module-phpbrowser 2.5.0: 2.5.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/08/06 13:44:12 / [Repository](https://github.com/Codeception/module-phpbrowser)   / [Releases](https://github.com/Codeception/module-phpbrowser/releases)
+
+
+
+* 2.5 branch makes Codeception 5 compatible with Symfony 4.4 components
+
+
 ### Codeception 5.0.0: 5.0.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/07/28 08:41:10 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
@@ -1952,21 +2022,6 @@ Minor changes in documentation by **[ThomasLandauer](https://github.com/ThomasLa
 
 
 
-### Codeception 4.1.19: 
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/03/28 13:33:05 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Action file generator supports PHP 8 union types
-* Action file generator generates typehints for method parameters
-* Removed dead code related to DataProviderTestSuite
-* Removed documentation related to Cept format
-* Deprecated generate:cept command
-* Documentation improvements
-
-
-
 ### module-amqp 1.1.0: Support PHP 8
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/03/21 15:29:11 / [Repository](https://github.com/Codeception/module-amqp)   / [Releases](https://github.com/Codeception/module-amqp/releases)
@@ -2004,17 +2059,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 Append query params to URL for HEAD requests
 
 
-### Codeception 4.1.18: 
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/02/23 17:12:18 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Fix cleanup of included test directories [#6117](https://github.com/Codeception/Codeception/issues/6117) by **[rolandsaven](https://github.com/rolandsaven)**
-* Clean command will not delete .gitkeep files in _output directory [#6118](https://github.com/Codeception/Codeception/issues/6118)
-* Add line break between opening tag and namespace in generated Cest and Test files [#6072](https://github.com/Codeception/Codeception/issues/6072)
-
-
 ### module-symfony 2.0.0: 2.0.0
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/02/12 22:31:22 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
@@ -2041,18 +2085,6 @@ Released by [![](https://avatars.githubusercontent.com/u/3289702?v=4&s=16) Jecke
 
 Changed
 * Removed limitation of PHP 8.0 version in composer.json
-
-
-### Codeception 4.1.17: 
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/02/01 07:32:33 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Fix `codecept run suite` when suite name matches directory (bug introduced in 4.1.16)
-* `codecept run tests` is equivalent to `codecept run`
-* `codecept run :filter` works without specifying suite [#6105](https://github.com/Codeception/Codeception/issues/6105)
-* `codecept run tests:filter` works too
 
 
 ### lib-innerbrowser 1.4.0: 

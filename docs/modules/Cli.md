@@ -47,9 +47,6 @@ Wrapper for basic shell commands and shell output
  
 Checks that output from latest command doesn't contain text
 
- * `param` $text
-
-
 
 #### grabShellOutput
  
@@ -71,15 +68,10 @@ $I->runShellCommand('phpunit', false);
 
 {% endhighlight %}
 
- * `param` $command
- * `param bool` $failNonZero
-
 
 #### seeInShellOutput
  
 Checks that output from last executed command contains text
-
- * `param` $text
 
 
 #### seeResultCodeIs
@@ -93,8 +85,6 @@ $I->seeResultCodeIs(0);
 
 {% endhighlight %}
 
- * `param` $code
-
 
 #### seeResultCodeIsNot
  
@@ -107,11 +97,8 @@ $I->seeResultCodeIsNot(0);
 
 {% endhighlight %}
 
- * `param` $code
-
 
 #### seeShellOutputMatches
- 
- * `param` $regex
+__not documented__
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-cli/tree/master/src/Codeception/Module/Cli.php">Help us to improve documentation. Edit module reference</a></div>

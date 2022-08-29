@@ -91,12 +91,11 @@ Checks if collection doesn't contain an item.
 {% highlight php %}
 
 <?php
-$I->dontSeeInCollection('users', array('name' => 'miles'));
+$I->dontSeeInCollection('users', ['name' => 'miles']);
 
 {% endhighlight %}
 
- * `param` $collection
- * `param array` $criteria
+ * `param array<string, mixed>` $criteria
 
 
 #### grabCollectionCount
@@ -108,13 +107,11 @@ Grabs the documents count from a collection
 <?php
 $count = $I->grabCollectionCount('users');
 // or
-$count = $I->grabCollectionCount('users', array('isAdmin' => true));
+$count = $I->grabCollectionCount('users', ['isAdmin' => true]);
 
 {% endhighlight %}
 
- * `param` $collection
- * `param array` $criteria
- * `return integer` 
+ * `param array<string, mixed>` $criteria
 
 
 #### grabFromCollection
@@ -124,13 +121,11 @@ Grabs a data from collection
 {% highlight php %}
 
 <?php
-$user = $I->grabFromCollection('users', array('name' => 'miles'));
+$user = $I->grabFromCollection('users', ['name' => 'miles']);
 
 {% endhighlight %}
 
- * `param` $collection
- * `param array` $criteria
- * `return array` 
+ * `param array<string, mixed>` $criteria
 
 
 #### haveInCollection
@@ -140,13 +135,12 @@ Inserts data into collection
 {% highlight php %}
 
 <?php
-$I->haveInCollection('users', array('name' => 'John', 'email' => 'john@coltrane.com'));
-$user_id = $I->haveInCollection('users', array('email' => 'john@coltrane.com'));
+$I->haveInCollection('users', ['name' => 'John', 'email' => 'john@coltrane.com']);
+$user_id = $I->haveInCollection('users', ['email' => 'john@coltrane.com']);
 
 {% endhighlight %}
 
- * `param` $collection
- * `param array` $data
+ * `param array<string, mixed>` $data
 
 
 #### seeElementIsArray
@@ -156,13 +150,11 @@ Asserts that an element in a collection exists and is an Array
 {% highlight php %}
 
 <?php
-$I->seeElementIsArray('users', array('name' => 'John Doe') , 'data.skills');
+$I->seeElementIsArray('users', ['name' => 'John Doe'], 'data.skills');
 
 {% endhighlight %}
 
- * `param String` $collection
- * `param Array` $criteria
- * `param String` $elementToCheck
+ * `param array<string, mixed>` $criteria
 
 
 #### seeElementIsObject
@@ -172,13 +164,11 @@ Asserts that an element in a collection exists and is an Object
 {% highlight php %}
 
 <?php
-$I->seeElementIsObject('users', array('name' => 'John Doe') , 'data');
+$I->seeElementIsObject('users', ['name' => 'John Doe'], 'data');
 
 {% endhighlight %}
 
- * `param String` $collection
- * `param Array` $criteria
- * `param String` $elementToCheck
+ * `param array<string, mixed>` $criteria
 
 
 #### seeInCollection
@@ -188,12 +178,11 @@ Checks if collection contains an item.
 {% highlight php %}
 
 <?php
-$I->seeInCollection('users', array('name' => 'miles'));
+$I->seeInCollection('users', ['name' => 'miles']);
 
 {% endhighlight %}
 
- * `param` $collection
- * `param array` $criteria
+ * `param array<string, mixed>` $criteria
 
 
 #### seeNumElementsInCollection
@@ -204,13 +193,11 @@ Count number of records in a collection
 
 <?php
 $I->seeNumElementsInCollection('users', 2);
-$I->seeNumElementsInCollection('users', 1, array('name' => 'miles'));
+$I->seeNumElementsInCollection('users', 1, ['name' => 'miles']);
 
 {% endhighlight %}
 
- * `param` $collection
- * `param integer` $expected
- * `param array` $criteria
+ * `param array<string, mixed>` $criteria
 
 
 #### useDatabase
@@ -223,7 +210,5 @@ Specify the database to use
 $I->useDatabase('db_1');
 
 {% endhighlight %}
-
- * `param` $dbName
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-mongodb/tree/master/src/Codeception/Module/MongoDb.php">Help us to improve documentation. Edit module reference</a></div>
