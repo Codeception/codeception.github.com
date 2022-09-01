@@ -233,7 +233,7 @@ Steps are defined in Context files. Default context is an actor class, i.e. for 
 To list all defined steps run `gherkin:steps` command:
 
 ```bash
-php vendor/bin/php codecept gherkin:steps
+php vendor/bin/codecept gherkin:steps
 ```
 
 ## Testing Behavior
