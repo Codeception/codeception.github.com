@@ -41,16 +41,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Fixed DataProvider, to properly load dataProviders from abstract classes by **[Basster](https://github.com/Basster)** ([#6549](https://github.com/Codeception/Codeception/issues/6549))
 
 
-### Codeception 4.2.2: 4.2.2
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/08/13 13:56:22 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Propagate --ext and --override parameters to included test suites ([#6536](https://github.com/Codeception/Codeception/issues/6536))
-* Fixed false negative message about stecman/symfony-console-completion package ([#6541](https://github.com/Codeception/Codeception/issues/6541))
-
-
 ### module-rest 3.2.0: 3.2.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/08/13 12:18:30 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
@@ -2019,6 +2009,21 @@ Minor changes in documentation by **[ThomasLandauer](https://github.com/ThomasLa
 - Standardize `"@example.com"` as domain in documentation ([#124](https://github.com/Codeception/module-symfony/issues/124))
 - Mentioning Symfony Mailer requirement ([#126](https://github.com/Codeception/module-symfony/issues/126))
 - Changing Fail message for Symfony Mailer ([#127](https://github.com/Codeception/module-symfony/issues/127))
+
+
+
+### Codeception 4.1.19: 
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/03/28 13:33:05 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Action file generator supports PHP 8 union types
+* Action file generator generates typehints for method parameters
+* Removed dead code related to DataProviderTestSuite
+* Removed documentation related to Cept format
+* Deprecated generate:cept command
+* Documentation improvements
 
 
 
