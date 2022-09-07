@@ -37,826 +37,1148 @@ Special module for using asserts in your tests.
 ### Actions
 
 #### assertArrayHasKey
- 
-Asserts that an array has a specified key.
 
- * `param int|string` $key
- * `param array|ArrayAccess` $array
+* `param int|string` $key
+* `param array|ArrayAccess` $array
+* `param string` $message
+
+Asserts that an array has a specified key.
 
 
 #### assertArrayNotHasKey
- 
-Asserts that an array does not have a specified key.
 
- * `param int|string` $key
- * `param array|ArrayAccess` $array
+* `param int|string` $key
+* `param array|ArrayAccess` $array
+* `param string` $message
+
+Asserts that an array does not have a specified key.
 
 
 #### assertClassHasAttribute
- 
+
+* `param string` $attributeName
+* `param string` $className
+* `param string` $message
+
 Asserts that a class has a specified attribute.
 
 
 #### assertClassHasStaticAttribute
- 
+
+* `param string` $attributeName
+* `param string` $className
+* `param string` $message
+
 Asserts that a class has a specified static attribute.
 
 
 #### assertClassNotHasAttribute
- 
+
+* `param string` $attributeName
+* `param string` $className
+* `param string` $message
+
 Asserts that a class does not have a specified attribute.
 
 
 #### assertClassNotHasStaticAttribute
- 
+
+* `param string` $attributeName
+* `param string` $className
+* `param string` $message
+
 Asserts that a class does not have a specified static attribute.
 
 
 #### assertContains
- 
-Asserts that a haystack contains a needle.
 
- * `param mixed` $needle
+* `param mixed` $needle
+* `param iterable` $haystack
+* `param string` $message
+
+Asserts that a haystack contains a needle.
 
 
 #### assertContainsEquals
- 
- * `param mixed` $needle
+
+* `param mixed` $needle
+* `param iterable` $haystack
+* `param string` $message
 
 
 #### assertContainsOnly
- 
+
+* `param string` $type
+* `param iterable` $haystack
+* `param ?bool` $isNativeType
+* `param string` $message
+
 Asserts that a haystack contains only values of a given type.
 
 
 #### assertContainsOnlyInstancesOf
- 
+
+* `param string` $className
+* `param iterable` $haystack
+* `param string` $message
+
 Asserts that a haystack contains only instances of a given class name.
 
 
 #### assertCount
- 
-Asserts the number of elements of an array, Countable or Traversable.
 
- * `param Countable|iterable` $haystack
+* `param Countable|iterable` $haystack
+* `param int` $expectedCount
+* `param string` $message
+
+Asserts the number of elements of an array, Countable or Traversable.
 
 
 #### assertDirectoryDoesNotExist
- 
+
+* `param string` $directory
+* `param string` $message
+
 Asserts that a directory does not exist.
 
 
 #### assertDirectoryExists
- 
+
+* `param string` $directory
+* `param string` $message
+
 Asserts that a directory exists.
 
 
 #### assertDirectoryIsNotReadable
- 
+
+* `param string` $directory
+* `param string` $message
+
 Asserts that a directory exists and is not readable.
 
 
 #### assertDirectoryIsNotWritable
- 
+
+* `param string` $directory
+* `param string` $message
+
 Asserts that a directory exists and is not writable.
 
 
 #### assertDirectoryIsReadable
- 
+
+* `param string` $directory
+* `param string` $message
+
 Asserts that a directory exists and is readable.
 
 
 #### assertDirectoryIsWritable
- 
+
+* `param string` $directory
+* `param string` $message
+
 Asserts that a directory exists and is writable.
 
 
 #### assertDoesNotMatchRegularExpression
- 
+
+* `param string` $pattern
+* `param string` $string
+* `param string` $message
+
 Asserts that a string does not match a given regular expression.
 
 
 #### assertEmpty
- 
-Asserts that a variable is empty.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a variable is empty.
 
 
 #### assertEquals
- 
-Asserts that two variables are equal.
 
- * `param mixed` $expected
- * `param mixed` $actual
+* `param mixed` $expected
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that two variables are equal.
 
 
 #### assertEqualsCanonicalizing
- 
-Asserts that two variables are equal (canonicalizing).
 
- * `param mixed` $expected
- * `param mixed` $actual
+* `param mixed` $expected
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that two variables are equal (canonicalizing).
 
 
 #### assertEqualsIgnoringCase
- 
-Asserts that two variables are equal (ignoring case).
 
- * `param mixed` $expected
- * `param mixed` $actual
+* `param mixed` $expected
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that two variables are equal (ignoring case).
 
 
 #### assertEqualsWithDelta
- 
-Asserts that two variables are equal (with delta).
 
- * `param mixed` $expected
- * `param mixed` $actual
+* `param mixed` $expected
+* `param mixed` $actual
+* `param float` $delta
+* `param string` $message
+
+Asserts that two variables are equal (with delta).
 
 
 #### assertFalse
- 
-Asserts that a condition is false.
 
- * `param mixed` $condition
+* `param mixed` $condition
+* `param string` $message
+
+Asserts that a condition is false.
 
 
 #### assertFileDoesNotExist
- 
+
+* `param string` $filename
+* `param string` $message
+
 Asserts that a file does not exist.
 
 
 #### assertFileEquals
- 
+
+* `param string` $expected
+* `param string` $actual
+* `param string` $message
+
 Asserts that the contents of one file is equal to the contents of another file.
 
 
 #### assertFileEqualsCanonicalizing
- 
+
+* `param string` $expected
+* `param string` $actual
+* `param string` $message
+
 Asserts that the contents of one file is equal to the contents of another file (canonicalizing).
 
 
 #### assertFileEqualsIgnoringCase
- 
+
+* `param string` $expected
+* `param string` $actual
+* `param string` $message
+
 Asserts that the contents of one file is equal to the contents of another file (ignoring case).
 
 
 #### assertFileExists
- 
+
+* `param string` $filename
+* `param string` $message
+
 Asserts that a file exists.
 
 
 #### assertFileIsNotReadable
- 
+
+* `param string` $file
+* `param string` $message
+
 Asserts that a file exists and is not readable.
 
 
 #### assertFileIsNotWritable
- 
+
+* `param string` $file
+* `param string` $message
+
 Asserts that a file exists and is not writable.
 
 
 #### assertFileIsReadable
- 
+
+* `param string` $file
+* `param string` $message
+
 Asserts that a file exists and is readable.
 
 
 #### assertFileIsWritable
- 
+
+* `param string` $file
+* `param string` $message
+
 Asserts that a file exists and is writable.
 
 
 #### assertFileNotEquals
- 
+
+* `param string` $expected
+* `param string` $actual
+* `param string` $message
+
 Asserts that the contents of one file is not equal to the contents of another file.
 
 
 #### assertFileNotEqualsCanonicalizing
- 
+
+* `param string` $expected
+* `param string` $actual
+* `param string` $message
+
 Asserts that the contents of one file is not equal to the contents of another file (canonicalizing).
 
 
 #### assertFileNotEqualsIgnoringCase
- 
+
+* `param string` $expected
+* `param string` $actual
+* `param string` $message
+
 Asserts that the contents of one file is not equal to the contents of another file (ignoring case).
 
 
 #### assertFileNotExists
- 
+
+* `param string` $filename
+* `param string` $message
+
 Asserts that a file does not exist.
 
 
 #### assertFinite
- 
-Asserts that a variable is finite.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a variable is finite.
 
 
 #### assertGreaterOrEquals
- 
-Asserts that a value is greater than or equal to another value.
 
- * `param mixed` $expected
- * `param mixed` $actual
+* `param mixed` $expected
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a value is greater than or equal to another value.
 
 
 #### assertGreaterThan
- 
-Asserts that a value is greater than another value.
 
- * `param mixed` $expected
- * `param mixed` $actual
+* `param mixed` $expected
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a value is greater than another value.
 
 
 #### assertGreaterThanOrEqual
- 
-Asserts that a value is greater than or equal to another value.
 
- * `param mixed` $expected
- * `param mixed` $actual
+* `param mixed` $expected
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a value is greater than or equal to another value.
 
 
 #### assertInfinite
- 
-Asserts that a variable is infinite.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a variable is infinite.
 
 
 #### assertInstanceOf
- 
-Asserts that a variable is of a given type.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $expected
+* `param string` $message
+
+Asserts that a variable is of a given type.
 
 
 #### assertIsArray
- 
-Asserts that a variable is of type array.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a variable is of type array.
 
 
 #### assertIsBool
- 
-Asserts that a variable is of type bool.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a variable is of type bool.
 
 
 #### assertIsCallable
- 
-Asserts that a variable is of type callable.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a variable is of type callable.
 
 
 #### assertIsClosedResource
- 
-Asserts that a variable is of type resource and is closed.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a variable is of type resource and is closed.
 
 
 #### assertIsEmpty
- 
-Asserts that a variable is empty.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a variable is empty.
 
 
 #### assertIsFloat
- 
-Asserts that a variable is of type float.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a variable is of type float.
 
 
 #### assertIsInt
- 
-Asserts that a variable is of type int.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a variable is of type int.
 
 
 #### assertIsIterable
- 
-Asserts that a variable is of type iterable.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a variable is of type iterable.
 
 
 #### assertIsNotArray
- 
-Asserts that a variable is not of type array.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a variable is not of type array.
 
 
 #### assertIsNotBool
- 
-Asserts that a variable is not of type bool.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a variable is not of type bool.
 
 
 #### assertIsNotCallable
- 
-Asserts that a variable is not of type callable.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a variable is not of type callable.
 
 
 #### assertIsNotClosedResource
- 
-Asserts that a variable is not of type resource.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a variable is not of type resource.
 
 
 #### assertIsNotFloat
- 
-Asserts that a variable is not of type float.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a variable is not of type float.
 
 
 #### assertIsNotInt
- 
-Asserts that a variable is not of type int.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a variable is not of type int.
 
 
 #### assertIsNotIterable
- 
-Asserts that a variable is not of type iterable.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a variable is not of type iterable.
 
 
 #### assertIsNotNumeric
- 
-Asserts that a variable is not of type numeric.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a variable is not of type numeric.
 
 
 #### assertIsNotObject
- 
-Asserts that a variable is not of type object.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a variable is not of type object.
 
 
 #### assertIsNotReadable
- 
+
+* `param string` $filename
+* `param string` $message
+
 Asserts that a file/dir exists and is not readable.
 
 
 #### assertIsNotResource
- 
-Asserts that a variable is not of type resource.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a variable is not of type resource.
 
 
 #### assertIsNotScalar
- 
-Asserts that a variable is not of type scalar.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a variable is not of type scalar.
 
 
 #### assertIsNotString
- 
-Asserts that a variable is not of type string.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a variable is not of type string.
 
 
 #### assertIsNotWritable
- 
+
+* `param string` $filename
+* `param string` $message
+
 Asserts that a file/dir exists and is not writable.
 
 
 #### assertIsNumeric
- 
-Asserts that a variable is of type numeric.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a variable is of type numeric.
 
 
 #### assertIsObject
- 
-Asserts that a variable is of type object.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a variable is of type object.
 
 
 #### assertIsReadable
- 
+
+* `param string` $filename
+* `param string` $message
+
 Asserts that a file/dir is readable.
 
 
 #### assertIsResource
- 
-Asserts that a variable is of type resource.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a variable is of type resource.
 
 
 #### assertIsScalar
- 
-Asserts that a variable is of type scalar.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a variable is of type scalar.
 
 
 #### assertIsString
- 
-Asserts that a variable is of type string.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a variable is of type string.
 
 
 #### assertIsWritable
- 
+
+* `param string` $filename
+* `param string` $message
+
 Asserts that a file/dir exists and is writable.
 
 
 #### assertJson
- 
+
+* `param string` $actualJson
+* `param string` $message
+
 Asserts that a string is a valid JSON string.
 
 
 #### assertJsonFileEqualsJsonFile
- 
+
+* `param string` $expectedFile
+* `param string` $actualFile
+* `param string` $message
+
 Asserts that two JSON files are equal.
 
 
 #### assertJsonFileNotEqualsJsonFile
- 
+
+* `param string` $expectedFile
+* `param string` $actualFile
+* `param string` $message
+
 Asserts that two JSON files are not equal.
 
 
 #### assertJsonStringEqualsJsonFile
- 
+
+* `param string` $expectedFile
+* `param string` $actualJson
+* `param string` $message
+
 Asserts that the generated JSON encoded object and the content of the given file are equal.
 
 
 #### assertJsonStringEqualsJsonString
- 
+
+* `param string` $expectedJson
+* `param string` $actualJson
+* `param string` $message
+
 Asserts that two given JSON encoded objects or arrays are equal.
 
 
 #### assertJsonStringNotEqualsJsonFile
- 
+
+* `param string` $expectedFile
+* `param string` $actualJson
+* `param string` $message
+
 Asserts that the generated JSON encoded object and the content of the given file are not equal.
 
 
 #### assertJsonStringNotEqualsJsonString
- 
+
+* `param string` $expectedJson
+* `param string` $actualJson
+* `param string` $message
+
 Asserts that two given JSON encoded objects or arrays are not equal.
 
 
 #### assertLessOrEquals
- 
-Asserts that a value is smaller than or equal to another value.
 
- * `param mixed` $expected
- * `param mixed` $actual
+* `param mixed` $expected
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a value is smaller than or equal to another value.
 
 
 #### assertLessThan
- 
-Asserts that a value is smaller than another value.
 
- * `param mixed` $expected
- * `param mixed` $actual
+* `param mixed` $expected
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a value is smaller than another value.
 
 
 #### assertLessThanOrEqual
- 
-Asserts that a value is smaller than or equal to another value.
 
- * `param mixed` $expected
- * `param mixed` $actual
+* `param mixed` $expected
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a value is smaller than or equal to another value.
 
 
 #### assertMatchesRegularExpression
- 
+
+* `param string` $pattern
+* `param string` $string
+* `param string` $message
+
 Asserts that a string matches a given regular expression.
 
 
 #### assertNan
- 
-Asserts that a variable is nan.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a variable is nan.
 
 
 #### assertNotContains
- 
-Asserts that a haystack does not contain a needle.
 
- * `param mixed` $needle
+* `param mixed` $needle
+* `param iterable` $haystack
+* `param string` $message
+
+Asserts that a haystack does not contain a needle.
 
 
 #### assertNotContainsEquals
-__not documented__
+
+* `param ` $needle
+* `param iterable` $haystack
+* `param string` $message
 
 
 #### assertNotContainsOnly
- 
+
+* `param string` $type
+* `param iterable` $haystack
+* `param ?bool` $isNativeType
+* `param string` $message
+
 Asserts that a haystack does not contain only values of a given type.
 
 
 #### assertNotCount
- 
-Asserts the number of elements of an array, Countable or Traversable.
 
- * `param Countable|iterable` $haystack
+* `param Countable|iterable` $haystack
+* `param int` $expectedCount
+* `param string` $message
+
+Asserts the number of elements of an array, Countable or Traversable.
 
 
 #### assertNotEmpty
- 
-Asserts that a variable is not empty.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a variable is not empty.
 
 
 #### assertNotEquals
- 
-Asserts that two variables are not equal.
 
- * `param mixed` $expected
- * `param mixed` $actual
+* `param mixed` $expected
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that two variables are not equal.
 
 
 #### assertNotEqualsCanonicalizing
- 
-Asserts that two variables are not equal (canonicalizing).
 
- * `param mixed` $expected
- * `param mixed` $actual
+* `param mixed` $expected
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that two variables are not equal (canonicalizing).
 
 
 #### assertNotEqualsIgnoringCase
- 
-Asserts that two variables are not equal (ignoring case).
 
- * `param mixed` $expected
- * `param mixed` $actual
+* `param mixed` $expected
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that two variables are not equal (ignoring case).
 
 
 #### assertNotEqualsWithDelta
- 
-Asserts that two variables are not equal (with delta).
 
- * `param mixed` $expected
- * `param mixed` $actual
+* `param mixed` $expected
+* `param mixed` $actual
+* `param float` $delta
+* `param string` $message
+
+Asserts that two variables are not equal (with delta).
 
 
 #### assertNotFalse
- 
-Asserts that a condition is not false.
 
- * `param mixed` $condition
+* `param mixed` $condition
+* `param string` $message
+
+Asserts that a condition is not false.
 
 
 #### assertNotInstanceOf
- 
-Asserts that a variable is not of a given type.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $expected
+* `param string` $message
+
+Asserts that a variable is not of a given type.
 
 
 #### assertNotNull
- 
-Asserts that a variable is not null.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a variable is not null.
 
 
 #### assertNotRegExp
- 
+
+* `param string` $pattern
+* `param string` $string
+* `param string` $message
+
 Asserts that a string does not match a given regular expression.
 
 
 #### assertNotSame
- 
-Asserts that two variables do not have the same type and value.
 
- * `param mixed` $expected
- * `param mixed` $actual
+* `param mixed` $expected
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that two variables do not have the same type and value.
 
 
 #### assertNotSameSize
- 
-Assert that the size of two arrays (or `Countable` or `Traversable` objects) is not the same.
 
- * `param Countable|iterable` $expected
- * `param Countable|iterable` $actual
+* `param Countable|iterable` $expected
+* `param Countable|iterable` $actual
+* `param string` $message
+
+Assert that the size of two arrays (or `Countable` or `Traversable` objects) is not the same.
 
 
 #### assertNotTrue
- 
-Asserts that a condition is not true.
 
- * `param mixed` $condition
+* `param mixed` $condition
+* `param string` $message
+
+Asserts that a condition is not true.
 
 
 #### assertNull
- 
-Asserts that a variable is null.
 
- * `param mixed` $actual
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that a variable is null.
 
 
 #### assertObjectHasAttribute
- 
+
+* `param string` $attributeName
+* `param object` $object
+* `param string` $message
+
 Asserts that an object has a specified attribute.
 
 
 #### assertObjectNotHasAttribute
- 
+
+* `param string` $attributeName
+* `param object` $object
+* `param string` $message
+
 Asserts that an object does not have a specified attribute.
 
 
 #### assertRegExp
- 
+
+* `param string` $pattern
+* `param string` $string
+* `param string` $message
+
 Asserts that a string matches a given regular expression.
 
 
 #### assertSame
- 
-Asserts that two variables have the same type and value.
 
- * `param mixed` $expected
- * `param mixed` $actual
+* `param mixed` $expected
+* `param mixed` $actual
+* `param string` $message
+
+Asserts that two variables have the same type and value.
 
 
 #### assertSameSize
- 
-Assert that the size of two arrays (or `Countable` or `Traversable` objects) is the same.
 
- * `param Countable|iterable` $expected
- * `param Countable|iterable` $actual
+* `param Countable|iterable` $expected
+* `param Countable|iterable` $actual
+* `param string` $message
+
+Assert that the size of two arrays (or `Countable` or `Traversable` objects) is the same.
 
 
 #### assertStringContainsString
-__not documented__
+
+* `param string` $needle
+* `param string` $haystack
+* `param string` $message
 
 
 #### assertStringContainsStringIgnoringCase
-__not documented__
+
+* `param string` $needle
+* `param string` $haystack
+* `param string` $message
 
 
 #### assertStringEndsNotWith
- 
+
+* `param string` $suffix
+* `param string` $string
+* `param string` $message
+
 Asserts that a string ends not with a given suffix.
 
 
 #### assertStringEndsWith
- 
+
+* `param string` $suffix
+* `param string` $string
+* `param string` $message
+
 Asserts that a string ends with a given suffix.
 
 
 #### assertStringEqualsFile
- 
+
+* `param string` $expectedFile
+* `param string` $actualString
+* `param string` $message
+
 Asserts that the contents of a string is equal to the contents of a file.
 
 
 #### assertStringEqualsFileCanonicalizing
- 
+
+* `param string` $expectedFile
+* `param string` $actualString
+* `param string` $message
+
 Asserts that the contents of a string is equal to the contents of a file (canonicalizing).
 
 
 #### assertStringEqualsFileIgnoringCase
- 
+
+* `param string` $expectedFile
+* `param string` $actualString
+* `param string` $message
+
 Asserts that the contents of a string is equal to the contents of a file (ignoring case).
 
 
 #### assertStringMatchesFormat
- 
+
+* `param string` $format
+* `param string` $string
+* `param string` $message
+
 Asserts that a string matches a given format string.
 
 
 #### assertStringMatchesFormatFile
- 
+
+* `param string` $formatFile
+* `param string` $string
+* `param string` $message
+
 Asserts that a string matches a given format file.
 
 
 #### assertStringNotContainsString
-__not documented__
+
+* `param string` $needle
+* `param string` $haystack
+* `param string` $message
 
 
 #### assertStringNotContainsStringIgnoringCase
-__not documented__
+
+* `param string` $needle
+* `param string` $haystack
+* `param string` $message
 
 
 #### assertStringNotEqualsFile
- 
+
+* `param string` $expectedFile
+* `param string` $actualString
+* `param string` $message
+
 Asserts that the contents of a string is not equal to the contents of a file.
 
 
 #### assertStringNotEqualsFileCanonicalizing
- 
+
+* `param string` $expectedFile
+* `param string` $actualString
+* `param string` $message
+
 Asserts that the contents of a string is not equal to the contents of a file (canonicalizing).
 
 
 #### assertStringNotEqualsFileIgnoringCase
- 
+
+* `param string` $expectedFile
+* `param string` $actualString
+* `param string` $message
+
 Asserts that the contents of a string is not equal to the contents of a file (ignoring case).
 
 
 #### assertStringNotMatchesFormat
- 
+
+* `param string` $format
+* `param string` $string
+* `param string` $message
+
 Asserts that a string does not match a given format string.
 
 
 #### assertStringNotMatchesFormatFile
- 
+
+* `param string` $formatFile
+* `param string` $string
+* `param string` $message
+
 Asserts that a string does not match a given format string.
 
 
 #### assertStringStartsNotWith
- 
+
+* `param string` $prefix
+* `param string` $string
+* `param string` $message
+
 Asserts that a string starts not with a given prefix.
 
 
 #### assertStringStartsWith
- 
+
+* `param string` $prefix
+* `param string` $string
+* `param string` $message
+
 Asserts that a string starts with a given prefix.
 
 
 #### assertThat
- 
-Evaluates a PHPUnit\Framework\Constraint matcher object.
 
- * `param mixed` $value
+* `param mixed` $value
+* `param \PHPUnit\Framework\Constraint\Constraint` $constraint
+* `param string` $message
+
+Evaluates a PHPUnit\Framework\Constraint matcher object.
 
 
 #### assertThatItsNot
- 
-Evaluates a PHPUnit\Framework\Constraint matcher object.
 
- * `param mixed` $value
+* `param mixed` $value
+* `param \PHPUnit\Framework\Constraint\Constraint` $constraint
+* `param string` $message
+
+Evaluates a PHPUnit\Framework\Constraint matcher object.
 
 
 #### assertTrue
- 
-Asserts that a condition is true.
 
- * `param mixed` $condition
+* `param mixed` $condition
+* `param string` $message
+
+Asserts that a condition is true.
 
 
 #### assertXmlFileEqualsXmlFile
- 
+
+* `param string` $expectedFile
+* `param string` $actualFile
+* `param string` $message
+
 Asserts that two XML files are equal.
 
 
 #### assertXmlFileNotEqualsXmlFile
- 
+
+* `param string` $expectedFile
+* `param string` $actualFile
+* `param string` $message
+
 Asserts that two XML files are not equal.
 
 
 #### assertXmlStringEqualsXmlFile
- 
-Asserts that two XML documents are equal.
 
- * `param DOMDocument|string` $actualXml
+* `param DOMDocument|string` $actualXml
+* `param string` $expectedFile
+* `param string` $message
+
+Asserts that two XML documents are equal.
 
 
 #### assertXmlStringEqualsXmlString
- 
-Asserts that two XML documents are equal.
 
- * `param DOMDocument|string` $expectedXml
- * `param DOMDocument|string` $actualXml
+* `param DOMDocument|string` $expectedXml
+* `param DOMDocument|string` $actualXml
+* `param string` $message
+
+Asserts that two XML documents are equal.
 
 
 #### assertXmlStringNotEqualsXmlFile
- 
-Asserts that two XML documents are not equal.
 
- * `param DOMDocument|string` $actualXml
+* `param DOMDocument|string` $actualXml
+* `param string` $expectedFile
+* `param string` $message
+
+Asserts that two XML documents are not equal.
 
 
 #### assertXmlStringNotEqualsXmlString
- 
-Asserts that two XML documents are not equal.
 
- * `param DOMDocument|string` $expectedXml
- * `param DOMDocument|string` $actualXml
+* `param DOMDocument|string` $expectedXml
+* `param DOMDocument|string` $actualXml
+* `param string` $message
+
+Asserts that two XML documents are not equal.
 
 
 #### expectThrowable
- 
+
+* `param \Throwable|string` $throwable
+* `param callable` $callback
+* `return void`
+
 Handles and checks throwables (Exceptions/Errors) called inside the callback function.
+
 Either throwable class name or throwable instance should be provided.
 
 {% highlight php %}
@@ -882,21 +1204,25 @@ $I->expectThrowable(new MyError("Don't do bad things"), function() {
 
 {% endhighlight %}
 
- * `param \Throwable|string` $throwable
-
 
 #### fail
- 
+
+* `param string` $message
+
 Fails a test with the given message.
 
 
 #### markTestIncomplete
- 
+
+* `param string` $message
+
 Mark the test as incomplete.
 
 
 #### markTestSkipped
- 
+
+* `param string` $message
+
 Mark the test as skipped.
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-asserts/tree/master/src/Codeception/Module/Asserts.php">Help us to improve documentation. Edit module reference</a></div>

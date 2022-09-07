@@ -9,8 +9,18 @@ Declare mocks inside `Codeception\Test\Unit` class.
 If you want to use mocks outside it, check the reference for [Codeception/Stub](https://github.com/Codeception/Stub) library.      
 
 
-#### *public* make($class, array $params = array ( )) 
+#### *public* make($class, array $params = array ( ))
+
+* `template` RealInstanceType of object
+* `param class-string<RealInstanceType>|RealInstanceType|callable():` $ class-string<RealInstanceType> $class - A class to be mocked
+* `param array` $params - properties and methods to set
+* `param ` $class
+* `throws RuntimeException` when class does not exist
+* `throws Exception`
+* `return MockObject&RealInstanceType` - mock
+
 Instantiates a class without executing a constructor.
+
 Properties and methods can be set as a second parameter.
 Even protected and private properties can be set.
 
@@ -41,16 +51,18 @@ $this->make('User', ['save' => function () { return true; }]);
 $this->make('User', ['save' => true]);
 
 {% endhighlight %}
-@template RealInstanceType of object
- * `param class-string<RealInstanceType>|RealInstanceType|callable(): class-string<RealInstanceType>` $class - A class to be mocked
- * `param array` $params - properties and methods to set
 
-@return MockObject&RealInstanceType - mock
-@throws RuntimeException when class does not exist
-@throws Exception
+#### *public* makeEmpty($class, array $params = array ( ))
 
-#### *public* makeEmpty($class, array $params = array ( )) 
+* `template` RealInstanceType of object
+* `param class-string<RealInstanceType>|RealInstanceType|callable():` $ class-string<RealInstanceType> $class - A class to be mocked
+* `param array` $params
+* `param ` $class
+* `throws Exception`
+* `return MockObject&RealInstanceType`
+
 Instantiates class having all methods replaced with dummies.
+
 Constructor is not triggered.
 Properties and methods can be set as a second parameter.
 Even protected and private properties can be set.
@@ -83,14 +95,18 @@ $this->makeEmpty('User', ['save' => true]);
 
 {% endhighlight %}
 
-@template RealInstanceType of object
- * `param class-string<RealInstanceType>|RealInstanceType|callable(): class-string<RealInstanceType>` $class - A class to be mocked
- * `param array` $params
-@return MockObject&RealInstanceType
-@throws Exception
+#### *public* makeEmptyExcept($class, $method, array $params = array ( ))
 
-#### *public* makeEmptyExcept($class, $method, array $params = array ( )) 
+* `template` RealInstanceType of object
+* `param class-string<RealInstanceType>|RealInstanceType|callable():` $ class-string<RealInstanceType> $class - A class to be mocked
+* `param ` $class
+* `param string` $method
+* `param array` $params
+* `throws Exception`
+* `return \PHPUnit\Framework\MockObject\MockObject&RealInstanceType`
+
 Instantiates class having all methods replaced with dummies except one.
+
 Constructor is not triggered.
 Properties and methods can be replaced.
 Even protected and private properties can be set.
@@ -123,14 +139,18 @@ $this->makeEmptyExcept('User', 'save', ['isValid' => true]);
 
 {% endhighlight %}
 
-@template RealInstanceType of object
- * `param class-string<RealInstanceType>|RealInstanceType|callable(): class-string<RealInstanceType>` $class - A class to be mocked
+#### *public* construct($class, array $constructorParams = array ( ), array $params = array ( ))
 
-@return \PHPUnit\Framework\MockObject\MockObject&RealInstanceType
-@throws Exception
+* `template` RealInstanceType of object
+* `param class-string<RealInstanceType>|RealInstanceType|callable():` $ class-string<RealInstanceType> $class - A class to be mocked
+* `param ` $class
+* `param array` $constructorParams
+* `param array` $params
+* `throws Exception`
+* `return MockObject&RealInstanceType`
 
-#### *public* construct($class, array $constructorParams = array ( ), array $params = array ( )) 
 Instantiates a class instance by running constructor.
+
 Parameters for constructor passed as second argument
 Properties and methods can be set in third argument.
 Even protected and private properties can be set.
@@ -163,13 +183,17 @@ $this->construct('User', [], ['save' => true]);
 
 {% endhighlight %}
 
-@template RealInstanceType of object
- * `param class-string<RealInstanceType>|RealInstanceType|callable(): class-string<RealInstanceType>` $class - A class to be mocked
-@return MockObject&RealInstanceType
-@throws Exception
+#### *public* constructEmpty($class, array $constructorParams = array ( ), array $params = array ( ))
 
-#### *public* constructEmpty($class, array $constructorParams = array ( ), array $params = array ( )) 
+* `template` RealInstanceType of object
+* `param class-string<RealInstanceType>|RealInstanceType|callable():` $ class-string<RealInstanceType> $class - A class to be mocked
+* `param ` $class
+* `param array` $constructorParams
+* `param array` $params
+* `return MockObject&RealInstanceType`
+
 Instantiates a class instance by running constructor with all methods replaced with dummies.
+
 Parameters for constructor passed as second argument
 Properties and methods can be set in third argument.
 Even protected and private properties can be set.
@@ -213,12 +237,18 @@ $this->constructEmpty('User', [], [
 
 {% endhighlight %}
 
-@template RealInstanceType of object
- * `param class-string<RealInstanceType>|RealInstanceType|callable(): class-string<RealInstanceType>` $class - A class to be mocked
-@return MockObject&RealInstanceType
+#### *public* constructEmptyExcept($class, $method, array $constructorParams = array ( ), array $params = array ( ))
 
-#### *public* constructEmptyExcept($class, $method, array $constructorParams = array ( ), array $params = array ( )) 
+* `template` RealInstanceType of object
+* `param class-string<RealInstanceType>|RealInstanceType|callable():` $ class-string<RealInstanceType> $class - A class to be mocked
+* `param ` $class
+* `param string` $method
+* `param array` $constructorParams
+* `param array` $params
+* `return MockObject&RealInstanceType`
+
 Instantiates a class instance by running constructor with all methods replaced with dummies, except one.
+
 Parameters for constructor passed as second argument
 Properties and methods can be set in third argument.
 Even protected and private properties can be set.
@@ -251,14 +281,14 @@ $this->constructEmptyExcept('User', 'save', [], ['save' => true]);
 
 {% endhighlight %}
 
-@template RealInstanceType of object
- * `param class-string<RealInstanceType>|RealInstanceType|callable(): class-string<RealInstanceType>` $class - A class to be mocked
-@return MockObject&RealInstanceType
 
 
 
+#### *public static* never($params = null)
 
-#### *public static* never($params = null) 
+* `param mixed` $params
+* `return \Codeception\Stub\StubMarshaler`
+
 Checks if a method never has been invoked
 
 If method invoked, it will immediately throw an
@@ -277,9 +307,11 @@ $user->someMethod();
 
 {% endhighlight %}
 
- * `param mixed` $params
+#### *public static* once($params = null)
 
-#### *public static* once($params = null) 
+* `param mixed` $params
+* `return \Codeception\Stub\StubMarshaler`
+
 Checks if a method has been invoked exactly one
 time.
 
@@ -311,9 +343,11 @@ Expected::once(function() { return Faker::name(); });
 
 {% endhighlight %}
 
- * `param mixed` $params
+#### *public static* atLeastOnce($params = null)
 
-#### *public static* atLeastOnce($params = null) 
+* `param mixed` $params
+* `return \Codeception\Stub\StubMarshaler`
+
 Checks if a method has been invoked at least one
 time.
 
@@ -346,11 +380,15 @@ Expected::atLeastOnce(function() { return Faker::name(); });
 
 {% endhighlight %}
 
- * `param mixed` $params
+#### *public static* exactly($count, $params = null)
 
-#### *public static* exactly($count, $params = null) 
+* `param mixed` $params
+* `param int` $count
+* `return \Codeception\Stub\StubMarshaler`
+
 Checks if a method has been invoked a certain amount
 of times.
+
 If the number of invocations exceeds the value it will immediately throw an
 exception,
 If the number is less it will later be checked in verify() and also throw an
@@ -383,7 +421,5 @@ Alternatively, a function can be passed as parameter:
 Expected::exactly(function() { return Faker::name() });
 
 {% endhighlight %}
-
- * `param mixed` $params
 
 

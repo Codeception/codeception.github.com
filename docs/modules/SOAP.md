@@ -65,12 +65,18 @@ If you use PHP SoapServer with framework, try to block call to this method in te
 ### Actions
 
 #### dontSeeSoapResponseContainsStructure
- 
+
+* `param string` $xml
+* `return void`
+
 Opposite to `seeSoapResponseContainsStructure`
 
 
 #### dontSeeSoapResponseContainsXPath
- 
+
+* `param string` $xPath
+* `return void`
+
 Checks XML response doesn't contain XPath locator
 
 {% highlight php %}
@@ -80,46 +86,61 @@ $I->dontSeeSoapResponseContainsXPath('//root/user[@id=1]');
 
 {% endhighlight %}
 
- * `param string` $xPath
-
 
 #### dontSeeSoapResponseEquals
- 
+
+* `param string` $xml
+* `return void`
+
 Checks XML response equals provided XML.
+
 Comparison is done by canonicalizing both xml`s.
 
 Parameter can be passed either as XmlBuilder, DOMDocument, DOMNode, XML string, or array (if no attributes).
-
 
 
 #### dontSeeSoapResponseIncludes
- 
+
+* `param XmlBuilder|DOMDocument|string` $xml
+* `return void`
+
 Checks XML response does not include provided XML.
+
 Comparison is done by canonicalizing both xml`s.
 Parameter can be passed either as XmlBuilder, DOMDocument, DOMNode, XML string, or array (if no attributes).
 
- * `param XmlBuilder|DOMDocument|string` $xml
-
 
 #### grabAttributeFrom
- 
-Finds and returns attribute of element.
-Element is matched by either CSS or XPath
 
- * `Available since` 1.1
+* `version` 1.1
+* `param string` $cssOrXPath
+* `param string` $attribute
+* `return string`
+
+Finds and returns attribute of element.
+
+Element is matched by either CSS or XPath
 
 
 #### grabTextContentFrom
- 
-Finds and returns text contents of element.
-Element is matched by either CSS or XPath
 
- * `Available since` 1.1
+* `version` 1.1
+* `param string` $cssOrXPath
+* `return string`
+
+Finds and returns text contents of element.
+
+Element is matched by either CSS or XPath
 
 
 #### haveSoapHeader
- 
+
+* `param string` $header
+* `param array` $params
+* `return void`
+
 Prepare SOAP header.
+
 Receives header name and parameters as array.
 
 Example:
@@ -146,15 +167,20 @@ Will produce header:
 
 
 #### seeSoapResponseCodeIs
- 
-Checks response code from server.
 
- * `param string` $code
+* `param string` $code
+* `return void`
+
+Checks response code from server.
 
 
 #### seeSoapResponseContainsStructure
- 
+
+* `param string` $xml
+* `return void`
+
 Checks XML response contains provided structure.
+
 Response elements will be compared with XML provided.
 Only nodeNames are checked to see elements match.
 
@@ -173,9 +199,11 @@ This method does not use schema for validation.
 This method does not require path from root to match the structure.
 
 
-
 #### seeSoapResponseContainsXPath
- 
+
+* `param string` $xPath
+* `return void`
+
 Checks XML response with XPath locator
 
 {% highlight php %}
@@ -185,12 +213,14 @@ $I->seeSoapResponseContainsXPath('//root/user[@id=1]');
 
 {% endhighlight %}
 
- * `param string` $xPath
-
 
 #### seeSoapResponseEquals
- 
+
+* `param string` $xml
+* `return void`
+
 Checks XML response equals provided XML.
+
 Comparison is done by canonicalizing both xml`s.
 
 Parameters can be passed either as DOMDocument, DOMNode, XML string, or array (if no attributes).
@@ -210,8 +240,12 @@ $I->seeSoapRequestIncludes($dom);
 
 
 #### seeSoapResponseIncludes
- 
+
+* `param XmlBuilder|DOMDocument|string` $xml
+* `return void`
+
 Checks XML response includes provided XML.
+
 Comparison is done by canonicalizing both xml`s.
 Parameter can be passed either as XmlBuilder, DOMDocument, DOMNode, XML string, or array (if no attributes).
 
@@ -229,11 +263,13 @@ $I->seeSoapRequestIncludes($dom);
 
 {% endhighlight %}
 
- * `param XmlBuilder|DOMDocument|string` $xml
-
 
 #### sendSoapRequest
- 
+
+* `param string` $action
+* `param object|string` $body
+* `return void`
+
 Submits request to endpoint.
 
 Requires of api function name and parameters.
@@ -251,8 +287,5 @@ $I->sendSoapRequest('UpdateUser', \Codeception\Utils\Soap::request()->user
   ->name->val('notdavert');
 
 {% endhighlight %}
-
- * `param string` $action
- * `param object|string` $body
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-soap/tree/master/src/Codeception/Module/SOAP.php">Help us to improve documentation. Edit module reference</a></div>

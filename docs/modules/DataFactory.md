@@ -192,7 +192,11 @@ class CustomStore implements StoreInterface
 ### Actions
 
 #### have
- 
+
+* `param string` $name
+* `param array` $extraAttrs
+* `return object`
+
 Generates and saves a record,.
 
 {% highlight php %}
@@ -206,7 +210,12 @@ Returns an instance of created user.
 
 
 #### haveMultiple
- 
+
+* `param string` $name
+* `param int` $times
+* `param array` $extraAttrs
+* `return object[]`
+
 Generates and saves a record multiple times.
 
 {% highlight php %}
@@ -216,11 +225,13 @@ $I->haveMultiple('User', 10, ['is_active' => true]); // create 10 active users
 
 {% endhighlight %}
 
- * `return object[]` 
-
 
 #### make
- 
+
+* `param string` $name
+* `param array` $extraAttrs
+* `return object`
+
 Generates a record instance.
 
 This does not save it in the database. Use `have` for that.
@@ -236,7 +247,8 @@ Returns an instance of created user without creating a record in database.
 
 
 #### onReconfigure
- 
-@throws ModuleException
+
+* `param ` $settings
+* `throws ModuleException`
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-datafactory/tree/master/src/Codeception/Module/DataFactory.php">Help us to improve documentation. Edit module reference</a></div>

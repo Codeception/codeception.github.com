@@ -36,21 +36,29 @@ Class JsonType
 
 #### __construct()
 
- *public* __construct($jsonArray) 
+ *public* __construct($jsonArray)
+
+
+* `param ` $jsonArray array|JsonArray
 
 Creates instance of JsonType
 Pass an array or `\Codeception\Util\JsonArray` with data.
-If non-associative array is passed - the very first element of it will be used for matching.
 
- * `param` $jsonArray array|JsonArray
+If non-associative array is passed - the very first element of it will be used for matching.
 
 [See source](https://github.com/Codeception/module-rest/blob/master/src/Codeception/Util/JsonType.php#L47)
 
 #### addCustomFilter()
 
- *public static* addCustomFilter($name, callable $callable) 
+ *public static* addCustomFilter($name, callable $callable)
+
+
+* `param string` $name
+* `param callable` $callable
+* `return void`
 
 Adds custom filter to JsonType list.
+
 You should specify a name and parameters of a filter.
 
 Example:
@@ -76,7 +84,10 @@ JsonType::addCustomFilter('/len\((.*?)\)/', function($value, $len) {
 
 #### cleanCustomFilters()
 
- *public static* cleanCustomFilters() 
+ *public static* cleanCustomFilters()
+
+
+* `return void`
 
 Removes all custom filters
 
@@ -84,9 +95,14 @@ Removes all custom filters
 
 #### matches()
 
- *public* matches(array $jsonType) 
+ *public* matches(array $jsonType)
+
+
+* `param array` $jsonType
+* `return string|bool`
 
 Checks data against passed JsonType.
+
 If matching fails function returns a string with a message describing failure.
 On success returns `true`.
 

@@ -110,7 +110,11 @@ in addition to Symfony module.
 #### _findElements
 
 *hidden API method, expected to be used from Helper classes*
- 
+
+* `api` 
+* `param mixed` $locator
+* `return iterable`
+
 Locates element using available Codeception locator types:
 
 * XPath
@@ -134,11 +138,14 @@ WebDriver module returns `Facebook\WebDriver\Remote\RemoteWebElement` instances
 PhpBrowser and Framework modules return `Symfony\Component\DomCrawler\Crawler` instances
 
 
-
 #### _getResponseContent
 
 *hidden API method, expected to be used from Helper classes*
- 
+
+* `api` 
+* `throws ModuleException`
+* `return string`
+
 Returns content of the last response
 Use it in Helpers when you want to retrieve response of request performed by another module.
 
@@ -153,14 +160,22 @@ public function seeResponseContains($text)
 
 {% endhighlight %}
 
-@throws ModuleException
-
 
 #### _loadPage
 
 *hidden API method, expected to be used from Helper classes*
- 
+
+* `api` 
+* `param string` $method
+* `param string` $uri
+* `param array` $parameters
+* `param array` $files
+* `param array` $server
+* `param ?string` $content
+* `return void`
+
 Opens a page with arbitrary request parameters.
+
 Useful for testing multi-step forms on a specific step.
 
 {% highlight php %}
@@ -174,12 +189,23 @@ public function openCheckoutFormStep2($orderId) {
 {% endhighlight %}
 
 
-
 #### _request
 
 *hidden API method, expected to be used from Helper classes*
- 
+
+* `api` 
+* `see` `_loadPage`
+* `param string` $method
+* `param string` $uri
+* `param array` $parameters
+* `param array` $files
+* `param array` $server
+* `param ?string` $content
+* `throws ExternalUrlException|ModuleException`
+* `return ?string`
+
 Send custom request to a backend using method, uri, parameters, etc.
+
 Use it in Helpers to create special request actions, like accessing API
 Returns a string with response body.
 
@@ -197,14 +223,15 @@ public function createUserByApi($name) {
 Does not load the response into the module so you can't interact with response page (click, fill forms).
 To load arbitrary page for interaction, use `_loadPage` method.
 
-@throws ExternalUrlException|ModuleException
-@see `_loadPage`
-
 
 #### _savePageSource
 
 *hidden API method, expected to be used from Helper classes*
- 
+
+* `api` 
+* `param string` $filename
+* `return void`
+
 Saves page source of to a file
 
 {% highlight php %}
@@ -215,13 +242,23 @@ $this->getModule('Symfony')->_savePageSource(codecept_output_dir().'page.html');
 
 
 #### amHttpAuthenticated
- 
+
+* `param string` $username
+* `param string` $password
+* `return void`
+
 Authenticates user for HTTP_AUTH
 
 
 #### amLoggedInAs
- 
+
+* `param UserInterface` $user
+* `param string` $firewallName
+* `param null` $firewallContext
+* `return void`
+
 Login with the given user object.
+
 The `$user` object must have a persistent identifier.
 If you have more than one firewall or firewall context, you can specify the desired one as a parameter.
 
@@ -235,13 +272,13 @@ $I->amLoggedInAs($user);
 
 {% endhighlight %}
 
- * `param UserInterface` $user
- * `param string` $firewallName
- * `param null` $firewallContext
-
 
 #### amOnAction
- 
+
+* `param string` $action
+* `param array` $params
+* `return void`
+
 Opens web page by action name
 
 {% highlight php %}
@@ -253,12 +290,12 @@ $I->amOnAction('ArticleController', ['slug' => 'lorem-ipsum']);
 
 {% endhighlight %}
 
- * `param string` $action
- * `param array` $params
-
 
 #### amOnPage
- 
+
+* `param string` $page
+* `return void`
+
 Opens the page for the given relative URI.
 
 {% highlight php %}
@@ -273,7 +310,11 @@ $I->amOnPage('/register');
 
 
 #### amOnRoute
- 
+
+* `param string` $routeName
+* `param array` $params
+* `return void`
+
 Opens web page using route name and parameters.
 
 {% highlight php %}
@@ -284,14 +325,17 @@ $I->amOnRoute('posts.show', ['id' => 34]);
 
 {% endhighlight %}
 
- * `param string` $routeName
- * `param array` $params
-
 
 #### assertEmailAddressContains
- 
+
+* `param string` $headerName
+* `param string` $expectedValue
+* `param ?\Symfony\Component\Mime\Email` $email
+* `return void`
+
 Verify that an email contains addresses with a [header](https://datatracker.ietf.org/doc/html/rfc4021)
 `$headerName` and its expected value `$expectedValue`.
+
 If the Email object is not specified, the last email sent is used instead.
 
 {% highlight php %}
@@ -303,8 +347,13 @@ $I->assertEmailAddressContains('To', 'jane_doe@example.com');
 
 
 #### assertEmailAttachmentCount
- 
+
+* `param int` $count
+* `param ?\Symfony\Component\Mime\Email` $email
+* `return void`
+
 Verify that an email has sent the specified number `$count` of attachments.
+
 If the Email object is not specified, the last email sent is used instead.
 
 {% highlight php %}
@@ -316,8 +365,13 @@ $I->assertEmailAttachmentCount(1);
 
 
 #### assertEmailHasHeader
- 
+
+* `param string` $headerName
+* `param ?\Symfony\Component\Mime\Email` $email
+* `return void`
+
 Verify that an email has a [header](https://datatracker.ietf.org/doc/html/rfc4021) `$headerName`.
+
 If the Email object is not specified, the last email sent is used instead.
 
 {% highlight php %}
@@ -329,9 +383,15 @@ $I->assertEmailHasHeader('Bcc');
 
 
 #### assertEmailHeaderNotSame
- 
+
+* `param string` $headerName
+* `param string` $expectedValue
+* `param ?\Symfony\Component\Mime\Email` $email
+* `return void`
+
 Verify that the [header](https://datatracker.ietf.org/doc/html/rfc4021)
 `$headerName` of an email is not the expected one `$expectedValue`.
+
 If the Email object is not specified, the last email sent is used instead.
 
 {% highlight php %}
@@ -343,9 +403,15 @@ $I->assertEmailHeaderNotSame('To', 'john_doe@gmail.com');
 
 
 #### assertEmailHeaderSame
- 
+
+* `param string` $headerName
+* `param string` $expectedValue
+* `param ?\Symfony\Component\Mime\Email` $email
+* `return void`
+
 Verify that the [header](https://datatracker.ietf.org/doc/html/rfc4021)
 `$headerName` of an email is the same as expected `$expectedValue`.
+
 If the Email object is not specified, the last email sent is used instead.
 
 {% highlight php %}
@@ -357,8 +423,13 @@ $I->assertEmailHeaderSame('To', 'jane_doe@gmail.com');
 
 
 #### assertEmailHtmlBodyContains
- 
+
+* `param string` $text
+* `param ?\Symfony\Component\Mime\Email` $email
+* `return void`
+
 Verify that the HTML body of an email contains `$text`.
+
 If the Email object is not specified, the last email sent is used instead.
 
 {% highlight php %}
@@ -370,8 +441,13 @@ $I->assertEmailHtmlBodyContains('Successful registration');
 
 
 #### assertEmailHtmlBodyNotContains
- 
+
+* `param string` $text
+* `param ?\Symfony\Component\Mime\Email` $email
+* `return void`
+
 Verify that the HTML body of an email does not contain a text `$text`.
+
 If the Email object is not specified, the last email sent is used instead.
 
 {% highlight php %}
@@ -383,8 +459,13 @@ $I->assertEmailHtmlBodyNotContains('userpassword');
 
 
 #### assertEmailNotHasHeader
- 
+
+* `param string` $headerName
+* `param ?\Symfony\Component\Mime\Email` $email
+* `return void`
+
 Verify that an email does not have a [header](https://datatracker.ietf.org/doc/html/rfc4021) `$headerName`.
+
 If the Email object is not specified, the last email sent is used instead.
 
 {% highlight php %}
@@ -396,8 +477,13 @@ $I->assertEmailNotHasHeader('Bcc');
 
 
 #### assertEmailTextBodyContains
- 
+
+* `param string` $text
+* `param ?\Symfony\Component\Mime\Email` $email
+* `return void`
+
 Verify the text body of an email contains a `$text`.
+
 If the Email object is not specified, the last email sent is used instead.
 
 {% highlight php %}
@@ -409,8 +495,13 @@ $I->assertEmailTextBodyContains('Example text body');
 
 
 #### assertEmailTextBodyNotContains
- 
+
+* `param string` $text
+* `param ?\Symfony\Component\Mime\Email` $email
+* `return void`
+
 Verify that the text body of an email does not contain a `$text`.
+
 If the Email object is not specified, the last email sent is used instead.
 
 {% highlight php %}
@@ -422,7 +513,11 @@ $I->assertEmailTextBodyNotContains('My secret text body');
 
 
 #### attachFile
- 
+
+* `param ` $field
+* `param string` $filename
+* `return void`
+
 Attaches a file relative to the Codeception `_data` directory to the given file upload field.
 
 {% highlight php %}
@@ -435,7 +530,10 @@ $I->attachFile('input[@type="file"]', 'prices.xls');
 
 
 #### checkOption
- 
+
+* `param ` $option
+* `return void`
+
 Ticks a checkbox. For radio buttons, use the `selectOption` method instead.
 
 {% highlight php %}
@@ -447,8 +545,13 @@ $I->checkOption('#agree');
 
 
 #### click
- 
+
+* `param string|array` $link
+* `param ` $context
+* `return void`
+
 Perform a click on a link or a button, given by a locator.
+
 If a fuzzy locator is given, the page will be searched for a button, link, or image matching the locator string.
 For buttons, the "value" attribute, "name" attribute, and inner text are searched.
 For links, the link text is searched.
@@ -475,11 +578,13 @@ $I->click('Logout', '#nav');
 $I->click(['link' => 'Login']);
 
 {% endhighlight %}
- * `param string|array` $link
 
 
 #### deleteHeader
- 
+
+* `param string` $name the name of the header to delete.
+* `return void`
+
 Deletes the header with the passed name.  Subsequent requests
 will not have the deleted header in its request.
 
@@ -495,12 +600,15 @@ $I->amOnPage('some-other-page.php');
 
 {% endhighlight %}
 
- * `param string` $name the name of the header to delete.
-
 
 #### dontSee
- 
+
+* `param array|string` $selector optional
+* `param string` $text
+* `return void`
+
 Checks that the current page doesn't contain the text specified (case insensitive).
+
 Give a locator as the second parameter to match a specific region.
 
 {% highlight php %}
@@ -527,11 +635,11 @@ But will ignore strings like:
 
 For checking the raw source code, use `seeInSource()`.
 
- * `param array|string` $selector optional
-
 
 #### dontSeeAuthentication
- 
+
+* `return void`
+
 Check that user is not authenticated.
 
 {% highlight php %}
@@ -543,7 +651,10 @@ $I->dontSeeAuthentication();
 
 
 #### dontSeeCheckboxIsChecked
- 
+
+* `param ` $checkbox
+* `return void`
+
 Check that the specified checkbox is unchecked.
 
 {% highlight php %}
@@ -556,16 +667,23 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
 
 
 #### dontSeeCookie
- 
-Checks that there isn't a cookie with the given name.
-You can set additional cookie params like `domain`, `path` as array passed in last argument.
 
- * `return mixed|void` 
+* `param ` $cookie
+* `param ` $params
+* `return mixed|void`
+
+Checks that there isn't a cookie with the given name.
+
+You can set additional cookie params like `domain`, `path` as array passed in last argument.
 
 
 #### dontSeeCurrentUrlEquals
- 
+
+* `param string` $uri
+* `return void`
+
 Checks that the current URL doesn't equal the given string.
+
 Unlike `dontSeeInCurrentUrl`, this only matches the full URL.
 
 {% highlight php %}
@@ -578,7 +696,10 @@ $I->dontSeeCurrentUrlEquals('/');
 
 
 #### dontSeeCurrentUrlMatches
- 
+
+* `param string` $uri
+* `return void`
+
 Checks that current url doesn't match the given regular expression.
 
 {% highlight php %}
@@ -591,8 +712,13 @@ $I->dontSeeCurrentUrlMatches('~^/users/(\d+)~');
 
 
 #### dontSeeElement
- 
+
+* `param ` $selector
+* `param array` $attributes
+* `return void`
+
 Checks that the given element is invisible or not present on the page.
+
 You can also specify expected attributes of this element.
 
 {% highlight php %}
@@ -607,15 +733,21 @@ $I->dontSeeElement('input', ['value' => '123456']);
 
 
 #### dontSeeEmailIsSent
- 
+
+* `return void`
+
 Checks that no email was sent.
+
 The check is based on `\Symfony\Component\Mailer\EventListener\MessageLoggerListener`, which means:
 If your app performs a HTTP redirect, you need to suppress it using [stopFollowingRedirects()](https://codeception.com/docs/modules/Symfony#stopFollowingRedirects) first; otherwise this check will *always* pass.
 Starting with version 2.0.0, `codeception/module-symfony` requires your app to use [Symfony Mailer](https://symfony.com/doc/current/mailer.html). If your app still uses [Swift Mailer](https://symfony.com/doc/current/email.html), set your version constraint to `^1.6`.
 
 
 #### dontSeeEventTriggered
- 
+
+* `param string|object|string[]` $expected
+* `return void`
+
 Verifies that one or more event listeners were not called during the test.
 
 {% highlight php %}
@@ -627,11 +759,11 @@ $I->dontSeeEventTriggered(['App\MyEvent', 'App\MyOtherEvent']);
 
 {% endhighlight %}
 
- * `param string|object|string[]` $expected
-
 
 #### dontSeeFormErrors
- 
+
+* `return void`
+
 Verifies that there are no errors bound to the submitted form.
 
 {% highlight php %}
@@ -643,7 +775,10 @@ $I->dontSeeFormErrors();
 
 
 #### dontSeeInCurrentUrl
- 
+
+* `param string` $uri
+* `return void`
+
 Checks that the current URI doesn't contain the given string.
 
 {% highlight php %}
@@ -655,8 +790,13 @@ $I->dontSeeInCurrentUrl('/users/');
 
 
 #### dontSeeInField
- 
+
+* `param string|array` $field
+* `param ` $value
+* `return void`
+
 Checks that an input field or textarea doesn't contain the given value.
+
 For fuzzy locators, the field is matched by label text, CSS and XPath.
 
 {% highlight php %}
@@ -670,11 +810,14 @@ $I->dontSeeInField('//form/*[@name=search]','Search');
 $I->dontSeeInField(['name' => 'search'], 'Search');
 
 {% endhighlight %}
- * `param string|array` $field
 
 
 #### dontSeeInFormFields
- 
+
+* `param ` $formSelector
+* `param array` $params
+* `return void`
+
 Checks if the array of form parameters (name => value) are not set on the form matched with
 the passed selector.
 
@@ -717,7 +860,11 @@ $I->dontSeeInFormFields('#form-id', [
 
 
 #### dontSeeInSession
- 
+
+* `param string` $attribute
+* `param mixed|null` $value
+* `return void`
+
 Assert that a session attribute does not exist, or is not equal to the passed value.
 
 {% highlight php %}
@@ -728,12 +875,12 @@ $I->dontSeeInSession('attribute', 'value');
 
 {% endhighlight %}
 
- * `param string` $attribute
- * `param mixed|null` $value
-
 
 #### dontSeeInSource
- 
+
+* `param string` $raw
+* `return void`
+
 Checks that the current page contains the given string in its
 raw source code.
 
@@ -746,15 +893,21 @@ $I->dontSeeInSource('<h1>Green eggs &amp; ham</h1>');
 
 
 #### dontSeeInTitle
- 
-Checks that the page title does not contain the given string.
 
- * `return mixed|void` 
+* `param ` $title
+* `return mixed|void`
+
+Checks that the page title does not contain the given string.
 
 
 #### dontSeeLink
- 
+
+* `param string` $text
+* `param string` $url
+* `return void`
+
 Checks that the page doesn't contain a link with the given string.
+
 If the second parameter is given, only links with a matching "href" attribute will be checked.
 
 {% highlight php %}
@@ -767,7 +920,11 @@ $I->dontSeeLink('Checkout now', '/store/cart.php');
 
 
 #### dontSeeOptionIsSelected
- 
+
+* `param ` $selector
+* `param ` $optionText
+* `return mixed|void`
+
 Checks that the given option is not selected.
 
 {% highlight php %}
@@ -777,11 +934,12 @@ $I->dontSeeOptionIsSelected('#form input[name=payment]', 'Visa');
 
 {% endhighlight %}
 
- * `return mixed|void` 
-
 
 #### dontSeeOrphanEvent
- 
+
+* `param string|object|string[]` $expected
+* `return void`
+
 Verifies that there were no orphan events during the test.
 
 An orphan event is an event that was triggered by manually executing the
@@ -798,11 +956,11 @@ $I->dontSeeOrphanEvent(['App\MyEvent', 'App\MyOtherEvent']);
 
 {% endhighlight %}
 
- * `param string|object|string[]` $expected
-
 
 #### dontSeeRememberedAuthentication
- 
+
+* `return void`
+
 Check that user is not authenticated with the 'remember me' option.
 
 {% highlight php %}
@@ -814,7 +972,10 @@ $I->dontSeeRememberedAuthentication();
 
 
 #### dontSeeRenderedTemplate
- 
+
+* `param string` $template
+* `return void`
+
 Asserts that a template was not rendered in the response.
 
 {% highlight php %}
@@ -824,11 +985,12 @@ $I->dontSeeRenderedTemplate('home.html.twig');
 
 {% endhighlight %}
 
- * `param string` $template
-
 
 #### dontSeeResponseCodeIs
- 
+
+* `param int` $code
+* `return void`
+
 Checks that response code is equal to value provided.
 
 {% highlight php %}
@@ -843,7 +1005,11 @@ $I->dontSeeResponseCodeIs(\Codeception\Util\HttpCode::OK);
 
 
 #### fillField
- 
+
+* `param ` $field
+* `param ` $value
+* `return void`
+
 Fills a text field or textarea with the given string.
 
 {% highlight php %}
@@ -856,7 +1022,9 @@ $I->fillField(['name' => 'email'], 'jon@example.com');
 
 
 #### followRedirect
- 
+
+* `return void`
+
 Follow pending redirect if there is one.
 
 {% highlight php %}
@@ -868,16 +1036,24 @@ $I->followRedirect();
 
 
 #### goToLogoutPath
- 
+
+* `return void`
+
 Go to the configured logout url (by default: `/logout`).
+
 This method includes redirection to the destination page configured after logout.
 
 See the Symfony documentation on ['Logging Out'](https://symfony.com/doc/current/security.html#logging-out).
 
 
 #### grabAttributeFrom
- 
+
+* `param ` $cssOrXpath
+* `param string` $attribute
+* `return mixed`
+
 Grabs the value of the given attribute value from the given element.
+
 Fails if element is not found.
 
 {% highlight php %}
@@ -889,15 +1065,24 @@ $I->grabAttributeFrom('#tooltip', 'title');
 
 
 #### grabCookie
- 
+
+* `param string` $cookie
+* `param array` $params
+* `return mixed`
+
 Grabs a cookie value.
+
 You can set additional cookie params like `domain`, `path` in array passed as last argument.
 If the cookie is set by an ajax request (XMLHttpRequest), there might be some delay caused by the browser, so try `$I->wait(0.1)`.
 
 
 #### grabFromCurrentUrl
- 
+
+* `param ?string` $uri
+* `return mixed`
+
 Executes the given regular expression against the current URI and returns the first capturing group.
+
 If no parameters are provided, the full URI is returned.
 
 {% highlight php %}
@@ -910,8 +1095,11 @@ $uri = $I->grabFromCurrentUrl();
 
 
 #### grabLastSentEmail
- 
+
+* `return \Symfony\Component\Mime\Email|null`
+
 Returns the last sent email.
+
 The function is based on `\Symfony\Component\Mailer\EventListener\MessageLoggerListener`, which means:
 If your app performs a HTTP redirect after sending the email, you need to suppress it using [stopFollowingRedirects()](https://codeception.com/docs/modules/Symfony#stopFollowingRedirects) first.
 Starting with version 2.0.0, `codeception/module-symfony` requires your app to use [Symfony Mailer](https://symfony.com/doc/current/mailer.html). If your app still uses [Swift Mailer](https://symfony.com/doc/current/email.html), set your version constraint to `^1.6`.
@@ -926,11 +1114,13 @@ $I->assertSame('john_doe@example.com', $address->getAddress());
 
 {% endhighlight %}
 
- * `return \Symfony\Component\Mime\Email|null` 
-
 
 #### grabMultiple
- 
+
+* `param ` $cssOrXpath
+* `param ?string` $attribute
+* `return string[]`
+
 Grabs either the text content, or attribute values, of nodes
 matched by $cssOrXpath and returns them as an array.
 
@@ -953,11 +1143,13 @@ $aLinks = $I->grabMultiple('a', 'href');
 
 {% endhighlight %}
 
- * `return string[]` 
-
 
 #### grabNumRecords
- 
+
+* `param string` $entityClass The entity class
+* `param array` $criteria Optional query criteria
+* `return int`
+
 Retrieves number of records from database
 'id' is the default search parameter.
 
@@ -968,21 +1160,20 @@ $I->grabNumRecords('User::class', ['name' => 'davert']);
 
 {% endhighlight %}
 
- * `param string` $entityClass The entity class
- * `param array`  $criteria    Optional query criteria
- * `return int` 
-
 
 #### grabPageSource
- 
-Grabs current page source code.
 
-@throws ModuleException if no page was opened.
- * `return string` Current page source code.
+* `throws ModuleException` if no page was opened.
+* `return string` Current page source code.
+
+Grabs current page source code.
 
 
 #### grabParameter
- 
+
+* `param string` $name
+* `return array|bool|float|int|string|null`
+
 Grabs a Symfony parameter
 
 {% highlight php %}
@@ -992,13 +1183,14 @@ $I->grabParameter('app.business_name');
 
 {% endhighlight %}
 
- * `param string` $name
- * `return array|bool|float|int|string|null` 
-
 
 #### grabRepository
- 
+
+* `param object|string` $mixed
+* `return \Doctrine\ORM\EntityRepository|null`
+
 Grab a Doctrine entity repository.
+
 Works with objects, entities, repositories, and repository interfaces.
 
 {% highlight php %}
@@ -1011,13 +1203,13 @@ $I->grabRepository(UserRepositoryInterface::class);
 
 {% endhighlight %}
 
- * `param object|string` $mixed
- * `return \Doctrine\ORM\EntityRepository|null` 
-
 
 #### grabSentEmails
- 
+
+* `return \Symfony\Component\Mime\Email[]`
+
 Returns an array of all sent emails.
+
 The function is based on `\Symfony\Component\Mailer\EventListener\MessageLoggerListener`, which means:
 If your app performs a HTTP redirect after sending the email, you need to suppress it using [stopFollowingRedirects()](https://codeception.com/docs/modules/Symfony#stopFollowingRedirects) first.
 Starting with version 2.0.0, `codeception/module-symfony` requires your app to use [Symfony Mailer](https://symfony.com/doc/current/mailer.html). If your app still uses [Swift Mailer](https://symfony.com/doc/current/email.html), set your version constraint to `^1.6`.
@@ -1030,12 +1222,15 @@ $emails = $I->grabSentEmails();
 
 {% endhighlight %}
 
- * `return \Symfony\Component\Mime\Email[]` 
-
 
 #### grabService
- 
+
+* `part` services
+* `param string` $serviceId
+* `return object`
+
 Grabs a service from the Symfony dependency injection container (DIC).
+
 In "test" environment, Symfony uses a special `test.service_container`.
 See the "[Public Versus Private Services](https://symfony.com/doc/current/service_container/alias_private.html#marking-services-as-public-private)" documentation.
 Services that aren't injected somewhere into your app, need to be defined as `public` to be accessible by Codeception.
@@ -1047,14 +1242,14 @@ $em = $I->grabService('doctrine');
 
 {% endhighlight %}
 
- * `[Part]` services
- * `param string` $serviceId
- * `return object` 
-
 
 #### grabTextFrom
- 
+
+* `param ` $cssOrXPathOrRegex
+* `return mixed`
+
 Finds and returns the text contents of the given element.
+
 If a fuzzy locator is used, the element is found using CSS, XPath,
 and by matching the full page source by regular expression.
 
@@ -1069,8 +1264,12 @@ $value = $I->grabTextFrom('~<input value=(.*?)]~sgi'); // match with a regex
 
 
 #### grabValueFrom
- 
+
+* `param ` $field
+* `return mixed`
+
 Finds the value for the given form field.
+
 If a fuzzy locator is used, the field is found by field name, CSS, and XPath.
 
 {% highlight php %}
@@ -1085,7 +1284,12 @@ $name = $I->grabValueFrom(['name' => 'username']);
 
 
 #### haveHttpHeader
- 
+
+* `param string` $name the name of the request header
+* `param string` $value the value to set it to for subsequent
+       requests
+* `return void`
+
 Sets the HTTP header to the passed value - which is used on
 subsequent HTTP requests through PhpBrowser.
 
@@ -1110,13 +1314,13 @@ $I->haveHttpHeader('Client&#95;Id', 'Codeception');
 
 {% endhighlight %}
 
- * `param string` $name the name of the request header
- * `param string` $value the value to set it to for subsequent
-       requests
-
 
 #### haveServerParameter
- 
+
+* `param string` $name
+* `param string` $value
+* `return void`
+
 Sets SERVER parameter valid for all next requests.
 
 {% highlight php %}
@@ -1127,12 +1331,16 @@ $I->haveServerParameter('name', 'value');
 
 
 #### invalidateCachedRouter
- 
+
+* `return void`
+
 Invalidate previously cached routes.
 
 
 #### logout
- 
+
+* `return void`
+
 Alias method for [`logoutProgrammatically()`](https://codeception.com/docs/modules/Symfony#logoutProgrammatically)
 
 {% highlight php %}
@@ -1144,8 +1352,11 @@ $I->logout();
 
 
 #### logoutProgrammatically
- 
+
+* `return void`
+
 Invalidates the current user's session and expires the session cookies.
+
 This method does not include any redirects after logging out.
 
 {% highlight php %}
@@ -1157,7 +1368,10 @@ $I->logoutProgrammatically();
 
 
 #### makeHtmlSnapshot
- 
+
+* `param ?string` $name
+* `return void`
+
 Use this method within an [interactive pause](https://codeception.com/docs/02-GettingStarted#Interactive-Pause) to save the HTML source code of the current page.
 
 {% highlight php %}
@@ -1172,32 +1386,38 @@ $I->makeHtmlSnapshot();
 
 
 #### moveBack
- 
-Moves back in history.
 
- * `param int` $numberOfSteps (default value 1)
+* `param int` $numberOfSteps (default value 1)
+* `return void`
+
+Moves back in history.
 
 
 #### persistPermanentService
- 
+
+* `part` services
+* `param string` $serviceName
+* `return void`
+
 Get service $serviceName and add it to the lists of persistent services,
 making that service persistent between tests.
 
- * `[Part]` services
- * `param string` $serviceName
-
 
 #### persistService
- 
-Get service $serviceName and add it to the lists of persistent services.
 
- * `[Part]` services
- * `param string` $serviceName
+* `part` services
+* `param string` $serviceName
+* `return void`
+
+Get service $serviceName and add it to the lists of persistent services.
 
 
 #### rebootClientKernel
- 
+
+* `return void`
+
 Reboot client's kernel.
+
 Can be used to manually reboot kernel when 'rebootable_client' => false
 
 {% highlight php %}
@@ -1214,18 +1434,27 @@ $I->rebootClientKernel();
 {% endhighlight %}
 
 
-
 #### resetCookie
- 
-Unsets cookie with the given name.
-You can set additional cookie params like `domain`, `path` in array passed as last argument.
 
- * `return mixed|void` 
+* `param ` $cookie
+* `param ` $params
+* `return mixed|void`
+
+Unsets cookie with the given name.
+
+You can set additional cookie params like `domain`, `path` in array passed as last argument.
 
 
 #### runSymfonyConsoleCommand
- 
+
+* `param string` $command The console command to execute
+* `param array` $parameters Parameters (arguments and options) to pass to the command
+* `param array` $consoleInputs Console inputs (e.g. used for interactive questions)
+* `param int` $expectedExitCode The expected exit code of the command
+* `return string` Returns the console output of the command
+
 Run Symfony console command, grab response and return as string.
+
 Recommended to use for integration or functional testing.
 
 {% highlight php %}
@@ -1235,15 +1464,13 @@ $result = $I->runSymfonyConsoleCommand('hello:world', ['arg' => 'argValue', 'opt
 
 {% endhighlight %}
 
- * `param string` $command          The console command to execute
- * `param array`  $parameters       Parameters (arguments and options) to pass to the command
- * `param array`  $consoleInputs    Console inputs (e.g. used for interactive questions)
- * `param int`    $expectedExitCode The expected exit code of the command
- * `return string` Returns the console output of the command
-
 
 #### see
- 
+
+* `param array|string` $selector optional
+* `param string` $text
+* `return void`
+
 Checks that the current page contains the given string (case insensitive).
 
 You can specify a specific HTML element (via CSS or XPath) as the second
@@ -1273,11 +1500,11 @@ But will *not* be true for strings like:
 
 For checking the raw source code, use `seeInSource()`.
 
- * `param array|string` $selector optional
-
 
 #### seeAuthentication
- 
+
+* `return void`
+
 Checks that a user is authenticated.
 
 {% highlight php %}
@@ -1289,7 +1516,10 @@ $I->seeAuthentication();
 
 
 #### seeCheckboxIsChecked
- 
+
+* `param ` $checkbox
+* `return void`
+
 Checks that the specified checkbox is checked.
 
 {% highlight php %}
@@ -1303,8 +1533,13 @@ $I->seeCheckboxIsChecked('//form/input[@type=checkbox and @name=agree]');
 
 
 #### seeCookie
- 
+
+* `param ` $cookie
+* `param ` $params
+* `return mixed|void`
+
 Checks that a cookie with the given name is set.
+
 You can set additional cookie params like `domain`, `path` as array passed in last argument.
 
 {% highlight php %}
@@ -1314,11 +1549,12 @@ $I->seeCookie('PHPSESSID');
 
 {% endhighlight %}
 
- * `return mixed|void` 
-
 
 #### seeCurrentActionIs
- 
+
+* `param string` $action
+* `return void`
+
 Checks that current page matches action
 
 {% highlight php %}
@@ -1329,11 +1565,13 @@ $I->seeCurrentActionIs('HomeController');
 
 {% endhighlight %}
 
- * `param string` $action
-
 
 #### seeCurrentRouteIs
- 
+
+* `param string` $routeName
+* `param array` $params
+* `return void`
+
 Checks that current url matches route.
 
 {% highlight php %}
@@ -1344,12 +1582,12 @@ $I->seeCurrentRouteIs('posts.show', ['id' => 8]);
 
 {% endhighlight %}
 
- * `param string` $routeName
- * `param array` $params
-
 
 #### seeCurrentTemplateIs
- 
+
+* `param string` $expectedTemplate
+* `return void`
+
 Asserts that the current template matches the expected template.
 
 {% highlight php %}
@@ -1359,12 +1597,14 @@ $I->seeCurrentTemplateIs('home.html.twig');
 
 {% endhighlight %}
 
- * `param string` $expectedTemplate
-
 
 #### seeCurrentUrlEquals
- 
+
+* `param string` $uri
+* `return void`
+
 Checks that the current URL is equal to the given string.
+
 Unlike `seeInCurrentUrl`, this only matches the full URL.
 
 {% highlight php %}
@@ -1377,7 +1617,10 @@ $I->seeCurrentUrlEquals('/');
 
 
 #### seeCurrentUrlMatches
- 
+
+* `param string` $uri
+* `return void`
+
 Checks that the current URL matches the given regular expression.
 
 {% highlight php %}
@@ -1390,8 +1633,13 @@ $I->seeCurrentUrlMatches('~^/users/(\d+)~');
 
 
 #### seeElement
- 
+
+* `param ` $selector
+* `param array` $attributes
+* `return void`
+
 Checks that the given element exists on the page and is visible.
+
 You can also specify expected attributes of this element.
 
 {% highlight php %}
@@ -1409,8 +1657,12 @@ $I->seeElement(['css' => 'form input'], ['name' => 'login']);
 
 
 #### seeEmailIsSent
- 
+
+* `param int` $expectedCount The expected number of emails sent
+* `return void`
+
 Checks if the given number of emails was sent (default `$expectedCount`: 1).
+
 The check is based on `\Symfony\Component\Mailer\EventListener\MessageLoggerListener`, which means:
 If your app performs a HTTP redirect after sending the email, you need to suppress it using [stopFollowingRedirects()](https://codeception.com/docs/modules/Symfony#stopFollowingRedirects) first.
 Starting with version 2.0.0, `codeception/module-symfony` requires your app to use [Symfony Mailer](https://symfony.com/doc/current/mailer.html). If your app still uses [Swift Mailer](https://symfony.com/doc/current/email.html), set your version constraint to `^1.6`.
@@ -1422,11 +1674,12 @@ $I->seeEmailIsSent(2);
 
 {% endhighlight %}
 
- * `param int` $expectedCount The expected number of emails sent
-
 
 #### seeEventTriggered
- 
+
+* `param string|object|string[]` $expected
+* `return void`
+
 Verifies that one or more event listeners were called during the test.
 
 {% highlight php %}
@@ -1438,12 +1691,15 @@ $I->seeEventTriggered(['App\MyEvent', 'App\MyOtherEvent']);
 
 {% endhighlight %}
 
- * `param string|object|string[]` $expected
-
 
 #### seeFormErrorMessage
- 
+
+* `param string` $field
+* `param string|null` $message
+* `return void`
+
 Verifies that a form field has an error.
+
 You can specify the expected error message as second parameter.
 
 {% highlight php %}
@@ -1454,12 +1710,12 @@ $I->seeFormErrorMessage('username', 'Username is empty');
 
 {% endhighlight %}
 
- * `param string` $field
- * `param string|null` $message
-
 
 #### seeFormErrorMessages
- 
+
+* `param string[]` $expectedErrors
+* `return void`
+
 Verifies that multiple fields on a form have errors.
 
 If you only specify the name of the fields, this method will
@@ -1506,11 +1762,11 @@ $I->seeFormErrorMessages([
 
 {% endhighlight %}
 
- * `param string[]` $expectedErrors
-
 
 #### seeFormHasErrors
- 
+
+* `return void`
+
 Verifies that there are one or more errors bound to the submitted form.
 
 {% highlight php %}
@@ -1522,8 +1778,12 @@ $I->seeFormHasErrors();
 
 
 #### seeInCurrentRoute
- 
+
+* `param string` $routeName
+* `return void`
+
 Checks that current url matches route.
+
 Unlike seeCurrentRouteIs, this can matches without exact route parameters
 
 {% highlight php %}
@@ -1533,11 +1793,12 @@ $I->seeInCurrentRoute('my_blog_pages');
 
 {% endhighlight %}
 
- * `param string` $routeName
-
 
 #### seeInCurrentUrl
- 
+
+* `param string` $uri
+* `return void`
+
 Checks that current URI contains the given string.
 
 {% highlight php %}
@@ -1552,8 +1813,13 @@ $I->seeInCurrentUrl('/users/');
 
 
 #### seeInField
- 
+
+* `param string|array` $field
+* `param ` $value
+* `return void`
+
 Checks that the given input field or textarea *equals* (i.e. not just contains) the given value.
+
 Fields are matched by label text, the "name" attribute, CSS, or XPath.
 
 {% highlight php %}
@@ -1568,11 +1834,13 @@ $I->seeInField(['name' => 'search'], 'Search');
 
 {% endhighlight %}
 
- * `param string|array` $field
-
 
 #### seeInFormFields
- 
+
+* `param ` $formSelector
+* `param array` $params
+* `return void`
+
 Checks if the array of form parameters (name => value) are set on the form matched with the
 passed selector.
 
@@ -1636,7 +1904,11 @@ $I->seeInFormFields('//form[@id=my-form]', string $form);
 
 
 #### seeInSession
- 
+
+* `param string` $attribute
+* `param mixed|null` $value
+* `return void`
+
 Assert that a session attribute exists.
 
 {% highlight php %}
@@ -1647,12 +1919,12 @@ $I->seeInSession('attribute', 'value');
 
 {% endhighlight %}
 
- * `param string` $attribute
- * `param mixed|null` $value
-
 
 #### seeInSource
- 
+
+* `param string` $raw
+* `return void`
+
 Checks that the current page contains the given string in its
 raw source code.
 
@@ -1665,7 +1937,10 @@ $I->seeInSource('<h1>Green eggs &amp; ham</h1>');
 
 
 #### seeInTitle
- 
+
+* `param ` $title
+* `return mixed|void`
+
 Checks that the page title contains the given string.
 
 {% highlight php %}
@@ -1675,12 +1950,15 @@ $I->seeInTitle('Blog - Post #1');
 
 {% endhighlight %}
 
- * `return mixed|void` 
-
 
 #### seeLink
- 
+
+* `param string` $text
+* `param ?string` $url
+* `return void`
+
 Checks that there's a link with the specified text.
+
 Give a full URL as the second parameter to match links with that exact URL.
 
 {% highlight php %}
@@ -1693,8 +1971,14 @@ $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
 
 
 #### seeNumRecords
- 
+
+* `param int` $expectedNum Expected number of records
+* `param string` $className A doctrine entity
+* `param array` $criteria Optional query criteria
+* `return void`
+
 Checks that number of given records were found in database.
+
 'id' is the default search parameter.
 
 {% highlight php %}
@@ -1705,13 +1989,13 @@ $I->seeNumRecords(80, User::class);
 
 {% endhighlight %}
 
- * `param int` $expectedNum Expected number of records
- * `param string` $className A doctrine entity
- * `param array` $criteria Optional query criteria
-
 
 #### seeNumberOfElements
- 
+
+* `param int|int[]` $expected
+* `param ` $selector
+* `return void`
+
 Checks that there are a certain number of elements matched by the given locator on the page.
 
 {% highlight php %}
@@ -1722,11 +2006,13 @@ $I->seeNumberOfElements('tr', [0,10]); // between 0 and 10 elements
 
 {% endhighlight %}
 
- * `param int|int[]` $expected
-
 
 #### seeOptionIsSelected
- 
+
+* `param ` $selector
+* `param ` $optionText
+* `return mixed|void`
+
 Checks that the given option is selected.
 
 {% highlight php %}
@@ -1736,11 +2022,12 @@ $I->seeOptionIsSelected('#form input[name=payment]', 'Visa');
 
 {% endhighlight %}
 
- * `return mixed|void` 
-
 
 #### seeOrphanEvent
- 
+
+* `param string|object|string[]` $expected
+* `return void`
+
 Verifies that one or more orphan events were dispatched during the test.
 
 An orphan event is an event that was triggered by manually executing the
@@ -1756,12 +2043,14 @@ $I->seeOrphanEvent(['App\MyEvent', 'App\MyOtherEvent']);
 
 {% endhighlight %}
 
- * `param string|object|string[]` $expected
-
 
 #### seePageIsAvailable
- 
+
+* `param string|null` $url
+* `return void`
+
 Verifies that a page is available.
+
 By default it checks the current page, specify the `$url` parameter to change it.
 
 {% highlight php %}
@@ -1774,16 +2063,20 @@ $I->seePageIsAvailable('/dashboard'); // Same as above
 
 {% endhighlight %}
 
- * `param string|null` $url
-
 
 #### seePageNotFound
- 
+
+* `return void`
+
 Asserts that current page has 404 response status code.
 
 
 #### seePageRedirectsTo
- 
+
+* `param string` $page
+* `param string` $redirectsTo
+* `return void`
+
 Goes to a page and check that it redirects to another.
 
 {% highlight php %}
@@ -1793,12 +2086,11 @@ $I->seePageRedirectsTo('/admin', '/login');
 
 {% endhighlight %}
 
- * `param string` $page
- * `param string` $redirectsTo
-
 
 #### seeRememberedAuthentication
- 
+
+* `return void`
+
 Checks that a user is authenticated with the 'remember me' option.
 
 {% highlight php %}
@@ -1810,8 +2102,12 @@ $I->seeRememberedAuthentication();
 
 
 #### seeRenderedTemplate
- 
+
+* `param string` $template
+* `return void`
+
 Asserts that a template was rendered in the response.
+
 That includes templates built with [inheritance](https://twig.symfony.com/doc/3.x/templates.html#template-inheritance).
 
 {% highlight php %}
@@ -1822,11 +2118,12 @@ $I->seeRenderedTemplate('layout.html.twig');
 
 {% endhighlight %}
 
- * `param string` $template
-
 
 #### seeRequestTimeIsLessThan
- 
+
+* `param int|float` $expectedMilliseconds The expected time in milliseconds
+* `return void`
+
 Asserts that the time a request lasted is less than expected.
 
 If the page performed a HTTP redirect, only the time of the last request will be taken into account.
@@ -1838,11 +2135,12 @@ which could lead to unreliable results when used together.
 It is recommended to set [`rebootable_client`](https://codeception.com/docs/modules/Symfony#Config) to `true` (=default),
 cause otherwise this assertion gives false results if you access multiple pages in a row, or if your app performs a redirect.
 
- * `param int|float` $expectedMilliseconds The expected time in milliseconds
-
 
 #### seeResponseCodeIs
- 
+
+* `param int` $code
+* `return void`
+
 Checks that response code is equal to value provided.
 
 {% highlight php %}
@@ -1857,32 +2155,47 @@ $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK);
 
 
 #### seeResponseCodeIsBetween
- 
+
+* `param int` $from
+* `param int` $to
+* `return void`
+
 Checks that response code is between a certain range. Between actually means [from <= CODE <= to]
 
 
 #### seeResponseCodeIsClientError
- 
+
+* `return void`
+
 Checks that the response code is 4xx
 
 
 #### seeResponseCodeIsRedirection
- 
+
+* `return void`
+
 Checks that the response code 3xx
 
 
 #### seeResponseCodeIsServerError
- 
+
+* `return void`
+
 Checks that the response code is 5xx
 
 
 #### seeResponseCodeIsSuccessful
- 
+
+* `return void`
+
 Checks that the response code 2xx
 
 
 #### seeSessionHasValues
- 
+
+* `param array` $bindings
+* `return void`
+
 Assert that the session has a given list of values.
 
 {% highlight php %}
@@ -1893,11 +2206,12 @@ $I->seeSessionHasValues(['key1' => 'value1', 'key2' => 'value2']);
 
 {% endhighlight %}
 
- * `param array` $bindings
-
 
 #### seeUserHasRole
- 
+
+* `param string` $role
+* `return void`
+
 Check that the current user has a role
 
 {% highlight php %}
@@ -1907,11 +2221,12 @@ $I->seeUserHasRole('ROLE_ADMIN');
 
 {% endhighlight %}
 
- * `param string` $role
-
 
 #### seeUserHasRoles
- 
+
+* `param string[]` $roles
+* `return void`
+
 Verifies that the current user has multiple roles
 
 {% highlight php %}
@@ -1921,12 +2236,14 @@ $I->seeUserHasRoles(['ROLE_USER', 'ROLE_ADMIN']);
 
 {% endhighlight %}
 
- * `param string[]` $roles
-
 
 #### seeUserPasswordDoesNotNeedRehash
- 
+
+* `param UserInterface|null` $user
+* `return void`
+
 Checks that the user's password would not benefit from rehashing.
+
 If the user is not provided it is taken from the current session.
 
 You might use this function after performing tasks like registering a user or submitting a password update form.
@@ -1939,11 +2256,13 @@ $I->seeUserPasswordDoesNotNeedRehash($user);
 
 {% endhighlight %}
 
- * `param UserInterface|null` $user
-
 
 #### selectOption
- 
+
+* `param ` $select
+* `param ` $option
+* `return void`
+
 Selects an option in a select tag or in radio button group.
 
 {% highlight php %}
@@ -1976,14 +2295,24 @@ $I->selectOption('Which OS do you use?', array('value' => 'windows')); // Only s
 
 
 #### sendAjaxGetRequest
- 
+
+* `param string` $uri
+* `param array` $params
+* `return void`
+
 Sends an ajax GET request with the passed parameters.
+
 See `sendAjaxPostRequest()`
 
 
 #### sendAjaxPostRequest
- 
+
+* `param string` $uri
+* `param array` $params
+* `return void`
+
 Sends an ajax POST request with the passed parameters.
+
 The appropriate HTTP header is added automatically:
 `X-Requested-With: XMLHttpRequest`
 Example:
@@ -2008,8 +2337,14 @@ $I->sendAjaxPostRequest('/add-task', ['form' => [
 
 
 #### sendAjaxRequest
- 
+
+* `param string` $method
+* `param string` $uri
+* `param array` $params
+* `return void`
+
 Sends an ajax request, using the passed HTTP method.
+
 See `sendAjaxPostRequest()`
 Example:
 {% highlight php %}
@@ -2021,8 +2356,14 @@ $I->sendAjaxRequest('PUT', '/posts/7', ['title' => 'new title']);
 
 
 #### setCookie
- 
+
+* `param ` $name
+* `param ` $val
+* `param ` $params
+* `return mixed|void`
+
 Sets a cookie with the given name and value.
+
 You can set additional cookie params like `domain`, `path`, `expires`, `secure` in array passed as last argument.
 
 {% highlight php %}
@@ -2032,11 +2373,12 @@ $I->setCookie('PHPSESSID', 'el4ukv0kqbvoirg7nkp4dncpk3');
 
 {% endhighlight %}
 
- * `return mixed|void` 
-
 
 #### setMaxRedirects
- 
+
+* `param int` $maxRedirects
+* `return void`
+
 Sets the maximum number of redirects that the Client can follow.
 
 {% highlight php %}
@@ -2048,8 +2390,12 @@ $I->setMaxRedirects(2);
 
 
 #### setServerParameters
- 
+
+* `param array` $params
+* `return void`
+
 Sets SERVER parameters valid for all next requests.
+
 this will remove old ones.
 
 {% highlight php %}
@@ -2060,7 +2406,9 @@ $I->setServerParameters([]);
 
 
 #### startFollowingRedirects
- 
+
+* `return void`
+
 Enables automatic redirects to be followed by the client.
 
 {% highlight php %}
@@ -2072,7 +2420,9 @@ $I->startFollowingRedirects();
 
 
 #### stopFollowingRedirects
- 
+
+* `return void`
+
 Prevents automatic redirects to be followed by the client.
 
 {% highlight php %}
@@ -2084,7 +2434,12 @@ $I->stopFollowingRedirects();
 
 
 #### submitForm
- 
+
+* `param ` $selector
+* `param array` $params
+* `param ?string` $button
+* `return void`
+
 Submits the given form on the page, with the given form
 values.  Pass the form field's values as an array in the second
 parameter.
@@ -2274,7 +2629,11 @@ $I->submitForm('#my-form', [
 
 
 #### submitSymfonyForm
- 
+
+* `param string` $name The `name` attribute of the `<form>` (you cannot use an array as selector here)
+* `param string[]` $fields
+* `return void`
+
 Submit a form specifying the form name only once.
 
 Use this function instead of [`$I->submitForm()`](#submitForm) to avoid repeating the form name in the field selectors.
@@ -2290,12 +2649,12 @@ $I->submitSymfonyForm('login_form', [
 
 {% endhighlight %}
 
- * `param string` $name The `name` attribute of the `<form>` (you cannot use an array as selector here)
- * `param string[]` $fields
-
 
 #### switchToIframe
- 
+
+* `param string` $name
+* `return void`
+
 Switch to iframe or frame on the page.
 
 Example:
@@ -2315,7 +2674,10 @@ $I->switchToIframe("another_frame");
 
 
 #### uncheckOption
- 
+
+* `param ` $option
+* `return void`
+
 Unticks a checkbox.
 
 {% highlight php %}
@@ -2327,10 +2689,11 @@ $I->uncheckOption('#notify');
 
 
 #### unpersistService
- 
-Remove service $serviceName from the lists of persistent services.
 
- * `[Part]` services
- * `param string` $serviceName
+* `part` services
+* `param string` $serviceName
+* `return void`
+
+Remove service $serviceName from the lists of persistent services.
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-symfony/tree/master/src/Codeception/Module/Symfony.php">Help us to improve documentation. Edit module reference</a></div>

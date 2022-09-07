@@ -46,7 +46,11 @@ Allows to explicitly exclude actions from module.
 Allows to rename actions
 #### __construct()
 
- *public* __construct($moduleContainer, array $config = null) 
+ *public* __construct($moduleContainer, array $config = null)
+
+
+* `param \Codeception\Lib\ModuleContainer` $moduleContainer
+* `param ?array` $config
 
 Module constructor.
 
@@ -56,7 +60,10 @@ Requires module container (to provide access between modules of suite) and confi
 
 #### _after()
 
- *public* _after($test) 
+ *public* _after($test)
+
+
+* `param \Codeception\TestInterface` $test
 
 **HOOK** executed after test
 
@@ -64,7 +71,10 @@ Requires module container (to provide access between modules of suite) and confi
 
 #### _afterStep()
 
- *public* _afterStep($step) 
+ *public* _afterStep($step)
+
+
+* `param \Codeception\Step` $step
 
 **HOOK** executed after step
 
@@ -72,7 +82,8 @@ Requires module container (to provide access between modules of suite) and confi
 
 #### _afterSuite()
 
- *public* _afterSuite() 
+ *public* _afterSuite()
+
 
 **HOOK** executed after suite
 
@@ -80,7 +91,10 @@ Requires module container (to provide access between modules of suite) and confi
 
 #### _before()
 
- *public* _before($test) 
+ *public* _before($test)
+
+
+* `param \Codeception\TestInterface` $test
 
 **HOOK** executed before test
 
@@ -88,7 +102,10 @@ Requires module container (to provide access between modules of suite) and confi
 
 #### _beforeStep()
 
- *public* _beforeStep($step) 
+ *public* _beforeStep($step)
+
+
+* `param \Codeception\Step` $step
 
 **HOOK** executed before step
 
@@ -96,7 +113,10 @@ Requires module container (to provide access between modules of suite) and confi
 
 #### _beforeSuite()
 
- *public* _beforeSuite(array $settings = array ( )) 
+ *public* _beforeSuite(array $settings = array ( ))
+
+
+* `param array` $settings
 
 **HOOK** executed before suite
 
@@ -104,7 +124,11 @@ Requires module container (to provide access between modules of suite) and confi
 
 #### _failed()
 
- *public* _failed($test, $fail) 
+ *public* _failed($test, $fail)
+
+
+* `param \Codeception\TestInterface` $test
+* `param \Exception` $fail
 
 **HOOK** executed when test fails but before `_after`
 
@@ -112,18 +136,22 @@ Requires module container (to provide access between modules of suite) and confi
 
 #### _getConfig()
 
- *public* _getConfig($key = null) 
+ *public* _getConfig($key = null)
+
+
+* `param string|null` $key
+* `return mixed` the config item's value or null if it doesn't exist
 
 Get config values or specific config item.
-
- * `param string|null` $key
- * `return` mixed the config item's value or null if it doesn't exist
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L301)
 
 #### _getName()
 
- *public* _getName() 
+ *public* _getName()
+
+
+* `return string`
 
 Returns a module name for a Module, a class name for Helper
 
@@ -131,7 +159,10 @@ Returns a module name for a Module, a class name for Helper
 
 #### _hasRequiredFields()
 
- *public* _hasRequiredFields() 
+ *public* _hasRequiredFields()
+
+
+* `return bool`
 
 Checks if a module has required fields
 
@@ -139,7 +170,8 @@ Checks if a module has required fields
 
 #### _initialize()
 
- *public* _initialize() 
+ *public* _initialize()
+
 
 **HOOK** triggered after module is created and configuration is loaded
 
@@ -147,9 +179,15 @@ Checks if a module has required fields
 
 #### _reconfigure()
 
- *public* _reconfigure(array $config) 
+ *public* _reconfigure(array $config)
+
+
+* `param array` $config
+* `throws ModuleConfigException|ModuleException`
+* `return void`
 
 Allows to redefine config for a specific test.
+
 Config is restored at the end of a test.
 
 {% highlight php %}
@@ -163,13 +201,15 @@ public function _before(Test $test) {
 }
 
 {% endhighlight %}
- * `throws` ModuleConfigException|ModuleException
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L104)
 
 #### _resetConfig()
 
- *public* _resetConfig() 
+ *public* _resetConfig()
+
+
+* `return void`
 
 Reverts config changed by `_reconfigure`
 
@@ -177,9 +217,15 @@ Reverts config changed by `_reconfigure`
 
 #### _setConfig()
 
- *public* _setConfig(array $config) 
+ *public* _setConfig(array $config)
+
+
+* `param array` $config
+* `throws ModuleConfigException|ModuleException`
+* `return void`
 
 Allows to define initial module config.
+
 Can be used in `_beforeSuite` hook of Helpers or Extensions
 
 {% highlight php %}
@@ -190,41 +236,53 @@ public function _beforeSuite($settings = []) {
 }
 
 {% endhighlight %}
- * `throws` ModuleConfigException|ModuleException
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L81)
 
 #### assert()
 
- *protected* assert(array $arguments, $not = false) 
+ *protected* assert(array $arguments, $not = false)
+
+
+* `param array` $arguments
+* `param bool` $not
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L16)
 
 #### assertArrayHasKey()
 
- *protected* assertArrayHasKey($key, $array, $message = '') 
+ *protected* assertArrayHasKey($key, $array, $message = '')
+
+
+* `param int|string` $key
+* `param array|ArrayAccess` $array
+* `param string` $message
 
 Asserts that an array has a specified key.
-
- * `param int|string` $key
- * `param array|ArrayAccess` $array
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L22)
 
 #### assertArrayNotHasKey()
 
- *protected* assertArrayNotHasKey($key, $array, $message = '') 
+ *protected* assertArrayNotHasKey($key, $array, $message = '')
+
+
+* `param int|string` $key
+* `param array|ArrayAccess` $array
+* `param string` $message
 
 Asserts that an array does not have a specified key.
-
- * `param int|string` $key
- * `param array|ArrayAccess` $array
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L33)
 
 #### assertClassHasAttribute()
 
- *protected* assertClassHasAttribute($attributeName, $className, $message = '') 
+ *protected* assertClassHasAttribute($attributeName, $className, $message = '')
+
+
+* `param string` $attributeName
+* `param string` $className
+* `param string` $message
 
 Asserts that a class has a specified attribute.
 
@@ -232,7 +290,12 @@ Asserts that a class has a specified attribute.
 
 #### assertClassHasStaticAttribute()
 
- *protected* assertClassHasStaticAttribute($attributeName, $className, $message = '') 
+ *protected* assertClassHasStaticAttribute($attributeName, $className, $message = '')
+
+
+* `param string` $attributeName
+* `param string` $className
+* `param string` $message
 
 Asserts that a class has a specified static attribute.
 
@@ -240,7 +303,12 @@ Asserts that a class has a specified static attribute.
 
 #### assertClassNotHasAttribute()
 
- *protected* assertClassNotHasAttribute($attributeName, $className, $message = '') 
+ *protected* assertClassNotHasAttribute($attributeName, $className, $message = '')
+
+
+* `param string` $attributeName
+* `param string` $className
+* `param string` $message
 
 Asserts that a class does not have a specified attribute.
 
@@ -248,7 +316,12 @@ Asserts that a class does not have a specified attribute.
 
 #### assertClassNotHasStaticAttribute()
 
- *protected* assertClassNotHasStaticAttribute($attributeName, $className, $message = '') 
+ *protected* assertClassNotHasStaticAttribute($attributeName, $className, $message = '')
+
+
+* `param string` $attributeName
+* `param string` $className
+* `param string` $message
 
 Asserts that a class does not have a specified static attribute.
 
@@ -256,25 +329,37 @@ Asserts that a class does not have a specified static attribute.
 
 #### assertContains()
 
- *protected* assertContains($needle, $haystack, $message = '') 
+ *protected* assertContains($needle, $haystack, $message = '')
+
+
+* `param mixed` $needle
+* `param iterable` $haystack
+* `param string` $message
 
 Asserts that a haystack contains a needle.
-
- * `param mixed` $needle
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L75)
 
 #### assertContainsEquals()
 
- *protected* assertContainsEquals($needle, $haystack, $message = '') 
+ *protected* assertContainsEquals($needle, $haystack, $message = '')
 
- * `param mixed` $needle
+
+* `param mixed` $needle
+* `param iterable` $haystack
+* `param string` $message
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L83)
 
 #### assertContainsOnly()
 
- *protected* assertContainsOnly($type, $haystack, $isNativeType = null, $message = '') 
+ *protected* assertContainsOnly($type, $haystack, $isNativeType = null, $message = '')
+
+
+* `param string` $type
+* `param iterable` $haystack
+* `param ?bool` $isNativeType
+* `param string` $message
 
 Asserts that a haystack contains only values of a given type.
 
@@ -282,7 +367,12 @@ Asserts that a haystack contains only values of a given type.
 
 #### assertContainsOnlyInstancesOf()
 
- *protected* assertContainsOnlyInstancesOf($className, $haystack, $message = '') 
+ *protected* assertContainsOnlyInstancesOf($className, $haystack, $message = '')
+
+
+* `param string` $className
+* `param iterable` $haystack
+* `param string` $message
 
 Asserts that a haystack contains only instances of a given class name.
 
@@ -290,17 +380,24 @@ Asserts that a haystack contains only instances of a given class name.
 
 #### assertCount()
 
- *protected* assertCount($expectedCount, $haystack, $message = '') 
+ *protected* assertCount($expectedCount, $haystack, $message = '')
+
+
+* `param Countable|iterable` $haystack
+* `param int` $expectedCount
+* `param string` $message
 
 Asserts the number of elements of an array, Countable or Traversable.
-
- * `param Countable|iterable` $haystack
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L109)
 
 #### assertDirectoryDoesNotExist()
 
- *protected* assertDirectoryDoesNotExist($directory, $message = '') 
+ *protected* assertDirectoryDoesNotExist($directory, $message = '')
+
+
+* `param string` $directory
+* `param string` $message
 
 Asserts that a directory does not exist.
 
@@ -308,7 +405,11 @@ Asserts that a directory does not exist.
 
 #### assertDirectoryExists()
 
- *protected* assertDirectoryExists($directory, $message = '') 
+ *protected* assertDirectoryExists($directory, $message = '')
+
+
+* `param string` $directory
+* `param string` $message
 
 Asserts that a directory exists.
 
@@ -316,7 +417,11 @@ Asserts that a directory exists.
 
 #### assertDirectoryIsNotReadable()
 
- *protected* assertDirectoryIsNotReadable($directory, $message = '') 
+ *protected* assertDirectoryIsNotReadable($directory, $message = '')
+
+
+* `param string` $directory
+* `param string` $message
 
 Asserts that a directory exists and is not readable.
 
@@ -324,7 +429,11 @@ Asserts that a directory exists and is not readable.
 
 #### assertDirectoryIsNotWritable()
 
- *protected* assertDirectoryIsNotWritable($directory, $message = '') 
+ *protected* assertDirectoryIsNotWritable($directory, $message = '')
+
+
+* `param string` $directory
+* `param string` $message
 
 Asserts that a directory exists and is not writable.
 
@@ -332,7 +441,11 @@ Asserts that a directory exists and is not writable.
 
 #### assertDirectoryIsReadable()
 
- *protected* assertDirectoryIsReadable($directory, $message = '') 
+ *protected* assertDirectoryIsReadable($directory, $message = '')
+
+
+* `param string` $directory
+* `param string` $message
 
 Asserts that a directory exists and is readable.
 
@@ -340,7 +453,11 @@ Asserts that a directory exists and is readable.
 
 #### assertDirectoryIsWritable()
 
- *protected* assertDirectoryIsWritable($directory, $message = '') 
+ *protected* assertDirectoryIsWritable($directory, $message = '')
+
+
+* `param string` $directory
+* `param string` $message
 
 Asserts that a directory exists and is writable.
 
@@ -348,7 +465,12 @@ Asserts that a directory exists and is writable.
 
 #### assertDoesNotMatchRegularExpression()
 
- *protected* assertDoesNotMatchRegularExpression($pattern, $string, $message = '') 
+ *protected* assertDoesNotMatchRegularExpression($pattern, $string, $message = '')
+
+
+* `param string` $pattern
+* `param string` $string
+* `param string` $message
 
 Asserts that a string does not match a given regular expression.
 
@@ -356,71 +478,88 @@ Asserts that a string does not match a given regular expression.
 
 #### assertEmpty()
 
- *protected* assertEmpty($actual, $message = '') 
+ *protected* assertEmpty($actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a variable is empty.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L175)
 
 #### assertEquals()
 
- *protected* assertEquals($expected, $actual, $message = '') 
+ *protected* assertEquals($expected, $actual, $message = '')
+
+
+* `param mixed` $expected
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that two variables are equal.
-
- * `param mixed` $expected
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L186)
 
 #### assertEqualsCanonicalizing()
 
- *protected* assertEqualsCanonicalizing($expected, $actual, $message = '') 
+ *protected* assertEqualsCanonicalizing($expected, $actual, $message = '')
+
+
+* `param mixed` $expected
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that two variables are equal (canonicalizing).
-
- * `param mixed` $expected
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L197)
 
 #### assertEqualsIgnoringCase()
 
- *protected* assertEqualsIgnoringCase($expected, $actual, $message = '') 
+ *protected* assertEqualsIgnoringCase($expected, $actual, $message = '')
+
+
+* `param mixed` $expected
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that two variables are equal (ignoring case).
-
- * `param mixed` $expected
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L208)
 
 #### assertEqualsWithDelta()
 
- *protected* assertEqualsWithDelta($expected, $actual, $delta, $message = '') 
+ *protected* assertEqualsWithDelta($expected, $actual, $delta, $message = '')
+
+
+* `param mixed` $expected
+* `param mixed` $actual
+* `param float` $delta
+* `param string` $message
 
 Asserts that two variables are equal (with delta).
-
- * `param mixed` $expected
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L219)
 
 #### assertFalse()
 
- *protected* assertFalse($condition, $message = '') 
+ *protected* assertFalse($condition, $message = '')
+
+
+* `param mixed` $condition
+* `param string` $message
 
 Asserts that a condition is false.
-
- * `param mixed` $condition
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L229)
 
 #### assertFileDoesNotExist()
 
- *protected* assertFileDoesNotExist($filename, $message = '') 
+ *protected* assertFileDoesNotExist($filename, $message = '')
+
+
+* `param string` $filename
+* `param string` $message
 
 Asserts that a file does not exist.
 
@@ -428,7 +567,12 @@ Asserts that a file does not exist.
 
 #### assertFileEquals()
 
- *protected* assertFileEquals($expected, $actual, $message = '') 
+ *protected* assertFileEquals($expected, $actual, $message = '')
+
+
+* `param string` $expected
+* `param string` $actual
+* `param string` $message
 
 Asserts that the contents of one file is equal to the contents of another file.
 
@@ -436,7 +580,12 @@ Asserts that the contents of one file is equal to the contents of another file.
 
 #### assertFileEqualsCanonicalizing()
 
- *protected* assertFileEqualsCanonicalizing($expected, $actual, $message = '') 
+ *protected* assertFileEqualsCanonicalizing($expected, $actual, $message = '')
+
+
+* `param string` $expected
+* `param string` $actual
+* `param string` $message
 
 Asserts that the contents of one file is equal to the contents of another file (canonicalizing).
 
@@ -444,7 +593,12 @@ Asserts that the contents of one file is equal to the contents of another file (
 
 #### assertFileEqualsIgnoringCase()
 
- *protected* assertFileEqualsIgnoringCase($expected, $actual, $message = '') 
+ *protected* assertFileEqualsIgnoringCase($expected, $actual, $message = '')
+
+
+* `param string` $expected
+* `param string` $actual
+* `param string` $message
 
 Asserts that the contents of one file is equal to the contents of another file (ignoring case).
 
@@ -452,7 +606,11 @@ Asserts that the contents of one file is equal to the contents of another file (
 
 #### assertFileExists()
 
- *protected* assertFileExists($filename, $message = '') 
+ *protected* assertFileExists($filename, $message = '')
+
+
+* `param string` $filename
+* `param string` $message
 
 Asserts that a file exists.
 
@@ -460,7 +618,11 @@ Asserts that a file exists.
 
 #### assertFileIsNotReadable()
 
- *protected* assertFileIsNotReadable($file, $message = '') 
+ *protected* assertFileIsNotReadable($file, $message = '')
+
+
+* `param string` $file
+* `param string` $message
 
 Asserts that a file exists and is not readable.
 
@@ -468,7 +630,11 @@ Asserts that a file exists and is not readable.
 
 #### assertFileIsNotWritable()
 
- *protected* assertFileIsNotWritable($file, $message = '') 
+ *protected* assertFileIsNotWritable($file, $message = '')
+
+
+* `param string` $file
+* `param string` $message
 
 Asserts that a file exists and is not writable.
 
@@ -476,7 +642,11 @@ Asserts that a file exists and is not writable.
 
 #### assertFileIsReadable()
 
- *protected* assertFileIsReadable($file, $message = '') 
+ *protected* assertFileIsReadable($file, $message = '')
+
+
+* `param string` $file
+* `param string` $message
 
 Asserts that a file exists and is readable.
 
@@ -484,7 +654,11 @@ Asserts that a file exists and is readable.
 
 #### assertFileIsWritable()
 
- *protected* assertFileIsWritable($file, $message = '') 
+ *protected* assertFileIsWritable($file, $message = '')
+
+
+* `param string` $file
+* `param string` $message
 
 Asserts that a file exists and is writable.
 
@@ -492,7 +666,12 @@ Asserts that a file exists and is writable.
 
 #### assertFileNotEquals()
 
- *protected* assertFileNotEquals($expected, $actual, $message = '') 
+ *protected* assertFileNotEquals($expected, $actual, $message = '')
+
+
+* `param string` $expected
+* `param string` $actual
+* `param string` $message
 
 Asserts that the contents of one file is not equal to the contents of another file.
 
@@ -500,7 +679,12 @@ Asserts that the contents of one file is not equal to the contents of another fi
 
 #### assertFileNotEqualsCanonicalizing()
 
- *protected* assertFileNotEqualsCanonicalizing($expected, $actual, $message = '') 
+ *protected* assertFileNotEqualsCanonicalizing($expected, $actual, $message = '')
+
+
+* `param string` $expected
+* `param string` $actual
+* `param string` $message
 
 Asserts that the contents of one file is not equal to the contents of another file (canonicalizing).
 
@@ -508,7 +692,12 @@ Asserts that the contents of one file is not equal to the contents of another fi
 
 #### assertFileNotEqualsIgnoringCase()
 
- *protected* assertFileNotEqualsIgnoringCase($expected, $actual, $message = '') 
+ *protected* assertFileNotEqualsIgnoringCase($expected, $actual, $message = '')
+
+
+* `param string` $expected
+* `param string` $actual
+* `param string` $message
 
 Asserts that the contents of one file is not equal to the contents of another file (ignoring case).
 
@@ -516,7 +705,11 @@ Asserts that the contents of one file is not equal to the contents of another fi
 
 #### assertFileNotExists()
 
- *protected* assertFileNotExists($filename, $message = '') 
+ *protected* assertFileNotExists($filename, $message = '')
+
+
+* `param string` $filename
+* `param string` $message
 
 Asserts that a file does not exist.
 
@@ -524,240 +717,291 @@ Asserts that a file does not exist.
 
 #### assertFinite()
 
- *protected* assertFinite($actual, $message = '') 
+ *protected* assertFinite($actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a variable is finite.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L335)
 
 #### assertGreaterOrEquals()
 
- *protected* assertGreaterOrEquals($expected, $actual, $message = '') 
+ *protected* assertGreaterOrEquals($expected, $actual, $message = '')
+
+
+* `param mixed` $expected
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a value is greater than or equal to another value.
-
- * `param mixed` $expected
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L52)
 
 #### assertGreaterThan()
 
- *protected* assertGreaterThan($expected, $actual, $message = '') 
+ *protected* assertGreaterThan($expected, $actual, $message = '')
+
+
+* `param mixed` $expected
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a value is greater than another value.
-
- * `param mixed` $expected
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L346)
 
 #### assertGreaterThanOrEqual()
 
- *protected* assertGreaterThanOrEqual($expected, $actual, $message = '') 
+ *protected* assertGreaterThanOrEqual($expected, $actual, $message = '')
+
+
+* `param mixed` $expected
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a value is greater than or equal to another value.
-
- * `param mixed` $expected
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L357)
 
 #### assertInfinite()
 
- *protected* assertInfinite($actual, $message = '') 
+ *protected* assertInfinite($actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a variable is infinite.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L367)
 
 #### assertInstanceOf()
 
- *protected* assertInstanceOf($expected, $actual, $message = '') 
+ *protected* assertInstanceOf($expected, $actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $expected
+* `param string` $message
 
 Asserts that a variable is of a given type.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L377)
 
 #### assertIsArray()
 
- *protected* assertIsArray($actual, $message = '') 
+ *protected* assertIsArray($actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a variable is of type array.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L387)
 
 #### assertIsBool()
 
- *protected* assertIsBool($actual, $message = '') 
+ *protected* assertIsBool($actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a variable is of type bool.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L397)
 
 #### assertIsCallable()
 
- *protected* assertIsCallable($actual, $message = '') 
+ *protected* assertIsCallable($actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a variable is of type callable.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L407)
 
 #### assertIsClosedResource()
 
- *protected* assertIsClosedResource($actual, $message = '') 
+ *protected* assertIsClosedResource($actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a variable is of type resource and is closed.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L417)
 
 #### assertIsEmpty()
 
- *protected* assertIsEmpty($actual, $message = '') 
+ *protected* assertIsEmpty($actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a variable is empty.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L62)
 
 #### assertIsFloat()
 
- *protected* assertIsFloat($actual, $message = '') 
+ *protected* assertIsFloat($actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a variable is of type float.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L427)
 
 #### assertIsInt()
 
- *protected* assertIsInt($actual, $message = '') 
+ *protected* assertIsInt($actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a variable is of type int.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L437)
 
 #### assertIsIterable()
 
- *protected* assertIsIterable($actual, $message = '') 
+ *protected* assertIsIterable($actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a variable is of type iterable.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L447)
 
 #### assertIsNotArray()
 
- *protected* assertIsNotArray($actual, $message = '') 
+ *protected* assertIsNotArray($actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a variable is not of type array.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L457)
 
 #### assertIsNotBool()
 
- *protected* assertIsNotBool($actual, $message = '') 
+ *protected* assertIsNotBool($actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a variable is not of type bool.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L467)
 
 #### assertIsNotCallable()
 
- *protected* assertIsNotCallable($actual, $message = '') 
+ *protected* assertIsNotCallable($actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a variable is not of type callable.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L477)
 
 #### assertIsNotClosedResource()
 
- *protected* assertIsNotClosedResource($actual, $message = '') 
+ *protected* assertIsNotClosedResource($actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a variable is not of type resource.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L487)
 
 #### assertIsNotFloat()
 
- *protected* assertIsNotFloat($actual, $message = '') 
+ *protected* assertIsNotFloat($actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a variable is not of type float.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L497)
 
 #### assertIsNotInt()
 
- *protected* assertIsNotInt($actual, $message = '') 
+ *protected* assertIsNotInt($actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a variable is not of type int.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L507)
 
 #### assertIsNotIterable()
 
- *protected* assertIsNotIterable($actual, $message = '') 
+ *protected* assertIsNotIterable($actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a variable is not of type iterable.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L517)
 
 #### assertIsNotNumeric()
 
- *protected* assertIsNotNumeric($actual, $message = '') 
+ *protected* assertIsNotNumeric($actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a variable is not of type numeric.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L527)
 
 #### assertIsNotObject()
 
- *protected* assertIsNotObject($actual, $message = '') 
+ *protected* assertIsNotObject($actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a variable is not of type object.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L537)
 
 #### assertIsNotReadable()
 
- *protected* assertIsNotReadable($filename, $message = '') 
+ *protected* assertIsNotReadable($filename, $message = '')
+
+
+* `param string` $filename
+* `param string` $message
 
 Asserts that a file/dir exists and is not readable.
 
@@ -765,37 +1009,47 @@ Asserts that a file/dir exists and is not readable.
 
 #### assertIsNotResource()
 
- *protected* assertIsNotResource($actual, $message = '') 
+ *protected* assertIsNotResource($actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a variable is not of type resource.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L555)
 
 #### assertIsNotScalar()
 
- *protected* assertIsNotScalar($actual, $message = '') 
+ *protected* assertIsNotScalar($actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a variable is not of type scalar.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L565)
 
 #### assertIsNotString()
 
- *protected* assertIsNotString($actual, $message = '') 
+ *protected* assertIsNotString($actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a variable is not of type string.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L575)
 
 #### assertIsNotWritable()
 
- *protected* assertIsNotWritable($filename, $message = '') 
+ *protected* assertIsNotWritable($filename, $message = '')
+
+
+* `param string` $filename
+* `param string` $message
 
 Asserts that a file/dir exists and is not writable.
 
@@ -803,27 +1057,35 @@ Asserts that a file/dir exists and is not writable.
 
 #### assertIsNumeric()
 
- *protected* assertIsNumeric($actual, $message = '') 
+ *protected* assertIsNumeric($actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a variable is of type numeric.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L593)
 
 #### assertIsObject()
 
- *protected* assertIsObject($actual, $message = '') 
+ *protected* assertIsObject($actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a variable is of type object.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L603)
 
 #### assertIsReadable()
 
- *protected* assertIsReadable($filename, $message = '') 
+ *protected* assertIsReadable($filename, $message = '')
+
+
+* `param string` $filename
+* `param string` $message
 
 Asserts that a file/dir is readable.
 
@@ -831,37 +1093,47 @@ Asserts that a file/dir is readable.
 
 #### assertIsResource()
 
- *protected* assertIsResource($actual, $message = '') 
+ *protected* assertIsResource($actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a variable is of type resource.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L621)
 
 #### assertIsScalar()
 
- *protected* assertIsScalar($actual, $message = '') 
+ *protected* assertIsScalar($actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a variable is of type scalar.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L631)
 
 #### assertIsString()
 
- *protected* assertIsString($actual, $message = '') 
+ *protected* assertIsString($actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a variable is of type string.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L641)
 
 #### assertIsWritable()
 
- *protected* assertIsWritable($filename, $message = '') 
+ *protected* assertIsWritable($filename, $message = '')
+
+
+* `param string` $filename
+* `param string` $message
 
 Asserts that a file/dir exists and is writable.
 
@@ -869,7 +1141,11 @@ Asserts that a file/dir exists and is writable.
 
 #### assertJson()
 
- *protected* assertJson($actualJson, $message = '') 
+ *protected* assertJson($actualJson, $message = '')
+
+
+* `param string` $actualJson
+* `param string` $message
 
 Asserts that a string is a valid JSON string.
 
@@ -877,7 +1153,12 @@ Asserts that a string is a valid JSON string.
 
 #### assertJsonFileEqualsJsonFile()
 
- *protected* assertJsonFileEqualsJsonFile($expectedFile, $actualFile, $message = '') 
+ *protected* assertJsonFileEqualsJsonFile($expectedFile, $actualFile, $message = '')
+
+
+* `param string` $expectedFile
+* `param string` $actualFile
+* `param string` $message
 
 Asserts that two JSON files are equal.
 
@@ -885,7 +1166,12 @@ Asserts that two JSON files are equal.
 
 #### assertJsonFileNotEqualsJsonFile()
 
- *protected* assertJsonFileNotEqualsJsonFile($expectedFile, $actualFile, $message = '') 
+ *protected* assertJsonFileNotEqualsJsonFile($expectedFile, $actualFile, $message = '')
+
+
+* `param string` $expectedFile
+* `param string` $actualFile
+* `param string` $message
 
 Asserts that two JSON files are not equal.
 
@@ -893,7 +1179,12 @@ Asserts that two JSON files are not equal.
 
 #### assertJsonStringEqualsJsonFile()
 
- *protected* assertJsonStringEqualsJsonFile($expectedFile, $actualJson, $message = '') 
+ *protected* assertJsonStringEqualsJsonFile($expectedFile, $actualJson, $message = '')
+
+
+* `param string` $expectedFile
+* `param string` $actualJson
+* `param string` $message
 
 Asserts that the generated JSON encoded object and the content of the given file are equal.
 
@@ -901,7 +1192,12 @@ Asserts that the generated JSON encoded object and the content of the given file
 
 #### assertJsonStringEqualsJsonString()
 
- *protected* assertJsonStringEqualsJsonString($expectedJson, $actualJson, $message = '') 
+ *protected* assertJsonStringEqualsJsonString($expectedJson, $actualJson, $message = '')
+
+
+* `param string` $expectedJson
+* `param string` $actualJson
+* `param string` $message
 
 Asserts that two given JSON encoded objects or arrays are equal.
 
@@ -909,7 +1205,12 @@ Asserts that two given JSON encoded objects or arrays are equal.
 
 #### assertJsonStringNotEqualsJsonFile()
 
- *protected* assertJsonStringNotEqualsJsonFile($expectedFile, $actualJson, $message = '') 
+ *protected* assertJsonStringNotEqualsJsonFile($expectedFile, $actualJson, $message = '')
+
+
+* `param string` $expectedFile
+* `param string` $actualJson
+* `param string` $message
 
 Asserts that the generated JSON encoded object and the content of the given file are not equal.
 
@@ -917,7 +1218,12 @@ Asserts that the generated JSON encoded object and the content of the given file
 
 #### assertJsonStringNotEqualsJsonString()
 
- *protected* assertJsonStringNotEqualsJsonString($expectedJson, $actualJson, $message = '') 
+ *protected* assertJsonStringNotEqualsJsonString($expectedJson, $actualJson, $message = '')
+
+
+* `param string` $expectedJson
+* `param string` $actualJson
+* `param string` $message
 
 Asserts that two given JSON encoded objects or arrays are not equal.
 
@@ -925,40 +1231,51 @@ Asserts that two given JSON encoded objects or arrays are not equal.
 
 #### assertLessOrEquals()
 
- *protected* assertLessOrEquals($expected, $actual, $message = '') 
+ *protected* assertLessOrEquals($expected, $actual, $message = '')
+
+
+* `param mixed` $expected
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a value is smaller than or equal to another value.
-
- * `param mixed` $expected
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L73)
 
 #### assertLessThan()
 
- *protected* assertLessThan($expected, $actual, $message = '') 
+ *protected* assertLessThan($expected, $actual, $message = '')
+
+
+* `param mixed` $expected
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a value is smaller than another value.
-
- * `param mixed` $expected
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L716)
 
 #### assertLessThanOrEqual()
 
- *protected* assertLessThanOrEqual($expected, $actual, $message = '') 
+ *protected* assertLessThanOrEqual($expected, $actual, $message = '')
+
+
+* `param mixed` $expected
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a value is smaller than or equal to another value.
-
- * `param mixed` $expected
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L727)
 
 #### assertMatchesRegularExpression()
 
- *protected* assertMatchesRegularExpression($pattern, $string, $message = '') 
+ *protected* assertMatchesRegularExpression($pattern, $string, $message = '')
+
+
+* `param string` $pattern
+* `param string` $string
+* `param string` $message
 
 Asserts that a string matches a given regular expression.
 
@@ -966,39 +1283,58 @@ Asserts that a string matches a given regular expression.
 
 #### assertNan()
 
- *protected* assertNan($actual, $message = '') 
+ *protected* assertNan($actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a variable is nan.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L745)
 
 #### assertNot()
 
- *protected* assertNot($arguments) 
+ *protected* assertNot($arguments)
+
+
+* `param ` $arguments
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L33)
 
 #### assertNotContains()
 
- *protected* assertNotContains($needle, $haystack, $message = '') 
+ *protected* assertNotContains($needle, $haystack, $message = '')
+
+
+* `param mixed` $needle
+* `param iterable` $haystack
+* `param string` $message
 
 Asserts that a haystack does not contain a needle.
-
- * `param mixed` $needle
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L755)
 
 #### assertNotContainsEquals()
 
- *protected* assertNotContainsEquals($needle, $haystack, $message = '') 
+ *protected* assertNotContainsEquals($needle, $haystack, $message = '')
+
+
+* `param ` $needle
+* `param iterable` $haystack
+* `param string` $message
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L760)
 
 #### assertNotContainsOnly()
 
- *protected* assertNotContainsOnly($type, $haystack, $isNativeType = null, $message = '') 
+ *protected* assertNotContainsOnly($type, $haystack, $isNativeType = null, $message = '')
+
+
+* `param string` $type
+* `param iterable` $haystack
+* `param ?bool` $isNativeType
+* `param string` $message
 
 Asserts that a haystack does not contain only values of a given type.
 
@@ -1006,101 +1342,127 @@ Asserts that a haystack does not contain only values of a given type.
 
 #### assertNotCount()
 
- *protected* assertNotCount($expectedCount, $haystack, $message = '') 
+ *protected* assertNotCount($expectedCount, $haystack, $message = '')
+
+
+* `param Countable|iterable` $haystack
+* `param int` $expectedCount
+* `param string` $message
 
 Asserts the number of elements of an array, Countable or Traversable.
-
- * `param Countable|iterable` $haystack
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L778)
 
 #### assertNotEmpty()
 
- *protected* assertNotEmpty($actual, $message = '') 
+ *protected* assertNotEmpty($actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a variable is not empty.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L788)
 
 #### assertNotEquals()
 
- *protected* assertNotEquals($expected, $actual, $message = '') 
+ *protected* assertNotEquals($expected, $actual, $message = '')
+
+
+* `param mixed` $expected
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that two variables are not equal.
-
- * `param mixed` $expected
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L799)
 
 #### assertNotEqualsCanonicalizing()
 
- *protected* assertNotEqualsCanonicalizing($expected, $actual, $message = '') 
+ *protected* assertNotEqualsCanonicalizing($expected, $actual, $message = '')
+
+
+* `param mixed` $expected
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that two variables are not equal (canonicalizing).
-
- * `param mixed` $expected
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L810)
 
 #### assertNotEqualsIgnoringCase()
 
- *protected* assertNotEqualsIgnoringCase($expected, $actual, $message = '') 
+ *protected* assertNotEqualsIgnoringCase($expected, $actual, $message = '')
+
+
+* `param mixed` $expected
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that two variables are not equal (ignoring case).
-
- * `param mixed` $expected
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L821)
 
 #### assertNotEqualsWithDelta()
 
- *protected* assertNotEqualsWithDelta($expected, $actual, $delta, $message = '') 
+ *protected* assertNotEqualsWithDelta($expected, $actual, $delta, $message = '')
+
+
+* `param mixed` $expected
+* `param mixed` $actual
+* `param float` $delta
+* `param string` $message
 
 Asserts that two variables are not equal (with delta).
-
- * `param mixed` $expected
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L832)
 
 #### assertNotFalse()
 
- *protected* assertNotFalse($condition, $message = '') 
+ *protected* assertNotFalse($condition, $message = '')
+
+
+* `param mixed` $condition
+* `param string` $message
 
 Asserts that a condition is not false.
-
- * `param mixed` $condition
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L842)
 
 #### assertNotInstanceOf()
 
- *protected* assertNotInstanceOf($expected, $actual, $message = '') 
+ *protected* assertNotInstanceOf($expected, $actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $expected
+* `param string` $message
 
 Asserts that a variable is not of a given type.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L852)
 
 #### assertNotNull()
 
- *protected* assertNotNull($actual, $message = '') 
+ *protected* assertNotNull($actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a variable is not null.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L862)
 
 #### assertNotRegExp()
 
- *protected* assertNotRegExp($pattern, $string, $message = '') 
+ *protected* assertNotRegExp($pattern, $string, $message = '')
+
+
+* `param string` $pattern
+* `param string` $string
+* `param string` $message
 
 Asserts that a string does not match a given regular expression.
 
@@ -1108,49 +1470,62 @@ Asserts that a string does not match a given regular expression.
 
 #### assertNotSame()
 
- *protected* assertNotSame($expected, $actual, $message = '') 
+ *protected* assertNotSame($expected, $actual, $message = '')
+
+
+* `param mixed` $expected
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that two variables do not have the same type and value.
-
- * `param mixed` $expected
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L873)
 
 #### assertNotSameSize()
 
- *protected* assertNotSameSize($expected, $actual, $message = '') 
+ *protected* assertNotSameSize($expected, $actual, $message = '')
+
+
+* `param Countable|iterable` $expected
+* `param Countable|iterable` $actual
+* `param string` $message
 
 Assert that the size of two arrays (or `Countable` or `Traversable` objects) is not the same.
-
- * `param Countable|iterable` $expected
- * `param Countable|iterable` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L884)
 
 #### assertNotTrue()
 
- *protected* assertNotTrue($condition, $message = '') 
+ *protected* assertNotTrue($condition, $message = '')
+
+
+* `param mixed` $condition
+* `param string` $message
 
 Asserts that a condition is not true.
-
- * `param mixed` $condition
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L894)
 
 #### assertNull()
 
- *protected* assertNull($actual, $message = '') 
+ *protected* assertNull($actual, $message = '')
+
+
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that a variable is null.
-
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L904)
 
 #### assertObjectHasAttribute()
 
- *protected* assertObjectHasAttribute($attributeName, $object, $message = '') 
+ *protected* assertObjectHasAttribute($attributeName, $object, $message = '')
+
+
+* `param string` $attributeName
+* `param object` $object
+* `param string` $message
 
 Asserts that an object has a specified attribute.
 
@@ -1158,7 +1533,12 @@ Asserts that an object has a specified attribute.
 
 #### assertObjectNotHasAttribute()
 
- *protected* assertObjectNotHasAttribute($attributeName, $object, $message = '') 
+ *protected* assertObjectNotHasAttribute($attributeName, $object, $message = '')
+
+
+* `param string` $attributeName
+* `param object` $object
+* `param string` $message
 
 Asserts that an object does not have a specified attribute.
 
@@ -1166,7 +1546,12 @@ Asserts that an object does not have a specified attribute.
 
 #### assertRegExp()
 
- *protected* assertRegExp($pattern, $string, $message = '') 
+ *protected* assertRegExp($pattern, $string, $message = '')
+
+
+* `param string` $pattern
+* `param string` $string
+* `param string` $message
 
 Asserts that a string matches a given regular expression.
 
@@ -1174,41 +1559,60 @@ Asserts that a string matches a given regular expression.
 
 #### assertSame()
 
- *protected* assertSame($expected, $actual, $message = '') 
+ *protected* assertSame($expected, $actual, $message = '')
+
+
+* `param mixed` $expected
+* `param mixed` $actual
+* `param string` $message
 
 Asserts that two variables have the same type and value.
-
- * `param mixed` $expected
- * `param mixed` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L931)
 
 #### assertSameSize()
 
- *protected* assertSameSize($expected, $actual, $message = '') 
+ *protected* assertSameSize($expected, $actual, $message = '')
+
+
+* `param Countable|iterable` $expected
+* `param Countable|iterable` $actual
+* `param string` $message
 
 Assert that the size of two arrays (or `Countable` or `Traversable` objects) is the same.
-
- * `param Countable|iterable` $expected
- * `param Countable|iterable` $actual
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L942)
 
 #### assertStringContainsString()
 
- *protected* assertStringContainsString($needle, $haystack, $message = '') 
+ *protected* assertStringContainsString($needle, $haystack, $message = '')
+
+
+* `param string` $needle
+* `param string` $haystack
+* `param string` $message
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L947)
 
 #### assertStringContainsStringIgnoringCase()
 
- *protected* assertStringContainsStringIgnoringCase($needle, $haystack, $message = '') 
+ *protected* assertStringContainsStringIgnoringCase($needle, $haystack, $message = '')
+
+
+* `param string` $needle
+* `param string` $haystack
+* `param string` $message
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L952)
 
 #### assertStringEndsNotWith()
 
- *protected* assertStringEndsNotWith($suffix, $string, $message = '') 
+ *protected* assertStringEndsNotWith($suffix, $string, $message = '')
+
+
+* `param string` $suffix
+* `param string` $string
+* `param string` $message
 
 Asserts that a string ends not with a given suffix.
 
@@ -1216,7 +1620,12 @@ Asserts that a string ends not with a given suffix.
 
 #### assertStringEndsWith()
 
- *protected* assertStringEndsWith($suffix, $string, $message = '') 
+ *protected* assertStringEndsWith($suffix, $string, $message = '')
+
+
+* `param string` $suffix
+* `param string` $string
+* `param string` $message
 
 Asserts that a string ends with a given suffix.
 
@@ -1224,7 +1633,12 @@ Asserts that a string ends with a given suffix.
 
 #### assertStringEqualsFile()
 
- *protected* assertStringEqualsFile($expectedFile, $actualString, $message = '') 
+ *protected* assertStringEqualsFile($expectedFile, $actualString, $message = '')
+
+
+* `param string` $expectedFile
+* `param string` $actualString
+* `param string` $message
 
 Asserts that the contents of a string is equal to the contents of a file.
 
@@ -1232,7 +1646,12 @@ Asserts that the contents of a string is equal to the contents of a file.
 
 #### assertStringEqualsFileCanonicalizing()
 
- *protected* assertStringEqualsFileCanonicalizing($expectedFile, $actualString, $message = '') 
+ *protected* assertStringEqualsFileCanonicalizing($expectedFile, $actualString, $message = '')
+
+
+* `param string` $expectedFile
+* `param string` $actualString
+* `param string` $message
 
 Asserts that the contents of a string is equal to the contents of a file (canonicalizing).
 
@@ -1240,7 +1659,12 @@ Asserts that the contents of a string is equal to the contents of a file (canoni
 
 #### assertStringEqualsFileIgnoringCase()
 
- *protected* assertStringEqualsFileIgnoringCase($expectedFile, $actualString, $message = '') 
+ *protected* assertStringEqualsFileIgnoringCase($expectedFile, $actualString, $message = '')
+
+
+* `param string` $expectedFile
+* `param string` $actualString
+* `param string` $message
 
 Asserts that the contents of a string is equal to the contents of a file (ignoring case).
 
@@ -1248,7 +1672,12 @@ Asserts that the contents of a string is equal to the contents of a file (ignori
 
 #### assertStringMatchesFormat()
 
- *protected* assertStringMatchesFormat($format, $string, $message = '') 
+ *protected* assertStringMatchesFormat($format, $string, $message = '')
+
+
+* `param string` $format
+* `param string` $string
+* `param string` $message
 
 Asserts that a string matches a given format string.
 
@@ -1256,7 +1685,12 @@ Asserts that a string matches a given format string.
 
 #### assertStringMatchesFormatFile()
 
- *protected* assertStringMatchesFormatFile($formatFile, $string, $message = '') 
+ *protected* assertStringMatchesFormatFile($formatFile, $string, $message = '')
+
+
+* `param string` $formatFile
+* `param string` $string
+* `param string` $message
 
 Asserts that a string matches a given format file.
 
@@ -1264,19 +1698,34 @@ Asserts that a string matches a given format file.
 
 #### assertStringNotContainsString()
 
- *protected* assertStringNotContainsString($needle, $haystack, $message = '') 
+ *protected* assertStringNotContainsString($needle, $haystack, $message = '')
+
+
+* `param string` $needle
+* `param string` $haystack
+* `param string` $message
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L1013)
 
 #### assertStringNotContainsStringIgnoringCase()
 
- *protected* assertStringNotContainsStringIgnoringCase($needle, $haystack, $message = '') 
+ *protected* assertStringNotContainsStringIgnoringCase($needle, $haystack, $message = '')
+
+
+* `param string` $needle
+* `param string` $haystack
+* `param string` $message
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L1018)
 
 #### assertStringNotEqualsFile()
 
- *protected* assertStringNotEqualsFile($expectedFile, $actualString, $message = '') 
+ *protected* assertStringNotEqualsFile($expectedFile, $actualString, $message = '')
+
+
+* `param string` $expectedFile
+* `param string` $actualString
+* `param string` $message
 
 Asserts that the contents of a string is not equal to the contents of a file.
 
@@ -1284,7 +1733,12 @@ Asserts that the contents of a string is not equal to the contents of a file.
 
 #### assertStringNotEqualsFileCanonicalizing()
 
- *protected* assertStringNotEqualsFileCanonicalizing($expectedFile, $actualString, $message = '') 
+ *protected* assertStringNotEqualsFileCanonicalizing($expectedFile, $actualString, $message = '')
+
+
+* `param string` $expectedFile
+* `param string` $actualString
+* `param string` $message
 
 Asserts that the contents of a string is not equal to the contents of a file (canonicalizing).
 
@@ -1292,7 +1746,12 @@ Asserts that the contents of a string is not equal to the contents of a file (ca
 
 #### assertStringNotEqualsFileIgnoringCase()
 
- *protected* assertStringNotEqualsFileIgnoringCase($expectedFile, $actualString, $message = '') 
+ *protected* assertStringNotEqualsFileIgnoringCase($expectedFile, $actualString, $message = '')
+
+
+* `param string` $expectedFile
+* `param string` $actualString
+* `param string` $message
 
 Asserts that the contents of a string is not equal to the contents of a file (ignoring case).
 
@@ -1300,7 +1759,12 @@ Asserts that the contents of a string is not equal to the contents of a file (ig
 
 #### assertStringNotMatchesFormat()
 
- *protected* assertStringNotMatchesFormat($format, $string, $message = '') 
+ *protected* assertStringNotMatchesFormat($format, $string, $message = '')
+
+
+* `param string` $format
+* `param string` $string
+* `param string` $message
 
 Asserts that a string does not match a given format string.
 
@@ -1308,7 +1772,12 @@ Asserts that a string does not match a given format string.
 
 #### assertStringNotMatchesFormatFile()
 
- *protected* assertStringNotMatchesFormatFile($formatFile, $string, $message = '') 
+ *protected* assertStringNotMatchesFormatFile($formatFile, $string, $message = '')
+
+
+* `param string` $formatFile
+* `param string` $string
+* `param string` $message
 
 Asserts that a string does not match a given format string.
 
@@ -1316,7 +1785,12 @@ Asserts that a string does not match a given format string.
 
 #### assertStringStartsNotWith()
 
- *protected* assertStringStartsNotWith($prefix, $string, $message = '') 
+ *protected* assertStringStartsNotWith($prefix, $string, $message = '')
+
+
+* `param string` $prefix
+* `param string` $string
+* `param string` $message
 
 Asserts that a string starts not with a given prefix.
 
@@ -1324,7 +1798,12 @@ Asserts that a string starts not with a given prefix.
 
 #### assertStringStartsWith()
 
- *protected* assertStringStartsWith($prefix, $string, $message = '') 
+ *protected* assertStringStartsWith($prefix, $string, $message = '')
+
+
+* `param string` $prefix
+* `param string` $string
+* `param string` $message
 
 Asserts that a string starts with a given prefix.
 
@@ -1332,37 +1811,50 @@ Asserts that a string starts with a given prefix.
 
 #### assertThat()
 
- *protected* assertThat($value, $constraint, $message = '') 
+ *protected* assertThat($value, $constraint, $message = '')
+
+
+* `param mixed` $value
+* `param \PHPUnit\Framework\Constraint\Constraint` $constraint
+* `param string` $message
 
 Evaluates a PHPUnit\Framework\Constraint matcher object.
-
- * `param mixed` $value
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L1084)
 
 #### assertThatItsNot()
 
- *protected* assertThatItsNot($value, $constraint, $message = '') 
+ *protected* assertThatItsNot($value, $constraint, $message = '')
+
+
+* `param mixed` $value
+* `param \PHPUnit\Framework\Constraint\Constraint` $constraint
+* `param string` $message
 
 Evaluates a PHPUnit\Framework\Constraint matcher object.
-
- * `param mixed` $value
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L99)
 
 #### assertTrue()
 
- *protected* assertTrue($condition, $message = '') 
+ *protected* assertTrue($condition, $message = '')
+
+
+* `param mixed` $condition
+* `param string` $message
 
 Asserts that a condition is true.
-
- * `param mixed` $condition
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L1094)
 
 #### assertXmlFileEqualsXmlFile()
 
- *protected* assertXmlFileEqualsXmlFile($expectedFile, $actualFile, $message = '') 
+ *protected* assertXmlFileEqualsXmlFile($expectedFile, $actualFile, $message = '')
+
+
+* `param string` $expectedFile
+* `param string` $actualFile
+* `param string` $message
 
 Asserts that two XML files are equal.
 
@@ -1370,7 +1862,12 @@ Asserts that two XML files are equal.
 
 #### assertXmlFileNotEqualsXmlFile()
 
- *protected* assertXmlFileNotEqualsXmlFile($expectedFile, $actualFile, $message = '') 
+ *protected* assertXmlFileNotEqualsXmlFile($expectedFile, $actualFile, $message = '')
+
+
+* `param string` $expectedFile
+* `param string` $actualFile
+* `param string` $message
 
 Asserts that two XML files are not equal.
 
@@ -1378,49 +1875,63 @@ Asserts that two XML files are not equal.
 
 #### assertXmlStringEqualsXmlFile()
 
- *protected* assertXmlStringEqualsXmlFile($expectedFile, $actualXml, $message = '') 
+ *protected* assertXmlStringEqualsXmlFile($expectedFile, $actualXml, $message = '')
+
+
+* `param DOMDocument|string` $actualXml
+* `param string` $expectedFile
+* `param string` $message
 
 Asserts that two XML documents are equal.
-
- * `param DOMDocument|string` $actualXml
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L1120)
 
 #### assertXmlStringEqualsXmlString()
 
- *protected* assertXmlStringEqualsXmlString($expectedXml, $actualXml, $message = '') 
+ *protected* assertXmlStringEqualsXmlString($expectedXml, $actualXml, $message = '')
+
+
+* `param DOMDocument|string` $expectedXml
+* `param DOMDocument|string` $actualXml
+* `param string` $message
 
 Asserts that two XML documents are equal.
-
- * `param DOMDocument|string` $expectedXml
- * `param DOMDocument|string` $actualXml
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L1131)
 
 #### assertXmlStringNotEqualsXmlFile()
 
- *protected* assertXmlStringNotEqualsXmlFile($expectedFile, $actualXml, $message = '') 
+ *protected* assertXmlStringNotEqualsXmlFile($expectedFile, $actualXml, $message = '')
+
+
+* `param DOMDocument|string` $actualXml
+* `param string` $expectedFile
+* `param string` $message
 
 Asserts that two XML documents are not equal.
-
- * `param DOMDocument|string` $actualXml
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L1141)
 
 #### assertXmlStringNotEqualsXmlString()
 
- *protected* assertXmlStringNotEqualsXmlString($expectedXml, $actualXml, $message = '') 
+ *protected* assertXmlStringNotEqualsXmlString($expectedXml, $actualXml, $message = '')
+
+
+* `param DOMDocument|string` $expectedXml
+* `param DOMDocument|string` $actualXml
+* `param string` $message
 
 Asserts that two XML documents are not equal.
-
- * `param DOMDocument|string` $expectedXml
- * `param DOMDocument|string` $actualXml
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L1152)
 
 #### debug()
 
- *protected* debug($message) 
+ *protected* debug($message)
+
+
+* `param mixed` $message
+* `return void`
 
 Print debug message to the screen.
 
@@ -1428,7 +1939,12 @@ Print debug message to the screen.
 
 #### debugSection()
 
- *protected* debugSection($title, $message) 
+ *protected* debugSection($title, $message)
+
+
+* `param string` $title
+* `param mixed` $message
+* `return void`
 
 Print debug message with a title
 
@@ -1436,7 +1952,10 @@ Print debug message with a title
 
 #### fail()
 
- *protected* fail($message = '') 
+ *protected* fail($message = '')
+
+
+* `param string` $message
 
 Fails a test with the given message.
 
@@ -1444,7 +1963,12 @@ Fails a test with the given message.
 
 #### getModule()
 
- *protected* getModule($name) 
+ *protected* getModule($name)
+
+
+* `param string` $name
+* `throws ModuleException`
+* `return \Codeception\Module`
 
 Get another module by its name:
 
@@ -1454,13 +1978,15 @@ Get another module by its name:
 $this->getModule('WebDriver')->_findElements('.items');
 
 {% endhighlight %}
- * `throws` ModuleException
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L287)
 
 #### getModules()
 
- *protected* getModules() 
+ *protected* getModules()
+
+
+* `return array`
 
 Get all enabled modules
 
@@ -1468,7 +1994,11 @@ Get all enabled modules
 
 #### hasModule()
 
- *protected* hasModule($name) 
+ *protected* hasModule($name)
+
+
+* `param string` $name
+* `return bool`
 
 Checks that module is enabled.
 
@@ -1476,7 +2006,10 @@ Checks that module is enabled.
 
 #### markTestIncomplete()
 
- *protected* markTestIncomplete($message = '') 
+ *protected* markTestIncomplete($message = '')
+
+
+* `param string` $message
 
 Mark the test as incomplete.
 
@@ -1484,7 +2017,10 @@ Mark the test as incomplete.
 
 #### markTestSkipped()
 
- *protected* markTestSkipped($message = '') 
+ *protected* markTestSkipped($message = '')
+
+
+* `param string` $message
 
 Mark the test as skipped.
 
@@ -1492,7 +2028,8 @@ Mark the test as skipped.
 
 #### onReconfigure()
 
- *protected* onReconfigure() 
+ *protected* onReconfigure()
+
 
 HOOK to be executed when config changes with `_reconfigure`.
 
@@ -1500,13 +2037,22 @@ HOOK to be executed when config changes with `_reconfigure`.
 
 #### scalarizeArray()
 
- *protected* scalarizeArray(array $array) 
+ *protected* scalarizeArray(array $array)
+
+
+* `param array` $array
+* `return array`
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L312)
 
 #### shortenMessage()
 
- *protected* shortenMessage($message, $chars = 150) 
+ *protected* shortenMessage($message, $chars = 150)
+
+
+* `param string` $message
+* `param int` $chars
+* `return string`
 
 Short text message to an amount of chars
 
@@ -1514,10 +2060,13 @@ Short text message to an amount of chars
 
 #### validateConfig()
 
- *protected* validateConfig() 
+ *protected* validateConfig()
+
+
+* `throws ModuleConfigException|ModuleException`
+* `return void`
 
 Validates current config for required fields and required packages.
- * `throws` ModuleConfigException|ModuleException
 
 [See source](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Module.php#L132)
 

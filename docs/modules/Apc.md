@@ -58,7 +58,11 @@ Be sure you don't use the production server to connect.
 ### Actions
 
 #### dontSeeInApc
- 
+
+* `param string` $key
+* `param mixed` $value
+* `return void`
+
 Checks item in APCu doesn't exist or is the same as expected.
 
 Examples:
@@ -76,12 +80,17 @@ $I->dontSeeInApc('users_count', 200);
 
 
 #### flushApc
- 
+
+* `return void`
+
 Clears the APCu cache
 
 
 #### grabValueFromApc
- 
+
+* `param string` $key
+* `return mixed`
+
 Grabs value from APCu by key.
 
 Example:
@@ -95,7 +104,12 @@ $users_count = $I->grabValueFromApc('users_count');
 
 
 #### haveInApc
- 
+
+* `param string` $key
+* `param mixed` $value
+* `param int` $expiration
+* `return string`
+
 Stores an item `$value` with `$key` on the APCu.
 
 Examples:
@@ -121,7 +135,11 @@ $I->haveInApc($entries, null);
 
 
 #### seeInApc
- 
+
+* `param string` $key
+* `param mixed` $value
+* `return void`
+
 Checks item in APCu exists and the same as expected.
 
 Examples:
@@ -136,6 +154,5 @@ $I->seeInApc('users_count');
 $I->seeInApc('users_count', 200);
 
 {% endhighlight %}
-
 
 <p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-apc/tree/master/src/Codeception/Module/Apc.php">Help us to improve documentation. Edit module reference</a></div>

@@ -77,13 +77,19 @@ Export:
 
 #### __construct()
 
- *public* __construct() 
+ *public* __construct()
+
+
 
 [See source](https://github.com/Codeception/lib-xml/blob/master/src/Codeception/Util/XmlBuilder.php#L80)
 
 #### __get()
 
- *public* __get($tag) 
+ *public* __get($tag)
+
+
+* `param string` $tag
+* `return \Codeception\Util\XmlBuilder`
 
 Appends child node
 
@@ -91,13 +97,21 @@ Appends child node
 
 #### __toString()
 
- *public* __toString() 
+ *public* __toString()
+
+
+* `return string`
 
 [See source](https://github.com/Codeception/lib-xml/blob/master/src/Codeception/Util/XmlBuilder.php#L152)
 
 #### attr()
 
- *public* attr($attr, $val) 
+ *public* attr($attr, $val)
+
+
+* `param string` $attr
+* `param string` $val
+* `return \Codeception\Util\XmlBuilder`
 
 Sets attribute for current node
 
@@ -105,13 +119,19 @@ Sets attribute for current node
 
 #### getDom()
 
- *public* getDom() 
+ *public* getDom()
+
+
+* `return \DOMDocument`
 
 [See source](https://github.com/Codeception/lib-xml/blob/master/src/Codeception/Util/XmlBuilder.php#L162)
 
 #### parent()
 
- *public* parent() 
+ *public* parent()
+
+
+* `return \Codeception\Util\XmlBuilder`
 
 Traverses to parent
 
@@ -119,16 +139,24 @@ Traverses to parent
 
 #### parents()
 
- *public* parents($tagName) 
+ *public* parents($tagName)
+
+
+* `param string` $tagName
+* `throws Exception`
+* `return \Codeception\Util\XmlBuilder`
 
 Traverses to parent with $tagName
- * `throws` Exception
 
 [See source](https://github.com/Codeception/lib-xml/blob/master/src/Codeception/Util/XmlBuilder.php#L132)
 
 #### val()
 
- *public* val($val) 
+ *public* val($val)
+
+
+* `param string` $val
+* `return \Codeception\Util\XmlBuilder`
 
 [See source](https://github.com/Codeception/lib-xml/blob/master/src/Codeception/Util/XmlBuilder.php#L97)
 
