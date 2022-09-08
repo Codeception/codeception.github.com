@@ -124,7 +124,7 @@ public function worksOnCondition(AcceptanceTester $I, \Codeception\Scenario $sce
     // some condition to execute test or not
     if ($this->shouldNotBeExecuted) {
         // skip test on condition
-        // please not that `_before` is still executed for this test
+        // please note that `_before` is still executed for this test
         // and browser is launched in case of acceptance test
         $scenario->skip('This test is skipped on this condition');
     }
