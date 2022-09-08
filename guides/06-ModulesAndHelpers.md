@@ -109,7 +109,7 @@ modules:
 The modules won't conflict as actions with the same names won't be loaded.
 
 The REST module has parts for `Xml` and `Json` in the same way. If you are testing a REST service with only JSON responses,
-you can enable just the JSON Fart of this module:
+you can enable just the JSON part of this module:
 
 ```yaml
 
