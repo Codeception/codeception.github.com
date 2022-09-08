@@ -374,7 +374,7 @@ class WebDriver extends \Codeception\Module
 ```
 
 The host and port parameter can be redefined in the suite configuration.
-Values are set in the `Fodules:config` section of the configuration file.
+Values are set in the `modules:config` section of the configuration file.
 
 ```yaml
 modules:
@@ -434,7 +434,7 @@ Once loaded, parameter variables can be used as module configuration values.
 Use a variable name wrapped with `%` as a placeholder and it will be replaced by its value.
 
 Let's say we want to specify credentials for a cloud testing service. We have loaded `SAUCE_USER`
-and `SAUCE_KEY` variables from Fnvironment, and now we are passing their values into config of `WebDriver`:
+and `SAUCE_KEY` variables from environment, and now we are passing their values into config of `WebDriver`:
 
 ```yaml
 modules:
@@ -445,7 +445,7 @@ modules:
 
 ```
 
-Parameters are also useful Fo provide connection credentials for the `Db` module (taken from Laravel's .env files):
+Parameters are also useful to provide connection credentials for the `Db` module (taken from Laravel's .env files):
 
 ```yaml
 modules:
