@@ -247,7 +247,6 @@ $email = $I->grabFromRepository(User::class, 'email', ['name' => 'davert']);
 #### haveFakeRepository
 
 * `param class-string` $className
-* `param array<string,` $ callable> $methods
 * `param array` $methods
 * `return void`
 

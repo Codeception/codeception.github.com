@@ -86,7 +86,6 @@ HINT: This module can be used with [Mongofill](https://github.com/mongofill/mong
 
 #### dontSeeInCollection
 
-* `param array<string,` $ mixed> $criteria
 * `param string` $collection
 * `param array` $criteria
 * `return void`
@@ -103,7 +102,6 @@ $I->dontSeeInCollection('users', ['name' => 'miles']);
 
 #### grabCollectionCount
 
-* `param array<string,` $ mixed> $criteria
 * `param string` $collection
 * `param array` $criteria
 * `return int`
@@ -122,7 +120,6 @@ $count = $I->grabCollectionCount('users', ['isAdmin' => true]);
 
 #### grabFromCollection
 
-* `param array<string,` $ mixed> $criteria
 * `param string` $collection
 * `param array` $criteria
 * `return object|array|null`
@@ -139,7 +136,6 @@ $user = $I->grabFromCollection('users', ['name' => 'miles']);
 
 #### haveInCollection
 
-* `param array<string,` $ mixed> $data
 * `param string` $collection
 * `param array` $data
 * `return string`
@@ -157,7 +153,6 @@ $user_id = $I->haveInCollection('users', ['email' => 'john@coltrane.com']);
 
 #### seeElementIsArray
 
-* `param array<string,` $ mixed> $criteria
 * `param string` $collection
 * `param array` $criteria
 * `param string` $elementToCheck
@@ -175,7 +170,6 @@ $I->seeElementIsArray('users', ['name' => 'John Doe'], 'data.skills');
 
 #### seeElementIsObject
 
-* `param array<string,` $ mixed> $criteria
 * `param string` $collection
 * `param array` $criteria
 * `param string` $elementToCheck
@@ -193,7 +187,6 @@ $I->seeElementIsObject('users', ['name' => 'John Doe'], 'data');
 
 #### seeInCollection
 
-* `param array<string,` $ mixed> $criteria
 * `param string` $collection
 * `param array` $criteria
 * `return void`
@@ -210,7 +203,6 @@ $I->seeInCollection('users', ['name' => 'miles']);
 
 #### seeNumElementsInCollection
 
-* `param array<string,` $ mixed> $criteria
 * `param string` $collection
 * `param int` $expected
 * `param array` $criteria

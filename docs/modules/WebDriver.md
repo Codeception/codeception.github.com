@@ -887,8 +887,8 @@ See [saveSessionSnapshot](#saveSessionSnapshot)
 
 #### dontSee
 
-* `param array|string` $selector optional
 * `param ` $text
+* `param array|string` $selector optional
 * `return void`
 
 Checks that the current page doesn't contain the text specified (case insensitive).
@@ -1200,8 +1200,8 @@ $I->dragAndDrop('#drag', '#drop');
 
 #### executeAsyncJS
 
-* `param array` $arguments
 * `param string` $script
+* `param array` $arguments
 * `return mixed`
 
 Executes asynchronous JavaScript.
@@ -1246,8 +1246,8 @@ If Codeception lacks a feature you need, please implement it and submit a patch.
 
 #### executeJS
 
-* `param array` $arguments
 * `param string` $script
+* `param array` $arguments
 * `return mixed`
 
 Executes custom JavaScript.
@@ -1596,7 +1596,6 @@ In 3rd argument you can set number a seconds to wait for element to appear
 #### pressKey
 
 * `param string|array|WebDriverBy` $element
-* `param array<string|string[]>$chars` $ Can be char or array with modifier. You can provide several chars.
 * `param ` $chars
 * `throws ElementNotFound`
 * `return void`
@@ -1711,8 +1710,8 @@ $I->scrollTo(['css' => '.checkout'], 20, 50);
 
 #### see
 
-* `param array|string` $selector optional
 * `param ` $text
+* `param array|string` $selector optional
 * `return void`
 
 Checks that the current page contains the given string (case insensitive).
@@ -2040,8 +2039,8 @@ $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
 
 #### seeNumberOfElements
 
-* `param int|int[]` $expected
 * `param ` $selector
+* `param int|int[]` $expected
 * `return void`
 
 Checks that there are a certain number of elements matched by the given locator on the page.
@@ -2153,8 +2152,8 @@ $I->setCookie('PHPSESSID', 'el4ukv0kqbvoirg7nkp4dncpk3');
 #### submitForm
 
 * `param string|array|WebDriverBy` $selector
-* `param string|array|WebDriverBy|null` $button
 * `param array` $params
+* `param string|array|WebDriverBy|null` $button
 * `return void`
 
 Submits the given form on the page, optionally with the given form
@@ -2471,8 +2470,8 @@ $I->executeInSelenium(function (\Facebook\WebDriver\Remote\RemoteWebDriver $webd
 
 #### type
 
-* `param int` $delay [sec]
 * `param string` $text
+* `param int` $delay [sec]
 * `return void`
 
 Type in characters on active element.
@@ -2644,8 +2643,8 @@ $I->click('#agree_button');
 
 #### waitForJS
 
-* `param int` $timeout seconds
 * `param string` $script
+* `param int` $timeout seconds
 * `return void`
 
 Executes JavaScript and waits up to $timeout seconds for it to return true.
@@ -2662,9 +2661,9 @@ $I->waitForJS("return $.active == 0;", 60);
 
 #### waitForText
 
+* `param string` $text
 * `param int` $timeout seconds
 * `param null|string|array|WebDriverBy` $selector
-* `param string` $text
 * `throws Exception`
 * `return void`
 

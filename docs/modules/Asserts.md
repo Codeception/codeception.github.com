@@ -127,8 +127,8 @@ Asserts that a haystack contains only instances of a given class name.
 
 #### assertCount
 
-* `param Countable|iterable` $haystack
 * `param int` $expectedCount
+* `param Countable|iterable` $haystack
 * `param string` $message
 
 Asserts the number of elements of an array, Countable or Traversable.
@@ -399,8 +399,8 @@ Asserts that a variable is infinite.
 
 #### assertInstanceOf
 
-* `param mixed` $actual
 * `param string` $expected
+* `param mixed` $actual
 * `param string` $message
 
 Asserts that a variable is of a given type.
@@ -772,8 +772,8 @@ Asserts that a haystack does not contain only values of a given type.
 
 #### assertNotCount
 
-* `param Countable|iterable` $haystack
 * `param int` $expectedCount
+* `param Countable|iterable` $haystack
 * `param string` $message
 
 Asserts the number of elements of an array, Countable or Traversable.
@@ -834,8 +834,8 @@ Asserts that a condition is not false.
 
 #### assertNotInstanceOf
 
-* `param mixed` $actual
 * `param string` $expected
+* `param mixed` $actual
 * `param string` $message
 
 Asserts that a variable is not of a given type.
@@ -1137,8 +1137,8 @@ Asserts that two XML files are not equal.
 
 #### assertXmlStringEqualsXmlFile
 
-* `param DOMDocument|string` $actualXml
 * `param string` $expectedFile
+* `param DOMDocument|string` $actualXml
 * `param string` $message
 
 Asserts that two XML documents are equal.
@@ -1155,8 +1155,8 @@ Asserts that two XML documents are equal.
 
 #### assertXmlStringNotEqualsXmlFile
 
-* `param DOMDocument|string` $actualXml
 * `param string` $expectedFile
+* `param DOMDocument|string` $actualXml
 * `param string` $message
 
 Asserts that two XML documents are not equal.

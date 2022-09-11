@@ -239,8 +239,8 @@ $pwd = $I->grabDirectory();
 
 #### grabFileCount
 
-* `param bool` $ignore - suppress '.', '..' and '.thumbs.db'
 * `param string` $path
+* `param bool` $ignore - suppress '.', '..' and '.thumbs.db'
 * `return int`
 
 Grabber method for returning file/folders count in directory
@@ -256,8 +256,8 @@ $count = $I->grabFileCount('TEST', false); // Include . .. .thumbs.db
 
 #### grabFileList
 
-* `param bool` $ignore - suppress '.', '..' and '.thumbs.db'
 * `param string` $path
+* `param bool` $ignore - suppress '.', '..' and '.thumbs.db'
 * `return array`
 
 Grabber method for returning file/folders listing in an array

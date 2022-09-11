@@ -228,8 +228,8 @@ Opposite to `seeBinaryResponseEquals`
 
 * `part` json
 * `part` xml
-* `param ` $value
 * `param string` $name
+* `param ` $value
 * `return void`
 
 Checks over the given HTTP header and (optionally)
@@ -395,8 +395,8 @@ $I->sendPut('/user', array('id' => $firstUserId[0], 'name' => 'davert'));
 
 * `part` json
 * `part` xml
-* `param bool` $first Whether to return the first value or all header values
 * `param string` $name
+* `param bool` $first Whether to return the first value or all header values
 * `return string|array` The first header value if $first is true, an array of values otherwise
 
 Returns the value of the specified header name
@@ -512,8 +512,8 @@ $I->seeBinaryResponseEquals(hash("sha256", base64_decode($fileData)), 'sha256');
 
 * `part` json
 * `part` xml
-* `param ` $value
 * `param string` $name
+* `param ` $value
 * `return void`
 
 Checks over the given HTTP header and (optionally)
@@ -993,9 +993,9 @@ $I->seeXmlResponseMatchesXpath('//root/user[@id=1]');
 
 * `part` json
 * `part` xml
-* `param array|string|JsonSerializable` $params
 * `param string` $method
 * `param string` $url
+* `param array|string|JsonSerializable` $params
 * `param array` $files
 
 Sends a HTTP request.
@@ -1055,8 +1055,8 @@ Sends a HEAD request to given uri.
 * `part` json
 * `part` xml
 * `author` samva.ua@gmail.com
-* `param array` $linkEntries (entry is array with keys "uri" and "link-param")
 * `param string` $url
+* `param array` $linkEntries (entry is array with keys "uri" and "link-param")
 * `return void`
 
 Sends LINK request to given uri.
@@ -1077,8 +1077,8 @@ Sends an OPTIONS request to given uri.
 
 * `part` json
 * `part` xml
-* `param array|string|JsonSerializable` $params
 * `param string` $url
+* `param array|string|JsonSerializable` $params
 * `param array` $files
 
 Sends PATCH request to given uri.
@@ -1097,11 +1097,11 @@ $response = $I->sendPatch('/message/1', ['subject' => 'Read this!']);
 * `part` xml
 * `see` https://php.net/manual/en/features.file-upload.post-method.php
 * `see` codecept_data_dir()
+* `param string` $url
 * `param array|string|JsonSerializable` $params
 * `param array` $files A list of filenames or "mocks" of $_FILES (each entry being an array with the following
                     keys: name, type, error, size, tmp_name (pointing to the real file path). Each key works
                     as the "name" attribute of a file input field.
-* `param string` $url
 
 Sends a POST request to given uri. Parameters and files can be provided separately.
 
@@ -1137,8 +1137,8 @@ $I->sendPost('/add-task', ['form' => [
 
 * `part` json
 * `part` xml
-* `param array|string|JsonSerializable` $params
 * `param string` $url
+* `param array|string|JsonSerializable` $params
 * `param array` $files
 
 Sends PUT request to given uri.
@@ -1157,8 +1157,8 @@ $response = $I->sendPut('/message/1', ['subject' => 'Read this!']);
 * `part` json
 * `part` xml
 * `author` samva.ua@gmail.com
-* `param array` $linkEntries (entry is array with keys "uri" and "link-param")
 * `param string` $url
+* `param array` $linkEntries (entry is array with keys "uri" and "link-param")
 * `return void`
 
 Sends UNLINK request to given uri.

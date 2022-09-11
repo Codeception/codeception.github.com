@@ -388,8 +388,8 @@ $I->amOnPage('some-other-page.php');
 
 #### dontSee
 
-* `param array|string` $selector optional
 * `param string` $text
+* `param array|string` $selector optional
 * `return void`
 
 Checks that the current page doesn't contain the text specified (case insensitive).
@@ -931,8 +931,8 @@ You can set additional cookie params like `domain`, `path` in array passed as la
 
 #### see
 
-* `param array|string` $selector optional
 * `param string` $text
+* `param array|string` $selector optional
 * `return void`
 
 Checks that the current page contains the given string (case insensitive).
@@ -1219,8 +1219,8 @@ $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
 
 #### seeNumberOfElements
 
-* `param int|int[]` $expected
 * `param ` $selector
+* `param int|int[]` $expected
 * `return void`
 
 Checks that there are a certain number of elements matched by the given locator on the page.

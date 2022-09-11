@@ -121,7 +121,6 @@ $this->ask('do you want to proceed (y/n)', true);
  *protected* createActor($name, $directory, array $suiteConfig)
 
 
-* `param array<string,` $ mixed> $suiteConfig
 * `param string` $name
 * `param string` $directory
 * `param array` $suiteConfig

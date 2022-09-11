@@ -12,9 +12,8 @@ If you want to use mocks outside it, check the reference for [Codeception/Stub](
 #### *public* make($class, array $params = array ( ))
 
 * `template` RealInstanceType of object
-* `param class-string<RealInstanceType>|RealInstanceType|callable():` $ class-string<RealInstanceType> $class - A class to be mocked
-* `param array` $params - properties and methods to set
 * `param ` $class
+* `param array` $params - properties and methods to set
 * `throws RuntimeException` when class does not exist
 * `throws Exception`
 * `return MockObject&RealInstanceType` - mock
@@ -55,9 +54,8 @@ $this->make('User', ['save' => true]);
 #### *public* makeEmpty($class, array $params = array ( ))
 
 * `template` RealInstanceType of object
-* `param class-string<RealInstanceType>|RealInstanceType|callable():` $ class-string<RealInstanceType> $class - A class to be mocked
-* `param array` $params
 * `param ` $class
+* `param array` $params
 * `throws Exception`
 * `return MockObject&RealInstanceType`
 
@@ -98,7 +96,6 @@ $this->makeEmpty('User', ['save' => true]);
 #### *public* makeEmptyExcept($class, $method, array $params = array ( ))
 
 * `template` RealInstanceType of object
-* `param class-string<RealInstanceType>|RealInstanceType|callable():` $ class-string<RealInstanceType> $class - A class to be mocked
 * `param ` $class
 * `param string` $method
 * `param array` $params
@@ -142,7 +139,6 @@ $this->makeEmptyExcept('User', 'save', ['isValid' => true]);
 #### *public* construct($class, array $constructorParams = array ( ), array $params = array ( ))
 
 * `template` RealInstanceType of object
-* `param class-string<RealInstanceType>|RealInstanceType|callable():` $ class-string<RealInstanceType> $class - A class to be mocked
 * `param ` $class
 * `param array` $constructorParams
 * `param array` $params
@@ -186,7 +182,6 @@ $this->construct('User', [], ['save' => true]);
 #### *public* constructEmpty($class, array $constructorParams = array ( ), array $params = array ( ))
 
 * `template` RealInstanceType of object
-* `param class-string<RealInstanceType>|RealInstanceType|callable():` $ class-string<RealInstanceType> $class - A class to be mocked
 * `param ` $class
 * `param array` $constructorParams
 * `param array` $params
@@ -240,7 +235,6 @@ $this->constructEmpty('User', [], [
 #### *public* constructEmptyExcept($class, $method, array $constructorParams = array ( ), array $params = array ( ))
 
 * `template` RealInstanceType of object
-* `param class-string<RealInstanceType>|RealInstanceType|callable():` $ class-string<RealInstanceType> $class - A class to be mocked
 * `param ` $class
 * `param string` $method
 * `param array` $constructorParams
@@ -382,8 +376,8 @@ Expected::atLeastOnce(function() { return Faker::name(); });
 
 #### *public static* exactly($count, $params = null)
 
-* `param mixed` $params
 * `param int` $count
+* `param mixed` $params
 * `return \Codeception\Stub\StubMarshaler`
 
 Checks if a method has been invoked a certain amount

@@ -11,10 +11,9 @@ title: Stub - Codeception - Documentation
 #### *public static* make($class, array $params = array ( ), $testCase = null)
 
 * `template` RealInstanceType of object
-* `param class-string<RealInstanceType>|RealInstanceType|callable():` $ class-string<RealInstanceType> $class - A class to be mocked
+* `param ` $class
 * `param array` $params - properties and methods to set
 * `param bool|PHPUnitTestCase` $testCase
-* `param ` $class
 * `throws RuntimeException` when class does not exist
 * `throws Exception`
 * `return PHPUnitMockObject&RealInstanceType` - mock
@@ -76,11 +75,10 @@ Creates $num instances of class through `Stub::make`.
 #### *public static* makeEmptyExcept($class, $method, array $params = array ( ), $testCase = null)
 
 * `template` RealInstanceType of object
-* `param class-string<RealInstanceType>|RealInstanceType|callable():` $ class-string<RealInstanceType> $class - A class to be mocked
+* `param ` $class
 * `param string` $method
 * `param array` $params
 * `param bool|PHPUnitTestCase` $testCase
-* `param ` $class
 * `throws Exception`
 * `return PHPUnitMockObject&RealInstanceType`
 
@@ -132,10 +130,9 @@ Stub::makeEmptyExcept('User', 'validate', [
 #### *public static* makeEmpty($class, array $params = array ( ), $testCase = null)
 
 * `template` RealInstanceType of object
-* `param class-string<RealInstanceType>|RealInstanceType|callable():` $ class-string<RealInstanceType> $class - A class to be mocked
-* `param bool|PHPUnitTestCase` $testCase
 * `param ` $class
 * `param array` $params
+* `param bool|PHPUnitTestCase` $testCase
 * `throws Exception`
 * `return PHPUnitMockObject&RealInstanceType`
 
@@ -196,11 +193,10 @@ Clones an object and redefines it's properties (even protected and private)
 #### *public static* construct($class, array $constructorParams = array ( ), array $params = array ( ), $testCase = null)
 
 * `template` RealInstanceType of object
-* `param class-string<RealInstanceType>|RealInstanceType|callable():` $ class-string<RealInstanceType> $class - A class to be mocked
-* `param bool|PHPUnitTestCase` $testCase
 * `param ` $class
 * `param array` $constructorParams
 * `param array` $params
+* `param bool|PHPUnitTestCase` $testCase
 * `throws Exception`
 * `return PHPUnitMockObject&RealInstanceType`
 
@@ -252,11 +248,10 @@ Stub::construct('User', [], [
 #### *public static* constructEmpty($class, array $constructorParams = array ( ), array $params = array ( ), $testCase = null)
 
 * `template` RealInstanceType of object
-* `param class-string<RealInstanceType>|RealInstanceType|callable():` $ class-string<RealInstanceType> $class - A class to be mocked
+* `param ` $class
 * `param array` $constructorParams
 * `param array` $params
 * `param bool|PHPUnitTestCase` $testCase
-* `param ` $class
 * `throws ReflectionException`
 * `return PHPUnitMockObject&RealInstanceType`
 
@@ -308,12 +303,11 @@ Stub::constructEmpty('User', [], [
 #### *public static* constructEmptyExcept($class, $method, array $constructorParams = array ( ), array $params = array ( ), $testCase = null)
 
 * `template` RealInstanceType of object
-* `param class-string<RealInstanceType>|RealInstanceType|callable():` $ class-string<RealInstanceType> $class - A class to be mocked
-* `param bool|PHPUnitTestCase` $testCase
 * `param ` $class
 * `param string` $method
 * `param array` $constructorParams
 * `param array` $params
+* `param bool|PHPUnitTestCase` $testCase
 * `throws ReflectionException`
 * `return PHPUnitMockObject&RealInstanceType`
 

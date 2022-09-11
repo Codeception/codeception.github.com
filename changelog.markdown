@@ -9,6 +9,15 @@ title: Codeception Changelog
 
 
 
+### lib-xml 1.0.1: 1.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/09/11 14:13:11 / [Repository](https://github.com/Codeception/lib-xml)   / [Releases](https://github.com/Codeception/lib-xml/releases)
+
+
+
+* Fixed param annotations
+
+
 ### module-rest 3.3.0: 3.3.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/08/22 07:11:50 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
