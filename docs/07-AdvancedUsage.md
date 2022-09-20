@@ -264,6 +264,33 @@ class EndpointCest
 }
 
 ```
+## Example Annotation
+
+As well as the `\Codeception\Example` attribute, available for Cest tests, the `@example` attribute allows you to
+inject test parameters in place of an actual [DataProvider](#dataprovider-attribute) for Unit tests.
+
+```php
+<?php
+namespace Tests\Unit;
+
+class ExampleTest extends \Codeception\Test\Unit
+{
+    /**
+     * @param mixed $value
+     * @example [3.14159]
+     * @example ["a string"]
+     * @example [["this", "is", "an", "array"]]
+     * @example [{"associative": "array"}]
+     */
+    public function testExample($value)
+    {
+        $this->assertNotEmpty($value, "Expected a value");
+    }
+}
+```
+
+> `@testWith`: as of [Codeception 5.0](https://github.com/Codeception/Codeception/pull/6491), PHPUnit's `@testWith` is no longer supported. `@example` is a good, almost drop-in, replacement.
+
 
 ## DataProvider Attribute
 
