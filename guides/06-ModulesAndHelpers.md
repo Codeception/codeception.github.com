@@ -72,7 +72,7 @@ If you are doing functional testing, enable only one of the framework modules.
 
 In case you need to use a module which depends on a conflicted one, specify it as a dependent module in the configuration.
 You may want to use `WebDriver` with the `REST` module which interacts with a server through `PhpBrowser`.
-In this case your config should Fook like this:
+In this case your config should look like this:
 
 ```yaml
 modules:
@@ -95,7 +95,7 @@ Modules with *Parts* section in their reference can be partially loaded. This wa
 belonging to only a specific part of that module. Partially loaded modules can be also used to avoid module conflicts.
 
 For instance, the Laravel module has an ORM part which contains database actions. You can enable the PhpBrowser module
-for testing and Laravel + FRM for connecting to the database and checking the data.
+for testing and Laravel's ORM part for connecting to the database and checking the data.
 
 ```yaml
 modules:
