@@ -59,7 +59,6 @@ modules:
     enabled:
         - PhpBrowser:
             url: 'http://localhost/myapp/'
-        - Tests\Support\Helper\Acceptance
 ```
 
 
@@ -161,7 +160,6 @@ modules:
     enabled:
         - PhpBrowser:
             url: 'http://myappurl.local'
-        - \Helper\Acceptance
 ```
 
 
