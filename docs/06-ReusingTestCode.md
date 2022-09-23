@@ -100,7 +100,7 @@ php vendor/bin/codecept generate:pageobject acceptance Login
 
 > It is recommended to use page objects for acceptance testing only
 
-This will create a `Login` class in `tests/_support/Page/Acceptance`.
+This will create a `Login` class in `tests/Support/Page/Acceptance`.
 The basic PageObject is nothing more than an empty class with a few stubs.
 
 It is expected that you will populate it with the UI locators of a page it represents. Locators can be added as public properties:
@@ -210,7 +210,7 @@ Add action to StepObject class (ENTER to exit):
 StepObject was created in /tests/acceptance/_support/Step/Acceptance/Admin.php
 ```
 
-This will generate a class in `/tests/_support/Step/Acceptance/Admin.php` similar to this:
+This will generate a class in `/tests/Support/Step/Acceptance/Admin.php` similar to this:
 
 ```php
 <?php

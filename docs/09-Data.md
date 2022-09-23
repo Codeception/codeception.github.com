@@ -48,7 +48,7 @@ modules:
             dsn: 'PDO DSN HERE'
             user: 'root'
             password:
-            dump: tests/_data/your-dump-name.sql
+            dump: tests/Support/Data/your-dump-name.sql
             cleanup: true # reload dump between tests
             populate: true # load dump before all tests
 
@@ -66,7 +66,7 @@ modules:
           password: ''
           cleanup: true # run populator before each test
           populate: true # run populator before all test
-          populator: 'mysql -u $user $dbname < tests/_data/dump.sql'
+          populator: 'mysql -u $user $dbname < tests/Support/Data/dump.sql'
 ```
 
 See the [Db module reference](https://codeception.com/docs/modules/Db#SQL-data-dump) for more examples.
@@ -319,7 +319,7 @@ public function testCategoriesAreTheSame(AcceptanceTester $I, \Tests\Snapshot\Ca
 }
 ```
 
-On the first run, data will be obtained via `fetchData` method and saved to `tests/_data` directory in json format.
+On the first run, data will be obtained via `fetchData` method and saved to `tests/Support/Data` directory in json format.
 On next execution the obtained data will be compared with previously saved snapshot.
 
 > To update a snapshot with new data, run tests in `--debug` mode.
