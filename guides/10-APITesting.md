@@ -136,7 +136,8 @@ $response = $I->send('TRACE', '/posts');
 If API endpoint accepts JSON you can use `send` methods with `AsJson` suffix to convert data automatically.
 In this case `Content-Type` header is sent with `application/json` value and response if JSON is parsed:
 
-```php$I->sendPostAsJson('/users', ['name' => 'old name']);
+```php
+$I->sendPostAsJson('/users', ['name' => 'old name']);
 $users = $I->sendGetAsJson('/users');
 $I->sendPutAsJson('/users/' . $users[0]['id'], ['name' => 'new name']);
 $I->sendDeleteAsJson('/users/' . $users[1]['id']);
