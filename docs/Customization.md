@@ -189,7 +189,7 @@ Extensions have some basic methods you can use:
 ### Enabling Extension
 
 Once you've implemented a simple extension class, you can require it in `tests/_bootstrap.php`,
-load it with Composer's autoloader defined in `composer.json`, or store the class inside `tests/_support`dir.
+load it with Composer's autoloader defined in `composer.json`, or store the class inside `tests/Support`dir.
 
 You can then enable it in `codeception.yml`
 
@@ -253,7 +253,7 @@ extensions:
 If you want to activate the Command globally, because you are using more then one `codeception.yml` file,
 you have to register your command in the `codeception.dist.yml` in the root folder of your project.
 
-Please see the [complete example](https://github.com/Codeception/Codeception/blob/4.0/tests/data/register_command/examples/MyCustomCommand.php)
+Please see the [complete example](https://github.com/Codeception/Codeception/blob/5.0/tests/data/register_command/examples/MyCustomCommand.php)
 
 ## Group Objects
 
@@ -320,7 +320,7 @@ For instance, for `nocleanup` group we prevent Doctrine2 module from wrapping te
 ```
 
 A group class can be created with `php vendor/bin/codecept generate:group groupname` command.
-Group classes will be stored in the `tests/_support/Group` directory.
+Group classes will be stored in the `tests/Support/Group` directory.
 
 A group class can be enabled just like you enable an extension class. In the file `codeception.yml`:
 
@@ -413,7 +413,7 @@ A group file can be included by its relative filename:
 ```yaml
 groups:
   # requiring a group file
-  slow: tests/_data/slow.txt
+  slow: tests/Support/Data/slow.txt
 
 ```
 
@@ -424,11 +424,11 @@ You can even specify patterns for loading multiple group files with a single def
 
 ```yaml
 groups:
-  p*: tests/_data/p*
+  p*: tests/Support/Data/p*
 
 ```
 
-This will load all found `p*` files in `tests/_data` as groups. Group names will be as follows p1,p2,...,pN.
+This will load all found `p*` files in `tests/Support/Data` as groups. Group names will be as follows p1,p2,...,pN.
 
 ## Formats
 
