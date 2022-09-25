@@ -132,9 +132,8 @@ modules:
 ## Helpers
 
 Codeception doesn't restrict you to only the modules from the main repository.
-Your project might need your own actions added to the test suite. By running the `bootstrap` command,
-Codeception generates three dummy modules for you, one for each of the newly created suites.
-These custom modules are called 'Helpers', and they can be found in the `tests/_support` directory.
+Your project might need your own actions added to the test suite. By running the `codecept generate:helper Name` command,
+you can generate custom module called 'Helper' in `tests/Support/Helper` directory.
 
 ```php
 <?php
