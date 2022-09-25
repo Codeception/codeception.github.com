@@ -3,7 +3,7 @@ layout: doc
 title: Reusing Test Code - Codeception Docs
 ---
 
-<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="https://github.com/Codeception/codeception.github.com/blob/4.x/docs/06-ReusingTestCode.md">Read for 4.x</a></div>
+<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="/docs/4.x/ReusingTestCode">Read for 4.x</a></div>
 
 # Reusing Test Code
 
@@ -100,7 +100,7 @@ php vendor/bin/codecept generate:pageobject acceptance Login
 
 > It is recommended to use page objects for acceptance testing only
 
-This will create a `Login` class in `tests/Support/Page/Acceptance`.
+This will create a `Login` class in `tests/_support/Page/Acceptance`.
 The basic PageObject is nothing more than an empty class with a few stubs.
 
 It is expected that you will populate it with the UI locators of a page it represents. Locators can be added as public properties:
@@ -210,7 +210,7 @@ Add action to StepObject class (ENTER to exit):
 StepObject was created in /tests/acceptance/_support/Step/Acceptance/Admin.php
 ```
 
-This will generate a class in `/tests/Support/Step/Acceptance/Admin.php` similar to this:
+This will generate a class in `/tests/_support/Step/Acceptance/Admin.php` similar to this:
 
 ```php
 <?php

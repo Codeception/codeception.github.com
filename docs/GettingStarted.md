@@ -3,7 +3,7 @@ layout: doc
 title: Getting Started - Codeception Docs
 ---
 
-<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="https://github.com/Codeception/codeception.github.com/blob/4.x/docs/02-GettingStarted.md">Read for 4.x</a></div>
+<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="/docs/4.x/GettingStarted">Read for 4.x</a></div>
 
 # Getting Started
 
@@ -59,6 +59,7 @@ modules:
     enabled:
         - PhpBrowser:
             url: 'http://localhost/myapp/'
+        - Tests\Support\Helper\Acceptance
 ```
 
 
@@ -160,6 +161,7 @@ modules:
     enabled:
         - PhpBrowser:
             url: 'http://myappurl.local'
+        - \Helper\Acceptance
 ```
 
 

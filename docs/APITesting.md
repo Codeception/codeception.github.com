@@ -3,7 +3,7 @@ layout: doc
 title: API Testing - Codeception Docs
 ---
 
-<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="https://github.com/Codeception/codeception.github.com/blob/4.x/docs/10-APITesting.md">Read for 4.x</a></div>
+<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="/docs/4.x/APITesting">Read for 4.x</a></div>
 
 # API Testing
 
@@ -143,7 +143,8 @@ $response = $I->send('TRACE', '/posts');
 If API endpoint accepts JSON you can use `send` methods with `AsJson` suffix to convert data automatically.
 In this case `Content-Type` header is sent with `application/json` value and response if JSON is parsed:
 
-```php$I->sendPostAsJson('/users', ['name' => 'old name']);
+```php
+$I->sendPostAsJson('/users', ['name' => 'old name']);
 $users = $I->sendGetAsJson('/users');
 $I->sendPutAsJson('/users/' . $users[0]['id'], ['name' => 'new name']);
 $I->sendDeleteAsJson('/users/' . $users[1]['id']);

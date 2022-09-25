@@ -3,7 +3,7 @@ layout: doc
 title: Continuous Integration - Codeception Docs
 ---
 
-<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="https://github.com/Codeception/codeception.github.com/blob/4.x/docs/12-ContinuousIntegration.md">Read for 4.x</a></div>
+<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="/docs/4.x/ContinuousIntegration">Read for 4.x</a></div>
 
 # Continuous Integration
 

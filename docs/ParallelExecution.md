@@ -3,7 +3,7 @@ layout: doc
 title: Parallel Execution - Codeception Docs
 ---
 
-<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="https://github.com/Codeception/codeception.github.com/blob/4.x/docs/12-ParallelExecution.md">Read for 4.x</a></div>
+<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="/docs/4.x/ParallelExecution">Read for 4.x</a></div>
 
 # Parallel Execution
 
@@ -160,7 +160,7 @@ public function parallelSplitTests()
     $this->taskSplitTestFilesByGroups(5)
         ->projectRoot('.')
         ->testsFrom('tests/acceptance')
-        ->groupsTo('tests/Support/Data/paracept_')
+        ->groupsTo('tests/_data/paracept_')
         ->run();
 
     /*
@@ -168,7 +168,7 @@ public function parallelSplitTests()
     $this->taskSplitTestsByGroups(5)
         ->projectRoot('.')
         ->testsFrom('tests/acceptance')
-        ->groupsTo('tests/Support/Data/paracept_')
+        ->groupsTo('tests/_data/paracept_')
         ->run();
     */
 }
@@ -188,11 +188,11 @@ The output should be similar to this:
 
 ```
  [Codeception\Task\SplitTestFilesByGroupsTask] Processing 33 files
- [Codeception\Task\SplitTestFilesByGroupsTask] Writing tests/Support/Data/paracept_1
- [Codeception\Task\SplitTestFilesByGroupsTask] Writing tests/Support/Data/paracept_2
- [Codeception\Task\SplitTestFilesByGroupsTask] Writing tests/Support/Data/paracept_3
- [Codeception\Task\SplitTestFilesByGroupsTask] Writing tests/Support/Data/paracept_4
- [Codeception\Task\SplitTestFilesByGroupsTask] Writing tests/Support/Data/paracept_5
+ [Codeception\Task\SplitTestFilesByGroupsTask] Writing tests/_data/paracept_1
+ [Codeception\Task\SplitTestFilesByGroupsTask] Writing tests/_data/paracept_2
+ [Codeception\Task\SplitTestFilesByGroupsTask] Writing tests/_data/paracept_3
+ [Codeception\Task\SplitTestFilesByGroupsTask] Writing tests/_data/paracept_4
+ [Codeception\Task\SplitTestFilesByGroupsTask] Writing tests/_data/paracept_5
 
 ```
 
@@ -200,7 +200,7 @@ Now we have group files. We should update `codeception.yml` to load generated gr
 
 ```yaml
 groups:
-    paracept_*: tests/Support/Data/paracept_*
+    paracept_*: tests/_data/paracept_*
 ```
 
 Let's try to execute tests from the second group:

@@ -3,7 +3,7 @@ layout: doc
 title: Customization - Codeception Docs
 ---
 
-<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="https://github.com/Codeception/codeception.github.com/blob/4.x/docs/08-Customization.md">Read for 4.x</a></div>
+<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="/docs/4.x/Customization">Read for 4.x</a></div>
 
 # Customization
 
@@ -189,7 +189,7 @@ Extensions have some basic methods you can use:
 ### Enabling Extension
 
 Once you've implemented a simple extension class, you can require it in `tests/_bootstrap.php`,
-load it with Composer's autoloader defined in `composer.json`, or store the class inside `tests/Support`dir.
+load it with Composer's autoloader defined in `composer.json`, or store the class inside `tests/_support`dir.
 
 You can then enable it in `codeception.yml`
 
@@ -320,7 +320,7 @@ For instance, for `nocleanup` group we prevent Doctrine2 module from wrapping te
 ```
 
 A group class can be created with `php vendor/bin/codecept generate:group groupname` command.
-Group classes will be stored in the `tests/Support/Group` directory.
+Group classes will be stored in the `tests/_support/Group` directory.
 
 A group class can be enabled just like you enable an extension class. In the file `codeception.yml`:
 
@@ -413,7 +413,7 @@ A group file can be included by its relative filename:
 ```yaml
 groups:
   # requiring a group file
-  slow: tests/Support/Data/slow.txt
+  slow: tests/_data/slow.txt
 
 ```
 
@@ -424,11 +424,11 @@ You can even specify patterns for loading multiple group files with a single def
 
 ```yaml
 groups:
-  p*: tests/Support/Data/p*
+  p*: tests/_data/p*
 
 ```
 
-This will load all found `p*` files in `tests/Support/Data` as groups. Group names will be as follows p1,p2,...,pN.
+This will load all found `p*` files in `tests/_data` as groups. Group names will be as follows p1,p2,...,pN.
 
 ## Formats
 

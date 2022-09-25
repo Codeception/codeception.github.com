@@ -3,7 +3,7 @@ layout: doc
 title: Acceptance Tests - Codeception Docs
 ---
 
-<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="https://github.com/Codeception/codeception.github.com/blob/4.x/docs/03-AcceptanceTests.md">Read for 4.x</a></div>
+<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="/docs/4.x/AcceptanceTests">Read for 4.x</a></div>
 
 # Acceptance Testing
 
@@ -63,6 +63,7 @@ modules:
     enabled:
         - PhpBrowser:
             url: http://www.example.com/
+        - \Helper\Acceptance
 ```
 
 We should start by creating a test with the next command:
@@ -399,6 +400,7 @@ modules:
         - WebDriver:
             url: {{your site URL}}
             browser: chrome
+        - \Helper\Acceptance
 ```
 
 See [WebDriver Module](https://codeception.com/docs/modules/WebDriver) for details.

@@ -3,7 +3,7 @@ layout: doc
 title: Data - Codeception Docs
 ---
 
-<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="https://github.com/Codeception/codeception.github.com/blob/4.x/docs/09-Data.md">Read for 4.x</a></div>
+<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="/docs/4.x/Data">Read for 4.x</a></div>
 
 # Data Management
 
@@ -48,7 +48,7 @@ modules:
             dsn: 'PDO DSN HERE'
             user: 'root'
             password:
-            dump: tests/Support/Data/your-dump-name.sql
+            dump: tests/_data/your-dump-name.sql
             cleanup: true # reload dump between tests
             populate: true # load dump before all tests
 
@@ -66,7 +66,7 @@ modules:
           password: ''
           cleanup: true # run populator before each test
           populate: true # run populator before all test
-          populator: 'mysql -u $user $dbname < tests/Support/Data/dump.sql'
+          populator: 'mysql -u $user $dbname < tests/_data/dump.sql'
 ```
 
 See the [Db module reference](https://codeception.com/docs/modules/Db#SQL-data-dump) for more examples.
@@ -319,7 +319,7 @@ public function testCategoriesAreTheSame(AcceptanceTester $I, \Tests\Snapshot\Ca
 }
 ```
 
-On the first run, data will be obtained via `fetchData` method and saved to `tests/Support/Data` directory in json format.
+On the first run, data will be obtained via `fetchData` method and saved to `tests/_data` directory in json format.
 On next execution the obtained data will be compared with previously saved snapshot.
 
 > To update a snapshot with new data, run tests in `--debug` mode.

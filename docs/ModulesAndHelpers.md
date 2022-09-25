@@ -3,7 +3,7 @@ layout: doc
 title: Modules And Helpers - Codeception Docs
 ---
 
-<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="https://github.com/Codeception/codeception.github.com/blob/4.x/docs/06-ModulesAndHelpers.md">Read for 4.x</a></div>
+<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="/docs/4.x/ModulesAndHelpers">Read for 4.x</a></div>
 
 # Modules and Helpers
 
@@ -79,7 +79,7 @@ If you are doing functional testing, enable only one of the framework modules.
 
 In case you need to use a module which depends on a conflicted one, specify it as a dependent module in the configuration.
 You may want to use `WebDriver` with the `REST` module which interacts with a server through `PhpBrowser`.
-In this case your config should Fook like this:
+In this case your config should look like this:
 
 ```yaml
 modules:
@@ -102,7 +102,7 @@ Modules with *Parts* section in their reference can be partially loaded. This wa
 belonging to only a specific part of that module. Partially loaded modules can be also used to avoid module conflicts.
 
 For instance, the Laravel module has an ORM part which contains database actions. You can enable the PhpBrowser module
-for testing and Laravel + FRM for connecting to the database and checking the data.
+for testing and Laravel's ORM part for connecting to the database and checking the data.
 
 ```yaml
 modules:
@@ -132,8 +132,9 @@ modules:
 ## Helpers
 
 Codeception doesn't restrict you to only the modules from the main repository.
-Your project might need your own actions added to the test suite. By running the `codecept generate:helper Name` command,
-you can generate custom module called 'Helper' in `tests/Support/Helper` directory.
+Your project might need your own actions added to the test suite. By running the `bootstrap` command,
+Codeception generates three dummy modules for you, one for each of the newly created suites.
+These custom modules are called 'Helpers', and they can be found in the `tests/_support` directory.
 
 ```php
 <?php

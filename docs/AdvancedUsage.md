@@ -3,7 +3,7 @@ layout: doc
 title: Advanced Usage - Codeception Docs
 ---
 
-<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="https://github.com/Codeception/codeception.github.com/blob/4.x/docs/07-AdvancedUsage.md">Read for 4.x</a></div>
+<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="/docs/4.x/AdvancedUsage">Read for 4.x</a></div>
 
 # Advanced Usage
 
@@ -404,6 +404,7 @@ actor: AcceptanceTester
 modules:
     enabled:
         - WebDriver
+        - \Helper\Acceptance
     config:
         WebDriver:
             url: 'http://127.0.0.1:8000/'
