@@ -56,7 +56,6 @@ modules:
     enabled:
         - PhpBrowser:
             url: http://www.example.com/
-        - \Helper\Acceptance
 ```
 
 We should start by creating a test with the next command:
@@ -393,7 +392,6 @@ modules:
         - WebDriver:
             url: {{your site URL}}
             browser: chrome
-        - \Helper\Acceptance
 ```
 
 See [WebDriver Module](https://codeception.com/docs/modules/WebDriver) for details.

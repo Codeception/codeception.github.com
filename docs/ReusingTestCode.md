@@ -3,7 +3,7 @@ layout: doc
 title: Reusing Test Code - Codeception Docs
 ---
 
-<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="https://github.com/Codeception/codeception.github.com/blob/4.x/docs/06-ReusingTestCode.md">Read for 4.x</a></div>
+<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="/docs/4.x/ReusingTestCode">Read for 4.x</a></div>
 
 # Reusing Test Code
 

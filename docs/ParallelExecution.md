@@ -3,7 +3,7 @@ layout: doc
 title: Parallel Execution - Codeception Docs
 ---
 
-<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="https://github.com/Codeception/codeception.github.com/blob/4.x/docs/12-ParallelExecution.md">Read for 4.x</a></div>
+<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="/docs/4.x/ParallelExecution">Read for 4.x</a></div>
 
 # Parallel Execution
 

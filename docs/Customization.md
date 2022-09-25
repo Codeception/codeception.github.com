@@ -3,7 +3,7 @@ layout: doc
 title: Customization - Codeception Docs
 ---
 
-<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="https://github.com/Codeception/codeception.github.com/blob/4.x/docs/08-Customization.md">Read for 4.x</a></div>
+<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="/docs/4.x/Customization">Read for 4.x</a></div>
 
 # Customization
 
@@ -253,7 +253,7 @@ extensions:
 If you want to activate the Command globally, because you are using more then one `codeception.yml` file,
 you have to register your command in the `codeception.dist.yml` in the root folder of your project.
 
-Please see the [complete example](https://github.com/Codeception/Codeception/blob/4.0/tests/data/register_command/examples/MyCustomCommand.php)
+Please see the [complete example](https://github.com/Codeception/Codeception/blob/5.0/tests/data/register_command/examples/MyCustomCommand.php)
 
 ## Group Objects
 
