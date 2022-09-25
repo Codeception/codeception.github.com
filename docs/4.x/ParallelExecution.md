@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: 12-ParallelExecution - Codeception - Documentation
+title: ParallelExecution - Codeception 4 Documentation
 ---
 
 # Parallel Execution
@@ -471,4 +471,4 @@ Codeception does not provide tools for parallel test execution. This is a comple
 
 * **Previous Chapter: [< ContinuousIntegration](/docs/12-ContinuousIntegration)**
 
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/12-ParallelExecution.md"><strong>Edit</strong> this page on GitHub</a></div>
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/4.x/ParallelExecution.md"><strong>Edit</strong> this page on GitHub</a></div>

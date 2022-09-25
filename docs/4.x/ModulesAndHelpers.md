@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: 06-ModulesAndHelpers - Codeception - Documentation
+title: ModulesAndHelpers - Codeception 4 Documentation
 ---
 
 # Modules and Helpers
@@ -618,4 +618,4 @@ Helpers also can be used to extend the functionality of the original modules.
 * **Previous Chapter: [< UnitTests](/docs/05-UnitTests)**
 
 
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/06-ModulesAndHelpers.md"><strong>Edit</strong> this page on GitHub</a></div>
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/4.x/ModulesAndHelpers.md"><strong>Edit</strong> this page on GitHub</a></div>

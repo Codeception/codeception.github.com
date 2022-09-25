@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: 07-BDD - Codeception - Documentation
+title: BDD - Codeception 4 Documentation
 ---
 
 # Behavior Driven Development
@@ -643,3 +643,5 @@ If you like the concept of Behavior Driven Development or prefer to keep test sc
 
 * **Next Chapter: [Customization >](/docs/08-Customization)**
 * **Previous Chapter: [< AdvancedUsage](/docs/07-AdvancedUsage)**
+
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/4.x/BDD.md"><strong>Edit</strong> this page on GitHub</a></div>

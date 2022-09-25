@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: 06-ReusingTestCode - Codeception - Documentation
+title: ReusingTestCode - Codeception 4 Documentation
 ---
 
 # Reusing Test Code
@@ -296,3 +296,5 @@ Following this approach will allow you to keep your tests clean, readable, stabl
 
 * **Next Chapter: [AdvancedUsage >](/docs/07-AdvancedUsage)**
 * **Previous Chapter: [< ModulesAndHelpers](/docs/06-ModulesAndHelpers)**
+
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/4.x/ReusingTestCode.md"><strong>Edit</strong> this page on GitHub</a></div>

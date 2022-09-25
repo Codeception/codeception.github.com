@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: 09-Data - Codeception - Documentation
+title: Data - Codeception 4 Documentation
 ---
 
 # Working with Data
@@ -423,4 +423,4 @@ to operate with database through a data abstraction layer, and use the DataFacto
 * **Next Chapter: [APITesting >](/docs/10-APITesting)**
 * **Previous Chapter: [< Customization](/docs/08-Customization)**
 
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/09-Data.md"><strong>Edit</strong> this page on GitHub</a></div>
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/4.x/Data.md"><strong>Edit</strong> this page on GitHub</a></div>

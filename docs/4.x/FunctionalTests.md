@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: 04-FunctionalTests - Codeception - Documentation
+title: FunctionalTests - Codeception 4 Documentation
 ---
 
 # Functional Tests
@@ -279,4 +279,4 @@ If you are using a framework other than the ones listed here, create a module fo
 * **Next Chapter: [UnitTests >](/docs/05-UnitTests)**
 * **Previous Chapter: [< AcceptanceTests](/docs/03-AcceptanceTests)**
 
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/04-FunctionalTests.md"><strong>Edit</strong> this page on GitHub</a></div>
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/4.x/FunctionalTests.md"><strong>Edit</strong> this page on GitHub</a></div>

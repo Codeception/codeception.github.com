@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: 12-ContinuousIntegration - Codeception - Documentation
+title: ContinuousIntegration - Codeception 4 Documentation
 ---
 
 # Continuous Integration
@@ -210,4 +210,4 @@ It is highly recommended to use Continuous Integration system in development. Co
 * **Next Chapter: [ParallelExecution >](/docs/12-ParallelExecution)**
 * **Previous Chapter: [< Codecoverage](/docs/11-Codecoverage)**
 
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/12-ContinuousIntegration.md"><strong>Edit</strong> this page on GitHub</a></div>
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/4.x/ContinuousIntegration.md"><strong>Edit</strong> this page on GitHub</a></div>

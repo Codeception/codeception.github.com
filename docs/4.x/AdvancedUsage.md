@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: 07-AdvancedUsage - Codeception - Documentation
+title: AdvancedUsage - Codeception 4 Documentation
 ---
 
 # Advanced Usage
@@ -810,4 +810,4 @@ and write them faster using the interactive console. Codeception tests can be ea
 * **Previous Chapter: [< ReusingTestCode](/docs/06-ReusingTestCode)**
 
 
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/07-AdvancedUsage.md"><strong>Edit</strong> this page on GitHub</a></div>
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/4.x/AdvancedUsage.md"><strong>Edit</strong> this page on GitHub</a></div>

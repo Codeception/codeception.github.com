@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: 11-Codecoverage - Codeception - Documentation
+title: Codecoverage - Codeception 4 Documentation
 ---
 
 # Code Coverage
@@ -220,4 +220,4 @@ It's never been easier to setup local and remote code coverage. Just one config 
 * **Previous Chapter: [< APITesting](/docs/10-APITesting)**
 
 
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/11-Codecoverage.md"><strong>Edit</strong> this page on GitHub</a></div>
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/4.x/Codecoverage.md"><strong>Edit</strong> this page on GitHub</a></div>

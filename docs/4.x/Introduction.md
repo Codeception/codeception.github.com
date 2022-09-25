@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: 01-Introduction - Codeception - Documentation
+title: Introduction - Codeception 4 Documentation
 ---
 
 # Introduction
@@ -134,4 +134,4 @@ Just by looking at the test body, you can clearly understand what is being teste
 
 * **Next Chapter: [GettingStarted >](/docs/02-GettingStarted)**
 
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/01-Introduction.md"><strong>Edit</strong> this page on GitHub</a></div>
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/4.x/Introduction.md"><strong>Edit</strong> this page on GitHub</a></div>

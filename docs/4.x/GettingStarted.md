@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: 02-GettingStarted - Codeception - Documentation
+title: GettingStarted - Codeception 4 Documentation
 ---
 
 # Getting Started
@@ -445,4 +445,4 @@ After you have reviewed the basic concepts and configurations, you can start wri
 * **Next Chapter: [AcceptanceTests >](/docs/03-AcceptanceTests)**
 * **Previous Chapter: [< Introduction](/docs/01-Introduction)**
 
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/02-GettingStarted.md"><strong>Edit</strong> this page on GitHub</a></div>
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/4.x/GettingStarted.md"><strong>Edit</strong> this page on GitHub</a></div>

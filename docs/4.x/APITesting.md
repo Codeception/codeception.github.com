@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: 10-APITesting - Codeception - Documentation
+title: APITesting - Codeception 4 Documentation
 ---
 
 # API Testing
@@ -434,4 +434,4 @@ Codeception has two modules that will help you to test various web services. The
 * **Next Chapter: [Codecoverage >](/docs/11-Codecoverage)**
 * **Previous Chapter: [< Data](/docs/09-Data)**
 
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/10-APITesting.md"><strong>Edit</strong> this page on GitHub</a></div>
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/4.x/APITesting.md"><strong>Edit</strong> this page on GitHub</a></div>

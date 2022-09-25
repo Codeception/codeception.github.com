@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: 05-UnitTests - Codeception - Documentation
+title: UnitTests - Codeception 4 Documentation
 ---
 
 # Unit & Integration Tests
@@ -543,4 +543,4 @@ For most unit and integration testing, PHPUnit tests are enough. They run fast, 
 * **Next Chapter: [ModulesAndHelpers >](/docs/06-ModulesAndHelpers)**
 * **Previous Chapter: [< FunctionalTests](/docs/04-FunctionalTests)**
 
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/05-UnitTests.md"><strong>Edit</strong> this page on GitHub</a></div>
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/4.x/UnitTests.md"><strong>Edit</strong> this page on GitHub</a></div>
