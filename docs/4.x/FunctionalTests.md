@@ -1,9 +1,7 @@
 ---
 layout: doc
-title: Functional Tests - Codeception Docs
+title: FunctionalTests - Codeception 4 Documentation
 ---
-
-<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="/docs/4.x/FunctionalTests">Read for 4.x</a></div>
 
 # Functional Tests
 
@@ -15,17 +13,15 @@ to "send" requests to your app. So there's no real HTTP request made, but rather
 [Request object](https://github.com/symfony/browser-kit/blob/master/Request.php) with the required properties is
 passed to your framework's (front-)controller.
 
-As a first step, you need to enable Codeception's module for your framework in `Functional.suite.yml` (see below).
+As a first step, you need to enable Codeception's module for your framework in `functional.suite.yml` (see below).
 
 All of Codeception's framework modules share the same interface, and thus your tests are not bound to any one of them.
 This is a sample functional test:
 
-```php
+{% highlight php %}
+
 <?php
-
-namespace Tests\Functional;
-
-use \Tests\Support\FunctionalTester;
+// LoginCest.php
 
 class LoginCest
 {
@@ -40,7 +36,8 @@ class LoginCest
         // $I->seeEmailIsSent(); // only for Symfony
     }
 }
-```
+
+{% endhighlight %}
 
 As you see, the syntax is the same for functional and acceptance tests.
 
@@ -71,7 +68,7 @@ Keep your memory clean, avoid memory leaks and clean global and static variables
 ## Enabling Framework Modules
 
 You have a functional testing suite in the `tests/functional` directory.
-To start, you need to include one of the framework modules in the suite configuration file: `tests/Functional.suite.yml`.
+To start, you need to include one of the framework modules in the suite configuration file: `tests/functional.suite.yml`.
 
 ### Symfony
 
@@ -79,8 +76,9 @@ To perform Symfony integration you just need to include the Symfony module into 
 don't forget to include it too. To make the Doctrine2 module connect using the `doctrine` service from Symfony,
 you should specify the Symfony module as a dependency for Doctrine2:
 
-```yaml
-# Functional.suite.yml
+{% highlight yaml %}
+
+# functional.suite.yml
 
 actor: FunctionalTester
 modules:
@@ -88,7 +86,8 @@ modules:
         - Symfony
         - Doctrine2:
             depends: Symfony # connect to Symfony
-```
+
+{% endhighlight %}
 
 By default this module will search for AppKernel in the `app` directory.
 
@@ -96,56 +95,77 @@ The module uses the Symfony Profiler to provide additional information and asser
 
 [See the full reference](https://codeception.com/docs/modules/Symfony)
 
-### Laravel
+### Laravel5
 
-The [Laravel](https://codeception.com/docs/modules/Laravel) module is included and requires no configuration:
+The [Laravel5](https://codeception.com/docs/modules/Laravel5) module is included and requires no configuration:
 
-```yaml
-# Functional.suite.yml
+{% highlight yaml %}
+
+# functional.suite.yml
 
 actor: FunctionalTester
 modules:
     enabled:
-        - Laravel
-```
+        - Laravel5
+
+{% endhighlight %}
 
 ### Yii2
 
 Yii2 tests are included in [Basic](https://github.com/yiisoft/yii2-app-basic)
 and [Advanced](https://github.com/yiisoft/yii2-app-advanced) application templates. Follow the Yii2 guides to start.
 
-### Laminas
+### Zend Framework 2
 
-[Laminas](https://codeception.com/docs/modules/Laminas) tests can be executed with enabling a corresponding module.
+Use [the ZF2 module](https://codeception.com/docs/modules/ZF2) to run functional tests inside Zend Framework 2:
 
-```yaml
-# Functional.suite.yml
+{% highlight yaml %}
+
+# functional.suite.yml
 
 actor: FunctionalTester
 modules:
     enabled:
-        - Laminas
-```
+        - ZF2
+
+{% endhighlight %}
+
+### Zend Expressive
+
+[Zend Expressive](https://codeception.com/docs/modules/ZendExpressive) tests can be executed with enabling a corresponding module.
+
+{% highlight yaml %}
+
+# functional.suite.yml
+
+actor: FunctionalTester
+modules:
+    enabled:
+        - ZendExpressive
+
+{% endhighlight %}
 
 > See module reference to more configuration options
 
-### Phalcon 5
+### Phalcon 4
 
-The `Phalcon5` module requires creating a bootstrap file which returns an instance of `\Phalcon\Mvc\Application`.
-To start writing functional tests with Phalcon support you should enable the `Phalcon5` module
+The `Phalcon4` module requires creating a bootstrap file which returns an instance of `\Phalcon\Mvc\Application`.
+To start writing functional tests with Phalcon support you should enable the `Phalcon4` module
 and provide the path to this bootstrap file:
 
-```yaml
-# Functional.suite.yml
+{% highlight yaml %}
+
+# functional.suite.yml
 
 actor: FunctionalTester
 modules:
     enabled:
-        - Phalcon5:
+        - Phalcon4:
             bootstrap: 'app/config/bootstrap.php'
              cleanup: true
              savepoints: true
-```
+
+{% endhighlight %}
 
 [See the full reference](https://codeception.com/docs/modules/Phalcon4)
 
@@ -157,13 +177,18 @@ and the same engine.
 
 Therefore we can open a web page with `amOnPage` method:
 
-```php
+{% highlight php %}
+
+<?php
 $I->amOnPage('/login');
-```
+
+{% endhighlight %}
 
 We can click links to open web pages:
 
-```php
+{% highlight php %}
+
+<?php
 $I->click('Logout');
 // click link inside .nav element
 $I->click('Logout', '.nav');
@@ -171,27 +196,34 @@ $I->click('Logout', '.nav');
 $I->click('a.logout');
 // click with strict locator
 $I->click(['class' => 'logout']);
-```
+
+{% endhighlight %}
 
 We can submit forms as well:
 
-```php
+{% highlight php %}
+
+<?php
 $I->submitForm('form#login', ['name' => 'john', 'password' => '123456']);
 // alternatively
 $I->fillField('#login input[name=name]', 'john');
 $I->fillField('#login input[name=password]', '123456');
 $I->click('Submit', '#login');
-```
+
+{% endhighlight %}
 
 And do assertions:
 
-```php
+{% highlight php %}
+
+<?php
 $I->see('Welcome, john');
 $I->see('Logged in successfully', '.notice');
 $I->seeCurrentUrlEquals('/profile/john');
-```
 
-Framework modules also contain additional methods to access framework internals. For instance, Laravel, Phalcon,
+{% endhighlight %}
+
+Framework modules also contain additional methods to access framework internals. For instance, Laravel5, Phalcon,
 and Yii2 modules have a `seeRecord` method which uses the ActiveRecord layer to check that a record exists in the database.
 
 Take a look at the complete reference for the module you are using. Most of its methods are common to all modules
@@ -200,10 +232,10 @@ but some of them are unique.
 You can also access framework globals inside a test or access the dependency injection container
 inside the `Helper\Functional` class:
 
-```php
-<?php
+{% highlight php %}
 
-namespace Tests\Support\Helper;
+<?php
+namespace Helper;
 
 class Functional extends \Codeception\Module
 {
@@ -213,7 +245,8 @@ class Functional extends \Codeception\Module
         $service->doSomething();
     }
 }
-```
+
+{% endhighlight %}
 
 Also check all available *Public Properties* of the used modules to get full access to their data.
 
@@ -223,11 +256,13 @@ By default Codeception uses the `E_ALL & ~E_STRICT & ~E_DEPRECATED` error report
 In functional tests you might want to change this level depending on your framework's error policy.
 The error reporting level can be set in the suite configuration file:
 
-```yaml
+{% highlight yaml %}
+
 actor: FunctionalTester
 ...
 error_level: E_ALL & ~E_STRICT & ~E_DEPRECATED
-```
+
+{% endhighlight %}
 
 `error_level` can also be set globally in `codeception.yml` file. In order to do that, you need to specify `error_level` as a part of `settings`. For more information, see [Global Configuration](https://codeception.com/docs/reference/Configuration). Note that suite specific `error_level` value will override global value.
 
@@ -238,4 +273,10 @@ and manipulate their internal state. This makes your tests shorter and faster. I
 if you don't use frameworks there is no practical reason to write functional tests.
 If you are using a framework other than the ones listed here, create a module for it and share it with the community.
 
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/guides/04-FunctionalTests.md"><strong>Improve</strong> this guide</a></div>
+
+
+
+* **Next Chapter: [UnitTests >](/docs/05-UnitTests)**
+* **Previous Chapter: [< AcceptanceTests](/docs/03-AcceptanceTests)**
+
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/4.x/FunctionalTests.md"><strong>Edit</strong> this page on GitHub</a></div>

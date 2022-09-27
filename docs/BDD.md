@@ -3,7 +3,7 @@ layout: doc
 title: BDD - Codeception Docs
 ---
 
-<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="https://github.com/Codeception/codeception.github.com/blob/4.x/docs/07-BDD.md">Read for 4.x</a></div>
+<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="/docs/4.x/BDD">Read for 4.x</a></div>
 
 # Behavior Driven Development
 
@@ -443,8 +443,8 @@ Text values inside a scenarios can be set inside a `"""` block:
 paths:
     tests: tests
     log: tests/_output
-    data: tests/_data
-    helpers: tests/_support
+    data: tests/Support/Data
+    helpers: tests/Support
     envs: tests/_envs
 """
 ```

@@ -69,37 +69,50 @@ class RoboFile extends \Robo\Tasks
             ->sortByName()
             ->in('guides');
 
-        $prevVersionDocs = [
-            '01-Introduction.md', '02-GettingStarted.md', '03-AcceptanceTests.md', '04-FunctionalTests.md', '05-UnitTests.md', '06-ModulesAndHelpers.md', '06-ReusingTestCode.md', '07-AdvancedUsage.md', '07-BDD.md', '08-Customization.md', '09-Data.md', '10-APITesting.md', '11-Codecoverage.md', '12-ContinuousIntegration.md', '12-ParallelExecution.md','APITesting', 'AcceptanceTests', 'AdvancedUsage', 'BDD', 'Codecoverage', 'ContinuousIntegration', 'Customization', 'Data', 'Debugging', 'FunctionalTests', 'GettingStarted', 'Introduction', 'ModulesAndHelpers', 'ParallelExecution', 'Reporting', 'ReusingTestCode', 'UnitTests',
-        ];
         $guidesLinks = [];
 
         foreach ($guides as $file) {
-            $name = substr($file->getBasename(), 0, -3);
+            $filename = $file->getBasename();
+            $name = substr($filename, 0, -3);
             $titleName = preg_replace("(\d+-)", '', $name);
 
             $link = "/docs/$titleName";
-            $editLink = 'https://github.com/Codeception/codeception.github.com/edit/master/guides/' . $file->getBasename();
+
+            $editLink = 'https://github.com/Codeception/codeception.github.com/edit/master/guides/' . $filename;
             $title = preg_replace('/([A-Z]+)([A-Z][a-z])/', '\\1 \\2', $titleName);
             $title = preg_replace('/([a-z\d])([A-Z])/', '\\1 \\2', $title);
 
             $contents = file_get_contents($file->getPathname());
-            $pervVersionLink = in_array($file->getBasename(), $prevVersionDocs) ? '<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="https://github.com/Codeception/codeception.github.com/blob/4.x/docs/' . $file->getBasename() . '">Read for 4.x</a></div>' : '';
-
-            foreach ([$file->getBasename(), $titleName . '.md'] as $filename) {
-                $this->taskWriteToFile('docs/' . $filename)
-                    ->line('---')
-                    ->line('layout: doc')
-                    ->line("title: $title - Codeception Docs")
-                    ->line('---')
-                    ->line('')
-                    ->line($pervVersionLink)
-                    ->line('')
-                    ->text($contents)
-                    ->line('')
-                    ->line('<div class="alert alert-warning"><a href="'.$editLink.'"><strong>Improve</strong> this guide</a></div>')
-                    ->run();
+            if (file_exists("docs/4.x/$titleName.md" )) {
+                $prevVersionLink = '<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="/docs/4.x/' . $titleName . '">Read for 4.x</a></div>';
+            } else {
+                $prevVersionLink = '';
             }
+
+            $this->taskWriteToFile('docs/' . $titleName . '.md')
+                ->line('---')
+                ->line('layout: doc')
+                ->line("title: $title - Codeception Docs")
+                ->line('---')
+                ->line('')
+                ->line($prevVersionLink)
+                ->line('')
+                ->text($contents)
+                ->line('')
+                ->line('<div class="alert alert-warning"><a href="'.$editLink.'"><strong>Improve</strong> this guide</a></div>')
+                ->run();
+
+            $this->taskWriteToFile('docs/' . $filename)
+                ->line('<meta http-equiv="refresh" content="0;url=https://codeception.com/docs/' . $titleName. '">')
+                ->line('---')
+                ->line('layout: doc')
+                ->line("title: $title - Codeception Docs")
+                ->line('---')
+                ->line('')
+                ->line('<div class="alert alert-warning">')
+                ->line('  See <a href="https://codeception.com/docs/' . $titleName . '">' . $title  . '</a>')
+                ->line('</div>')
+                ->run();
 
             $guidesLinks[] = "<li><a href=\"$link\">$title</a></li>";
         }

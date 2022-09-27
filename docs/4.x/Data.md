@@ -1,11 +1,9 @@
 ---
 layout: doc
-title: Data - Codeception Docs
+title: Data - Codeception 4 Documentation
 ---
 
-<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="/docs/4.x/Data">Read for 4.x</a></div>
-
-# Data Management
+# Working with Data
 
 Tests should not affect each other. That's a rule of thumb. When tests interact with a database,
 they may change the data inside it, which would eventually lead to data inconsistency.
@@ -24,14 +22,16 @@ you should use a special test database for testing. **Do not ever run tests on d
 
 Codeception has a `Db` module, which takes on most of the tasks of database interaction.
 
-```yaml
+{% highlight yaml %}
+
 modules:
     config:
         Db:
             dsn: 'PDO DSN HERE'
             user: 'root'
             password:
-```
+
+{% endhighlight %}
 
 <div class="alert alert-notice">
 Use <a href="https://codeception.com/docs/06-ModulesAndHelpers#Dynamic-Configuration-With-Params">module parameters</a>
@@ -41,23 +41,26 @@ to set the database credentials from environment variables or from application c
 Db module can cleanup database between tests by loading a database dump. This can be done by parsing SQL file and
 executing its commands using current connection
 
-```yaml
+{% highlight yaml %}
+
 modules:
     config:
         Db:
             dsn: 'PDO DSN HERE'
             user: 'root'
             password:
-            dump: tests/Support/Data/your-dump-name.sql
+            dump: tests/_data/your-dump-name.sql
             cleanup: true # reload dump between tests
             populate: true # load dump before all tests
 
-```
+
+{% endhighlight %}
 
  Alternatively an external tool (like mysql client, or pg_restore) can be used. This approach is faster and won't produce parsing errors while loading a dump.
  Use `populator` config option to specify the command. For MySQL it can look like this:
 
-```yaml
+{% highlight yaml %}
+
  modules:
     enabled:
        - Db:
@@ -66,8 +69,9 @@ modules:
           password: ''
           cleanup: true # run populator before each test
           populate: true # run populator before all test
-          populator: 'mysql -u $user $dbname < tests/Support/Data/dump.sql'
-```
+          populator: 'mysql -u $user $dbname < tests/_data/dump.sql'
+
+{% endhighlight %}
 
 See the [Db module reference](https://codeception.com/docs/modules/Db#SQL-data-dump) for more examples.
 
@@ -88,14 +92,18 @@ The Db module provides actions to create and verify data inside a database.
 If you want to create a special database record for one test,
 you can use [`haveInDatabase`](https://codeception.com/docs/modules/Db#haveInDatabase) method of `Db` module:
 
-```php
+{% highlight php %}
+
+<?php
 $I->haveInDatabase('posts', [
   'title' => 'Top 10 Testing Frameworks',
   'body' => '1. Codeception'
 ]);
 $I->amOnPage('/posts');
 $I->see('Top 10 Testing Frameworks');
-```
+
+
+{% endhighlight %}
 
 `haveInDatabase` inserts a row with the provided values into the database.
 All added records will be deleted at the end of the test.
@@ -103,12 +111,15 @@ All added records will be deleted at the end of the test.
 If you want to check that a table record was created
 use [`seeInDatabase`](https://codeception.com/docs/modules/Db#haveInDatabase) method:
 
-```php
+{% highlight php %}
+
+<?php
 $I->amOnPage('/posts/1');
 $I->fillField('comment', 'This is nice!');
 $I->click('Submit');
 $I->seeInDatabase('comments', ['body' => 'This is nice!']);
-```
+
+{% endhighlight %}
 
 See the module [reference](https://codeception.com/docs/modules/Db) for other methods you can use for database testing.
 
@@ -149,7 +160,9 @@ Corresponding framework modules provide similar methods for ORM access:
 
 They allow you to create and check data by model name and field names in the model. Here is the example in Laravel:
 
-```php
+{% highlight php %}
+
+<?php
 // create record and get its id
 $id = $I->haveRecord('posts', ['body' => 'My first blogpost', 'user_id' => 1]);
 $I->amOnPage('/posts/'.$id);
@@ -159,27 +172,30 @@ $I->seeRecord('posts', ['id' => $id]);
 $I->click('Delete');
 // record was deleted
 $I->dontSeeRecord('posts', ['id' => $id]);
-```
 
-Laravel5 module provides the method `have` which uses the [factory](https://laravel.com/docs/9.x/database-testing#creating-models-using-factories) method to generate models with fake data.
+{% endhighlight %}
+
+Laravel5 module provides the method `have` which uses the [factory](https://laravel.com/docs/5.8/database-testing#generating-factories) method to generate models with fake data.
 
 If you want to use ORM for integration testing only, you should enable the framework module with only the `ORM` part enabled:
 
-```yaml
+{% highlight yaml %}
+
 modules:
     enabled:
-        - Laravel:
+        - Laravel5:
             - part: ORM
-```
 
-Similarly for Yii2 framework:
+{% endhighlight %}
 
-```yaml
+{% highlight yaml %}
+
 modules:
     enabled:
         - Yii2:
             - part: ORM
-```
+
+{% endhighlight %}
 
 This way no web actions will be added to `$I` object.
 
@@ -188,16 +204,18 @@ Please note that inside acceptance tests, web applications work inside a webserv
 by rolling back transactions. You will need to disable cleaning up,
 and use the `Db` module to clean the database up between tests. Here is a sample config:
 
-```yaml
+{% highlight yaml %}
+
 modules:
     enabled:
         - WebDriver:
             url: http://localhost
             browser: firefox
-        - Laravel:
+        - Laravel5:
             cleanup: false
         - Db
-```
+
+{% endhighlight %}
 
 ### Doctrine
 
@@ -205,13 +223,25 @@ Doctrine is also a popular ORM, unlike some others it implements the DataMapper 
 The [Doctrine2](https://codeception.com/docs/modules/Doctrine2) module requires an `EntityManager` instance to work with.
 It can be obtained from a Symfony framework or Zend Framework (configured with Doctrine):
 
-```yaml
+{% highlight yaml %}
+
 modules:
     enabled:
         - Symfony
         - Doctrine2:
             depends: Symfony
-```
+
+{% endhighlight %}
+
+{% highlight yaml %}
+
+modules:
+    enabled:
+        - ZF2
+        - Doctrine2:
+            depends: ZF2
+
+{% endhighlight %}
 
 If no framework is used with Doctrine you should provide the `connection_callback` option
 with a valid callback to a function which returns an `EntityManager` instance.
@@ -234,26 +264,32 @@ and are provided by the [DataFactory](https://codeception.com/docs/modules/DataF
 
 Once configured, it can create records with ease:
 
-```php
+{% highlight php %}
+
+<?php
 // creates a new user
-$user_id = $I->have(\App\Model\User::class);
+$user_id = $I->have('App\Model\User');
 // creates 3 posts
-$I->haveMultiple(\App\Model\Post::class, 3);
-```
+$I->haveMultiple('App\Model\Post', 3);
+
+{% endhighlight %}
 
 Created records will be deleted at the end of a test.
 The DataFactory module only works with ORM, so it requires one of the ORM modules to be enabled:
 
-```yaml
+{% highlight yaml %}
+
 modules:
     enabled:
         - Yii2:
             configFile: path/to/config.php
         - DataFactory:
             depends: Yii2
-```
 
-```yaml
+{% endhighlight %}
+
+{% highlight yaml %}
+
 modules:
     enabled:
         - Symfony
@@ -261,7 +297,8 @@ modules:
             depends: Symfony
         - DataFactory:
             depends: Doctrine2
-```
+
+{% endhighlight %}
 
 DataFactory provides a powerful solution for managing data in integration/functional/acceptance tests.
 Read the [full reference](https://codeception.com/docs/modules/DataFactory) to learn how to set this module up.
@@ -277,24 +314,24 @@ This principle is so general that it can work for testing APIs, items on a web p
 Let's check that list of categories on a page is the same it was before.    
 Create a snapshot class:
 
-```php
-php vendor/bin/codecept g:snapshot Categories
-```
+{% highlight php %}
+ vendor/bin/codecept g:snapshot Categories
+
+{% endhighlight %}
 
 Inject an actor class via constructor and implement `fetchData` method which should return a data set from a test.
 
-```php
+{% highlight php %}
+
 <?php
-
-namespace Tests\Support\Snapshot;
-
-use Tests\Support\AcceptanceTester;
+namespace Snapshot;
 
 class Categories extends \Codeception\Snapshot
 {
-    protected AcceptanceTester $i;
+    /** @var \AcceptanceTester */
+    protected $i;
 
-    public function __construct(AcceptanceTester $I)
+    public function __construct(\AcceptanceTester $I)
     {
         $this->i = $I;
     }
@@ -305,51 +342,60 @@ class Categories extends \Codeception\Snapshot
         return $this->i->grabMultiple('a.category');
     }
 }
-```
+
+{% endhighlight %}
 
 Inside a test you can inject the snapshot class and call `assert` method on it:
 
-```php
-public function testCategoriesAreTheSame(AcceptanceTester $I, \Tests\Snapshot\Categories $snapshot)
+{% highlight php %}
+
+<?php
+public function testCategoriesAreTheSame(\AcceptanceTester $I, \Snapshot\Categories $snapshot)
 {
     $I->amOnPage('/categories');
     // if previously saved array of users does not match current set, test will fail
     // to update data in snapshot run test with --debug flag
     $snapshot->assert();
 }
-```
 
-On the first run, data will be obtained via `fetchData` method and saved to `tests/Support/Data` directory in json format.
+{% endhighlight %}
+
+On the first run, data will be obtained via `fetchData` method and saved to `tests/_data` directory in json format.
 On next execution the obtained data will be compared with previously saved snapshot.
 
-> To update a snapshot with new data, run tests in `--debug` mode.
+> To update a snapshot with a new data run tests in `--debug` mode.
 
 By default Snapshot uses `assertEquals` assertion, however this can be customized by overriding `assertData` method.
 
-### Failed Assertion Output
+### Failed assertion output
 
 The assertion performed by `assertData` will not display the typical diff output from `assertEquals` or any customized failed assertion.
 To have the diff displayed when running tests, you can call the snapshot method `shouldShowDiffOnFail`:
 
-```php
-public function testCategoriesAreTheSame(AcceptanceTester $I, \Tests\Snapshot\Categories $snapshot)
+{% highlight php %}
+
+<?php
+public function testCategoriesAreTheSame(\AcceptanceTester $I, \Snapshot\Categories $snapshot)
 {
     $I->amOnPage('/categories');
     // I want to see the diff in case the snapshot data changes
     $snapshot->shouldShowDiffOnFail();
     $snapshot->assert();
 }
-```
+
+{% endhighlight %}
 
 If ever needed, the diff output can also be omitted by calling `shouldShowDiffOnFail(false)`.
 
-### Change Storage Format
+### Working with different data formats
 
 By default, all snapshot files are stored in json format, so if you have to work with different formats, neither the diff output or the snapshot file data will be helpful. 
 To fix this, you can call the snapshot method `shouldSaveAsJson(false)` and set the file extension by calling `setSnapshotFileExtension()`:
 
-```php
-public function testCategoriesAreTheSame(AcceptanceTester $I, \Tests\Snapshot\Categories $snapshot)
+{% highlight php %}
+
+<?php
+public function testCategoriesAreTheSame(\AcceptanceTester $I, \Snapshot\Categories $snapshot)
 {
     // I fetch an HTML page
     $I->amOnPage('/categories.html');
@@ -358,10 +404,23 @@ public function testCategoriesAreTheSame(AcceptanceTester $I, \Tests\Snapshot\Ca
     $snapshot->setSnapshotFileExtension('html');
     $snapshot->assert();
 }
-```
+
+{% endhighlight %}
 
 The snapshot file will be stored without encoding it to json format, and with the `.html` extension.
 
 > Beware that this option will not perform any changes in the data returned by `fetchData`, and store it as it is.
 
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/guides/09-Data.md"><strong>Improve</strong> this guide</a></div>
+## Conclusion
+
+Codeception also assists the developer when dealing with data. Tools for database population
+and cleaning up are bundled within the `Db` module. If you use ORM, you can use one of the provided framework modules
+to operate with database through a data abstraction layer, and use the DataFactory module to generate new records with ease.
+
+
+
+
+* **Next Chapter: [APITesting >](/docs/10-APITesting)**
+* **Previous Chapter: [< Customization](/docs/08-Customization)**
+
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/4.x/Data.md"><strong>Edit</strong> this page on GitHub</a></div>

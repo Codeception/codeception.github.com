@@ -1,9 +1,7 @@
 ---
 layout: doc
-title: Unit Tests - Codeception Docs
+title: UnitTests - Codeception 4 Documentation
 ---
-
-<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="/docs/4.x/UnitTests">Read for 4.x</a></div>
 
 # Unit & Integration Tests
 
@@ -15,38 +13,48 @@ Codeception adds some nice helpers to simplify common tasks.
 
 Create a test using `generate:test` command with a suite and test names as parameters:
 
-```bash
+{% highlight bash %}
+
 php vendor/bin/codecept generate:test unit Example
-```
+
+{% endhighlight %}
 
 It creates a new `ExampleTest` file located in the `tests/unit` directory.
 
 As always, you can run the newly created test with this command:
 
-```bash
+{% highlight bash %}
+
 php vendor/bin/codecept run unit ExampleTest
-```
+
+{% endhighlight %}
 
 Or simply run the whole set of unit tests with:
 
-```bash
+{% highlight bash %}
+
 php vendor/bin/codecept run unit
-```
+
+{% endhighlight %}
 
 A test created by the `generate:test` command will look like this:
 
-```php
+{% highlight php %}
+
 <?php
-
-namespace Tests\Unit;
-
-use \Tests\Support\UnitTester;
 
 class ExampleTest extends \Codeception\Test\Unit
 {
-    protected UnitTester $tester;
+    /**
+     * @var \UnitTester
+     */
+    protected $tester;
 
     protected function _before()
+    {
+    }
+
+    protected function _after()
     {
     }
 
@@ -56,7 +64,8 @@ class ExampleTest extends \Codeception\Test\Unit
 
     }
 }
-```
+
+{% endhighlight %}
 
 Inside a class:
 
@@ -71,18 +80,14 @@ All external dependencies for components should be replaced with test doubles.
 
 A typical unit test may look like this: 
 
-```php
+{% highlight php %}
+
 <?php
-
-namespace Tests\Unit;
-
-use \Tests\Support\UnitTester;
-
 class UserTest extends \Codeception\Test\Unit
 {
     public function testValidation()
     {
-        $user = new \App\User();
+        $user = new User();
 
         $user->setName(null);
         $this->assertFalse($user->validate(['username']));
@@ -94,7 +99,8 @@ class UserTest extends \Codeception\Test\Unit
         $this->assertTrue($user->validate(['username']));
     }
 }
-```
+
+{% endhighlight %}
 
 ### Assertions
 
@@ -109,30 +115,6 @@ There are pretty many assertions you can use inside tests. The most common are:
 
 Assertion methods come from PHPUnit. [See the complete reference at phpunit.de](https://phpunit.de/manual/current/en/appendixes.assertions.html).
 
-
-### Fluent Assertions
-
-You may add [Codeception\Verify](https://github.com/Codeception/Verify) for BDD-style assertions.
-This tiny library adds more readable assertions, which is quite nice, if you are always confused
-about which argument in `assert` calls is expected and which one is actual:
-
-```php
-// simple assertions
-verify($user)->notNull();
-verify($user->getName())->equals('john');
-
-// greater / less
-verify($user->getRate())
-    ->greaterThan(5)
-    ->lessThan(10)
-    ->equals(7, 'first user rate is 7');
-
-// array assertions
-Verify::Array($user->getRoles())
-    ->contains('admin', 'first user is admin')
-    ->notContains('banned', 'first user is not banned');    
-```
-
 ### Test Doubles
 
 Codeception provides [Codeception\Stub library](https://github.com/Codeception/Stub) for building mocks and stubs for tests. 
@@ -144,16 +126,21 @@ Alternatively, [Mockery](https://github.com/Codeception/MockeryModule) can be us
 
 Stubs can be created with a static methods of `Codeception\Stub`.
 
-```php
+{% highlight php %}
+
+<?php
 $user = \Codeception\Stub::make('User', ['getName' => 'john']);
 $name = $user->getName(); // 'john'
-```
+
+{% endhighlight %}
 
 [See complete reference](https://codeception.com/docs/reference/Mock)
 
 Inside unit tests (`Codeception\Test\Unit`) it is recommended to use alternative API:
 
-```php
+{% highlight php %}
+
+<?php
 // create a stub with find method replaced
 $userRepository = $this->make(UserRepository::class, ['find' => new User]);
 $userRepository->find(1); // => User
@@ -175,16 +162,20 @@ $user = $this->constructEmpty(User::class, ['name' => 'davert']);
 $user = $this->constructEmptyExcept(User::class, 'getName', ['name' => 'davert']);
 $user->getName(); // => davert
 $user->setName('jane'); // => this method is empty
-```
+
+{% endhighlight %}
 
 [See complete reference](https://codeception.com/docs/reference/Mock)
 
 Stubs can also be created using static methods from `Codeception\Stub` class.
 In this 
 
-```php
+{% highlight php %}
+
+<?php
 \Codeception\Stub::make(UserRepository::class, ['find' => new User]);
-```
+
+{% endhighlight %}
 
 See a reference for [static Stub API](https://codeception.com/docs/reference/Stub)  
 
@@ -192,7 +183,9 @@ See a reference for [static Stub API](https://codeception.com/docs/reference/Stu
 
 To declare expectations for mocks use `Codeception\Stub\Expected` class:
 
-```php
+{% highlight php %}
+
+<?php
 // create a mock where $user->getName() should never be called
 $user = $this->make('User', [
      'getName' => Expected::never(),
@@ -208,7 +201,8 @@ $user = $this->make('User', [
 $user->getName();
 $userName = $user->getName();
 $this->assertEquals('Davert', $userName);
-```
+
+{% endhighlight %}
 
 [See complete reference](https://codeception.com/docs/reference/Mock)
 
@@ -223,7 +217,8 @@ To improve the testing experience modules can be used as in functional testing.
 As in scenario-driven functional or acceptance tests you can access Actor class methods.
 If you write integration tests, it may be useful to include the `Db` module for database testing.
 
-```yaml
+{% highlight yaml %}
+
 # Codeception Test Suite Configuration
 
 # suite for unit (internal) tests.
@@ -232,7 +227,9 @@ modules:
     enabled:
         - Asserts
         - Db
-```
+        - \Helper\Unit
+
+{% endhighlight %}
 
 To access UnitTester methods you can use the `UnitTester` property in a test.
 
@@ -240,18 +237,20 @@ To access UnitTester methods you can use the `UnitTester` property in a test.
 
 Let's see how you can do some database testing:
 
-```php
+{% highlight php %}
+
 <?php
 function testSavingUser()
 {
-    $user = new \App\User();
+    $user = new User();
     $user->setName('Miles');
     $user->setSurname('Davis');
     $user->save();
     $this->assertEquals('Miles Davis', $user->getFullName());
     $this->tester->seeInDatabase('users', ['name' => 'Miles', 'surname' => 'Davis']);
 }
-```
+
+{% endhighlight %}
 
 To enable the database functionality in unit tests, make sure the `Db` module is included
 in the `unit.suite.yml` configuration file.
@@ -262,22 +261,26 @@ If that's not your required behavior, change the settings of the `Db` module for
 
 You should probably not access your database directly if your project already uses ORM for database interactions.
 Why not use ORM directly inside your tests? Let's try to write a test using Laravel's ORM Eloquent.
-For this we need to configure the Laravel module. We won't need its web interaction methods like `amOnPage` or `see`,
+For this we need to configure the Laravel5 module. We won't need its web interaction methods like `amOnPage` or `see`,
 so let's enable only the ORM part of it:
 
-```yaml
+{% highlight yaml %}
+
 actor: UnitTester
 modules:
     enabled:
         - Asserts
-        - Laravel:
+        - Laravel5:
             part: ORM
-```
+        - \Helper\Unit
 
-We included the Laravel module the same way we did for functional testing.
+{% endhighlight %}
+
+We included the Laravel5 module the same way we did for functional testing.
 Let's see how we can use it for integration tests:
 
-```php
+{% highlight php %}
+
 <?php
 function testUserNameCanBeChanged()
 {
@@ -292,7 +295,8 @@ function testUserNameCanBeChanged()
     $this->tester->seeRecord('users', ['name' => 'bill']);
     $this->tester->dontSeeRecord('users', ['name' => 'miles']);
 }
-```
+
+{% endhighlight %}
 
 A very similar approach can be used for all frameworks that have an ORM implementing the ActiveRecord pattern.
 In Yii2 and Phalcon, the methods `haveRecord`, `seeRecord`, `dontSeeRecord` work in the same way.
@@ -300,7 +304,8 @@ They also should be included by specifying `part: ORM` in order to not use the f
 
 If you are using Symfony with Doctrine, you don't need to enable Symfony itself but just Doctrine2:
 
-```yaml
+{% highlight yaml %}
+
 actor: UnitTester
 modules:
     enabled:
@@ -308,12 +313,14 @@ modules:
         - Doctrine2:
             depends: Symfony
         - \Helper\Unit
-```
+
+{% endhighlight %}
 
 In this case you can use the methods from the Doctrine2 module, while Doctrine itself uses the Symfony module
 to establish connections to the database. In this case a test might look like:
 
-```php
+{% highlight php %}
+
 <?php
 function testUserNameCanBeChanged()
 {
@@ -331,10 +338,11 @@ function testUserNameCanBeChanged()
     $this->tester->seeInRepository(User::class, ['name' => 'bill']);
     $this->tester->dontSeeInRepository(User::class, ['name' => 'miles']);
 }
-```
+
+{% endhighlight %}
 
 In both examples you should not be worried about the data persistence between tests.
-The Doctrine2 and Laravel modules will clean up the created data at the end of a test.
+The Doctrine2 and Laravel5 modules will clean up the created data at the end of a test.
 This is done by wrapping each test in a transaction and rolling it back afterwards.
 
 ### Accessing Module
@@ -345,18 +353,23 @@ to all public properties of that module.
 
 We have already demonstrated this in a previous example where we accessed the Entity Manager from a Doctrine2 module:
 
-```php
+{% highlight php %}
+
 <?php
 /** @var Doctrine\ORM\EntityManager */
 $em = $this->getModule('Doctrine2')->em;
-```
+
+{% endhighlight %}
 
 If you use the `Symfony` module, here is how you can access the Symfony container:
 
-```php
+{% highlight php %}
+
+<?php
 /** @var Symfony\Component\DependencyInjection\Container */
 $container = $this->getModule('Symfony')->container;
-```
+
+{% endhighlight %}
 
 The same can be done for all public properties of an enabled module. Accessible properties are listed in the module reference.
 
@@ -365,8 +378,10 @@ The same can be done for all public properties of an enabled module. Accessible 
 [Cest format](https://codeception.com/docs/07-AdvancedUsage#Cest-Classes) can also be used for integration testing.
 In some cases it makes tests cleaner as it simplifies module access by using common `$I->` syntax:
 
-```php
-public function buildShouldHaveSequence(UnitTester $I)
+{% highlight php %}
+
+<?php
+public function buildShouldHaveSequence(\UnitTester $I)
 {
     $build = $I->have(Build::class, ['project_id' => $this->project->id]);
     $I->assertEquals(1, $build->sequence);
@@ -375,7 +390,8 @@ public function buildShouldHaveSequence(UnitTester $I)
     $this->project->refresh();
     $I->assertEquals(3, $this->project->build_sequence);
 }
-```
+
+{% endhighlight %}
 This format can be recommended for testing domain and database interactions.
 
 In Cest format you don't have native support for test doubles so it's recommended 
@@ -397,13 +413,9 @@ We do this for scenario-driven acceptance and functional tests, and we should do
 For this case we have a stand-alone project [Specify](https://github.com/Codeception/Specify)
 (which is included in the phar package) for writing specifications inside unit tests:
 
-```php
+{% highlight php %}
+
 <?php
-
-namespace Tests\Unit;
-
-use \Tests\Support\UnitTester;
-
 class UserTest extends \Codeception\Test\Unit
 {
     use \Codeception\Specify;
@@ -413,7 +425,7 @@ class UserTest extends \Codeception\Test\Unit
 
     public function testValidation()
     {
-        $this->user = \App\User::create();
+        $this->user = User::create();
 
         $this->specify("username is required", function() {
             $this->user->username = null;
@@ -431,7 +443,8 @@ class UserTest extends \Codeception\Test\Unit
         });
     }
 }
-```
+
+{% endhighlight %}
 
 By using `specify` codeblocks, you can describe any piece of a test.
 This makes tests much cleaner and comprehensible for everyone in your team.
@@ -439,6 +452,16 @@ This makes tests much cleaner and comprehensible for everyone in your team.
 Code inside `specify` blocks is isolated. In the example above, any changes to `$this->user`
 will not be reflected in other code blocks as it is marked with `@specify` annotation.
 
+Also, you may add [Codeception\Verify](https://github.com/Codeception/Verify) for BDD-style assertions.
+This tiny library adds more readable assertions, which is quite nice, if you are always confused
+about which argument in `assert` calls is expected and which one is actual:
+
+{% highlight php %}
+
+<?php
+verify($user->getName())->equals('john');
+
+{% endhighlight %}
 
 ### Domain Assertions
 
@@ -447,8 +470,10 @@ library you can easily create custom assertion methods for unit and integration 
 
 It allows to reuse business rules inside assertion methods:
 
-```php
-$user = new \App\User;
+{% highlight php %}
+
+<?php
+$user = new User;
 
 // simple custom assertions below:
 $this->assertUserIsValid($user);
@@ -461,7 +486,8 @@ $this->assertUserCanPostToBlog($user, $blog);
 $this->assertNotNull($user);
 $this->assertNotNull($blog);
 $this->assertContain($user, $blog->getOwners());
-```
+
+{% endhighlight %}
 
 With custom assertion methods you can improve readability of your tests and keep them focused around the specification.
 
@@ -471,7 +497,8 @@ With custom assertion methods you can improve readability of your tests and keep
 Static methods, class methods, date and time functions can be easily replaced with AspectMock.
 For instance, you can test singletons!
 
-```php
+{% highlight php %}
+
 <?php
 public function testSingleton()
 {
@@ -480,7 +507,8 @@ public function testSingleton()
 	test::double('MySingleton', ['getInstance' => new DOMDocument]);
 	$this->assertInstanceOf('DOMDocument', $class);
 }
-```
+
+{% endhighlight %}
 
 * [AspectMock on GitHub](https://github.com/Codeception/AspectMock)
 * [AspectMock in Action](https://codeception.com/07-31-2013/nothing-is-untestable-aspect-mock.html)
@@ -492,11 +520,13 @@ By default Codeception uses the `E_ALL & ~E_STRICT & ~E_DEPRECATED` error report
 In unit tests you might want to change this level depending on your framework's error policy.
 The error reporting level can be set in the suite configuration file:
 
-```yaml
+{% highlight yaml %}
+
 actor: UnitTester
 ...
 error_level: E_ALL & ~E_STRICT & ~E_DEPRECATED
-```
+
+{% endhighlight %}
 
 `error_level` can also be set globally in `codeception.yml` file. In order to do that, you need to specify `error_level` as a part of `settings`. For more information, see [Global Configuration](https://codeception.com/docs/reference/Configuration). Note that suite specific `error_level` value will override global value.
 
@@ -507,4 +537,10 @@ you don't need to install PHPUnit separately, but use Codeception directly to ex
 Some nice features can be added to common unit tests by integrating Codeception modules.
 For most unit and integration testing, PHPUnit tests are enough. They run fast, and are easy to maintain.
 
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/guides/05-UnitTests.md"><strong>Improve</strong> this guide</a></div>
+
+
+
+* **Next Chapter: [ModulesAndHelpers >](/docs/06-ModulesAndHelpers)**
+* **Previous Chapter: [< FunctionalTests](/docs/04-FunctionalTests)**
+
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/4.x/UnitTests.md"><strong>Edit</strong> this page on GitHub</a></div>
