@@ -1150,6 +1150,11 @@ body .panel-info > .panel-heading {
 
 .container--addons {
   margin-bottom: 1.5em;
+  .alert-warning {
+    a {
+      color: #3174AF;
+    }
+  }
 }
 
 .item--symfony img {
