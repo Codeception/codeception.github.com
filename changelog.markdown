@@ -9,6 +9,71 @@ title: Codeception Changelog
 
 
 
+### lib-innerbrowser 3.1.3: 3.1.3
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/10/03 15:36:06 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
+
+
+
+## What's Changed
+* fix: checkbox handling by **[SamMousa](https://github.com/SamMousa)** in https://github.com/Codeception/lib-innerbrowser/pull/60
+
+
+**Full Changelog**: https://github.com/Codeception/lib-innerbrowser/compare/3.1.2...3.1.3
+
+
+### Codeception 5.0.3: 5.0.3
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/09/30 15:48:28 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Fixed passing test result to dependent tests in unit tests ([#6580](https://github.com/Codeception/Codeception/issues/6580))
+* Fixed `TypeError` when **[coversNothing](https://github.com/coversNothing)** annotation is used by Slamdunk ([#6582](https://github.com/Codeception/Codeception/issues/6582))
+* `codecept init unit` creates `tests/Support` directory ([#6578](https://github.com/Codeception/Codeception/issues/6578))
+* Fixed phar file url in `self-update` command by **[voku](https://github.com/voku)** ([#6563](https://github.com/Codeception/Codeception/issues/6563))
+* Added message how to exit Codeception console by **[ThomasLandauer](https://github.com/ThomasLandauer)** ([#6561](https://github.com/Codeception/Codeception/issues/6561))
+* Improved compatibility with PHPUnit 10
+
+
+### lib-asserts 2.0.1: 2.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/09/27 06:20:36 / [Repository](https://github.com/Codeception/lib-asserts)   / [Releases](https://github.com/Codeception/lib-asserts/releases)
+
+
+
+* Fix compatibility with PHPUnit 7 and 8.
+
+
+### module-webdriver 1.4.1: 1.4.1
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/09/12 05:29:45 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
+
+
+
+* Fixed negative tab offset crashes by **[webmaster777](https://github.com/webmaster777)** in https://github.com/Codeception/module-webdriver/pull/108
+
+
+### module-webdriver 2.0.4: 2.0.4
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/09/12 05:28:56 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
+
+
+
+* Fixed negative tab offset crashes by **[webmaster777](https://github.com/webmaster777)** in https://github.com/Codeception/module-webdriver/pull/108
+
+
+### module-webdriver 3.1.3: 3.1.3
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/09/12 04:57:16 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
+
+
+
+* Fixed negative tab offset crashes by **[webmaster777](https://github.com/webmaster777)** in https://github.com/Codeception/module-webdriver/pull/108
+* Documentation updates by **[luke-](https://github.com/luke-)** and **[salmanlt](https://github.com/salmanlt)**
+
+
+
 ### lib-xml 1.0.1: 1.0.1
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/09/11 14:13:11 / [Repository](https://github.com/Codeception/lib-xml)   / [Releases](https://github.com/Codeception/lib-xml/releases)
@@ -1995,15 +2060,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 
-
-
-### Codeception 4.1.20: 
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/04/02 16:43:57 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Fix compatibility with PHP 7.0
 
 
 ### module-redis 1.1.0: Allow more parameters to be sent to Predis Client

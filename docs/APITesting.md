@@ -204,7 +204,7 @@ Codeception uses this simple and lightweight definitions format which can be [ea
 
 Responses are returned from `send*` methods:
 
-```php
+```php<?php
 
 $users = $I->sendGet('/users');
 
@@ -215,7 +215,7 @@ $users = $I->grabResponse();
 
 When you need to obtain a value from a response and use it in next requests you can use `grab*` methods. For instance, use `grabDataFromResponseByJsonPath` allows to query JSON for a value.
 
-```php
+```php<?php
 list($id) = $I->grabDataFromResponseByJsonPath('$.id');
 $I->sendGet('/pet/' . $id);
 ```
