@@ -91,6 +91,20 @@ $(document).ready(function () {
             $('#contributors').append('<p style="clear: both">Join us, fork Codeception and submit your pull requests!</p>');
         }
     });
+
+    $('#scroll-to-top').click(function () {
+        $('html, body').animate({scrollTop: 0}, 400);
+        return false;
+    });
+
+    $(window).scroll(function () {
+        var threshold = 300;
+        if ($(window).scrollTop() > threshold) {
+            $('#scroll-to-top').fadeIn('slow');
+        } else {
+            $('#scroll-to-top').fadeOut('slow');
+        }
+    });
 });
 
 // js
