@@ -3,6 +3,8 @@ layout: doc
 title: Introduction - Codeception 4 Documentation
 ---
 
+<div class="alert alert-warning">👴 <b>You are reading docs for Codeception 4</b>. Current version is 5.x <a href="/docs/Introduction">Read for latest version</a></div>
+
 # Introduction
 
 The idea behind testing is not new. You can't sleep well if you are not confident

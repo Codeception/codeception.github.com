@@ -3,6 +3,8 @@ layout: doc
 title: Data - Codeception 4 Documentation
 ---
 
+<div class="alert alert-warning">👴 <b>You are reading docs for Codeception 4</b>. Current version is 5.x <a href="/docs/Data">Read for latest version</a></div>
+
 # Working with Data
 
 Tests should not affect each other. That's a rule of thumb. When tests interact with a database,

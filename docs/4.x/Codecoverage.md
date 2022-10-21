@@ -3,6 +3,8 @@ layout: doc
 title: Codecoverage - Codeception 4 Documentation
 ---
 
+<div class="alert alert-warning">👴 <b>You are reading docs for Codeception 4</b>. Current version is 5.x <a href="/docs/Codecoverage">Read for latest version</a></div>
+
 # Code Coverage
 
 At some point you want to review which parts of your application are tested well and which are not.

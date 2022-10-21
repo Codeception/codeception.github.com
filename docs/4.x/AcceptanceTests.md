@@ -3,6 +3,9 @@ layout: doc
 title: AcceptanceTests - Codeception 4 Documentation
 ---
 
+
+<div class="alert alert-warning">👴 <b>You are reading docs for Codeception 4</b>. Current version is 5.x <a href="/docs/AcceptanceTests">Read for latest version</a></div>
+
 # Acceptance Testing
 
 Acceptance testing can be performed by a non-technical person. That person can be your tester, manager or even client.

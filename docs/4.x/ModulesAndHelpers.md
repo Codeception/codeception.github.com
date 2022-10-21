@@ -3,6 +3,8 @@ layout: doc
 title: ModulesAndHelpers - Codeception 4 Documentation
 ---
 
+<div class="alert alert-warning">👴 <b>You are reading docs for Codeception 4</b>. Current version is 5.x <a href="/docs/ModulesAndHelpers">Read for latest version</a></div>
+
 # Modules and Helpers
 
 Codeception uses modularity to create a comfortable testing environment for every test suite you write.

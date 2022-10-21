@@ -3,6 +3,8 @@ layout: doc
 title: ReusingTestCode - Codeception 4 Documentation
 ---
 
+<div class="alert alert-warning">👴 <b>You are reading docs for Codeception 4</b>. Current version is 5.x <a href="/docs/ReusingTestCode">Read for latest version</a></div>
+
 # Reusing Test Code
 
 Codeception uses modularity to create a comfortable testing environment for every test suite you write.

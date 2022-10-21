@@ -3,6 +3,8 @@ layout: doc
 title: UnitTests - Codeception 4 Documentation
 ---
 
+<div class="alert alert-warning">👴 <b>You are reading docs for Codeception 4</b>. Current version is 5.x <a href="/docs/UnitTests">Read for latest version</a></div>
+
 # Unit & Integration Tests
 
 Codeception uses PHPUnit as a backend for running its tests. Thus, any PHPUnit test can be added to a Codeception test suite

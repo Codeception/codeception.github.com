@@ -3,6 +3,8 @@ layout: doc
 title: ParallelExecution - Codeception 4 Documentation
 ---
 
+<div class="alert alert-warning">👴 <b>You are reading docs for Codeception 4</b>. Current version is 5.x <a href="/docs/ParallelExecution">Read for latest version</a></div>
+
 # Parallel Execution
 
 When execution time of your tests is longer than a coffee break, it is a good reason to think about making your tests faster. If you have already tried to run them on SSD drive, and the execution time still upsets you, it might be a good idea to run your tests in parallel.

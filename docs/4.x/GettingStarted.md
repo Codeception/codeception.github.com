@@ -3,6 +3,8 @@ layout: doc
 title: GettingStarted - Codeception 4 Documentation
 ---
 
+<div class="alert alert-warning">👴 <b>You are reading docs for Codeception 4</b>. Current version is 5.x <a href="/docs/GettingStarted">Read for latest version</a></div>
+
 # Getting Started
 
 Let's take a look at Codeception's architecture. We'll assume that you have already [installed](https://codeception.com/install) it

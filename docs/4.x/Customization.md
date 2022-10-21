@@ -3,6 +3,8 @@ layout: doc
 title: Customization - Codeception 4 Documentation
 ---
 
+<div class="alert alert-warning">👴 <b>You are reading docs for Codeception 4</b>. Current version is 5.x <a href="/docs/Customization">Read for latest version</a></div>
+
 # Customization
 
 In this chapter we will explain how you can extend and customize the file structure and test execution routines.

@@ -3,6 +3,8 @@ layout: doc
 title: FunctionalTests - Codeception 4 Documentation
 ---
 
+<div class="alert alert-warning">👴 <b>You are reading docs for Codeception 4</b>. Current version is 5.x <a href="/docs/FunctionalTests">Read for latest version</a></div>
+
 # Functional Tests
 
 Now that we've written some acceptance tests, functional tests are almost the same, with one major difference:

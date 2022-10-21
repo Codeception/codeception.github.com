@@ -3,6 +3,8 @@ layout: doc
 title: ContinuousIntegration - Codeception 4 Documentation
 ---
 
+<div class="alert alert-warning">👴 <b>You are reading docs for Codeception 4</b>. Current version is 5.x <a href="/docs/ContinuousIntegration">Read for latest version</a></div>
+
 # Continuous Integration
 
 Once you get testing suite up and running you are interested in running your tests regularly. If you ensure that tests are running on every code change or at least once a day you can be sure that no regression is introduced. This allows to keep you system stable. But developers are not so passionate about running all tests manually, they also can forget to execute tests before pushing code to production... The solution is simple, test execution should be automated. Instead of running them locally it is better to have dedicated server responsible for running tests for a team. This way we can ensure that everyone's tests executed, which commit made a regression in codebase, and that we can deploy only once tests pass.

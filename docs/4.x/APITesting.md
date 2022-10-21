@@ -3,6 +3,8 @@ layout: doc
 title: APITesting - Codeception 4 Documentation
 ---
 
+<div class="alert alert-warning">👴 <b>You are reading docs for Codeception 4</b>. Current version is 5.x <a href="/docs/APITesting">Read for latest version</a></div>
+
 # API Testing
 
 The same way we tested a web site, Codeception allows you to test web services. They are very hard to test manually, so it's a really good idea to automate web service testing. We have SOAP and REST as standards, which are represented in corresponding modules, which we will cover in this chapter.

@@ -3,6 +3,8 @@ layout: doc
 title: AdvancedUsage - Codeception 4 Documentation
 ---
 
+<div class="alert alert-warning">👴 <b>You are reading docs for Codeception 4</b>. Current version is 5.x <a href="/docs/AdvancedUsage">Read for latest version</a></div>
+
 # Advanced Usage
 
 In this chapter we will cover some techniques and options that you can use to improve your testing experience
