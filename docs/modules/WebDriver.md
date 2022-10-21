@@ -938,6 +938,7 @@ $I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user
 
 * `param ` $cookie
 * `param array` $params
+* `param bool` $showDebug
 * `return mixed|void`
 
 Checks that there isn't a cookie with the given name.
@@ -1409,6 +1410,7 @@ $name = $I->grabValueFrom(['name' => 'username']);
 #### loadSessionSnapshot
 
 * `param ` $name
+* `param bool` $showDebug
 * `return mixed`
 
 Loads cookies from a saved snapshot.
@@ -1628,6 +1630,7 @@ Reloads the current page.
 
 * `param ` $cookie
 * `param array` $params
+* `param bool` $showDebug
 * `return mixed|void`
 
 Unsets cookie with the given name.
@@ -1763,6 +1766,7 @@ $I->seeCheckboxIsChecked('//form/input[@type=checkbox and @name=agree]');
 
 * `param ` $cookie
 * `param array` $params
+* `param bool` $showDebug
 * `return mixed|void`
 
 Checks that a cookie with the given name is set.

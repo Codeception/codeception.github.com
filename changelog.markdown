@@ -9,6 +9,15 @@ title: Codeception Changelog
 
 
 
+### module-webdriver 3.2.0: 3.2.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/10/15 19:26:14 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
+
+
+
+* Optionally suppress cookie debug output in seeCookie(), dontSeeCookie(), resetCookie() and loadSessionSnapshot() methods by **[lolli42](https://github.com/lolli42)** in https://github.com/Codeception/module-webdriver/pull/111
+
+
 ### lib-innerbrowser 3.1.3: 3.1.3
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/10/03 15:36:06 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
@@ -3338,15 +3347,6 @@ This versions fixes codeception/codeception branch builds
 ### module-yii2 1.0.1: Use stable versions of codeception and innerbrowser
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/10/25 17:33:04 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
-
-
-
-
-
-
-### module-webdriver 1.0.0: Initial release
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/10/19 15:29:58 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
 
 
 
