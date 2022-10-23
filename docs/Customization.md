@@ -549,4 +549,4 @@ It is possible to run specific suites from included applications:
 * `codecept run functional,*::unit` ⬅ Runs included unit suites and root functional suite
 
 
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/guides/08-Customization.md"><strong>Improve</strong> this guide</a></div>
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/Customization.md"><strong>Improve</strong> this guide</a></div>

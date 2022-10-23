@@ -204,4 +204,4 @@ php vendor/bin/codecept run
 
 Travis doesn't provide visualization for XML or HTML reports so you can't view reports in format any different than console output. However, Codeception produces nice console output with detailed error reports.
 
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/guides/12-ContinuousIntegration.md"><strong>Improve</strong> this guide</a></div>
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/ContinuousIntegration.md"><strong>Improve</strong> this guide</a></div>

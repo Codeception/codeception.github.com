@@ -364,4 +364,4 @@ The snapshot file will be stored without encoding it to json format, and with th
 
 > Beware that this option will not perform any changes in the data returned by `fetchData`, and store it as it is.
 
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/guides/09-Data.md"><strong>Improve</strong> this guide</a></div>
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/Data.md"><strong>Improve</strong> this guide</a></div>

@@ -202,4 +202,4 @@ coverage:
 
 Context stream options are [well documented at php.net](https://php.net/manual/en/context.php)
 
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/guides/11-Codecoverage.md"><strong>Improve</strong> this guide</a></div>
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/Codecoverage.md"><strong>Improve</strong> this guide</a></div>

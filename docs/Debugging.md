@@ -81,4 +81,4 @@ codecept_pause(['user' => $user]);
 ```
 
 
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/guides/06-Debugging.md"><strong>Improve</strong> this guide</a></div>
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/Debugging.md"><strong>Improve</strong> this guide</a></div>

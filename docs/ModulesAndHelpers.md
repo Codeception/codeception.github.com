@@ -540,4 +540,4 @@ you are free to write your own! Use Helpers (custom modules) for everything that
 Helpers also can be used to extend the functionality of the original modules.
 
 
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/guides/06-ModulesAndHelpers.md"><strong>Improve</strong> this guide</a></div>
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/ModulesAndHelpers.md"><strong>Improve</strong> this guide</a></div>

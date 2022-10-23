@@ -507,4 +507,4 @@ you don't need to install PHPUnit separately, but use Codeception directly to ex
 Some nice features can be added to common unit tests by integrating Codeception modules.
 For most unit and integration testing, PHPUnit tests are enough. They run fast, and are easy to maintain.
 
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/guides/05-UnitTests.md"><strong>Improve</strong> this guide</a></div>
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/UnitTests.md"><strong>Improve</strong> this guide</a></div>
