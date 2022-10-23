@@ -104,10 +104,6 @@ class RoboFile extends \Robo\Tasks
 
             $this->taskWriteToFile('docs/' . $filename)
                 ->line('<meta http-equiv="refresh" content="0;url=https://codeception.com/docs/' . $titleName. '">')
-                ->line('---')
-                ->line('layout: doc')
-                ->line("title: $title - Codeception Docs")
-                ->line('---')
                 ->line('')
                 ->line('<div class="alert alert-warning">')
                 ->line('  See <a href="https://codeception.com/docs/' . $titleName . '">' . $title  . '</a>')
