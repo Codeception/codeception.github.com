@@ -267,7 +267,7 @@ class EndpointCest
 
 ## Example Annotation
 
-As well as the ``\Codeception\Example` attribute, available for Cest tests, the `@example` attribute allows you to
+As well as the `\Codeception\Attribute\Examples` attribute, available for Cest tests, the `@example` attribute allows you to
 inject test parameters in place of an actual [DataProvider](#dataprovider-attribute) for Unit tests.
 
 ```php
