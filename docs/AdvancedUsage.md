@@ -326,8 +326,6 @@ class PageCest
 
 ```
 
-> `DataProvider` attribute is **not available** for [unit tests](https://codeception.com/docs/05-UnitTests). Use [Data Providers from PHPUnit](https://phpunit.readthedocs.io/en/9.5/writing-tests-for-phpunit.html?highlight=data%20provider#data-providers) to implement them.
-
 ## Before/After Attributes 
 
 You can control execution flow with `@before` and `@after` annotations. You may move common actions
