@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'jekyll', '~> 4.2.2'
+gem 'jekyll', '~> 4.3.0'
 gem 'kramdown'
 gem 'rouge'
 gem 'webrick'
