@@ -280,4 +280,4 @@ public function parallelMergeResults()
 ```
 
 
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/guides/12-ParallelExecution.md"><strong>Improve</strong> this guide</a></div>
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/ParallelExecution.md"><strong>Improve</strong> this guide</a></div>

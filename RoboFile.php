@@ -53,66 +53,11 @@ class RoboFile extends \Robo\Tasks
         $this->taskComposerUpdate()->preferSource()->run();
         $this->buildDocsModules();
         $this->buildDocsUtils();
-        $this->buildDocsGuides();
         $this->buildDocsCommands();
         $this->buildDocsStub();
         $this->buildDocsApi();
         $this->buildDocsExtensions();
         $this->changelog();
-    }
-
-    public function buildDocsGuides() {
-        $guides = Finder::create()
-            ->ignoreVCS(true)
-            ->depth('== 0')
-            ->name('*.md')
-            ->sortByName()
-            ->in('guides');
-
-        $guidesLinks = [];
-
-        foreach ($guides as $file) {
-            $filename = $file->getBasename();
-            $name = substr($filename, 0, -3);
-            $titleName = preg_replace("(\d+-)", '', $name);
-
-            $link = "/docs/$titleName";
-
-            $editLink = 'https://github.com/Codeception/codeception.github.com/edit/master/guides/' . $filename;
-            $title = preg_replace('/([A-Z]+)([A-Z][a-z])/', '\\1 \\2', $titleName);
-            $title = preg_replace('/([a-z\d])([A-Z])/', '\\1 \\2', $title);
-
-            $contents = file_get_contents($file->getPathname());
-            if (file_exists("docs/4.x/$titleName.md" )) {
-                $prevVersionLink = '<div class="alert alert-success">💡 <b>You are reading docs for latest Codeception 5</b>. <a href="/docs/4.x/' . $titleName . '">Read for 4.x</a></div>';
-            } else {
-                $prevVersionLink = '';
-            }
-
-            $this->taskWriteToFile('docs/' . $titleName . '.md')
-                ->line('---')
-                ->line('layout: doc')
-                ->line("title: $title - Codeception Docs")
-                ->line('---')
-                ->line('')
-                ->line($prevVersionLink)
-                ->line('')
-                ->text($contents)
-                ->line('')
-                ->line('<div class="alert alert-warning"><a href="'.$editLink.'"><strong>Improve</strong> this guide</a></div>')
-                ->run();
-
-            $this->taskWriteToFile('docs/' . $filename)
-                ->line('<meta http-equiv="refresh" content="0;url=https://codeception.com/docs/' . $titleName. '">')
-                ->line('')
-                ->line('<div class="alert alert-warning">')
-                ->line('  See <a href="https://codeception.com/docs/' . $titleName . '">' . $title  . '</a>')
-                ->line('</div>')
-                ->run();
-
-            $guidesLinks[] = "<li><a href=\"$link\">$title</a></li>";
-        }
-        file_put_contents('_includes/guides.html', implode("\n", $guidesLinks));
     }
 
     public function buildDocsModules()

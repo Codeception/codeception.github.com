@@ -730,4 +730,4 @@ Of course, you are not allowed to have *cyclic dependencies*.
 
 
 
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/guides/07-AdvancedUsage.md"><strong>Improve</strong> this guide</a></div>
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/AdvancedUsage.md"><strong>Improve</strong> this guide</a></div>

@@ -143,4 +143,4 @@ php vendor/bin/codecept run --ext DotReporter
 If you want to use it as default reporter enable extension in `codeception.yml`.
 
 
-<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/guides/11-Reporting.md"><strong>Improve</strong> this guide</a></div>
+<div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/Reporting.md"><strong>Improve</strong> this guide</a></div>
