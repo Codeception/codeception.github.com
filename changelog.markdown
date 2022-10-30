@@ -9,6 +9,20 @@ title: Codeception Changelog
 
 
 
+### Codeception 5.0.4: 5.0.4
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/10/30 19:21:03 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Execute FailFast subscriber before module _failed hooks [#6586](https://github.com/Codeception/Codeception/issues/6586) by **[yesdevnull](https://github.com/yesdevnull)**
+* Fixed parsing of **[skip](https://github.com/skip)** annotation [#6596](https://github.com/Codeception/Codeception/issues/6596)
+* Undeprecated untyped method arguments in Cest format [#6591](https://github.com/Codeception/Codeception/issues/6591)
+* Removed unnecessary overrides of $resultAggregator property in Unit format and TestCaseWrapper [#6590](https://github.com/Codeception/Codeception/issues/6590)
+* Print failure/error/warning/skipped/incomplete messages in HTML reports [#6595](https://github.com/Codeception/Codeception/issues/6595)
+* Fixed counting of successful tests [#6595](https://github.com/Codeception/Codeception/issues/6595)
+
+
 ### module-webdriver 3.2.0: 3.2.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/10/15 19:26:14 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
@@ -1952,17 +1966,6 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 
 - Added Symfony 5.3 compatibility ([#133](https://github.com/Codeception/module-symfony/issues/133)).
 - Added new method:  `$I->seeRequestTimeIsLessThan()` ([#132](https://github.com/Codeception/module-symfony/issues/132)).
-
-
-### Codeception 4.1.21: 
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/05/28 18:10:56 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Fix `dry-run` compatibility with symfony/console 5.3
-* Coverage: Don't attempt to set cookie domain when it is "localhost" [#6210](https://github.com/Codeception/Codeception/issues/6210) by **[marcovtwout](https://github.com/marcovtwout)**
-* Coverage: Don't attempt to read cookies while an alert is open [#6211](https://github.com/Codeception/Codeception/issues/6211) by **[marcovtwout](https://github.com/marcovtwout)**
 
 
 ### module-yii2 1.1.3: 1.1.3
