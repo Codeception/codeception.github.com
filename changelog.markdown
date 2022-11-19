@@ -9,6 +9,27 @@ title: Codeception Changelog
 
 
 
+### module-laravel 2.3.0: 2.3.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/11/19 20:34:50 / [Repository](https://github.com/Codeception/module-laravel)   / [Releases](https://github.com/Codeception/module-laravel/releases)
+
+
+
+* Allow to set headers in module configuration by **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/module-laravel/pull/47
+
+
+### module-laravel 3.1.0: 3.1.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/11/19 20:32:53 / [Repository](https://github.com/Codeception/module-laravel)   / [Releases](https://github.com/Codeception/module-laravel/releases)
+
+
+
+* Use the testing environment file specified in a suite by **[barmax](https://github.com/barmax)** in https://github.com/Codeception/module-laravel/pull/46
+* Allow to set headers in module configuration by **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/module-laravel/pull/47
+* Remove Laravel6\ExceptionHandlerDecorator by **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/module-laravel/pull/48
+
+
+
 ### Codeception 5.0.4: 5.0.4
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/10/30 19:21:03 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
