@@ -9,6 +9,18 @@ title: Codeception Changelog
 
 
 
+### Codeception 5.0.5: 5.0.5
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/11/20 11:33:41 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Don't disable test shuffling when --shard option is used ([#6605](https://github.com/Codeception/Codeception/issues/6605))
+* Provided typed signatures for attributes ([#6600](https://github.com/Codeception/Codeception/issues/6600)) by **[mdoelker](https://github.com/mdoelker)**
+* Support for Attributes in generated Actions files ([#6593](https://github.com/Codeception/Codeception/issues/6593)) by **[yesdevnull](https://github.com/yesdevnull)**
+* Fixed expectNotToPerformAssertions in unit tests ([#6602](https://github.com/Codeception/Codeception/issues/6602)) by **[yesdevnull](https://github.com/yesdevnull)**
+
+
 ### module-laminas 3.0.1: 3.0.1
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/11/20 11:03:09 / [Repository](https://github.com/Codeception/module-laminas)   / [Releases](https://github.com/Codeception/module-laminas/releases)
@@ -1921,15 +1933,6 @@ Released by [![](https://avatars.githubusercontent.com/u/220264?v=4&s=16) Davert
 
 
 
-
-
-### Codeception 3.1.3: Security fix
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/08/06 17:36:46 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Security fix: Disable deserialization of RunProcess class ([#6241](https://github.com/Codeception/Codeception/issues/6241)) reported by **[snoopysecurity](https://github.com/snoopysecurity)**
 
 
 ### Codeception 4.1.22: Security fix
