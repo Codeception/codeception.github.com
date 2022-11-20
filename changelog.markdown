@@ -9,6 +9,16 @@ title: Codeception Changelog
 
 
 
+### module-laminas 3.0.1: 3.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/11/20 11:03:09 / [Repository](https://github.com/Codeception/module-laminas)   / [Releases](https://github.com/Codeception/module-laminas/releases)
+
+
+
+* Add public getter to access the application instance by **[fourhundredfour](https://github.com/fourhundredfour)** in https://github.com/Codeception/module-laminas/pull/20
+* grabServiceFromContainer: Returned service is not always object by **[svycka](https://github.com/svycka)** in https://github.com/Codeception/module-laminas/pull/23
+
+
 ### module-laravel 2.3.0: 2.3.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/11/19 20:34:50 / [Repository](https://github.com/Codeception/module-laravel)   / [Releases](https://github.com/Codeception/module-laravel/releases)
