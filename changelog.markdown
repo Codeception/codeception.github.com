@@ -9,6 +9,30 @@ title: Codeception Changelog
 
 
 
+### module-db 3.1.0: 3.1.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/12/03 10:23:12 / [Repository](https://github.com/Codeception/module-db)   / [Releases](https://github.com/Codeception/module-db/releases)
+
+
+
+* Implemented `grabEntryFromDatabase` and `grabEntriesFromDatabase` methods by **[JesusTheHun](https://github.com/JesusTheHun)** in https://github.com/Codeception/module-db/pull/43
+* Improved handling of auto_increment field in `haveInDatabase` tear down by **[JesusTheHun](https://github.com/JesusTheHun)** in https://github.com/Codeception/module-db/pull/44
+* Add docker elements to ease local testing by **[JesusTheHun](https://github.com/JesusTheHun)** in https://github.com/Codeception/module-db/pull/42
+
+
+
+### module-db 2.1.0: 2.1.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/12/03 10:22:30 / [Repository](https://github.com/Codeception/module-db)   / [Releases](https://github.com/Codeception/module-db/releases)
+
+
+
+* Implemented `grabEntryFromDatabase` and `grabEntriesFromDatabase` methods by **[JesusTheHun](https://github.com/JesusTheHun)** in https://github.com/Codeception/module-db/pull/43
+* Improved handling of auto_increment field in `haveInDatabase` tear down by **[JesusTheHun](https://github.com/JesusTheHun)** in https://github.com/Codeception/module-db/pull/44
+* Add docker elements to ease local testing by **[JesusTheHun](https://github.com/JesusTheHun)** in https://github.com/Codeception/module-db/pull/42
+
+
+
 ### Codeception 5.0.5: 5.0.5
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/11/20 11:33:41 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
