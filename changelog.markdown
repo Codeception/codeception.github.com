@@ -2628,6 +2628,15 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 
+### module-lumen 1.0.1: Support PHP 8
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/10/28 07:48:01 / [Repository](https://github.com/Codeception/module-lumen)   / [Releases](https://github.com/Codeception/module-lumen/releases)
+
+
+
+Depends on Lumen libraries actually supporting PHP 8
+
+
 ### module-laravel5 1.1.1: Support PHP 8
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/10/28 07:06:39 / [Repository](https://github.com/Codeception/module-laravel5)   / [Releases](https://github.com/Codeception/module-laravel5/releases)
