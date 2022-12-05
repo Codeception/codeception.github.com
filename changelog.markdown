@@ -1950,6 +1950,15 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 Add new option webdriver_proxy to tunnel requests to the remote WebDriver server
 
 
+### module-webdriver 1.2.2: Documentation update
+
+Released by [![](https://avatars.githubusercontent.com/u/220264?v=4&s=16) DavertMik](https://github.com/DavertMik) on 2021/08/19 11:16:42 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
+
+
+
+
+
+
 ### Codeception 4.1.22: Security fix
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/08/06 17:31:37 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
@@ -2239,6 +2248,16 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
  - Removed support for `Lumen 5` and lower.
 
 > **Minor change**: Adding link to "central" parts explanation ([#4](https://github.com/Codeception/module-lumen/issues/4)) by **[ThomasLandauer](https://github.com/ThomasLandauer)**.
+
+
+### module-webdriver 1.2.0: 
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/01/17 19:30:29 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
+
+
+
+* Implemented makeElementScreenshot by **[Blaimi](https://github.com/Blaimi)** 
+* Documentation improvements
 
 
 ### lib-innerbrowser 1.3.6: 
@@ -3389,15 +3408,6 @@ This versions fixes codeception/codeception branch builds
 ### module-yii2 1.0.1: Use stable versions of codeception and innerbrowser
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/10/25 17:33:04 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
-
-
-
-
-
-
-### module-webdriver 1.0.0: Initial release
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/10/19 15:29:58 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
 
 
 
