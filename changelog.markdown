@@ -714,15 +714,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Improved error handling [#19](https://github.com/Codeception/module-filesystem/issues/19) 
 
 
-### module-filesystem 3.0.0: 3.0.0
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/14 18:51:07 / [Repository](https://github.com/Codeception/module-filesystem)   / [Releases](https://github.com/Codeception/module-filesystem/releases)
-
-
-
-* Support for Codeception 5
-
-
 ### Codeception 5.0.0-RC1: 5.0.0-RC1
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/13 18:42:02 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
@@ -1532,24 +1523,6 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 * Fix status badge by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-memcache/pull/5
 
 **Full Changelog**: https://github.com/Codeception/module-memcache/compare/1.0.1...2.0.0
-
-
-### module-filesystem 2.0.0: 2.0.0
-
-Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 13:37:45 / [Repository](https://github.com/Codeception/module-filesystem)   / [Releases](https://github.com/Codeception/module-filesystem/releases)
-
-
-
-## What's Changed
-
-* PHP 7.4 or higher is required.
-* Support PHP 8.1
-* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-filesystem/pull/9 and https://github.com/Codeception/module-filesystem/pull/13
-* Replace `Codeception\Util\Stub` with `Codeception\Stub` in tests by **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/module-filesystem/pull/5
-* Improved tests in order to run them from `vendor/` directory by **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/module-filesystem/pull/6
-* The changelog has been added to the Readme file, by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-filesystem/pull/12
-
-**Full Changelog**: https://github.com/Codeception/module-filesystem/compare/1.0.3...2.0.0
 
 
 ### module-ftp 2.0.0: 2.0.0
@@ -3268,15 +3241,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 Fixes some compatibility issue with MariaDB https://github.com/Codeception/Codeception/issues/5778
-
-
-### module-filesystem 1.0.2: Support symfony/finder 5
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/12/04 17:14:16 / [Repository](https://github.com/Codeception/module-filesystem)   / [Releases](https://github.com/Codeception/module-filesystem/releases)
-
-
-
-
 
 
 ### lib-innerbrowser 1.2.3: Symfony 5: catch another exception
