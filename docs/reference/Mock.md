@@ -239,6 +239,7 @@ $this->constructEmpty('User', [], [
 * `param string` $method
 * `param array` $constructorParams
 * `param array` $params
+* `throws \ReflectionException`
 * `return MockObject&RealInstanceType`
 
 Instantiates a class instance by running constructor with all methods replaced with dummies, except one.
