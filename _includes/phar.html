@@ -1,13 +1,47 @@
 <div class="panel-group panel-group--phar" id="accordion" role="tablist" aria-multiselectable="true">
-  <div class="panel panel-default" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true"
+  <div class="panel panel-default" data-toggle="collapse" data-parent="#accordion" aria-expanded="true"
        aria-controls="collapseOne">
     <div class="panel-heading" role="tab" id="headingOne">
       <h4 class="panel-title">
-          Install Phar Executable for PHP 7.2+
+        Download Codeception v5 Phar Executable for PHP 8.0+
       </h4>
     </div>
 
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+
+      <div class="panel-collapse-body">
+        <div class="row">
+          <div class="col-lg-3">
+
+            <a href="/thanks_php80" class="btn btn-success btn-expand">Download</a>
+          </div>
+          <div class="col-lg-9">
+
+            <div class="highlight">
+              <pre>wget https://codeception.com/php80/codecept.phar<a href="/thanks_php80" class="phar-download" target="_blank">download <span
+                      class="glyphicon glyphicon-download"></span></a></pre>
+            </div>
+
+          </div>
+
+        </div>
+        <p>
+          Execute it as
+
+          <code>php codecept.phar</code></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default" data-toggle="collapse" data-parent="#accordion" aria-expanded="true"
+       aria-controls="collapseTwo">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        Download Codeception v4 Phar for PHP 7.2 - 8.2
+      </h4>
+    </div>
+
+    <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
 
       <div class="panel-collapse-body">
         <div class="row">
@@ -34,13 +68,13 @@
   </div>
 
   <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true"
-         aria-controls="collapseTwo">
+    <div class="panel-heading" role="tab" id="headingThree" data-toggle="collapse" data-parent="#accordion" aria-expanded="true"
+         aria-controls="collapseThree">
       <h4 class="panel-title">
-          Install Phar for PHP 5.6 - 7.1
+          Download Codeception v4 Phar for PHP 5.6 - 7.1
       </h4>
     </div>
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
       <div class="panel-collapse-body">
         <div class="row">
           <div class="col-lg-3">
@@ -66,17 +100,17 @@
   </div>
 
   <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingThree" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true"
-         aria-controls="collapseThree">
+    <div class="panel-heading" role="tab" id="headingFour" data-toggle="collapse" data-parent="#accordion" aria-expanded="true"
+         aria-controls="collapseFour">
       <h4 class="panel-title">
           Install Phar Globally
       </h4>
     </div>
-    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
       <div class="panel-collapse-body">
         <div class="highlight">
 
-          <pre>sudo curl -LsS https://codeception.com/codecept.phar -o /usr/local/bin/codecept</pre>
+          <pre>sudo curl -LsS https://codeception.com/php80/codecept.phar -o /usr/local/bin/codecept</pre>
           <pre>sudo chmod a+x /usr/local/bin/codecept</pre>
         </div>
         <p>
