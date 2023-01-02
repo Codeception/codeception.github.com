@@ -2017,16 +2017,6 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 
 
 
-### module-symfony 2.0.3: 2.0.3
-
-Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/06/01 01:51:37 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
-
-
-
-- Added Symfony 5.3 compatibility ([#133](https://github.com/Codeception/module-symfony/issues/133)).
-- Added new method:  `$I->seeRequestTimeIsLessThan()` ([#132](https://github.com/Codeception/module-symfony/issues/132)).
-
-
 ### module-yii2 1.1.3: 1.1.3
 
 Released by [![](https://avatars.githubusercontent.com/u/47294?v=4&s=16) samdark](https://github.com/samdark) on 2021/05/24 20:06:33 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
