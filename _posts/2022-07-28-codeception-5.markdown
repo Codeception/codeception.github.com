@@ -70,9 +70,11 @@ extensions:
 Next steps:
 
 1. Rename your suite configuration files:
+    ```
     `acceptance.suite.yml` => `Acceptance.suite.yml`
     `functional.suite.yml` => `Functional.suite.yml`
-    `unit.suite.yml` => `Unit.suite.yml`
+    `unit.suite.yml`       => `Unit.suite.yml`
+    ```
 2. Inside those configuration files, update to the new namespace:
     ```yaml
     modules:
@@ -87,10 +89,22 @@ Next steps:
         }
     },
     ```
-4. In your `tests/Support/Acceptance|Functional|UnitTester.php` files, update to the new namespace.
-5. Run `vendor/bin/codecept build` to create the files in `tests/Support/_generated`.
-6. Modify the namespaces in all your test/cest files.
-7. Run the tests with capitalized suite names: `vendor/bin/codecept run Unit`
+4. In your `tests/Support/AcceptanceTester.php|FunctionalTester.php|UnitTester.php` files, update to the new namespace:
+    ```
+    namespace Tests\Support;
+    ```
+5. In your `tests/Support/Helper/Acceptance.php|Functional.php|Unit.php` files, update to the new namespace:
+    ```
+    namespace Tests\Support\Helper;
+    ```
+6. Run `vendor/bin/codecept build` to create the files in `tests/Support/_generated`.
+7. Modify the namespaces in all your Test/Cest files:
+    ```
+    namespace Tests\Acceptance;
+    namespace Tests\Functional;
+    namespace Tests\Unit;
+    ```
+8. Run the tests with capitalized suite names: `vendor/bin/codecept run Unit`
 
 ## Attributes
 
