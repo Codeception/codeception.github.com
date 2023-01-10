@@ -16,7 +16,7 @@ Codeception adds some nice helpers to simplify common tasks.
 Create a test using `generate:test` command with a suite and test names as parameters:
 
 ```bash
-php vendor/bin/codecept generate:test unit Example
+php vendor/bin/codecept generate:test Unit Example
 ```
 
 It creates a new `ExampleTest` file located in the `tests/unit` directory.
@@ -24,13 +24,13 @@ It creates a new `ExampleTest` file located in the `tests/unit` directory.
 As always, you can run the newly created test with this command:
 
 ```bash
-php vendor/bin/codecept run unit ExampleTest
+php vendor/bin/codecept run Unit ExampleTest
 ```
 
 Or simply run the whole set of unit tests with:
 
 ```bash
-php vendor/bin/codecept run unit
+php vendor/bin/codecept run Unit
 ```
 
 A test created by the `generate:test` command will look like this:
