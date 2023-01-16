@@ -1238,8 +1238,11 @@ body .panel-info > .panel-heading {
   padding: 5px 5px 0 0 !important;
 }
 
-.social-link-first {
+.nav-social-links {
   margin-left: 5px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
 }
 
 .social-link {
