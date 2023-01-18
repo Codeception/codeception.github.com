@@ -1098,6 +1098,15 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Parser fix to allow named parameters named class and namespace
 
 
+### module-doctrine2 2.0.1: 2.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/01/28 18:34:39 / [Repository](https://github.com/Codeception/module-doctrine2)   / [Releases](https://github.com/Codeception/module-doctrine2/releases)
+
+
+
+* Binary strings don't break (dont)seeInRepository by **[frankverhoeven](https://github.com/frankverhoeven)**
+
+
 ### module-webdriver 2.0.2: 2.0.2
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/01/23 12:00:55 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
