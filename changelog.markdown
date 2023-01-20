@@ -436,30 +436,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Substitute invalid UTF-8 characters in debug and step output by **[SamoylenkoSU](https://github.com/SamoylenkoSU)** ([#6483](https://github.com/Codeception/Codeception/issues/6483))
 
 
-### Codeception 5.0.0-RC4: 5.0.0-RC4
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/06/22 07:03:20 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Implemented basic attribute support ([#6449](https://github.com/Codeception/Codeception/issues/6449)) by **[DavertMik](https://github.com/DavertMik)**
-* Significantly reduced dependencies on PHPUnit
-* Replaced PHPUnit\Framework\TestResult with ResultAggregator
-* Added assertionCount method to ResultAggregator 
-* DotReporter prints standard result summary ([#6441](https://github.com/Codeception/Codeception/issues/6441)) by **[Orchestrator404](https://github.com/Orchestrator404)**
-* Fixed DotReporter output format
-* Fixed fetching remote code coverage data ([#6448](https://github.com/Codeception/Codeception/issues/6448))
-* Loading .env file must not override existing environment variables ([#6477](https://github.com/Codeception/Codeception/issues/6477))
-* All changes from 4.2.0 and 4.2.1:
-  * Improved multi-application experience, allow filtering suites by name ([#6435](https://github.com/Codeception/Codeception/issues/6435)) by **[calvinalkan](https://github.com/calvinalkan)**
-  * Configuration override is passed to included suites ([#5978](https://github.com/Codeception/Codeception/issues/5978)) by **[calvinalkan](https://github.com/calvinalkan)**
-  * Made dry-run command work with module methods having return types ([#6470](https://github.com/Codeception/Codeception/issues/6470))
-  * Support for expectError/Warning/Notice/Deprecation methods in unit tests (Requires PHPUnit 8.4+)
-  * Implemented new setting `convert_deprecations_to_exceptions` ([#6469](https://github.com/Codeception/Codeception/issues/6469))
-  * Action file generator: Do not return when return type is never ([#6462](https://github.com/Codeception/Codeception/issues/6462))
-  * Execute setupBeforeClass/tearDownAfterClass only once ([#6481](https://github.com/Codeception/Codeception/issues/6481))
-
-
 ### Codeception 4.2.1: 4.2.1
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/06/22 06:26:08 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
@@ -1410,6 +1386,21 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 * seeInRedis displays a difference between expected value and actual value 
+
+
+### Codeception 4.1.23: 4.1.23
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/12/11 18:36:16 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Compatibility with PHP 8.1 ([#6252](https://github.com/Codeception/Codeception/issues/6252))
+* Added optional value to fail-fast option ([#6275](https://github.com/Codeception/Codeception/issues/6275)) by #Verest
+* Code coverage covers .php files only ([#6265](https://github.com/Codeception/Codeception/issues/6265))
+* Functions are autoloaded by composer ([#6263](https://github.com/Codeception/Codeception/issues/6263)) by **[StuTheWebGuy](https://github.com/StuTheWebGuy)**
+* Fixed broken URL in bootstrap deprecation message by **[p810](https://github.com/p810)**
+* `codecept init api` adds AsJson decorators to suite configuration (See https://github.com/Codeception/module-rest/releases/tag/1.4.1)
+* Dockerfile upgraded to use xdebug 3.0.4 ([#6250](https://github.com/Codeception/Codeception/issues/6250)) by **[PavelBulat](https://github.com/PavelBulat)**
 
 
 ### module-symfony 2.1.0: 2.1.0
