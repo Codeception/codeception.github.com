@@ -1786,6 +1786,11 @@ body #footer .links {
   right: 50px;
   cursor: pointer;
 
+  @media (max-width: 767px) {
+    bottom: 20px;
+    right: 20px;
+  }
+
   svg {
     width: 20px;
     height: 20px;
