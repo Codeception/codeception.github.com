@@ -1786,67 +1786,6 @@ Released by [![](https://avatars.githubusercontent.com/u/220264?v=4&s=16) Davert
 Added `seeResponseIsJson()` to `send*AsJson` actions
 
 
-### module-rest 1.4.1: AsJson Step Decorator
-
-Released by [![](https://avatars.githubusercontent.com/u/220264?v=4&s=16) DavertMik](https://github.com/DavertMik) on 2021/11/17 12:52:07 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
-
-
-
-Step descorator `AsJson` was introduced to simplify sending and parsing JSON requests and responses.
-Add it to suite configuration:
-
-```yaml
-actor: ApiTester
-step_decorators:
-    - \Codeception\Step\AsJson
-```
-or if you use API template:
-```yaml
-suites:
-    api:
-        actor: ApiTester
-        step_decorators:
-            - \Codeception\Step\AsJson
-```
-Rebuild actions:
-
-```
-./vendor/bin/codecept build
-```
-
-And you get new actions:
-
-* `sendPostAsJson`
-* `sendGetAsJson`
-
-... basically all `send*` methods will receive `AsJson` pair which sends request in JSON and returns parsed response:
-
-```php
-<?php
-$user = $I->sendPostAsJson('user', ['id' => 1]);
-codecept_debug($user['id'])
-$I->assertEquals(1, $user['id'])
-```
-
-
-### module-rest 1.4.0: return response on send* actions
-
-Released by [![](https://avatars.githubusercontent.com/u/220264?v=4&s=16) DavertMik](https://github.com/DavertMik) on 2021/11/17 10:52:08 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
-
-
-
-send* actions were updated to return a response:
-
-```php
-$response = $I->sendGet('/users');
-$response = $I->sendPost('/users', ['name' => 'jon']);
-$response = $I->sendPut('/users/1', ['name' => 'jon']);
-$response = $I->sendPatch('/users/1', ['name' => 'jon']);
-$response = $I->sendDelete('/users/1');
-$response = $I->send('PATCH','/users/1', ['name' => 'jon']);
-```
-
-
 ### module-laminas 1.2.1: 1.2.1
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/10/19 17:56:16 / [Repository](https://github.com/Codeception/module-laminas)   / [Releases](https://github.com/Codeception/module-laminas/releases)
@@ -2084,15 +2023,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 
-
-
-### module-rest 1.3.1: DELETE  method sends request body
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/04/23 09:02:05 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
-
-
-
-Revert change implemented in 1.3.0
 
 
 ### lib-innerbrowser 1.5.0: Hidden field, delete requests, code quality
