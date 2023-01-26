@@ -1629,26 +1629,6 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 **Full Changelog**: https://github.com/Codeception/module-mezzio/compare/2.0.2...3.0.0
 
 
-### module-doctrine2 2.0.0: 2.0.0
-
-Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 05:59:34 / [Repository](https://github.com/Codeception/module-doctrine2)   / [Releases](https://github.com/Codeception/module-doctrine2/releases)
-
-
-
-## What's Changed
-
-* PHP 7.4 or higher is required.
-* Support PHP 8.1
-* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-doctrine2/pull/40 and https://github.com/Codeception/module-doctrine2/pull/47
-* Added phpstan by **[b1rdex](https://github.com/b1rdex)** in https://github.com/Codeception/module-doctrine2/pull/46
-* Use hash to store repository mock by **[olexp](https://github.com/olexp)** in https://github.com/Codeception/module-doctrine2/pull/45 and https://github.com/Codeception/module-doctrine2/pull/48
-* Better explaining `depends` by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/module-doctrine2/pull/23
-* Adding link to `doctrine/data-fixtures` by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/module-doctrine2/pull/39
-* The changelog has been added to the Readme file, by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-doctrine2/pull/43
-
-**Full Changelog**: https://github.com/Codeception/module-doctrine2/compare/1.1.1...2.0.0
-
-
 ### module-apc 2.0.0: 2.0.0
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 05:51:33 / [Repository](https://github.com/Codeception/module-apc)   / [Releases](https://github.com/Codeception/module-apc/releases)
