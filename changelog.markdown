@@ -260,16 +260,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Fixed false negative message about stecman/symfony-console-completion package ([#6541](https://github.com/Codeception/Codeception/issues/6541))
 
 
-### module-rest 3.2.0: 3.2.0
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/08/13 12:18:30 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
-
-
-
-* Add (dont)seeResponseJsonXpathEvaluatesTo methods [#85](https://github.com/Codeception/module-rest/issues/85)
-* Fixed return type of grabHttpHeader method  [#86](https://github.com/Codeception/module-rest/issues/86) 
-
-
 ### module-laravel 3.0.1: 3.0.1
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2022/08/07 15:25:34 / [Repository](https://github.com/Codeception/module-laravel)   / [Releases](https://github.com/Codeception/module-laravel/releases)
