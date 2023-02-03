@@ -9,6 +9,15 @@ title: Codeception Changelog
 
 
 
+### lib-innerbrowser 4.0.0: 4.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/02/03 19:33:48 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
+
+
+
+* Support for PHPUnit 10
+
+
 ### Codeception 5.0.7: 5.0.7
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/01/14 20:06:31 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
