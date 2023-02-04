@@ -1,24 +1,25 @@
 <script>
-  window.ALGOLIA_CONFIG = {
-    'applicationId': '{{ site.algolia.application_id }}',
-    'indexName': '{{ site.algolia.index_name }}',
-    'apiKey': '{{ site.algolia.read_only_api_key }}',
-    'baseurl': '{{ site.baseurl }}'
-  }
+    window.ALGOLIA_CONFIG = {
+        'applicationId': '{{ site.algolia.application_id }}',
+        'indexName': '{{ site.algolia.index_name }}',
+        'apiKey': '{{ site.algolia.read_only_api_key }}',
+        'baseurl': '{{ site.baseurl }}'
+    }
 </script>
 <script id="algolia__template" type="text/template">
-{% raw %}
-  <div class="algolia__result">
-    <a class="algolia__result-link" href="{{ full_url }}#algolia:{{ css_selector }}">{{{ _highlightResult.title.value }}}</a>
-    {{#posted_at}}
-    <div class="algolia__result-date">{{ posted_at_readable }}</div>
-    {{/posted_at}}
-    <div class="algolia__result-text">{{{ _highlightResult.text.value }}}</div>
-  </div>
-{% endraw %}
+    {% raw %}
+    <div class="algolia__result">
+        <a class="algolia__result-link" href="{{ full_url }}#algolia:{{ css_selector }}">{{{
+            _highlightResult.title.value }}}</a>
+        {{#posted_at}}
+        <div class="algolia__result-date">{{ posted_at_readable }}</div>
+        {{/posted_at}}
+        <div class="algolia__result-text">{{{ _highlightResult.text.value }}}</div>
+    </div>
+    {% endraw %}
 </script>
 <script id="algolia__template--no-results" type="text/template">
-  No results found.
+    No results found.
 </script>
 <script src="//cdn.jsdelivr.net/algoliasearch/3.6.0/algoliasearch.min.js"></script>
 <script src="//cdn.jsdelivr.net/algoliasearch.helper/2.1.0/algoliasearch.helper.min.js"></script>
