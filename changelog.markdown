@@ -532,20 +532,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Backported test.useless event from Codeception 5.0 ([#6459](https://github.com/Codeception/Codeception/issues/6459))
 
 
-### module-phalcon5 v2.0.0: v2.0.0
-
-Released by [![](https://avatars.githubusercontent.com/u/1073784?v=4&s=16) niden](https://github.com/niden) on 2022/06/03 15:20:26 / [Repository](https://github.com/Codeception/module-phalcon5)   / [Releases](https://github.com/Codeception/module-phalcon5/releases)
-
-
-
-Supports PHP versions: 8.0, 8.1
-
-* Use of Codeception v5+
-* Use of Phalcon 5.0.0RC1+
-* Corrected namespaces
-* Cosmetic changes
-
-
 ### module-sequence 3.0.0: 3.0.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/05/31 05:48:59 / [Repository](https://github.com/Codeception/module-sequence)   / [Releases](https://github.com/Codeception/module-sequence/releases)
@@ -1398,24 +1384,6 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 * Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/lib-asserts/pull/9 .
 
 **Full Changelog**: https://github.com/Codeception/lib-asserts/compare/1.13.2...2.0.0
-
-
-### module-phalcon5 v1.0.1: v1.0.1
-
-Released by [![](https://avatars.githubusercontent.com/u/1073784?v=4&s=16) niden](https://github.com/niden) on 2021/12/16 13:04:49 / [Repository](https://github.com/Codeception/module-phalcon5)   / [Releases](https://github.com/Codeception/module-phalcon5/releases)
-
-
-
-Corrections for Packagist descriptions and PHP minimum version
-
-
-### module-phalcon5 v1.0.0: v1.0.0
-
-Released by [![](https://avatars.githubusercontent.com/u/1073784?v=4&s=16) niden](https://github.com/niden) on 2021/12/15 18:51:06 / [Repository](https://github.com/Codeception/module-phalcon5)   / [Releases](https://github.com/Codeception/module-phalcon5/releases)
-
-
-
-Initial release of the Codeception module for Phalcon 5.
 
 
 ### module-redis 1.4.0: 1.4.0
