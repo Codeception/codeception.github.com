@@ -1009,6 +1009,15 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Codeception 5 support
 
 
+### module-mezzio 4.0.0: 4.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/02/20 16:38:14 / [Repository](https://github.com/Codeception/module-mezzio)   / [Releases](https://github.com/Codeception/module-mezzio/releases)
+
+
+
+* Support Codeception 5
+
+
 ### module-rest 3.0.1: 3.0.1
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/02/20 16:32:01 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
@@ -1205,6 +1214,15 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Fixed types in method signatures and docblocks [#88](https://github.com/Codeception/module-webdriver/issues/88) by **[Naktibalda](https://github.com/Naktibalda)** 
 
 
+### module-mezzio 3.0.2: 3.0.2
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/12/26 17:51:01 / [Repository](https://github.com/Codeception/module-mezzio)   / [Releases](https://github.com/Codeception/module-mezzio/releases)
+
+
+
+* Added support for laminas-diactoros v2 by **[samuelnogueira](https://github.com/samuelnogueira)**
+
+
 ### module-lumen 2.1.0: 2.1.0
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/24 20:16:08 / [Repository](https://github.com/Codeception/module-lumen)   / [Releases](https://github.com/Codeception/module-lumen/releases)
@@ -1362,6 +1380,17 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 
 
 * Update dependencies by **[TavoNiievez](https://github.com/TavoNiievez)** and **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/module-phpbrowser/pull/20
+
+
+### module-mezzio 3.0.1: 3.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/18 14:26:02 / [Repository](https://github.com/Codeception/module-mezzio)   / [Releases](https://github.com/Codeception/module-mezzio/releases)
+
+
+
+## What's Changed
+
+* Update dependencies by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-mezzio/pull/14
 
 
 ### module-filesystem 2.0.1: 2.0.1
@@ -1615,6 +1644,22 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 * The changelog has been added to the Readme file, by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-cli/pull/9
 
 **Full Changelog**: https://github.com/Codeception/module-cli/compare/1.1.1...2.0.0
+
+
+### module-mezzio 3.0.0: 3.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 06:04:58 / [Repository](https://github.com/Codeception/module-mezzio)   / [Releases](https://github.com/Codeception/module-mezzio/releases)
+
+
+
+## What's Changed
+
+* PHP 7.4 or higher is required.
+* Support PHP 8.1
+* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-mezzio/pull/9 and https://github.com/Codeception/module-mezzio/pull/12
+* The changelog has been added to the Readme file, by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-mezzio/pull/11
+
+**Full Changelog**: https://github.com/Codeception/module-mezzio/compare/2.0.2...3.0.0
 
 
 ### module-doctrine2 2.0.0: 2.0.0
@@ -2477,6 +2522,15 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Supports PHP 8
 
 
+### module-mezzio 2.0.2: Support PHP 8
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/11/25 07:15:31 / [Repository](https://github.com/Codeception/module-mezzio)   / [Releases](https://github.com/Codeception/module-mezzio/releases)
+
+
+
+
+
+
 ### module-redis 1.0.1: Support PHP 8
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/11/25 06:44:01 / [Repository](https://github.com/Codeception/module-redis)   / [Releases](https://github.com/Codeception/module-redis/releases)
@@ -3004,9 +3058,31 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 Modern browsers reject cookies with singlepart domain names, the best option is not to set domain property unless explicitly specified.
 
 
+### module-mezzio 2.0.1: 2.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/152236?v=4&s=16) Slamdunk](https://github.com/Slamdunk) on 2020/03/17 11:14:58 / [Repository](https://github.com/Codeception/module-mezzio)   / [Releases](https://github.com/Codeception/module-mezzio/releases)
+
+
+
+[Full Changelog](https://github.com/Codeception/module-mezzio/compare/2.0.0...2.0.1)
+
+**Fixed bugs:**
+
+- Session persistance: clean up $_SESSION between tests [\[#3](https://github.com/Codeception/module-mezzio/issues/3)](https://github.com/Codeception/module-mezzio/pull/3)
+
+
 ### module-webdriver 1.0.5: Fixed compatibility with PHP 5.6
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/03/06 08:39:36 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
+
+
+
+
+
+
+### module-mezzio 2.0.0: Initial release
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/03/06 08:25:48 / [Repository](https://github.com/Codeception/module-mezzio)   / [Releases](https://github.com/Codeception/module-mezzio/releases)
 
 
 
