@@ -745,7 +745,7 @@ Starting with version 2.0.0, `codeception/module-symfony` requires your app to u
 
 #### dontSeeEventTriggered
 
-* `param string|object|string[]` $expected
+* `param object|string|string[]` $expected
 * `return void`
 
 Verifies that one or more event listeners were not called during the test.
@@ -862,7 +862,7 @@ $I->dontSeeInFormFields('#form-id', [
 #### dontSeeInSession
 
 * `param string` $attribute
-* `param mixed|null` $value
+* `param mixed` $value
 * `return void`
 
 Assert that a session attribute does not exist, or is not equal to the passed value.
@@ -937,7 +937,7 @@ $I->dontSeeOptionIsSelected('#form input[name=payment]', 'Visa');
 
 #### dontSeeOrphanEvent
 
-* `param string|object|string[]` $expected
+* `param object|string|string[]` $expected
 * `return void`
 
 Verifies that there were no orphan events during the test.
@@ -1096,7 +1096,7 @@ $uri = $I->grabFromCurrentUrl();
 
 #### grabLastSentEmail
 
-* `return \Symfony\Component\Mime\Email|null`
+* `return ?\Symfony\Component\Mime\Email`
 
 Returns the last sent email.
 
@@ -1187,7 +1187,7 @@ $I->grabParameter('app.business_name');
 #### grabRepository
 
 * `param object|string` $mixed
-* `return \Doctrine\ORM\EntityRepository|null`
+* `return ?\Doctrine\ORM\EntityRepository`
 
 Grab a Doctrine entity repository.
 
@@ -1677,7 +1677,7 @@ $I->seeEmailIsSent(2);
 
 #### seeEventTriggered
 
-* `param string|object|string[]` $expected
+* `param object|string|string[]` $expected
 * `return void`
 
 Verifies that one or more event listeners were called during the test.
@@ -1906,7 +1906,7 @@ $I->seeInFormFields('//form[@id=my-form]', string $form);
 #### seeInSession
 
 * `param string` $attribute
-* `param mixed|null` $value
+* `param mixed` $value
 * `return void`
 
 Assert that a session attribute exists.
@@ -2025,7 +2025,7 @@ $I->seeOptionIsSelected('#form input[name=payment]', 'Visa');
 
 #### seeOrphanEvent
 
-* `param string|object|string[]` $expected
+* `param object|string|string[]` $expected
 * `return void`
 
 Verifies that one or more orphan events were dispatched during the test.
