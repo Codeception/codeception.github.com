@@ -31,6 +31,7 @@ $jsonType->matches([
 {% endhighlight %}
 
 Class JsonType
+
 @package Codeception\Util
 
 
@@ -39,14 +40,14 @@ Class JsonType
  *public* __construct($jsonArray)
 
 
-* `param ` $jsonArray array|JsonArray
+* `param \Codeception\Util\JsonArray|array` $jsonArray
 
 Creates instance of JsonType
 Pass an array or `\Codeception\Util\JsonArray` with data.
 
 If non-associative array is passed - the very first element of it will be used for matching.
 
-[See source](https://github.com/Codeception/module-rest/blob/master/src/Codeception/Util/JsonType.php#L47)
+[See source](https://github.com/Codeception/module-rest/blob/master/src/Codeception/Util/JsonType.php#L43)
 
 #### addCustomFilter()
 
@@ -80,7 +81,7 @@ JsonType::addCustomFilter('/len\((.*?)\)/', function($value, $len) {
 
 {% endhighlight %}
 
-[See source](https://github.com/Codeception/module-rest/blob/master/src/Codeception/Util/JsonType.php#L77)
+[See source](https://github.com/Codeception/module-rest/blob/master/src/Codeception/Util/JsonType.php#L73)
 
 #### cleanCustomFilters()
 
@@ -91,7 +92,7 @@ JsonType::addCustomFilter('/len\((.*?)\)/', function($value, $len) {
 
 Removes all custom filters
 
-[See source](https://github.com/Codeception/module-rest/blob/master/src/Codeception/Util/JsonType.php#L85)
+[See source](https://github.com/Codeception/module-rest/blob/master/src/Codeception/Util/JsonType.php#L81)
 
 #### matches()
 
@@ -106,6 +107,6 @@ Checks data against passed JsonType.
 If matching fails function returns a string with a message describing failure.
 On success returns `true`.
 
-[See source](https://github.com/Codeception/module-rest/blob/master/src/Codeception/Util/JsonType.php#L95)
+[See source](https://github.com/Codeception/module-rest/blob/master/src/Codeception/Util/JsonType.php#L91)
 
 <p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/module-rest/blob/master/src/Codeception/Util/JsonType.php">Help us to improve documentation. Edit module reference</a></div>

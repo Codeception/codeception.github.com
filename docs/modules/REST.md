@@ -93,7 +93,6 @@ Here's an [Online JSONPath Expressions Tester](https://jsonpath.curiousconcept.c
 
 Conflicts with SOAP module
 
-
 ### Actions
 
 #### amAWSAuthenticated
@@ -102,7 +101,7 @@ Conflicts with SOAP module
 * `throws ConfigurationException`
 * `return void`
 
-Allows to send REST request using AWS Authorization
+Allows sending REST request using AWS Authorization
 
 Only works with PhpBrowser
 Example Config:
@@ -189,7 +188,7 @@ $I->amNTLMAuthenticated('jon_snow', 'targaryen');
 * `param string` $name the name of the header to delete.
 * `return void`
 
-Deletes a HTTP header (that was originally added by [haveHttpHeader()](#haveHttpHeader)),
+Deletes an HTTP header (that was originally added by [haveHttpHeader()](#haveHttpHeader)),
 so that subsequent requests will not send it anymore.
 
 Example:
@@ -326,13 +325,11 @@ Checks XML response does not equal to provided XML.
 
 Comparison is done by canonicalizing both xml`s.
 
-Parameter can be passed either as XmlBuilder, DOMDocument, DOMNode, XML string, or array (if no attributes).
-
 
 #### dontSeeXmlResponseIncludes
 
 * `part` xml
-* `param mixed` $xml
+* `param \DOMNode|\Codeception\Util\XmlBuilder|array|string` $xml
 * `return void`
 
 Checks XML response does not include provided XML.
@@ -397,7 +394,7 @@ $I->sendPut('/user', array('id' => $firstUserId[0], 'name' => 'davert'));
 * `part` xml
 * `param string` $name
 * `param bool` $first Whether to return the first value or all header values
-* `return string|array` The first header value if $first is true, an array of values otherwise
+* `return string|array|null` The first header value if $first is true, an array of values otherwise
 
 Returns the value of the specified header name
 
@@ -424,7 +421,7 @@ $I->sendPut('/user', array('id' => $user_id, 'name' => 'davert'));
 #### grabTextContentFromXmlElement
 
 * `part` xml
-* `param mixed` $cssOrXPath
+* `param string` $cssOrXPath
 * `return string`
 
 Finds and returns text contents of element.
@@ -440,7 +437,7 @@ Element is matched by either CSS or XPath
 * `param string` $value
 * `return void`
 
-Sets a HTTP header to be used for all subsequent requests. Use [`deleteHeader`](#deleteHeader) to unset it.
+Sets na HTTP header to be used for all subsequent requests. Use [`deleteHeader`](#deleteHeader) to unset it.
 
 {% highlight php %}
 
@@ -530,7 +527,7 @@ its value, asserting that are there
 Checks that http response header is received only once.
 
 HTTP RFC2616 allows multiple response headers with the same name.
-You can check that you didn't accidentally sent the same header twice.
+You can check that you didn't accidentally send the same header twice.
 
 {% highlight php %}
 
@@ -623,16 +620,16 @@ Examples:
 {% highlight php %}
 
 <?php
-// response: {name: john, email: john@gmail.com}
-$I->seeResponseContainsJson(array('name' => 'john'));
+// response: {"name": "john", "email": "john@gmail.com"}
+$I->seeResponseContainsJson(['name' => 'john']);
 
-// response {user: john, profile: { email: john@gmail.com }}
-$I->seeResponseContainsJson(array('email' => 'john@gmail.com'));
+// response {"user": "john", "profile": {"email": "john@gmail.com"}}
+$I->seeResponseContainsJson(['email' => 'john@gmail.com']);
 
 
 {% endhighlight %}
 
-This method recursively checks if one array can be found inside of another.
+This method recursively checks if one array can be found inside another.
 
 
 #### seeResponseEquals
@@ -922,13 +919,13 @@ This is how filters can be used:
 {% highlight php %}
 
 <?php
-// {'user_id': 1, 'email' => 'davert@codeception.com'}
+// {"user_id": 1, "email" => "davert@codeception.com"}
 $I->seeResponseMatchesJsonType([
      'user_id' => 'string:>0:<1000', // multiple filters can be used
      'email' => 'string:regex(~\@~)' // we just check that @ char is included
 ]);
 
-// {'user_id': '1'}
+// {"user_id"'": "1"}
 $I->seeResponseMatchesJsonType([
      'user_id' => 'string:>0', // works with strings as well
 ]);
@@ -942,20 +939,18 @@ See [JsonType reference](https://codeception.com/docs/reference/JsonType).
 #### seeXmlResponseEquals
 
 * `part` xml
-* `param mixed` $xml
+* `param \DOMDocument|string` $xml
 * `return void`
 
 Checks XML response equals provided XML.
 
 Comparison is done by canonicalizing both xml`s.
 
-Parameters can be passed either as DOMDocument, DOMNode, XML string, or array (if no attributes).
-
 
 #### seeXmlResponseIncludes
 
 * `part` xml
-* `param mixed` $xml
+* `param \DOMNode|\Codeception\Util\XmlBuilder|array|string` $xml
 * `return void`
 
 Checks XML response includes provided XML.
@@ -995,8 +990,9 @@ $I->seeXmlResponseMatchesXpath('//root/user[@id=1]');
 * `part` xml
 * `param string` $method
 * `param string` $url
-* `param array|string|JsonSerializable` $params
+* `param \ArrayAccess|\JsonSerializable|array|string` $params
 * `param array` $files
+* `return ?string`
 
 Sends a HTTP request.
 
@@ -1006,8 +1002,9 @@ Sends a HTTP request.
 * `part` json
 * `part` xml
 * `param string` $url
-* `param array` $params
+* `param \ArrayAccess|\JsonSerializable|array|string` $params
 * `param array` $files
+* `return ?string`
 
 Sends DELETE request to given uri.
 
@@ -1025,6 +1022,7 @@ $I->sendDelete('/message/1');
 * `part` xml
 * `param string` $url
 * `param array` $params
+* `return ?string`
 
 Sends a GET request to given uri.
 
@@ -1045,6 +1043,7 @@ $I->sendGet('/orders', ['id' => 1])
 * `part` xml
 * `param string` $url
 * `param array` $params
+* `return ?string`
 
 Sends a HEAD request to given uri.
 
@@ -1078,8 +1077,9 @@ Sends an OPTIONS request to given uri.
 * `part` json
 * `part` xml
 * `param string` $url
-* `param array|string|JsonSerializable` $params
+* `param \ArrayAccess|\JsonSerializable|array|string` $params
 * `param array` $files
+* `return ?string`
 
 Sends PATCH request to given uri.
 
@@ -1098,10 +1098,11 @@ $response = $I->sendPatch('/message/1', ['subject' => 'Read this!']);
 * `see` https://php.net/manual/en/features.file-upload.post-method.php
 * `see` codecept_data_dir()
 * `param string` $url
-* `param array|string|JsonSerializable` $params
+* `param \ArrayAccess|\JsonSerializable|array|string` $params
 * `param array` $files A list of filenames or "mocks" of $_FILES (each entry being an array with the following
                     keys: name, type, error, size, tmp_name (pointing to the real file path). Each key works
                     as the "name" attribute of a file input field.
+* `return ?string`
 
 Sends a POST request to given uri. Parameters and files can be provided separately.
 
@@ -1138,8 +1139,9 @@ $I->sendPost('/add-task', ['form' => [
 * `part` json
 * `part` xml
 * `param string` $url
-* `param array|string|JsonSerializable` $params
+* `param \ArrayAccess|\JsonSerializable|array|string` $params
 * `param array` $files
+* `return ?string`
 
 Sends PUT request to given uri.
 
