@@ -46,6 +46,9 @@
   "config": {
     "platform": {
       "ext-phalcon": "4.1.1"
+    },
+    "allow-plugins": {
+      "php-http/discovery": true
     }
   }
 }

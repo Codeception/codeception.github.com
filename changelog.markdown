@@ -9,6 +9,53 @@ title: Codeception Changelog
 
 
 
+### Codeception 5.0.9: 5.0.9
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/02/11 14:42:09 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* JUnitReporter: Do not set 'useless' testsuite attribute in strict mode [#6635](https://github.com/Codeception/Codeception/issues/6635) by **[gileri](https://github.com/gileri)**
+* Fixed static $defaultName deprecated in _completion command [#6633](https://github.com/Codeception/Codeception/issues/6633) by **[dmitryuk](https://github.com/dmitryuk)**
+* Replaced object property assertions removed from PHPUnit 10
+
+
+
+### module-yii2 1.1.8: 1.1.8
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/02/10 18:54:49 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
+
+
+
+* Fix last commit error by **[sunnyphp](https://github.com/sunnyphp)** in https://github.com/Codeception/module-yii2/pull/73
+* update links by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-yii2/pull/75
+* PHP 8.1: parse_str(): Passing null to parameter `[#1](https://github.com/Codeception/module-yii2/issues/1)` ($string) of type string is deprecated by **[uaoleg](https://github.com/uaoleg)** in https://github.com/Codeception/module-yii2/pull/80
+* Upgrade dependencies to support PHPUnit 10 by **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/module-yii2/pull/82
+
+
+
+### lib-asserts 2.1.0: 2.1.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/02/10 18:37:43 / [Repository](https://github.com/Codeception/lib-asserts)   / [Releases](https://github.com/Codeception/lib-asserts/releases)
+
+
+
+* Reimplement property assertions removed from PHPUnit 10 by **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/lib-asserts/pull/12
+* Use FQN in PHPDoc type hints for classes and interfaces by **[Sweetchuck](https://github.com/Sweetchuck)** in https://github.com/Codeception/lib-asserts/pull/11
+
+
+
+
+
+### module-rest 3.3.2: 3.3.2
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/02/09 18:16:01 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
+
+
+
+* Reverted method signature changes accidentally released in 3.3.1
+
+
 ### module-soap 3.0.1: 3.0.1
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/02/09 07:08:01 / [Repository](https://github.com/Codeception/module-soap)   / [Releases](https://github.com/Codeception/module-soap/releases)
@@ -1360,15 +1407,6 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 
 
 * Update dependencies (https://github.com/Codeception/module-redis/pull/15)
-
-
-### Codeception 4.1.25: 4.1.25
-
-Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/21 01:58:17 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Update dependencies (https://github.com/Codeception/Codeception/pull/6296)
 
 
 ### module-asserts 2.0.1: 2.0.1

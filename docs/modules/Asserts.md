@@ -39,7 +39,7 @@ Special module for using asserts in your tests.
 #### assertArrayHasKey
 
 * `param int|string` $key
-* `param array|ArrayAccess` $array
+* `param array|\ArrayAccess` $array
 * `param string` $message
 
 Asserts that an array has a specified key.
@@ -48,7 +48,7 @@ Asserts that an array has a specified key.
 #### assertArrayNotHasKey
 
 * `param int|string` $key
-* `param array|ArrayAccess` $array
+* `param array|\ArrayAccess` $array
 * `param string` $message
 
 Asserts that an array does not have a specified key.
@@ -128,7 +128,7 @@ Asserts that a haystack contains only instances of a given class name.
 #### assertCount
 
 * `param int` $expectedCount
-* `param Countable|iterable` $haystack
+* `param \Countable|iterable` $haystack
 * `param string` $message
 
 Asserts the number of elements of an array, Countable or Traversable.
@@ -773,7 +773,7 @@ Asserts that a haystack does not contain only values of a given type.
 #### assertNotCount
 
 * `param int` $expectedCount
-* `param Countable|iterable` $haystack
+* `param \Countable|iterable` $haystack
 * `param string` $message
 
 Asserts the number of elements of an array, Countable or Traversable.
@@ -869,8 +869,8 @@ Asserts that two variables do not have the same type and value.
 
 #### assertNotSameSize
 
-* `param Countable|iterable` $expected
-* `param Countable|iterable` $actual
+* `param \Countable|iterable` $expected
+* `param \Countable|iterable` $actual
 * `param string` $message
 
 Assert that the size of two arrays (or `Countable` or `Traversable` objects) is not the same.
@@ -930,8 +930,8 @@ Asserts that two variables have the same type and value.
 
 #### assertSameSize
 
-* `param Countable|iterable` $expected
-* `param Countable|iterable` $actual
+* `param \Countable|iterable` $expected
+* `param \Countable|iterable` $actual
 * `param string` $message
 
 Assert that the size of two arrays (or `Countable` or `Traversable` objects) is the same.
@@ -1138,7 +1138,7 @@ Asserts that two XML files are not equal.
 #### assertXmlStringEqualsXmlFile
 
 * `param string` $expectedFile
-* `param DOMDocument|string` $actualXml
+* `param \DOMDocument|string` $actualXml
 * `param string` $message
 
 Asserts that two XML documents are equal.
@@ -1146,8 +1146,8 @@ Asserts that two XML documents are equal.
 
 #### assertXmlStringEqualsXmlString
 
-* `param DOMDocument|string` $expectedXml
-* `param DOMDocument|string` $actualXml
+* `param \DOMDocument|string` $expectedXml
+* `param \DOMDocument|string` $actualXml
 * `param string` $message
 
 Asserts that two XML documents are equal.
@@ -1156,7 +1156,7 @@ Asserts that two XML documents are equal.
 #### assertXmlStringNotEqualsXmlFile
 
 * `param string` $expectedFile
-* `param DOMDocument|string` $actualXml
+* `param \DOMDocument|string` $actualXml
 * `param string` $message
 
 Asserts that two XML documents are not equal.
@@ -1164,8 +1164,8 @@ Asserts that two XML documents are not equal.
 
 #### assertXmlStringNotEqualsXmlString
 
-* `param DOMDocument|string` $expectedXml
-* `param DOMDocument|string` $actualXml
+* `param \DOMDocument|string` $expectedXml
+* `param \DOMDocument|string` $actualXml
 * `param string` $message
 
 Asserts that two XML documents are not equal.
