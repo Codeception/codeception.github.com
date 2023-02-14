@@ -905,6 +905,15 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Support for Codeception 5
 
 
+### module-filesystem 2.0.2: 2.0.2
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/14 18:52:49 / [Repository](https://github.com/Codeception/module-filesystem)   / [Releases](https://github.com/Codeception/module-filesystem/releases)
+
+
+
+* Improved error handling [#19](https://github.com/Codeception/module-filesystem/issues/19) 
+
+
 ### module-filesystem 3.0.0: 3.0.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/14 18:51:07 / [Repository](https://github.com/Codeception/module-filesystem)   / [Releases](https://github.com/Codeception/module-filesystem/releases)
