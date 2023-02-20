@@ -88,7 +88,7 @@ Next steps:
     },
     ```
 4. In your `tests/Support/Acceptance|Functional|UnitTester.php` files, update to the new namespace `Tests\Support`
-5. If you have tests/Support/Helper/Acceptance|Functional|Unit.php` files, update their namespace to `Tests\Support\Helper`
+5. If you have `tests/Support/Helper/Acceptance|Functional|Unit.php` files, update their namespace to `Tests\Support\Helper`
 6. Run `vendor/bin/codecept build` to create the files in `tests/Support/_generated`
 7. Modify the namespaces in all your test/cest files
 8. Run the tests with capitalized suite names: `vendor/bin/codecept run Unit`
