@@ -119,6 +119,15 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Fix deprecated string interpolation by **[Kolyunya](https://github.com/Kolyunya)** in https://github.com/Codeception/module-doctrine2/pull/59
 
 
+### module-symfony 3.1.1: 3.1.1
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/02/06 07:50:11 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
+
+
+
+* Allow installation of lib-innerbrowser v4 to support PHPUnit 10.
+
+
 ### module-webdriver 4.0.0: 4.0.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/02/03 22:06:31 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
