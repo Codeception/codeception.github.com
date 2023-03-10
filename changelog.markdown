@@ -1164,16 +1164,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Codeception 5 support
 
 
-### module-rest 3.0.0: 3.0.0
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/02/20 10:50:18 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
-
-
-
-* Codeception 5 support
-* Update to min php8 ([#70](https://github.com/Codeception/module-rest/issues/70)) by **[pbojan](https://github.com/pbojan)**
-
-
 ### Codeception 5.0.0-alpha2: 5.0.0-alpha2
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/02/19 19:33:46 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
@@ -2251,19 +2241,6 @@ Released by [![](https://avatars.githubusercontent.com/u/3289702?v=4&s=16) Jecke
 
 
 * Fixed Request service redefinition ([#7](https://github.com/Codeception/module-phalcon4/issues/7))
-
-
-### module-rest 1.3.0: 1.3.0
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/04/08 08:28:48 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
-
-
-
-* Add generic send method taking HTTP method as parameter
-* Don't send request body with DELETE and OPTIONS requests
-* Validate url and params parameters of all send methods
-* Document that sendPost, sendPut, sendPatch methods accept string and JsonSerializable as params too
-* Other documentation improvements
 
 
 ### lib-innerbrowser 1.4.2: Don't set request body for DELETE and OPTIONS requests
