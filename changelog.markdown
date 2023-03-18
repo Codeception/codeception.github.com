@@ -9,6 +9,15 @@ title: Codeception Changelog
 
 
 
+### module-doctrine2 3.0.2: 3.0.2
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/03/18 18:36:57 / [Repository](https://github.com/Codeception/module-doctrine2)   / [Releases](https://github.com/Codeception/module-doctrine2/releases)
+
+
+
+* Documentation updates [#67](https://github.com/Codeception/module-doctrine2/issues/67) and [#68](https://github.com/Codeception/module-doctrine2/issues/68) by **[ThomasLandauer](https://github.com/ThomasLandauer)** 
+
+
 ### Codeception 5.0.10: 5.0.10
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/03/14 07:27:00 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)

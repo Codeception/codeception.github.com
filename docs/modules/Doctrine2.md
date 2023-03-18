@@ -32,7 +32,7 @@ Warning. Using PHAR file and composer in the same project can cause unexpected e
 
 
 
-Access the database using [Doctrine2 ORM](https://docs.doctrine-project.org/projects/doctrine-orm/en/latest/).
+Access the database using [Doctrine ORM](https://docs.doctrine-project.org/projects/doctrine-orm/en/latest/).
 
 When used with Symfony or Zend Framework 2, Doctrine's Entity Manager is automatically retrieved from Service Locator.
 Set up your `functional.suite.yml` like this:
@@ -90,23 +90,37 @@ modules:
 
 {% endhighlight %}
 
-### Status
+### Grabbing Entities with Symfony
 
-* Maintainer: **davert**
-* Stability: **stable**
-* Contact: codecept@davert.mail.ua
+For Symfony users, the recommended way to query for entities is not to use this module's `grab...()` methods, but rather
+"inject" Doctrine's repository:
 
-### Config
+{% highlight php %}
+
+public function _before(FunctionalTester $I): void
+{
+    $this->fooRepository = $I->grabService(FooRepository::class);
+}
+
+{% endhighlight %}
+
+Now you have access to all your familiar repository methods in your tests, e.g.:
+
+{% highlight php %}
+
+$greenFoo = $this->fooRepository->findOneBy(['color' => 'green']);
+
+{% endhighlight %}
 
 ### Public Properties
 
 * `em` - Entity Manager
 
-### Note on parameters
+### Doctrine `Criteria` as query parameters
 
-Every method that expects some parameters to be checked against values in the database (`see...()`,
-`dontSee...()`, `grab...()`) can accept instance of
-[\Doctrine\Common\Collections\Criteria](https://www.doctrine-project.org/api/collections/latest/Doctrine/Common/Collections/Criteria.html)
+Every method that expects some query parameters (`see...()`,
+`dontSee...()`, `grab...()`) also accepts an instance of
+[\Doctrine\Common\Collections\Criteria](https://www.doctrine-project.org/projects/doctrine-collections/en/stable/expressions.html)
 for more flexibility, e.g.:
 
 {% highlight php %}
@@ -178,7 +192,6 @@ Performs $em->flush();
 #### grabEntitiesFromRepository
 
 * `template` T of object
-* `version` 1.1
 * `param class-string<T>` $entity
 * `param array` $params . For `IS NULL`, use `['field' => null]`
 * `return list<T>`
@@ -223,7 +236,6 @@ $user = $I->grabEntityFromRepository(User::class, ['id' => '1234']);
 
 #### grabFromRepository
 
-* `version` 1.1
 * `param class-string` $entity
 * `param string` $field
 * `param array` $params
