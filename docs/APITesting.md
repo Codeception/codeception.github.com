@@ -129,7 +129,6 @@ To create or update data you can use other common methods:
 * `sendPut`
 * `sendPatch`
 * `sendDelete`
-* `sendPatch`
 
 To send a request with custom method use `send` action:
 
