@@ -821,6 +821,18 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Updated dependencies
 
 
+### Codeception 5.0.0-RC3: 5.0.0-RC3
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/04/22 10:32:33 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Fix incorrect type declaration in InitTemplate by **[ziadoz](https://github.com/ziadoz)**
+* Stricter check for phpdotenv v5 (older versions are not supported)
+* Throw exception if actor setting is missing in suite configuration
+* Use correct types in ParamsLoader and Configuration classes, avoid type errors
+
+
 ### module-laravel 3.0.0: 3.0.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/04/20 10:13:08 / [Repository](https://github.com/Codeception/module-laravel)   / [Releases](https://github.com/Codeception/module-laravel/releases)
@@ -1386,17 +1398,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 * Renamed editorUrl setting to editor_url for consistency
 * Fixed wildcard matching of group files ([#6302](https://github.com/Codeception/Codeception/issues/6302)) by **[DavertMik](https://github.com/DavertMik)**
-
-
-### Codeception 4.1.26: 4.1.26
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/12/21 19:25:44 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Added editorUrl setting to codeception.yml ([#6261](https://github.com/Codeception/Codeception/issues/6261)) by **[ThomasLandauer](https://github.com/ThomasLandauer)**
-* Reverted optional value to fail-fast option because it was breaking change ([#6290](https://github.com/Codeception/Codeception/issues/6290))
-* Fixed E_DEPRECATED warnings in Example class on PHP 8.1 ([#6298](https://github.com/Codeception/Codeception/issues/6298)) by **[fabacino](https://github.com/fabacino)**
 
 
 ### module-phpbrowser 2.0.2: 2.0.2
