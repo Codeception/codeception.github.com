@@ -889,15 +889,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Fix type error in Recorder extension
 
 
-### module-rest 2.0.2: 2.0.2
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/30 05:43:05 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
-
-
-
-* Don't pass NULL to isBinaryData in `_failed`.
-
-
 ### module-lumen 3.0.0: 3.0.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/29 18:00:52 / [Repository](https://github.com/Codeception/module-lumen)   / [Releases](https://github.com/Codeception/module-lumen/releases)
@@ -1918,15 +1909,6 @@ Released by [![](https://avatars.githubusercontent.com/u/47294?v=4&s=16) samdark
 
 
 - Allow PHP 8.1 (@saatsazov)
-
-
-### module-rest 1.4.2: Added JSON check to `AsJson`
-
-Released by [![](https://avatars.githubusercontent.com/u/220264?v=4&s=16) DavertMik](https://github.com/DavertMik) on 2021/11/18 19:12:32 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
-
-
-
-Added `seeResponseIsJson()` to `send*AsJson` actions
 
 
 ### module-rest 1.4.1: AsJson Step Decorator
