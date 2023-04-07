@@ -63,19 +63,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 
-### lib-asserts 2.1.0: 2.1.0
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/02/10 18:37:43 / [Repository](https://github.com/Codeception/lib-asserts)   / [Releases](https://github.com/Codeception/lib-asserts/releases)
-
-
-
-* Reimplement property assertions removed from PHPUnit 10 by **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/lib-asserts/pull/12
-* Use FQN in PHPDoc type hints for classes and interfaces by **[Sweetchuck](https://github.com/Sweetchuck)** in https://github.com/Codeception/lib-asserts/pull/11
-
-
-
-
-
 ### module-rest 3.3.2: 3.3.2
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/02/09 18:16:01 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
@@ -2900,15 +2887,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 * Support PHP 8 (no code changes)
 * Reverted docblock change to fix static analysis ([#9](https://github.com/Codeception/module-asserts/issues/9) by **[edwinkortman](https://github.com/edwinkortman)**)
-
-
-### lib-asserts 1.13.2: Support PHP 8
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/10/21 16:27:49 / [Repository](https://github.com/Codeception/lib-asserts)   / [Releases](https://github.com/Codeception/lib-asserts/releases)
-
-
-
-No code changes
 
 
 ### lib-innerbrowser 1.3.3: 
