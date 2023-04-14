@@ -1821,20 +1821,6 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 **Full Changelog**: https://github.com/Codeception/module-amqp/compare/1.1.1...2.0.0
 
 
-### module-laminas 1.3.0: 1.3.0
-
-Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 05:44:00 / [Repository](https://github.com/Codeception/module-laminas)   / [Releases](https://github.com/Codeception/module-laminas/releases)
-
-
-
-## What's Changed
-
-* PHP 7.4 or higher is required.
-* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-laminas/pull/18
-
-**Full Changelog**: https://github.com/Codeception/module-laminas/compare/1.2.1...1.3.0
-
-
 ### module-db 2.0.0: 2.0.0
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 05:38:52 / [Repository](https://github.com/Codeception/module-db)   / [Releases](https://github.com/Codeception/module-db/releases)
