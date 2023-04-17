@@ -1121,15 +1121,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Fix Sqlite primary key column detection on PHP 8.1
 
 
-### module-db 2.0.1: 2.0.1
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/02/20 17:05:36 / [Repository](https://github.com/Codeception/module-db)   / [Releases](https://github.com/Codeception/module-db/releases)
-
-
-
-* Fix Sqlite primary key column detection on PHP 8.1
-
-
 ### module-db 3.0.0: 3.0.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/02/20 17:03:37 / [Repository](https://github.com/Codeception/module-db)   / [Releases](https://github.com/Codeception/module-db/releases)
