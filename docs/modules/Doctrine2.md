@@ -198,8 +198,9 @@ Performs $em->flush();
 
 Selects entities from repository.
 
-It builds query based on array of parameters.
+It builds a query based on an array of parameters.
 You can use entity associations to build complex queries.
+For Symfony users, it's recommended to [use the entity's repository instead](#Grabbing-Entities-with-Symfony)
 
 Example:
 
@@ -221,8 +222,9 @@ $users = $I->grabEntitiesFromRepository(User::class, ['name' => 'davert']);
 
 Selects a single entity from repository.
 
-It builds query based on array of parameters.
+It builds a query based on an array of parameters.
 You can use entity associations to build complex queries.
+For Symfony users, it's recommended to [use the entity's repository instead](#Grabbing-Entities-with-Symfony)
 
 Example:
 
@@ -243,8 +245,9 @@ $user = $I->grabEntityFromRepository(User::class, ['id' => '1234']);
 
 Selects field value from repository.
 
-It builds query based on array of parameters.
+It builds a query based on an array of parameters.
 You can use entity associations to build complex queries.
+For Symfony users, it's recommended to [use the entity's repository instead](#Grabbing-Entities-with-Symfony)
 
 Example:
 
