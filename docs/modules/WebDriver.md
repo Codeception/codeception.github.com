@@ -1824,6 +1824,7 @@ $I->seeCurrentUrlMatches('~^/users/(\d+)~');
 Checks that the given element exists on the page and is visible.
 
 You can also specify expected attributes of this element.
+Only works if `<html>` tag is present.
 
 {% highlight php %}
 
