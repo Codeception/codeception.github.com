@@ -193,15 +193,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Supports PHPUnit 10
 
 
-### module-webdriver 3.2.1: 3.2.1
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/02/03 21:48:22 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
-
-
-
-* 3.x versions are compatible with PHPUnit 9 only
-
-
 ### lib-innerbrowser 4.0.0: 4.0.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/02/03 19:33:48 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
@@ -3287,6 +3278,16 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 Use assertStringNotContainsString instead of assertNotContains in dontSeeInShellOutput
+
+
+### module-webdriver 1.0.2: Updated documentation of debug_log_entries
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/02/04 17:25:43 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
+
+
+
+module-webdriver does not display Selenium logs on every error by default,
+for debugging please change debug_log_entries in module configuration to positive value.
 
 
 ### module-rest 1.2.0: Response validation using JsonSchema
