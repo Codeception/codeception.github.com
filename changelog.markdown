@@ -166,15 +166,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Fix deprecated string interpolation by **[Kolyunya](https://github.com/Kolyunya)** in https://github.com/Codeception/module-doctrine2/pull/59
 
 
-### module-symfony 3.1.1: 3.1.1
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/02/06 07:50:11 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
-
-
-
-* Allow installation of lib-innerbrowser v4 to support PHPUnit 10.
-
-
 ### module-webdriver 4.0.0: 4.0.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/02/03 22:06:31 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
@@ -737,19 +728,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 * Declared more types in method signatures
-
-
-### module-symfony 3.1.0: 3.1.0
-
-Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2022/05/27 22:41:40 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
-
-
-
-## What's Changed
-* Symfony 6.0 support: Session Assertions by **[semaz](https://github.com/semaz)** in https://github.com/Codeception/module-symfony/pull/157 and **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-symfony/pull/158
-* Symfony 6.0 Support: Form Assertions by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-symfony/pull/158
-
-**Full Changelog**: https://github.com/Codeception/module-symfony/compare/3.0.0...3.1.0
 
 
 ### module-mongodb 3.0.0: 3.0.0
