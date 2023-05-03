@@ -1631,21 +1631,6 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 **Full Changelog**: https://github.com/Codeception/module-datafactory/compare/1.1.0...2.0.0
 
 
-### module-mongodb 2.0.0: 2.0.0
-
-Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 14:55:38 / [Repository](https://github.com/Codeception/module-mongodb)   / [Releases](https://github.com/Codeception/module-mongodb/releases)
-
-
-
-## What's Changed
-
-* PHP 7.4 or higher is required.
-* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-mongodb/pull/7 and https://github.com/Codeception/module-mongodb/pull/11
-* The changelog has been added to the Readme file, by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-mongodb/pull/10
-
-**Full Changelog**: https://github.com/Codeception/module-mongodb/compare/1.1.1...2.0.0
-
-
 ### module-sequence 2.0.0: 2.0.0
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 14:36:31 / [Repository](https://github.com/Codeception/module-sequence)   / [Releases](https://github.com/Codeception/module-sequence/releases)
