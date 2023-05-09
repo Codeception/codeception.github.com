@@ -5,33 +5,47 @@ title: Commands - Codeception - Documentation
 
 # Console Commands
 
-## GenerateCest
+## GherkinSnippets
 
-Generates Cest (scenario-driven object-oriented test) file:
+Generates code snippets for matched feature files in a suite.
+Code snippets are expected to be implemented in Actor or PageObjects
 
-* `codecept generate:cest suite Login`
-* `codecept g:cest suite subdir/subdir/testnameCest.php`
-* `codecept g:cest suite LoginCest -c path/to/project`
-* `codecept g:cest "App\Login"`
+Usage:
 
-
-
-
-## GenerateGroup
-
-Creates empty GroupObject - extension which handles all group events.
-
-* `codecept g:group Admin`
+* `codecept gherkin:snippets acceptance` - snippets from all feature of acceptance tests
+* `codecept gherkin:snippets acceptance/feature/users` - snippets from `feature/users` dir of acceptance tests
+* `codecept gherkin:snippets acceptance user_account.feature` - snippets from a single feature file
+* `codecept gherkin:snippets acceptance/feature/users/user_accout.feature` - snippets from feature file in a dir
 
 
 
-## GenerateStepObject
+## GenerateFeature
 
-Generates StepObject class. You will be asked for steps you want to implement.
+Generates Feature file (in Gherkin):
 
-* `codecept g:stepobject acceptance AdminSteps`
-* `codecept g:stepobject acceptance UserSteps --silent` - skip action questions
+* `codecept generate:feature suite Login`
+* `codecept g:feature suite subdir/subdir/login.feature`
+* `codecept g:feature suite login.feature -c path/to/project`
 
+
+
+
+## GenerateEnvironment
+
+Generates empty environment configuration file into envs dir:
+
+ * `codecept g:env firefox`
+
+Required to have `envs` path to be specified in `codeception.yml`
+
+
+
+## GenerateTest
+
+Generates skeleton for Unit Test that extends `Codeception\TestCase\Test`.
+
+* `codecept g:test unit User`
+* `codecept g:test unit "App\User"`
 
 
 
@@ -47,25 +61,31 @@ If suite name is provided, an actor class will be included into placeholder
 
 
 
-## GenerateFeature
-
-Generates Feature file (in Gherkin):
-
-* `codecept generate:feature suite Login`
-* `codecept g:feature suite subdir/subdir/login.feature`
-* `codecept g:feature suite login.feature -c path/to/project`
+## Init
 
 
 
+## ConfigValidate
 
-## GeneratePageObject
+Validates and prints Codeception config.
+Use it do debug Yaml configs
 
-Generates PageObject. Can be generated either globally, or just for one suite.
-If PageObject is generated globally it will act as UIMap, without any logic in it.
+Check config:
 
-* `codecept g:page Login`
-* `codecept g:page Registration`
-* `codecept g:page acceptance Login`
+* `codecept config`: check global config
+* `codecept config unit`: check suite config
+
+Load config:
+
+* `codecept config:validate -c path/to/another/config`: from another dir
+* `codecept config:validate -c another_config.yml`: from another config file
+
+Check overriding config values (like in `run` command)
+
+* `codecept config:validate -o "settings: shuffle: true"`: enable shuffle
+* `codecept config:validate -o "settings: lint: false"`: disable linting
+* `codecept config:validate -o "reporters: report: \Custom\Reporter" --report`: use custom reporter
+
 
 
 
@@ -85,72 +105,11 @@ By default it will create 3 suites **acceptance**, **functional**, and **unit**.
 
 
 
-## GenerateHelper
+## GenerateGroup
 
-Creates empty Helper class.
+Creates empty GroupObject - extension which handles all group events.
 
-* `codecept g:helper MyHelper`
-* `codecept g:helper "My\Helper"`
-
-
-
-
-## Build
-
-Generates Actor classes (initially Guy classes) from suite configs.
-Starting from Codeception 2.0 actor classes are auto-generated. Use this command to generate them manually.
-
-* `codecept build`
-* `codecept build path/to/project`
-
-
-
-
-## CompletionFallback
-
-
-
-## Console
-
-Try to execute test commands in run-time. You may try commands before writing the test.
-
-* `codecept console acceptance` - starts acceptance suite environment. If you use WebDriver you can manipulate browser with Codeception commands.
-
-
-
-## GenerateTest
-
-Generates skeleton for Unit Test that extends `Codeception\TestCase\Test`.
-
-* `codecept g:test unit User`
-* `codecept g:test unit "App\User"`
-
-
-
-## SelfUpdate
-
-Auto-updates phar archive from official site: 'https://codeception.com/codecept.phar' .
-
-* `php codecept.phar self-update`
-
-@author Franck Cassedanne <franck@cassedanne.com>
-
-
-
-
-## DryRun
-
-Shows step by step execution process for scenario driven tests without actually running them.
-
-* `codecept dry-run acceptance`
-* `codecept dry-run acceptance MyCest`
-* `codecept dry-run acceptance checkout.feature`
-* `codecept dry-run tests/acceptance/MyCest.php`
-
-
-
-
-## Init
+* `codecept g:group Admin`
 
 
 
@@ -254,38 +213,90 @@ Create new test suite. Requires suite name and actor name
 
 
 
-## GenerateEnvironment
+## GenerateCest
 
-Generates empty environment configuration file into envs dir:
+Generates Cest (scenario-driven object-oriented test) file:
 
- * `codecept g:env firefox`
-
-Required to have `envs` path to be specified in `codeception.yml`
-
-
-
-## GherkinSnippets
-
-Generates code snippets for matched feature files in a suite.
-Code snippets are expected to be implemented in Actor or PageObjects
-
-Usage:
-
-* `codecept gherkin:snippets acceptance` - snippets from all feature of acceptance tests
-* `codecept gherkin:snippets acceptance/feature/users` - snippets from `feature/users` dir of acceptance tests
-* `codecept gherkin:snippets acceptance user_account.feature` - snippets from a single feature file
-* `codecept gherkin:snippets acceptance/feature/users/user_accout.feature` - snippets from feature file in a dir
+* `codecept generate:cest suite Login`
+* `codecept g:cest suite subdir/subdir/testnameCest.php`
+* `codecept g:cest suite LoginCest -c path/to/project`
+* `codecept g:cest "App\Login"`
 
 
 
-## GherkinSteps
 
-Prints all steps from all Gherkin contexts for a specific suite
+## GeneratePageObject
 
-{% highlight yaml %}
-codecept gherkin:steps acceptance
+Generates PageObject. Can be generated either globally, or just for one suite.
+If PageObject is generated globally it will act as UIMap, without any logic in it.
 
-{% endhighlight %}
+* `codecept g:page Login`
+* `codecept g:page Registration`
+* `codecept g:page acceptance Login`
+
+
+
+## Clean
+
+Recursively cleans `output` directory and generated code.
+
+* `codecept clean`
+
+
+
+
+## GenerateHelper
+
+Creates empty Helper class.
+
+* `codecept g:helper MyHelper`
+* `codecept g:helper "My\Helper"`
+
+
+
+
+
+## Console
+
+Try to execute test commands in run-time. You may try commands before writing the test.
+
+* `codecept console acceptance` - starts acceptance suite environment. If you use WebDriver you can manipulate browser with Codeception commands.
+
+
+
+## SelfUpdate
+
+Auto-updates phar archive from official site: 'https://codeception.com/codecept.phar' .
+
+* `php codecept.phar self-update`
+
+@author Franck Cassedanne <franck@cassedanne.com>
+
+
+
+## CompletionFallback
+
+
+
+## Build
+
+Generates Actor classes (initially Guy classes) from suite configs.
+Starting from Codeception 2.0 actor classes are auto-generated. Use this command to generate them manually.
+
+* `codecept build`
+* `codecept build path/to/project`
+
+
+
+
+## DryRun
+
+Shows step by step execution process for scenario driven tests without actually running them.
+
+* `codecept dry-run acceptance`
+* `codecept dry-run acceptance MyCest`
+* `codecept dry-run acceptance checkout.feature`
+* `codecept dry-run tests/acceptance/MyCest.php`
 
 
 
@@ -300,35 +311,24 @@ Generates user-friendly text scenarios from scenario-driven tests (Cest).
 
 
 
-## Clean
+## GenerateStepObject
 
-Recursively cleans `output` directory and generated code.
+Generates StepObject class. You will be asked for steps you want to implement.
 
-* `codecept clean`
+* `codecept g:stepobject acceptance AdminSteps`
+* `codecept g:stepobject acceptance UserSteps --silent` - skip action questions
 
 
 
 
-## ConfigValidate
+## GherkinSteps
 
-Validates and prints Codeception config.
-Use it do debug Yaml configs
+Prints all steps from all Gherkin contexts for a specific suite
 
-Check config:
+{% highlight yaml %}
+codecept gherkin:steps acceptance
 
-* `codecept config`: check global config
-* `codecept config unit`: check suite config
-
-Load config:
-
-* `codecept config:validate -c path/to/another/config`: from another dir
-* `codecept config:validate -c another_config.yml`: from another config file
-
-Check overriding config values (like in `run` command)
-
-* `codecept config:validate -o "settings: shuffle: true"`: enable shuffle
-* `codecept config:validate -o "settings: lint: false"`: disable linting
-* `codecept config:validate -o "reporters: report: \Custom\Reporter" --report`: use custom reporter
+{% endhighlight %}
 
 
 
