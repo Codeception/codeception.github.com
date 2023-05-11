@@ -46,18 +46,13 @@ title: Addons
         list</a> on
         GitHub and send a Pull Request.
     </div>
-
     <div class="row">
         <div class="grid" data-columns>
-
-            <!-- Card Projects -->
-
             {% for module in site.data.modules %}
             <div class="card module" {% if module.color %}
                  style="background: {{module.color}};"
                  {% endif %}>
                 <a href="{{module.link}}" target="_blank">
-
                     {% if module.image %}
                     <span class="card-image" style="background-image: url({{ module.image }}); ">
     <span class="card-title">      
@@ -69,7 +64,6 @@ title: Addons
     {{module.name}}
     </span>
                     {% endif %}
-
                     <div class="card-content">
                         {{module.description | markdownify }}
                     </div>
@@ -78,7 +72,6 @@ title: Addons
             {% endfor %}
         </div>
     </div>
-
     <div class="row">
         <h2 class="text-center">Community Extensions</h2>
     </div>
@@ -90,9 +83,6 @@ title: Addons
 
     <div class="row">
         <div class="grid" data-columns>
-
-            <!-- Card Projects -->
-
             {% for extension in site.data.extensions %}
             <div class="card extension" {% if extension.color %}
                  style="background: {{extension.color}};"
