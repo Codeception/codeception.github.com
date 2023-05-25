@@ -3390,16 +3390,6 @@ Fixed
 - Dependencies
 
 
-### module-phalcon4 1.0.2: v1.0.2
-
-Released by [![](https://avatars.githubusercontent.com/u/7444246?v=4&s=16) ruudboon](https://github.com/ruudboon) on 2020/01/07 12:32:16 / [Repository](https://github.com/Codeception/module-phalcon4)   / [Releases](https://github.com/Codeception/module-phalcon4/releases)
-
-
-
-Fixed
-- Replacing service in DI from functional test not working
-
-
 ### module-phalcon4 1.0.1: v1.0.1
 
 Released by [![](https://avatars.githubusercontent.com/u/7444246?v=4&s=16) ruudboon](https://github.com/ruudboon) on 2020/01/06 11:26:42 / [Repository](https://github.com/Codeception/module-phalcon4)   / [Releases](https://github.com/Codeception/module-phalcon4/releases)
