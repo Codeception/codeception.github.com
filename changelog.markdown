@@ -861,6 +861,16 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Only Laravel 8 is supported
 
 
+### lib-innerbrowser 3.1.2: 3.1.2
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/04/09 08:51:34 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
+
+
+
+* Removed dontSeeCheckboxIsChecked parameter type declaration to permit arrays
+* Fixed formatting of Crawler and CrawlerNot constraint failure messages
+
+
 ### module-webdriver 3.1.1: 3.1.1
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/04/09 08:33:11 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
@@ -1239,6 +1249,19 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 * Compatibility with Codeception 5
+
+
+### lib-innerbrowser 2.0.2: 2.0.2
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2022/02/01 17:42:05 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
+
+
+
+## What's Changed
+* Prevent "Uncaught TypeError: explode(): Argument [#2](https://github.com/Codeception/lib-innerbrowser/issues/2) ($string) must be of type string, null given" by **[Fahl-Design](https://github.com/Fahl-Design)** in https://github.com/Codeception/lib-innerbrowser/pull/47
+* Fix compatibility with symfony/dom-crawler < 5.3.0-BETA-1 by **[nrocy](https://github.com/nrocy)** in https://github.com/Codeception/lib-innerbrowser/pull/50
+
+**Full Changelog**: https://github.com/Codeception/lib-innerbrowser/compare/2.0.1...2.0.2
 
 
 ### Codeception 5.0.0-alpha1: 5.0.0-alpha1
@@ -3762,6 +3785,15 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 ### lib-innerbrowser 1.0.1: Add HTML snapshots of failing tests to HTML Report 
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/10/16 07:48:34 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
+
+
+
+
+
+
+### lib-innerbrowser 1.0.0: Initial release
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/09/24 20:08:14 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
 
 
 
