@@ -302,6 +302,15 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * grabServiceFromContainer: Returned service is not always object by **[svycka](https://github.com/svycka)** in https://github.com/Codeception/module-laminas/pull/23
 
 
+### module-laravel 2.3.0: 2.3.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/11/19 20:34:50 / [Repository](https://github.com/Codeception/module-laravel)   / [Releases](https://github.com/Codeception/module-laravel/releases)
+
+
+
+* Allow to set headers in module configuration by **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/module-laravel/pull/47
+
+
 ### module-laravel 3.1.0: 3.1.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/11/19 20:32:53 / [Repository](https://github.com/Codeception/module-laravel)   / [Releases](https://github.com/Codeception/module-laravel/releases)
@@ -840,6 +849,16 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Stricter check for phpdotenv v5 (older versions are not supported)
 * Throw exception if actor setting is missing in suite configuration
 * Use correct types in ParamsLoader and Configuration classes, avoid type errors
+
+
+### module-laravel 3.0.0: 3.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/04/20 10:13:08 / [Repository](https://github.com/Codeception/module-laravel)   / [Releases](https://github.com/Codeception/module-laravel/releases)
+
+
+
+* Support for Codeception 5
+* Only Laravel 8 is supported
 
 
 ### lib-innerbrowser 3.1.2: 3.1.2
