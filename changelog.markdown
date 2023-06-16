@@ -9,6 +9,17 @@ title: Codeception Changelog
 
 
 
+### module-yii2 1.1.9: 1.1.9
+
+Released by [![](https://avatars.githubusercontent.com/u/47294?v=4&s=16) samdark](https://github.com/samdark) on 2023/06/16 03:52:10 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
+
+
+
+- [#85](https://github.com/Codeception/module-yii2/issues/85): Fix the case for "yii" namespace in phpdoc (@ilyaplot)
+- [#86](https://github.com/Codeception/module-yii2/issues/86): Use correct type declaration for amOnPage method (@erickskrauch)
+- [#88](https://github.com/Codeception/module-yii2/issues/88): Enable object override to InitDbFixture during FixturesStore initialization (@PoohOka)
+
+
 ### lib-web 1.0.2: 1.0.2
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/04/18 20:33:22 / [Repository](https://github.com/Codeception/lib-web)   / [Releases](https://github.com/Codeception/lib-web/releases)

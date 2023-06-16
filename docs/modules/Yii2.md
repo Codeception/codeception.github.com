@@ -356,7 +356,7 @@ Requires the `user` component to be enabled and configured.
 
 #### amOnPage
 
-* `param string|array` $page the URI or route in array format
+* `param string` $page the page URI
 * `return void`
 
 Opens the page for the given relative URI or route.
