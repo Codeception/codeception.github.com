@@ -2225,6 +2225,20 @@ Released by [![](https://avatars.githubusercontent.com/u/47294?v=4&s=16) samdark
 - Add ability to specify application class in config ([#48](https://github.com/Codeception/module-yii2/issues/48))
 
 
+### module-phalcon4 v1.0.7: v1.0.7
+
+Released by [![](https://avatars.githubusercontent.com/u/3289702?v=4&s=16) Jeckerson](https://github.com/Jeckerson) on 2021/05/18 18:21:15 / [Repository](https://github.com/Codeception/module-phalcon4)   / [Releases](https://github.com/Codeception/module-phalcon4/releases)
+
+
+
+Updated code base to PHP 7.2 ([#14](https://github.com/Codeception/module-phalcon4/issues/14)):
+- Added strict types
+- Added return types
+- Added some type hints
+- Removed unnecessary qualifiers
+- sha1 by default instead of md5.
+
+
 ### module-lumen 2.0.1: 2.0.1
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/04/29 14:24:58 / [Repository](https://github.com/Codeception/module-lumen)   / [Releases](https://github.com/Codeception/module-lumen/releases)
