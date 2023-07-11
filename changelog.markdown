@@ -3391,6 +3391,16 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 
+### module-phalcon4 1.0.3: v1.0.3
+
+Released by [![](https://avatars.githubusercontent.com/u/7444246?v=4&s=16) ruudboon](https://github.com/ruudboon) on 2020/01/11 17:02:24 / [Repository](https://github.com/Codeception/module-phalcon4)   / [Releases](https://github.com/Codeception/module-phalcon4/releases)
+
+
+
+Fixed
+- Dependencies
+
+
 ### module-phalcon4 1.0.2: v1.0.2
 
 Released by [![](https://avatars.githubusercontent.com/u/7444246?v=4&s=16) ruudboon](https://github.com/ruudboon) on 2020/01/07 12:32:16 / [Repository](https://github.com/Codeception/module-phalcon4)   / [Releases](https://github.com/Codeception/module-phalcon4/releases)
