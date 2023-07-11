@@ -322,6 +322,18 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Allow to set headers in module configuration by **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/module-laravel/pull/47
 
 
+### module-laravel 3.1.0: 3.1.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/11/19 20:32:53 / [Repository](https://github.com/Codeception/module-laravel)   / [Releases](https://github.com/Codeception/module-laravel/releases)
+
+
+
+* Use the testing environment file specified in a suite by **[barmax](https://github.com/barmax)** in https://github.com/Codeception/module-laravel/pull/46
+* Allow to set headers in module configuration by **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/module-laravel/pull/47
+* Remove Laravel6\ExceptionHandlerDecorator by **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/module-laravel/pull/48
+
+
+
 ### Codeception 5.0.4: 5.0.4
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/10/30 19:21:03 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
@@ -469,6 +481,15 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 * Add (dont)seeResponseJsonXpathEvaluatesTo methods [#85](https://github.com/Codeception/module-rest/issues/85)
 * Fixed return type of grabHttpHeader method  [#86](https://github.com/Codeception/module-rest/issues/86) 
+
+
+### module-laravel 3.0.1: 3.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2022/08/07 15:25:34 / [Repository](https://github.com/Codeception/module-laravel)   / [Releases](https://github.com/Codeception/module-laravel/releases)
+
+
+
+- Minor bug fix: Assign default value to client property by **[Naktibalda](https://github.com/Naktibalda)** ([#44](https://github.com/Codeception/module-laravel/issues/44))
 
 
 ### module-phpbrowser 2.5.0: 2.5.0
