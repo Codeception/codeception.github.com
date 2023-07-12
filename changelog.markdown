@@ -2313,6 +2313,15 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Other documentation improvements
 
 
+### lib-innerbrowser 1.4.2: Don't set request body for DELETE and OPTIONS requests
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/04/06 05:29:20 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
+
+
+
+
+
+
 ### module-redis 1.1.0: Allow more parameters to be sent to Predis Client
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/03/31 16:04:36 / [Repository](https://github.com/Codeception/module-redis)   / [Releases](https://github.com/Codeception/module-redis/releases)
@@ -3071,6 +3080,16 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 
+### lib-innerbrowser 1.3.2: 
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/07/05 14:22:41 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
+
+
+
+* Updated (dont)seeCurrentUrlMatches methods to use wrapper method instead of deprecated assert(Not)RegExp method.
+* Fixed various code smells reported by PhpStorm
+
+
 ### module-webdriver 1.1.0: switchToFrame
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/05/31 08:52:02 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
@@ -3325,6 +3344,15 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 [#7](https://github.com/Codeception/module-rest/issues/7) by **[svycka](https://github.com/svycka)** 
+
+
+### lib-innerbrowser 1.3.0: Allow to add or remove server parameters
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/01/27 09:33:02 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
+
+
+
+* [#5](https://github.com/Codeception/lib-innerbrowser/issues/5) by **[svycka](https://github.com/svycka)**
 
 
 ### module-zf2 1.0.2: Empty request content can't be null
