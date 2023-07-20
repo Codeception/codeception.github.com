@@ -254,19 +254,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Unset SHELL_VERBOSITY environment variable before execution of command [#13](https://github.com/Codeception/module-cli/issues/13) 
 
 
-### Codeception 5.0.6: 5.0.6
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/12/28 14:20:04 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Fixed `canSee` assertions in Unit format [#6610](https://github.com/Codeception/Codeception/issues/6610)
-* `tryTo` methods must return boolean result [#6614](https://github.com/Codeception/Codeception/issues/6614)
-* Fixed various issues with handling of `@skip` and `@incomplete` annotations and attributes in Cest format [#6617](https://github.com/Codeception/Codeception/issues/6617)
-* Stopped adding `__mocked` field to mocks created by Stub library [#6620](https://github.com/Codeception/Codeception/issues/6620)
-* Fixed deprecated string syntax in Run command [#6618](https://github.com/Codeception/Codeception/issues/6618) by **[shtiher-pp](https://github.com/shtiher-pp)**
-
-
 ### module-db 3.1.0: 3.1.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/12/03 10:23:12 / [Repository](https://github.com/Codeception/module-db)   / [Releases](https://github.com/Codeception/module-db/releases)
@@ -625,19 +612,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 * Fix compatibility with Codeception 5.0.0-RC6 [#72](https://github.com/Codeception/module-yii2/issues/72) 
-
-
-### Codeception 5.0.0-RC6: 5.0.0-RC6
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/07/12 07:13:56 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Added new attributes (Prepare, Env, BeforeClass,AfterClass, Given, When, Then)
-* Class level attributes are applied to all methods
-* Codeception attributes are supported in unit tests
-* Cest format can use data providers from other classes
-
 
 
 ### Codeception 5.0.0-RC5: 5.0.0-RC5
@@ -1429,6 +1403,17 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Fixed wildcard matching of group files ([#6302](https://github.com/Codeception/Codeception/issues/6302)) by **[DavertMik](https://github.com/DavertMik)**
 
 
+### Codeception 4.1.26: 4.1.26
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/12/21 19:25:44 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Added editorUrl setting to codeception.yml ([#6261](https://github.com/Codeception/Codeception/issues/6261)) by **[ThomasLandauer](https://github.com/ThomasLandauer)**
+* Reverted optional value to fail-fast option because it was breaking change ([#6290](https://github.com/Codeception/Codeception/issues/6290))
+* Fixed E_DEPRECATED warnings in Example class on PHP 8.1 ([#6298](https://github.com/Codeception/Codeception/issues/6298)) by **[fabacino](https://github.com/fabacino)**
+
+
 ### module-phpbrowser 2.0.2: 2.0.2
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/21 15:23:57 / [Repository](https://github.com/Codeception/module-phpbrowser)   / [Releases](https://github.com/Codeception/module-phpbrowser/releases)
@@ -1454,6 +1439,15 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 
 
 * Update dependencies (https://github.com/Codeception/module-redis/pull/15)
+
+
+### Codeception 4.1.25: 4.1.25
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/21 01:58:17 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Update dependencies (https://github.com/Codeception/Codeception/pull/6296)
 
 
 ### module-asserts 2.0.1: 2.0.1
