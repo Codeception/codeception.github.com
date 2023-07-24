@@ -1479,17 +1479,6 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 * Update dependencies by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-ftp/pull/6
 
 
-### module-symfony 2.1.1: 2.1.1
-
-Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/18 14:41:02 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
-
-
-
-## What's Changed
-
-* Update dependencies by **[ThomasLandauer](https://github.com/ThomasLandauer)** and **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-symfony/pull/149
-
-
 ### module-laminas 1.3.1: 1.3.1
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/18 14:39:53 / [Repository](https://github.com/Codeception/module-laminas)   / [Releases](https://github.com/Codeception/module-laminas/releases)
@@ -2786,27 +2775,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 
-
-
-### module-symfony 1.2.0: 1.2.0
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/10/31 18:41:28 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
-
-
-
-* New methods by **[TavoNiievez](https://github.com/TavoNiievez)**:
-  * amLoggedInAs
-  * logout
-  * seeInSession
-  * seeAuthentication
-  * dontSeeAuthentication
-  * seeUserHasRole 
-  * amOnAction
-  * seeCurrentActionIs
-  * seeNumRecords
-
-* Supports vlucas/phpdotenv ^3.6 and  ^4.1
-* Improved description and error messages of grabService and seeEmailIsSent by **[ThomasLandauer](https://github.com/ThomasLandauer)**
 
 
 ### module-memcache 1.0.1: Support PHP 8
