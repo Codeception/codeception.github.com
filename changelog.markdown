@@ -9,6 +9,15 @@ title: Codeception Changelog
 
 
 
+### module-phalcon5 v2.0.1: v2.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/1073784?v=4&s=16) niden](https://github.com/niden) on 2023/08/03 17:54:06 / [Repository](https://github.com/Codeception/module-phalcon5)   / [Releases](https://github.com/Codeception/module-phalcon5/releases)
+
+
+
+Fixed getRawBody() return type [[#8](https://github.com/Codeception/module-phalcon5/issues/8)](https://github.com/Codeception/module-phalcon5/issues/8)
+
+
 ### module-yii2 1.1.9: 1.1.9
 
 Released by [![](https://avatars.githubusercontent.com/u/47294?v=4&s=16) samdark](https://github.com/samdark) on 2023/06/16 03:52:10 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
