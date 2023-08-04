@@ -900,6 +900,15 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Removed dontSeeCheckboxIsChecked parameter type declaration to permit arrays
 
 
+### lib-web 1.0.1: 1.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/04/09 08:19:47 / [Repository](https://github.com/Codeception/lib-web)   / [Releases](https://github.com/Codeception/lib-web/releases)
+
+
+
+* Removed dontSeeCheckboxIsChecked parameter type declaration to permit arrays and match seeCheckboxIsChecked
+
+
 ### Codeception 5.0.0-RC2: 5.0.0-RC2
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/04/08 07:05:05 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
