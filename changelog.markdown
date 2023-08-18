@@ -1575,6 +1575,15 @@ Released by [![](https://avatars.githubusercontent.com/u/1073784?v=4&s=16) niden
 Corrections for Packagist descriptions and PHP minimum version
 
 
+### module-phalcon5 v1.0.0: v1.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/1073784?v=4&s=16) niden](https://github.com/niden) on 2021/12/15 18:51:06 / [Repository](https://github.com/Codeception/module-phalcon5)   / [Releases](https://github.com/Codeception/module-phalcon5/releases)
+
+
+
+Initial release of the Codeception module for Phalcon 5.
+
+
 ### module-redis 1.4.0: 1.4.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/12/13 06:06:22 / [Repository](https://github.com/Codeception/module-redis)   / [Releases](https://github.com/Codeception/module-redis/releases)
