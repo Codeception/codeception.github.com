@@ -177,15 +177,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Support codeception/lib-innerbrowser v4
 
 
-### module-doctrine2 3.0.1: 3.0.1
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/02/06 07:55:15 / [Repository](https://github.com/Codeception/module-doctrine2)   / [Releases](https://github.com/Codeception/module-doctrine2/releases)
-
-
-
-* Fix deprecated string interpolation by **[Kolyunya](https://github.com/Kolyunya)** in https://github.com/Codeception/module-doctrine2/pull/59
-
-
 ### module-symfony 3.1.1: 3.1.1
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/02/06 07:50:11 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
@@ -3516,15 +3507,6 @@ Requires PHPUnit 8.4,  so this version can only be used on PHP 7.2+ and it is re
 ### lib-innerbrowser 1.1.0: Supports HTML5 button form attribute
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/11/21 15:51:19 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
-
-
-
-
-
-
-### module-doctrine2 1.0.1: Updated documentation
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/11/13 17:34:35 / [Repository](https://github.com/Codeception/module-doctrine2)   / [Releases](https://github.com/Codeception/module-doctrine2/releases)
 
 
 
