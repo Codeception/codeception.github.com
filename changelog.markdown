@@ -9,6 +9,26 @@ title: Codeception Changelog
 
 
 
+### Codeception 5.0.11: 5.0.11
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/08/22 06:53:38 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+## What's Changed
+* fix sharding for empty tests file by **[SamMousa](https://github.com/SamMousa)** in https://github.com/Codeception/Codeception/pull/6667
+* Add AllowDynamicProperties attribute to Unit by **[erickskrauch](https://github.com/erickskrauch)** in https://github.com/Codeception/Codeception/pull/6666
+* Include mock expectations in assertion count  by **[rene-bos](https://github.com/rene-bos)** in https://github.com/Codeception/Codeception/pull/6672
+* Allow multiple test dependencies by **[mbrodala](https://github.com/mbrodala)** in https://github.com/Codeception/Codeception/pull/6676
+* Fix JUnitReporter compatibility with PHPUnit 10.3 by **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/Codeception/pull/6685
+
+## New Contributors
+* **[rene-bos](https://github.com/rene-bos)** made their first contribution in https://github.com/Codeception/Codeception/pull/6672
+* **[mbrodala](https://github.com/mbrodala)** made their first contribution in https://github.com/Codeception/Codeception/pull/6676
+
+**Full Changelog**: https://github.com/Codeception/Codeception/compare/5.0.10...5.0.11
+
+
 ### module-phalcon5 v2.0.1: v2.0.1
 
 Released by [![](https://avatars.githubusercontent.com/u/1073784?v=4&s=16) niden](https://github.com/niden) on 2023/08/03 17:54:06 / [Repository](https://github.com/Codeception/module-phalcon5)   / [Releases](https://github.com/Codeception/module-phalcon5/releases)
@@ -1426,16 +1446,6 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 
 * Update dependencies (https://github.com/Codeception/module-rest/pull/67)
 * Updating docs to new default algo sha1 by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/module-rest/pull/66
-
-
-### Codeception 4.1.27: 4.1.27
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/12/22 06:49:04 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Renamed editorUrl setting to editor_url for consistency
-* Fixed wildcard matching of group files ([#6302](https://github.com/Codeception/Codeception/issues/6302)) by **[DavertMik](https://github.com/DavertMik)**
 
 
 ### module-phpbrowser 2.0.2: 2.0.2
