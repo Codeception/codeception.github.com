@@ -1261,6 +1261,27 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Update to min php8 ([#70](https://github.com/Codeception/module-rest/issues/70)) by **[pbojan](https://github.com/pbojan)**
 
 
+### Codeception 5.0.0-alpha2: 5.0.0-alpha2
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/02/19 19:33:46 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Generators create namespaced test suites by default ([#6071](https://github.com/Codeception/Codeception/issues/6071)) by **[DavertMik](https://github.com/DavertMik)**
+* Test can be filtered by data provider case number or name ([#6363](https://github.com/Codeception/Codeception/issues/6363)) by **[Naktibalda](https://github.com/Naktibalda)**
+* Removed `generate:cept` command (Cept format is deprecated)
+* Removed settings `disallow_test_output` and `log_incomplete_skipped`.
+* Removed setting `paths.log` (it was replaced by `paths.output` in Codeception 2.3)
+* Removed suite setting `class_name` (replaced by `actor` in Codeception 2.3)
+* Removed global setting `actor` (replaced by `actor_prefix` in Codeception 2.3)
+* Removed `Configuration::logDir` method (replaced by `Configuration::logDir` in 2.0)
+* ParamLoader throws exception if xml file is used but simplexml extension is missing ([#6346](https://github.com/Codeception/Codeception/issues/6346)) by **[mdoelker](https://github.com/mdoelker)**
+* Updated codebase to use PHP 8.0 features by **[TavoNiievez](https://github.com/TavoNiievez)**
+* Don't report test as useless if it failed (fixed bug introduced in alpha1)
+* Don't report local test coverage for remote suites (fixed bug introduced in alpha1)
+* Moved XmlBuilder class to module-soap
+
+
 ### lib-innerbrowser 3.0.0: 3.0.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/02/19 18:36:23 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
@@ -1281,6 +1302,31 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 * Fix compatibility with symfony/dom-crawler < 5.3.0-BETA-1 by **[nrocy](https://github.com/nrocy)** in https://github.com/Codeception/lib-innerbrowser/pull/50
 
 **Full Changelog**: https://github.com/Codeception/lib-innerbrowser/compare/2.0.1...2.0.2
+
+
+### Codeception 5.0.0-alpha1: 5.0.0-alpha1
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/01/30 18:56:34 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Decoupled test execution and reporting from PHPUnit
+* Custom reporters implementing TestListener are no longer supported and must be converted to Extensions
+* Tests of all formats are reported as useless if they perform no assertions and reports_useless_tests setting is enabled
+* Added path_coverage setting to enable path and branch coverage [#6158](https://github.com/Codeception/Codeception/issues/6158) by **[s0lus](https://github.com/s0lus)**
+* Added optional value to fail-fast option ([#6275](https://github.com/Codeception/Codeception/issues/6275)) by **[Verest](https://github.com/Verest)**
+* Removed JSON and TAP loggers
+* Removed code coverage blacklist functionality
+* Removed deprecated class aliases
+  - Codeception\TestCase\Test
+  - Codeception\Platform\Group
+  - Codeception\Platform\Group
+  - Codeception\TestCase
+* Removed settings disallow_test_output, log_incomplete_skipped and report_useless_tests
+* Introduced strict types in the code base by **[TavoNiievez](https://github.com/TavoNiievez)** 
+* Compatible with PHPUnit 10 only
+* Compatible with Symfony 4.4 - 6.0
+* Requires PHP 8.0 or higher
 
 
 ### Codeception 4.1.29: 4.1.29
@@ -1332,6 +1378,16 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 * Fixed type of client property
+
+
+### Codeception 4.1.28: 4.1.28
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/01/05 16:50:04 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Strictly compare test hashes to avoid skipping tests [#6320](https://github.com/Codeception/Codeception/issues/6320) by **[michel-cetina](https://github.com/michel-cetina)**
+* Fixed deprecation message in codecept build [#6311](https://github.com/Codeception/Codeception/issues/6311) by **[barmax](https://github.com/barmax)**
 
 
 ### module-webdriver 2.0.1: 2.0.1
@@ -1392,17 +1448,6 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 * Updating docs to new default algo sha1 by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/module-rest/pull/66
 
 
-### Codeception 4.1.26: 4.1.26
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/12/21 19:25:44 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Added editorUrl setting to codeception.yml ([#6261](https://github.com/Codeception/Codeception/issues/6261)) by **[ThomasLandauer](https://github.com/ThomasLandauer)**
-* Reverted optional value to fail-fast option because it was breaking change ([#6290](https://github.com/Codeception/Codeception/issues/6290))
-* Fixed E_DEPRECATED warnings in Example class on PHP 8.1 ([#6298](https://github.com/Codeception/Codeception/issues/6298)) by **[fabacino](https://github.com/fabacino)**
-
-
 ### module-phpbrowser 2.0.2: 2.0.2
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/21 15:23:57 / [Repository](https://github.com/Codeception/module-phpbrowser)   / [Releases](https://github.com/Codeception/module-phpbrowser/releases)
@@ -1428,15 +1473,6 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 
 
 * Update dependencies (https://github.com/Codeception/module-redis/pull/15)
-
-
-### Codeception 4.1.25: 4.1.25
-
-Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/21 01:58:17 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Update dependencies (https://github.com/Codeception/Codeception/pull/6296)
 
 
 ### module-asserts 2.0.1: 2.0.1
@@ -1547,27 +1583,6 @@ Released by [![](https://avatars.githubusercontent.com/u/1073784?v=4&s=16) niden
 
 
 Corrections for Packagist descriptions and PHP minimum version
-
-
-### Codeception 4.1.24: 
-
-Released by [![](https://avatars.githubusercontent.com/u/220264?v=4&s=16) DavertMik](https://github.com/DavertMik) on 2021/12/16 12:59:45 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Fixed running tests from group files in included configs ([#6292](https://github.com/Codeception/Codeception/issues/6292)) by **[DavertMik](https://github.com/DavertMik)**
-
-In this example, tests listed in `slow.txt` will be executed from backend/tests and frontend/tests:
-```yml
-# included configs
-include:
-  - backend/tests
-  - frontend/tests
-
-# groups defined in files
-groups:
-  slow: slow.txt
-```
 
 
 ### module-phalcon5 v1.0.0: v1.0.0
