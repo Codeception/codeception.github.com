@@ -3451,15 +3451,6 @@ Released by [![](https://avatars.githubusercontent.com/u/7444246?v=4&s=16) ruudb
 Initial release of the Codeception module for Phalcon 4.
 
 
-### module-db 1.0.1: Mysql: use single quotes for string value in getPrimaryKey
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/12/08 18:03:36 / [Repository](https://github.com/Codeception/module-db)   / [Releases](https://github.com/Codeception/module-db/releases)
-
-
-
-Fixes some compatibility issue with MariaDB https://github.com/Codeception/Codeception/issues/5778
-
-
 ### module-filesystem 1.0.2: Support symfony/finder 5
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/12/04 17:14:16 / [Repository](https://github.com/Codeception/module-filesystem)   / [Releases](https://github.com/Codeception/module-filesystem/releases)
@@ -3661,15 +3652,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 ### module-doctrine2 1.0.0: Initial release
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/10/19 15:27:12 / [Repository](https://github.com/Codeception/module-doctrine2)   / [Releases](https://github.com/Codeception/module-doctrine2/releases)
-
-
-
-
-
-
-### module-db 1.0.0: Initial release
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/10/19 15:27:01 / [Repository](https://github.com/Codeception/module-db)   / [Releases](https://github.com/Codeception/module-db/releases)
 
 
 
