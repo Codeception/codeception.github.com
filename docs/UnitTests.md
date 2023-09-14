@@ -151,7 +151,8 @@ $name = $user->getName(); // 'john'
 
 [See complete reference](https://codeception.com/docs/reference/Mock)
 
-Inside unit tests (`Codeception\Test\Unit`) it is recommended to use alternative API:
+To keep compatibility with PHPUnit its verification of expectations for Mocks,
+it is recommended to use alternative API in unit tests (`Codeception\Test\Unit`):
 
 ```php
 // create a stub with find method replaced
