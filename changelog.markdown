@@ -1487,6 +1487,17 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 * Update dependencies by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-asserts/pull/20
 
 
+### module-ftp 2.0.1: 2.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/18 15:18:57 / [Repository](https://github.com/Codeception/module-ftp)   / [Releases](https://github.com/Codeception/module-ftp/releases)
+
+
+
+## What's Changed
+
+* Update dependencies by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-ftp/pull/6
+
+
 ### module-symfony 2.1.1: 2.1.1
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/18 14:41:02 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
