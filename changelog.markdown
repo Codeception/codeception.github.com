@@ -2143,6 +2143,30 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Stops keeping message in unacked stated, by **[renq](https://github.com/renq)** 
 
 
+### module-webdriver 1.4.0: Added new methods
+
+Released by [![](https://avatars.githubusercontent.com/u/220264?v=4&s=16) DavertMik](https://github.com/DavertMik) on 2021/09/02 12:08:19 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
+
+
+
+* Added `type` method which types in characters into an active input.
+
+```php
+$I->type('Hello world');
+```
+You can emulate user input by setting a delay between key types:
+
+```php
+$I->type('Hello world', 0.1);
+```
+
+* Added `seeNumberOfTabs` assertion to check how many tabs are opened at this moment:
+
+```php
+$I->seeNumberOfTabs(2);
+```
+
+
 ### lib-innerbrowser 1.5.1: 1.5.1
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/08/30 15:40:07 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
@@ -3308,16 +3332,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 Use assertStringNotContainsString instead of assertNotContains in dontSeeInShellOutput
-
-
-### module-webdriver 1.0.2: Updated documentation of debug_log_entries
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/02/04 17:25:43 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
-
-
-
-module-webdriver does not display Selenium logs on every error by default,
-for debugging please change debug_log_entries in module configuration to positive value.
 
 
 ### module-rest 1.2.0: Response validation using JsonSchema
