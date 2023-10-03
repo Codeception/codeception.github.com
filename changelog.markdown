@@ -1898,6 +1898,22 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 **Full Changelog**: https://github.com/Codeception/module-laminas/compare/1.2.1...1.3.0
 
 
+### module-db 2.0.0: 2.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 05:38:52 / [Repository](https://github.com/Codeception/module-db)   / [Releases](https://github.com/Codeception/module-db/releases)
+
+
+
+## What's Changed
+
+* PHP 7.4 or higher is required.
+* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-db/pull/26
+* Replace `Codeception\Util\Stub` with `Codeception\Stub` in tests by **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/module-db/pull/13
+* The changelog has been added to the Readme file, by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-db/pull/24
+
+**Full Changelog**: https://github.com/Codeception/module-db/compare/1.1.0...2.0.0
+
+
 ### module-soap 2.0.0: 2.0.0
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 05:35:42 / [Repository](https://github.com/Codeception/module-soap)   / [Releases](https://github.com/Codeception/module-soap/releases)
@@ -2594,6 +2610,15 @@ If you're interested in contributing to this module and didn't know where to sta
 
 > Minor changes: ([#65](https://github.com/Codeception/module-symfony/issues/65)) ([#78](https://github.com/Codeception/module-symfony/issues/78)) 
 
+
+
+### module-db 1.1.0: 
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/12/20 13:38:20 / [Repository](https://github.com/Codeception/module-db)   / [Releases](https://github.com/Codeception/module-db/releases)
+
+
+
+Add support for IS NOT NULL in database assertions [#12](https://github.com/Codeception/module-db/issues/12) 
 
 
 ### module-symfony 1.5.0: 1.5.0
