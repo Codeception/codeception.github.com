@@ -2273,6 +2273,16 @@ Updated code base to PHP 7.2 ([#14](https://github.com/Codeception/module-phalco
 - sha1 by default instead of md5.
 
 
+### module-lumen 2.0.1: 2.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/04/29 14:24:58 / [Repository](https://github.com/Codeception/module-lumen)   / [Releases](https://github.com/Codeception/module-lumen/releases)
+
+
+
+**Fix** Factory compatibility issue with Lumen < 7 ([#12](https://github.com/Codeception/module-lumen/issues/12)) by  **[ibpavlov](https://github.com/ibpavlov)**.
+
+
+
 ### module-webdriver 1.2.1: Documentation update
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/04/23 17:31:52 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
