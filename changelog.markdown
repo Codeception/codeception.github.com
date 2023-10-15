@@ -9,6 +9,16 @@ title: Codeception Changelog
 
 
 
+### Codeception 5.0.12: 5.0.12
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/10/15 18:28:39 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Wait for all tests to finish before accessing the serialized test results by **[MarcelBolten](https://github.com/MarcelBolten)** in [#6702](https://github.com/Codeception/Codeception/issues/6702)
+* Updated Support Ukraine link in version string
+
+
 ### module-mezzio 4.0.2: 4.0.2
 
 Released by [![](https://avatars.githubusercontent.com/u/152236?v=4&s=16) Slamdunk](https://github.com/Slamdunk) on 2023/09/22 05:57:54 / [Repository](https://github.com/Codeception/module-mezzio)   / [Releases](https://github.com/Codeception/module-mezzio/releases)
@@ -1393,16 +1403,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 * Fixed type of client property
-
-
-### Codeception 4.1.28: 4.1.28
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/01/05 16:50:04 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Strictly compare test hashes to avoid skipping tests [#6320](https://github.com/Codeception/Codeception/issues/6320) by **[michel-cetina](https://github.com/michel-cetina)**
-* Fixed deprecation message in codecept build [#6311](https://github.com/Codeception/Codeception/issues/6311) by **[barmax](https://github.com/barmax)**
 
 
 ### module-webdriver 2.0.1: 2.0.1
