@@ -159,15 +159,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 
-### module-rest 3.3.2: 3.3.2
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/02/09 18:16:01 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
-
-
-
-* Reverted method signature changes accidentally released in 3.3.1
-
-
 ### module-soap 3.0.1: 3.0.1
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/02/09 07:08:01 / [Repository](https://github.com/Codeception/module-soap)   / [Releases](https://github.com/Codeception/module-soap/releases)
@@ -238,6 +229,15 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 * Allow installation of lib-innerbrowser v4 to support PHPUnit 10.
+
+
+### module-webdriver 4.0.0: 4.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/02/03 22:06:31 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
+
+
+
+* Supports PHPUnit 10
 
 
 ### Codeception 5.0.8: 5.0.8
@@ -3323,16 +3323,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 Use assertStringNotContainsString instead of assertNotContains in dontSeeInShellOutput
-
-
-### module-webdriver 1.0.2: Updated documentation of debug_log_entries
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/02/04 17:25:43 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
-
-
-
-module-webdriver does not display Selenium logs on every error by default,
-for debugging please change debug_log_entries in module configuration to positive value.
 
 
 ### module-rest 1.2.0: Response validation using JsonSchema
