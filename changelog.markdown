@@ -1035,16 +1035,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Support for Codeception 5
 
 
-### Codeception 5.0.0-RC1: 5.0.0-RC1
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/13 18:42:02 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Use PHPUnit 9 until PHPUnit 10 is released.
-* Read about earlier change in [CHANGELOG](https://github.com/Codeception/Codeception/blob/5.0/CHANGELOG-5.x.md).
-
-
 ### Codeception 4.1.31: 4.1.31
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/13 17:17:13 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
@@ -1403,6 +1393,16 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 * Fixed type of client property
+
+
+### Codeception 4.1.28: 4.1.28
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/01/05 16:50:04 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Strictly compare test hashes to avoid skipping tests [#6320](https://github.com/Codeception/Codeception/issues/6320) by **[michel-cetina](https://github.com/michel-cetina)**
+* Fixed deprecation message in codecept build [#6311](https://github.com/Codeception/Codeception/issues/6311) by **[barmax](https://github.com/barmax)**
 
 
 ### module-webdriver 2.0.1: 2.0.1
