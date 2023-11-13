@@ -3710,6 +3710,15 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 
+### module-sequence 1.0.0: Initial release
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/10/18 11:24:11 / [Repository](https://github.com/Codeception/module-sequence)   / [Releases](https://github.com/Codeception/module-sequence/releases)
+
+
+
+
+
+
 ### module-soap 1.0.0: Initial release
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/10/18 11:23:56 / [Repository](https://github.com/Codeception/module-soap)   / [Releases](https://github.com/Codeception/module-soap/releases)
