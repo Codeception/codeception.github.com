@@ -9,6 +9,16 @@ title: Codeception Changelog
 
 
 
+### lib-innerbrowser 4.0.1: 4.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/11/16 16:25:42 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
+
+
+
+* Use FQN for public methods by **[erickskrauch](https://github.com/erickskrauch)** in https://github.com/Codeception/lib-innerbrowser/pull/63
+* Fix numeric key in form by **[janfejtek](https://github.com/janfejtek)** in https://github.com/Codeception/lib-innerbrowser/pull/64
+
+
 ### Codeception 5.0.12: 5.0.12
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/10/15 18:28:39 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
@@ -3830,15 +3840,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 ### lib-innerbrowser 1.0.1: Add HTML snapshots of failing tests to HTML Report 
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/10/16 07:48:34 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
-
-
-
-
-
-
-### lib-innerbrowser 1.0.0: Initial release
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/09/24 20:08:14 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
 
 
 
