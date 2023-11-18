@@ -205,15 +205,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Support codeception/lib-innerbrowser v4
 
 
-### module-lumen 3.0.1: 3.0.1
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/02/09 06:43:17 / [Repository](https://github.com/Codeception/module-lumen)   / [Releases](https://github.com/Codeception/module-lumen/releases)
-
-
-
-* Support codeception/lib-innerbrowser v4
-
-
 ### module-laminas 3.0.2: 3.0.2
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/02/09 06:36:25 / [Repository](https://github.com/Codeception/module-laminas)   / [Releases](https://github.com/Codeception/module-laminas/releases)
