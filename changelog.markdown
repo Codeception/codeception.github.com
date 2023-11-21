@@ -1813,6 +1813,22 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 **Full Changelog**: https://github.com/Codeception/module-ftp/compare/1.0.2...2.0.0
 
 
+### module-cli 2.0.0: 2.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 06:11:12 / [Repository](https://github.com/Codeception/module-cli)   / [Releases](https://github.com/Codeception/module-cli/releases)
+
+
+
+## What's Changed
+
+* PHP 7.4 or higher is required.
+* Support PHP 8.1
+* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-cli/pull/10
+* The changelog has been added to the Readme file, by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-cli/pull/9
+
+**Full Changelog**: https://github.com/Codeception/module-cli/compare/1.1.1...2.0.0
+
+
 ### module-mezzio 3.0.0: 3.0.0
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 06:04:58 / [Repository](https://github.com/Codeception/module-mezzio)   / [Releases](https://github.com/Codeception/module-mezzio/releases)
