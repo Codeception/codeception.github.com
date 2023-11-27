@@ -1335,7 +1335,7 @@ Provide an array for the second argument to select multiple options:
 {% highlight php %}
 
 <?php
-$I->selectOption('Which OS do you use?', array('Windows','Linux'));
+$I->selectOption('Which OS do you use?', ['Windows', 'Linux']);
 
 {% endhighlight %}
 
@@ -1344,8 +1344,8 @@ Or provide an associative array for the second argument to specifically define w
 {% highlight php %}
 
 <?php
-$I->selectOption('Which OS do you use?', array('text' => 'Windows')); // Only search by text 'Windows'
-$I->selectOption('Which OS do you use?', array('value' => 'windows')); // Only search by value 'windows'
+$I->selectOption('Which OS do you use?', ['text' => 'Windows']); // Only search by text 'Windows'
+$I->selectOption('Which OS do you use?', ['value' => 'windows']); // Only search by value 'windows'
 
 {% endhighlight %}
 

@@ -9,6 +9,16 @@ title: Codeception Changelog
 
 
 
+### lib-web 1.0.3: 1.0.3
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/11/27 06:43:46 / [Repository](https://github.com/Codeception/lib-web)   / [Releases](https://github.com/Codeception/lib-web/releases)
+
+
+
+* Minor: Newer array syntax by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/lib-web/pull/6
+
+
+
 ### lib-innerbrowser 4.0.1: 4.0.1
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/11/16 16:25:42 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
