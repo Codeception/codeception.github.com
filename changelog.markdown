@@ -875,15 +875,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Use mixed type in method signatures
 
 
-### module-memcache 2.0.1: 2.0.1
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/05/27 05:40:50 / [Repository](https://github.com/Codeception/module-memcache)   / [Releases](https://github.com/Codeception/module-memcache/releases)
-
-
-
-* Specified types in more method signatures
-
-
 ### module-ftp 3.0.0: 3.0.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/05/26 05:55:16 / [Repository](https://github.com/Codeception/module-ftp)   / [Releases](https://github.com/Codeception/module-ftp/releases)
