@@ -9,6 +9,25 @@ title: Codeception Changelog
 
 
 
+### lib-web 1.0.4: 1.0.4
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/12/01 11:38:48 / [Repository](https://github.com/Codeception/lib-web)   / [Releases](https://github.com/Codeception/lib-web/releases)
+
+
+
+* Support Symfony 7 by **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/lib-web/pull/8
+
+
+### module-db 3.1.1: 3.1.1
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/12/01 11:34:57 / [Repository](https://github.com/Codeception/module-db)   / [Releases](https://github.com/Codeception/module-db/releases)
+
+
+
+* Fix dump loading (adds advice to increase pcre.backtrack_limit) by **[rizort](https://github.com/rizort)** in https://github.com/Codeception/module-db/pull/46
+* [bugfix] [#47](https://github.com/Codeception/module-db/issues/47) Malformed UTF-8 characters, possibly incorrectly encoded by **[cybd](https://github.com/cybd)** in https://github.com/Codeception/module-db/pull/48
+
+
 ### lib-web 1.0.3: 1.0.3
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/11/27 06:43:46 / [Repository](https://github.com/Codeception/lib-web)   / [Releases](https://github.com/Codeception/lib-web/releases)
