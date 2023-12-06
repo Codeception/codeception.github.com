@@ -2351,6 +2351,19 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Improved code quality [#37](https://github.com/Codeception/lib-innerbrowser/issues/37)
 
 
+### module-symfony 2.0.2: 2.0.2
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/04/16 13:39:49 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
+
+
+
+Logical changes by **[mrsombre](https://github.com/mrsombre)** : 
+- Fix Doctrine Connection service alias ([#129](https://github.com/Codeception/module-symfony/issues/129))
+
+Documentation changes by **[ThomasLandauer](https://github.com/ThomasLandauer)** :
+- `submitSymfonyForm()`: Mentioning `name` attribute ([#128](https://github.com/Codeception/module-symfony/issues/128))
+
+
 ### module-phalcon4 v1.0.6: v1.0.6
 
 Released by [![](https://avatars.githubusercontent.com/u/3289702?v=4&s=16) Jeckerson](https://github.com/Jeckerson) on 2021/04/13 21:30:04 / [Repository](https://github.com/Codeception/module-phalcon4)   / [Releases](https://github.com/Codeception/module-phalcon4/releases)
@@ -3071,6 +3084,15 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 [#5](https://github.com/Codeception/lib-asserts/issues/5) by **[TavoNiievez](https://github.com/TavoNiievez)** 
+
+
+### module-symfony 1.1.1: Fixed seeEmailIsSent 
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/08/28 07:06:19 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
+
+
+
+[#9](https://github.com/Codeception/module-symfony/issues/9) by **[ThomasLandauer](https://github.com/ThomasLandauer)** and **[TavoNiievez](https://github.com/TavoNiievez)** 
 
 
 ### module-webdriver 1.1.1: Multibyte characters are allowed in build artefact filenames
