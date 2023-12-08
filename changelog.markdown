@@ -9,6 +9,34 @@ title: Codeception Changelog
 
 
 
+### module-phpbrowser 3.0.1: 3.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/12/08 19:46:06 / [Repository](https://github.com/Codeception/module-phpbrowser)   / [Releases](https://github.com/Codeception/module-phpbrowser/releases)
+
+
+
+* Support for symfony/browser-kit v7
+
+
+
+### lib-xml 1.0.2: 1.0.2
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/12/08 19:33:31 / [Repository](https://github.com/Codeception/lib-xml)   / [Releases](https://github.com/Codeception/lib-xml/releases)
+
+
+
+* Support symfony/css-selector v7
+
+
+### module-filesystem 3.0.1: 3.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/12/08 19:24:04 / [Repository](https://github.com/Codeception/module-filesystem)   / [Releases](https://github.com/Codeception/module-filesystem/releases)
+
+
+
+* Support symfony/finder v7
+
+
 ### lib-web 1.0.4: 1.0.4
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/12/01 11:38:48 / [Repository](https://github.com/Codeception/lib-web)   / [Releases](https://github.com/Codeception/lib-web/releases)
