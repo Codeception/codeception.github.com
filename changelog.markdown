@@ -3087,6 +3087,15 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 
+### module-asserts 1.3.0: Support for full PHPUnit public API
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/08/28 08:10:16 / [Repository](https://github.com/Codeception/module-asserts)   / [Releases](https://github.com/Codeception/module-asserts/releases)
+
+
+
+[#7](https://github.com/Codeception/module-asserts/issues/7)  by **[TavoNiievez](https://github.com/TavoNiievez)** 
+
+
 ### lib-asserts 1.13.1: Fix methods broken by 1.13.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/08/28 07:50:06 / [Repository](https://github.com/Codeception/lib-asserts)   / [Releases](https://github.com/Codeception/lib-asserts/releases)
