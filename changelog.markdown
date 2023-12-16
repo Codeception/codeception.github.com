@@ -434,15 +434,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * grabServiceFromContainer: Returned service is not always object by **[svycka](https://github.com/svycka)** in https://github.com/Codeception/module-laminas/pull/23
 
 
-### module-laravel 2.3.0: 2.3.0
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/11/19 20:34:50 / [Repository](https://github.com/Codeception/module-laravel)   / [Releases](https://github.com/Codeception/module-laravel/releases)
-
-
-
-* Allow to set headers in module configuration by **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/module-laravel/pull/47
-
-
 ### module-laravel 3.1.0: 3.1.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/11/19 20:32:53 / [Repository](https://github.com/Codeception/module-laravel)   / [Releases](https://github.com/Codeception/module-laravel/releases)
@@ -981,16 +972,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Stricter check for phpdotenv v5 (older versions are not supported)
 * Throw exception if actor setting is missing in suite configuration
 * Use correct types in ParamsLoader and Configuration classes, avoid type errors
-
-
-### module-laravel 3.0.0: 3.0.0
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/04/20 10:13:08 / [Repository](https://github.com/Codeception/module-laravel)   / [Releases](https://github.com/Codeception/module-laravel/releases)
-
-
-
-* Support for Codeception 5
-* Only Laravel 8 is supported
 
 
 ### lib-innerbrowser 3.1.2: 3.1.2
@@ -2587,36 +2568,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 
-
-
-### module-laravel 2.0.0: 2.0.0
-
-Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2020/12/29 20:52:27 / [Repository](https://github.com/Codeception/module-laravel)   / [Releases](https://github.com/Codeception/module-laravel/releases)
-
-
-
-**New features:**
- - `Laravel 6`, `Laravel 7`, and `Laravel 8` compatibility.
- - Module documentation updated.
- - Added typed arguments.
- - Updated the module's code base following PHP 7.3+ standards.
-
-**Breaking changes:**
- - Removed support for PHP versions lower than `PHP 7.3`.
- - Removed support for `Laravel 5` and lower.
- - The `Codeception\Module\Laravel5` class was renamed to `Codeception\Module\Laravel`:
-```diff
-# tests/funcional.suite.yml
-modules:
-  enabled:
-    - Asserts
--    - Laravel5:
-+    - Laravel:
-        environment_file: .env.testing
-```
-> **Minor change**: Adding link to "central" parts explanation ([#8](https://github.com/Codeception/module-laravel/issues/8)) by **[ThomasLandauer](https://github.com/ThomasLandauer)**.
-
-If you're interested in contributing to this module and didn't know where to start, a [contribution guide](https://github.com/Codeception/module-laravel/blob/main/CONTRIBUTING.md) is now available, thanks to **[ThomasLandauer](https://github.com/ThomasLandauer)** and **[TavoNiievez](https://github.com/TavoNiievez)**.
 
 
 ### module-yii2 1.1.2: 1.1.2
