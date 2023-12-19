@@ -2485,6 +2485,24 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 Append query params to URL for HEAD requests
 
 
+### module-symfony 2.0.0: 2.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/02/12 22:31:22 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
+
+
+
+* **New:**
+  * Added Twig assertions: [`seeCurrentTemplateIs`](https://codeception.com/docs/modules/Symfony#seeCurrentTemplateIs), [`seeRenderedTemplate`](https://codeception.com/docs/modules/Symfony#seeRenderedTemplate) and [`dontSeeRenderedTemplate`](https://codeception.com/docs/modules/Symfony#dontSeeRenderedTemplate).
+  * The [`grabSentEmails`](https://codeception.com/docs/modules/Symfony#grabSentEmails) and [`grabLastSentEmail`](https://codeception.com/docs/modules/Symfony#grabLastSentEmail) functions were added.
+  * Added [`SeeOrphanEvent`](https://codeception.com/docs/modules/Symfony#seeOrphanEvent) and [`dontSeeOrphanEvent`](https://codeception.com/docs/modules/Symfony#dontSeeOrphanEvent) assertions.
+  * The `$url` parameter is now optional in the [`seePageIsAvailable`](https://codeception.com/docs/modules/Symfony#seePageIsAvailable) assertion.
+* **BC:**
+  * `Symfony 3.4` support removed. `Symfony 4.4` or higher is now required.
+  * Support for [`Swift Mailer`](https://symfony.com/doc/current/email.html) was dropped in favor of [`Symfony Mailer`](https://symfony.com/doc/current/mailer.html); the [`mailer`](https://github.com/Codeception/module-symfony/pull/9/files) configuration parameter was removed.
+
+> If you are already using `Symfony 4.4` or higher it should not be necessary to make changes to your tests to update!
+
+
 ### module-phalcon4 v1.0.5: v1.0.5
 
 Released by [![](https://avatars.githubusercontent.com/u/3289702?v=4&s=16) Jeckerson](https://github.com/Jeckerson) on 2021/02/10 22:09:30 / [Repository](https://github.com/Codeception/module-phalcon4)   / [Releases](https://github.com/Codeception/module-phalcon4/releases)
@@ -2760,6 +2778,20 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 
+
+
+### module-symfony 1.4.0: 1.4.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2020/11/24 16:56:31 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
+
+
+
+* New methods by **[TavoNiievez](https://github.com/TavoNiievez)**:
+  * seeFormErrorMessage ([#50](https://github.com/Codeception/module-symfony/issues/50))
+  * dontSeeFormErrors function ([#49](https://github.com/Codeception/module-symfony/issues/49))
+  * seeFormHasErrors function ([#48](https://github.com/Codeception/module-symfony/issues/48))
+
+* Minor logic fixes ([#51](https://github.com/Codeception/module-symfony/issues/51)), ([#47](https://github.com/Codeception/module-symfony/issues/47)), ([#44](https://github.com/Codeception/module-symfony/issues/44)), ([#41](https://github.com/Codeception/module-symfony/issues/41)) and ([#56](https://github.com/Codeception/module-symfony/issues/56)).
 
 
 ### module-symfony 1.3.0: 1.3.0
