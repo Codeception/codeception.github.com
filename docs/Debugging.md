@@ -8,7 +8,7 @@ title: Debugging - Codeception Docs
 # Debugging
 
 Writing a test is always the process of learning the code and the application.
-It is ok, if a test can't be writtng from scratch or you don't understand the effects of the code. 
+It is ok, if a test can't be written from scratch or you don't understand the effects of the code. 
 By looking into the following debugging practices you will learn how to get all required information inside a test to finish it.
 
 ## Re-Running Failed Tests
