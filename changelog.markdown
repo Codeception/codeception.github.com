@@ -1709,23 +1709,6 @@ By **[ThomasLandauer](https://github.com/ThomasLandauer)**:
 **Full Changelog**: https://github.com/Codeception/module-symfony/compare/2.0.5...2.1.0
 
 
-### module-asserts 2.0.0: 2.0.0
-
-Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 15:06:26 / [Repository](https://github.com/Codeception/module-asserts)   / [Releases](https://github.com/Codeception/module-asserts/releases)
-
-
-
-## What's Changed
-
-* PHP 7.4 or higher is required.
-* Support PHP 8.1
-* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-asserts/pull/13 and https://github.com/Codeception/module-asserts/pull/17
-* Replace `Codeception\Util\Stub` with `Codeception\Stub` in tests by **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/module-asserts/pull/11
-* The changelog has been added to the Readme file, by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-asserts/pull/16
-
-**Full Changelog**: https://github.com/Codeception/module-asserts/compare/1.3.1...2.0.0
-
-
 ### module-datafactory 2.0.0: 2.0.0
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 15:00:26 / [Repository](https://github.com/Codeception/module-datafactory)   / [Releases](https://github.com/Codeception/module-datafactory/releases)
@@ -3617,15 +3600,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 ### module-doctrine2 1.0.1: Updated documentation
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/11/13 17:34:35 / [Repository](https://github.com/Codeception/module-doctrine2)   / [Releases](https://github.com/Codeception/module-doctrine2/releases)
-
-
-
-
-
-
-### module-asserts 1.1.1: Documented that stringEnds functions were added in 1.1.0
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/11/13 17:33:39 / [Repository](https://github.com/Codeception/module-asserts)   / [Releases](https://github.com/Codeception/module-asserts/releases)
 
 
 
