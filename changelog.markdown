@@ -884,15 +884,6 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 **Full Changelog**: https://github.com/Codeception/module-symfony/compare/3.0.0...3.1.0
 
 
-### module-mongodb 3.0.0: 3.0.0
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/05/27 06:42:29 / [Repository](https://github.com/Codeception/module-mongodb)   / [Releases](https://github.com/Codeception/module-mongodb/releases)
-
-
-
-* Support Codeception 5
-
-
 ### module-memcache 3.0.0: 3.0.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/05/27 05:49:34 / [Repository](https://github.com/Codeception/module-memcache)   / [Releases](https://github.com/Codeception/module-memcache/releases)
