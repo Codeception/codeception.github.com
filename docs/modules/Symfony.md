@@ -252,9 +252,9 @@ Authenticates user for HTTP_AUTH
 
 #### amLoggedInAs
 
-* `param UserInterface` $user
+* `param \Symfony\Component\Security\Core\User\UserInterface` $user
 * `param string` $firewallName
-* `param null` $firewallContext
+* `param ?string` $firewallContext
 * `return void`
 
 Login with the given user object.
@@ -743,8 +743,47 @@ If your app performs a HTTP redirect, you need to suppress it using [stopFollowi
 Starting with version 2.0.0, `codeception/module-symfony` requires your app to use [Symfony Mailer](https://symfony.com/doc/current/mailer.html). If your app still uses [Swift Mailer](https://symfony.com/doc/current/email.html), set your version constraint to `^1.6`.
 
 
+#### dontSeeEvent
+
+* `param string|string[]|null` $expected
+* `return void`
+
+Verifies that there were no events during the test.
+
+Both regular and orphan events are checked.
+
+{% highlight php %}
+
+ <?php
+ $I->dontSeeEvent();
+ $I->dontSeeEvent('App\MyEvent');
+ $I->dontSeeEvent(['App\MyEvent', 'App\MyOtherEvent']);
+ 
+{% endhighlight %}
+
+
+#### dontSeeEventListenerIsCalled
+
+* `param class-string|class-string[]` $expected
+* `param string|string[]` $events
+* `return void`
+
+Verifies that one or more event listeners were not called during the test.
+
+{% highlight php %}
+
+<?php
+$I->dontSeeEventListenerIsCalled('App\MyEventListener');
+$I->dontSeeEventListenerIsCalled(['App\MyEventListener', 'App\MyOtherEventListener']);
+$I->dontSeeEventListenerIsCalled('App\MyEventListener', 'my.event);
+$I->dontSeeEventListenerIsCalled('App\MyEventListener', ['my.event', 'my.other.event']);
+
+{% endhighlight %}
+
+
 #### dontSeeEventTriggered
 
+@deprecated
 * `param object|string|string[]` $expected
 * `return void`
 
@@ -937,7 +976,7 @@ $I->dontSeeOptionIsSelected('#form input[name=payment]', 'Visa');
 
 #### dontSeeOrphanEvent
 
-* `param object|string|string[]` $expected
+* `param string|string[]` $expected
 * `return void`
 
 Verifies that there were no orphan events during the test.
@@ -951,7 +990,6 @@ of the EventDispatcher but was not handled by any listener after it was dispatch
 <?php
 $I->dontSeeOrphanEvent();
 $I->dontSeeOrphanEvent('App\MyEvent');
-$I->dontSeeOrphanEvent(new App\Events\MyEvent());
 $I->dontSeeOrphanEvent(['App\MyEvent', 'App\MyOtherEvent']);
 
 {% endhighlight %}
@@ -1171,7 +1209,7 @@ Grabs current page source code.
 
 #### grabParameter
 
-* `param string` $name
+* `param string` $parameterName
 * `return array|bool|float|int|string|null`
 
 Grabs a Symfony parameter
@@ -1676,8 +1714,49 @@ $I->seeEmailIsSent(2);
 {% endhighlight %}
 
 
+#### seeEvent
+
+* `param string|string[]` $expected
+* `return void`
+
+Verifies that one or more events were dispatched during the test.
+
+Both regular and orphan events are checked.
+
+If you need to verify that expected event is not orphan,
+add `dontSeeOrphanEvent` call.
+
+{% highlight php %}
+
+ <?php
+ $I->seeEvent('App\MyEvent');
+ $I->seeEvent(['App\MyEvent', 'App\MyOtherEvent']);
+ 
+{% endhighlight %}
+
+
+#### seeEventListenerIsCalled
+
+* `param class-string|class-string[]` $expected
+* `param string|string[]` $events
+* `return void`
+
+Verifies that one or more event listeners were called during the test.
+
+{% highlight php %}
+
+<?php
+$I->seeEventListenerIsCalled('App\MyEventListener');
+$I->seeEventListenerIsCalled(['App\MyEventListener', 'App\MyOtherEventListener']);
+$I->seeEventListenerIsCalled('App\MyEventListener', 'my.event);
+$I->seeEventListenerIsCalled('App\MyEventListener', ['my.event', 'my.other.event']);
+
+{% endhighlight %}
+
+
 #### seeEventTriggered
 
+@deprecated
 * `param object|string|string[]` $expected
 * `return void`
 
@@ -2026,7 +2105,7 @@ $I->seeOptionIsSelected('#form input[name=payment]', 'Visa');
 
 #### seeOrphanEvent
 
-* `param object|string|string[]` $expected
+* `param string|string[]` $expected
 * `return void`
 
 Verifies that one or more orphan events were dispatched during the test.
@@ -2039,7 +2118,6 @@ of the EventDispatcher but was not handled by any listener after it was dispatch
 
 <?php
 $I->seeOrphanEvent('App\MyEvent');
-$I->seeOrphanEvent(new App\Events\MyEvent());
 $I->seeOrphanEvent(['App\MyEvent', 'App\MyOtherEvent']);
 
 {% endhighlight %}

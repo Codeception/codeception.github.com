@@ -9,6 +9,25 @@ title: Codeception Changelog
 
 
 
+### module-symfony 3.2.0: 3.2.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2024/01/02 03:14:29 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
+
+
+
+## What's Changed
+* Deprecate event triggered assertions by **[xEdelweiss](https://github.com/xEdelweiss)** in https://github.com/Codeception/module-symfony/pull/169
+* Update event assertions by **[xEdelweiss](https://github.com/xEdelweiss)** in https://github.com/Codeception/module-symfony/pull/168
+* Add seeEvent/dontSeeEvent event assertions by **[xEdelweiss](https://github.com/xEdelweiss)** in https://github.com/Codeception/module-symfony/pull/173
+* Various improvements by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-symfony/pull/171
+* EventsAssertionsTrait refactor and Symfony 6.3 Support by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-symfony/pull/175
+
+## New Contributors
+* **[xEdelweiss](https://github.com/xEdelweiss)** made his first contribution in https://github.com/Codeception/module-symfony/pull/169
+
+**Full Changelog**: https://github.com/Codeception/module-symfony/compare/3.1.1...3.2.0
+
+
 ### Codeception 5.0.13: 5.0.13
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/12/22 19:46:56 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
