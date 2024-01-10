@@ -9,6 +9,16 @@ title: Codeception Changelog
 
 
 
+### module-yii2 1.1.10: 1.1.10
+
+Released by [![](https://avatars.githubusercontent.com/u/47294?v=4&s=16) samdark](https://github.com/samdark) on 2024/01/10 05:57:11 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
+
+
+
+- [#93](https://github.com/Codeception/module-yii2/issues/93): Fix symfony/browser-kit incompatibility (@jafaripur)
+- [#91](https://github.com/Codeception/module-yii2/issues/91): Fix parallel sessions with `$I->haveFriend()` when no session is active (@michaelarnauts)
+
+
 ### module-symfony 3.2.0: 3.2.0
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2024/01/02 03:14:29 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
