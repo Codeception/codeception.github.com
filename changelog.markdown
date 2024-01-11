@@ -9,6 +9,23 @@ title: Codeception Changelog
 
 
 
+### module-symfony 3.3.0: 3.3.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2024/01/11 22:17:26 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
+
+
+
+## What's Changed
+* Improved support for PHP 8.1, removed support for PHP 8.0
+* Symfony 6.4 Support ( https://github.com/Codeception/module-symfony/pull/177 )
+* Fix return type of `grabSecurityService` for compatibility with Symfony 7.0 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/module-symfony/pull/178
+* Test on Symfony 7.0 ( https://github.com/Codeception/module-symfony/pull/180 )
+* Minor formating by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/module-symfony/pull/179
+
+
+**Full Changelog**: https://github.com/Codeception/module-symfony/compare/3.2.0...3.3.0
+
+
 ### module-yii2 1.1.10: 1.1.10
 
 Released by [![](https://avatars.githubusercontent.com/u/47294?v=4&s=16) samdark](https://github.com/samdark) on 2024/01/10 05:57:11 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
