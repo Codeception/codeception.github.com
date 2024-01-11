@@ -2857,15 +2857,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 
-### module-cli 1.1.0: Add grabShellOutput method
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/11/16 06:27:24 / [Repository](https://github.com/Codeception/module-cli)   / [Releases](https://github.com/Codeception/module-cli/releases)
-
-
-
-
-
-
 ### module-doctrine2 1.1.0: 
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/11/14 20:44:32 / [Repository](https://github.com/Codeception/module-doctrine2)   / [Releases](https://github.com/Codeception/module-doctrine2/releases)
