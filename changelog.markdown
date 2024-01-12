@@ -9,6 +9,21 @@ title: Codeception Changelog
 
 
 
+### module-db 3.1.2: 3.1.2
+
+Released by [![](https://avatars.githubusercontent.com/u/1256298?v=4&s=16) sergeyklay](https://github.com/sergeyklay) on 2024/01/12 08:19:37 / [Repository](https://github.com/Codeception/module-db)   / [Releases](https://github.com/Codeception/module-db/releases)
+
+
+
+## What's Changed
+* Fix Db::executeQuery() for null parameter by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/module-db/pull/63
+
+## New Contributors
+* **[W0rma](https://github.com/W0rma)** made their first contribution in https://github.com/Codeception/module-db/pull/63
+
+**Full Changelog**: https://github.com/Codeception/module-db/compare/3.1.1...3.1.2
+
+
 ### module-symfony 3.3.0: 3.3.0
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2024/01/11 22:17:26 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
