@@ -319,15 +319,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Reverted method signature changes accidentally released in 3.3.1
 
 
-### module-soap 3.0.1: 3.0.1
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/02/09 07:08:01 / [Repository](https://github.com/Codeception/module-soap)   / [Releases](https://github.com/Codeception/module-soap/releases)
-
-
-
-* Updated dependencies
-
-
 ### module-mezzio 4.0.1: 4.0.1
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/02/09 06:57:42 / [Repository](https://github.com/Codeception/module-mezzio)   / [Releases](https://github.com/Codeception/module-mezzio/releases)
