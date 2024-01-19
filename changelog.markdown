@@ -1207,17 +1207,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Action file generator: Fixed handling of self and parent types
 
 
-### module-webdriver 3.1.0: 3.1.0
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/11 17:08:21 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
-
-
-
-* Moved WebDriver constraints from codeception/codeception
-* Moved code shared with lib-innerbrowser to codeception/lib-web
-* Improved code style
-
-
 ### module-soap 3.0.0: 3.0.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/11 16:39:18 / [Repository](https://github.com/Codeception/module-soap)   / [Releases](https://github.com/Codeception/module-soap/releases)
@@ -3264,15 +3253,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Fixed various code smells reported by PhpStorm
 
 
-### module-webdriver 1.1.0: switchToFrame
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/05/31 08:52:02 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
-
-
-
-* Introduced switchToFrame method [#9](https://github.com/Codeception/module-webdriver/issues/9) 
-
-
 ### module-webdriver 1.0.8: Suppress UnknownErrorException in _closeSession
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/04/29 13:52:51 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
@@ -3474,6 +3454,16 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 Use assertStringNotContainsString instead of assertNotContains in dontSeeInShellOutput
 
 
+### module-webdriver 1.0.2: Updated documentation of debug_log_entries
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/02/04 17:25:43 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
+
+
+
+module-webdriver does not display Selenium logs on every error by default,
+for debugging please change debug_log_entries in module configuration to positive value.
+
+
 ### module-rest 1.2.0: Response validation using JsonSchema
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/02/01 19:29:49 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
@@ -3550,6 +3540,15 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 ### module-apc 1.0.1: Removed requirement for ext-apc from composer.json
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/01/21 07:45:14 / [Repository](https://github.com/Codeception/module-apc)   / [Releases](https://github.com/Codeception/module-apc/releases)
+
+
+
+
+
+
+### module-webdriver 1.0.1: webdriver package moved to php-webdriver org
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/01/20 08:00:05 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
 
 
 
