@@ -2335,17 +2335,6 @@ Released by [![](https://avatars.githubusercontent.com/u/220264?v=4&s=16) Davert
 
 
 
-### module-laravel 2.0.1: 2.0.1
-
-Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/08/02 15:51:15 / [Repository](https://github.com/Codeception/module-laravel)   / [Releases](https://github.com/Codeception/module-laravel/releases)
-
-
-
-- fix: uploaded files should have test flag set to true ([#26](https://github.com/Codeception/module-laravel/issues/26)) by **[fkupper](https://github.com/fkupper)**
-- remove return type of callArtisan ([#25](https://github.com/Codeception/module-laravel/issues/25)) by **[fkupper](https://github.com/fkupper)**
-- add link to changelog in readme ([#24](https://github.com/Codeception/module-laravel/issues/24)) by **[Arhell](https://github.com/Arhell)** 
-
-
 ### module-symfony 2.0.5: 2.0.5
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/07/07 01:17:57 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
@@ -2719,15 +2708,6 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 
 
 Update project name to `module-laravel` ([#4](https://github.com/Codeception/module-laravel/issues/4))
-
-
-### module-laravel 1.1.1: 1.1.1
-
-Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2020/12/26 14:18:48 / [Repository](https://github.com/Codeception/module-laravel)   / [Releases](https://github.com/Codeception/module-laravel/releases)
-
-
-
-Support PHP 8 *(Depends on Laravel libraries actually supporting PHP 8)* by **[Naktibalda](https://github.com/Naktibalda)** 
 
 
 ### module-symfony 1.6.0: 1.6.0
