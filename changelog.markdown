@@ -9,6 +9,15 @@ title: Codeception Changelog
 
 
 
+### lib-innerbrowser 4.0.3: 4.0.3
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2024/02/02 20:37:41 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
+
+
+
+* Support PHPUnit 11 by **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/lib-innerbrowser/pull/67
+
+
 ### lib-web 1.0.5: 1.0.5
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2024/01/13 11:56:59 / [Repository](https://github.com/Codeception/lib-web)   / [Releases](https://github.com/Codeception/lib-web/releases)
@@ -138,6 +147,15 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 * Fix dump loading (adds advice to increase pcre.backtrack_limit) by **[rizort](https://github.com/rizort)** in https://github.com/Codeception/module-db/pull/46
 * [bugfix] [#47](https://github.com/Codeception/module-db/issues/47) Malformed UTF-8 characters, possibly incorrectly encoded by **[cybd](https://github.com/cybd)** in https://github.com/Codeception/module-db/pull/48
+
+
+### lib-innerbrowser 4.0.2: 4.0.2
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/12/01 11:28:55 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
+
+
+
+* Support Symfony 7.x by **[pfuhrmann](https://github.com/pfuhrmann)** in https://github.com/Codeception/lib-innerbrowser/pull/66
 
 
 ### lib-web 1.0.3: 1.0.3
@@ -3741,15 +3759,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 
-### lib-innerbrowser 1.0.2: Fix codeception/codeception build
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/11/09 20:31:44 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
-
-
-
-This versions fixes codeception/codeception branch builds
-
-
 ### module-yii2 1.0.1: Use stable versions of codeception and innerbrowser
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/10/25 17:33:04 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
@@ -3961,15 +3970,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 ### module-amqp 1.0.0: Initial release
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/10/18 11:05:50 / [Repository](https://github.com/Codeception/module-amqp)   / [Releases](https://github.com/Codeception/module-amqp/releases)
-
-
-
-
-
-
-### lib-innerbrowser 1.0.1: Add HTML snapshots of failing tests to HTML Report 
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/10/16 07:48:34 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
 
 
 
