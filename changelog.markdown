@@ -1246,6 +1246,19 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Uses lib-xml
 
 
+### Codeception 5.0.0-alpha3: 5.0.0-alpha3
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/11 11:02:50 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Support intersection types in actions
+* Introduced PSR-12 code style
+* Extracted some code to modules and shared libs
+* Fixed new incompatibilities with PHPUnit 10
+
+
+
 ### module-rest 3.1.0: 3.1.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/11 11:00:56 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
@@ -1508,17 +1521,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Compatible with PHPUnit 10 only
 * Compatible with Symfony 4.4 - 6.0
 * Requires PHP 8.0 or higher
-
-
-### Codeception 4.1.29: 4.1.29
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/01/29 17:00:53 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Fixed duplicate test runs when codeception.yml and codeception.dist.yml are present in multi-app setup by **[calvinalkan](https://github.com/calvinalkan)**
-* Action generator handles mixed type correctly
-* Parser fix to allow named parameters named class and namespace
 
 
 ### module-doctrine2 2.0.1: 2.0.1
