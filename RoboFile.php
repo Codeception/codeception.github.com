@@ -11,7 +11,7 @@ class RoboFile extends \Robo\Tasks
 
     const REPO_BLOB_URL = 'https://github.com/Codeception/Codeception/blob';
     const BRANCH_4x = '4.2';
-    const BRANCH_5x = '5.0';
+    const BRANCH_5x = '5.1';
 
     function post()
     {
@@ -419,7 +419,7 @@ EOF;
         $this->stopOnFail();
 
         $this->taskFilesystemStack()->mkdir('build/80')->run();
-        $this->setCodeceptionVersionTo('^5.0');
+        $this->setCodeceptionVersionTo('^' . self::BRANCH_5x);
         $this->setPlatformVersionTo('8.0.2');
         $buildFile = 'build/80/codecept.phar';
         $this->buildPhar($buildFile);
