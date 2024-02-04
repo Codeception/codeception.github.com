@@ -9,6 +9,17 @@ title: Codeception Changelog
 
 
 
+### Codeception 5.1.0: 5.1.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2024/02/04 12:58:29 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Support PHPUnit 11
+
+Note: PHPUnit 11 does not support excluding files from code coverage report
+
+
 ### lib-innerbrowser 4.0.3: 4.0.3
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2024/02/02 20:37:41 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
@@ -1496,31 +1507,6 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 * Fix compatibility with symfony/dom-crawler < 5.3.0-BETA-1 by **[nrocy](https://github.com/nrocy)** in https://github.com/Codeception/lib-innerbrowser/pull/50
 
 **Full Changelog**: https://github.com/Codeception/lib-innerbrowser/compare/2.0.1...2.0.2
-
-
-### Codeception 5.0.0-alpha1: 5.0.0-alpha1
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/01/30 18:56:34 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Decoupled test execution and reporting from PHPUnit
-* Custom reporters implementing TestListener are no longer supported and must be converted to Extensions
-* Tests of all formats are reported as useless if they perform no assertions and reports_useless_tests setting is enabled
-* Added path_coverage setting to enable path and branch coverage [#6158](https://github.com/Codeception/Codeception/issues/6158) by **[s0lus](https://github.com/s0lus)**
-* Added optional value to fail-fast option ([#6275](https://github.com/Codeception/Codeception/issues/6275)) by **[Verest](https://github.com/Verest)**
-* Removed JSON and TAP loggers
-* Removed code coverage blacklist functionality
-* Removed deprecated class aliases
-  - Codeception\TestCase\Test
-  - Codeception\Platform\Group
-  - Codeception\Platform\Group
-  - Codeception\TestCase
-* Removed settings disallow_test_output, log_incomplete_skipped and report_useless_tests
-* Introduced strict types in the code base by **[TavoNiievez](https://github.com/TavoNiievez)** 
-* Compatible with PHPUnit 10 only
-* Compatible with Symfony 4.4 - 6.0
-* Requires PHP 8.0 or higher
 
 
 ### module-doctrine2 2.0.1: 2.0.1
