@@ -9,6 +9,26 @@ title: Codeception Changelog
 
 
 
+### lib-xml 1.0.3: 1.0.3
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2024/02/06 21:06:24 / [Repository](https://github.com/Codeception/lib-xml)   / [Releases](https://github.com/Codeception/lib-xml/releases)
+
+
+
+* Removed dependency on PHPUnit
+
+
+### lib-web 1.0.6: 1.0.6
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2024/02/06 20:50:54 / [Repository](https://github.com/Codeception/lib-web)   / [Releases](https://github.com/Codeception/lib-web/releases)
+
+
+
+* Support PHPUnit 11 by **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/lib-web/pull/11
+* Adding details to `grabAttributeFrom()` by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/lib-web/pull/10
+
+
+
 ### Codeception 5.1.0: 5.1.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2024/02/04 13:52:44 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
