@@ -219,6 +219,21 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Updated Support Ukraine link in version string
 
 
+### module-mezzio 4.0.2: 4.0.2
+
+Released by [![](https://avatars.githubusercontent.com/u/152236?v=4&s=16) Slamdunk](https://github.com/Slamdunk) on 2023/09/22 05:57:54 / [Repository](https://github.com/Codeception/module-mezzio)   / [Releases](https://github.com/Codeception/module-mezzio/releases)
+
+
+
+## What's Changed
+* Added support for diactoros v3. by **[luiscunhaafricainternetgroup](https://github.com/luiscunhaafricainternetgroup)** in https://github.com/Codeception/module-mezzio/pull/17
+
+## New Contributors
+* **[luiscunhaafricainternetgroup](https://github.com/luiscunhaafricainternetgroup)** made their first contribution in https://github.com/Codeception/module-mezzio/pull/17
+
+**Full Changelog**: https://github.com/Codeception/module-mezzio/compare/4.0.1...4.0.2
+
+
 ### Codeception 5.0.11: 5.0.11
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/08/22 06:53:38 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
@@ -1702,6 +1717,17 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 
 
 * Update dependencies by **[TavoNiievez](https://github.com/TavoNiievez)** and **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/module-phpbrowser/pull/20
+
+
+### module-mezzio 3.0.1: 3.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/18 14:26:02 / [Repository](https://github.com/Codeception/module-mezzio)   / [Releases](https://github.com/Codeception/module-mezzio/releases)
+
+
+
+## What's Changed
+
+* Update dependencies by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-mezzio/pull/14
 
 
 ### module-filesystem 2.0.1: 2.0.1
