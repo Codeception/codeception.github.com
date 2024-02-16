@@ -9,6 +9,29 @@ title: Codeception Changelog
 
 
 
+### module-webdriver 4.0.1: 4.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2024/02/16 12:54:25 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
+
+
+
+## What's Changed
+* Minor: Newer array syntax by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/module-webdriver/pull/115
+* Fix namespace mismatch of ActionSequence by **[mbrodala](https://github.com/mbrodala)** in https://github.com/Codeception/module-webdriver/pull/116
+* Removing self-closing slashes by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/module-webdriver/pull/117
+* Fix type error when using `seeLink` by **[craig-mcmahon](https://github.com/craig-mcmahon)** in https://github.com/Codeception/module-webdriver/pull/119
+* disable-gpu argument no longer needed by **[marcovtwout](https://github.com/marcovtwout)** in https://github.com/Codeception/module-webdriver/pull/113
+* Update configuration for Selenium Server v4 by **[marcovtwout](https://github.com/marcovtwout)** in https://github.com/Codeception/module-webdriver/pull/114
+* Support PHPUnit 11 by **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/module-webdriver/pull/120
+* Fix WebDriver connection exception handling by **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/module-webdriver/pull/121
+
+## New Contributors
+* **[craig-mcmahon](https://github.com/craig-mcmahon)** made their first contribution in https://github.com/Codeception/module-webdriver/pull/119
+* **[marcovtwout](https://github.com/marcovtwout)** made their first contribution in https://github.com/Codeception/module-webdriver/pull/113
+
+**Full Changelog**: https://github.com/Codeception/module-webdriver/compare/4.0.0...4.0.1
+
+
 ### lib-xml 1.0.3: 1.0.3
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2024/02/06 21:06:24 / [Repository](https://github.com/Codeception/lib-xml)   / [Releases](https://github.com/Codeception/lib-xml/releases)
@@ -3451,15 +3474,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 * proceedSeeInField casts value to string before comparison
-
-
-### module-webdriver 1.0.3: Fixed cookie domain match
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/02/15 21:26:34 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
-
-
-
-[#5](https://github.com/Codeception/module-webdriver/issues/5) by **[Josh-G](https://github.com/Josh-G)** 
 
 
 ### lib-asserts 1.11.0: Support PHPUnit 9
