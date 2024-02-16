@@ -1530,7 +1530,7 @@ The tab is opened with JavaScript's `window.open()`, which means:
 #### performOn
 
 * `param string|array|WebDriverBy` $element
-* `param callable|array|ActionSequence` $actions
+* `param callable|array|\Codeception\Util\ActionSequence` $actions
 * `param int` $timeout
 * `return void`
 

@@ -9,6 +9,17 @@ title: Codeception Changelog
 
 
 
+### module-webdriver 3.2.2: 3.2.2
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2024/02/16 14:01:34 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
+
+
+
+* Fix namespace mismatch of ActionSequence by **[mbrodala](https://github.com/mbrodala)** in https://github.com/Codeception/module-webdriver/pull/116
+* Fix type error when using `seeLink` by **[craig-mcmahon](https://github.com/craig-mcmahon)** in https://github.com/Codeception/module-webdriver/pull/119
+* Fix WebDriver connection exception handling by **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/module-webdriver/pull/121
+
+
 ### module-webdriver 4.0.1: 4.0.1
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2024/02/16 12:54:25 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
@@ -3447,15 +3458,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 
-
-
-### module-webdriver 1.0.4: Fixed switchToIframe by name
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/03/04 16:54:45 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
-
-
-
-* Fixed switchToIframe by name when php-webdriver 1.8 is used [#6](https://github.com/Codeception/module-webdriver/issues/6) by **[eXorus](https://github.com/eXorus)** 
 
 
 ### module-ftp 1.0.1: Fixed Filename cannot be empty error when SFTP key is not specified
