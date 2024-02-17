@@ -9,6 +9,19 @@ title: Codeception Changelog
 
 
 
+### module-doctrine 3.1.0: 3.1.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2024/02/17 22:38:06 / [Repository](https://github.com/Codeception/module-doctrine)   / [Releases](https://github.com/Codeception/module-doctrine/releases)
+
+
+
+## What's Changed
+* Support doctrine/orm v3 + doctrine/dbal v4 by **[W0rma](https://github.com/W0rma)** and **[Victor-Truhanovich](https://github.com/Victor-Truhanovich)** in https://github.com/Codeception/module-doctrine/pull/26
+* Test against PHP 8.2 + 8.3 by **[W0rma](https://github.com/W0rma)**
+* Remove version number from the module name by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-doctrine/pull/28
+
+
+
 ### module-webdriver 3.2.2: 3.2.2
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2024/02/16 14:01:34 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
