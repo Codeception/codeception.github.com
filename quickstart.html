@@ -80,24 +80,6 @@ title: Quick Start Codeception
           </div> <!-- /.panel -->
 
           <div class="panel panel-info">
-            <div class="panel-heading"><h4 class="panel-title">4. Configure Acceptance Tests</h4></div>
-            <div class="panel-body">
-              <p>Please make sure your local
-                <b>development server</b> is running. &nbsp;Put application URL into:&nbsp;
-                <b>tests/Acceptance.suite.yml</b>&nbsp;</p>
-              <div class="highlight">
-                <pre>
-actor: AcceptanceTester
-modules:
-    enabled:
-        - PhpBrowser:
-            url: {YOUR APP'S URL}
-                </pre>
-              </div>
-            </div> <!-- /.panel-body -->
-          </div> <!-- /.panel -->
-
-          <div class="panel panel-info">
             <div class="panel-heading">
               <h4 class="panel-title">5. Write a Basic Test</h4>
             </div>
@@ -120,6 +102,24 @@ class FirstCest
                 {% endhighlight %}
               </div>
               <p class="text-muted">It will check if your frontpage contains the word <b>Home</b>.</p>
+            </div> <!-- /.panel-body -->
+          </div> <!-- /.panel -->
+
+          <div class="panel panel-info">
+            <div class="panel-heading"><h4 class="panel-title">5. Configure Acceptance Tests</h4></div>
+            <div class="panel-body">
+              <p>Please make sure your local
+                <b>development server</b> is running. &nbsp;Put application URL into:&nbsp;
+                <b>tests/Acceptance.suite.yml</b>&nbsp;</p>
+              <div class="highlight">
+                <pre>
+actor: AcceptanceTester
+modules:
+    enabled:
+        - PhpBrowser:
+            url: {YOUR APP'S URL}
+                </pre>
+              </div>
             </div> <!-- /.panel-body -->
           </div> <!-- /.panel -->
 
