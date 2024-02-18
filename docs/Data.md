@@ -202,21 +202,21 @@ modules:
 ### Doctrine
 
 Doctrine is also a popular ORM, unlike some others it implements the DataMapper pattern and is not bound to any framework.
-The [Doctrine2](https://codeception.com/docs/modules/Doctrine2) module requires an `EntityManager` instance to work with.
+The [Doctrine](https://codeception.com/docs/modules/Doctrine) module requires an `EntityManager` instance to work with.
 It can be obtained from a Symfony framework or Zend Framework (configured with Doctrine):
 
 ```yaml
 modules:
     enabled:
         - Symfony
-        - Doctrine2:
+        - Doctrine:
             depends: Symfony
 ```
 
 If no framework is used with Doctrine you should provide the `connection_callback` option
 with a valid callback to a function which returns an `EntityManager` instance.
 
-Doctrine2 also provides methods to create and check data:
+Doctrine also provides methods to create and check data:
 
 * `haveInRepository`
 * `grabFromRepository`
@@ -257,10 +257,10 @@ modules:
 modules:
     enabled:
         - Symfony
-        - Doctrine2:
+        - Doctrine:
             depends: Symfony
         - DataFactory:
-            depends: Doctrine2
+            depends: Doctrine
 ```
 
 DataFactory provides a powerful solution for managing data in integration/functional/acceptance tests.
