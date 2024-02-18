@@ -328,9 +328,9 @@ class PageCest
 
 ## Before/After Attributes 
 
-You can control execution flow with `@before` and `@after` annotations. You may move common actions
-into protected (non-test) methods and invoke them before or after the test method by putting them into annotations.
-It is possible to invoke several methods by using more than one `@before` or `@after` annotation.
+You can control execution flow with `#[Bbefore]` and `#[After]` attributes. You may move common actions
+into protected (non-test) methods and invoke them before or after the test method by putting them into attributes.
+It is possible to invoke several methods by using more than one `#[Bbefore]` or `#[After]` attribute.
 Methods are invoked in order from top to bottom.
 
 ```php
