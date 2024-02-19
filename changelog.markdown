@@ -56,6 +56,15 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 **Full Changelog**: https://github.com/Codeception/module-webdriver/compare/4.0.0...4.0.1
 
 
+### lib-xml 1.0.3: 1.0.3
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2024/02/06 21:06:24 / [Repository](https://github.com/Codeception/lib-xml)   / [Releases](https://github.com/Codeception/lib-xml/releases)
+
+
+
+* Removed dependency on PHPUnit
+
+
 ### lib-web 1.0.6: 1.0.6
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2024/02/06 20:50:54 / [Repository](https://github.com/Codeception/lib-web)   / [Releases](https://github.com/Codeception/lib-web/releases)
