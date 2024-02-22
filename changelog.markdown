@@ -1933,6 +1933,21 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 **Full Changelog**: https://github.com/Codeception/module-webdriver/compare/1.4.0...2.0.0
 
 
+### module-redis 1.3.0: 1.3.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 14:25:54 / [Repository](https://github.com/Codeception/module-redis)   / [Releases](https://github.com/Codeception/module-redis/releases)
+
+
+
+## What's Changed
+
+* PHP 7.4 or higher is required.
+* Support PHP 8.1
+* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-redis/pull/11
+
+**Full Changelog**: https://github.com/Codeception/module-redis/compare/1.2.0...1.3.0
+
+
 ### module-queue 2.0.0: 2.0.0
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 14:20:38 / [Repository](https://github.com/Codeception/module-queue)   / [Releases](https://github.com/Codeception/module-queue/releases)
