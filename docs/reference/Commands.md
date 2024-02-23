@@ -35,7 +35,7 @@ Create new test suite. Requires suite name and actor name
 Creates default config, tests directory and sample suites for current project.
 Use this command to start building a test suite.
 
-By default it will create 3 suites **acceptance**, **functional**, and **unit**.
+By default it will create 3 suites **Acceptance**, **Functional**, and **Unit**.
 
 * `codecept bootstrap` - creates `tests` dir and `codeception.yml` in current dir.
 * `codecept bootstrap --empty` - creates `tests` dir without suites

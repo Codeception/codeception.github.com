@@ -9,6 +9,16 @@ title: Codeception Changelog
 
 
 
+### Codeception 5.1.1: 5.1.1
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2024/02/23 21:53:22 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Reimplemented coverage:exclude option for PHPUnit 11 in [#6739](https://github.com/Codeception/Codeception/issues/6739)
+* Improved output of Bootstrap command  by **[ThomasLandauer](https://github.com/ThomasLandauer)** in [#6735](https://github.com/Codeception/Codeception/issues/6735)
+
+
 ### module-doctrine 3.1.0: 3.1.0
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2024/02/17 22:38:06 / [Repository](https://github.com/Codeception/module-doctrine)   / [Releases](https://github.com/Codeception/module-doctrine/releases)
@@ -1531,27 +1541,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 * Codeception 5 support
 * Update to min php8 ([#70](https://github.com/Codeception/module-rest/issues/70)) by **[pbojan](https://github.com/pbojan)**
-
-
-### Codeception 5.0.0-alpha2: 5.0.0-alpha2
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/02/19 19:33:46 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Generators create namespaced test suites by default ([#6071](https://github.com/Codeception/Codeception/issues/6071)) by **[DavertMik](https://github.com/DavertMik)**
-* Test can be filtered by data provider case number or name ([#6363](https://github.com/Codeception/Codeception/issues/6363)) by **[Naktibalda](https://github.com/Naktibalda)**
-* Removed `generate:cept` command (Cept format is deprecated)
-* Removed settings `disallow_test_output` and `log_incomplete_skipped`.
-* Removed setting `paths.log` (it was replaced by `paths.output` in Codeception 2.3)
-* Removed suite setting `class_name` (replaced by `actor` in Codeception 2.3)
-* Removed global setting `actor` (replaced by `actor_prefix` in Codeception 2.3)
-* Removed `Configuration::logDir` method (replaced by `Configuration::logDir` in 2.0)
-* ParamLoader throws exception if xml file is used but simplexml extension is missing ([#6346](https://github.com/Codeception/Codeception/issues/6346)) by **[mdoelker](https://github.com/mdoelker)**
-* Updated codebase to use PHP 8.0 features by **[TavoNiievez](https://github.com/TavoNiievez)**
-* Don't report test as useless if it failed (fixed bug introduced in alpha1)
-* Don't report local test coverage for remote suites (fixed bug introduced in alpha1)
-* Moved XmlBuilder class to module-soap
 
 
 ### lib-innerbrowser 3.0.0: 3.0.0
