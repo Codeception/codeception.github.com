@@ -2461,15 +2461,6 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 - Added new method:  `$I->seeRequestTimeIsLessThan()` ([#132](https://github.com/Codeception/module-symfony/issues/132)).
 
 
-### module-yii2 1.1.3: 1.1.3
-
-Released by [![](https://avatars.githubusercontent.com/u/47294?v=4&s=16) samdark](https://github.com/samdark) on 2021/05/24 20:06:33 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
-
-
-
-- Add ability to specify application class in config ([#48](https://github.com/Codeception/module-yii2/issues/48))
-
-
 ### module-phalcon4 v1.0.7: v1.0.7
 
 Released by [![](https://avatars.githubusercontent.com/u/3289702?v=4&s=16) Jeckerson](https://github.com/Jeckerson) on 2021/05/18 18:21:15 / [Repository](https://github.com/Codeception/module-phalcon4)   / [Releases](https://github.com/Codeception/module-phalcon4/releases)
