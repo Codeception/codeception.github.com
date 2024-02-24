@@ -2752,17 +2752,6 @@ modules:
 If you're interested in contributing to this module and didn't know where to start, a [contribution guide](https://github.com/Codeception/module-laravel/blob/main/CONTRIBUTING.md) is now available, thanks to **[ThomasLandauer](https://github.com/ThomasLandauer)** and **[TavoNiievez](https://github.com/TavoNiievez)**.
 
 
-### module-yii2 1.1.2: 1.1.2
-
-Released by [![](https://avatars.githubusercontent.com/u/47294?v=4&s=16) samdark](https://github.com/samdark) on 2020/12/28 11:32:21 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
-
-
-
-- PHP 8 support [#18](https://github.com/Codeception/module-yii2/issues/18) by **[samdark](https://github.com/samdark)**
-- Fix for support `Instance::of()` in configuration [#21](https://github.com/Codeception/module-yii2/issues/21) by **[antonovsky](https://github.com/antonovsky)**
-- Initialize `$_SERVER['QUERY_STRING']` to mimic normal behavior of most webservers by **[eborned](https://github.com/eborned)**
-
-
 ### module-cli 1.1.1: Preparation for PHPUnit 10
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/12/26 16:58:43 / [Repository](https://github.com/Codeception/module-cli)   / [Releases](https://github.com/Codeception/module-cli/releases)
@@ -3273,17 +3262,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 * Support for negative values, >= and <= matchers in JsonType comparisons .
 * Improved docs for Json Matchers
-
-
-### module-yii2 1.1.1: 1.1.1
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/08/28 06:53:33 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
-
-
-
-* Change default value of transaction parameter to true [#4](https://github.com/Codeception/module-yii2/issues/4) by **[SaloEater](https://github.com/SaloEater)** 
-* Fix ModuleException parameters, handle undefined [#12](https://github.com/Codeception/module-yii2/issues/12) by **[smichae](https://github.com/smichae)** 
-* Validation errors for haveRecord method [#10](https://github.com/Codeception/module-yii2/issues/10) by **[ianikanov](https://github.com/ianikanov)** 
 
 
 ### module-phalcon4 v1.0.4: v1.0.4
