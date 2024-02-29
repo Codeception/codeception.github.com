@@ -1,6 +1,6 @@
 ---
 layout: bootstrap
-title: Quick Start Codeception
+title: Quickstart Codeception
 ---
 
 <div class="row">
@@ -44,34 +44,24 @@ title: Quick Start Codeception
       <div class="row">
         <div class="col-sm-12 col-md-6">
           <div class="panel panel-info">
-            <div class="panel-heading"><h4 class="panel-title">2. Setup</h4></div>
+            <div class="panel-heading"><h4 class="panel-title">2. Bootstrap</h4></div>
             <div class="panel-body">
               <p>Execute:</p>
               <div class="highlight">
                 <p>
                 <pre>php vendor/bin/codecept bootstrap</pre>
               </div>
-              <p class="text-muted">This creates configuration file
-                <b>codeception.yml</b> and <b>tests</b> directory and default test suites.
+              <p class="text-muted">This creates the global configuration file
+                <b>codeception.yml</b>, the <b>tests/</b> directory, and the default test suites.
               </p>
-
-              <a class="btn btn-primary" aria-controls="bootstrap-demo" role="button" data-toggle="collapse" href="#bootstrap-demo" aria-expanded="false">
-                See Demo
-              </a>
-
-              <div class="collapse" id="bootstrap-demo">
-                <div class="panel-collapse-body">
-                  <img src="/images/codecept_bootstrap.gif" alt="codeception bootstrap" class="img-responsive">
-                </div>
-              </div>
             </div> <!-- /.panel-body -->
           </div> <!-- /.panel -->
 
           <div class="panel panel-info">
             <div class="panel-heading"><h4 class="panel-title">3. Create Test</h4></div>
             <div class="panel-body">
-              <p>Generate your first acceptance test. Acceptance tests emulate behavior
-                of a real user visiting your site.</p>
+              <p>Generate your first acceptance test. Acceptance tests emulate the behavior
+                of a real user visiting your site. (For details, see <a href="/docs/03-AcceptanceTests" class="btn btn-secondary">Acceptance Testing Guide)</a></p>
               <div class="highlight">
                 <p>
                 <pre>php vendor/bin/codecept generate:cest Acceptance First</pre>
@@ -143,11 +133,9 @@ class FirstCest
         <div class="col-sm-12 col-md-6">
           <div class="page">
 
-            <h3>Simplified Setup</h3>
+            <h3>Setup for a Single Test Suite</h3>
 
-            <p>Use predefined installation templates for common use cases.
-              Run them instead of <code>bootstrap</code> command.
-            </p>
+            <p>Instead of the <code>bootstrap</code> command, you can set up just a single test suite.</p>
 
             <h4>Acceptance Testing (only)</h4>
 
