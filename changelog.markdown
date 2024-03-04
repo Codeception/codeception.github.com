@@ -218,15 +218,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Support symfony/finder v7
 
 
-### lib-web 1.0.4: 1.0.4
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/12/01 11:38:48 / [Repository](https://github.com/Codeception/lib-web)   / [Releases](https://github.com/Codeception/lib-web/releases)
-
-
-
-* Support Symfony 7 by **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/lib-web/pull/8
-
-
 ### module-db 3.1.1: 3.1.1
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/12/01 11:34:57 / [Repository](https://github.com/Codeception/module-db)   / [Releases](https://github.com/Codeception/module-db/releases)
@@ -309,15 +300,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * **[mbrodala](https://github.com/mbrodala)** made their first contribution in https://github.com/Codeception/Codeception/pull/6676
 
 **Full Changelog**: https://github.com/Codeception/Codeception/compare/5.0.10...5.0.11
-
-
-### module-phalcon5 v2.0.1: v2.0.1
-
-Released by [![](https://avatars.githubusercontent.com/u/1073784?v=4&s=16) niden](https://github.com/niden) on 2023/08/03 17:54:06 / [Repository](https://github.com/Codeception/module-phalcon5)   / [Releases](https://github.com/Codeception/module-phalcon5/releases)
-
-
-
-Fixed getRawBody() return type [[#8](https://github.com/Codeception/module-phalcon5/issues/8)](https://github.com/Codeception/module-phalcon5/issues/8)
 
 
 ### module-yii2 1.1.9: 1.1.9
