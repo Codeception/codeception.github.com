@@ -9,6 +9,21 @@ title: Codeception Changelog
 
 
 
+### module-db 3.1.3: 3.1.3
+
+Released by [![](https://avatars.githubusercontent.com/u/4129631?v=4&s=16) szhajdu](https://github.com/szhajdu) on 2024/03/04 19:29:12 / [Repository](https://github.com/Codeception/module-db)   / [Releases](https://github.com/Codeception/module-db/releases)
+
+
+
+## What's Changed
+* [bugfix] [#49](https://github.com/Codeception/module-db/issues/49) Fix last insert id return type in case of dblib (3.x) by **[szhajdu](https://github.com/szhajdu)** in https://github.com/Codeception/module-db/pull/56
+
+## New Contributors
+* **[szhajdu](https://github.com/szhajdu)** made their first contribution in https://github.com/Codeception/module-db/pull/56
+
+**Full Changelog**: https://github.com/Codeception/module-db/compare/3.1.2...3.1.3
+
+
 ### Codeception 5.1.1: 5.1.1
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2024/02/23 21:53:22 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
