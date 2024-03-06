@@ -75,9 +75,9 @@ To start, you need to include one of the framework modules in the suite configur
 
 ### Symfony
 
-To perform Symfony integration you just need to include the Symfony module into your test suite. If you also use Doctrine2,
-don't forget to include it too. To make the Doctrine2 module connect using the `doctrine` service from Symfony,
-you should specify the Symfony module as a dependency for Doctrine2:
+To perform Symfony integration you just need to include the Symfony module into your test suite. If you also use Doctrine,
+don't forget to include it too. To make the Doctrine module connect using the `doctrine` service from Symfony,
+you should specify the Symfony module as a dependency for Doctrine:
 
 ```yaml
 # Functional.suite.yml
@@ -86,7 +86,7 @@ actor: FunctionalTester
 modules:
     enabled:
         - Symfony
-        - Doctrine2:
+        - Doctrine:
             depends: Symfony # connect to Symfony
 ```
 
