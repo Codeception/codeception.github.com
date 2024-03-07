@@ -9,6 +9,16 @@ title: Codeception Changelog
 
 
 
+### Codeception 5.1.2: 5.1.2
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2024/03/07 07:22:27 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+* Prevent unrelated error from being displayed if a scenario step has failed by **[craig-mcmahon](https://github.com/craig-mcmahon)** in [#6743](https://github.com/Codeception/Codeception/issues/6743)
+* Replace Laravel5 with Laravel module in module installation suggestion by **[W0rma](https://github.com/W0rma)** in [#6742](https://github.com/Codeception/Codeception/issues/6742)
+
+
 ### module-db 3.1.3: 3.1.3
 
 Released by [![](https://avatars.githubusercontent.com/u/4129631?v=4&s=16) szhajdu](https://github.com/szhajdu) on 2024/03/04 19:29:12 / [Repository](https://github.com/Codeception/module-db)   / [Releases](https://github.com/Codeception/module-db/releases)
@@ -1445,17 +1455,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 * Add `skip_cleanup_if_failed` option for not cleaning up failed tests
 * Null safety in destructor [#30](https://github.com/Codeception/module-db/issues/30) by **[Archanium](https://github.com/Archanium)**
-
-
-### Codeception 4.1.30: 4.1.30
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/05 18:45:01 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Fix handling of previous exception in ExtensionException
-* Improved parser fix for PHP keywords as named parameters
-* Add link to https://helpukrainewin.org
 
 
 ### module-redis 3.0.0: 3.0.0
