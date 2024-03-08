@@ -1,3 +1,8 @@
+- name: Testomat.io Reporter
+  link: https://github.com/testomatio/php-reporter
+  description: Run reports and analytics via [Testomat.io](https://testomat.io)
+  image: https://testomat.io/wp-content/uploads/2022/03/Real_time_report_test_result-936x573.jpg
+
 - name: Allure Codeception Adapter
   link: https://github.com/allure-framework/allure-codeception
   description: This is a Codeception adapter for [Allure Framework](http://allure.qatools.ru) 
