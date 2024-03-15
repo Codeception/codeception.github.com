@@ -9,6 +9,19 @@ title: Codeception Changelog
 
 
 
+### module-symfony 3.3.1: 3.3.1
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2024/03/15 20:36:03 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
+
+
+
+## What's Changed
+* Renaming Doctrine2 to Doctrine by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/module-symfony/pull/184
+* Ignore fragments when checking routes by **[cs278](https://github.com/cs278)** in https://github.com/Codeception/module-symfony/pull/185
+
+**Full Changelog**: https://github.com/Codeception/module-symfony/compare/3.3.0...3.3.1
+
+
 ### Codeception 5.1.2: 5.1.2
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2024/03/07 07:22:27 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
