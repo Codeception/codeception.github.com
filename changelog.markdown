@@ -9,6 +9,19 @@ title: Codeception Changelog
 
 
 
+### module-symfony 3.3.2: 3.3.2
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2024/03/18 15:08:50 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
+
+
+
+## What's Changed
+* Fix: runSymfonyConsoleCommand ignores specific options in https://github.com/Codeception/module-symfony/pull/188
+
+
+**Full Changelog**: https://github.com/Codeception/module-symfony/compare/3.3.1...3.3.2
+
+
 ### module-symfony 3.3.1: 3.3.1
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2024/03/15 20:36:03 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
