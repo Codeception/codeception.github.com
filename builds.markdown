@@ -4,10 +4,24 @@ title: Codeception Builds
 ---
 
 
+## 5.1
+*Requires: PHP 8.0 and higher + CURL*
+
+* **[Download Latest 5.1 Release](https://codeception.com/releases/5.1.20240307/codecept.phar)**
+* [5.1.20240307](https://codeception.com/releases/5.1.20240307/codecept.phar)
+* [5.1.20240204](https://codeception.com/releases/5.1.20240204/codecept.phar)
+
 ## 5.0
 *Requires: PHP 8.0 and higher + CURL*
 
-* **[Download Latest 5.0 Release](https://codeception.com/releases/5.0.20221030/codecept.phar)**
+* **[Download Latest 5.0 Release](https://codeception.com/releases/5.0.20231222/codecept.phar)**
+* [5.0.20231222](https://codeception.com/releases/5.0.20231222/codecept.phar)
+* [5.0.20231015](https://codeception.com/releases/5.0.20231015/codecept.phar)
+* [5.0.20230314](https://codeception.com/releases/5.0.20230314/codecept.phar)
+* [5.0.20230211](https://codeception.com/releases/5.0.20230211/codecept.phar)
+* [5.0.20230114](https://codeception.com/releases/5.0.20230114/codecept.phar)
+* [5.0.20221228](https://codeception.com/releases/5.0.20221228/codecept.phar)
+* [5.0.20221120](https://codeception.com/releases/5.0.20221120/codecept.phar)
 * [5.0.20221030](https://codeception.com/releases/5.0.20221030/codecept.phar)
 * [5.0.20220930](https://codeception.com/releases/5.0.20220930/codecept.phar)
 * [5.0.20220820](https://codeception.com/releases/5.0.20220820/codecept.phar)

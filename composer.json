@@ -35,17 +35,14 @@
     "guzzlehttp/guzzle": "^7.0.1"
   },
   "require-dev": {
-    "consolidation/robo": "dev-document-method-parameters"
+    "consolidation/robo": "^4.0"
   },
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/Naktibalda/robo.git"
-    }
-  ],
   "config": {
     "platform": {
       "ext-phalcon": "4.1.1"
+    },
+    "allow-plugins": {
+      "php-http/discovery": true
     }
   }
 }

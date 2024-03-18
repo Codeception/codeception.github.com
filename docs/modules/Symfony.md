@@ -10,23 +10,10 @@ title: Symfony - Codeception - Documentation
 # Symfony
 ### Installation
 
-If you use Codeception installed using composer, install this module with the following command:
-
 {% highlight yaml %}
 composer require --dev codeception/module-symfony
 
 {% endhighlight %}
-
-Alternatively, you can enable `Symfony` module in suite configuration file and run
- 
-{% highlight yaml %}
-codecept init upgrade4
-
-{% endhighlight %}
-
-This module was bundled with Codeception 2 and 3, but since version 4 it is necessary to install it separately.   
-Some modules are bundled with PHAR files.  
-Warning. Using PHAR file and composer in the same project can cause unexpected errors.  
 
 ### Description
 
@@ -252,9 +239,9 @@ Authenticates user for HTTP_AUTH
 
 #### amLoggedInAs
 
-* `param UserInterface` $user
+* `param \Symfony\Component\Security\Core\User\UserInterface` $user
 * `param string` $firewallName
-* `param null` $firewallContext
+* `param ?string` $firewallContext
 * `return void`
 
 Login with the given user object.
@@ -743,9 +730,48 @@ If your app performs a HTTP redirect, you need to suppress it using [stopFollowi
 Starting with version 2.0.0, `codeception/module-symfony` requires your app to use [Symfony Mailer](https://symfony.com/doc/current/mailer.html). If your app still uses [Swift Mailer](https://symfony.com/doc/current/email.html), set your version constraint to `^1.6`.
 
 
+#### dontSeeEvent
+
+* `param string|string[]|null` $expected
+* `return void`
+
+Verifies that there were no events during the test.
+
+Both regular and orphan events are checked.
+
+{% highlight php %}
+
+ <?php
+ $I->dontSeeEvent();
+ $I->dontSeeEvent('App\MyEvent');
+ $I->dontSeeEvent(['App\MyEvent', 'App\MyOtherEvent']);
+ 
+{% endhighlight %}
+
+
+#### dontSeeEventListenerIsCalled
+
+* `param class-string|class-string[]` $expected
+* `param string|string[]` $events
+* `return void`
+
+Verifies that one or more event listeners were not called during the test.
+
+{% highlight php %}
+
+<?php
+$I->dontSeeEventListenerIsCalled('App\MyEventListener');
+$I->dontSeeEventListenerIsCalled(['App\MyEventListener', 'App\MyOtherEventListener']);
+$I->dontSeeEventListenerIsCalled('App\MyEventListener', 'my.event);
+$I->dontSeeEventListenerIsCalled('App\MyEventListener', ['my.event', 'my.other.event']);
+
+{% endhighlight %}
+
+
 #### dontSeeEventTriggered
 
-* `param string|object|string[]` $expected
+@deprecated
+* `param object|string|string[]` $expected
 * `return void`
 
 Verifies that one or more event listeners were not called during the test.
@@ -862,7 +888,7 @@ $I->dontSeeInFormFields('#form-id', [
 #### dontSeeInSession
 
 * `param string` $attribute
-* `param mixed|null` $value
+* `param mixed` $value
 * `return void`
 
 Assert that a session attribute does not exist, or is not equal to the passed value.
@@ -937,7 +963,7 @@ $I->dontSeeOptionIsSelected('#form input[name=payment]', 'Visa');
 
 #### dontSeeOrphanEvent
 
-* `param string|object|string[]` $expected
+* `param string|string[]` $expected
 * `return void`
 
 Verifies that there were no orphan events during the test.
@@ -951,7 +977,6 @@ of the EventDispatcher but was not handled by any listener after it was dispatch
 <?php
 $I->dontSeeOrphanEvent();
 $I->dontSeeOrphanEvent('App\MyEvent');
-$I->dontSeeOrphanEvent(new App\Events\MyEvent());
 $I->dontSeeOrphanEvent(['App\MyEvent', 'App\MyOtherEvent']);
 
 {% endhighlight %}
@@ -1052,9 +1077,9 @@ See the Symfony documentation on ['Logging Out'](https://symfony.com/doc/current
 * `param string` $attribute
 * `return mixed`
 
-Grabs the value of the given attribute value from the given element.
+Returns the value of the given attribute value from the given HTML element. For some attributes, the string `true` is returned instead of their literal value (e.g. `disabled="disabled"` or `required="required"`).
 
-Fails if element is not found.
+Fails if the element is not found. Returns `null` if the attribute is not present on the element.
 
 {% highlight php %}
 
@@ -1096,7 +1121,7 @@ $uri = $I->grabFromCurrentUrl();
 
 #### grabLastSentEmail
 
-* `return \Symfony\Component\Mime\Email|null`
+* `return ?\Symfony\Component\Mime\Email`
 
 Returns the last sent email.
 
@@ -1171,7 +1196,7 @@ Grabs current page source code.
 
 #### grabParameter
 
-* `param string` $name
+* `param string` $parameterName
 * `return array|bool|float|int|string|null`
 
 Grabs a Symfony parameter
@@ -1187,7 +1212,7 @@ $I->grabParameter('app.business_name');
 #### grabRepository
 
 * `param object|string` $mixed
-* `return \Doctrine\ORM\EntityRepository|null`
+* `return ?\Doctrine\ORM\EntityRepository`
 
 Grab a Doctrine entity repository.
 
@@ -1641,6 +1666,7 @@ $I->seeCurrentUrlMatches('~^/users/(\d+)~');
 Checks that the given element exists on the page and is visible.
 
 You can also specify expected attributes of this element.
+Only works if `<html>` tag is present.
 
 {% highlight php %}
 
@@ -1675,9 +1701,50 @@ $I->seeEmailIsSent(2);
 {% endhighlight %}
 
 
+#### seeEvent
+
+* `param string|string[]` $expected
+* `return void`
+
+Verifies that one or more events were dispatched during the test.
+
+Both regular and orphan events are checked.
+
+If you need to verify that expected event is not orphan,
+add `dontSeeOrphanEvent` call.
+
+{% highlight php %}
+
+ <?php
+ $I->seeEvent('App\MyEvent');
+ $I->seeEvent(['App\MyEvent', 'App\MyOtherEvent']);
+ 
+{% endhighlight %}
+
+
+#### seeEventListenerIsCalled
+
+* `param class-string|class-string[]` $expected
+* `param string|string[]` $events
+* `return void`
+
+Verifies that one or more event listeners were called during the test.
+
+{% highlight php %}
+
+<?php
+$I->seeEventListenerIsCalled('App\MyEventListener');
+$I->seeEventListenerIsCalled(['App\MyEventListener', 'App\MyOtherEventListener']);
+$I->seeEventListenerIsCalled('App\MyEventListener', 'my.event);
+$I->seeEventListenerIsCalled('App\MyEventListener', ['my.event', 'my.other.event']);
+
+{% endhighlight %}
+
+
 #### seeEventTriggered
 
-* `param string|object|string[]` $expected
+@deprecated
+* `param object|string|string[]` $expected
 * `return void`
 
 Verifies that one or more event listeners were called during the test.
@@ -1906,7 +1973,7 @@ $I->seeInFormFields('//form[@id=my-form]', string $form);
 #### seeInSession
 
 * `param string` $attribute
-* `param mixed|null` $value
+* `param mixed` $value
 * `return void`
 
 Assert that a session attribute exists.
@@ -2025,7 +2092,7 @@ $I->seeOptionIsSelected('#form input[name=payment]', 'Visa');
 
 #### seeOrphanEvent
 
-* `param string|object|string[]` $expected
+* `param string|string[]` $expected
 * `return void`
 
 Verifies that one or more orphan events were dispatched during the test.
@@ -2038,7 +2105,6 @@ of the EventDispatcher but was not handled by any listener after it was dispatch
 
 <?php
 $I->seeOrphanEvent('App\MyEvent');
-$I->seeOrphanEvent(new App\Events\MyEvent());
 $I->seeOrphanEvent(['App\MyEvent', 'App\MyOtherEvent']);
 
 {% endhighlight %}
@@ -2279,7 +2345,7 @@ Provide an array for the second argument to select multiple options:
 {% highlight php %}
 
 <?php
-$I->selectOption('Which OS do you use?', array('Windows','Linux'));
+$I->selectOption('Which OS do you use?', ['Windows', 'Linux']);
 
 {% endhighlight %}
 
@@ -2288,8 +2354,8 @@ Or provide an associative array for the second argument to specifically define w
 {% highlight php %}
 
 <?php
-$I->selectOption('Which OS do you use?', array('text' => 'Windows')); // Only search by text 'Windows'
-$I->selectOption('Which OS do you use?', array('value' => 'windows')); // Only search by value 'windows'
+$I->selectOption('Which OS do you use?', ['text' => 'Windows']); // Only search by text 'Windows'
+$I->selectOption('Which OS do you use?', ['value' => 'windows']); // Only search by value 'windows'
 
 {% endhighlight %}
 

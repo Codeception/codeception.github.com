@@ -307,14 +307,14 @@ class Admin extends \Codeception\GroupObject
 ```
 
 GroupObjects can also be used to update the module configuration before running a test.
-For instance, for `nocleanup` group we prevent Doctrine2 module from wrapping test into transaction:
+For instance, for `nocleanup` group we prevent Doctrine module from wrapping test into transaction:
 
 ```php
     public static $group = 'nocleanup';
 
     public function _before(\Codeception\Event\TestEvent $e)
     {
-        $this->getModule('Doctrine2')->_reconfigure(['cleanup' => false]);
+        $this->getModule('Doctrine')->_reconfigure(['cleanup' => false]);
     }
 
 ```

@@ -10,29 +10,16 @@ title: Yii2 - Codeception - Documentation
 # Yii2
 ### Installation
 
-If you use Codeception installed using composer, install this module with the following command:
-
 {% highlight yaml %}
 composer require --dev codeception/module-yii2
 
 {% endhighlight %}
 
-Alternatively, you can enable `Yii2` module in suite configuration file and run
- 
-{% highlight yaml %}
-codecept init upgrade4
-
-{% endhighlight %}
-
-This module was bundled with Codeception 2 and 3, but since version 4 it is necessary to install it separately.   
-Some modules are bundled with PHAR files.  
-Warning. Using PHAR file and composer in the same project can cause unexpected errors.  
-
 ### Description
 
 
 
-This module provides integration with [Yii framework](http://www.yiiframework.com/) (2.0).
+This module provides integration with [Yii framework](https://www.yiiframework.com/) (2.0).
 
 It initializes the Yii framework in a test environment and provides actions
 for functional testing.
@@ -140,7 +127,7 @@ modules:
 ### Fixtures
 
 This module allows to use
-[fixtures](http://www.yiiframework.com/doc-2.0/guide-test-fixtures.html)
+[fixtures](https://www.yiiframework.com/doc-2.0/guide-test-fixtures.html)
 inside a test. There are two ways to do that. Fixtures can either be loaded
 with the [haveFixtures](#haveFixtures) method inside a test:
 
@@ -356,7 +343,7 @@ Requires the `user` component to be enabled and configured.
 
 #### amOnPage
 
-* `param string|array` $page the URI or route in array format
+* `param string` $page the page URI
 * `return void`
 
 Opens the page for the given relative URI or route.
@@ -830,9 +817,9 @@ Returns a list of regex patterns for recognized domain names
 * `param string` $attribute
 * `return mixed`
 
-Grabs the value of the given attribute value from the given element.
+Returns the value of the given attribute value from the given HTML element. For some attributes, the string `true` is returned instead of their literal value (e.g. `disabled="disabled"` or `required="required"`).
 
-Fails if element is not found.
+Fails if the element is not found. Returns `null` if the attribute is not present on the element.
 
 {% highlight php %}
 
@@ -1317,6 +1304,7 @@ $I->seeCurrentUrlMatches('~^/users/(\d+)~');
 Checks that the given element exists on the page and is visible.
 
 You can also specify expected attributes of this element.
+Only works if `<html>` tag is present.
 
 {% highlight php %}
 
@@ -1645,7 +1633,7 @@ Provide an array for the second argument to select multiple options:
 {% highlight php %}
 
 <?php
-$I->selectOption('Which OS do you use?', array('Windows','Linux'));
+$I->selectOption('Which OS do you use?', ['Windows', 'Linux']);
 
 {% endhighlight %}
 
@@ -1654,8 +1642,8 @@ Or provide an associative array for the second argument to specifically define w
 {% highlight php %}
 
 <?php
-$I->selectOption('Which OS do you use?', array('text' => 'Windows')); // Only search by text 'Windows'
-$I->selectOption('Which OS do you use?', array('value' => 'windows')); // Only search by value 'windows'
+$I->selectOption('Which OS do you use?', ['text' => 'Windows']); // Only search by text 'Windows'
+$I->selectOption('Which OS do you use?', ['value' => 'windows']); // Only search by value 'windows'
 
 {% endhighlight %}
 

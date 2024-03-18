@@ -10,29 +10,16 @@ title: Doctrine2 - Codeception - Documentation
 # Doctrine2
 ### Installation
 
-If you use Codeception installed using composer, install this module with the following command:
-
 {% highlight yaml %}
 composer require --dev codeception/module-doctrine2
 
 {% endhighlight %}
 
-Alternatively, you can enable `Doctrine2` module in suite configuration file and run
- 
-{% highlight yaml %}
-codecept init upgrade4
-
-{% endhighlight %}
-
-This module was bundled with Codeception 2 and 3, but since version 4 it is necessary to install it separately.   
-Some modules are bundled with PHAR files.  
-Warning. Using PHAR file and composer in the same project can cause unexpected errors.  
-
 ### Description
 
 
 
-Access the database using [Doctrine2 ORM](http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/).
+Access the database using [Doctrine ORM](https://docs.doctrine-project.org/projects/doctrine-orm/en/latest/).
 
 When used with Symfony or Zend Framework 2, Doctrine's Entity Manager is automatically retrieved from Service Locator.
 Set up your `functional.suite.yml` like this:
@@ -90,23 +77,37 @@ modules:
 
 {% endhighlight %}
 
-### Status
+### Grabbing Entities with Symfony
 
-* Maintainer: **davert**
-* Stability: **stable**
-* Contact: codecept@davert.mail.ua
+For Symfony users, the recommended way to query for entities is not to use this module's `grab...()` methods, but rather
+"inject" Doctrine's repository:
 
-### Config
+{% highlight php %}
+
+public function _before(FunctionalTester $I): void
+{
+    $this->fooRepository = $I->grabService(FooRepository::class);
+}
+
+{% endhighlight %}
+
+Now you have access to all your familiar repository methods in your tests, e.g.:
+
+{% highlight php %}
+
+$greenFoo = $this->fooRepository->findOneBy(['color' => 'green']);
+
+{% endhighlight %}
 
 ### Public Properties
 
 * `em` - Entity Manager
 
-### Note on parameters
+### Doctrine `Criteria` as query parameters
 
-Every method that expects some parameters to be checked against values in the database (`see...()`,
-`dontSee...()`, `grab...()`) can accept instance of
-[\Doctrine\Common\Collections\Criteria](https://www.doctrine-project.org/api/collections/latest/Doctrine/Common/Collections/Criteria.html)
+Every method that expects some query parameters (`see...()`,
+`dontSee...()`, `grab...()`) also accepts an instance of
+[\Doctrine\Common\Collections\Criteria](https://www.doctrine-project.org/projects/doctrine-collections/en/stable/expressions.html)
 for more flexibility, e.g.:
 
 {% highlight php %}
@@ -178,15 +179,15 @@ Performs $em->flush();
 #### grabEntitiesFromRepository
 
 * `template` T of object
-* `version` 1.1
 * `param class-string<T>` $entity
 * `param array` $params . For `IS NULL`, use `['field' => null]`
 * `return list<T>`
 
 Selects entities from repository.
 
-It builds query based on array of parameters.
+It builds a query based on an array of parameters.
 You can use entity associations to build complex queries.
+For Symfony users, it's recommended to [use the entity's repository instead](#Grabbing-Entities-with-Symfony)
 
 Example:
 
@@ -208,8 +209,9 @@ $users = $I->grabEntitiesFromRepository(User::class, ['name' => 'davert']);
 
 Selects a single entity from repository.
 
-It builds query based on array of parameters.
+It builds a query based on an array of parameters.
 You can use entity associations to build complex queries.
+For Symfony users, it's recommended to [use the entity's repository instead](#Grabbing-Entities-with-Symfony)
 
 Example:
 
@@ -223,7 +225,6 @@ $user = $I->grabEntityFromRepository(User::class, ['id' => '1234']);
 
 #### grabFromRepository
 
-* `version` 1.1
 * `param class-string` $entity
 * `param string` $field
 * `param array` $params
@@ -231,8 +232,9 @@ $user = $I->grabEntityFromRepository(User::class, ['id' => '1234']);
 
 Selects field value from repository.
 
-It builds query based on array of parameters.
+It builds a query based on an array of parameters.
 You can use entity associations to build complex queries.
+For Symfony users, it's recommended to [use the entity's repository instead](#Grabbing-Entities-with-Symfony)
 
 Example:
 

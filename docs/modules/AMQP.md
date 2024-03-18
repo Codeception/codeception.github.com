@@ -10,23 +10,10 @@ title: AMQP - Codeception - Documentation
 # AMQP
 ### Installation
 
-If you use Codeception installed using composer, install this module with the following command:
-
 {% highlight yaml %}
 composer require --dev codeception/module-amqp
 
 {% endhighlight %}
-
-Alternatively, you can enable `AMQP` module in suite configuration file and run
- 
-{% highlight yaml %}
-codecept init upgrade4
-
-{% endhighlight %}
-
-This module was bundled with Codeception 2 and 3, but since version 4 it is necessary to install it separately.   
-Some modules are bundled with PHAR files.  
-Warning. Using PHAR file and composer in the same project can cause unexpected errors.  
 
 ### Description
 

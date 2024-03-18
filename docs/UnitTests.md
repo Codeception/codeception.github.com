@@ -16,7 +16,7 @@ Codeception adds some nice helpers to simplify common tasks.
 Create a test using `generate:test` command with a suite and test names as parameters:
 
 ```bash
-php vendor/bin/codecept generate:test unit Example
+php vendor/bin/codecept generate:test Unit Example
 ```
 
 It creates a new `ExampleTest` file located in the `tests/unit` directory.
@@ -24,13 +24,13 @@ It creates a new `ExampleTest` file located in the `tests/unit` directory.
 As always, you can run the newly created test with this command:
 
 ```bash
-php vendor/bin/codecept run unit ExampleTest
+php vendor/bin/codecept run Unit ExampleTest
 ```
 
 Or simply run the whole set of unit tests with:
 
 ```bash
-php vendor/bin/codecept run unit
+php vendor/bin/codecept run Unit
 ```
 
 A test created by the `generate:test` command will look like this:
@@ -151,7 +151,8 @@ $name = $user->getName(); // 'john'
 
 [See complete reference](https://codeception.com/docs/reference/Mock)
 
-Inside unit tests (`Codeception\Test\Unit`) it is recommended to use alternative API:
+To keep compatibility with PHPUnit its verification of expectations for Mocks,
+it is recommended to use alternative API in unit tests (`Codeception\Test\Unit`):
 
 ```php
 // create a stub with find method replaced
@@ -298,19 +299,19 @@ A very similar approach can be used for all frameworks that have an ORM implemen
 In Yii2 and Phalcon, the methods `haveRecord`, `seeRecord`, `dontSeeRecord` work in the same way.
 They also should be included by specifying `part: ORM` in order to not use the functional testing actions.
 
-If you are using Symfony with Doctrine, you don't need to enable Symfony itself but just Doctrine2:
+If you are using Symfony with Doctrine, you don't need to enable Symfony itself but just Doctrine:
 
 ```yaml
 actor: UnitTester
 modules:
     enabled:
         - Asserts
-        - Doctrine2:
+        - Doctrine:
             depends: Symfony
         - \Helper\Unit
 ```
 
-In this case you can use the methods from the Doctrine2 module, while Doctrine itself uses the Symfony module
+In this case you can use the methods from the Doctrine module, while Doctrine itself uses the Symfony module
 to establish connections to the database. In this case a test might look like:
 
 ```php
@@ -320,7 +321,7 @@ function testUserNameCanBeChanged()
     // create a user from framework, user will be deleted after the test
     $id = $this->tester->haveInRepository(User::class, ['name' => 'miles']);
     // get entity manager by accessing module
-    $em = $this->getModule('Doctrine2')->em;
+    $em = $this->getModule('Doctrine')->em;
     // get real user
     $user = $em->find(User::class, $id);
     $user->setName('bill');
@@ -334,7 +335,7 @@ function testUserNameCanBeChanged()
 ```
 
 In both examples you should not be worried about the data persistence between tests.
-The Doctrine2 and Laravel modules will clean up the created data at the end of a test.
+The Doctrine and Laravel modules will clean up the created data at the end of a test.
 This is done by wrapping each test in a transaction and rolling it back afterwards.
 
 ### Accessing Module
@@ -343,12 +344,12 @@ Codeception allows you to access the properties and methods of all modules defin
 Unlike using the UnitTester class for this purpose, using a module directly grants you access
 to all public properties of that module.
 
-We have already demonstrated this in a previous example where we accessed the Entity Manager from a Doctrine2 module:
+We have already demonstrated this in a previous example where we accessed the Entity Manager from a Doctrine module:
 
 ```php
 <?php
 /** @var Doctrine\ORM\EntityManager */
-$em = $this->getModule('Doctrine2')->em;
+$em = $this->getModule('Doctrine')->em;
 ```
 
 If you use the `Symfony` module, here is how you can access the Symfony container:

@@ -252,7 +252,6 @@ Stub::construct('User', [], [
 * `param array` $constructorParams
 * `param array` $params
 * `param bool|PHPUnitTestCase` $testCase
-* `throws ReflectionException`
 * `return PHPUnitMockObject&RealInstanceType`
 
 Instantiates a class instance by running constructor with all methods replaced with dummies.

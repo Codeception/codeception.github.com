@@ -1150,6 +1150,7 @@ body .panel-info > .panel-heading {
 
 .container--addons {
   margin-bottom: 1.5em;
+
   .alert-warning {
     a {
       color: #3174AF;
@@ -1237,8 +1238,11 @@ body .panel-info > .panel-heading {
   padding: 5px 5px 0 0 !important;
 }
 
-.social-link-first {
+.nav-social-links {
   margin-left: 5px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
 }
 
 .social-link {
@@ -1737,6 +1741,7 @@ body #footer .links {
 
 .page .alert-warning {
   margin-top: 50px;
+
   a {
     color: #3174AF;
   }
@@ -1780,6 +1785,12 @@ body #footer .links {
   bottom: 50px;
   right: 50px;
   cursor: pointer;
+
+  @media (max-width: 767px) {
+    bottom: 20px;
+    right: 20px;
+  }
+
   svg {
     width: 20px;
     height: 20px;

@@ -3,80 +3,77 @@ layout: bootstrap
 title: Codeception Installation
 ---
 <div class="container">
-  <div class="page-header">
-    <div class="intro-block">
-      <h1>Installation</h1>
-      <div class="pull-right well well-custom">
-        <h4>Requirements</h4>
-        <strong>PHP 5.6+</strong>
-        <strong>CURL enabled</strong>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-8 col-lg-8">
-      <div class="well well-custom-row">
-        <h4>Follow QuickStart Guide to Install and execute your first test in 6 easy
-          steps.
-        </h4>
-        <a class="btn btn-lg btn-warning" href="/quickstart">QuickStart Guide &rarr;</a>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-6 col-lg-6">
-      <div class="page">
-        <h3>Composer <small><i>(recommended)</i></small></h3>
-        <p>Install a <a href="https://getcomposer.org">Composer</a> to your project's root</p>
-        <p>Run</p>
-        <div class="highlight">
-          <pre><code>composer require codeception/codeception --dev</code></pre>
+    <div class="page-header">
+        <div class="intro-block">
+            <h1>Installation</h1>
+            <div class="pull-right well well-custom">
+                <h4>Requirements</h4>
+                <strong>PHP 5.6+</strong>
+                <strong>CURL enabled</strong>
+            </div>
         </div>
-        <p>From now on Codeception (with installed PHPUnit) can be run as:</p>
-        <div class="highlight">
-          <pre><code>php vendor/bin/codecept</code></pre>
+    </div>
+    <div class="row">
+        <div class="col-sm-8 col-lg-8">
+            <div class="well well-custom-row">
+                <h4>Follow QuickStart Guide to Install and execute your first test in 6 easy
+                    steps.
+                </h4>
+                <a class="btn btn-lg btn-warning" href="/quickstart">QuickStart Guide &rarr;</a>
+            </div>
         </div>
-        <p>Initialize your testing environment with</p>
-        <div class="highlight">
-          <pre><code>php vendor/bin/codecept bootstrap</code></pre>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-lg-6">
+            <div class="page">
+                <h3>Composer <small><i>(recommended)</i></small></h3>
+                <p>To install via <a href="https://getcomposer.org">Composer</a>, run this in your project's root:</p>
+                <div class="highlight">
+                    <pre><code>composer require "codeception/codeception" --dev</code></pre>
+                </div>
+                <p>From now on Codeception (with installed PHPUnit) can be run as:</p>
+                <div class="highlight">
+                    <pre><code>php vendor/bin/codecept</code></pre>
+                </div>
+                <p>Initialize your testing environment with</p>
+                <div class="highlight">
+                    <pre><code>php vendor/bin/codecept bootstrap</code></pre>
+                </div>
+            </div>
         </div>
-      </div>
-
+        <div class="col-sm-6 col-lg-6">
+            <h3>Phar</h3>
+            {% include phar.html %}
+        </div>
     </div>
-    <div class="col-sm-6 col-lg-6">
-      <h3>Phar</h3>
-      {% include phar.html %}      
+    <hr>
+    <div class="row page">
+        <h3>Git</h3>
+        <p>Alternative installation method for bugfixing, contributions and hacking</p>
+        <p>
+            Clone from GitHub:
+        </p>
+        <div class="highlight">
+            <pre><code>git clone git@github.com:Codeception/Codeception.git && cd Codeception</code></pre>
+        </div>
+        <p>
+            Install dependencies with Composer
+        </p>
+        <div class="highlight">
+            <pre><code>composer install</code></pre>
+        </div>
+        <p>
+            Execute bootstrap, specifying path to your directory.
+        </p>
+        <div class="highlight">
+            <pre><code>php codecept bootstrap /path/to/demo/project</code></pre>
+        </div>
+        <p>
+            To <strong>run tests</strong> use <code>-c</code> option for specifing path.
+        </p>
+        <div class="highlight">
+            <pre><code>php codecept run -c /path/to/demo/project</code></pre>
+        </div>
+        <p>Don't forget to send Pull Requests!</p>
     </div>
-
-  </div>
-  <hr>
-  <div class="row page">
-    <h3>Git</h3>
-    <p>Alternative installation method for bugfixing, contributions and hacking</p>
-    <p>
-      Clone from GitHub:
-    </p>
-    <div class="highlight">      
-    <pre><code>git clone git@github.com:Codeception/Codeception.git && cd Codeception</code></pre>
-    </div>
-    <p>
-      Install dependencies with Composer
-    </p>
-    <div class="highlight">
-      <pre><code>composer install</code></pre>
-      </div>
-      <p>
-        Execute bootstrap, specifying path to your directory.
-      </p>
-      <div class="highlight">
-        <pre><code>php codecept bootstrap /path/to/demo/project</code></pre>
-      </div>
-      <p>
-        To <strong>run tests</strong> use <code>-c</code> option for specifing path.
-      </p>
-      <div class="highlight">
-        <pre><code>php codecept run -c /path/to/demo/project</code></pre>
-      </div>
-    <p>Don't forget to send Pull Requests!</p>
-  </div>
 </div> <!-- /.container -->
