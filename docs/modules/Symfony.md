@@ -23,7 +23,7 @@ This module uses [Symfony's DomCrawler](https://symfony.com/doc/current/componen
 and [HttpKernel Component](https://symfony.com/doc/current/components/http_kernel.html) to emulate requests and test response.
 
 * Access Symfony services through the dependency injection container: [`$I->grabService(...)`](#grabService)
-* Use Doctrine to test against the database: `$I->seeInRepository(...)` - see [Doctrine Module](https://codeception.com/docs/modules/Doctrine2)
+* Use Doctrine to test against the database: `$I->seeInRepository(...)` - see [Doctrine Module](https://codeception.com/docs/modules/Doctrine)
 * Assert that emails would have been sent: [`$I->seeEmailIsSent()`](#seeEmailIsSent)
 * Tests are wrapped into Doctrine transaction to speed them up.
 * Symfony Router can be cached between requests to speed up testing.
@@ -34,19 +34,19 @@ and [HttpKernel Component](https://symfony.com/doc/current/components/http_kerne
 
 ### Config
 
-#### Symfony 5.x or 4.4
+#### Symfony 5.4 or higher
 
-* app_path: 'src' - Specify custom path to your app dir, where the kernel interface is located.
-* environment: 'local' - Environment used for load kernel
-* kernel_class: 'App\Kernel' - Kernel class name
-* em_service: 'doctrine.orm.entity_manager' - Use the stated EntityManager to pair with Doctrine Module.
-* debug: true - Turn on/off debug mode
-* cache_router: 'false' - Enable router caching between tests in order to [increase performance](http://lakion.com/blog/how-did-we-speed-up-sylius-behat-suite-with-blackfire)
-* rebootable_client: 'true' - Reboot client's kernel before each request
-* guard: 'false' - Enable custom authentication system with guard (only for 4.x and 5.x versions of the symfony)
-* authenticator: 'false' - Reboot client's kernel before each request (only for 6.x versions of the symfony)
+* `app_path`: 'src' - Specify custom path to your app dir, where the kernel interface is located.
+* `environment`: 'local' - Environment used for load kernel
+* `kernel_class`: 'App\Kernel' - Kernel class name
+* `em_service`: 'doctrine.orm.entity_manager' - Use the stated EntityManager to pair with Doctrine Module.
+* `debug`: true - Turn on/off [debug mode](https://codeception.com/docs/Debugging)
+* `cache_router`: 'false' - Enable router caching between tests in order to [increase performance](http://lakion.com/blog/how-did-we-speed-up-sylius-behat-suite-with-blackfire)
+* `rebootable_client`: 'true' - Reboot client's kernel before each request
+* `guard`: 'false' - Enable custom authentication system with guard (only for Symfony 5.4)
+* `authenticator`: 'false' - Reboot client's kernel before each request (only for Symfony 6.0 or higher)
 
-##### Example (`functional.suite.yml`) - Symfony 4 Directory Structure
+##### Sample `Functional.suite.yml`
 
     modules:
        enabled:
@@ -80,7 +80,7 @@ modules:
     enabled:
         - Symfony:
             part: services
-        - Doctrine2:
+        - Doctrine:
             depends: Symfony
         - WebDriver:
             url: http://example.com
@@ -88,7 +88,7 @@ modules:
 
 {% endhighlight %}
 
-If you're using Symfony with Eloquent ORM (instead of Doctrine), you can load the [`ORM` part of Laravel module](https://codeception.com/docs/modules/Laravel5#Parts)
+If you're using Symfony with Eloquent ORM (instead of Doctrine), you can load the [`ORM` part of Laravel module](https://codeception.com/docs/modules/Laravel#Parts)
 in addition to Symfony module.
 
 
@@ -726,8 +726,7 @@ $I->dontSeeElement('input', ['value' => '123456']);
 Checks that no email was sent.
 
 The check is based on `\Symfony\Component\Mailer\EventListener\MessageLoggerListener`, which means:
-If your app performs a HTTP redirect, you need to suppress it using [stopFollowingRedirects()](https://codeception.com/docs/modules/Symfony#stopFollowingRedirects) first; otherwise this check will *always* pass.
-Starting with version 2.0.0, `codeception/module-symfony` requires your app to use [Symfony Mailer](https://symfony.com/doc/current/mailer.html). If your app still uses [Swift Mailer](https://symfony.com/doc/current/email.html), set your version constraint to `^1.6`.
+If your app performs an HTTP redirect, you need to suppress it using [stopFollowingRedirects()](https://codeception.com/docs/modules/Symfony#stopFollowingRedirects) first; otherwise this check will *always* pass.
 
 
 #### dontSeeEvent
@@ -1126,8 +1125,7 @@ $uri = $I->grabFromCurrentUrl();
 Returns the last sent email.
 
 The function is based on `\Symfony\Component\Mailer\EventListener\MessageLoggerListener`, which means:
-If your app performs a HTTP redirect after sending the email, you need to suppress it using [stopFollowingRedirects()](https://codeception.com/docs/modules/Symfony#stopFollowingRedirects) first.
-Starting with version 2.0.0, `codeception/module-symfony` requires your app to use [Symfony Mailer](https://symfony.com/doc/current/mailer.html). If your app still uses [Swift Mailer](https://symfony.com/doc/current/email.html), set your version constraint to `^1.6`.
+If your app performs an HTTP redirect after sending the email, you need to suppress it using [stopFollowingRedirects()](https://codeception.com/docs/modules/Symfony#stopFollowingRedirects) first.
 See also: [grabSentEmails()](https://codeception.com/docs/modules/Symfony#grabSentEmails)
 
 {% highlight php %}
@@ -1188,7 +1186,7 @@ $I->grabNumRecords('User::class', ['name' => 'davert']);
 
 #### grabPageSource
 
-* `throws ModuleException` if no page was opened.
+* `throws \Codeception\Exception\ModuleException` if no page was opened.
 * `return string` Current page source code.
 
 Grabs current page source code.
@@ -1197,7 +1195,7 @@ Grabs current page source code.
 #### grabParameter
 
 * `param string` $parameterName
-* `return array|bool|float|int|string|null`
+* `return \UnitEnum|array|string|int|float|bool|null`
 
 Grabs a Symfony parameter
 
@@ -1236,8 +1234,7 @@ $I->grabRepository(UserRepositoryInterface::class);
 Returns an array of all sent emails.
 
 The function is based on `\Symfony\Component\Mailer\EventListener\MessageLoggerListener`, which means:
-If your app performs a HTTP redirect after sending the email, you need to suppress it using [stopFollowingRedirects()](https://codeception.com/docs/modules/Symfony#stopFollowingRedirects) first.
-Starting with version 2.0.0, `codeception/module-symfony` requires your app to use [Symfony Mailer](https://symfony.com/doc/current/mailer.html). If your app still uses [Swift Mailer](https://symfony.com/doc/current/email.html), set your version constraint to `^1.6`.
+If your app performs an HTTP redirect after sending the email, you need to suppress it using [stopFollowingRedirects()](https://codeception.com/docs/modules/Symfony#stopFollowingRedirects) first.
 See also: [grabLastSentEmail()](https://codeception.com/docs/modules/Symfony#grabLastSentEmail)
 
 {% highlight php %}
@@ -1690,8 +1687,7 @@ $I->seeElement(['css' => 'form input'], ['name' => 'login']);
 Checks if the given number of emails was sent (default `$expectedCount`: 1).
 
 The check is based on `\Symfony\Component\Mailer\EventListener\MessageLoggerListener`, which means:
-If your app performs a HTTP redirect after sending the email, you need to suppress it using [stopFollowingRedirects()](https://codeception.com/docs/modules/Symfony#stopFollowingRedirects) first.
-Starting with version 2.0.0, `codeception/module-symfony` requires your app to use [Symfony Mailer](https://symfony.com/doc/current/mailer.html). If your app still uses [Swift Mailer](https://symfony.com/doc/current/email.html), set your version constraint to `^1.6`.
+If your app performs an HTTP redirect after sending the email, you need to suppress it using [stopFollowingRedirects()](https://codeception.com/docs/modules/Symfony#stopFollowingRedirects) first.
 
 {% highlight php %}
 
@@ -2117,7 +2113,7 @@ $I->seeOrphanEvent(['App\MyEvent', 'App\MyOtherEvent']);
 
 Verifies that a page is available.
 
-By default it checks the current page, specify the `$url` parameter to change it.
+By default, it checks the current page, specify the `$url` parameter to change it.
 
 {% highlight php %}
 
@@ -2192,7 +2188,7 @@ $I->seeRenderedTemplate('layout.html.twig');
 
 Asserts that the time a request lasted is less than expected.
 
-If the page performed a HTTP redirect, only the time of the last request will be taken into account.
+If the page performed an HTTP redirect, only the time of the last request will be taken into account.
 You can modify this behavior using [stopFollowingRedirects()](https://codeception.com/docs/modules/Symfony#stopFollowingRedirects) first.
 
 Also, note that using code coverage can significantly increase the time it takes to resolve a request,

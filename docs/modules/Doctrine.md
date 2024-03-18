@@ -1,17 +1,17 @@
 ---
 layout: doc
-title: Doctrine2 - Codeception - Documentation
+title: Doctrine - Codeception - Documentation
 ---
 
 
 
-<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/module-Doctrine2/releases">Releases</a><a class="btn btn-default" href="https://github.com/Codeception/module-doctrine2/tree/master/src/Codeception/Module/Doctrine2.php"><strong>source</strong></a></div>
+<div class="btn-group" role="group" style="float: right" aria-label="..."><a class="btn btn-default" href="https://github.com/Codeception/module-Doctrine/releases">Releases</a><a class="btn btn-default" href="https://github.com/Codeception/module-doctrine/tree/master/src/Codeception/Module/Doctrine.php"><strong>source</strong></a></div>
 
-# Doctrine2
+# Doctrine
 ### Installation
 
 {% highlight yaml %}
-composer require --dev codeception/module-doctrine2
+composer require --dev codeception/module-doctrine
 
 {% endhighlight %}
 
@@ -29,7 +29,7 @@ Set up your `functional.suite.yml` like this:
 modules:
     enabled:
         - Symfony # 'ZF2' or 'Symfony'
-        - Doctrine2:
+        - Doctrine:
             depends: Symfony # Tells Doctrine to fetch the Entity Manager through Symfony
             cleanup: true # All doctrine queries will be wrapped in a transaction, which will be rolled back at the end of each test
 
@@ -41,7 +41,7 @@ If you don't provide a `depends` key, you need to specify a callback function to
 
 modules:
     enabled:
-        - Doctrine2:
+        - Doctrine:
             connection_callback: ['MyDb', 'createEntityManager'] # Call the static method `MyDb::createEntityManager()` to get the Entity Manager
 
 {% endhighlight %}
@@ -50,7 +50,7 @@ By default, the module will wrap everything into a transaction for each test and
 (this is controlled by the `cleanup` setting).
 By doing this, tests will run much faster and will be isolated from each other.
 
-To use the Doctrine2 Module in acceptance tests, set up your `acceptance.suite.yml` like this:
+To use the Doctrine Module in acceptance tests, set up your `acceptance.suite.yml` like this:
 
 {% highlight yaml %}
 
@@ -58,7 +58,7 @@ modules:
     enabled:
         - Symfony:
             part: SERVICES
-        - Doctrine2:
+        - Doctrine:
             depends: Symfony
 
 {% endhighlight %}
@@ -72,7 +72,7 @@ are using to purge the database tables:
 
 modules:
     enabled:
-        - Doctrine2:
+        - Doctrine:
             purge_mode: 1 # 1: DELETE (=default), 2: TRUNCATE
 
 {% endhighlight %}
@@ -427,4 +427,4 @@ $I->seeInRepository(Client::class, ['User' => ['Company' => ['name' => 'Codegyre
 
 Fails if record for given criteria can\'t be found,
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-doctrine2/tree/master/src/Codeception/Module/Doctrine2.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/module-doctrine/tree/master/src/Codeception/Module/Doctrine.php">Help us to improve documentation. Edit module reference</a></div>

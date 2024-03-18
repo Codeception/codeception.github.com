@@ -60,8 +60,8 @@ modules:
          url: 'http://localhost/'
          browser: chrome
          capabilities:
-            chromeOptions:
-               args: ["--headless", "--disable-gpu"]
+            goog:chromeOptions:
+               args: ["--headless"]
 
 {% endhighlight %}
 
@@ -98,8 +98,8 @@ modules:
          window_size: 2000x1000
          port: 9515
          capabilities:
-             chromeOptions:
-                 args: ["--headless", "--disable-gpu"] # Run Chrome in headless mode
+             goog:chromeOptions:
+                 args: ["--headless"] # Run Chrome in headless mode
                  prefs:
                      download.default_directory: "..."
 
@@ -143,7 +143,7 @@ you should use a tunnel application provided by a service.
 
 1. Create an account at [SauceLabs.com](https://saucelabs.com/) to get your username and access key
 2. In the module configuration use the format `username`:`access_key`@ondemand.saucelabs.com' for `host`
-3. Configure `platform` under `capabilities` to define the [Operating System](https://docs.saucelabs.com/basics/platform-configurator/)
+3. Configure `platformName` under `capabilities` to define the [Operating System](https://docs.saucelabs.com/basics/platform-configurator/)
 4. run a tunnel app if your site can't be accessed from Internet
 
 {% highlight yaml %}
@@ -156,7 +156,7 @@ you should use a tunnel application provided by a service.
              port: 80
              browser: chrome
              capabilities:
-                 platform: 'Windows 10'
+                 platformName: 'Windows 10'
 
 {% endhighlight %}
 
@@ -177,9 +177,10 @@ you should use a tunnel application provided by a service.
              port: 80
              browser: chrome
              capabilities:
-                 os: Windows
-                 os_version: 10
-                 browserstack.local: true # for local testing
+                 bstack:options:
+                     os: Windows
+                     osVersion: 10
+                     local: true # for local testing
 
 {% endhighlight %}
 
@@ -212,7 +213,7 @@ you should use a tunnel application provided by a service.
 
 1. Create an account at [TestingBot](https://testingbot.com/) to get your key and secret
 2. In the module configuration use the format `key`:`secret`@hub.testingbot.com' for `host`
-3. Configure `platform` under `capabilities` to define the [Operating System](https://testingbot.com/support/getting-started/browsers.html)
+3. Configure `platformName` under `capabilities` to define the [Operating System](https://testingbot.com/support/getting-started/browsers.html)
 4. Run [TestingBot Tunnel](https://testingbot.com/support/other/tunnel) if your site can't be accessed from Internet
 
 {% highlight yaml %}
@@ -225,7 +226,7 @@ you should use a tunnel application provided by a service.
              port: 80
              browser: chrome
              capabilities:
-                 platform: Windows 10
+                 platformName: Windows 10
 
 {% endhighlight %}
 
@@ -264,8 +265,9 @@ Example (`acceptance.suite.yml`)
              browser: firefox
              window_size: 1024x768
              capabilities:
-                 unexpectedAlertBehaviour: 'accept'
-                 firefox_profile: '~/firefox-profiles/codeception-profile.zip.b64'
+                 unhandledPromptBehaviour: 'accept'
+                 moz:firefoxOptions:
+                     profile: '~/firefox-profiles/codeception-profile.zip.b64'
 
 {% endhighlight %}
 
@@ -1596,12 +1598,12 @@ For special keys, use the constants from [`Facebook\WebDriver\WebDriverKeys`](ht
 {% highlight php %}
 
 <?php
-// <input id="page" value="old" />
-$I->pressKey('#page','a'); // => olda
-$I->pressKey('#page',array('ctrl','a'),'new'); //=> new
-$I->pressKey('#page',array('shift','111'),'1','x'); //=> old!!!1x
+// <input id="page" value="old">
+$I->pressKey('#page', 'a'); // => olda
+$I->pressKey('#page', ['ctrl', 'a'],'new'); //=> new
+$I->pressKey('#page', ['shift', '111'],'1','x'); //=> old!!!1x
 $I->pressKey('descendant-or-self::*[@id='page']','u'); //=> oldu
-$I->pressKey('#name', array('ctrl', 'a'), \Facebook\WebDriver\WebDriverKeys::DELETE); //=>''
+$I->pressKey('#name', ['ctrl', 'a'], \Facebook\WebDriver\WebDriverKeys::DELETE); //=>''
 
 {% endhighlight %}
 
@@ -2183,17 +2185,17 @@ For example, given this sample "Sign Up" form:
 
 <form action="/sign_up">
     Login:
-    <input type="text" name="user[login]" /><br/>
+    <input type="text" name="user[login]"><br>
     Password:
-    <input type="password" name="user[password]" /><br/>
+    <input type="password" name="user[password]"><br>
     Do you agree to our terms?
-    <input type="checkbox" name="user[agree]" /><br/>
+    <input type="checkbox" name="user[agree]"><br>
     Select pricing plan:
     <select name="plan">
         <option value="1">Free</option>
         <option value="2" selected="selected">Paid</option>
     </select>
-    <input type="submit" name="submitButton" value="Submit" />
+    <input type="submit" name="submitButton" value="Submit">
 </form>
 
 {% endhighlight %}
@@ -2307,7 +2309,7 @@ For example, given the following HTML:
 
 {% highlight html %}
 
-<input type="submit" name="submitButton" value="Submit" />
+<input type="submit" name="submitButton" value="Submit">
 
 {% endhighlight %}
 

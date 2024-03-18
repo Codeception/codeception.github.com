@@ -682,7 +682,7 @@ $aLinks = $I->grabMultiple('a', 'href');
 
 #### grabPageSource
 
-* `throws ModuleException` if no page was opened.
+* `throws \Codeception\Exception\ModuleException` if no page was opened.
 * `return string` Current page source code.
 
 Grabs current page source code.
