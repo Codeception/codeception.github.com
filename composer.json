@@ -12,7 +12,7 @@
     "codeception/module-cli": "*",
     "codeception/module-datafactory": "*",
     "codeception/module-db": "*",
-    "codeception/module-doctrine2": "*",
+    "codeception/module-doctrine": "*",
     "codeception/module-filesystem": "*",
     "codeception/module-ftp": "*",
     "codeception/module-laminas": "*",
