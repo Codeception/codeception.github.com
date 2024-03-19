@@ -198,16 +198,6 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 **Full Changelog**: https://github.com/Codeception/module-symfony/compare/3.2.0...3.3.0
 
 
-### module-yii2 1.1.10: 1.1.10
-
-Released by [![](https://avatars.githubusercontent.com/u/47294?v=4&s=16) samdark](https://github.com/samdark) on 2024/01/10 05:57:11 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
-
-
-
-- [#93](https://github.com/Codeception/module-yii2/issues/93): Fix symfony/browser-kit incompatibility (@jafaripur)
-- [#91](https://github.com/Codeception/module-yii2/issues/91): Fix parallel sessions with `$I->haveFriend()` when no session is active (@michaelarnauts)
-
-
 ### module-symfony 3.2.0: 3.2.0
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2024/01/02 03:14:29 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
@@ -371,17 +361,6 @@ Released by [![](https://avatars.githubusercontent.com/u/1073784?v=4&s=16) niden
 Fixed getRawBody() return type [[#8](https://github.com/Codeception/module-phalcon5/issues/8)](https://github.com/Codeception/module-phalcon5/issues/8)
 
 
-### module-yii2 1.1.9: 1.1.9
-
-Released by [![](https://avatars.githubusercontent.com/u/47294?v=4&s=16) samdark](https://github.com/samdark) on 2023/06/16 03:52:10 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
-
-
-
-- [#85](https://github.com/Codeception/module-yii2/issues/85): Fix the case for "yii" namespace in phpdoc (@ilyaplot)
-- [#86](https://github.com/Codeception/module-yii2/issues/86): Use correct type declaration for amOnPage method (@erickskrauch)
-- [#88](https://github.com/Codeception/module-yii2/issues/88): Enable object override to InitDbFixture during FixturesStore initialization (@PoohOka)
-
-
 ### lib-web 1.0.2: 1.0.2
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/04/18 20:33:22 / [Repository](https://github.com/Codeception/lib-web)   / [Releases](https://github.com/Codeception/lib-web/releases)
@@ -438,19 +417,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * JUnitReporter: Do not set 'useless' testsuite attribute in strict mode [#6635](https://github.com/Codeception/Codeception/issues/6635) by **[gileri](https://github.com/gileri)**
 * Fixed static $defaultName deprecated in _completion command [#6633](https://github.com/Codeception/Codeception/issues/6633) by **[dmitryuk](https://github.com/dmitryuk)**
 * Replaced object property assertions removed from PHPUnit 10
-
-
-
-### module-yii2 1.1.8: 1.1.8
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/02/10 18:54:49 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
-
-
-
-* Fix last commit error by **[sunnyphp](https://github.com/sunnyphp)** in https://github.com/Codeception/module-yii2/pull/73
-* update links by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-yii2/pull/75
-* PHP 8.1: parse_str(): Passing null to parameter `[#1](https://github.com/Codeception/module-yii2/issues/1)` ($string) of type string is deprecated by **[uaoleg](https://github.com/uaoleg)** in https://github.com/Codeception/module-yii2/pull/80
-* Upgrade dependencies to support PHPUnit 10 by **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/module-yii2/pull/82
 
 
 
@@ -980,15 +946,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Support for Codeception 5.0
 
 
-### module-yii2 1.1.7: 1.1.7
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/07/15 18:10:54 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
-
-
-
-* Fix compatibility with Codeception 5.0.0-RC6 [#72](https://github.com/Codeception/module-yii2/issues/72) 
-
-
 ### Codeception 5.0.0-RC6: 5.0.0-RC6
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/07/12 07:13:56 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
@@ -1043,17 +1000,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 * Execute setupBeforeClass/tearDownAfterClass only once ([#6481](https://github.com/Codeception/Codeception/issues/6481))
 * Handle action with intersection return type correctly in dry-run command
-
-
-### module-yii2 1.1.6: 1.1.6
-
-Released by [![](https://avatars.githubusercontent.com/u/47294?v=4&s=16) samdark](https://github.com/samdark) on 2022/06/21 11:05:32 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
-
-
-
-- [#8](https://github.com/Codeception/module-yii2/issues/8): Add log from Yii to artifacts when test fails (@aywan)
-- [#65](https://github.com/Codeception/module-yii2/issues/65): Codeception 5 support (@developedsoftware and **[TavoNiievez](https://github.com/TavoNiievez)**)
-
 
 
 ### Codeception 4.2.0: 4.2.0
@@ -1622,18 +1568,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 * Fixed TypeError in `grabTextFrom` when array is used as parameter by **[olexp](https://github.com/olexp)** 
 * Changed `assertEquals` to `assertSame` is many methods by **[TavoNiievez](https://github.com/TavoNiievez)** 
-
-
-### module-yii2 1.1.5: 1.1.5
-
-Released by [![](https://avatars.githubusercontent.com/u/47294?v=4&s=16) samdark](https://github.com/samdark) on 2022/01/10 10:29:36 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
-
-
-
-- [#54](https://github.com/Codeception/module-yii2/issues/54): Annotate throws with FQN (@DBX12)
-- [#56](https://github.com/Codeception/module-yii2/issues/56): Move tests from codeception/yii2-tests (@DBX12)
-- [#59](https://github.com/Codeception/module-yii2/issues/59): Allow installing on PHP 8.1.1 (@Krakozaber)
-
 
 
 ### module-soap 2.0.2: 2.0.2
@@ -2214,15 +2148,6 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 **Full Changelog**: https://github.com/Codeception/lib-innerbrowser/compare/1.5.0...2.0.0
 
 
-### module-yii2 1.1.4: 1.1.4
-
-Released by [![](https://avatars.githubusercontent.com/u/47294?v=4&s=16) samdark](https://github.com/samdark) on 2021/11/26 05:58:14 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
-
-
-
-- Allow PHP 8.1 (@saatsazov)
-
-
 ### module-rest 1.4.2: Added JSON check to `AsJson`
 
 Released by [![](https://avatars.githubusercontent.com/u/220264?v=4&s=16) DavertMik](https://github.com/DavertMik) on 2021/11/18 19:12:32 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
@@ -2488,15 +2413,6 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 
 - Added Symfony 5.3 compatibility ([#133](https://github.com/Codeception/module-symfony/issues/133)).
 - Added new method:  `$I->seeRequestTimeIsLessThan()` ([#132](https://github.com/Codeception/module-symfony/issues/132)).
-
-
-### module-yii2 1.1.3: 1.1.3
-
-Released by [![](https://avatars.githubusercontent.com/u/47294?v=4&s=16) samdark](https://github.com/samdark) on 2021/05/24 20:06:33 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
-
-
-
-- Add ability to specify application class in config ([#48](https://github.com/Codeception/module-yii2/issues/48))
 
 
 ### module-phalcon4 v1.0.7: v1.0.7
@@ -2790,17 +2706,6 @@ modules:
 > **Minor change**: Adding link to "central" parts explanation ([#8](https://github.com/Codeception/module-laravel/issues/8)) by **[ThomasLandauer](https://github.com/ThomasLandauer)**.
 
 If you're interested in contributing to this module and didn't know where to start, a [contribution guide](https://github.com/Codeception/module-laravel/blob/main/CONTRIBUTING.md) is now available, thanks to **[ThomasLandauer](https://github.com/ThomasLandauer)** and **[TavoNiievez](https://github.com/TavoNiievez)**.
-
-
-### module-yii2 1.1.2: 1.1.2
-
-Released by [![](https://avatars.githubusercontent.com/u/47294?v=4&s=16) samdark](https://github.com/samdark) on 2020/12/28 11:32:21 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
-
-
-
-- PHP 8 support [#18](https://github.com/Codeception/module-yii2/issues/18) by **[samdark](https://github.com/samdark)**
-- Fix for support `Instance::of()` in configuration [#21](https://github.com/Codeception/module-yii2/issues/21) by **[antonovsky](https://github.com/antonovsky)**
-- Initialize `$_SERVER['QUERY_STRING']` to mimic normal behavior of most webservers by **[eborned](https://github.com/eborned)**
 
 
 ### module-cli 1.1.1: Preparation for PHPUnit 10
@@ -3315,17 +3220,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Improved docs for Json Matchers
 
 
-### module-yii2 1.1.1: 1.1.1
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/08/28 06:53:33 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
-
-
-
-* Change default value of transaction parameter to true [#4](https://github.com/Codeception/module-yii2/issues/4) by **[SaloEater](https://github.com/SaloEater)** 
-* Fix ModuleException parameters, handle undefined [#12](https://github.com/Codeception/module-yii2/issues/12) by **[smichae](https://github.com/smichae)** 
-* Validation errors for haveRecord method [#10](https://github.com/Codeception/module-yii2/issues/10) by **[ianikanov](https://github.com/ianikanov)** 
-
-
 ### module-phalcon4 v1.0.4: v1.0.4
 
 Released by [![](https://avatars.githubusercontent.com/u/7444246?v=4&s=16) ruudboon](https://github.com/ruudboon) on 2020/08/26 09:34:29 / [Repository](https://github.com/Codeception/module-phalcon4)   / [Releases](https://github.com/Codeception/module-phalcon4/releases)
@@ -3563,15 +3457,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 
-
-
-### module-yii2 1.1.0: Module implements Codeception's MultiSession
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/02/01 19:26:08 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
-
-
-
-[#3](https://github.com/Codeception/module-yii2/issues/3) by **[mytskine](https://github.com/mytskine)** 
 
 
 ### module-zf2 1.0.3: 
@@ -3817,24 +3702,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 ### module-filesystem 1.0.1: Compatible with codeception/codeception releases and branches
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/11/09 20:33:00 / [Repository](https://github.com/Codeception/module-filesystem)   / [Releases](https://github.com/Codeception/module-filesystem/releases)
-
-
-
-
-
-
-### module-yii2 1.0.1: Use stable versions of codeception and innerbrowser
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/10/25 17:33:04 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
-
-
-
-
-
-
-### module-yii2 1.0.0: Initial release
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/10/19 15:29:42 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
 
 
 
