@@ -125,7 +125,7 @@ php vendor/bin/codecept run --xml
 
 ![](/images/codecept-allure.png)
 
-[Allure](https://allurereport.org/) is a popular open-source reporting tool. It can be paired with Codeception to get a detailed run report. Use [Allure extension](https://github.com/allure-framework/allure-codeception) to generate report which can be passed to Allure to display it.
+[Allure](https://allurereport.org/docs/) is a popular open-source reporting tool. It can be paired with Codeception to get a detailed run report. Use [Allure extension](https://github.com/allure-framework/allure-codeception) to generate report which can be passed to Allure to display it.
 
 ## Custom Reporter
 
