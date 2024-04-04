@@ -9,6 +9,19 @@ title: Codeception Changelog
 
 
 
+### module-doctrine2 3.0.4: 3.0.4
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2024/04/04 16:33:24 / [Repository](https://github.com/Codeception/module-doctrine2)   / [Releases](https://github.com/Codeception/module-doctrine2/releases)
+
+
+
+## What's Changed
+* Test against PHP 8.2 + 8.3 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/module-doctrine2/pull/76
+* Update composer.json: Adding `abandoned` by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/module-doctrine2/pull/80
+
+**Full Changelog**: https://github.com/Codeception/module-doctrine2/compare/3.0.3...3.0.4
+
+
 ### module-symfony 3.3.2: 3.3.2
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2024/03/18 15:08:50 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
