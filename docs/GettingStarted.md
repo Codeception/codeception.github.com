@@ -38,8 +38,7 @@ Codeception follows simple naming rules to make it easy to remember (as well as 
   ```php
   $method = $I->grabAttributeFrom('#login-form', 'method');
   $I->assertSame('post', $method);
-  ```    
-
+  ```
 
 ## Actors
 
@@ -60,7 +59,6 @@ modules:
             url: 'http://localhost/myapp/'
 ```
 
-
 In this configuration file you can enable/disable and reconfigure modules for your needs.
 When you change the configuration, the actor classes are rebuilt automatically. If the actor classes are not created or updated as you expect,
 try to generate them manually with the `build` command:
@@ -68,7 +66,6 @@ try to generate them manually with the `build` command:
 ```bash
 php vendor/bin/codecept build
 ```
-
 
 ## Writing a Sample Test
 
@@ -78,7 +75,6 @@ To start writing a test we need to create a new Cest file. We can do that by run
 ```bash
 php vendor/bin/codecept generate:cest Acceptance Signin
 ```
-
 
 This will generate the `SigninCest.php` file inside the `tests/Acceptance` directory. Let's open it:
 
@@ -110,7 +106,7 @@ namespace Tests\Acceptance;
 
 use Tests\Support\AcceptanceTester;
 
-class SigninCest
+final class SigninCest
 {
     public function signInSuccessfully(AcceptanceTester $I): void
     {
@@ -134,18 +130,16 @@ I click 'Login'
 I see 'Hello, davert'
 ```
 
-
 Codeception generates this text representation from PHP code by executing:
 
 ```bash
-php vendor/bin/codecept generate:scenarios
+php vendor/bin/codecept generate:scenarios Acceptance
 ```
 
-
-These generated scenarios will be stored in your `_data` directory in text files.
+These generated scenarios will be stored in your `tests/Support/Data/scenarios/Functional` directory in `*.txt` files.
 
 Before we execute this test, we should make sure that the website is running on a local web server.
-Let's open the `tests/acceptance.suite.yml` file and replace the URL with the URL of your web application:
+Let's open the `tests/Acceptance.suite.yml` file and fill in the URL of your web application:
 
 ```yaml
 actor: AcceptanceTester
@@ -154,7 +148,6 @@ modules:
         - PhpBrowser:
             url: 'http://myappurl.local'
 ```
-
 
 After configuring the URL we can run this test with the `run` command:
 
@@ -167,21 +160,19 @@ This is the output we should see:
 
 ```bash
 Acceptance Tests (1) -------------------------------
-✔ SigninCest: sign in successfully
+✔ SigninCest: sign in successfully (0.00s)
 ----------------------------------------------------
 
-Time: 1 second, Memory: 21.00Mb
+Time: 00:00.019, Memory: 12.00 MB
 
-OK (1 test, 1 assertions)
+OK (1 test, 1 assertion)
 ```
-
 
 Let's get some detailed output:
 
 ```
-php vendor/bin/codecept run acceptance --steps
+php vendor/bin/codecept run Acceptance --steps
 ```
-
 
 We should see a step-by-step report on the performed actions:
 
@@ -189,80 +180,53 @@ We should see a step-by-step report on the performed actions:
 Acceptance Tests (1) -------------------------------
 SigninCest: Login to website
 Signature: SigninCest.php:signInSuccessfully
-Test: tests/acceptance/SigninCest.php:signInSuccessfully
+Test: tests/Acceptance/SigninCest.php:signInSuccessfully
 Scenario --
  I am on page "/login"
  I fill field "Username" "davert"
  I fill field "Password" "qwerty"
  I click "Login"
  I see "Hello, davert"
- OK
+ PASSED
 ----------------------------------------------------
 
-Time: 0 seconds, Memory: 21.00Mb
+Time: 00:00.019, Memory: 12.00 MB
 
-OK (1 test, 1 assertions)
+OK (1 test, 1 assertion)
 ```
 
+This simple test can be extended to a complete scenario of site usage, therefore, by emulating the user's actions, you can test any of your websites.
 
-This simple test can be extended to a complete scenario of site usage, therefore,
-by emulating the user's actions, you can test any of your websites.
-
-To run more tests create a public method for each of them. Include `AcceptanceTester` object as `$I` as a method parameter and use the same `$I->` API you've seen before.
-If your tests share common setup actions put them into `_before` method. 
-
-For instance, to test CRUD we want 4 methods to be implemented and all next tests should start at `/task` page:
+To run more tests, create a public method for each of them. If your tests share common setup actions, put them into the `_before()` method:
 
 ```php
 <?php
+namespace Tests\Acceptance;
 
-namespace Tests\Functional;
+use Tests\Support\AcceptanceTester;
 
-use \Tests\Support\FunctionalTester;
-
-class TaskCrudCest
+final class TaskCrudCest
 {
-    function _before(AcceptanceTester $I)
+    public function _before(AcceptanceTester $I): void
     {
         // will be executed at the beginning of each test
         $I->amOnPage('/task');
     }
-
-    function createTask(AcceptanceTester $I)
-    {
-       // todo: write test
-    }
-
-    function viewTask(AcceptanceTester $I)
-    {
-       // todo: write test
-    }
-
-    function updateTask(AcceptanceTester $I)
-    {
-        // todo: write test
-    }
-
-    function deleteTask(AcceptanceTester $I)
-    {
-       // todo: write test
-    }
 }
 ```
 
+Learn more about the [Cest format](https://codeception.com/docs/AdvancedUsage#Cest-Classes) in the Advanced Testing chapter.
 
-Learn more about the [Cest format](https://codeception.com/docs/07-AdvancedUsage#Cest-Classes) in the Advanced Testing section.
+## Behavior Driven Development (BDD)
 
-## BDD
-
-Codeception allows execution of user stories in Gherkin format in a similar manner as is done in Cucumber or Behat.
-Please refer to [the BDD chapter](https://codeception.com/docs/07-BDD) to learn more.
+Codeception allows execution of user stories in Gherkin format in a similar manner as it is done in Cucumber or Behat.
+Please refer to [the BDD chapter](https://codeception.com/docs/BDD) to learn more.
 
 ## Configuration
 
-Codeception has a global configuration in `codeception.yml` and a config for each suite. We also support `.dist` configuration files.
+Codeception has a global configuration file `codeception.yml` and a config for each suite. We also support `.dist` configuration files.
 If you have several developers in a project, put shared settings into `codeception.dist.yml` and personal settings into `codeception.yml`.
-The same goes for suite configs. For example, the `unit.suite.yml` will be merged with `unit.suite.dist.yml`.
+The same goes for suite configs. For example, the `Unit.suite.yml` will be merged with `Unit.suite.dist.yml`.
 
 ## Running Tests
 
@@ -272,51 +236,44 @@ Tests can be started with the `run` command:
 php vendor/bin/codecept run
 ```
 
-
 With the first argument you can run all tests from one suite:
 
 ```bash
-php vendor/bin/codecept run acceptance
+php vendor/bin/codecept run Acceptance
 ```
-
 
 To limit tests run to a single class, add a second argument. Provide a local path to the test class, from the suite directory:
 
 ```bash
-php vendor/bin/codecept run acceptance SigninCest.php
+php vendor/bin/codecept run Acceptance SigninCest.php
 ```
 
-
-Alternatively you can provide the full path to test file:
+Alternatively you can provide the full path to the test file:
 
 ```bash
-php vendor/bin/codecept run tests/acceptance/SigninCest.php
+php vendor/bin/codecept run tests/Acceptance/SigninCest.php
 ```
 
-
-You can further filter which tests are run by appending a method name to the class, separated by a colon (for Cest or Test formats):
+You can further filter which tests to run by appending a method name to the class, separated by a colon:
 
 ```bash
-php vendor/bin/codecept run tests/acceptance/SigninCest.php:^anonymousLogin$
+php vendor/bin/codecept run tests/Acceptance/SigninCest.php:^anonymousLogin$
 ```
 
-
-You can provide a directory path as well. This will execute all acceptance tests from the `backend` dir:
+You can provide a directory path as well. This will execute all Acceptance tests from the `backend` dir:
 
 ```bash
-php vendor/bin/codecept run tests/acceptance/backend
+php vendor/bin/codecept run tests/Acceptance/backend
 ```
-
 
 Using regular expressions, you can even run many different test methods from the same directory or class.
-For example, this will execute all acceptance tests from the `backend` dir beginning with the word "login":
+For example, this will execute all Acceptance tests from the `backend` dir beginning with the word "login":
 
 ```bash
-php vendor/bin/codecept run tests/acceptance/backend:^login
+php vendor/bin/codecept run tests/Acceptance/backend:^login
 ```
 
-
-To execute a group of tests that are not stored in the same directory, you can organize them in [groups](https://codeception.com/docs/07-AdvancedUsage#Groups).
+To execute a group of tests that are not stored in the same directory, you can organize them in [groups](https://codeception.com/docs/AdvancedUsage#Groups).
 
 ### Reports
 
@@ -327,7 +284,7 @@ php vendor/bin/codecept run --steps --xml --html
 ```
 
 
-This command will run all tests for all suites, displaying the steps, and building HTML and XML reports. Reports will be stored in the `tests/_output/` directory.
+This command will run all tests for all suites, displaying the steps, and building HTML and XML reports. The reports will be stored in the `tests/_output/` directory.
 
 Learn more about [available reports](/docs/Reporting).
 
@@ -354,7 +311,7 @@ There are plenty of useful Codeception commands:
 
 ## Conclusion
 
-We have taken a look into the Codeception structure. Most of the things you need were already generated by the `bootstrap` command.
+We have taken a look into Codeception's structure. Most of the things you need were already generated by the `bootstrap` command.
 After you have reviewed the basic concepts and configurations, you can start writing your first scenario.
 
 <div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/GettingStarted.md"><strong>Improve</strong> this guide</a></div>
