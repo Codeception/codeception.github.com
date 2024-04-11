@@ -40,8 +40,7 @@ Let's review those three test types in reverse order.
 
 ### Acceptance Tests
 
-How does your client, manager, tester, or any other non-technical person know your website is working? By opening the browser, accessing the site, clicking on links, filling in the forms, and actually seeing the content on a web page. They have no idea of the programming language, framework, database, web-server,
-or why the application did (or did not) behave as expected.
+How does your client know your website is working? By opening the browser, accessing the site, clicking on links, filling in the forms, and actually seeing the content on a web page.
 
 This is what acceptance tests are doing. They cover scenarios from a user's perspective.
 With acceptance tests, you can be confident that users, following all the defined scenarios, won't get errors.
@@ -51,13 +50,16 @@ With acceptance tests, you can be confident that users, following all the define
 #### Sample acceptance test
 
 ```php
-$I->amOnPage('/');
-$I->click('Sign Up');
-$I->submitForm('#signup', [
-  'username' => 'MilesDavis', 
-  'email' => 'miles@davis.com'
-]);
-$I->see('Thank you for Signing Up!');
+public function trySignupForm(AcceptanceTester $I): void
+{
+    $I->amOnPage('/');
+    $I->click('Sign Up');
+    $I->submitForm('#signup', [
+      'username' => 'MilesDavis', 
+      'email'    => 'miles@example.com'
+    ]);
+    $I->see('Thank you for Signing Up!');
+}
 ```
 
 ### Functional Tests
@@ -72,15 +74,21 @@ For functional tests, your application needs to be structured in order to run in
 #### Sample functional test
 
 ```php
-$I->amOnPage('/');
-$I->click('Sign Up');
-$I->submitForm('#signup', ['username' => 'MilesDavis', 'email' => 'miles@davis.com']);
-$I->see('Thank you for Signing Up!');
-$I->seeEmailIsSent('miles@davis.com', 'Thank you for your registration');
-$I->seeInDatabase('users', ['email' => 'miles@davis.com']);
+public function trySignupForm(FunctionalTester $I): void
+{
+    $I->amOnPage('/');
+    $I->click('Sign Up');
+    $I->submitForm('#signup', [
+      'username' => 'MilesDavis',
+      'email'    => 'miles@example.com'
+    ]);
+    $I->see('Thank you for Signing Up!');
+    $I->seeEmailIsSent('miles@example.com', 'Thank you for your registration');
+    $I->seeInDatabase('users', ['email' => 'miles@example.com']);
+}
 ```
 
-> This looks very similar to acceptance tests. The behavior is the same, however, the test is executed inside PHP without launching a real browser.
+This looks very similar to acceptance tests. The behavior is the same, however, the test is executed in PHP without launching a real browser.
 
 ### Unit Tests
 
@@ -96,19 +104,19 @@ Requirements and code can change rapidly,
 and unit tests should be updated every time to fit the requirements.
 The better you understand the testing scenario, the faster you can update it for new behavior.
 
-#### Sample integration test
+#### Sample unit test
 
 ```php
-public function testSavingUser()
+public function testSavingUser(): void
 {
     $user = new User();
-    $user->setName('Miles');
-    $user->setSurname('Davis');
+    $user->setFirstName('Miles');
+    $user->setLastName('Davis');
     $user->save();
-    $this->assertEquals('Miles Davis', $user->getFullName());
+    $this->assertSame('Miles Davis', $user->getFullName());
     $this->tester->seeInDatabase('users', [
-      'name' => 'Miles', 
-      'surname' => 'Davis'
+      'firstName' => 'Miles', 
+      'lastName'  => 'Davis'
     ]);
 }
 ```
@@ -119,6 +127,6 @@ The Codeception framework was developed to actually make testing fun.
 It allows writing unit, functional, integration, and acceptance tests in a single, coherent style.
 
 All Codeception tests are written in a descriptive manner.
-Just by looking at the test body, you can clearly understand what is being tested and how it is performed.
+Just by looking at the test body, you can clearly understand what is being tested.
 
 <div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/Introduction.md"><strong>Improve</strong> this guide</a></div>
