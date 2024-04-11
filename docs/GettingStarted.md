@@ -17,40 +17,40 @@ Codeception follows simple naming rules to make it easy to remember (as well as 
 
 * **Actions** start with a plain english verb, like "click" or "fill". Examples:
 
-```php
-$I->click('Login');
-$I->fillField('#input-username', 'John Dough');
-$I->pressKey('#input-remarks', 'foo');
-```    
+  ```php
+  $I->click('Login');
+  $I->fillField('#input-username', 'John Dough');
+  $I->pressKey('#input-remarks', 'foo');
+  ```    
 
 * **Assertions** always start with "see" or "dontSee". Examples:
 
-```php
-$I->see('Welcome');
-$I->seeInTitle('My Company');
-$I->seeElement('nav');
-$I->dontSeeElement('#error-message');
-$I->dontSeeInPageSource('<section class="foo">');
-```    
+  ```php
+  $I->see('Welcome');
+  $I->seeInTitle('My Company');
+  $I->seeElement('nav');
+  $I->dontSeeElement('#error-message');
+  $I->dontSeeInPageSource('<section class="foo">');
+  ```    
 
-* **Grabbers** take information. The return value of those are meant to be saved as variables and used later. Example:
+* **Grabbers** take information. The return value of those is meant to be saved as a variable and used later. Example:
 
-```php
-$method = $I->grabAttributeFrom('#login-form', 'method');
-$I->assertEquals('post', $method);
-```    
+  ```php
+  $method = $I->grabAttributeFrom('#login-form', 'method');
+  $I->assertSame('post', $method);
+  ```    
 
 
 ## Actors
 
-One of the main concepts of Codeception is representation of tests as actions of a person. We have a "UnitTester", who executes functions and tests the code. We also have a "FunctionalTester", a qualified tester,
+One of the main concepts of Codeception is the representation of tests as actions of a person. We have a "UnitTester", who executes functions and tests the code. We also have a "FunctionalTester", a qualified tester,
 who tests the application as a whole, with knowledge of its internals. Lastly we have an "AcceptanceTester", a user who works with our application
 in a real browser.
 
-Methods of actor classes are generally taken from [Codeception Modules](https://codeception.com/docs/06-ModulesAndHelpers). Each module provides predefined actions for different testing purposes, and they can be combined to fit the testing environment.
+Methods of actor classes are generally taken from [Codeception Modules](https://codeception.com/docs/ModulesAndHelpers). Each module provides predefined actions for different testing purposes, and they can be combined to fit the testing environment.
 Codeception tries to solve 90% of possible testing issues in its modules, so you don't have to reinvent the wheel.
 We think that you can spend more time on writing tests and less on writing support code to make those tests run.
-By default, AcceptanceTester relies on [PhpBrowser](https://codeception.com/docs/modules/PhpBrowser) module, which is set in the `tests/Acceptance.suite.yml` configuration file:
+By default, AcceptanceTester relies on the [PhpBrowser](https://codeception.com/docs/modules/PhpBrowser) module, which is set in the `tests/Acceptance.suite.yml` configuration file:
 
 ```yaml
 actor: AcceptanceTester
@@ -72,7 +72,7 @@ php vendor/bin/codecept build
 
 ## Writing a Sample Test
 
-Codeception has its own testing format called "Cest" ("Codecept" + "Test"). 
+Codeception has its own testing format called "Cest" (a combination of "Codecept" and "Test"). 
 To start writing a test we need to create a new Cest file. We can do that by running the following command:
 
 ```bash
@@ -80,11 +80,10 @@ php vendor/bin/codecept generate:cest Acceptance Signin
 ```
 
 
-This will generate `SigninCest.php` file inside `tests/Acceptance` directory. Let's open it:
+This will generate the `SigninCest.php` file inside the `tests/Acceptance` directory. Let's open it:
 
 ```php
 <?php
-
 namespace Tests\Acceptance;
 
 use Tests\Support\AcceptanceTester;
@@ -102,40 +101,35 @@ class SigninCest
 }
 ```
 
-We have `_before` and `_after` methods to run some common actions before and after a test. And we have a placeholder action `tryToTest` which we need to implement.
-If we try to test a signin process it's a good start to test a successful signin. Let's rename this method to `signInSuccessfully`.
-
-We'll assume that we have a 'login' page where we get authenticated by providing a username and password. 
-Then we are sent to a user page, where we see the text `Hello, %username%`. Let's look at how this scenario is written in Codeception:
+We have `_before` and `_after` methods to run some common actions before and after a test. And we have a placeholder method `tryToTest`.
+If we want to test a signin process it's a good start to test a successful signin. Let's rename this method to `signInSuccessfully`.
 
 ```php
 <?php
-
 namespace Tests\Acceptance;
 
-use \Tests\Support\AcceptanceTester;
+use Tests\Support\AcceptanceTester;
 
 class SigninCest
 {
-    public function signInSuccessfully(AcceptanceTester $I)
+    public function signInSuccessfully(AcceptanceTester $I): void
     {
         $I->amOnPage('/login');
-        $I->fillField('Username','davert');
-        $I->fillField('Password','qwerty');
+        $I->fillField('Username', 'davert');
+        $I->fillField('Password', 'qwerty');
         $I->click('Login');
         $I->see('Hello, davert');
     }
 }
 ```
 
-
-This scenario can probably be read by non-technical people. If you just remove all special chars like braces, arrows and `$`,
-this test transforms into plain English text:
+This scenario can probably be read by everybody, even non-developers. If you just remove all special characters,
+this test transforms into plain english text:
 
 ```yaml
 I amOnPage '/login'
-I fillField 'Username','davert'
-I fillField 'Password','qwerty'
+I fillField 'Username', 'davert'
+I fillField 'Password', 'qwerty'
 I click 'Login'
 I see 'Hello, davert'
 ```
