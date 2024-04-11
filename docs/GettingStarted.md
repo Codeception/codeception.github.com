@@ -9,8 +9,7 @@ title: Getting Started - Codeception Docs
 
 Let's take a look at Codeception's architecture. We'll assume that you have already [installed](https://codeception.com/install) it
 and bootstrapped your first test suites. Codeception has generated three of them: Unit, Functional, and Acceptance.
-They are well described in the [previous chapter](https://codeception.com/docs/01-Introduction). Inside your __/tests__ folder you will have three `.yml` config files and three directories
-with names corresponding to these suites: `Unit`, `Functional`, `Acceptance`.
+They are well described in the [Introduction](https://codeception.com/docs/Introduction). Inside your __/tests__ folder you will have three `.yml` config files and three directories: `Unit`, `Functional`, `Acceptance`.
 
 ## The Codeception Syntax
 
