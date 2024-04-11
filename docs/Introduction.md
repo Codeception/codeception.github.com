@@ -13,15 +13,12 @@ Having your application covered with tests gives you more trust in the stability
 
 In most cases tests don't guarantee that the application works 100% as it is supposed to.
 You can't predict all possible scenarios and exceptional situations for complex apps,
-but with tests you can cover the most important parts of your app and at least be sure they work as predicted.
+but with tests you can cover the most important parts of your app.
 
 There are plenty of ways to test your application.
 The most popular paradigm is [Unit Testing](https://en.wikipedia.org/wiki/Unit_testing).
-For web applications, testing just the controller and/or the model doesn't prove that your application is working.
-To test the behavior of your application as a whole, you should write functional or acceptance tests.
-
-Codeception supports all three testing types.
-Out of the box you have tools for writing unit, functional, and acceptance tests in a unified framework.
+But for web applications, testing just the controller and/or the model doesn't prove that your application is working.
+To test the behavior of your application as a whole, you should also write functional or acceptance tests.
 
 | | Unit Tests | Functional Tests | Acceptance Tests
 | --- | --- | --- | --- |
@@ -29,13 +26,15 @@ Out of the box you have tools for writing unit, functional, and acceptance tests
 | Testing computer needs access to project's PHP files | Yes | Yes | No |
 | Webserver required | No | No | Yes |
 | JavaScript  | No | No | Yes |
-| Additional software required | None | None | Drivers for Firefox/Chrome |
+| Additional software required | None | None | chromedriver / geckodriver |
 | Test execution speed | Very fast | Fast | Slow |
 | Configuration file | `Unit.suite.yml` | `Functional.suite.yml` | `Acceptance.suite.yml` |
 
-One of the main advantages of Codeception is that you don't have to decide on just *one* type of testing. You should have all three!
+One of the main advantages of Codeception is that you don't have to decide on just *one* type of testing. You can have all three!
 And chances are, that you will (sooner or later) need all three. That's why Codeception consists of three so-called "suites":
-A "Unit suite" for all unit tests, a "functional suite" for all functional tests, and an "Acceptance suite" for all acceptance tests.
+* A "Unit suite" for all unit tests,
+* a "Functional suite" for all functional tests,
+* and an "Acceptance suite" for all acceptance tests.
 
 Let's review those three test types in reverse order.
 
