@@ -611,15 +611,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Improved handling of anonymous classes in parser [#6626](https://github.com/Codeception/Codeception/issues/6626)
 
 
-### module-redis 3.1.0: 3.1.0
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/01/13 21:20:53 / [Repository](https://github.com/Codeception/module-redis)   / [Releases](https://github.com/Codeception/module-redis/releases)
-
-
-
-* Support for predis/predis v2
-
-
 ### module-cli 2.0.1: 2.0.1
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/01/13 18:58:12 / [Repository](https://github.com/Codeception/module-cli)   / [Releases](https://github.com/Codeception/module-cli/releases)
@@ -1496,15 +1487,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Null safety in destructor [#30](https://github.com/Codeception/module-db/issues/30) by **[Archanium](https://github.com/Archanium)**
 
 
-### module-redis 3.0.0: 3.0.0
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/02/20 17:41:06 / [Repository](https://github.com/Codeception/module-redis)   / [Releases](https://github.com/Codeception/module-redis/releases)
-
-
-
-* Support for Codeception 5
-
-
 ### module-db 1.1.1: 1.1.1
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/02/20 17:06:05 / [Repository](https://github.com/Codeception/module-db)   / [Releases](https://github.com/Codeception/module-db/releases)
@@ -1734,15 +1716,6 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 * Update dependencies (https://github.com/Codeception/lib-innerbrowser/pull/48)
 
 
-### module-redis 1.4.1: 1.4.1
-
-Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/21 02:02:03 / [Repository](https://github.com/Codeception/module-redis)   / [Releases](https://github.com/Codeception/module-redis/releases)
-
-
-
-* Update dependencies (https://github.com/Codeception/module-redis/pull/15)
-
-
 ### module-asserts 2.0.1: 2.0.1
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/18 17:11:54 / [Repository](https://github.com/Codeception/module-asserts)   / [Releases](https://github.com/Codeception/module-asserts/releases)
@@ -1862,15 +1835,6 @@ Released by [![](https://avatars.githubusercontent.com/u/1073784?v=4&s=16) niden
 Initial release of the Codeception module for Phalcon 5.
 
 
-### module-redis 1.4.0: 1.4.0
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/12/13 06:06:22 / [Repository](https://github.com/Codeception/module-redis)   / [Releases](https://github.com/Codeception/module-redis/releases)
-
-
-
-* seeInRedis displays a difference between expected value and actual value 
-
-
 ### module-symfony 2.1.0: 2.1.0
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 15:18:21 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
@@ -1973,21 +1937,6 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 * Fixed type incompatibility in Webdriver by **[grossmannmartin](https://github.com/grossmannmartin)** in https://github.com/Codeception/module-webdriver/pull/78
 
 **Full Changelog**: https://github.com/Codeception/module-webdriver/compare/1.4.0...2.0.0
-
-
-### module-redis 1.3.0: 1.3.0
-
-Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 14:25:54 / [Repository](https://github.com/Codeception/module-redis)   / [Releases](https://github.com/Codeception/module-redis/releases)
-
-
-
-## What's Changed
-
-* PHP 7.4 or higher is required.
-* Support PHP 8.1
-* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-redis/pull/11
-
-**Full Changelog**: https://github.com/Codeception/module-redis/compare/1.2.0...1.3.0
 
 
 ### module-queue 2.0.0: 2.0.0
@@ -2324,20 +2273,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Add addFactoryToContainer method [#17](https://github.com/Codeception/module-laminas/issues/17) by **[olexp](https://github.com/olexp)** 
 
 
-### module-redis 1.2.0: 1.2.0
-
-Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/10/08 15:41:43 / [Repository](https://github.com/Codeception/module-redis)   / [Releases](https://github.com/Codeception/module-redis/releases)
-
-
-
-- The minimum version of PHP is now 7.1
-- Added strict types and return types
-
-Other minor changes:
-- Add debug info to redis cleanup ([#1](https://github.com/Codeception/module-redis/issues/1)) by **[convenient](https://github.com/convenient)**
-- Add changelog to `README` file ([#10](https://github.com/Codeception/module-redis/issues/10)) by **[Arhell](https://github.com/Arhell)**
-
-
 ### module-rest 1.3.2: 1.3.2
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/10/08 09:37:07 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
@@ -2607,15 +2542,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 
-
-
-### module-redis 1.1.0: Allow more parameters to be sent to Predis Client
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/03/31 16:04:36 / [Repository](https://github.com/Codeception/module-redis)   / [Releases](https://github.com/Codeception/module-redis/releases)
-
-
-
-See [#6](https://github.com/Codeception/module-redis/issues/6)
 
 
 ### module-symfony 2.0.1: 2.0.1
@@ -2951,15 +2877,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 ### module-mezzio 2.0.2: Support PHP 8
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/11/25 07:15:31 / [Repository](https://github.com/Codeception/module-mezzio)   / [Releases](https://github.com/Codeception/module-mezzio/releases)
-
-
-
-
-
-
-### module-redis 1.0.1: Support PHP 8
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/11/25 06:44:01 / [Repository](https://github.com/Codeception/module-redis)   / [Releases](https://github.com/Codeception/module-redis/releases)
 
 
 
@@ -3948,15 +3865,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 ### module-soap 1.0.0: Initial release
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/10/18 11:23:56 / [Repository](https://github.com/Codeception/module-soap)   / [Releases](https://github.com/Codeception/module-soap/releases)
-
-
-
-
-
-
-### module-redis 1.0.0: Initial release
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/10/18 11:23:43 / [Repository](https://github.com/Codeception/module-redis)   / [Releases](https://github.com/Codeception/module-redis/releases)
 
 
 
