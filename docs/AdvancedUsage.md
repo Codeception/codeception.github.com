@@ -26,7 +26,6 @@ The generated file will look like this:
 
 ```php
 <?php
-
 namespace Tests\Acceptance;
 
 use Tests\Support\AcceptanceTester;
@@ -53,7 +52,6 @@ As you see, we are passing the Actor object into `tryToTest` method. This allows
 
 ```php
 <?php
-
 namespace Tests\Acceptance;
 
 use \Tests\Support\AcceptanceTester;
@@ -72,7 +70,6 @@ class BasicCest
         $I->seeInCurrentUrl('/account');
     }
 }
-
 ```
 
 As you see, Cest classes have no parents.
@@ -105,7 +102,7 @@ To mark test as skipped `Skip` attribute can be used:
 namespace Tests\Acceptance;
 
 use Codeception\Attribute\Skip;
-use Tests\Support\AcceptanceTester
+use Codeception\Scenario;
 
 class UserCest {
 
@@ -123,10 +120,10 @@ class UserCest {
 }
 ```
 
-If you need to skip a test on a condition, inject `\Codeception\Scenario` into the test:
+If you need to skip a test on a condition, inject `Codeception\Scenario` into the test:
 
 ```php
-public function worksOnCondition(AcceptanceTester $I, \Codeception\Scenario $scenario)
+public function worksOnCondition(AcceptanceTester $I, Scenario $scenario)
 {
     // some condition to execute test or not
     if ($this->shouldNotBeExecuted) {
@@ -143,7 +140,6 @@ Unit tests can be skipped via the attribute or by using `markTestSkipped` method
 
 ```php
 <?php
-
 namespace Tests\Unit;
 
 use Codeception\Attribute\Skip;
@@ -205,9 +201,7 @@ You can execute one (or several) specific groups of tests:
 php vendor/bin/codecept run -g admin -g editor
 ```
 
-The concept of groups was taken from PHPUnit and behaves in the same way.
-
-For Test and Cest files you can use the `Group` attribute to add a test to a group.
+The concept of groups was taken from PHPUnit and behaves in the same way. You can use the `Group` attribute to add a test to a group.
 
 ```php
 <?php
@@ -242,7 +236,6 @@ Data is defined via the `Examples` attribute
 
 ```php
 <?php
-
 namespace Tests\Api;
 
 use \Tests\Support\ApiTester;
@@ -262,7 +255,6 @@ class EndpointCest
     $I->seeResponseCodeIs($example[1]);
   }
 }
-
 ```
 
 ## Example Annotation
@@ -302,7 +294,6 @@ namespace Tests\Acceptance;
 use \Codeception\Attribute\DataProvider;
 use \Codeception\Example;
 
-
 class PageCest
 {
     #[DataProvider('pageProvider')]
@@ -323,7 +314,6 @@ class PageCest
         ];
     }
 }
-
 ```
 
 ## Before/After Attributes 
@@ -335,7 +325,6 @@ Methods are invoked in order from top to bottom.
 
 ```php
 <?php
-
 namespace Tests\Functional;
 
 use \Tests\Support\FunctionalTester;
@@ -397,7 +386,6 @@ class ModeratorCest {
         // bans user
     }
 }
-
 ```
 
 `Depends` attribute applies to the `Cest` and `Codeception\Test\Unit` formats. Dependencies can be set across different classes.
@@ -421,7 +409,7 @@ or running database tests using different database engines.
 
 Let's demonstrate the usage of environments for multi-browser testing.
 
-We need to add some new lines to `acceptance.suite.yml`:
+We need to add some new lines to `Acceptance.suite.yml`:
 
 ```yaml
 actor: AcceptanceTester
@@ -441,7 +429,6 @@ env:
 
     firefox:
         # nothing changed
-
 ```
 
 Basically you can define different environments inside the `env` root, name them (`chrome`, `firefox` etc.),
@@ -453,7 +440,6 @@ the `paths` configuration:
 ```yaml
 paths:
     envs: tests/_envs
-
 ```
 
 The names of these files are used as environment names (e.g. `chrome.yml` or `chrome.dist.yml` for an environment named `chrome`).
@@ -479,13 +465,13 @@ You can easily switch between those configs by running tests with `--env` option
 To run the tests only for Firefox you just need to pass `--env firefox` as an option:
 
 ```
-php vendor/bin/codecept run acceptance --env firefox
+php vendor/bin/codecept run Acceptance --env firefox
 ```
 
 To run the tests in all browsers, list all the environments:
 
 ```
-php vendor/bin/codecept run acceptance --env chrome --env firefox
+php vendor/bin/codecept run Acceptance --env chrome --env firefox
 ```
 
 The tests will be executed 3 times, each time in a different browser.
@@ -493,7 +479,7 @@ The tests will be executed 3 times, each time in a different browser.
 It's also possible to merge multiple environments into a single configuration by separating them with a comma:
 
 ```
-php vendor/bin/codecept run acceptance --env dev,firefox --env dev,chrome --env dev,firefox
+php vendor/bin/codecept run Acceptance --env dev,firefox --env dev,chrome --env dev,firefox
 ```
 
 The configuration is merged in the order given.
@@ -502,7 +488,7 @@ This way you can easily create multiple combinations of your environment configu
 Depending on the environment, you may choose which tests are to be executed.
 For example, you might need some tests to be executed in Firefox only, and some tests in Chrome only.
 
-The desired environments can be specified with the `Env` attribute for tests in Test and Cest formats:
+The desired environments can be specified with the `Env` attribute:
 
 ```php
 <?php
@@ -572,13 +558,15 @@ $scenario->current('capabilities');
 You can inject `\Codeception\Scenario` like this:
 
 ```php
-public function myTest(\Codeception\Scenario $scenario)
+use Codeception\Scenario $scenario;
+
+public function myTest(Scenario $scenario)
 {
     // list all metadata variables
     codecept_debug($scenario->current());
 
     // do some actions according to conditions
-    if ($scenario->current('browser') == 'chrome') {
+    if ($scenario->current('browser') === 'chrome') {
       // ...
     }
 }
@@ -595,7 +583,6 @@ To ensure that tests are not depending on each other (unless explicitly declared
 # inside codeception.yml
 settings:
     shuffle: true
-
 ```
 
 Alternatively, you may run tests in the shuffle without changing the config:
@@ -603,7 +590,6 @@ Alternatively, you may run tests in the shuffle without changing the config:
 ```yaml
 codecept run -o "settings: shuffle: true"
 ```
-
 
 Tests will be randomly reordered on each run. When tests are executed in shuffle mode a seed value will be printed.
 Copy this seed value from the output to be able to rerun tests in the same order.
@@ -613,15 +599,13 @@ $ codecept run
 Codeception PHP Testing Framework v2.4.5
 Powered by PHPUnit 5.7.27 by Sebastian Bergmann and contributors.
 [Seed] 1872290562
-
 ```
 
 Pass the copied seed into `--seed` option:  
 
 ```yaml
 codecept run --seed 1872290562
-```  
-
+```
 
 ## Dependency Injection
 
@@ -632,7 +616,6 @@ passing all dependencies as arguments. This may be useful when working with Help
 
 ```php
 <?php
-
 namespace Tests\Unit;
 
 use Tests\Support\AcceptanceTester;
@@ -668,13 +651,13 @@ And for Test classes:
 
 ```php
 <?php
-
 namespace Tests\Unit;
 
-use \Tests\Support\UnitTester;
-use \Tests\Support\Helper\Math;
+use Codeception\Test\Unit;
+use Tests\Support\UnitTester;
+use Tests\Support\Helper\Math;
 
-class MathTest extends \Codeception\Test\Unit
+class MathTest extends Unit
 {
     protected UnitTester $tester;
     protected Math $math;
@@ -704,12 +687,11 @@ Each test of a Cest class can declare its own dependencies and receive them from
 
 ```php
 <?php
-
 namespace Tests\Acceptance;
 
-use \Tests\Support\AcceptanceTester;
-use \Tests\Support\Helper\User as UserHelper;
-use \Tests\Support\Page\User as UserPage;
+use Tests\Support\AcceptanceTester;
+use Tests\Support\Helper\User as UserHelper;
+use Tests\Support\Page\User as UserPage;
 
 class UserCest
 {
@@ -727,7 +709,6 @@ class UserCest
 Moreover, Codeception can resolve dependencies recursively (when `A` depends on `B`, and `B` depends on `C` etc.)
 and handle parameters of primitive types with default values (like `$param = 'default'`).
 Of course, you are not allowed to have *cyclic dependencies*.
-
 
 
 <div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/AdvancedUsage.md"><strong>Improve</strong> this guide</a></div>
