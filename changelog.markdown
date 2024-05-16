@@ -9,6 +9,20 @@ title: Codeception Changelog
 
 
 
+### module-db 3.1.4: 3.1.4
+
+Released by [![](https://avatars.githubusercontent.com/u/4129631?v=4&s=16) szhajdu](https://github.com/szhajdu) on 2024/05/16 20:15:44 / [Repository](https://github.com/Codeception/module-db)   / [Releases](https://github.com/Codeception/module-db/releases)
+
+
+
+## What's Changed
+* Support ODBC 18 in tests by **[szhajdu](https://github.com/szhajdu)** in https://github.com/Codeception/module-db/pull/66
+* Validate PSR12 codestyle with PHPCS [#69](https://github.com/Codeception/module-db/issues/69) by **[szhajdu](https://github.com/szhajdu)** in https://github.com/Codeception/module-db/pull/70
+
+
+**Full Changelog**: https://github.com/Codeception/module-db/compare/3.1.3...3.1.4
+
+
 ### module-doctrine2 3.0.4: 3.0.4
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2024/04/04 16:33:24 / [Repository](https://github.com/Codeception/module-doctrine2)   / [Releases](https://github.com/Codeception/module-doctrine2/releases)
