@@ -530,6 +530,15 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Support codeception/lib-innerbrowser v4
 
 
+### module-lumen 3.0.1: 3.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/02/09 06:43:17 / [Repository](https://github.com/Codeception/module-lumen)   / [Releases](https://github.com/Codeception/module-lumen/releases)
+
+
+
+* Support codeception/lib-innerbrowser v4
+
+
 ### module-laminas 3.0.2: 3.0.2
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/02/09 06:36:25 / [Repository](https://github.com/Codeception/module-laminas)   / [Releases](https://github.com/Codeception/module-laminas/releases)
@@ -1307,6 +1316,15 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Don't pass NULL to isBinaryData in `_failed`.
 
 
+### module-lumen 3.0.0: 3.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/29 18:00:52 / [Repository](https://github.com/Codeception/module-lumen)   / [Releases](https://github.com/Codeception/module-lumen/releases)
+
+
+
+* Compatibility with Codeception 5
+
+
 ### module-phpbrowser 3.0.0: 3.0.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/20 09:45:52 / [Repository](https://github.com/Codeception/module-phpbrowser)   / [Releases](https://github.com/Codeception/module-phpbrowser/releases)
@@ -1673,6 +1691,20 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 * Added support for laminas-diactoros v2 by **[samuelnogueira](https://github.com/samuelnogueira)**
+
+
+### module-lumen 2.1.0: 2.1.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/24 20:16:08 / [Repository](https://github.com/Codeception/module-lumen)   / [Releases](https://github.com/Codeception/module-lumen/releases)
+
+
+
+## What's Changed
+
+* PHP 7.4 or higher is required.
+* Updated code base to PHP 7.4 (https://github.com/Codeception/module-lumen/pull/15)
+* Update dependencies (https://github.com/Codeception/module-lumen/pull/16)
+* The changelog has been added to the Readme file, by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-lumen/pull/14
 
 
 ### module-laravel 2.2.0: 2.2.0
@@ -2508,6 +2540,16 @@ Updated code base to PHP 7.2 ([#14](https://github.com/Codeception/module-phalco
 - sha1 by default instead of md5.
 
 
+### module-lumen 2.0.1: 2.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/04/29 14:24:58 / [Repository](https://github.com/Codeception/module-lumen)   / [Releases](https://github.com/Codeception/module-lumen/releases)
+
+
+
+**Fix** Factory compatibility issue with Lumen < 7 ([#12](https://github.com/Codeception/module-lumen/issues/12)) by  **[ibpavlov](https://github.com/ibpavlov)**.
+
+
+
 ### module-webdriver 1.2.1: Documentation update
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/04/23 17:31:52 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
@@ -2678,6 +2720,25 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 * Added redirect methods https://github.com/Codeception/lib-innerbrowser/pull/29
+
+
+### module-lumen 2.0.0: 2.0.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/01/19 05:02:29 / [Repository](https://github.com/Codeception/module-lumen)   / [Releases](https://github.com/Codeception/module-lumen/releases)
+
+
+
+**New features:**
+ - `Lumen 6`, `Lumen 7`, and `Lumen 8` compatibility.
+ - Module documentation updated.
+ - Added typed arguments.
+ - Updated the module's code base following PHP 7.3+ standards.
+
+**Breaking changes:**
+ - Removed support for PHP versions lower than `PHP 7.3`.
+ - Removed support for `Lumen 5` and lower.
+
+> **Minor change**: Adding link to "central" parts explanation ([#4](https://github.com/Codeception/module-lumen/issues/4)) by **[ThomasLandauer](https://github.com/ThomasLandauer)**.
 
 
 ### module-webdriver 1.2.0: 
@@ -3056,6 +3117,15 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 
+
+
+### module-lumen 1.0.1: Support PHP 8
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/10/28 07:48:01 / [Repository](https://github.com/Codeception/module-lumen)   / [Releases](https://github.com/Codeception/module-lumen/releases)
+
+
+
+Depends on Lumen libraries actually supporting PHP 8
 
 
 ### module-laravel5 1.1.1: Support PHP 8
@@ -3819,6 +3889,15 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 ### module-phpbrowser 1.0.0: Initial release
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/10/19 15:28:32 / [Repository](https://github.com/Codeception/module-phpbrowser)   / [Releases](https://github.com/Codeception/module-phpbrowser/releases)
+
+
+
+
+
+
+### module-lumen 1.0.0: Initial release
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/10/19 15:27:37 / [Repository](https://github.com/Codeception/module-lumen)   / [Releases](https://github.com/Codeception/module-lumen/releases)
 
 
 
