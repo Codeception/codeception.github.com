@@ -9,6 +9,25 @@ title: Codeception Changelog
 
 
 
+### module-symfony 3.4.0: 3.4.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2024/06/09 13:34:44 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
+
+
+
+## What's Changed
+* Added Symfony Validator assertions in https://github.com/Codeception/module-symfony/pull/189
+* Require `tests/bootstrap.php` if exists, to load all necessary `.env` files in https://github.com/Codeception/module-symfony/pull/190
+* Added `amLoggedInWithToken` method by **[codedge](https://github.com/codedge)** in https://github.com/Codeception/module-symfony/pull/182
+* `grabParameter`: Adding info about `bind` by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/module-symfony/pull/193
+* Added tests for Symfony 7.1 in https://github.com/Codeception/module-symfony/pull/194
+
+## New Contributors
+* **[codedge](https://github.com/codedge)** made their first contribution in https://github.com/Codeception/module-symfony/pull/182
+
+**Full Changelog**: https://github.com/Codeception/module-symfony/compare/3.3.2...3.4.0
+
+
 ### module-db 3.1.4: 3.1.4
 
 Released by [![](https://avatars.githubusercontent.com/u/4129631?v=4&s=16) szhajdu](https://github.com/szhajdu) on 2024/05/16 20:15:44 / [Repository](https://github.com/Codeception/module-db)   / [Releases](https://github.com/Codeception/module-db/releases)

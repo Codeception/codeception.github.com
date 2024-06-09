@@ -44,6 +44,7 @@ and [HttpKernel Component](https://symfony.com/doc/current/components/http_kerne
 * `cache_router`: 'false' - Enable router caching between tests in order to [increase performance](http://lakion.com/blog/how-did-we-speed-up-sylius-behat-suite-with-blackfire)
 * `rebootable_client`: 'true' - Reboot client's kernel before each request
 * `guard`: 'false' - Enable custom authentication system with guard (only for Symfony 5.4)
+* `bootstrap`: 'false' - Enable the test environment setup with the tests/bootstrap.php file if it exists or with Symfony DotEnv otherwise. If false, it does nothing.
 * `authenticator`: 'false' - Reboot client's kernel before each request (only for Symfony 6.0 or higher)
 
 ##### Sample `Functional.suite.yml`
@@ -258,6 +259,14 @@ $user = $I->grabEntityFromRepository(User::class, [
 $I->amLoggedInAs($user);
 
 {% endhighlight %}
+
+
+#### amLoggedInWithToken
+
+* `param \Symfony\Component\Security\Core\Authentication\Token\TokenInterface` $token
+* `param string` $firewallName
+* `param ?string` $firewallContext
+* `return void`
 
 
 #### amOnAction
@@ -1028,6 +1037,27 @@ $I->dontSeeResponseCodeIs(\Codeception\Util\HttpCode::OK);
 {% endhighlight %}
 
 
+#### dontSeeViolatedConstraint
+
+* `param mixed` $subject
+* `param ?string` $propertyPath
+* `param ?string` $constraint
+* `return void`
+
+Asserts that the given subject fails validation.
+
+This assertion does not concern the exact number of violations.
+
+{% highlight php %}
+
+<?php
+$I->dontSeeViolatedConstraint($subject);
+$I->dontSeeViolatedConstraint($subject, 'propertyName');
+$I->dontSeeViolatedConstraint($subject, 'propertyName', 'Symfony\Validator\ConstraintClass');
+
+{% endhighlight %}
+
+
 #### fillField
 
 * `param ` $field
@@ -1205,6 +1235,7 @@ Grabs a Symfony parameter
 $I->grabParameter('app.business_name');
 
 {% endhighlight %}
+This only works for explicitly set parameters (just using `bind` for Symfony's dependency injection is not enough).
 
 
 #### grabRepository
@@ -2315,6 +2346,63 @@ You might use this function after performing tasks like registering a user or su
 <?php
 $I->seeUserPasswordDoesNotNeedRehash();
 $I->seeUserPasswordDoesNotNeedRehash($user);
+
+{% endhighlight %}
+
+
+#### seeViolatedConstraint
+
+* `param mixed` $subject
+* `param ?string` $propertyPath
+* `param ?string` $constraint
+* `return void`
+
+Asserts that the given subject passes validation.
+
+This assertion does not concern the exact number of violations.
+
+{% highlight php %}
+
+<?php
+$I->seeViolatedConstraint($subject);
+$I->seeViolatedConstraint($subject, 'propertyName');
+$I->seeViolatedConstraint($subject, 'propertyName', 'Symfony\Validator\ConstraintClass');
+
+{% endhighlight %}
+
+
+#### seeViolatedConstraintMessage
+
+* `param string` $expected
+* `param mixed` $subject
+* `param string` $propertyPath
+* `return void`
+
+Asserts that a constraint violation message or a part of it is present in the subject's violations.
+
+{% highlight php %}
+
+<?php
+$I->seeViolatedConstraintMessage('too short', $user, 'address');
+
+{% endhighlight %}
+
+
+#### seeViolatedConstraintsCount
+
+* `param int` $expected
+* `param mixed` $subject
+* `param ?string` $propertyPath
+* `param ?string` $constraint
+* `return void`
+
+Asserts the exact number of violations for the given subject.
+
+{% highlight php %}
+
+<?php
+$I->seeViolatedConstraintsCount(3, $subject);
+$I->seeViolatedConstraintsCount(2, $subject, 'propertyName');
 
 {% endhighlight %}
 
