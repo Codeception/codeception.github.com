@@ -1229,17 +1229,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Fixed assignment to `$this->filePath`
 
 
-### module-apc 3.0.0: 3.0.0
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/05/26 04:56:29 / [Repository](https://github.com/Codeception/module-apc)   / [Releases](https://github.com/Codeception/module-apc/releases)
-
-
-
-* Support for Codeception 5
-* Removed support for APC extension
-* Stricter types
-
-
 ### module-phpbrowser 1.0.3: 1.0.3
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/05/21 13:52:31 / [Repository](https://github.com/Codeception/module-phpbrowser)   / [Releases](https://github.com/Codeception/module-phpbrowser/releases)
@@ -2139,21 +2128,6 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 * The changelog has been added to the Readme file, by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-doctrine2/pull/43
 
 **Full Changelog**: https://github.com/Codeception/module-doctrine2/compare/1.1.1...2.0.0
-
-
-### module-apc 2.0.0: 2.0.0
-
-Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 05:51:33 / [Repository](https://github.com/Codeception/module-apc)   / [Releases](https://github.com/Codeception/module-apc/releases)
-
-
-
-## What's Changed
-
-* PHP 7.4 or higher is required.
-* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-apc/pull/6
-* The changelog has been added to the Readme file, by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-apc/pull/5
-
-**Full Changelog**: https://github.com/Codeception/module-apc/compare/1.0.2...2.0.0
 
 
 ### module-amqp 2.0.0: 2.0.0
@@ -3165,15 +3139,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 
-### module-apc 1.0.2: Support PHP 8
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/10/26 06:16:30 / [Repository](https://github.com/Codeception/module-apc)   / [Releases](https://github.com/Codeception/module-apc/releases)
-
-
-
-
-
-
 ### module-webdriver 1.1.3: Support PHP 8
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/10/24 15:41:47 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
@@ -3675,15 +3640,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 
-### module-apc 1.0.1: Removed requirement for ext-apc from composer.json
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/01/21 07:45:14 / [Repository](https://github.com/Codeception/module-apc)   / [Releases](https://github.com/Codeception/module-apc/releases)
-
-
-
-
-
-
 ### module-rest 1.0.1: Updated flow/jsonpath library to 0.5
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/01/17 16:55:55 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
@@ -4062,15 +4018,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 ### module-asserts 1.0.0: Initial release
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/10/18 11:06:52 / [Repository](https://github.com/Codeception/module-asserts)   / [Releases](https://github.com/Codeception/module-asserts/releases)
-
-
-
-
-
-
-### module-apc 1.0.0: Initial release
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/10/18 11:06:05 / [Repository](https://github.com/Codeception/module-apc)   / [Releases](https://github.com/Codeception/module-apc/releases)
 
 
 
