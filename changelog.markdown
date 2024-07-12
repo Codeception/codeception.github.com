@@ -9,6 +9,27 @@ title: Codeception Changelog
 
 
 
+### module-rest 3.4.0: 3.4.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2024/07/12 06:34:39 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
+
+
+
+## What's Changed
+* Use FQN for public methods by **[erickskrauch](https://github.com/erickskrauch)** in https://github.com/Codeception/module-rest/pull/97
+* Changing double quotes to single quotes in the docs by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/module-rest/pull/102
+* Allow softcreatr/jsonpath v0.9 + justinrainbow/json-schema v5.3 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/module-rest/pull/99
+* Test against PHP 8.2 + 8.3 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/module-rest/pull/101
+* Relax parameter types to allow filters like "array:empty" in JsonType by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/module-rest/pull/107
+* Add unsetHttpHeader() + deprecate deleteHeader() by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/module-rest/pull/106
+
+## New Contributors
+* **[erickskrauch](https://github.com/erickskrauch)** made their first contribution in https://github.com/Codeception/module-rest/pull/97
+* **[W0rma](https://github.com/W0rma)** made their first contribution in https://github.com/Codeception/module-rest/pull/99
+
+**Full Changelog**: https://github.com/Codeception/module-rest/compare/3.3.2...3.4.0
+
+
 ### module-symfony 3.4.0: 3.4.0
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2024/06/09 13:34:44 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)

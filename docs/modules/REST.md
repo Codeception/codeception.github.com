@@ -86,7 +86,7 @@ Conflicts with SOAP module
 #### amAWSAuthenticated
 
 * `param array` $additionalAWSConfig
-* `throws ConfigurationException`
+* `throws \Codeception\Exception\ConfigurationException`
 * `return void`
 
 Allows to send REST request using AWS Authorization
@@ -152,7 +152,7 @@ Adds HTTP authentication via username/password.
 * `part` xml
 * `param string` $username
 * `param string` $password
-* `throws ModuleException`
+* `throws \Codeception\Exception\ModuleException`
 * `return void`
 
 Adds NTLM authentication via username/password.
@@ -171,25 +171,9 @@ $I->amNTLMAuthenticated('jon_snow', 'targaryen');
 
 #### deleteHeader
 
-* `part` json
-* `part` xml
-* `param string` $name the name of the header to delete.
+@deprecated
+* `param string` $name
 * `return void`
-
-Deletes a HTTP header (that was originally added by [haveHttpHeader()](#haveHttpHeader)),
-so that subsequent requests will not send it anymore.
-
-Example:
-{% highlight php %}
-
-<?php
-$I->haveHttpHeader('X-Requested-With', 'Codeception');
-$I->sendGet('test-headers.php');
-// ...
-$I->deleteHeader('X-Requested-With');
-$I->sendPost('some-other-page.php');
-
-{% endhighlight %}
 
 
 #### dontSeeBinaryResponseEquals
@@ -205,7 +189,7 @@ Checks if the hash of a binary response is not the same as provided.
 {% highlight php %}
 
 <?php
-$I->dontSeeBinaryResponseEquals("8c90748342f19b195b9c6b4eff742ded");
+$I->dontSeeBinaryResponseEquals('8c90748342f19b195b9c6b4eff742ded');
 
 {% endhighlight %}
 Opposite to `seeBinaryResponseEquals`
@@ -360,7 +344,7 @@ Element is matched by either CSS or XPath
 
 * `part` json
 * `param string` $jsonPath
-* `throws Exception`
+* `throws \Exception`
 * `return array` Array of matching items
 
 See [#jsonpath](#jsonpath) for general info on JSONPath.
@@ -427,7 +411,7 @@ Element is matched by either CSS or XPath
 * `param string` $value
 * `return void`
 
-Sets a HTTP header to be used for all subsequent requests. Use [`deleteHeader`](#deleteHeader) to unset it.
+Sets a HTTP header to be used for all subsequent requests. Use [`unsetHttpHeader`](#unsetHttpHeader) to unset it.
 
 {% highlight php %}
 
@@ -471,7 +455,7 @@ Example: Using sha1 hash key
 {% highlight php %}
 
 <?php
-$I->seeBinaryResponseEquals("df589122eac0f6a7bd8795436e692e3675cadc3b");
+$I->seeBinaryResponseEquals('df589122eac0f6a7bd8795436e692e3675cadc3b');
 
 {% endhighlight %}
 
@@ -480,7 +464,7 @@ Example: Using sha1 for a file contents
 {% highlight php %}
 
 <?php
-$fileData = file_get_contents("test_file.jpg");
+$fileData = file_get_contents('test_file.jpg');
 $I->seeBinaryResponseEquals(md5($fileData));
 
 {% endhighlight %}
@@ -490,7 +474,7 @@ Example: Using sha256 hash
 
 <?php
 $fileData = '/9j/2wBDAAMCAgICAgMCAgIDAwMDBAYEBAQEBAgGBgUGCQgKCgkICQkKDA8MCgsOCwkJDRENDg8QEBEQCgwSExIQEw8QEBD/yQALCAABAAEBAREA/8wABgAQEAX/2gAIAQEAAD8A0s8g/9k='; // very small jpeg
-$I->seeBinaryResponseEquals(hash("sha256", base64_decode($fileData)), 'sha256');
+$I->seeBinaryResponseEquals(hash('sha256', base64_decode($fileData)), 'sha256');
 
 {% endhighlight %}
 
@@ -672,10 +656,10 @@ $I->seeResponseIsValidOnJsonSchemaString('{"type": "object"}');
 
 // response {"name": "john", "age": 20}
 $schema = [
- "properties" => [
-     "age" => [
-         "type" => "integer",
-         "minimum" => 18
+ 'properties' => [
+     'age' => [
+         'type' => 'integer',
+         'minimum' => 18
      ]
  ]
 ];
@@ -897,6 +881,7 @@ or after another filter if you need more than one.
 
 Here is the list of possible filters:
 
+* `array:empty` - check that value is an empty array
 * `integer:>{val}` - checks that integer is greater than {val} (works with float and string types too).
 * `integer:<{val}` - checks that integer is lower than {val} (works with float and string types too).
 * `string:url` - checks that value is valid url.
@@ -955,7 +940,7 @@ Example:
 {% highlight php %}
 
 <?php
-$I->seeXmlResponseIncludes("<result>1</result>");
+$I->seeXmlResponseIncludes('<result>1</result>');
 
 {% endhighlight %}
 
@@ -982,7 +967,7 @@ $I->seeXmlResponseMatchesXpath('//root/user[@id=1]');
 * `part` xml
 * `param string` $method
 * `param string` $url
-* `param array|string|JsonSerializable` $params
+* `param array|string|\JsonSerializable` $params
 * `param array` $files
 
 Sends a HTTP request.
@@ -1065,7 +1050,7 @@ Sends an OPTIONS request to given uri.
 * `part` json
 * `part` xml
 * `param string` $url
-* `param array|string|JsonSerializable` $params
+* `param array|string|\JsonSerializable` $params
 * `param array` $files
 
 Sends PATCH request to given uri.
@@ -1085,7 +1070,7 @@ $response = $I->sendPatch('/message/1', ['subject' => 'Read this!']);
 * `see` https://php.net/manual/en/features.file-upload.post-method.php
 * `see` codecept_data_dir()
 * `param string` $url
-* `param array|string|JsonSerializable` $params
+* `param array|string|\JsonSerializable` $params
 * `param array` $files A list of filenames or "mocks" of $_FILES (each entry being an array with the following
                     keys: name, type, error, size, tmp_name (pointing to the real file path). Each key works
                     as the "name" attribute of a file input field.
@@ -1125,7 +1110,7 @@ $I->sendPost('/add-task', ['form' => [
 * `part` json
 * `part` xml
 * `param string` $url
-* `param array|string|JsonSerializable` $params
+* `param array|string|\JsonSerializable` $params
 * `param array` $files
 
 Sends PUT request to given uri.
@@ -1195,6 +1180,29 @@ Prevents automatic redirects to be followed by the client
 
 <?php
 $I->stopFollowingRedirects();
+
+{% endhighlight %}
+
+
+#### unsetHttpHeader
+
+* `part` json
+* `part` xml
+* `param string` $name the name of the header to unset.
+* `return void`
+
+Unsets a HTTP header (that was originally added by [haveHttpHeader()](#haveHttpHeader)),
+so that subsequent requests will not send it anymore.
+
+Example:
+{% highlight php %}
+
+<?php
+$I->haveHttpHeader('X-Requested-With', 'Codeception');
+$I->sendGet('test-headers.php');
+// ...
+$I->unsetHttpHeader('X-Requested-With');
+$I->sendPost('some-other-page.php');
 
 {% endhighlight %}
 

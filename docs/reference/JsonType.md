@@ -18,10 +18,11 @@ Usage example:
 {% highlight php %}
 
 <?php
-$jsonType = new JsonType(['name' => 'davert', 'id' => 1]);
+$jsonType = new JsonType(['name' => 'davert', 'id' => 1, 'data' => []]);
 $jsonType->matches([
   'name' => 'string:!empty',
   'id' => 'integer:>0|string:>0',
+  'data' => 'array:empty',
 ]); // => true
 
 $jsonType->matches([
@@ -46,7 +47,7 @@ Pass an array or `\Codeception\Util\JsonArray` with data.
 
 If non-associative array is passed - the very first element of it will be used for matching.
 
-[See source](https://github.com/Codeception/module-rest/blob/master/src/Codeception/Util/JsonType.php#L47)
+[See source](https://github.com/Codeception/module-rest/blob/master/src/Codeception/Util/JsonType.php#L48)
 
 #### addCustomFilter()
 
@@ -80,7 +81,7 @@ JsonType::addCustomFilter('/len\((.*?)\)/', function($value, $len) {
 
 {% endhighlight %}
 
-[See source](https://github.com/Codeception/module-rest/blob/master/src/Codeception/Util/JsonType.php#L77)
+[See source](https://github.com/Codeception/module-rest/blob/master/src/Codeception/Util/JsonType.php#L78)
 
 #### cleanCustomFilters()
 
@@ -91,7 +92,7 @@ JsonType::addCustomFilter('/len\((.*?)\)/', function($value, $len) {
 
 Removes all custom filters
 
-[See source](https://github.com/Codeception/module-rest/blob/master/src/Codeception/Util/JsonType.php#L85)
+[See source](https://github.com/Codeception/module-rest/blob/master/src/Codeception/Util/JsonType.php#L86)
 
 #### matches()
 
@@ -106,6 +107,6 @@ Checks data against passed JsonType.
 If matching fails function returns a string with a message describing failure.
 On success returns `true`.
 
-[See source](https://github.com/Codeception/module-rest/blob/master/src/Codeception/Util/JsonType.php#L95)
+[See source](https://github.com/Codeception/module-rest/blob/master/src/Codeception/Util/JsonType.php#L96)
 
 <p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/module-rest/blob/master/src/Codeception/Util/JsonType.php">Help us to improve documentation. Edit module reference</a></div>
