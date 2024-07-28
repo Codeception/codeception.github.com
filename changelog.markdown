@@ -9,6 +9,16 @@ title: Codeception Changelog
 
 
 
+### module-redis 3.2.0: 3.2.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2024/07/28 11:47:55 / [Repository](https://github.com/Codeception/module-redis)   / [Releases](https://github.com/Codeception/module-redis/releases)
+
+
+
+* Allow sebastian/comparator ^6.0 to support PHPUnit 11 by **[maryo](https://github.com/maryo)** in https://github.com/Codeception/module-redis/pull/19
+
+
+
 ### module-rest 3.4.0: 3.4.0
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2024/07/12 06:34:39 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
