@@ -36,7 +36,7 @@ selenium-standalone start
 
 {% endhighlight %}
 
-Update configuration in `acceptance.suite.yml`:
+Update configuration in `Acceptance.suite.yml`:
 
 {% highlight yaml %}
 
@@ -50,7 +50,7 @@ modules:
 
 ### Headless Chrome Browser
 
-To enable headless mode (launch tests without showing a window) for Chrome browser using Selenium use this config in `acceptance.suite.yml`:
+To enable headless mode (launch tests without showing a window) for Chrome browser using Selenium use this config in `Acceptance.suite.yml`:
 
 {% highlight yaml %}
 
@@ -86,7 +86,7 @@ Tests can be executed directly through ChromeDriver or GeckoDriver (for Firefox)
 * Download and install [ChromeDriver](https://sites.google.com/chromium.org/driver/downloads?authuser=0)
 * Launch ChromeDriver in a separate console window: `chromedriver --url-base=/wd/hub`.
 
-Configuration in `acceptance.suite.yml`:
+Configuration in `Acceptance.suite.yml`:
 
 {% highlight yaml %}
 
@@ -112,7 +112,7 @@ See here for additional [Chrome options](https://sites.google.com/a/chromium.org
 * [GeckoDriver](https://github.com/mozilla/geckodriver/releases) must be installed
 * Start GeckoDriver in a separate console window: `geckodriver`.
 
-Configuration in `acceptance.suite.yml`:
+Configuration in `Acceptance.suite.yml`:
 
 {% highlight yaml %}
 
@@ -169,9 +169,9 @@ you should use a tunnel application provided by a service.
 
 {% highlight yaml %}
 
-    modules:
-       enabled:
-          - WebDriver:
+ modules:
+     enabled:
+         - WebDriver:
              url: http://mysite.com
              host: '<username>:<access key>@hub.browserstack.com'
              port: 80
@@ -193,19 +193,19 @@ you should use a tunnel application provided by a service.
 
 {% highlight yaml %}
 
-   modules:
- enabled:
-   - WebDriver:
-           url: "https://openclassrooms.com"
-           host: 'hub.lambdatest.com'
-           port: 80
-           browser: 'Chrome'
-           capabilities:
-              LT:Options:
-               platformName: 'Windows 10'
-               browserVersion: 'latest-5'
-               browserName: 'Chrome'
-               tunnel: true #for Local testing
+ modules:
+     enabled:
+           - WebDriver:
+               url: "https://openclassrooms.com"
+               host: 'hub.lambdatest.com'
+               port: 80
+               browser: 'Chrome'
+               capabilities:
+                   LT:Options:
+                   platformName: 'Windows 10'
+                   browserVersion: 'latest-5'
+                   browserName: 'Chrome'
+                   tunnel: true #for Local testing
 
 {% endhighlight %}
 
@@ -218,15 +218,15 @@ you should use a tunnel application provided by a service.
 
 {% highlight yaml %}
 
-    modules:
-       enabled:
-          - WebDriver:
-             url: http://mysite.com
-             host: '<key>:<secret>@hub.testingbot.com'
-             port: 80
-             browser: chrome
-             capabilities:
-                 platformName: Windows 10
+modules:
+   enabled:
+      - WebDriver:
+         url: http://mysite.com
+         host: '<key>:<secret>@hub.testingbot.com'
+         port: 80
+         browser: chrome
+         capabilities:
+             platformName: Windows 10
 
 {% endhighlight %}
 
@@ -254,20 +254,20 @@ you should use a tunnel application provided by a service.
 * `webdriver_proxy` - sets http proxy to tunnel requests to the remote Selenium WebDriver through
 * `webdriver_proxy_port` - sets http proxy server port to tunnel requests to the remote Selenium WebDriver through
 
-Example (`acceptance.suite.yml`)
+Example (`Acceptance.suite.yml`)
 
 {% highlight yaml %}
 
-    modules:
-       enabled:
-          - WebDriver:
-             url: 'http://localhost/'
-             browser: firefox
-             window_size: 1024x768
-             capabilities:
-                 unhandledPromptBehaviour: 'accept'
-                 moz:firefoxOptions:
-                     profile: '~/firefox-profiles/codeception-profile.zip.b64'
+modules:
+   enabled:
+      - WebDriver:
+         url: 'http://localhost/'
+         browser: firefox
+         window_size: 1024x768
+         capabilities:
+             unhandledPromptBehaviour: 'accept'
+             moz:firefoxOptions:
+                 profile: '~/firefox-profiles/codeception-profile.zip.b64'
 
 {% endhighlight %}
 
@@ -341,7 +341,8 @@ If speed is a concern, it's recommended you stick with explicitly specifying the
 You can inject `\Codeception\Scenario` into your test to get information about the current configuration:
 {% highlight php %}
 
-use Codeception\Scenario
+use Codeception\Scenario;
+
 public function myTest(AcceptanceTester $I, Scenario $scenario)
 {
     if ('firefox' === $scenario->current('browser')) {
@@ -418,7 +419,8 @@ This is how it can be done via `_capabilities` method from `Helper\Acceptance`:
 
 {% highlight php %}
 
-<?php // inside Helper\Acceptance
+<?php
+// inside Helper\Acceptance
 public function _before(TestInterface $test)
 {
      $name = $test->getMetadata()->getName();
@@ -1238,17 +1240,14 @@ If Codeception lacks a feature you need, please implement it and submit a patch.
 * `param array` $arguments
 * `return mixed`
 
-Executes custom JavaScript.
-
-This example uses jQuery to get a value and assigns that value to a PHP variable:
+Executes JavaScript commands.
 
 {% highlight php %}
 
 <?php
-$myVar = $I->executeJS('return $("#myField").val()');
+$myVar = $I->executeJS('return document.getElementById("myField").value');
 
-// additional arguments can be passed as array
-// Example shows `Hello World` alert:
+// Additional arguments can be passed as array. E.g. this will alert `Hello World`:
 $I->executeJS("window.alert(arguments[0])", ['Hello world']);
 
 {% endhighlight %}
@@ -2558,7 +2557,7 @@ $I->click('#agree_button');
 * `throws ElementNotFound`
 * `return void`
 
-Waits up to $timeout seconds for the given element to change.
+Waits up to `$timeout` seconds for the given element to change.
 
 Element "change" is determined by a callback function which is called repeatedly
 until the return value evaluates to true.
@@ -2566,10 +2565,11 @@ until the return value evaluates to true.
 {% highlight php %}
 
 <?php
-use \Facebook\WebDriver\WebDriverElement
-$I->waitForElementChange('#menu', function(WebDriverElement $el) {
-    return $el->isDisplayed();
-}, 100);
+use Facebook\WebDriver\WebDriverElement;
+
+$I->waitForElementChange('#menu', function(WebDriverElement $element) {
+    return $element->isDisplayed();
+}, 5);
 
 {% endhighlight %}
 

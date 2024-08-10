@@ -9,6 +9,25 @@ title: Codeception Changelog
 
 
 
+### module-webdriver 4.0.2: 4.0.2
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2024/08/10 00:21:53 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
+
+
+
+## What's Changed
+* Update WebDriver.php: Minor by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/module-webdriver/pull/131
+* Update WebDriver.php: executeJS: Removing jQuery by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/module-webdriver/pull/127
+* Update WebDriver.php: Minor by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/module-webdriver/pull/123
+* Declare nullable parameter types explicitly by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/module-webdriver/pull/134
+* Improper Exception Handling in _closeSession Function by **[eXorus](https://github.com/eXorus)** in https://github.com/Codeception/module-webdriver/pull/133
+
+## New Contributors
+* **[W0rma](https://github.com/W0rma)** made their first contribution in https://github.com/Codeception/module-webdriver/pull/134
+
+**Full Changelog**: https://github.com/Codeception/module-webdriver/compare/4.0.1...4.0.2
+
+
 ### module-redis 3.2.0: 3.2.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2024/07/28 11:47:55 / [Repository](https://github.com/Codeception/module-redis)   / [Releases](https://github.com/Codeception/module-redis/releases)
@@ -3559,15 +3578,6 @@ Released by [![](https://avatars.githubusercontent.com/u/152236?v=4&s=16) Slamdu
 **Fixed bugs:**
 
 - Session persistance: clean up $_SESSION between tests [\[#3](https://github.com/Codeception/module-mezzio/issues/3)](https://github.com/Codeception/module-mezzio/pull/3)
-
-
-### module-webdriver 1.0.5: Fixed compatibility with PHP 5.6
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/03/06 08:39:36 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
-
-
-
-
 
 
 ### module-mezzio 2.0.0: Initial release
