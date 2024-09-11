@@ -451,23 +451,9 @@ Creates the CSRF Cookie.
 
 #### deleteHeader
 
-* `param string` $name the name of the header to delete.
+@deprecated
+* `param string` $name
 * `return void`
-
-Deletes the header with the passed name.  Subsequent requests
-will not have the deleted header in its request.
-
-Example:
-{% highlight php %}
-
-<?php
-$I->haveHttpHeader('X-Requested-With', 'Codeception');
-$I->amOnPage('test-headers.php');
-// ...
-$I->deleteHeader('X-Requested-With');
-$I->amOnPage('some-other-page.php');
-
-{% endhighlight %}
 
 
 #### dontSee
@@ -2006,6 +1992,27 @@ Unticks a checkbox.
 
 <?php
 $I->uncheckOption('#notify');
+
+{% endhighlight %}
+
+
+#### unsetHeader
+
+* `param string` $name the name of the header to unset.
+* `return void`
+
+Unsets a HTTP header (that was originally added by [haveHttpHeader()](#haveHttpHeader)),
+so that subsequent requests will not send it anymore.
+
+Example:
+{% highlight php %}
+
+<?php
+$I->haveHttpHeader('X-Requested-With', 'Codeception');
+$I->amOnPage('test-headers.php');
+// ...
+$I->unsetHeader('X-Requested-With');
+$I->amOnPage('some-other-page.php');
 
 {% endhighlight %}
 
