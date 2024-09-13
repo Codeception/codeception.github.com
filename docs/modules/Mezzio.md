@@ -1591,7 +1591,7 @@ $I->uncheckOption('#notify');
 {% endhighlight %}
 
 
-#### unsetHeader
+#### unsetHttpHeader
 
 * `param string` $name the name of the header to unset.
 * `return void`

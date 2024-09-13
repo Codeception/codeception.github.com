@@ -2833,7 +2833,7 @@ $I->uncheckOption('#notify');
 Remove service $serviceName from the lists of persistent services.
 
 
-#### unsetHeader
+#### unsetHttpHeader
 
 * `param string` $name the name of the header to unset.
 * `return void`

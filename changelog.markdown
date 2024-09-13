@@ -9,6 +9,25 @@ title: Codeception Changelog
 
 
 
+### lib-innerbrowser 4.0.5: 4.0.5
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2024/09/13 05:15:37 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
+
+
+
+* Fix name of unsetHttpHeader method [#71](https://github.com/Codeception/lib-innerbrowser/issues/71)
+
+
+### lib-innerbrowser 4.0.4: 4.0.4
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2024/09/13 05:14:55 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
+
+
+
+* Declare nullable parameter types explicitly by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/lib-innerbrowser/pull/70
+* InnerBrowser.php: Deprecate `deleteHeader` in favor of `unsetHeader` by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/lib-innerbrowser/pull/69
+
+
 ### module-webdriver 4.0.2: 4.0.2
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2024/08/10 00:21:53 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
@@ -3820,15 +3839,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 
-### lib-innerbrowser 1.2.0: Compatibility with Symfony 5
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/11/24 16:16:32 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
-
-
-
-
-
-
 ### lib-asserts 1.10.1: rerelease
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/11/23 21:14:50 / [Repository](https://github.com/Codeception/lib-asserts)   / [Releases](https://github.com/Codeception/lib-asserts/releases)
@@ -3845,15 +3855,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 Requires PHPUnit 8.4,  so this version can only be used on PHP 7.2+ and it is required by Codeception 5
-
-
-### lib-innerbrowser 1.1.0: Supports HTML5 button form attribute
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/11/21 15:51:19 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
-
-
-
-
 
 
 ### module-doctrine2 1.0.1: Updated documentation
