@@ -119,25 +119,6 @@ final class SigninCest
 }
 ```
 
-This scenario can probably be read by everybody, even non-developers. If you just remove all special characters,
-this test transforms into plain english text:
-
-```yaml
-I amOnPage '/login'
-I fillField 'Username', 'davert'
-I fillField 'Password', 'qwerty'
-I click 'Login'
-I see 'Hello, davert'
-```
-
-Codeception generates this text representation from PHP code by executing:
-
-```bash
-php vendor/bin/codecept generate:scenarios Acceptance
-```
-
-These generated scenarios will be stored in your `tests/Support/Data/scenarios/Functional` directory in `*.txt` files.
-
 Before we execute this test, we should make sure that the website is running on a local web server.
 Let's open the `tests/Acceptance.suite.yml` file and fill in the URL of your web application:
 
@@ -302,7 +283,6 @@ There are plenty of useful Codeception commands:
 * `generate:test` *suite* *filename* - Generates a sample PHPUnit Test with Codeception hooks
 * `generate:feature` *suite* *filename* - Generates Gherkin feature file
 * `generate:suite` *suite* *actor* - Generates a new suite with the given Actor class name
-* `generate:scenarios` *suite* - Generates text files containing scenarios from tests
 * `generate:helper` *filename* - Generates a sample Helper File
 * `generate:pageobject` *suite* *filename* - Generates a sample Page object
 * `generate:stepobject` *suite* *filename* - Generates a sample Step object
