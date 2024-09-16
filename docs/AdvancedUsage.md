@@ -319,9 +319,8 @@ class PageCest
 ## Before/After Attributes 
 
 You can control execution flow with `#[Before]` and `#[After]` attributes. You may move common actions
-into protected (non-test) methods and invoke them before or after the test method by putting them into attributes.
-It is possible to invoke several methods by using more than one `#[Before]` or `#[After]` attribute.
-Methods are invoked in order from top to bottom.
+into protected (i.e. non-test) methods and invoke them before or after the test method by putting them into attributes.
+When adding multiple `#[Before]` or `#[After]` attributes, methods are invoked in order from top to bottom.
 
 ```php
 <?php
@@ -364,7 +363,7 @@ class ModeratorCest {
 
 ### Dependencies
 
-With the `Depends` attribute, you can specify a test that should be passed before the current one.
+With the `#[Depends]` attribute, you can specify a test that should be passed before the current one.
 If that test fails, the current test will be skipped. You should pass the method name of the test you are relying on.
 
 ```php
