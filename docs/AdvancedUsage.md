@@ -257,6 +257,32 @@ class EndpointCest
 }
 ```
 
+You can also use [named arguments](https://www.php.net/manual/en/functions.arguments.php#functions.named-arguments) to get an example with associative keys.
+```php
+<?php
+
+namespace Tests\Api;
+
+use \Tests\Support\ApiTester;
+use \Codeception\Attribute\Examples;
+use \Codeception\Example;
+
+class EndpointCest
+{
+
+  #[Examples(url: '/api', expectedReponseCode: 200)]
+  #[Examples(url: '/api/protected', expectedReponseCode: 401)]
+  #[Examples(url: '/api/not-found-url', expectedReponseCode: 404)]
+  #[Examples(url: '/api/faulty', expectedReponseCode: 500)]
+  public function checkEndpoints(ApiTester $I, Example $example)
+  {
+    $I->sendGet($example['url']);
+    $I->seeResponseCodeIs($example['expectedReponseCode']);
+  }
+}
+
+```
+
 ## Example Annotation
 
 As well as the `\Codeception\Attribute\Examples` attribute, available for Cest tests, the `@example` attribute allows you to
