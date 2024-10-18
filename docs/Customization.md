@@ -343,9 +343,9 @@ Contrary to standard assertions those assertions won't stop test on failure. Thi
 
 List of available step decorators:
 
-- [ConditionalAssertion](https://github.com/Codeception/Codeception/blob/4.0/src/Codeception/Step/ConditionalAssertion.php)  - failed assertion will be logged, but test will continue.
-- [TryTo](https://github.com/Codeception/Codeception/blob/4.0/src/Codeception/Step/TryTo.php) - failed action will be ignored.
-- [Retry](https://github.com/Codeception/Codeception/blob/4.0/src/Codeception/Step/Retry.php) - failed action will be retried automatically.
+- [ConditionalAssertion](https://github.com/Codeception/Codeception/blob/5.0.0/src/Codeception/Step/ConditionalAssertion.php)  - failed assertion will be logged, but test will continue.
+- [TryTo](https://github.com/Codeception/Codeception/blob/5.0.0/src/Codeception/Step/TryTo.php) - failed action will be ignored.
+- [Retry](https://github.com/Codeception/Codeception/blob/5.0.0/src/Codeception/Step/Retry.php) - failed action will be retried automatically.
 
 Step decorators can be added to suite config inside `steps` block:
 
@@ -484,9 +484,9 @@ Installation template which will help your users to start testing on their proje
 
 Codeception has built-in installation templates for
 
-* [Acceptance tests](https://github.com/Codeception/Codeception/blob/4.0/src/Codeception/Template/Acceptance.php)
-* [Unit tests](https://github.com/Codeception/Codeception/blob/4.0/src/Codeception/Template/Unit.php)
-* [REST API tests](https://github.com/Codeception/Codeception/blob/4.0/src/Codeception/Template/Api.php)
+* [Acceptance tests](https://github.com/Codeception/Codeception/blob/5.0.0/src/Codeception/Template/Acceptance.php)
+* [Unit tests](https://github.com/Codeception/Codeception/blob/5.0.0/src/Codeception/Template/Unit.php)
+* [REST API tests](https://github.com/Codeception/Codeception/blob/5.0.0/src/Codeception/Template/Api.php)
 
 They can be executed with `init` command:
 
@@ -511,7 +511,7 @@ Learn from the examples above to build a custom Installation Template. Here are 
 * Use methods like `say`, `saySuccess`, `sayWarning`, `sayError`, `ask`, to interact with a user.
 * Use `createDirectoryFor`, `createEmptyDirectory` methods to create directories
 * Use `createHelper`, `createActor` methods to create helpers and actors.
-* Use [Codeception generators](https://github.com/Codeception/Codeception/tree/4.0/src/Codeception/Lib/Generator) to create other support classes.
+* Use [Codeception generators](https://github.com/Codeception/Codeception/tree/5.0.0/src/Codeception/Lib/Generator) to create other support classes.
 
 
 ## One Runner for Multiple Applications
