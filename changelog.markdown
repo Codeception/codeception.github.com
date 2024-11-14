@@ -9,6 +9,93 @@ title: Codeception Changelog
 
 
 
+### module-symfony 3.5.0: 3.5.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2024/11/14 05:59:41 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
+
+
+
+# 🎉 Release 3.5.0
+
+🆕 **New Assertions**
+
+you can now use all Symfony assertions directly in Codeception with the `$I->` syntax.
+
+- Browser assertions:
+
+```
+assertBrowserCookieValueSame
+assertBrowserHasCookie
+assertBrowserNotHasCookie
+assertRequestAttributeValueSame
+assertResponseCookieValueSame
+assertResponseFormatSame
+assertResponseHasCookie
+assertResponseHasHeader
+assertResponseHeaderNotSame
+assertResponseHeaderSame
+assertResponseIsSuccessful
+assertResponseIsUnprocessable
+assertResponseNotHasCookie
+assertResponseNotHasHeader
+assertResponseRedirects
+assertResponseStatusCodeSame
+```
+
+- DomCrawler assertions:
+
+```
+assertCheckboxChecked
+assertCheckboxNotChecked
+assertInputValueNotSame
+assertInputValueSame
+assertPageTitleContains
+assertPageTitleSame
+assertSelectorExists
+assertSelectorNotExists
+assertSelectorTextContains
+assertSelectorTextNotContains
+assertSelectorTextSame
+```
+
+- HttpClient assertions:
+```
+assertHttpClientRequest
+assertHttpClientRequestCount
+assertNotHttpClientRequest
+```
+
+- Mailer assertions:
+
+```
+assertEmailCount
+assertEmailIsQueued
+assertEmailIsNotQueued
+assertQueuedEmailCount
+```
+
+
+- Form assertions:
+
+```
+assertFormValue
+assertNoFormValue
+```
+
+🔧 Other Changes
+* `cache_router` documentation enhancement by **[rtwent](https://github.com/rtwent)** in https://github.com/Codeception/module-symfony/pull/195
+* Simplify module logic in https://github.com/Codeception/module-symfony/pull/196
+* PHP 8.4 compatibility: nullable types and tests by **[W0rma](https://github.com/W0rma)** in [#197](https://github.com/Codeception/module-symfony/issues/197) and [#201](https://github.com/Codeception/module-symfony/issues/201)
+
+🚀 Enjoy the new features and keep building better tests!
+
+
+### New Contributors
+* **[rtwent](https://github.com/rtwent)** made their first contribution in https://github.com/Codeception/module-symfony/pull/195
+
+**Full Changelog**: https://github.com/Codeception/module-symfony/compare/3.4.0...3.5.0
+
+
 ### lib-innerbrowser 4.0.5: 4.0.5
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2024/09/13 05:15:37 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)

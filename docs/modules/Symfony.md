@@ -41,7 +41,7 @@ and [HttpKernel Component](https://symfony.com/doc/current/components/http_kerne
 * `kernel_class`: 'App\Kernel' - Kernel class name
 * `em_service`: 'doctrine.orm.entity_manager' - Use the stated EntityManager to pair with Doctrine Module.
 * `debug`: true - Turn on/off [debug mode](https://codeception.com/docs/Debugging)
-* `cache_router`: 'false' - Enable router caching between tests in order to [increase performance](http://lakion.com/blog/how-did-we-speed-up-sylius-behat-suite-with-blackfire)
+* `cache_router`: 'false' - Enable router caching between tests in order to [increase performance](http://lakion.com/blog/how-did-we-speed-up-sylius-behat-suite-with-blackfire) (can have an impact on ajax requests sending via '$I->sendAjaxPostRequest()')
 * `rebootable_client`: 'true' - Reboot client's kernel before each request
 * `guard`: 'false' - Enable custom authentication system with guard (only for Symfony 5.4)
 * `bootstrap`: 'false' - Enable the test environment setup with the tests/bootstrap.php file if it exists or with Symfony DotEnv otherwise. If false, it does nothing.
@@ -322,6 +322,63 @@ $I->amOnRoute('posts.show', ['id' => 34]);
 {% endhighlight %}
 
 
+#### assertBrowserCookieValueSame
+
+* `param string` $name
+* `param string` $expectedValue
+* `param bool` $raw
+* `param string` $path
+* `param ?string` $domain
+* `param string` $message
+* `return void`
+
+Asserts that the given cookie in the test client is set to the expected value.
+
+
+#### assertBrowserHasCookie
+
+* `param string` $name
+* `param string` $path
+* `param ?string` $domain
+* `param string` $message
+* `return void`
+
+Asserts that the test client has the specified cookie set.
+
+This indicates that the cookie was set by any response during the test.
+
+
+#### assertBrowserNotHasCookie
+
+* `param string` $name
+* `param string` $path
+* `param ?string` $domain
+* `param string` $message
+* `return void`
+
+Asserts that the test client does not have the specified cookie set.
+
+This indicates that the cookie was not set by any response during the test.
+
+
+#### assertCheckboxChecked
+
+* `param string` $fieldName
+* `param string` $message
+* `return void`
+
+Asserts that the checkbox with the given name is checked.
+
+
+#### assertCheckboxNotChecked
+
+* `param string` $fieldName
+* `param string` $message
+* `return void`
+
+Asserts that the checkbox with the given name is not checked.
+
+
 #### assertEmailAddressContains
 
 * `param string` $headerName
@@ -358,6 +415,16 @@ If the Email object is not specified, the last email sent is used instead.
 $I->assertEmailAttachmentCount(1);
 
 {% endhighlight %}
+
+
+#### assertEmailCount
+
+* `param int` $count
+* `param ?string` $transport
+* `param string` $message
+* `return void`
+
+Asserts that the expected number of emails was sent.
 
 
 #### assertEmailHasHeader
@@ -454,6 +521,28 @@ $I->assertEmailHtmlBodyNotContains('userpassword');
 {% endhighlight %}
 
 
+#### assertEmailIsNotQueued
+
+* `param \Symfony\Component\Mailer\Event\MessageEvent` $event
+* `param string` $message
+* `return void`
+
+Asserts that the given mailer event is not queued.
+
+Use `getMailerEvent(int $index = 0, ?string $transport = null)` to retrieve a mailer event by index.
+
+
+#### assertEmailIsQueued
+
+* `param \Symfony\Component\Mailer\Event\MessageEvent` $event
+* `param string` $message
+* `return void`
+
+Asserts that the given mailer event is queued.
+
+Use `getMailerEvent(int $index = 0, ?string $transport = null)` to retrieve a mailer event by index.
+
+
 #### assertEmailNotHasHeader
 
 * `param string` $headerName
@@ -506,6 +595,310 @@ If the Email object is not specified, the last email sent is used instead.
 $I->assertEmailTextBodyNotContains('My secret text body');
 
 {% endhighlight %}
+
+
+#### assertFormValue
+
+* `param string` $formSelector
+* `param string` $fieldName
+* `param string` $value
+* `param string` $message
+* `return void`
+
+Asserts that value of the field of the first form matching the given selector does equal the expected value.
+
+
+#### assertHttpClientRequest
+
+* `param string` $expectedUrl
+* `param string` $expectedMethod
+* `param array|string|null` $expectedBody
+* `param array` $expectedHeaders
+* `param string` $httpClientId
+* `return void`
+
+Asserts that the given URL has been called using, if specified, the given method body and headers.
+
+By default, it will check on the HttpClient, but you can also pass a specific HttpClient ID. (It will succeed if the request has been called multiple times.)
+
+
+#### assertHttpClientRequestCount
+
+* `param int` $count
+* `param string` $httpClientId
+* `return void`
+
+Asserts that the given number of requests has been made on the HttpClient.
+
+By default, it will check on the HttpClient, but you can also pass a specific HttpClient ID.
+
+
+#### assertInputValueNotSame
+
+* `param string` $fieldName
+* `param string` $expectedValue
+* `param string` $message
+* `return void`
+
+Asserts that the value of the form input with the given name does not equal the expected value.
+
+
+#### assertInputValueSame
+
+* `param string` $fieldName
+* `param string` $expectedValue
+* `param string` $message
+* `return void`
+
+Asserts that the value of the form input with the given name equals the expected value.
+
+
+#### assertNoFormValue
+
+* `param string` $formSelector
+* `param string` $fieldName
+* `param string` $message
+* `return void`
+
+Asserts that value of the field of the first form matching the given selector does equal the expected value.
+
+
+#### assertNotHttpClientRequest
+
+* `param string` $unexpectedUrl
+* `param string` $expectedMethod
+* `param string` $httpClientId
+* `return void`
+
+Asserts that the given URL has not been called using GET or the specified method.
+
+By default, it will check on the HttpClient, but a HttpClient id can be specified.
+
+
+#### assertPageTitleContains
+
+* `param string` $expectedTitle
+* `param string` $message
+* `return void`
+
+Asserts that the `<title>` element contains the given title.
+
+
+#### assertPageTitleSame
+
+* `param string` $expectedTitle
+* `param string` $message
+* `return void`
+
+Asserts that the `<title>` element equals the given title.
+
+
+#### assertQueuedEmailCount
+
+* `param int` $count
+* `param ?string` $transport
+* `param string` $message
+* `return void`
+
+Asserts that the expected number of emails was queued (e.g. using the Messenger component).
+
+
+#### assertRequestAttributeValueSame
+
+* `param string` $name
+* `param string` $expectedValue
+* `param string` $message
+* `return void`
+
+Asserts that the specified request attribute matches the expected value.
+
+
+#### assertResponseCookieValueSame
+
+* `param string` $name
+* `param string` $expectedValue
+* `param string` $path
+* `param ?string` $domain
+* `param string` $message
+* `return void`
+
+Asserts that the specified response cookie is present and matches the expected value.
+
+
+#### assertResponseFormatSame
+
+* `param ?string` $expectedFormat
+* `param string` $message
+* `return void`
+
+Asserts that the response format matches the expected format. This checks the format returned by the `Response::getFormat()` method.
+
+
+#### assertResponseHasCookie
+
+* `param string` $name
+* `param string` $path
+* `param ?string` $domain
+* `param string` $message
+* `return void`
+
+Asserts that the specified cookie is present in the response. Optionally, it can check for a specific cookie path or domain.
+
+
+#### assertResponseHasHeader
+
+* `param string` $headerName
+* `param string` $message
+* `return void`
+
+Asserts that the specified header is available in the response.
+
+For example, use `assertResponseHasHeader('content-type');`.
+
+
+#### assertResponseHeaderNotSame
+
+* `param string` $headerName
+* `param string` $expectedValue
+* `param string` $message
+* `return void`
+
+Asserts that the specified header does not contain the expected value in the response.
+
+For example, use `assertResponseHeaderNotSame('content-type', 'application/octet-stream');`.
+
+
+#### assertResponseHeaderSame
+
+* `param string` $headerName
+* `param string` $expectedValue
+* `param string` $message
+* `return void`
+
+Asserts that the specified header contains the expected value in the response.
+
+For example, use `assertResponseHeaderSame('content-type', 'application/octet-stream');`.
+
+
+#### assertResponseIsSuccessful
+
+* `param string` $message
+* `param bool` $verbose
+* `return void`
+
+Asserts that the response was successful (HTTP status code is in the 2xx range).
+
+
+#### assertResponseIsUnprocessable
+
+* `param string` $message
+* `param bool` $verbose
+* `return void`
+
+Asserts that the response is unprocessable (HTTP status code is 422).
+
+
+#### assertResponseNotHasCookie
+
+* `param string` $name
+* `param string` $path
+* `param ?string` $domain
+* `param string` $message
+* `return void`
+
+Asserts that the specified cookie is not present in the response. Optionally, it can check for a specific cookie path or domain.
+
+
+#### assertResponseNotHasHeader
+
+* `param string` $headerName
+* `param string` $message
+* `return void`
+
+Asserts that the specified header is not available in the response.
+
+For example, use `assertResponseNotHasHeader('content-type');`.
+
+
+#### assertResponseRedirects
+
+* `param ?string` $expectedLocation
+* `param ?int` $expectedCode
+* `param string` $message
+* `param bool` $verbose
+* `return void`
+
+Asserts that the response is a redirect. Optionally, you can check the target location and status code.
+
+The expected location can be either an absolute or a relative path.
+
+
+#### assertResponseStatusCodeSame
+
+* `param int` $expectedCode
+* `param string` $message
+* `param bool` $verbose
+* `return void`
+
+Asserts that the response status code matches the expected code.
+
+
+#### assertRouteSame
+
+* `param string` $expectedRoute
+* `param array` $parameters
+* `param string` $message
+* `return void`
+
+Asserts the request matches the given route and optionally route parameters.
+
+
+#### assertSelectorExists
+
+* `param string` $selector
+* `param string` $message
+* `return void`
+
+Asserts that the given selector matches at least one element in the response.
+
+
+#### assertSelectorNotExists
+
+* `param string` $selector
+* `param string` $message
+* `return void`
+
+Asserts that the given selector does not match at least one element in the response.
+
+
+#### assertSelectorTextContains
+
+* `param string` $selector
+* `param string` $text
+* `param string` $message
+* `return void`
+
+Asserts that the first element matching the given selector contains the expected text.
+
+
+#### assertSelectorTextNotContains
+
+* `param string` $selector
+* `param string` $text
+* `param string` $message
+* `return void`
+
+Asserts that the first element matching the given selector does not contain the expected text.
+
+
+#### assertSelectorTextSame
+
+* `param string` $selector
+* `param string` $text
+* `param string` $message
+* `return void`
+
+Asserts that the text of the first element matching the given selector equals the expected text.
 
 
 #### attachFile
@@ -1455,9 +1848,9 @@ Get service $serviceName and add it to the lists of persistent services.
 
 * `return void`
 
-Reboot client's kernel.
+Reboots the client's kernel.
 
-Can be used to manually reboot kernel when 'rebootable_client' => false
+Can be used to manually reboot the kernel when 'rebootable_client' is set to false.
 
 {% highlight php %}
 
@@ -1775,7 +2168,7 @@ $I->seeEventTriggered(['App\MyEvent', 'App\MyOtherEvent']);
 #### seeFormErrorMessage
 
 * `param string` $field
-* `param string|null` $message
+* `param ?string` $message
 * `return void`
 
 Verifies that a form field has an error.
@@ -2125,12 +2518,12 @@ $I->seeOrphanEvent(['App\MyEvent', 'App\MyOtherEvent']);
 
 #### seePageIsAvailable
 
-* `param string|null` $url
+* `param string|null` $url The URL of the page to check. If null, the current page is checked.
 * `return void`
 
 Verifies that a page is available.
 
-By default, it checks the current page, specify the `$url` parameter to change it.
+By default, it checks the current page. Specify the `$url` parameter to change the page being checked.
 
 {% highlight php %}
 
@@ -2156,7 +2549,7 @@ Asserts that current page has 404 response status code.
 * `param string` $redirectsTo
 * `return void`
 
-Goes to a page and check that it redirects to another.
+Navigates to a page and verifies that it redirects to another page.
 
 {% highlight php %}
 
@@ -2766,14 +3159,14 @@ $I->submitForm('#my-form', [
 
 #### submitSymfonyForm
 
-* `param string` $name The `name` attribute of the `<form>` (you cannot use an array as selector here)
-* `param string[]` $fields
+* `param string` $name The `name` attribute of the `<form>`. You cannot use an array as a selector here.
+* `param array` $fields
 * `return void`
 
-Submit a form specifying the form name only once.
+Submits a form by specifying the form name only once.
 
 Use this function instead of [`$I->submitForm()`](#submitForm) to avoid repeating the form name in the field selectors.
-If you customized the names of the field selectors use `$I->submitForm()` for full control.
+If you have customized the names of the field selectors, use `$I->submitForm()` for full control.
 
 {% highlight php %}
 
