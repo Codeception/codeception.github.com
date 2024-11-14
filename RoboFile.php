@@ -12,6 +12,7 @@ class RoboFile extends \Robo\Tasks
     const REPO_BLOB_URL = 'https://github.com/Codeception/Codeception/blob';
     const BRANCH_4x = '4.2';
     const BRANCH_5x = '5.1';
+    const BRANCH_MAIN = 'main';
 
     function post()
     {
@@ -263,7 +264,7 @@ EOF;
             ->prepend("# Official Extensions\n")
             ->processClassSignature(function (ReflectionClass $r, $text) {
                 $name = $r->getShortName();
-                return "## $name\n\n[See Source](" . self::REPO_BLOB_URL . "/" . self::BRANCH_5x . "/ext/$name.php)";
+                return "## $name\n\n[See Source](" . self::REPO_BLOB_URL . "/" . self::BRANCH_MAIN . "/ext/$name.php)";
             })
             ->filterMethods(function (ReflectionMethod $r) {
                 return false;
