@@ -83,7 +83,7 @@ Tests can be executed directly through ChromeDriver or GeckoDriver (for Firefox)
 
 #### ChromeDriver
 
-* Download and install [ChromeDriver](https://sites.google.com/chromium.org/driver/downloads)
+* Download and install [ChromeDriver](https://sites.google.com/chromium.org/driver/downloads?authuser=0)
 * Launch ChromeDriver in a separate console window: `chromedriver --url-base=/wd/hub`.
 
 Configuration in `Acceptance.suite.yml`:
@@ -104,7 +104,7 @@ modules:
                      download.default_directory: "..."
 
 {% endhighlight %}
-See here for additional [Chrome options](https://sites.google.com/chromium.org/driver/capabilities)
+See here for additional [Chrome options](https://sites.google.com/a/chromium.org/chromedriver/capabilities)
 
 
 #### GeckoDriver
