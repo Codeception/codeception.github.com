@@ -2,7 +2,7 @@
 
 ## DotReporter
 
-[See Source](https://github.com/Codeception/Codeception/blob/5.1/ext/DotReporter.php)
+[See Source](https://github.com/Codeception/Codeception/blob/main/ext/DotReporter.php)
 
 DotReporter provides less verbose output for test execution.
 Like PHPUnit printer it prints dots "." for successful testes and "F" for failures.
@@ -38,7 +38,7 @@ Use this extension as an example for building custom reporters.
 
 ## Logger
 
-[See Source](https://github.com/Codeception/Codeception/blob/5.1/ext/Logger.php)
+[See Source](https://github.com/Codeception/Codeception/blob/main/ext/Logger.php)
 
 Log suites/tests/steps using Monolog library.
 Monolog should be installed additionally by Composer.
@@ -66,7 +66,7 @@ extensions:
 
 ## Recorder
 
-[See Source](https://github.com/Codeception/Codeception/blob/5.1/ext/Recorder.php)
+[See Source](https://github.com/Codeception/Codeception/blob/main/ext/Recorder.php)
 
 Saves a screenshot of each step in acceptance tests and shows them as a slideshow on one HTML page (here's an [example](https://codeception.com/images/recorder.gif))
 Activated only for suites with WebDriver module enabled.
@@ -125,7 +125,7 @@ public function testLogin(AcceptanceTester $I)
 
 ## RunBefore
 
-[See Source](https://github.com/Codeception/Codeception/blob/5.1/ext/RunBefore.php)
+[See Source](https://github.com/Codeception/Codeception/blob/main/ext/RunBefore.php)
 
 Extension for execution of some processes before running tests.
 
@@ -156,7 +156,7 @@ HINT: you can use different configurations per environment.
 
 ## RunFailed
 
-[See Source](https://github.com/Codeception/Codeception/blob/5.1/ext/RunFailed.php)
+[See Source](https://github.com/Codeception/Codeception/blob/main/ext/RunFailed.php)
 
 Saves failed tests into tests/_output/failed in order to rerun failed tests.
 
@@ -185,7 +185,7 @@ On each execution failed tests are logged and saved into `tests/_output/failed` 
 
 ## RunProcess
 
-[See Source](https://github.com/Codeception/Codeception/blob/5.1/ext/RunProcess.php)
+[See Source](https://github.com/Codeception/Codeception/blob/main/ext/RunProcess.php)
 
 Extension to start and stop processes per suite.
 Can be used to start/stop selenium server, chromedriver, mailcatcher, etc.
@@ -232,7 +232,7 @@ HINT: you can use different configurations per environment.
 
 ## SimpleReporter
 
-[See Source](https://github.com/Codeception/Codeception/blob/5.1/ext/SimpleReporter.php)
+[See Source](https://github.com/Codeception/Codeception/blob/main/ext/SimpleReporter.php)
 
 This extension demonstrates how you can implement console output of your own.
 Recommended to be used for development purposes only.
