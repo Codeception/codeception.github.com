@@ -47,7 +47,7 @@ See the Acceptance tests section below for more details.
 * url: `string`, default `` - the application URL.
 * headers: `array<string, string>` - default headers are set before each test.
 
-#### Example #1 (`functional.suite.yml`)
+#### Example #1 (`Functional.suite.yml`)
 
 Enabling module:
 
@@ -59,7 +59,7 @@ modules:
 
 {% endhighlight %}
 
-#### Example #2 (`functional.suite.yml`)
+#### Example #2 (`Functional.suite.yml`)
 
 Enabling module with custom .env file
 
@@ -101,7 +101,7 @@ You should not use this module for acceptance tests.
 If you want to use Eloquent within your acceptance tests (paired with WebDriver) enable only
 ORM part of this module:
 
-#### Example (`acceptance.suite.yml`)
+#### Example (`Acceptance.suite.yml`)
 
 {% highlight yaml %}
 

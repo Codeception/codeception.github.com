@@ -75,7 +75,7 @@ The screenshots are saved to `tests/_output/record_*` directories, open `index.h
 
 #### Installation
 
-Add this to the list of enabled extensions in `codeception.yml` or `acceptance.suite.yml`:
+Add this to the list of enabled extensions in `codeception.yml` or `Acceptance.suite.yml`:
 
 ``` yaml
 extensions:
@@ -136,7 +136,7 @@ Dependent processes run sequentially one by one.
 Can be configured in suite config:
 
 ```yaml
-# acceptance.suite.yml
+# Acceptance.suite.yml
 extensions:
     enabled:
         - Codeception\Extension\RunBefore:
@@ -193,7 +193,7 @@ Can be used to start/stop selenium server, chromedriver, mailcatcher, etc.
 Can be configured in suite config:
 
 ```yaml
-# acceptance.suite.yml
+# Acceptance.suite.yml
 extensions:
     enabled:
         - Codeception\Extension\RunProcess:
@@ -203,7 +203,7 @@ extensions:
 Multiple parameters can be passed as array:
 
 ```yaml
-# acceptance.suite.yml
+# Acceptance.suite.yml
 
 extensions:
     enabled:

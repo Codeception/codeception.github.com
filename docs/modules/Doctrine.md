@@ -22,7 +22,7 @@ composer require --dev codeception/module-doctrine
 Access the database using [Doctrine ORM](https://docs.doctrine-project.org/projects/doctrine-orm/en/latest/).
 
 When used with Symfony or Zend Framework 2, Doctrine's Entity Manager is automatically retrieved from Service Locator.
-Set up your `functional.suite.yml` like this:
+Set up your `Functional.suite.yml` like this:
 
 {% highlight yaml %}
 
@@ -50,7 +50,7 @@ By default, the module will wrap everything into a transaction for each test and
 (this is controlled by the `cleanup` setting).
 By doing this, tests will run much faster and will be isolated from each other.
 
-To use the Doctrine Module in acceptance tests, set up your `acceptance.suite.yml` like this:
+To use the Doctrine Module in acceptance tests, set up your `Acceptance.suite.yml` like this:
 
 {% highlight yaml %}
 

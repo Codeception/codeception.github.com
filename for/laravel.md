@@ -47,7 +47,7 @@ cp .env .env.testing
 
 Functional tests allow test application by simulating user actions, this is done by sending requests to framework kernel and checking HTML as a result. Unilke internal tests of Laravel, Codeception doesn't limit you to testing only one request per test. You can **test complex interactions involving different actions and controllers**. This way you can easily cover your specifictions with functional tests.
 
-To start you need to configure `tests/functional.suite.yml` to use Laravel module:
+To start you need to configure `tests/Functional.suite.yml` to use Laravel module:
 
 ```yaml
 class_name: FunctionalTester
@@ -77,10 +77,10 @@ php vendor/bin/codecept g:cest functional Login
 To generate a unit test run:
 
 ```
-php vendor/bin/codecept g:test unit "Foo\Bar"
+php vendor/bin/codecept g:test Unit "Foo\Bar"
 ```
 This generates `Codeception\Test\Unit` testcase which is inherited from PHPUnit but provides a module access.
-Enable Laravel module in `unit.suite.yml` to have its methods inside a testcase. They are available injected into `$this->tester` property of a testcase.
+Enable Laravel module in `Unit.suite.yml` to have its methods inside a testcase. They are available injected into `$this->tester` property of a testcase.
 
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
@@ -90,7 +90,7 @@ Enable Laravel module in `unit.suite.yml` to have its methods inside a testcase.
 
 ### Acceptance Tests
 
-To test an application in a real environment by using its UI you should use a real browser. Codeception uses Selenium Webdriver and corresponding WebDriver module to interact with a browser. You should configure `acceptance.suite.yml` to use WebDriver module and a browser of your choice. 
+To test an application in a real environment by using its UI you should use a real browser. Codeception uses Selenium Webdriver and corresponding WebDriver module to interact with a browser. You should configure `Acceptance.suite.yml` to use WebDriver module and a browser of your choice. 
 
 ```yaml
 class_name: AcceptanceTester
@@ -157,13 +157,13 @@ Laravel module actions like `amOnPage` or `see` should not be available for test
 
 ### BDD
 
-If you prefer to describe application with feature files, Codeception can turn them to acceptance or functional tests. It is recommended to store feature files in `features` directory (like it does Behat) but symlinking it to `tests/acceptance/features` or `tests/functional/features` so they can be treated as tests too. For using BDD with acceptance tests you need to run:
+If you prefer to describe application with feature files, Codeception can turn them to acceptance or functional tests. It is recommended to store feature files in `features` directory (like it does Behat) but symlinking it to `tests/Acceptance/features` or `tests/Functional/features` so they can be treated as tests too. For using BDD with acceptance tests you need to run:
 
 ```
-ln -s $PWD/features tests/acceptance
+ln -s $PWD/features tests/Acceptance
 ```
 
-Codeception allows to combine tests written in different formats. If are about to wirite a regression test it probably should not be described as a product's feature. That's why feature-files is subset of all acceptance tests, and they are stored in subfolder of `tests/acceptance`. 
+Codeception allows to combine tests written in different formats. If are about to wirite a regression test it probably should not be described as a product's feature. That's why feature-files is subset of all acceptance tests, and they are stored in subfolder of `tests/Acceptance`. 
 
 There is no standard Gherkin steps built in. By writing your feature files you can get code snippets which should be added to `AcceptanceTester` class. 
 

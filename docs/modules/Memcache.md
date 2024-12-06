@@ -34,7 +34,7 @@ Performs a cleanup by flushing all values after each test run.
 * **`host`** (`string`, default `'localhost'`) - The memcached host
 * **`port`** (`int`, default `11211`) - The memcached port
 
-#### Example (`unit.suite.yml`)
+#### Example (`Unit.suite.yml`)
 
 {% highlight yaml %}
 

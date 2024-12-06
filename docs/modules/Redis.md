@@ -40,7 +40,7 @@ to interact with a Redis server.
 
 Note: The full configuration list can be found on Predis' github.
 
-#### Example (`unit.suite.yml`)
+#### Example (`Unit.suite.yml`)
 
 {% highlight yaml %}
 

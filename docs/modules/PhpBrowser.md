@@ -46,7 +46,7 @@ If test fails stores last shown page in 'output' dir.
 * .. those and other [Guzzle Request options](https://docs.guzzlephp.org/en/latest/request-options.html)
 
 
-#### Example (`acceptance.suite.yml`)
+#### Example (`Acceptance.suite.yml`)
 
     modules:
        enabled:

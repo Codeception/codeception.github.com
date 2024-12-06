@@ -57,7 +57,7 @@ Common PhpBrowser drawbacks:
 We need to specify the `url` parameter in the acceptance suite config:
 
 ```yaml
-# acceptance.suite.yml
+# Acceptance.suite.yml
 actor: AcceptanceTester
 modules:
     enabled:
@@ -68,10 +68,10 @@ modules:
 We should start by creating a test with the next command:
 
 ```
-php vendor/bin/codecept g:cest acceptance Signin
+php vendor/bin/codecept g:cest Acceptance Signin
 ```
 
-It will be placed into `tests/acceptance` directory.
+It will be placed into `tests/Acceptance` directory.
 
 ```php
 class SigninCest
@@ -268,10 +268,10 @@ Each failed assertion will be shown in the test results, but it won't stop the t
 
 Conditional assertions are disabled in bootstrap setup. To enable them you should add corresponding step decorators to suite config:
 
-> If you started project as `codecept init acceptance` they should be already enabled in config
+> If you started project as `codecept init Acceptance` they should be already enabled in config
 
 ```yaml
-# in acceptance.suite.yml 
+# in Acceptance.suite.yml 
 # or in codeception.yml inside suites section
 step_decorators:
   - \Codeception\Step\ConditionalAssertion
@@ -390,7 +390,7 @@ Now, you are ready to run WebDriver tests using Codeception.
 
 To execute a test in a browser you need to change the suite configuration to use **WebDriver** module.
 
-Modify your `acceptance.suite.yml` file:
+Modify your `Acceptance.suite.yml` file:
 
 ```yaml
 actor: AcceptanceTester
@@ -503,10 +503,10 @@ $I->retry(4, 400);
 
 Retries are disabled by default. To enable them you should add retry step decorators to suite config:
 
-> If you started project as `codecept init acceptance` they should be already enabled in config
+> If you started project as `codecept init Acceptance` they should be already enabled in config
 
 ```yaml
-# in acceptance.suite.yml 
+# in Acceptance.suite.yml 
 # or in codeception.yml inside suites section
 step_decorators:
   - \Codeception\Step\Retry
@@ -578,10 +578,10 @@ if ($I->tryToSeeElement('.alert')) {
 
 A/B testing is disabled by default. To enable it you should add corresponding step decorators to suite config:
 
-> If you started project as `codecept init acceptance` in Codeception >= 3.0 they should be already enabled in config
+> If you started project as `codecept init Acceptance` in Codeception >= 3.0 they should be already enabled in config
 
 ```yaml
-# in acceptance.suite.yml 
+# in Acceptance.suite.yml 
 # or in codeception.yml inside suites section
 step_decorators:
   - \Codeception\Step\TryTo
