@@ -9,6 +9,17 @@ title: Codeception Changelog
 
 
 
+### module-yii2 1.1.11: 1.1.11
+
+Released by [![](https://avatars.githubusercontent.com/u/47294?v=4&s=16) samdark](https://github.com/samdark) on 2024/12/08 10:21:37 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
+
+
+
+- Fix PHP 8.4 deprecation warnings (@W0rma)
+- Fix broken `amLoggedInAs()` (@warkadiuszz)
+- Improved typing (@SamMousa)
+
+
 ### module-symfony 3.5.0: 3.5.0
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2024/11/14 05:59:41 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)

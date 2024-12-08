@@ -160,8 +160,8 @@ commands that expect a URL:
 {% highlight php %}
 
 <?php
-$I->amOnPage('index-test.php?site/index');
-$I->amOnPage('http://localhost/index-test.php?site/index');
+$I->amOnPage('index-test.php?r=site/index');
+$I->amOnPage('http://localhost/index-test.php?r=site/index');
 $I->sendAjaxPostRequest(['/user/update', 'id' => 1], ['UserForm[name]' => 'G.Hopper']);
 
 {% endhighlight %}
@@ -171,7 +171,6 @@ $I->sendAjaxPostRequest(['/user/update', 'id' => 1], ['UserForm[name]' => 'G.Hop
 Maintainer: **samdark**
 Stability: **stable**
 
-@property \Codeception\Lib\Connector\Yii2 $client
 
 ### Actions
 
@@ -320,8 +319,9 @@ Authenticates user for HTTP_AUTH
 
 #### amLoggedInAs
 
-* `param ` $user
+* `param \yii\web\IdentityInterface|string|int` $user
 * `throws \Codeception\Exception\ModuleException`
+* `return void`
 
 Authenticates a user on a site without submitting a login form.
 
@@ -343,10 +343,10 @@ Requires the `user` component to be enabled and configured.
 
 #### amOnPage
 
-* `param string` $page the page URI
+* `param string` $page
 * `return void`
 
-Opens the page for the given relative URI or route.
+Opens the page for the given relative URI.
 
 {% highlight php %}
 
@@ -728,7 +728,7 @@ $I->dontSeeOptionIsSelected('#form input[name=payment]', 'Visa');
 #### dontSeeRecord
 
 * `part` orm
-* `param ` $model
+* `param class-string<\yii\db\ActiveRecord>` $model
 * `param array` $attributes
 * `return void`
 
@@ -818,9 +818,9 @@ $I->grabAttributeFrom('#tooltip', 'title');
 #### grabComponent
 
 @deprecated
-* `param ` $component
+* `param string` $component
 * `throws \Codeception\Exception\ModuleException`
-* `return mixed`
+* `return ?object`
 
 Gets a component from the Yii container. Throws an exception if the
 component is not available
@@ -957,9 +957,9 @@ Grabs current page source code.
 #### grabRecord
 
 * `part` orm
-* `param ` $model
+* `param class-string<\yii\db\ActiveRecord>` $model
 * `param array` $attributes
-* `return mixed`
+* `return \yii\db\ActiveRecord|array|null`
 
 Retrieves a record from the database
 
@@ -1035,6 +1035,7 @@ $name = $I->grabValueFrom(['name' => 'username']);
 
 * `part` fixtures
 * `param ` $fixtures
+* `return void`
 
 Creates and loads fixtures from a config.
 
@@ -1108,9 +1109,10 @@ $I->haveHttpHeader('Client&#95;Id', 'Codeception');
 
 #### haveRecord
 
+* `template` T of \yii\db\ActiveRecord
 * `part` orm
-* `param ` $model
-* `param array` $attributes
+* `param class-string<T>` $model
+* `param ` $attributes
 * `return mixed`
 
 Inserts a record into the database.
@@ -1309,7 +1311,7 @@ $I->seeElement(['css' => 'form input'], ['name' => 'login']);
 #### seeEmailIsSent
 
 * `part` email
-* `param int` $num
+* `param int|null` $num
 * `throws \Codeception\Exception\ModuleException`
 * `return void`
 
@@ -1529,7 +1531,7 @@ Asserts that current page has 404 response status code.
 #### seeRecord
 
 * `part` orm
-* `param ` $model
+* `param class-string<\yii\db\ActiveRecord>` $model
 * `param array` $attributes
 * `return void`
 
