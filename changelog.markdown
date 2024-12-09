@@ -9,6 +9,15 @@ title: Codeception Changelog
 
 
 
+### module-yii2 1.1.12: 1.1.12
+
+Released by [![](https://avatars.githubusercontent.com/u/47294?v=4&s=16) samdark](https://github.com/samdark) on 2024/12/09 14:36:21 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
+
+
+
+- Un-finalized module class (@samdark)
+
+
 ### module-yii2 1.1.11: 1.1.11
 
 Released by [![](https://avatars.githubusercontent.com/u/47294?v=4&s=16) samdark](https://github.com/samdark) on 2024/12/08 10:21:37 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
