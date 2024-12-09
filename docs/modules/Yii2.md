@@ -79,7 +79,7 @@ This section details what you can expect when using this module.
 * `recreateApplication` - (default: `false`) whether to recreate the whole
   application before each request
 
-You can use this module by setting params in your `functional.suite.yml`:
+You can use this module by setting params in your `Functional.suite.yml`:
 
 {% highlight yaml %}
 
@@ -105,7 +105,7 @@ available parts are:
 See [WebDriver module](https://codeception.com/docs/modules/WebDriver#Loading-Parts-from-other-Modules)
 for general information on how to load parts of a framework module.
 
-#### Example (`acceptance.suite.yml`)
+#### Example (`Acceptance.suite.yml`)
 
 {% highlight yaml %}
 

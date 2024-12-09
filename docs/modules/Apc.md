@@ -30,7 +30,7 @@ Performs a cleanup by flushing all values after each test run.
 * Stability: **stable**
 * Contact: serghei@phalcon.io
 
-#### Example (`unit.suite.yml`)
+#### Example (`Unit.suite.yml`)
 
 {% highlight yaml %}
 

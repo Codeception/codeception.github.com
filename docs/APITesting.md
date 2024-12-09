@@ -9,10 +9,10 @@ title: API Testing - Codeception Docs
 
 The same way we tested a web site, Codeception allows you to test web services. They are very hard to test manually, so it's a really good idea to automate web service testing. We have SOAP and REST as standards, which are represented in corresponding modules, which we will cover in this chapter.
 
-You should start by creating a new test suite, (which was not provided by the `bootstrap` command). We recommend calling it **api** and using the `ApiTester` class for it.
+You should start by creating a new test suite, (which was not provided by the `bootstrap` command). We recommend calling it **Api** and using the `ApiTester` class for it.
 
 ```bash
-php vendor/bin/codecept generate:suite api
+php vendor/bin/codecept generate:suite Api
 ```
 
 We will put all the api tests there.
@@ -23,7 +23,7 @@ We will put all the api tests there.
 
 The REST web service is accessed via HTTP with standard methods: `GET`, `POST`, `PUT`, `DELETE`. They allow users to receive and manipulate entities from the service. Accessing a WebService requires an HTTP client, so for using it you need the module `PhpBrowser` or one of framework modules set up. For example, we can use the `Symfony` module for Symfony2 applications in order to ignore web server and test web service internally.
 
-Configure modules in `api.suite.yml`:
+Configure modules in `Api.suite.yml`:
 
 ```yaml
 actor: ApiTester
@@ -60,7 +60,7 @@ modules:
 Once we have configured our new testing suite, we can create the first sample test:
 
 ```bash
-php vendor/bin/codecept generate:cest api CreateUser
+php vendor/bin/codecept generate:cest Api CreateUser
 ```
 
 It will be called `CreateUserCest.php`. 
@@ -379,7 +379,7 @@ class Api extends \Codeception\Module {
 
 ## Conclusion
 
-Codeception has two modules that will help you to test various web services. They need a new `api` suite to be created. Remember, you are not limited to test only response body. By including `Db` module you may check if a user has been created after the `CreateUser` call. You can improve testing scenarios by using REST or SOAP responses in your helper methods.
+Codeception has two modules that will help you to test various web services. They need a new `Api` suite to be created. Remember, you are not limited to test only response body. By including `Db` module you may check if a user has been created after the `CreateUser` call. You can improve testing scenarios by using REST or SOAP responses in your helper methods.
 
 
 <div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/APITesting.md"><strong>Improve</strong> this guide</a></div>

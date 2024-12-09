@@ -181,7 +181,7 @@ before_script:
 # Test
 test:
   script:
-    - vendor/bin/codecept run acceptance --xml --html
+    - vendor/bin/codecept run Acceptance --xml --html
   artifacts:
     when: always
     expire_in: 1 week

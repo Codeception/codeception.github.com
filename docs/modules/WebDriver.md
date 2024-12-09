@@ -273,7 +273,7 @@ modules:
 
 ### Loading Parts from other Modules
 
-While all Codeception modules are designed to work stand-alone, it's still possible to load *several* modules at once. To use e.g. the [Asserts module](https://codeception.com/docs/modules/Asserts) in your acceptance tests, just load it like this in your `acceptance.suite.yml`:
+While all Codeception modules are designed to work stand-alone, it's still possible to load *several* modules at once. To use e.g. the [Asserts module](https://codeception.com/docs/modules/Asserts) in your acceptance tests, just load it like this in your `Acceptance.suite.yml`:
 
 {% highlight yaml %}
 
@@ -403,7 +403,7 @@ public function _before(TestInterface $test)
 
 {% endhighlight %}
 
-to make this work load `\Helper\Acceptance` before `WebDriver` in `acceptance.suite.yml`:
+to make this work load `\Helper\Acceptance` before `WebDriver` in `Acceptance.suite.yml`:
 
 {% highlight yaml %}
 
