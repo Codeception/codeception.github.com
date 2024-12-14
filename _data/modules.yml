@@ -96,7 +96,6 @@
 - name: MailCatcher
   link: https://github.com/captbaritone/codeception-mailcatcher-module
   description: MailCatcher is a standalone software which can be configured to catch *any* email sent by your development server, and display it on a webpage. The MailCatcher Module allows you to test the contents of those emails in an acceptance test.
-  color: "#FFF5C4"
 
 - name: MailSMTP
   link: https://github.com/AhmedSamy/codeception-smtp-mail
