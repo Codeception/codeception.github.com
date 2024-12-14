@@ -87,6 +87,12 @@
   description: Codeception module to test email using MailCare.io (Free, Open Source or paid services).
   color: "#e65722"
 
+- name: Mailpit
+  image: https://mailpit.axllent.org/images/mailpit.svg
+  link: https://github.com/koehnlein/codeception-email-mailpit
+  description: Mailpit is a standalone local SMTP server to test email deliveries. The Codeception module provides assertions such as `$I->haveUnreadEmails();` or `$I->seeInOpenedEmailHtmlBody()`.
+  color: "#2C3E50"  
+
 - name: MailCatcher
   link: https://github.com/captbaritone/codeception-mailcatcher-module
   description: MailCatcher is a standalone software which can be configured to catch *any* email sent by your development server, and display it on a webpage. The MailCatcher Module allows you to test the contents of those emails in an acceptance test.
