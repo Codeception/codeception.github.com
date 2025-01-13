@@ -9,6 +9,19 @@ title: Codeception Changelog
 
 
 
+### module-laravel 3.2.0: 3.2.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2025/01/13 11:42:45 / [Repository](https://github.com/Codeception/module-laravel)   / [Releases](https://github.com/Codeception/module-laravel/releases)
+
+
+
+## What's Changed
+* fix: use the request object resolved from the app container as parameter to kernel's terminate method call by **[countless-integers](https://github.com/countless-integers)** in https://github.com/Codeception/module-laravel/pull/52
+* Call `forgetBootstrappers` after test by **[asanikovich](https://github.com/asanikovich)** in https://github.com/Codeception/module-laravel/pull/53
+
+**Full Changelog**: https://github.com/Codeception/module-laravel/compare/3.1.1...3.2.0
+
+
 ### module-yii2 1.1.12: 1.1.12
 
 Released by [![](https://avatars.githubusercontent.com/u/47294?v=4&s=16) samdark](https://github.com/samdark) on 2024/12/09 14:36:21 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
