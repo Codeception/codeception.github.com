@@ -9,6 +9,29 @@ title: Codeception Changelog
 
 
 
+### module-db 3.2.0: 3.2.0
+
+Released by [![](https://avatars.githubusercontent.com/u/4129631?v=4&s=16) szhajdu](https://github.com/szhajdu) on 2025/01/31 22:25:44 / [Repository](https://github.com/Codeception/module-db)   / [Releases](https://github.com/Codeception/module-db/releases)
+
+
+
+## What's Changed
+* test: Run test against PHP 8.3 by **[szhajdu](https://github.com/szhajdu)** in https://github.com/Codeception/module-db/pull/71
+* docs: Use short array syntax for consistency by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/module-db/pull/72
+* feat: Configure nullable types explicitly by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/module-db/pull/73
+* test: /opt/mssql-tools/bin/sqlcmd tool not found in given path by **[szhajdu](https://github.com/szhajdu)** in https://github.com/Codeception/module-db/pull/80
+* test: Run test against PHP 8.4 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/module-db/pull/77
+* test: Avoid deprecated direct access to driver and dbh property by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/module-db/pull/81
+* docs: Fix yaml format in PHPDoc and remove duplication by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/module-db/pull/78
+* chore: Remove unnecessary files from Composer package by **[s1lver](https://github.com/s1lver)** in https://github.com/Codeception/module-db/pull/83
+
+## New Contributors
+* **[ThomasLandauer](https://github.com/ThomasLandauer)** made their first contribution in https://github.com/Codeception/module-db/pull/78
+* **[s1lver](https://github.com/s1lver)** made their first contribution in https://github.com/Codeception/module-db/pull/83
+
+**Full Changelog**: https://github.com/Codeception/module-db/compare/3.1.4...3.2.0
+
+
 ### module-laravel 3.2.0: 3.2.0
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2025/01/13 11:42:45 / [Repository](https://github.com/Codeception/module-laravel)   / [Releases](https://github.com/Codeception/module-laravel/releases)
