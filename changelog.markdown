@@ -9,6 +9,21 @@ title: Codeception Changelog
 
 
 
+### module-db 3.2.1: 3.2.1
+
+Released by [![](https://avatars.githubusercontent.com/u/4129631?v=4&s=16) szhajdu](https://github.com/szhajdu) on 2025/02/06 19:56:35 / [Repository](https://github.com/Codeception/module-db)   / [Releases](https://github.com/Codeception/module-db/releases)
+
+
+
+## What's Changed
+* fix: allow uppercase table names by quoting the table name when fetching the primary key of a table in PostgreSQL by **[jandrusku](https://github.com/jandrusku)** in https://github.com/Codeception/module-db/pull/82
+
+## New Contributors
+* **[jandrusku](https://github.com/jandrusku)** made their first contribution in https://github.com/Codeception/module-db/pull/82
+
+**Full Changelog**: https://github.com/Codeception/module-db/compare/3.2.0...3.2.1
+
+
 ### module-db 3.2.0: 3.2.0
 
 Released by [![](https://avatars.githubusercontent.com/u/4129631?v=4&s=16) szhajdu](https://github.com/szhajdu) on 2025/01/31 22:25:44 / [Repository](https://github.com/Codeception/module-db)   / [Releases](https://github.com/Codeception/module-db/releases)
