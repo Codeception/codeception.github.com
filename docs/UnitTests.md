@@ -355,8 +355,8 @@ $em = $this->getModule('Doctrine')->em;
 If you use the `Symfony` module, here is how you can access the Symfony container:
 
 ```php
-/** @var Symfony\Component\DependencyInjection\Container */
-$container = $this->getModule('Symfony')->container;
+/** @var Symfony\Component\DependencyInjection\ContainerInterface */
+$container = $this->getModule('Symfony')->_getContainer();
 ```
 
 The same can be done for all public properties of an enabled module. Accessible properties are listed in the module reference.
