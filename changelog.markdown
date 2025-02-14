@@ -9,6 +9,27 @@ title: Codeception Changelog
 
 
 
+### module-webdriver 4.0.3: 4.0.3
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2025/02/14 07:14:37 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
+
+
+
+## What's Changed
+* Support PHPUnit 12 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/module-webdriver/pull/140
+* Fix incorrect documentation of log_js_error by **[SOHELAHMED7](https://github.com/SOHELAHMED7)** in https://github.com/Codeception/module-webdriver/pull/129
+* Fix ChromeDriver links by **[blankse](https://github.com/blankse)** in https://github.com/Codeception/module-webdriver/pull/137
+* `pressKey`: Fixing `@param string|array<string|string> $chars` by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/module-webdriver/pull/138
+* Fix PHP 8.4 deprecation for E_STRICT constant by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/module-webdriver/pull/139
+* Update WebDriver.php: reloadPage by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/module-webdriver/pull/125
+
+## New Contributors
+* **[SOHELAHMED7](https://github.com/SOHELAHMED7)** made their first contribution in https://github.com/Codeception/module-webdriver/pull/129
+* **[blankse](https://github.com/blankse)** made their first contribution in https://github.com/Codeception/module-webdriver/pull/137
+
+**Full Changelog**: https://github.com/Codeception/module-webdriver/compare/4.0.2...4.0.3
+
+
 ### lib-innerbrowser 4.0.6: 4.0.6
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2025/02/14 07:04:31 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
@@ -3747,15 +3768,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 * Different ExceptionHandlerDecorator
 * haveMultiple doesn't pass $name argument to factory(), because Laravel 7 does not support it anymore.
-
-
-### module-webdriver 1.0.6: Fixed setCookie in w3c mode
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/03/23 17:15:52 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
-
-
-
-Modern browsers reject cookies with singlepart domain names, the best option is not to set domain property unless explicitly specified.
 
 
 ### module-mezzio 2.0.1: 2.0.1

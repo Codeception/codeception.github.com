@@ -83,7 +83,7 @@ Tests can be executed directly through ChromeDriver or GeckoDriver (for Firefox)
 
 #### ChromeDriver
 
-* Download and install [ChromeDriver](https://sites.google.com/chromium.org/driver/downloads?authuser=0)
+* Download and install [ChromeDriver](https://sites.google.com/chromium.org/driver/downloads)
 * Launch ChromeDriver in a separate console window: `chromedriver --url-base=/wd/hub`.
 
 Configuration in `Acceptance.suite.yml`:
@@ -104,7 +104,7 @@ modules:
                      download.default_directory: "..."
 
 {% endhighlight %}
-See here for additional [Chrome options](https://sites.google.com/a/chromium.org/chromedriver/capabilities)
+See here for additional [Chrome options](https://sites.google.com/chromium.org/driver/capabilities)
 
 
 #### GeckoDriver
@@ -250,7 +250,7 @@ modules:
 * `ssl_proxy` - sets ssl(https) proxy server url for testing a remote server.
 * `ssl_proxy_port` - sets ssl(https) proxy server port
 * `debug_log_entries` - how many selenium entries to print with `debugWebDriverLogs` or on fail (0 by default).
-* `log_js_errors` - Set to true to include possible JavaScript to HTML report, or set to false (default) to deactivate.
+* `log_js_errors` - Set to true to include possible JavaScript to HTML report, or set to false (default) to deactivate. This will only work if `debug_log_entries` is set and its value is > 0. Also this will display JS errors as comments only if test fails.
 * `webdriver_proxy` - sets http proxy to tunnel requests to the remote Selenium WebDriver through
 * `webdriver_proxy_port` - sets http proxy server port to tunnel requests to the remote Selenium WebDriver through
 
@@ -1590,19 +1590,19 @@ In 3rd argument you can set number a seconds to wait for element to appear
 
 Presses the given key on the given element.
 
-To specify a character and modifier (e.g. <kbd>Ctrl</kbd>, Alt, Shift, Meta), pass an array for `$char` with
+To specify a character and modifier (e.g. <kbd>Ctrl</kbd>, <kbd>Alt</kbd>, <kbd>Shift</kbd>, <kbd>Meta</kbd>), pass an array for `$char` with
 the modifier as the first element and the character as the second.
-For special keys, use the constants from [`Facebook\WebDriver\WebDriverKeys`](https://github.com/php-webdriver/php-webdriver/blob/main/lib/WebDriverKeys.php).
+For special keys, use the constants from [Facebook\WebDriver\WebDriverKeys](https://github.com/php-webdriver/php-webdriver/blob/main/lib/WebDriverKeys.php).
 
 {% highlight php %}
 
 <?php
 // <input id="page" value="old">
 $I->pressKey('#page', 'a'); // => olda
-$I->pressKey('#page', ['ctrl', 'a'],'new'); //=> new
-$I->pressKey('#page', ['shift', '111'],'1','x'); //=> old!!!1x
-$I->pressKey('descendant-or-self::*[@id='page']','u'); //=> oldu
-$I->pressKey('#name', ['ctrl', 'a'], \Facebook\WebDriver\WebDriverKeys::DELETE); //=>''
+$I->pressKey('#page', ['ctrl', 'a'],'new'); // => new
+$I->pressKey('#page', ['shift', '111'], '1', 'x'); // => old!!!1x
+$I->pressKey('descendant-or-self::*[@id='page']', 'u'); // => oldu
+$I->pressKey('#name', ['ctrl', 'a'], \Facebook\WebDriver\WebDriverKeys::DELETE); // =>''
 
 {% endhighlight %}
 
@@ -1611,7 +1611,7 @@ $I->pressKey('#name', ['ctrl', 'a'], \Facebook\WebDriver\WebDriverKeys::DELETE);
 
 * `return void`
 
-Reloads the current page.
+Reloads the current page. All forms will be reset, so the outcome is as if the user would press <kbd>Ctrl</kbd>+<kbd>F5</kbd>.
 
 
 #### resetCookie
