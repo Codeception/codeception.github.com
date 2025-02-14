@@ -9,6 +9,20 @@ title: Codeception Changelog
 
 
 
+### lib-innerbrowser 4.0.6: 4.0.6
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2025/02/14 07:04:31 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
+
+
+
+## What's Changed
+* Support PHPUnit 12 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/lib-innerbrowser/pull/77
+* PHP 8.4: Fix E_STRICT deprecation by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/lib-innerbrowser/pull/74
+
+
+**Full Changelog**: https://github.com/Codeception/lib-innerbrowser/compare/4.0.5...4.0.6
+
+
 ### module-db 3.2.1: 3.2.1
 
 Released by [![](https://avatars.githubusercontent.com/u/4129631?v=4&s=16) szhajdu](https://github.com/szhajdu) on 2025/02/06 19:56:35 / [Repository](https://github.com/Codeception/module-db)   / [Releases](https://github.com/Codeception/module-db/releases)
@@ -3982,15 +3996,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 ### lib-innerbrowser 1.2.2: Really fixed _failed handling with Symfony 5
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/11/24 16:43:52 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
-
-
-
-
-
-
-### lib-innerbrowser 1.2.1: Fixed _failed handling with Symfony 5
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/11/24 16:32:46 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
 
 
 
