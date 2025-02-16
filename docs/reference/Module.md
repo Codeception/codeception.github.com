@@ -2043,7 +2043,7 @@ HOOK to be executed when config changes with `_reconfigure`.
 * `param array` $array
 * `return array`
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L312)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L309)
 
 #### shortenMessage()
 

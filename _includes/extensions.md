@@ -5,7 +5,7 @@
 [See Source](https://github.com/Codeception/Codeception/blob/main/ext/DotReporter.php)
 
 DotReporter provides less verbose output for test execution.
-Like PHPUnit printer it prints dots "." for successful testes and "F" for failures.
+Like PHPUnit printer it prints dots "." for successful tests and "F" for failures.
 
 ![](https://cloud.githubusercontent.com/assets/220264/26132800/4d23f336-3aab-11e7-81ba-2896a4c623d2.png)
 
@@ -68,14 +68,14 @@ extensions:
 
 [See Source](https://github.com/Codeception/Codeception/blob/main/ext/Recorder.php)
 
-Saves a screenshot of each step in acceptance tests and shows them as a slideshow on one HTML page (here's an [example](https://codeception.com/images/recorder.gif))
-Activated only for suites with WebDriver module enabled.
+Saves a screenshot of each step in acceptance tests and shows them as a slideshow on one HTML page (here's an [example](https://codeception.com/images/recorder.gif)).
+Works only for suites with WebDriver module enabled.
 
 The screenshots are saved to `tests/_output/record_*` directories, open `index.html` to see them as a slideshow.
 
 #### Installation
 
-Add this to the list of enabled extensions in `codeception.yml` or `acceptance.suite.yml`:
+Add this to the list of enabled extensions in `codeception.yml` or `Acceptance.suite.yml`:
 
 ``` yaml
 extensions:
@@ -106,7 +106,7 @@ extensions:
 ```
 #### Skipping recording of steps with annotations
 
-It is also possible to skip recording of steps for specified tests by using the @skipRecording annotation.
+It is also possible to skip recording of steps for specified tests by using the `@skipRecording` annotation.
 
 ```php
 /**
@@ -119,7 +119,6 @@ public function testLogin(AcceptanceTester $I)
     $I->amOnUrl('https://codeception.com');
 }
 ```
-
 
 
 
@@ -158,7 +157,7 @@ HINT: you can use different configurations per environment.
 
 [See Source](https://github.com/Codeception/Codeception/blob/main/ext/RunFailed.php)
 
-Saves failed tests into tests/_output/failed in order to rerun failed tests.
+Saves failed tests into `tests/_output/failed` in order to rerun failed tests.
 
 To rerun failed tests just run the `failed` group:
 
@@ -170,9 +169,9 @@ To change failed group name add:
 ```
 --override "extensions: config: Codeception\Extension\RunFailed: fail-group: another_group1"
 ```
-Remember: if you run tests and they generated custom-named fail group, to run this group, you should add override too
+Remember: If you run tests and they generated custom-named fail group, to run this group, you should add override too
 
-Starting from Codeception 2.1 **this extension is enabled by default**.
+**This extension is enabled by default.**
 
 ``` yaml
 extensions:
@@ -188,12 +187,13 @@ On each execution failed tests are logged and saved into `tests/_output/failed` 
 [See Source](https://github.com/Codeception/Codeception/blob/main/ext/RunProcess.php)
 
 Extension to start and stop processes per suite.
-Can be used to start/stop selenium server, chromedriver, mailcatcher, etc.
+Can be used to start/stop selenium server, chromedriver, [MailCatcher](https://mailcatcher.me/), etc.
+Each command is executed only once, at the beginning of the test suite. To execute a command before each test, see [Before/After Attributes](https://codeception.com/docs/AdvancedUsage#BeforeAfter-Attributes).
 
-Can be configured in suite config:
+Can be enabled in suite config:
 
 ```yaml
-# acceptance.suite.yml
+# Acceptance.suite.yml
 extensions:
     enabled:
         - Codeception\Extension\RunProcess:
@@ -203,8 +203,7 @@ extensions:
 Multiple parameters can be passed as array:
 
 ```yaml
-# acceptance.suite.yml
-
+# Acceptance.suite.yml
 extensions:
     enabled:
         - Codeception\Extension\RunProcess:
@@ -214,8 +213,7 @@ extensions:
 
 In the end of a suite all launched processes will be stopped.
 
-To wait for the process to be launched use `sleep` option.
-In this case you need configuration to be specified as object:
+To wait for the process to be launched use `sleep` option. In this case you need configuration to be specified as object:
 
 ```yaml
 extensions:
@@ -226,7 +224,7 @@ extensions:
             sleep: 5 # wait 5 seconds for processes to boot
 ```
 
-HINT: you can use different configurations per environment.
+HINT: You can use different configurations per environment.
 
 
 

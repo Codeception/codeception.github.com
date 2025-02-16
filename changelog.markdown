@@ -9,6 +9,35 @@ title: Codeception Changelog
 
 
 
+### Codeception 5.2.0: 5.2.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2025/02/16 20:31:08 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+## What's Changed
+* Fix FAIL message color highlighting by **[antonvolokha](https://github.com/antonvolokha)** in [#6754](https://github.com/Codeception/Codeception/issues/6754)
+* Update the codebase to PHP 8.1 by **[TavoNiievez](https://github.com/TavoNiievez)** in [#6747](https://github.com/Codeception/Codeception/issues/6747)
+* generate:cest: Adding `declare(strict_types=1);` and return type `void` to generated files by **[ThomasLandauer](https://github.com/ThomasLandauer)** in [#6736](https://github.com/Codeception/Codeception/issues/6736)
+* Declare nullable parameter types explicitly by **[W0rma](https://github.com/W0rma)** in [#6774](https://github.com/Codeception/Codeception/issues/6774) , [#6775](https://github.com/Codeception/Codeception/issues/6775)
+* chore: Included githubactions in the dependabot config ([#6471](https://github.com/Codeception/Codeception/issues/6471)) by **[SamMousa](https://github.com/SamMousa)** in [#6783](https://github.com/Codeception/Codeception/issues/6783)
+* Added new option --disable-coverage-php to skip coverage.serialized report by **[adrenalinkin](https://github.com/adrenalinkin)** in [#6761](https://github.com/Codeception/Codeception/issues/6761)
+* chore: add branch alias for main to fix composer install with dev deps by **[SamMousa](https://github.com/SamMousa)** in [#6787](https://github.com/Codeception/Codeception/issues/6787)
+* chore(ci): prevent test CI running twice on PR branches by **[SamMousa](https://github.com/SamMousa)** in [#6788](https://github.com/Codeception/Codeception/issues/6788)
+* Simplify classes by **[TavoNiievez](https://github.com/TavoNiievez)** in [#6767](https://github.com/Codeception/Codeception/issues/6767) , [#6750](https://github.com/Codeception/Codeception/issues/6750) , [#6764](https://github.com/Codeception/Codeception/issues/6764)
+* PHP 8.4: `E_STRICT` deprecation by **[W0rma](https://github.com/W0rma)** in [#6802](https://github.com/Codeception/Codeception/issues/6802)
+* Fix PHP 8.4 deprecation. by **[kagg-design](https://github.com/kagg-design)** in [#6811](https://github.com/Codeception/Codeception/issues/6811)
+* Fix test suite names in bootstrap command by **[W0rma](https://github.com/W0rma)** in [#6813](https://github.com/Codeception/Codeception/issues/6813)
+* Docs (minor) by **[ThomasLandauer](https://github.com/ThomasLandauer)** in [#6804](https://github.com/Codeception/Codeception/issues/6804) , [#6805](https://github.com/Codeception/Codeception/issues/6805) , [#6806](https://github.com/Codeception/Codeception/issues/6806) , 6807 , [#6792](https://github.com/Codeception/Codeception/issues/6792) , [#6810](https://github.com/Codeception/Codeception/issues/6810) , [#6751](https://github.com/Codeception/Codeception/issues/6751) , [#6744](https://github.com/Codeception/Codeception/issues/6744)
+
+## New Contributors
+* **[antonvolokha](https://github.com/antonvolokha)** made their first contribution in https://github.com/Codeception/Codeception/pull/6754
+* **[adrenalinkin](https://github.com/adrenalinkin)** made their first contribution in https://github.com/Codeception/Codeception/pull/6761
+* **[kagg-design](https://github.com/kagg-design)** made their first contribution in https://github.com/Codeception/Codeception/pull/6811
+
+**Full Changelog**: https://github.com/Codeception/Codeception/compare/5.1.2...5.2.0
+
+
 ### module-webdriver 4.0.3: 4.0.3
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2025/02/14 07:14:37 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
@@ -1691,19 +1720,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 * Compatibility with Codeception 5
 * Uses lib-xml
-
-
-### Codeception 5.0.0-alpha3: 5.0.0-alpha3
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/11 11:02:50 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Support intersection types in actions
-* Introduced PSR-12 code style
-* Extracted some code to modules and shared libs
-* Fixed new incompatibilities with PHPUnit 10
-
 
 
 ### module-rest 3.1.0: 3.1.0
