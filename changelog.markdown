@@ -9,6 +9,19 @@ title: Codeception Changelog
 
 
 
+### Codeception 5.2.1: 5.2.1
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2025/02/20 15:01:00 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+## What's Changed
+* Support PHPUnit 12 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/Codeception/pull/6826
+* Fix missing absolute path resolving in ParamsLoader by **[garvinhicking](https://github.com/garvinhicking)** in https://github.com/Codeception/Codeception/pull/6828
+
+**Full Changelog**: https://github.com/Codeception/Codeception/compare/5.2.0...5.2.1
+
+
 ### Codeception 5.2.0: 5.2.0
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2025/02/16 20:31:08 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
@@ -1688,17 +1701,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 * Use PHPUnit 9 until PHPUnit 10 is released.
 * Read about earlier change in [CHANGELOG](https://github.com/Codeception/Codeception/blob/5.0/CHANGELOG-5.x.md).
-
-
-### Codeception 4.1.31: 4.1.31
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/13 17:17:13 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* RunBefore extension prints error output and stops execution if command failed
-* Action file generator: Fixed handling of intersection types
-* Action file generator: Fixed handling of self and parent types
 
 
 ### module-webdriver 3.1.0: 3.1.0
