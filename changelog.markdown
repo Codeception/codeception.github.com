@@ -9,6 +9,18 @@ title: Codeception Changelog
 
 
 
+### lib-web 1.0.7: 1.0.7
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2025/02/23 14:06:56 / [Repository](https://github.com/Codeception/lib-web)   / [Releases](https://github.com/Codeception/lib-web/releases)
+
+
+
+* Declare nullable parameter types explicitly for PHP 8.4 compatibility by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/lib-web/pull/12
+* Test against PHP 8.4 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/lib-web/pull/13
+* Support PHPUnit 12 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/lib-web/pull/14
+
+
+
 ### Codeception 5.2.1: 5.2.1
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2025/02/20 15:01:00 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
