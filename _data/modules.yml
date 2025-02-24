@@ -88,10 +88,9 @@
   color: "#e65722"
 
 - name: Mailpit
-  image: https://mailpit.axllent.org/images/mailpit.svg
+  image: ../images/mailpit.svg
   link: https://github.com/koehnlein/codeception-email-mailpit
   description: Mailpit is a standalone local SMTP server to test email deliveries. The Codeception module provides assertions such as `$I->haveUnreadEmails();` or `$I->seeInOpenedEmailHtmlBody()`.
-  color: "#2C3E50"  
 
 - name: MailCatcher
   link: https://github.com/captbaritone/codeception-mailcatcher-module
