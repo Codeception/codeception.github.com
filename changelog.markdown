@@ -9,6 +9,16 @@ title: Codeception Changelog
 
 
 
+### module-redis 3.2.1: 3.2.1
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2025/02/24 06:24:43 / [Repository](https://github.com/Codeception/module-redis)   / [Releases](https://github.com/Codeception/module-redis/releases)
+
+
+
+* Test against PHP 8.4 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/module-redis/pull/20
+* Support PHPUnit 12 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/module-redis/pull/21
+
+
 ### lib-web 1.0.7: 1.0.7
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2025/02/23 14:06:56 / [Repository](https://github.com/Codeception/lib-web)   / [Releases](https://github.com/Codeception/lib-web/releases)
