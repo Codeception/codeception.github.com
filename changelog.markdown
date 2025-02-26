@@ -9,6 +9,45 @@ title: Codeception Changelog
 
 
 
+### module-yii2 v2.0.0: v2.0.0
+
+Released by [![](https://avatars.githubusercontent.com/in/15368?v=4&s=16) github-actions[bot]](https://github.com/apps/github-actions) on 2025/02/26 15:02:27 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
+
+
+
+# [2.0.0](https://github.com/Codeception/module-yii2/compare/v1.1.12...v2.0.0) (2025-02-26)
+
+
+### Bug Fixes
+
+* call fixtures method ([5ff8868](https://github.com/Codeception/module-yii2/commit/5ff88682d0a9e2c0d8044bca04b85009ceb1c81e))
+* **ci:** github token name ([e045ef5](https://github.com/Codeception/module-yii2/commit/e045ef59bff449c4ba92ee5ba4eb2a670b5f6b4f))
+* **ci:** use dry run for automated release ([d8111f0](https://github.com/Codeception/module-yii2/commit/d8111f00cb5e1fe5395f0b255e53ff5eb31bba56))
+* **cs:** add rules for docblocks ([0d98125](https://github.com/Codeception/module-yii2/commit/0d981258ef962f1bd3cbe948bba29221631a272f))
+* **cs:** indent in phpdoc ([97610ed](https://github.com/Codeception/module-yii2/commit/97610ed08b341ab33c37ba4b9d49409eaef51438))
+* dont add mails that were not sent ([7adc7f7](https://github.com/Codeception/module-yii2/commit/7adc7f7bda798139818853569c9b1d3fd3d5d9cf))
+* load mailmethod config ([d536116](https://github.com/Codeception/module-yii2/commit/d53611637e9ce5291bd13ea1a5704f60828cd12c))
+* phpstan types ([ab5ccc5](https://github.com/Codeception/module-yii2/commit/ab5ccc555c1907b7d19253a6435433f35bb76fe5))
+* recreate baseline ([f9131bd](https://github.com/Codeception/module-yii2/commit/f9131bdf8f9b59192f20152a90a8c716c7fa8157))
+* remove localeurls dependency and test case ([3bba227](https://github.com/Codeception/module-yii2/commit/3bba2271fb23ea145ff3dab666044a07599ac5c7))
+* remove unused dep ([e763dee](https://github.com/Codeception/module-yii2/commit/e763dee616f1b75da68e8fe4a940ce8a99292ae2))
+* run phpstan after codeception build ([9cff2c0](https://github.com/Codeception/module-yii2/commit/9cff2c0549fd380e5ad78e5537945acd97d9eae6))
+* **sa:** use Assert::fail so that phpstan understand code doesn't continue ([117117e](https://github.com/Codeception/module-yii2/commit/117117e6cb6c4b5030b4072c5de34660973a1661))
+* use runtimeexception when applicable ([4df941f](https://github.com/Codeception/module-yii2/commit/4df941fb8e49179eff1c5cec0d011843c71e5177))
+* variable rename ([619fb2d](https://github.com/Codeception/module-yii2/commit/619fb2d13074183a8d7b52b443348e075825292d))
+
+
+### Features
+
+* allow mails to be intercepted using events ([dca7c44](https://github.com/Codeception/module-yii2/commit/dca7c446877d1e4143db9deb86a499df40af59ef))
+* drop php8.1 php8.2 ([0b08f64](https://github.com/Codeception/module-yii2/commit/0b08f6481a93807dd7e9ce8b8ab22e937b25e923))
+* Merge pull request [[#119](https://github.com/Codeception/module-yii2/issues/119)](https://github.com/Codeception/module-yii2/issues/119) from TavoNiievez/php_features ([49393a4](https://github.com/Codeception/module-yii2/commit/49393a454bcfaa323fd5cbdd3b51b3f01dfeb063))
+
+
+
+
+
+
 ### module-redis 3.2.1: 3.2.1
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2025/02/24 06:24:43 / [Repository](https://github.com/Codeception/module-redis)   / [Releases](https://github.com/Codeception/module-redis/releases)
