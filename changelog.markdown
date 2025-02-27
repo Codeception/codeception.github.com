@@ -9,6 +9,24 @@ title: Codeception Changelog
 
 
 
+### module-yii2 v2.0.1: v2.0.1
+
+Released by [![](https://avatars.githubusercontent.com/in/15368?v=4&s=16) github-actions[bot]](https://github.com/apps/github-actions) on 2025/02/27 08:26:23 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
+
+
+
+## [2.0.1](https://github.com/Codeception/module-yii2/compare/v2.0.0...v2.0.1) (2025-02-27)
+
+
+### Bug Fixes
+
+* check using isset instead of !== null for possibly non-existent property ([e30e595](https://github.com/Codeception/module-yii2/commit/e30e595d19ac059305dd2ff78ceb2df2c0ee621f))
+
+
+
+
+
+
 ### module-yii2 v2.0.0: v2.0.0
 
 Released by [![](https://avatars.githubusercontent.com/in/15368?v=4&s=16) github-actions[bot]](https://github.com/apps/github-actions) on 2025/02/26 15:02:27 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
