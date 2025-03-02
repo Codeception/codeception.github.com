@@ -9,6 +9,24 @@ title: Codeception Changelog
 
 
 
+### module-yii2 v2.0.2: v2.0.2
+
+Released by [![](https://avatars.githubusercontent.com/in/15368?v=4&s=16) github-actions[bot]](https://github.com/apps/github-actions) on 2025/03/02 16:01:43 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
+
+
+
+## [2.0.2](https://github.com/Codeception/module-yii2/compare/v2.0.1...v2.0.2) (2025-03-02)
+
+
+### Bug Fixes
+
+* improve exception handling and code consistency ([d72f144](https://github.com/Codeception/module-yii2/commit/d72f1446146bed998de2c2df9e6f2da3228883c8))
+
+
+
+
+
+
 ### module-yii2 v2.0.1: v2.0.1
 
 Released by [![](https://avatars.githubusercontent.com/in/15368?v=4&s=16) github-actions[bot]](https://github.com/apps/github-actions) on 2025/02/27 08:26:23 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
