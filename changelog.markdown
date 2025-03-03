@@ -9,6 +9,21 @@ title: Codeception Changelog
 
 
 
+### module-db 3.2.2: 3.2.2
+
+Released by [![](https://avatars.githubusercontent.com/u/4129631?v=4&s=16) szhajdu](https://github.com/szhajdu) on 2025/03/03 08:10:59 / [Repository](https://github.com/Codeception/module-db)   / [Releases](https://github.com/Codeception/module-db/releases)
+
+
+
+## What's Changed
+* fix: properly quote table names with schema definition [#84](https://github.com/Codeception/module-db/issues/84) by **[sabee-bb](https://github.com/sabee-bb)** in https://github.com/Codeception/module-db/pull/86
+
+## New Contributors
+* **[sabee-bb](https://github.com/sabee-bb)** made their first contribution in https://github.com/Codeception/module-db/pull/86
+
+**Full Changelog**: https://github.com/Codeception/module-db/compare/3.2.1...3.2.2
+
+
 ### module-yii2 v2.0.2: v2.0.2
 
 Released by [![](https://avatars.githubusercontent.com/in/15368?v=4&s=16) github-actions[bot]](https://github.com/apps/github-actions) on 2025/03/02 16:01:43 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
