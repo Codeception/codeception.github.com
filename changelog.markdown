@@ -9,6 +9,29 @@ title: Codeception Changelog
 
 
 
+### module-symfony 3.5.1: 3.5.1
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2025/03/09 23:04:32 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
+
+
+
+## What's Changed
+Support Symfony 7.2 (https://github.com/Codeception/module-symfony/pull/203).
+Added Symfony Translation assertions (https://github.com/Codeception/module-symfony/pull/205):
+- `dontSeeFallbackTranslations`
+- `dontSeeMissingTranslations`
+- `grabDefinedTranslationsCount`
+- `seeAllTranslationsDefined`
+- `seeDefaultLocaleIs`
+- `seeFallbackLocalesAre`
+- `seeFallbackTranslationsCountLessThan`
+- `seeMissingTranslationsCountLessThan`
+
+Added Symfony Logger assertion (`dontSeeDeprecations`) (https://github.com/Codeception/module-symfony/pull/206).
+
+**Full Changelog**: https://github.com/Codeception/module-symfony/compare/3.5.0...3.5.1
+
+
 ### module-db 3.2.2: 3.2.2
 
 Released by [![](https://avatars.githubusercontent.com/u/4129631?v=4&s=16) szhajdu](https://github.com/szhajdu) on 2025/03/03 08:10:59 / [Repository](https://github.com/Codeception/module-db)   / [Releases](https://github.com/Codeception/module-db/releases)

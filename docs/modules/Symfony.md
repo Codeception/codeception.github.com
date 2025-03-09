@@ -1086,6 +1086,22 @@ $I->dontSeeCurrentUrlMatches('~^/users/(\d+)~');
 {% endhighlight %}
 
 
+#### dontSeeDeprecations
+
+* `param string` $message Optional custom failure message.
+* `return void`
+
+Asserts that there are no deprecation messages in Symfony's log.
+
+{% highlight php %}
+
+<?php
+$I->amOnPage('/home');
+$I->dontSeeDeprecations();
+
+{% endhighlight %}
+
+
 #### dontSeeElement
 
 * `param ` $selector
@@ -1169,6 +1185,20 @@ Verifies that one or more event listeners were not called during the test.
 $I->dontSeeEventTriggered('App\MyEvent');
 $I->dontSeeEventTriggered(new App\Events\MyEvent());
 $I->dontSeeEventTriggered(['App\MyEvent', 'App\MyOtherEvent']);
+
+{% endhighlight %}
+
+
+#### dontSeeFallbackTranslations
+
+* `return void`
+
+Asserts that no fallback translations were found.
+
+{% highlight php %}
+
+<?php
+$I->dontSeeFallbackTranslations();
 
 {% endhighlight %}
 
@@ -1328,6 +1358,20 @@ If the second parameter is given, only links with a matching "href" attribute wi
 <?php
 $I->dontSeeLink('Logout'); // I suppose user is not logged in
 $I->dontSeeLink('Checkout now', '/store/cart.php');
+
+{% endhighlight %}
+
+
+#### dontSeeMissingTranslations
+
+* `return void`
+
+Asserts that no missing translations were found.
+
+{% highlight php %}
+
+<?php
+$I->dontSeeMissingTranslations();
 
 {% endhighlight %}
 
@@ -1507,6 +1551,20 @@ Grabs a cookie value.
 
 You can set additional cookie params like `domain`, `path` in array passed as last argument.
 If the cookie is set by an ajax request (XMLHttpRequest), there might be some delay caused by the browser, so try `$I->wait(0.1)`.
+
+
+#### grabDefinedTranslationsCount
+
+* `return int` The count of defined translations.
+
+Grabs the count of defined translations.
+
+{% highlight php %}
+
+<?php
+$count = $I->grabDefinedTranslations();
+
+{% endhighlight %}
 
 
 #### grabFromCurrentUrl
@@ -1933,6 +1991,20 @@ But will *not* be true for strings like:
 For checking the raw source code, use `seeInSource()`.
 
 
+#### seeAllTranslationsDefined
+
+* `return void`
+
+Asserts that there are no missing translations and no fallback translations.
+
+{% highlight php %}
+
+<?php
+$I->seeAllTranslationsDefined();
+
+{% endhighlight %}
+
+
 #### seeAuthentication
 
 * `return void`
@@ -2064,6 +2136,21 @@ $I->seeCurrentUrlMatches('~^/users/(\d+)~');
 {% endhighlight %}
 
 
+#### seeDefaultLocaleIs
+
+* `param string` $expectedLocale The expected default locale
+* `return void`
+
+Asserts that the default locale is the expected one.
+
+{% highlight php %}
+
+<?php
+$I->seeDefaultLocaleIs('en');
+
+{% endhighlight %}
+
+
 #### seeElement
 
 * `param ` $selector
@@ -2161,6 +2248,36 @@ Verifies that one or more event listeners were called during the test.
 $I->seeEventTriggered('App\MyEvent');
 $I->seeEventTriggered(new App\Events\MyEvent());
 $I->seeEventTriggered(['App\MyEvent', 'App\MyOtherEvent']);
+
+{% endhighlight %}
+
+
+#### seeFallbackLocalesAre
+
+* `param array` $expectedLocales The expected fallback locales
+* `return void`
+
+Asserts that the fallback locales match the expected ones.
+
+{% highlight php %}
+
+<?php
+$I->seeFallbackLocalesAre(['es', 'fr']);
+
+{% endhighlight %}
+
+
+#### seeFallbackTranslationsCountLessThan
+
+* `param int` $limit Maximum count of fallback translations
+* `return void`
+
+Asserts that the count of fallback translations is less than the given limit.
+
+{% highlight php %}
+
+<?php
+$I->seeFallbackTranslationsCountLessThan(10);
 
 {% endhighlight %}
 
@@ -2439,6 +2556,21 @@ Give a full URL as the second parameter to match links with that exact URL.
 <?php
 $I->seeLink('Logout'); // matches <a href="#">Logout</a>
 $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
+
+{% endhighlight %}
+
+
+#### seeMissingTranslationsCountLessThan
+
+* `param int` $limit Maximum count of missing translations
+* `return void`
+
+Asserts that the count of missing translations is less than the given limit.
+
+{% highlight php %}
+
+<?php
+$I->seeMissingTranslationsCountLessThan(5);
 
 {% endhighlight %}
 
