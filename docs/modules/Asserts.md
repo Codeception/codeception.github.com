@@ -180,6 +180,7 @@ Asserts that a string does not match a given regular expression.
 
 #### assertEmpty
 
+* `phpstan-assert` empty $actual
 * `param mixed` $actual
 * `param string` $message
 
@@ -225,6 +226,7 @@ Asserts that two variables are equal (with delta).
 
 #### assertFalse
 
+* `phpstan-assert` false $condition
 * `param mixed` $condition
 * `param string` $message
 
@@ -386,7 +388,9 @@ Asserts that a variable is infinite.
 
 #### assertInstanceOf
 
-* `param string` $expected
+* `template` ExpectedType of object
+* `phpstan-assert` =ExpectedType $actual
+* `param class-string<ExpectedType>` $expected
 * `param mixed` $actual
 * `param string` $message
 
@@ -395,6 +399,7 @@ Asserts that a variable is of a given type.
 
 #### assertIsArray
 
+* `phpstan-assert` array $actual
 * `param mixed` $actual
 * `param string` $message
 
@@ -403,6 +408,7 @@ Asserts that a variable is of type array.
 
 #### assertIsBool
 
+* `phpstan-assert` bool $actual
 * `param mixed` $actual
 * `param string` $message
 
@@ -411,6 +417,7 @@ Asserts that a variable is of type bool.
 
 #### assertIsCallable
 
+* `phpstan-assert` callable $actual
 * `param mixed` $actual
 * `param string` $message
 
@@ -419,6 +426,7 @@ Asserts that a variable is of type callable.
 
 #### assertIsClosedResource
 
+* `phpstan-assert` resource $actual
 * `param mixed` $actual
 * `param string` $message
 
@@ -435,6 +443,7 @@ Asserts that a variable is empty.
 
 #### assertIsFloat
 
+* `phpstan-assert` float $actual
 * `param mixed` $actual
 * `param string` $message
 
@@ -443,6 +452,7 @@ Asserts that a variable is of type float.
 
 #### assertIsInt
 
+* `phpstan-assert` int $actual
 * `param mixed` $actual
 * `param string` $message
 
@@ -451,6 +461,7 @@ Asserts that a variable is of type int.
 
 #### assertIsIterable
 
+* `phpstan-assert` iterable $actual
 * `param mixed` $actual
 * `param string` $message
 
@@ -459,6 +470,7 @@ Asserts that a variable is of type iterable.
 
 #### assertIsNotArray
 
+* `phpstan-assert` !array $actual
 * `param mixed` $actual
 * `param string` $message
 
@@ -467,6 +479,7 @@ Asserts that a variable is not of type array.
 
 #### assertIsNotBool
 
+* `phpstan-assert` !bool $actual
 * `param mixed` $actual
 * `param string` $message
 
@@ -475,6 +488,7 @@ Asserts that a variable is not of type bool.
 
 #### assertIsNotCallable
 
+* `phpstan-assert` !callable $actual
 * `param mixed` $actual
 * `param string` $message
 
@@ -483,6 +497,7 @@ Asserts that a variable is not of type callable.
 
 #### assertIsNotClosedResource
 
+* `phpstan-assert` !resource $actual
 * `param mixed` $actual
 * `param string` $message
 
@@ -491,6 +506,7 @@ Asserts that a variable is not of type resource.
 
 #### assertIsNotFloat
 
+* `phpstan-assert` !float $actual
 * `param mixed` $actual
 * `param string` $message
 
@@ -499,6 +515,7 @@ Asserts that a variable is not of type float.
 
 #### assertIsNotInt
 
+* `phpstan-assert` !int $actual
 * `param mixed` $actual
 * `param string` $message
 
@@ -507,6 +524,7 @@ Asserts that a variable is not of type int.
 
 #### assertIsNotIterable
 
+* `phpstan-assert` !iterable $actual
 * `param mixed` $actual
 * `param string` $message
 
@@ -515,6 +533,7 @@ Asserts that a variable is not of type iterable.
 
 #### assertIsNotNumeric
 
+* `phpstan-assert` !numeric $actual
 * `param mixed` $actual
 * `param string` $message
 
@@ -523,6 +542,7 @@ Asserts that a variable is not of type numeric.
 
 #### assertIsNotObject
 
+* `phpstan-assert` !object $actual
 * `param mixed` $actual
 * `param string` $message
 
@@ -539,6 +559,7 @@ Asserts that a file/dir exists and is not readable.
 
 #### assertIsNotResource
 
+* `phpstan-assert` !resource $actual
 * `param mixed` $actual
 * `param string` $message
 
@@ -547,6 +568,7 @@ Asserts that a variable is not of type resource.
 
 #### assertIsNotScalar
 
+* `psalm-assert` !scalar $actual
 * `param mixed` $actual
 * `param string` $message
 
@@ -555,6 +577,7 @@ Asserts that a variable is not of type scalar.
 
 #### assertIsNotString
 
+* `phpstan-assert` !string $actual
 * `param mixed` $actual
 * `param string` $message
 
@@ -571,6 +594,7 @@ Asserts that a file/dir exists and is not writable.
 
 #### assertIsNumeric
 
+* `phpstan-assert` numeric $actual
 * `param mixed` $actual
 * `param string` $message
 
@@ -579,6 +603,7 @@ Asserts that a variable is of type numeric.
 
 #### assertIsObject
 
+* `phpstan-assert` object $actual
 * `param mixed` $actual
 * `param string` $message
 
@@ -595,6 +620,7 @@ Asserts that a file/dir is readable.
 
 #### assertIsResource
 
+* `phpstan-assert` resource $actual
 * `param mixed` $actual
 * `param string` $message
 
@@ -603,6 +629,7 @@ Asserts that a variable is of type resource.
 
 #### assertIsScalar
 
+* `phpstan-assert` scalar $actual
 * `param mixed` $actual
 * `param string` $message
 
@@ -611,6 +638,7 @@ Asserts that a variable is of type scalar.
 
 #### assertIsString
 
+* `phpstan-assert` string $actual
 * `param mixed` $actual
 * `param string` $message
 
@@ -768,6 +796,7 @@ Asserts the number of elements of an array, Countable or Traversable.
 
 #### assertNotEmpty
 
+* `phpstan-assert` !empty $actual
 * `param mixed` $actual
 * `param string` $message
 
@@ -813,6 +842,7 @@ Asserts that two variables are not equal (with delta).
 
 #### assertNotFalse
 
+* `phpstan-assert` !false $condition
 * `param mixed` $condition
 * `param string` $message
 
@@ -821,7 +851,9 @@ Asserts that a condition is not false.
 
 #### assertNotInstanceOf
 
-* `param string` $expected
+* `template` ExpectedType of object
+* `phpstan-assert` !ExpectedType $actual
+* `param class-string<ExpectedType>` $expected
 * `param mixed` $actual
 * `param string` $message
 
@@ -830,6 +862,7 @@ Asserts that a variable is not of a given type.
 
 #### assertNotNull
 
+* `phpstan-assert` !null $actual
 * `param mixed` $actual
 * `param string` $message
 
@@ -865,6 +898,7 @@ Assert that the size of two arrays (or `Countable` or `Traversable` objects) is 
 
 #### assertNotTrue
 
+* `phpstan-assert` !true $condition
 * `param mixed` $condition
 * `param string` $message
 
@@ -873,6 +907,7 @@ Asserts that a condition is not true.
 
 #### assertNull
 
+* `phpstan-assert` null $actual
 * `param mixed` $actual
 * `param string` $message
 
@@ -908,11 +943,16 @@ Asserts that a string matches a given regular expression.
 
 #### assertSame
 
-* `param mixed` $expected
+* `template` ExpectedType
+* `phpstan-assert` =ExpectedType $actual
+* `param ExpectedType` $expected
 * `param mixed` $actual
 * `param string` $message
 
 Asserts that two variables have the same type and value.
+
+Used on objects, it asserts that two variables reference
+the same object.
 
 
 #### assertSameSize
@@ -1098,6 +1138,7 @@ Evaluates a PHPUnit\Framework\Constraint matcher object.
 
 #### assertTrue
 
+* `phpstan-assert` true $condition
 * `param mixed` $condition
 * `param string` $message
 

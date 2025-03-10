@@ -9,6 +9,17 @@ title: Codeception Changelog
 
 
 
+### lib-asserts 2.2.0: 2.2.0
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2025/03/10 20:42:27 / [Repository](https://github.com/Codeception/lib-asserts)   / [Releases](https://github.com/Codeception/lib-asserts/releases)
+
+
+
+* Add PHPStan assert PHPDoc annotations from PHPUnit by **[Lkopo](https://github.com/Lkopo)** in https://github.com/Codeception/lib-asserts/pull/13
+* Reimplement assertions removed in PHPUnit 10/12 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/lib-asserts/pull/14
+
+
+
 ### module-symfony 3.5.1: 3.5.1
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2025/03/09 23:04:32 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)

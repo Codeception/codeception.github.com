@@ -260,7 +260,7 @@ public function _beforeSuite($settings = []) {
 
 Asserts that an array has a specified key.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L19)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L21)
 
 #### assertArrayNotHasKey()
 
@@ -273,7 +273,7 @@ Asserts that an array has a specified key.
 
 Asserts that an array does not have a specified key.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L30)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L32)
 
 #### assertClassHasAttribute()
 
@@ -286,7 +286,7 @@ Asserts that an array does not have a specified key.
 
 Asserts that a class has a specified attribute.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L38)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L40)
 
 #### assertClassHasStaticAttribute()
 
@@ -299,7 +299,7 @@ Asserts that a class has a specified attribute.
 
 Asserts that a class has a specified static attribute.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L52)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L54)
 
 #### assertClassNotHasAttribute()
 
@@ -312,7 +312,7 @@ Asserts that a class has a specified static attribute.
 
 Asserts that a class does not have a specified attribute.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L60)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L68)
 
 #### assertClassNotHasStaticAttribute()
 
@@ -325,7 +325,7 @@ Asserts that a class does not have a specified attribute.
 
 Asserts that a class does not have a specified static attribute.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L74)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L82)
 
 #### assertContains()
 
@@ -338,7 +338,7 @@ Asserts that a class does not have a specified static attribute.
 
 Asserts that a haystack contains a needle.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L86)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L98)
 
 #### assertContainsEquals()
 
@@ -349,7 +349,7 @@ Asserts that a haystack contains a needle.
 * `param iterable` $haystack
 * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L94)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L106)
 
 #### assertContainsOnly()
 
@@ -363,7 +363,7 @@ Asserts that a haystack contains a needle.
 
 Asserts that a haystack contains only values of a given type.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L102)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L114)
 
 #### assertContainsOnlyInstancesOf()
 
@@ -376,7 +376,7 @@ Asserts that a haystack contains only values of a given type.
 
 Asserts that a haystack contains only instances of a given class name.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L110)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L122)
 
 #### assertCount()
 
@@ -389,7 +389,7 @@ Asserts that a haystack contains only instances of a given class name.
 
 Asserts the number of elements of an array, Countable or Traversable.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L120)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L132)
 
 #### assertDirectoryDoesNotExist()
 
@@ -401,7 +401,7 @@ Asserts the number of elements of an array, Countable or Traversable.
 
 Asserts that a directory does not exist.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L128)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L140)
 
 #### assertDirectoryExists()
 
@@ -413,7 +413,7 @@ Asserts that a directory does not exist.
 
 Asserts that a directory exists.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L136)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L148)
 
 #### assertDirectoryIsNotReadable()
 
@@ -425,7 +425,7 @@ Asserts that a directory exists.
 
 Asserts that a directory exists and is not readable.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L144)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L156)
 
 #### assertDirectoryIsNotWritable()
 
@@ -437,7 +437,7 @@ Asserts that a directory exists and is not readable.
 
 Asserts that a directory exists and is not writable.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L152)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L164)
 
 #### assertDirectoryIsReadable()
 
@@ -449,7 +449,7 @@ Asserts that a directory exists and is not writable.
 
 Asserts that a directory exists and is readable.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L160)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L172)
 
 #### assertDirectoryIsWritable()
 
@@ -461,7 +461,7 @@ Asserts that a directory exists and is readable.
 
 Asserts that a directory exists and is writable.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L168)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L180)
 
 #### assertDoesNotMatchRegularExpression()
 
@@ -474,19 +474,20 @@ Asserts that a directory exists and is writable.
 
 Asserts that a string does not match a given regular expression.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L176)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L188)
 
 #### assertEmpty()
 
  *protected* assertEmpty($actual, $message = '')
 
 
+* `phpstan-assert` empty $actual
 * `param mixed` $actual
 * `param string` $message
 
 Asserts that a variable is empty.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L186)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L200)
 
 #### assertEquals()
 
@@ -499,7 +500,7 @@ Asserts that a variable is empty.
 
 Asserts that two variables are equal.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L197)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L211)
 
 #### assertEqualsCanonicalizing()
 
@@ -512,7 +513,7 @@ Asserts that two variables are equal.
 
 Asserts that two variables are equal (canonicalizing).
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L208)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L222)
 
 #### assertEqualsIgnoringCase()
 
@@ -525,7 +526,7 @@ Asserts that two variables are equal (canonicalizing).
 
 Asserts that two variables are equal (ignoring case).
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L219)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L233)
 
 #### assertEqualsWithDelta()
 
@@ -539,19 +540,20 @@ Asserts that two variables are equal (ignoring case).
 
 Asserts that two variables are equal (with delta).
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L230)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L244)
 
 #### assertFalse()
 
  *protected* assertFalse($condition, $message = '')
 
 
+* `phpstan-assert` false $condition
 * `param mixed` $condition
 * `param string` $message
 
 Asserts that a condition is false.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L240)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L256)
 
 #### assertFileDoesNotExist()
 
@@ -563,7 +565,7 @@ Asserts that a condition is false.
 
 Asserts that a file does not exist.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L248)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L264)
 
 #### assertFileEquals()
 
@@ -576,7 +578,7 @@ Asserts that a file does not exist.
 
 Asserts that the contents of one file is equal to the contents of another file.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L256)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L272)
 
 #### assertFileEqualsCanonicalizing()
 
@@ -589,7 +591,7 @@ Asserts that the contents of one file is equal to the contents of another file.
 
 Asserts that the contents of one file is equal to the contents of another file (canonicalizing).
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L264)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L280)
 
 #### assertFileEqualsIgnoringCase()
 
@@ -602,7 +604,7 @@ Asserts that the contents of one file is equal to the contents of another file (
 
 Asserts that the contents of one file is equal to the contents of another file (ignoring case).
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L272)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L288)
 
 #### assertFileExists()
 
@@ -614,7 +616,7 @@ Asserts that the contents of one file is equal to the contents of another file (
 
 Asserts that a file exists.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L280)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L296)
 
 #### assertFileIsNotReadable()
 
@@ -626,7 +628,7 @@ Asserts that a file exists.
 
 Asserts that a file exists and is not readable.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L288)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L304)
 
 #### assertFileIsNotWritable()
 
@@ -638,7 +640,7 @@ Asserts that a file exists and is not readable.
 
 Asserts that a file exists and is not writable.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L296)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L312)
 
 #### assertFileIsReadable()
 
@@ -650,7 +652,7 @@ Asserts that a file exists and is not writable.
 
 Asserts that a file exists and is readable.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L304)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L320)
 
 #### assertFileIsWritable()
 
@@ -662,7 +664,7 @@ Asserts that a file exists and is readable.
 
 Asserts that a file exists and is writable.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L312)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L328)
 
 #### assertFileNotEquals()
 
@@ -675,7 +677,7 @@ Asserts that a file exists and is writable.
 
 Asserts that the contents of one file is not equal to the contents of another file.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L320)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L336)
 
 #### assertFileNotEqualsCanonicalizing()
 
@@ -688,7 +690,7 @@ Asserts that the contents of one file is not equal to the contents of another fi
 
 Asserts that the contents of one file is not equal to the contents of another file (canonicalizing).
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L328)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L344)
 
 #### assertFileNotEqualsIgnoringCase()
 
@@ -701,7 +703,7 @@ Asserts that the contents of one file is not equal to the contents of another fi
 
 Asserts that the contents of one file is not equal to the contents of another file (ignoring case).
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L336)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L352)
 
 #### assertFileNotExists()
 
@@ -725,7 +727,7 @@ Asserts that a file does not exist.
 
 Asserts that a variable is finite.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L346)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L362)
 
 #### assertGreaterOrEquals()
 
@@ -751,7 +753,7 @@ Asserts that a value is greater than or equal to another value.
 
 Asserts that a value is greater than another value.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L357)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L373)
 
 #### assertGreaterThanOrEqual()
 
@@ -764,7 +766,7 @@ Asserts that a value is greater than another value.
 
 Asserts that a value is greater than or equal to another value.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L368)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L384)
 
 #### assertInfinite()
 
@@ -776,68 +778,74 @@ Asserts that a value is greater than or equal to another value.
 
 Asserts that a variable is infinite.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L378)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L394)
 
 #### assertInstanceOf()
 
  *protected* assertInstanceOf($expected, $actual, $message = '')
 
 
-* `param string` $expected
+* `template` ExpectedType of object
+* `phpstan-assert` =ExpectedType $actual
+* `param class-string<ExpectedType>` $expected
 * `param mixed` $actual
 * `param string` $message
 
 Asserts that a variable is of a given type.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L388)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L409)
 
 #### assertIsArray()
 
  *protected* assertIsArray($actual, $message = '')
 
 
+* `phpstan-assert` array $actual
 * `param mixed` $actual
 * `param string` $message
 
 Asserts that a variable is of type array.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L398)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L421)
 
 #### assertIsBool()
 
  *protected* assertIsBool($actual, $message = '')
 
 
+* `phpstan-assert` bool $actual
 * `param mixed` $actual
 * `param string` $message
 
 Asserts that a variable is of type bool.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L408)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L433)
 
 #### assertIsCallable()
 
  *protected* assertIsCallable($actual, $message = '')
 
 
+* `phpstan-assert` callable $actual
 * `param mixed` $actual
 * `param string` $message
 
 Asserts that a variable is of type callable.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L418)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L445)
 
 #### assertIsClosedResource()
 
  *protected* assertIsClosedResource($actual, $message = '')
 
 
+* `phpstan-assert` resource $actual
 * `param mixed` $actual
 * `param string` $message
 
 Asserts that a variable is of type resource and is closed.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L428)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L457)
 
 #### assertIsEmpty()
 
@@ -856,144 +864,156 @@ Asserts that a variable is empty.
  *protected* assertIsFloat($actual, $message = '')
 
 
+* `phpstan-assert` float $actual
 * `param mixed` $actual
 * `param string` $message
 
 Asserts that a variable is of type float.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L438)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L469)
 
 #### assertIsInt()
 
  *protected* assertIsInt($actual, $message = '')
 
 
+* `phpstan-assert` int $actual
 * `param mixed` $actual
 * `param string` $message
 
 Asserts that a variable is of type int.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L448)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L481)
 
 #### assertIsIterable()
 
  *protected* assertIsIterable($actual, $message = '')
 
 
+* `phpstan-assert` iterable $actual
 * `param mixed` $actual
 * `param string` $message
 
 Asserts that a variable is of type iterable.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L458)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L493)
 
 #### assertIsNotArray()
 
  *protected* assertIsNotArray($actual, $message = '')
 
 
+* `phpstan-assert` !array $actual
 * `param mixed` $actual
 * `param string` $message
 
 Asserts that a variable is not of type array.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L468)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L505)
 
 #### assertIsNotBool()
 
  *protected* assertIsNotBool($actual, $message = '')
 
 
+* `phpstan-assert` !bool $actual
 * `param mixed` $actual
 * `param string` $message
 
 Asserts that a variable is not of type bool.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L478)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L517)
 
 #### assertIsNotCallable()
 
  *protected* assertIsNotCallable($actual, $message = '')
 
 
+* `phpstan-assert` !callable $actual
 * `param mixed` $actual
 * `param string` $message
 
 Asserts that a variable is not of type callable.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L488)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L529)
 
 #### assertIsNotClosedResource()
 
  *protected* assertIsNotClosedResource($actual, $message = '')
 
 
+* `phpstan-assert` !resource $actual
 * `param mixed` $actual
 * `param string` $message
 
 Asserts that a variable is not of type resource.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L498)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L541)
 
 #### assertIsNotFloat()
 
  *protected* assertIsNotFloat($actual, $message = '')
 
 
+* `phpstan-assert` !float $actual
 * `param mixed` $actual
 * `param string` $message
 
 Asserts that a variable is not of type float.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L508)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L553)
 
 #### assertIsNotInt()
 
  *protected* assertIsNotInt($actual, $message = '')
 
 
+* `phpstan-assert` !int $actual
 * `param mixed` $actual
 * `param string` $message
 
 Asserts that a variable is not of type int.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L518)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L565)
 
 #### assertIsNotIterable()
 
  *protected* assertIsNotIterable($actual, $message = '')
 
 
+* `phpstan-assert` !iterable $actual
 * `param mixed` $actual
 * `param string` $message
 
 Asserts that a variable is not of type iterable.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L528)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L577)
 
 #### assertIsNotNumeric()
 
  *protected* assertIsNotNumeric($actual, $message = '')
 
 
+* `phpstan-assert` !numeric $actual
 * `param mixed` $actual
 * `param string` $message
 
 Asserts that a variable is not of type numeric.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L538)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L589)
 
 #### assertIsNotObject()
 
  *protected* assertIsNotObject($actual, $message = '')
 
 
+* `phpstan-assert` !object $actual
 * `param mixed` $actual
 * `param string` $message
 
 Asserts that a variable is not of type object.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L548)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L601)
 
 #### assertIsNotReadable()
 
@@ -1005,43 +1025,46 @@ Asserts that a variable is not of type object.
 
 Asserts that a file/dir exists and is not readable.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L556)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L609)
 
 #### assertIsNotResource()
 
  *protected* assertIsNotResource($actual, $message = '')
 
 
+* `phpstan-assert` !resource $actual
 * `param mixed` $actual
 * `param string` $message
 
 Asserts that a variable is not of type resource.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L566)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L621)
 
 #### assertIsNotScalar()
 
  *protected* assertIsNotScalar($actual, $message = '')
 
 
+* `psalm-assert` !scalar $actual
 * `param mixed` $actual
 * `param string` $message
 
 Asserts that a variable is not of type scalar.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L576)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L633)
 
 #### assertIsNotString()
 
  *protected* assertIsNotString($actual, $message = '')
 
 
+* `phpstan-assert` !string $actual
 * `param mixed` $actual
 * `param string` $message
 
 Asserts that a variable is not of type string.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L586)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L645)
 
 #### assertIsNotWritable()
 
@@ -1053,31 +1076,33 @@ Asserts that a variable is not of type string.
 
 Asserts that a file/dir exists and is not writable.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L594)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L653)
 
 #### assertIsNumeric()
 
  *protected* assertIsNumeric($actual, $message = '')
 
 
+* `phpstan-assert` numeric $actual
 * `param mixed` $actual
 * `param string` $message
 
 Asserts that a variable is of type numeric.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L604)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L665)
 
 #### assertIsObject()
 
  *protected* assertIsObject($actual, $message = '')
 
 
+* `phpstan-assert` object $actual
 * `param mixed` $actual
 * `param string` $message
 
 Asserts that a variable is of type object.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L614)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L677)
 
 #### assertIsReadable()
 
@@ -1089,43 +1114,46 @@ Asserts that a variable is of type object.
 
 Asserts that a file/dir is readable.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L622)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L685)
 
 #### assertIsResource()
 
  *protected* assertIsResource($actual, $message = '')
 
 
+* `phpstan-assert` resource $actual
 * `param mixed` $actual
 * `param string` $message
 
 Asserts that a variable is of type resource.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L632)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L697)
 
 #### assertIsScalar()
 
  *protected* assertIsScalar($actual, $message = '')
 
 
+* `phpstan-assert` scalar $actual
 * `param mixed` $actual
 * `param string` $message
 
 Asserts that a variable is of type scalar.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L642)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L709)
 
 #### assertIsString()
 
  *protected* assertIsString($actual, $message = '')
 
 
+* `phpstan-assert` string $actual
 * `param mixed` $actual
 * `param string` $message
 
 Asserts that a variable is of type string.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L652)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L721)
 
 #### assertIsWritable()
 
@@ -1137,7 +1165,7 @@ Asserts that a variable is of type string.
 
 Asserts that a file/dir exists and is writable.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L660)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L729)
 
 #### assertJson()
 
@@ -1149,7 +1177,7 @@ Asserts that a file/dir exists and is writable.
 
 Asserts that a string is a valid JSON string.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L668)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L737)
 
 #### assertJsonFileEqualsJsonFile()
 
@@ -1162,7 +1190,7 @@ Asserts that a string is a valid JSON string.
 
 Asserts that two JSON files are equal.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L676)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L745)
 
 #### assertJsonFileNotEqualsJsonFile()
 
@@ -1175,7 +1203,7 @@ Asserts that two JSON files are equal.
 
 Asserts that two JSON files are not equal.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L684)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L753)
 
 #### assertJsonStringEqualsJsonFile()
 
@@ -1188,7 +1216,7 @@ Asserts that two JSON files are not equal.
 
 Asserts that the generated JSON encoded object and the content of the given file are equal.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L692)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L761)
 
 #### assertJsonStringEqualsJsonString()
 
@@ -1201,7 +1229,7 @@ Asserts that the generated JSON encoded object and the content of the given file
 
 Asserts that two given JSON encoded objects or arrays are equal.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L700)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L769)
 
 #### assertJsonStringNotEqualsJsonFile()
 
@@ -1214,7 +1242,7 @@ Asserts that two given JSON encoded objects or arrays are equal.
 
 Asserts that the generated JSON encoded object and the content of the given file are not equal.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L708)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L777)
 
 #### assertJsonStringNotEqualsJsonString()
 
@@ -1227,7 +1255,7 @@ Asserts that the generated JSON encoded object and the content of the given file
 
 Asserts that two given JSON encoded objects or arrays are not equal.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L716)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L785)
 
 #### assertLessOrEquals()
 
@@ -1253,7 +1281,7 @@ Asserts that a value is smaller than or equal to another value.
 
 Asserts that a value is smaller than another value.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L727)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L796)
 
 #### assertLessThanOrEqual()
 
@@ -1266,7 +1294,7 @@ Asserts that a value is smaller than another value.
 
 Asserts that a value is smaller than or equal to another value.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L738)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L807)
 
 #### assertMatchesRegularExpression()
 
@@ -1279,7 +1307,7 @@ Asserts that a value is smaller than or equal to another value.
 
 Asserts that a string matches a given regular expression.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L746)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L815)
 
 #### assertNan()
 
@@ -1291,7 +1319,7 @@ Asserts that a string matches a given regular expression.
 
 Asserts that a variable is nan.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L756)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L825)
 
 #### assertNot()
 
@@ -1313,7 +1341,7 @@ Asserts that a variable is nan.
 
 Asserts that a haystack does not contain a needle.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L766)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L835)
 
 #### assertNotContainsEquals()
 
@@ -1324,7 +1352,7 @@ Asserts that a haystack does not contain a needle.
 * `param iterable` $haystack
 * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L771)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L840)
 
 #### assertNotContainsOnly()
 
@@ -1338,7 +1366,7 @@ Asserts that a haystack does not contain a needle.
 
 Asserts that a haystack does not contain only values of a given type.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L779)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L848)
 
 #### assertNotCount()
 
@@ -1351,19 +1379,20 @@ Asserts that a haystack does not contain only values of a given type.
 
 Asserts the number of elements of an array, Countable or Traversable.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L789)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L858)
 
 #### assertNotEmpty()
 
  *protected* assertNotEmpty($actual, $message = '')
 
 
+* `phpstan-assert` !empty $actual
 * `param mixed` $actual
 * `param string` $message
 
 Asserts that a variable is not empty.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L799)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L870)
 
 #### assertNotEquals()
 
@@ -1376,7 +1405,7 @@ Asserts that a variable is not empty.
 
 Asserts that two variables are not equal.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L810)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L881)
 
 #### assertNotEqualsCanonicalizing()
 
@@ -1389,7 +1418,7 @@ Asserts that two variables are not equal.
 
 Asserts that two variables are not equal (canonicalizing).
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L821)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L892)
 
 #### assertNotEqualsIgnoringCase()
 
@@ -1402,7 +1431,7 @@ Asserts that two variables are not equal (canonicalizing).
 
 Asserts that two variables are not equal (ignoring case).
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L832)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L903)
 
 #### assertNotEqualsWithDelta()
 
@@ -1416,44 +1445,48 @@ Asserts that two variables are not equal (ignoring case).
 
 Asserts that two variables are not equal (with delta).
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L843)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L914)
 
 #### assertNotFalse()
 
  *protected* assertNotFalse($condition, $message = '')
 
 
+* `phpstan-assert` !false $condition
 * `param mixed` $condition
 * `param string` $message
 
 Asserts that a condition is not false.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L853)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L926)
 
 #### assertNotInstanceOf()
 
  *protected* assertNotInstanceOf($expected, $actual, $message = '')
 
 
-* `param string` $expected
+* `template` ExpectedType of object
+* `phpstan-assert` !ExpectedType $actual
+* `param class-string<ExpectedType>` $expected
 * `param mixed` $actual
 * `param string` $message
 
 Asserts that a variable is not of a given type.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L863)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L941)
 
 #### assertNotNull()
 
  *protected* assertNotNull($actual, $message = '')
 
 
+* `phpstan-assert` !null $actual
 * `param mixed` $actual
 * `param string` $message
 
 Asserts that a variable is not null.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L873)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L953)
 
 #### assertNotRegExp()
 
@@ -1479,7 +1512,7 @@ Asserts that a string does not match a given regular expression.
 
 Asserts that two variables do not have the same type and value.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L884)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L964)
 
 #### assertNotSameSize()
 
@@ -1492,31 +1525,33 @@ Asserts that two variables do not have the same type and value.
 
 Assert that the size of two arrays (or `Countable` or `Traversable` objects) is not the same.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L895)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L975)
 
 #### assertNotTrue()
 
  *protected* assertNotTrue($condition, $message = '')
 
 
+* `phpstan-assert` !true $condition
 * `param mixed` $condition
 * `param string` $message
 
 Asserts that a condition is not true.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L905)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L987)
 
 #### assertNull()
 
  *protected* assertNull($actual, $message = '')
 
 
+* `phpstan-assert` null $actual
 * `param mixed` $actual
 * `param string` $message
 
 Asserts that a variable is null.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L915)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L999)
 
 #### assertObjectHasAttribute()
 
@@ -1529,7 +1564,7 @@ Asserts that a variable is null.
 
 Asserts that an object has a specified attribute.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L923)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1007)
 
 #### assertObjectNotHasAttribute()
 
@@ -1542,7 +1577,7 @@ Asserts that an object has a specified attribute.
 
 Asserts that an object does not have a specified attribute.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L937)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1021)
 
 #### assertRegExp()
 
@@ -1562,13 +1597,18 @@ Asserts that a string matches a given regular expression.
  *protected* assertSame($expected, $actual, $message = '')
 
 
-* `param mixed` $expected
+* `template` ExpectedType
+* `phpstan-assert` =ExpectedType $actual
+* `param ExpectedType` $expected
 * `param mixed` $actual
 * `param string` $message
 
 Asserts that two variables have the same type and value.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L954)
+Used on objects, it asserts that two variables reference
+the same object.
+
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1044)
 
 #### assertSameSize()
 
@@ -1581,7 +1621,7 @@ Asserts that two variables have the same type and value.
 
 Assert that the size of two arrays (or `Countable` or `Traversable` objects) is the same.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L965)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1055)
 
 #### assertStringContainsString()
 
@@ -1592,7 +1632,7 @@ Assert that the size of two arrays (or `Countable` or `Traversable` objects) is 
 * `param string` $haystack
 * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L970)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1060)
 
 #### assertStringContainsStringIgnoringCase()
 
@@ -1603,7 +1643,7 @@ Assert that the size of two arrays (or `Countable` or `Traversable` objects) is 
 * `param string` $haystack
 * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L975)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1065)
 
 #### assertStringEndsNotWith()
 
@@ -1616,7 +1656,7 @@ Assert that the size of two arrays (or `Countable` or `Traversable` objects) is 
 
 Asserts that a string ends not with a given suffix.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L983)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1073)
 
 #### assertStringEndsWith()
 
@@ -1629,7 +1669,7 @@ Asserts that a string ends not with a given suffix.
 
 Asserts that a string ends with a given suffix.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L991)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1081)
 
 #### assertStringEqualsFile()
 
@@ -1642,7 +1682,7 @@ Asserts that a string ends with a given suffix.
 
 Asserts that the contents of a string is equal to the contents of a file.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L999)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1089)
 
 #### assertStringEqualsFileCanonicalizing()
 
@@ -1655,7 +1695,7 @@ Asserts that the contents of a string is equal to the contents of a file.
 
 Asserts that the contents of a string is equal to the contents of a file (canonicalizing).
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1007)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1097)
 
 #### assertStringEqualsFileIgnoringCase()
 
@@ -1668,7 +1708,7 @@ Asserts that the contents of a string is equal to the contents of a file (canoni
 
 Asserts that the contents of a string is equal to the contents of a file (ignoring case).
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1015)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1105)
 
 #### assertStringMatchesFormat()
 
@@ -1681,7 +1721,7 @@ Asserts that the contents of a string is equal to the contents of a file (ignori
 
 Asserts that a string matches a given format string.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1023)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1113)
 
 #### assertStringMatchesFormatFile()
 
@@ -1694,7 +1734,7 @@ Asserts that a string matches a given format string.
 
 Asserts that a string matches a given format file.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1031)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1121)
 
 #### assertStringNotContainsString()
 
@@ -1705,7 +1745,7 @@ Asserts that a string matches a given format file.
 * `param string` $haystack
 * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1036)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1126)
 
 #### assertStringNotContainsStringIgnoringCase()
 
@@ -1716,7 +1756,7 @@ Asserts that a string matches a given format file.
 * `param string` $haystack
 * `param string` $message
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1041)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1131)
 
 #### assertStringNotEqualsFile()
 
@@ -1729,7 +1769,7 @@ Asserts that a string matches a given format file.
 
 Asserts that the contents of a string is not equal to the contents of a file.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1049)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1139)
 
 #### assertStringNotEqualsFileCanonicalizing()
 
@@ -1742,7 +1782,7 @@ Asserts that the contents of a string is not equal to the contents of a file.
 
 Asserts that the contents of a string is not equal to the contents of a file (canonicalizing).
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1057)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1147)
 
 #### assertStringNotEqualsFileIgnoringCase()
 
@@ -1755,7 +1795,7 @@ Asserts that the contents of a string is not equal to the contents of a file (ca
 
 Asserts that the contents of a string is not equal to the contents of a file (ignoring case).
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1065)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1155)
 
 #### assertStringNotMatchesFormat()
 
@@ -1768,7 +1808,7 @@ Asserts that the contents of a string is not equal to the contents of a file (ig
 
 Asserts that a string does not match a given format string.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1073)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1163)
 
 #### assertStringNotMatchesFormatFile()
 
@@ -1781,7 +1821,7 @@ Asserts that a string does not match a given format string.
 
 Asserts that a string does not match a given format string.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1081)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1179)
 
 #### assertStringStartsNotWith()
 
@@ -1794,7 +1834,7 @@ Asserts that a string does not match a given format string.
 
 Asserts that a string starts not with a given prefix.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1089)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1201)
 
 #### assertStringStartsWith()
 
@@ -1807,7 +1847,7 @@ Asserts that a string starts not with a given prefix.
 
 Asserts that a string starts with a given prefix.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1097)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1209)
 
 #### assertThat()
 
@@ -1820,7 +1860,7 @@ Asserts that a string starts with a given prefix.
 
 Evaluates a PHPUnit\Framework\Constraint matcher object.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1107)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1219)
 
 #### assertThatItsNot()
 
@@ -1840,12 +1880,13 @@ Evaluates a PHPUnit\Framework\Constraint matcher object.
  *protected* assertTrue($condition, $message = '')
 
 
+* `phpstan-assert` true $condition
 * `param mixed` $condition
 * `param string` $message
 
 Asserts that a condition is true.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1117)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1231)
 
 #### assertXmlFileEqualsXmlFile()
 
@@ -1858,7 +1899,7 @@ Asserts that a condition is true.
 
 Asserts that two XML files are equal.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1125)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1239)
 
 #### assertXmlFileNotEqualsXmlFile()
 
@@ -1871,7 +1912,7 @@ Asserts that two XML files are equal.
 
 Asserts that two XML files are not equal.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1133)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1247)
 
 #### assertXmlStringEqualsXmlFile()
 
@@ -1884,7 +1925,7 @@ Asserts that two XML files are not equal.
 
 Asserts that two XML documents are equal.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1143)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1257)
 
 #### assertXmlStringEqualsXmlString()
 
@@ -1897,7 +1938,7 @@ Asserts that two XML documents are equal.
 
 Asserts that two XML documents are equal.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1154)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1268)
 
 #### assertXmlStringNotEqualsXmlFile()
 
@@ -1910,7 +1951,7 @@ Asserts that two XML documents are equal.
 
 Asserts that two XML documents are not equal.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1164)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1278)
 
 #### assertXmlStringNotEqualsXmlString()
 
@@ -1923,7 +1964,7 @@ Asserts that two XML documents are not equal.
 
 Asserts that two XML documents are not equal.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1175)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1289)
 
 #### debug()
 
@@ -1959,7 +2000,7 @@ Print debug message with a title
 
 Fails a test with the given message.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1183)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1297)
 
 #### getModule()
 
@@ -2004,6 +2045,17 @@ Checks that module is enabled.
 
 [See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L264)
 
+#### hasStaticAttribute()
+
+ *private static* hasStaticAttribute($attributeName, $className)
+
+
+* `see` https://github.com/sebastianbergmann/phpunit/blob/9.6/src/Framework/Constraint/Object/ClassHasStaticAttribute.php
+* `param string` $attributeName
+* `param string` $className
+
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1321)
+
 #### markTestIncomplete()
 
  *protected* markTestIncomplete($message = '')
@@ -2013,7 +2065,7 @@ Checks that module is enabled.
 
 Mark the test as incomplete.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1191)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1305)
 
 #### markTestSkipped()
 
@@ -2024,7 +2076,7 @@ Mark the test as incomplete.
 
 Mark the test as skipped.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1199)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L1313)
 
 #### onReconfigure()
 
