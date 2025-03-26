@@ -89,39 +89,36 @@ Jenkins should locate `report.html` at `tests/_output/`. Now Jenkins will displa
 GitHub Actions CI can be used to launch tests. Install PHP and Composer and execute tests:
 
 ```yaml
-on:
-  pull_request:
-    branches-ignore: gh-pages
-  push:
-    branches-ignore: gh-pages
-
 name: Codeception Tests
-
+on:
+    pull_request:
+      branches-ignore: gh-pages
+    push:
+      branches-ignore: gh-pages
+      
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Install PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{ matrix.php }}
-          extensions: curl, mbstring, openssl, pdo, pdo_sqlite
-          ini-values: memory_limit=-1, date.timezone='UTC'
-          coverage: xdebug
-          tools: composer:v2
-
-    - name: Validate composer.json and composer.lock
-      run: composer validate
-
-    - name: Install dependencies
-      run: composer install --prefer-dist --no-progress --no-interaction --no-suggest
-
-    - name: Run tests
-      run: php vendor/bin/codecept run
+    build:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+        - name: Install PHP
+          uses: shivammathur/setup-php@v2
+          with:
+            php-version: $
+            extensions: curl, mbstring, openssl, pdo, pdo_sqlite
+            ini-values: memory_limit=-1, date.timezone='UTC'
+            coverage: xdebug
+            tools: composer:v2
+  
+        - name: Validate composer.json and composer.lock
+          run: composer validate
+  
+        - name: Install dependencies
+          run: composer install --prefer-dist --no-progress --no-interaction --no-suggest
+  
+        - name: Run tests
+          run: php vendor/bin/codecept run
 ```
 
 ## GitLab CI
