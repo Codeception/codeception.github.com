@@ -9,6 +9,27 @@ title: Codeception Changelog
 
 
 
+### module-rest 3.4.1: 3.4.1
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2025/03/26 07:58:15 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
+
+
+
+## What's Changed
+* Allow installation of justinrainbow/json-schema:6.0 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/module-rest/pull/108
+* Remove unnecessary files from Composer package by **[s1lver](https://github.com/s1lver)** in https://github.com/Codeception/module-rest/pull/111
+* Show property name on failing JSON schema assertions by **[francislavoie](https://github.com/francislavoie)** in https://github.com/Codeception/module-rest/pull/105
+* Fix tests for PHPUnit 12 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/module-rest/pull/113
+* PHP 8.4: Avoid usage of the deprecated E_STRICT constant by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/module-rest/pull/109
+* Allow softcreatr/jsonpath v0.10 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/module-rest/pull/115
+
+## New Contributors
+* **[s1lver](https://github.com/s1lver)** made their first contribution in https://github.com/Codeception/module-rest/pull/111
+* **[francislavoie](https://github.com/francislavoie)** made their first contribution in https://github.com/Codeception/module-rest/pull/105
+
+**Full Changelog**: https://github.com/Codeception/module-rest/compare/3.4.0...3.4.1
+
+
 ### lib-asserts 2.2.0: 2.2.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2025/03/10 20:42:27 / [Repository](https://github.com/Codeception/lib-asserts)   / [Releases](https://github.com/Codeception/lib-asserts/releases)
@@ -4271,15 +4292,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 ### module-symfony 1.0.0: Initial release
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/10/19 15:29:13 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
-
-
-
-
-
-
-### module-rest 1.0.0: Initial release
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/10/19 15:29:01 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
 
 
 
