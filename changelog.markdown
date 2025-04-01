@@ -9,6 +9,24 @@ title: Codeception Changelog
 
 
 
+### module-yii2 v2.0.3: v2.0.3
+
+Released by [![](https://avatars.githubusercontent.com/in/15368?v=4&s=16) github-actions[bot]](https://github.com/apps/github-actions) on 2025/04/01 13:18:15 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
+
+
+
+## [2.0.3](https://github.com/Codeception/module-yii2/compare/v2.0.2...v2.0.3) (2025-04-01)
+
+
+### Bug Fixes
+
+* server params refactor broke  format ([8c789c9](https://github.com/Codeception/module-yii2/commit/8c789c94c1eb8c4ae0b5873c3a17ea9fda31994d))
+
+
+
+
+
+
 ### module-rest 3.4.1: 3.4.1
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2025/03/26 07:58:15 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
