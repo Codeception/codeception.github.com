@@ -9,6 +9,20 @@ title: Codeception Changelog
 
 
 
+### module-asserts 3.1.0: 3.1.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2025/04/24 17:21:11 / [Repository](https://github.com/Codeception/module-asserts)   / [Releases](https://github.com/Codeception/module-asserts/releases)
+
+
+
+## What's Changed
+* Test against PHP 8.3 + 8.4, drop PHP 8.0 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/module-asserts/pull/28
+* Add missing assertion tests by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/module-asserts/pull/29
+
+
+**Full Changelog**: https://github.com/Codeception/module-asserts/compare/3.0.0...3.1.0
+
+
 ### module-yii2 v2.0.3: v2.0.3
 
 Released by [![](https://avatars.githubusercontent.com/in/15368?v=4&s=16) github-actions[bot]](https://github.com/apps/github-actions) on 2025/04/01 13:18:15 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
