@@ -531,19 +531,6 @@ Released by [![](https://avatars.githubusercontent.com/u/4129631?v=4&s=16) szhaj
 **Full Changelog**: https://github.com/Codeception/module-db/compare/3.1.3...3.1.4
 
 
-### module-doctrine2 3.0.4: 3.0.4
-
-Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2024/04/04 16:33:24 / [Repository](https://github.com/Codeception/module-doctrine2)   / [Releases](https://github.com/Codeception/module-doctrine2/releases)
-
-
-
-## What's Changed
-* Test against PHP 8.2 + 8.3 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/module-doctrine2/pull/76
-* Update composer.json: Adding `abandoned` by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/module-doctrine2/pull/80
-
-**Full Changelog**: https://github.com/Codeception/module-doctrine2/compare/3.0.3...3.0.4
-
-
 ### module-symfony 3.3.2: 3.3.2
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2024/03/18 15:08:50 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
@@ -926,24 +913,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Mentioning `<html>` tag requirement by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/lib-web/pull/4
 
 
-### module-doctrine2 3.0.3: 3.0.3
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/04/18 19:38:46 / [Repository](https://github.com/Codeception/module-doctrine2)   / [Releases](https://github.com/Codeception/module-doctrine2/releases)
-
-
-
-* Adding recommendation for Symfony users by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/module-doctrine2/pull/69
-
-
-### module-doctrine2 3.0.2: 3.0.2
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/03/18 18:36:57 / [Repository](https://github.com/Codeception/module-doctrine2)   / [Releases](https://github.com/Codeception/module-doctrine2/releases)
-
-
-
-* Documentation updates [#67](https://github.com/Codeception/module-doctrine2/issues/67) and [#68](https://github.com/Codeception/module-doctrine2/issues/68) by **[ThomasLandauer](https://github.com/ThomasLandauer)** 
-
-
 ### Codeception 5.0.10: 5.0.10
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/03/14 07:27:00 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
@@ -1063,15 +1032,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 * Support codeception/lib-innerbrowser v4
-
-
-### module-doctrine2 3.0.1: 3.0.1
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2023/02/06 07:55:15 / [Repository](https://github.com/Codeception/module-doctrine2)   / [Releases](https://github.com/Codeception/module-doctrine2/releases)
-
-
-
-* Fix deprecated string interpolation by **[Kolyunya](https://github.com/Kolyunya)** in https://github.com/Codeception/module-doctrine2/pull/59
 
 
 ### module-symfony 3.1.1: 3.1.1
@@ -1506,15 +1466,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Variadic parameters can be skipped in dependency injection [#6505](https://github.com/Codeception/Codeception/issues/6505)
 
 
-### module-datafactory 3.0.0: 3.0.0
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/07/18 16:39:04 / [Repository](https://github.com/Codeception/module-datafactory)   / [Releases](https://github.com/Codeception/module-datafactory/releases)
-
-
-
-* Support for Codeception 5.0
-
-
 ### module-yii2 1.1.7: 1.1.7
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/07/15 18:10:54 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
@@ -1842,15 +1793,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Support for Codeception 5
 
 
-### module-amqp 3.0.0: 3.0.0
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/20 09:26:33 / [Repository](https://github.com/Codeception/module-amqp)   / [Releases](https://github.com/Codeception/module-amqp/releases)
-
-
-
-* Support for Codeception 5, thanks to **[W0rma](https://github.com/W0rma)** 
-
-
 ### module-symfony 3.0.0: 3.0.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/16 08:53:07 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
@@ -2075,15 +2017,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 * Codeception 5 support
 
 
-### module-doctrine2 3.0.0: 3.0.0
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/02/20 10:51:03 / [Repository](https://github.com/Codeception/module-doctrine2)   / [Releases](https://github.com/Codeception/module-doctrine2/releases)
-
-
-
-* Codeception 5 support
-
-
 ### module-rest 3.0.0: 3.0.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/02/20 10:50:18 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
@@ -2114,15 +2047,6 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 * Fix compatibility with symfony/dom-crawler < 5.3.0-BETA-1 by **[nrocy](https://github.com/nrocy)** in https://github.com/Codeception/lib-innerbrowser/pull/50
 
 **Full Changelog**: https://github.com/Codeception/lib-innerbrowser/compare/2.0.1...2.0.2
-
-
-### module-doctrine2 2.0.1: 2.0.1
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/01/28 18:34:39 / [Repository](https://github.com/Codeception/module-doctrine2)   / [Releases](https://github.com/Codeception/module-doctrine2/releases)
-
-
-
-* Binary strings don't break (dont)seeInRepository by **[frankverhoeven](https://github.com/frankverhoeven)**
 
 
 ### module-webdriver 2.0.2: 2.0.2
@@ -2410,23 +2334,6 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 **Full Changelog**: https://github.com/Codeception/module-asserts/compare/1.3.1...2.0.0
 
 
-### module-datafactory 2.0.0: 2.0.0
-
-Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 15:00:26 / [Repository](https://github.com/Codeception/module-datafactory)   / [Releases](https://github.com/Codeception/module-datafactory/releases)
-
-
-
-## What's Changed
-
-* PHP 7.4 or higher is required.
-* Support PHP 8.1
-* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-datafactory/pull/9 and https://github.com/Codeception/module-datafactory/pull/14
-* Documentation changes by **[DavertMik](https://github.com/DavertMik)** in https://github.com/Codeception/module-datafactory/pull/11
-* The changelog has been added to the Readme file, by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-datafactory/pull/13
-
-**Full Changelog**: https://github.com/Codeception/module-datafactory/compare/1.1.0...2.0.0
-
-
 ### module-mongodb 2.0.0: 2.0.0
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 14:55:38 / [Repository](https://github.com/Codeception/module-mongodb)   / [Releases](https://github.com/Codeception/module-mongodb/releases)
@@ -2586,26 +2493,6 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 **Full Changelog**: https://github.com/Codeception/module-mezzio/compare/2.0.2...3.0.0
 
 
-### module-doctrine2 2.0.0: 2.0.0
-
-Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 05:59:34 / [Repository](https://github.com/Codeception/module-doctrine2)   / [Releases](https://github.com/Codeception/module-doctrine2/releases)
-
-
-
-## What's Changed
-
-* PHP 7.4 or higher is required.
-* Support PHP 8.1
-* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-doctrine2/pull/40 and https://github.com/Codeception/module-doctrine2/pull/47
-* Added phpstan by **[b1rdex](https://github.com/b1rdex)** in https://github.com/Codeception/module-doctrine2/pull/46
-* Use hash to store repository mock by **[olexp](https://github.com/olexp)** in https://github.com/Codeception/module-doctrine2/pull/45 and https://github.com/Codeception/module-doctrine2/pull/48
-* Better explaining `depends` by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/module-doctrine2/pull/23
-* Adding link to `doctrine/data-fixtures` by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/module-doctrine2/pull/39
-* The changelog has been added to the Readme file, by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-doctrine2/pull/43
-
-**Full Changelog**: https://github.com/Codeception/module-doctrine2/compare/1.1.1...2.0.0
-
-
 ### module-apc 2.0.0: 2.0.0
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 05:51:33 / [Repository](https://github.com/Codeception/module-apc)   / [Releases](https://github.com/Codeception/module-apc/releases)
@@ -2619,20 +2506,6 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) Tavo
 * The changelog has been added to the Readme file, by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-apc/pull/5
 
 **Full Changelog**: https://github.com/Codeception/module-apc/compare/1.0.2...2.0.0
-
-
-### module-amqp 2.0.0: 2.0.0
-
-Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2021/12/07 05:47:28 / [Repository](https://github.com/Codeception/module-amqp)   / [Releases](https://github.com/Codeception/module-amqp/releases)
-
-
-
-## What's Changed
-
-* PHP 7.4 or higher is required.
-* Updated code base to PHP 7.4 by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-amqp/pull/12
-
-**Full Changelog**: https://github.com/Codeception/module-amqp/compare/1.1.1...2.0.0
 
 
 ### module-laminas 1.3.0: 1.3.0
@@ -2885,15 +2758,6 @@ This release includes a general refactoring of the code ([#30](https://github.co
 See the full list of changes [here](https://github.com/Codeception/module-laravel/milestone/3). 
 
 
-### module-amqp 1.1.1: seeMessageInQueueContainsText acks message
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/09/05 07:47:08 / [Repository](https://github.com/Codeception/module-amqp)   / [Releases](https://github.com/Codeception/module-amqp/releases)
-
-
-
-* Stops keeping message in unacked stated, by **[renq](https://github.com/renq)** 
-
-
 ### module-webdriver 1.4.0: Added new methods
 
 Released by [![](https://avatars.githubusercontent.com/u/220264?v=4&s=16) DavertMik](https://github.com/DavertMik) on 2021/09/02 12:08:19 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
@@ -3132,25 +2996,6 @@ Minor changes in documentation by **[ThomasLandauer](https://github.com/ThomasLa
 
 
 
-### module-amqp 1.1.0: Support PHP 8
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/03/21 15:29:11 / [Repository](https://github.com/Codeception/module-amqp)   / [Releases](https://github.com/Codeception/module-amqp/releases)
-
-
-
-* Support PHP 8.0
-* Support php-amqplib v3
-
-
-### module-datafactory 1.1.0: Added Custom Store
-
-Released by [![](https://avatars.githubusercontent.com/u/220264?v=4&s=16) DavertMik](https://github.com/DavertMik) on 2021/03/16 19:42:52 / [Repository](https://github.com/Codeception/module-datafactory)   / [Releases](https://github.com/Codeception/module-datafactory/releases)
-
-
-
-Custom Store can be used for Data Factory. See [#2](https://github.com/Codeception/module-datafactory/issues/2) 
-
-
 ### lib-innerbrowser 1.4.1: Fix grabTextFrom TypeError
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2021/03/02 08:03:49 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
@@ -3262,15 +3107,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 * Fixed filling of fields that are linked to form using `form` attribute https://github.com/Codeception/Codeception/issues/6022
-
-
-### module-datafactory 1.0.1: PHP8 support
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/12/30 15:56:46 / [Repository](https://github.com/Codeception/module-datafactory)   / [Releases](https://github.com/Codeception/module-datafactory/releases)
-
-
-
-
 
 
 ### module-laravel 2.0.0: 2.0.0
@@ -3418,15 +3254,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 
-### module-doctrine2 1.1.1: Support PHP 8
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/11/26 06:57:10 / [Repository](https://github.com/Codeception/module-doctrine2)   / [Releases](https://github.com/Codeception/module-doctrine2/releases)
-
-
-
-
-
-
 ### module-symfony 1.4.1: 1.4.1
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2020/11/25 19:31:47 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
@@ -3516,16 +3343,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 
-
-
-### module-doctrine2 1.1.0: 
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/11/14 20:44:32 / [Repository](https://github.com/Codeception/module-doctrine2)   / [Releases](https://github.com/Codeception/module-doctrine2/releases)
-
-
-
-* Configurable purge mode - DELETE or TRUNCATE 
-* Catch MappingException thrown by Doctrine 2.9 
 
 
 ### module-soap 1.0.1: Support PHP 8
@@ -4235,15 +4052,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 Requires PHPUnit 8.4,  so this version can only be used on PHP 7.2+ and it is required by Codeception 5
 
 
-### module-doctrine2 1.0.1: Updated documentation
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/11/13 17:34:35 / [Repository](https://github.com/Codeception/module-doctrine2)   / [Releases](https://github.com/Codeception/module-doctrine2/releases)
-
-
-
-
-
-
 ### module-asserts 1.1.1: Documented that stringEnds functions were added in 1.1.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/11/13 17:33:39 / [Repository](https://github.com/Codeception/module-asserts)   / [Releases](https://github.com/Codeception/module-asserts/releases)
@@ -4337,15 +4145,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 ### module-laravel5 1.0.0: Initial release
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/10/19 15:27:22 / [Repository](https://github.com/Codeception/module-laravel5)   / [Releases](https://github.com/Codeception/module-laravel5/releases)
-
-
-
-
-
-
-### module-doctrine2 1.0.0: Initial release
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/10/19 15:27:12 / [Repository](https://github.com/Codeception/module-doctrine2)   / [Releases](https://github.com/Codeception/module-doctrine2/releases)
 
 
 
@@ -4452,15 +4251,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 
-### module-datafactory 1.0.0: Initial release
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/10/18 11:07:51 / [Repository](https://github.com/Codeception/module-datafactory)   / [Releases](https://github.com/Codeception/module-datafactory/releases)
-
-
-
-
-
-
 ### module-cli 1.0.0: Initial release
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/10/18 11:07:08 / [Repository](https://github.com/Codeception/module-cli)   / [Releases](https://github.com/Codeception/module-cli/releases)
@@ -4482,15 +4272,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 ### module-apc 1.0.0: Initial release
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/10/18 11:06:05 / [Repository](https://github.com/Codeception/module-apc)   / [Releases](https://github.com/Codeception/module-apc/releases)
-
-
-
-
-
-
-### module-amqp 1.0.0: Initial release
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/10/18 11:05:50 / [Repository](https://github.com/Codeception/module-amqp)   / [Releases](https://github.com/Codeception/module-amqp/releases)
 
 
 
