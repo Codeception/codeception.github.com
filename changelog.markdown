@@ -9,6 +9,21 @@ title: Codeception Changelog
 
 
 
+### module-doctrine 3.2.0: 3.2.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2025/04/25 05:14:21 / [Repository](https://github.com/Codeception/module-doctrine)   / [Releases](https://github.com/Codeception/module-doctrine/releases)
+
+
+
+## What's Changed
+* Update Doctrine.php: Adding upgrade instructions by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/module-doctrine/pull/29
+* Declare nullable parameter types explicitly by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/module-doctrine/pull/31
+* Fix support for doctrine/dbal v2 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/module-doctrine/pull/32
+* PHP 8.4: Fix E_STRICT deprecation by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/module-doctrine/pull/34
+
+**Full Changelog**: https://github.com/Codeception/module-doctrine/compare/3.1.0...3.2.0
+
+
 ### module-asserts 3.1.0: 3.1.0
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2025/04/24 17:21:11 / [Repository](https://github.com/Codeception/module-asserts)   / [Releases](https://github.com/Codeception/module-asserts/releases)

@@ -19,10 +19,15 @@ composer require --dev codeception/module-doctrine
 
 
 
+Upgrading from Module "Doctrine2":
+* In your `composer.json`: Replace `"codeception/module-doctrine2"` with `"codeception/module-doctrine"`
+* In your `Acceptance.suite.yml`, `Functional.suite.yml`, and `Unit.suite.yml`: Replace `- Doctrine2:` with `- Doctrine:`
+* In any file in `Support/Helper/`: Change `$this->getModule('Doctrine2')` to `$this->getModule('Doctrine')`
+
 Access the database using [Doctrine ORM](https://docs.doctrine-project.org/projects/doctrine-orm/en/latest/).
 
 When used with Symfony or Zend Framework 2, Doctrine's Entity Manager is automatically retrieved from Service Locator.
-Set up your `functional.suite.yml` like this:
+Set up your `Functional.suite.yml` like this:
 
 {% highlight yaml %}
 
