@@ -71,7 +71,7 @@ We should start by creating a test with the next command:
 php vendor/bin/codecept g:cest acceptance Signin
 ```
 
-It will be placed into `tests/acceptance` directory.
+It will be placed into `tests/Acceptance` directory.
 
 ```php
 class SigninCest
