@@ -9,6 +9,34 @@ title: Codeception Changelog
 
 
 
+### Codeception 5.3.0: 5.3.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2025/05/06 19:04:29 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+## What's Changed
+* Update readme.md by **[rossaddison](https://github.com/rossaddison)** in https://github.com/Codeception/Codeception/pull/6834
+* Fix loading keywords in behat/gherkin v4.12 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/Codeception/pull/6839
+* Update Scenario.php: Adding default value to `current()` by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/Codeception/pull/6798
+* Simplify Step classes by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/Codeception/pull/6842
+* Simplify reporter classes by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/Codeception/pull/6803
+* Simplify Subscriber classes by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/Codeception/pull/6843
+* Fix AssertsTest CI pipeline by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/Codeception/pull/6847
+* Simplify Test classes by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/Codeception/pull/6845
+* Simplify Template classes by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/Codeception/pull/6844
+* Simplify Util classes by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/Codeception/pull/6846
+* Simplify src root classes by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/Codeception/pull/6849
+* Remove PHP 8.1 Support by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/Codeception/pull/6848
+* Migrate commands to use AsCommand attribute by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/Codeception/pull/6850
+* Add PHPStan by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/Codeception/pull/6851
+
+## New Contributors
+* **[rossaddison](https://github.com/rossaddison)** made their first contribution in https://github.com/Codeception/Codeception/pull/6834
+
+**Full Changelog**: https://github.com/Codeception/Codeception/compare/5.2.1...5.3.0
+
+
 ### module-doctrine 3.2.0: 3.2.0
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2025/04/25 05:14:21 / [Repository](https://github.com/Codeception/module-doctrine)   / [Releases](https://github.com/Codeception/module-doctrine/releases)
@@ -1905,16 +1933,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 * Support for Codeception 5
-
-
-### Codeception 5.0.0-RC1: 5.0.0-RC1
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/03/13 18:42:02 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Use PHPUnit 9 until PHPUnit 10 is released.
-* Read about earlier change in [CHANGELOG](https://github.com/Codeception/Codeception/blob/5.0/CHANGELOG-5.x.md).
 
 
 ### module-webdriver 3.1.0: 3.1.0
