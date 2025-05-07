@@ -9,6 +9,19 @@ title: Codeception Changelog
 
 
 
+### Codeception 5.2.2: 5.2.2
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2025/05/07 12:49:57 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+## What's Changed
+* 5.2: Fix loading keywords in behat/gherkin v4.12 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/Codeception/pull/6855
+
+
+**Full Changelog**: https://github.com/Codeception/Codeception/compare/5.2.1...5.2.2
+
+
 ### module-asserts 3.2.0: 3.2.0
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2025/05/07 03:33:49 / [Repository](https://github.com/Codeception/module-asserts)   / [Releases](https://github.com/Codeception/module-asserts/releases)
@@ -1866,24 +1879,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 * Removed dontSeeCheckboxIsChecked parameter type declaration to permit arrays and match seeCheckboxIsChecked
-
-
-### Codeception 5.0.0-RC2: 5.0.0-RC2
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/04/08 07:05:05 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Added `--shard`, `--grep`, `--filter` options ([#6399](https://github.com/Codeception/Codeception/issues/6399))
-* Added new code coverage settings ([#6423](https://github.com/Codeception/Codeception/issues/6423))
-* Dynamic configuration with parameters can use arrays and other non-string types ([#6409](https://github.com/Codeception/Codeception/issues/6409))
-* Introduced `codecept_pause` function and `$this->pause()` in unit tests ([#6387](https://github.com/Codeception/Codeception/issues/6387))
-* Interactive console is executed in the scope of paused test class.
-* Array of variables can be passed to all `pause` functions/methods
-* Replaced Hoa Console with PsySH in `codecept console`
-* Used Symfony VarDumper in `codecept_debug` ([#6406](https://github.com/Codeception/Codeception/issues/6406))
-* Fixed type error in code coverage exclude filter by **[W0rma](https://github.com/W0rma)**
-* Fix type error in Recorder extension
 
 
 ### module-rest 2.0.2: 2.0.2
