@@ -9,6 +9,20 @@ title: Codeception Changelog
 
 
 
+### module-asserts 3.2.0: 3.2.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2025/05/07 03:33:49 / [Repository](https://github.com/Codeception/module-asserts)   / [Releases](https://github.com/Codeception/module-asserts/releases)
+
+
+
+## What's Changed
+* Bump lib-asserts dependency by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/module-asserts/pull/30
+* Update to PHP 8.2, Codeception 5 and static analysis by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-asserts/pull/31
+
+
+**Full Changelog**: https://github.com/Codeception/module-asserts/compare/3.1.0...3.2.0
+
+
 ### Codeception 5.3.0: 5.3.0
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2025/05/06 19:04:29 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
