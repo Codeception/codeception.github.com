@@ -9,6 +9,22 @@ title: Codeception Changelog
 
 
 
+### Codeception 5.3.1: 5.3.1
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2025/05/13 23:25:43 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+## What's Changed
+* Issue 6857: Upddate Actor::__call() to have return type 'mixed' by **[troy-rudolph](https://github.com/troy-rudolph)** in https://github.com/Codeception/Codeception/pull/6858
+* Fix auto-injection of the tester property by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/Codeception/pull/6856
+
+## New Contributors
+* **[troy-rudolph](https://github.com/troy-rudolph)** made their first contribution in https://github.com/Codeception/Codeception/pull/6858
+
+**Full Changelog**: https://github.com/Codeception/Codeception/compare/5.3.0...5.3.1
+
+
 ### Codeception 5.2.2: 5.2.2
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2025/05/07 12:49:57 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
@@ -1829,18 +1845,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 * Updated dependencies
-
-
-### Codeception 5.0.0-RC3: 5.0.0-RC3
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/04/22 10:32:33 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Fix incorrect type declaration in InitTemplate by **[ziadoz](https://github.com/ziadoz)**
-* Stricter check for phpdotenv v5 (older versions are not supported)
-* Throw exception if actor setting is missing in suite configuration
-* Use correct types in ParamsLoader and Configuration classes, avoid type errors
 
 
 ### module-laravel 3.0.0: 3.0.0
