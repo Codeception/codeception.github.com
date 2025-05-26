@@ -9,6 +9,18 @@ title: Codeception Changelog
 
 
 
+### Codeception 5.3.2: 5.3.2
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2025/05/26 07:51:41 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+## What's Changed
+* Rollback getSubscribedEvents Extension refactor by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/Codeception/pull/6862
+
+**Full Changelog**: https://github.com/Codeception/Codeception/compare/5.3.1...5.3.2
+
+
 ### Codeception 5.3.1: 5.3.1
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2025/05/13 23:25:43 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
@@ -1689,21 +1701,6 @@ Released by [![](https://avatars.githubusercontent.com/u/47294?v=4&s=16) samdark
 - [#8](https://github.com/Codeception/module-yii2/issues/8): Add log from Yii to artifacts when test fails (@aywan)
 - [#65](https://github.com/Codeception/module-yii2/issues/65): Codeception 5 support (@developedsoftware and **[TavoNiievez](https://github.com/TavoNiievez)**)
 
-
-
-### Codeception 4.2.0: 4.2.0
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/06/16 05:51:13 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Improved multi-application experience, allow filtering suites by name ([#6435](https://github.com/Codeception/Codeception/issues/6435)) by **[calvinalkan](https://github.com/calvinalkan)**
-* Configuration override is passed to included suites ([#5978](https://github.com/Codeception/Codeception/issues/5978)) by **[calvinalkan](https://github.com/calvinalkan)**
-* Made dry-run command work with module methods having return types ([#6470](https://github.com/Codeception/Codeception/issues/6470))
-* Support for expectError/Warning/Notice/Deprecation methods in unit tests (Requires PHPUnit 8.4+)
-* Implemented new setting `convert_deprecations_to_exceptions` ([#6469](https://github.com/Codeception/Codeception/issues/6469))
-* Action file generator: Do not return when return type is never ([#6462](https://github.com/Codeception/Codeception/issues/6462))
-* Backported test.useless event from Codeception 5.0 ([#6459](https://github.com/Codeception/Codeception/issues/6459))
 
 
 ### module-phalcon5 v2.0.0: v2.0.0
