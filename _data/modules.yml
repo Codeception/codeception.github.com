@@ -165,3 +165,7 @@
 - name: Yandex
   link: https://github.com/portrino/codeception-yandex-module
   description: Validation of structured data via yandex API.
+
+- name: Grpc
+  link: https://github.com/MercerMorning/codeception-grpc-module
+  description: Validation of grpc server.
