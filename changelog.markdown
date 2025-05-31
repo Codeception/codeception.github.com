@@ -9,6 +9,24 @@ title: Codeception Changelog
 
 
 
+### module-yii2 v2.0.4: v2.0.4
+
+Released by [![](https://avatars.githubusercontent.com/in/15368?v=4&s=16) github-actions[bot]](https://github.com/apps/github-actions) on 2025/05/31 06:53:23 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
+
+
+
+## [2.0.4](https://github.com/Codeception/module-yii2/compare/v2.0.3...v2.0.4) (2025-05-31)
+
+
+### Bug Fixes
+
+* fixes [[#131](https://github.com/Codeception/module-yii2/issues/131)](https://github.com/Codeception/module-yii2/issues/131) yiilogger may not be initialized in _failed ([b480bf1](https://github.com/Codeception/module-yii2/commit/b480bf18befdc8ede138f2f3a6b09a8989d11cb9))
+
+
+
+
+
+
 ### Codeception 5.3.2: 5.3.2
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2025/05/26 07:51:41 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
