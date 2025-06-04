@@ -9,6 +9,27 @@ title: Codeception Changelog
 
 
 
+### module-symfony 3.6.0: 3.6.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2025/06/04 14:01:56 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
+
+
+
+## What's Changed
+* Document new Symfony assertions by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-symfony/pull/208
+* Fix parameter name in exception for case when Kernel has custom names… by **[prophetz](https://github.com/prophetz)** in https://github.com/Codeception/module-symfony/pull/199
+* Update MailerAssertionsTrait.php: Adding Mailpit by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/module-symfony/pull/204
+* Remove PHP 8.1 Support by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-symfony/pull/211
+* Update ServicesAssertionsTrait.php: Adding another hint about private… by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/module-symfony/pull/210
+* Replace kernel reboot with actual boot to reset services by **[Seros](https://github.com/Seros)** in https://github.com/Codeception/module-symfony/pull/209
+
+## New Contributors
+* **[prophetz](https://github.com/prophetz)** made their first contribution in https://github.com/Codeception/module-symfony/pull/199
+* **[Seros](https://github.com/Seros)** made their first contribution in https://github.com/Codeception/module-symfony/pull/209
+
+**Full Changelog**: https://github.com/Codeception/module-symfony/compare/3.5.1...3.6.0
+
+
 ### module-yii2 v2.0.4: v2.0.4
 
 Released by [![](https://avatars.githubusercontent.com/in/15368?v=4&s=16) github-actions[bot]](https://github.com/apps/github-actions) on 2025/05/31 06:53:23 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
