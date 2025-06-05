@@ -345,7 +345,7 @@ class PageCest
 ## Before/After Attributes 
 
 You may move common actions into private/protected (i.e. non-test) methods and invoke them before or after the test method
-by passed them as `#[Before]` and `#[After]` attributes. The referenced method needs to be in the same class as the public function.
+by passing them as `#[Before]` and `#[After]` attributes. The referenced method needs to be in the same class as the public function.
 
 ```php
 <?php
