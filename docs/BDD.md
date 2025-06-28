@@ -403,7 +403,7 @@ Inside a step definition data is stored in argument passed as `\Behat\Gherkin\No
   public function iHaveProductsInCart(\Behat\Gherkin\Node\TableNode $products)
   {
       // iterate over all rows
-      foreach ($node->getRows() as $index => $row) {
+      foreach ($products->getRows() as $index => $row) {
           if ($index === 0) { // first row to define fields
               $keys = $row;
               continue;
