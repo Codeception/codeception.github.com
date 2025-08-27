@@ -15,6 +15,10 @@
   link: https://github.com/walterwhites/Appium-codeception-module
   description: Easy Appium integration, iOS Automation
 
+- name: Axeception
+  link: https://github.com/flowdgmbh/codeception-axeception
+  description: Run axe-core acceptance tests in codeception
+
 - name: BrowserMob
   link: https://github.com/edno/codeception-browsermob
   description: Codeception module for BrowserMob Proxy.
