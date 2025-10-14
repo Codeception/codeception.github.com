@@ -244,7 +244,7 @@ you can pass instance `\Codeception\Step\Argument\PasswordArgument` with the dat
 {% highlight php %}
 
 <?php
-use \Codeception\Step\Argument\PasswordArgument;
+use Codeception\Step\Argument\PasswordArgument;
 
 $I->amOnPage('/form/password_argument');
 $I->fillField('password', new PasswordArgument('thisissecret'));

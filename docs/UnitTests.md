@@ -40,7 +40,7 @@ A test created by the `generate:test` command will look like this:
 
 namespace Tests\Unit;
 
-use \Tests\Support\UnitTester;
+use Tests\Support\UnitTester;
 
 class ExampleTest extends \Codeception\Test\Unit
 {
@@ -76,7 +76,7 @@ A typical unit test may look like this:
 
 namespace Tests\Unit;
 
-use \Tests\Support\UnitTester;
+use Tests\Support\UnitTester;
 
 class UserTest extends \Codeception\Test\Unit
 {
@@ -403,7 +403,7 @@ For this case we have a stand-alone project [Specify](https://github.com/Codecep
 
 namespace Tests\Unit;
 
-use \Tests\Support\UnitTester;
+use Tests\Support\UnitTester;
 
 class UserTest extends \Codeception\Test\Unit
 {

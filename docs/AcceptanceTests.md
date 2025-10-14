@@ -209,7 +209,7 @@ If you need to fill in sensitive data (like passwords) and hide it in logs,
 you can pass instance `\Codeception\Step\Argument\PasswordArgument` with the data which needs to be hidden.
 
 ```php
-use \Codeception\Step\Argument\PasswordArgument;
+use Codeception\Step\Argument\PasswordArgument;
 
 $I->amOnPage('/form/password_argument');
 $I->fillField('password', new PasswordArgument('thisissecret'));

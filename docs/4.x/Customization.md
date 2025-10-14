@@ -158,7 +158,7 @@ The extension class itself is inherited from `Codeception\Extension`:
 {% highlight php %}
 
 <?php
-use \Codeception\Events;
+use Codeception\Events;
 
 class MyCustomExtension extends \Codeception\Extension
 {
