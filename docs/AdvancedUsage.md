@@ -54,7 +54,7 @@ As you see, we are passing the Actor object into `tryToTest` method. This allows
 <?php
 namespace Tests\Acceptance;
 
-use \Tests\Support\AcceptanceTester;
+use Tests\Support\AcceptanceTester;
 
 class BasicCest
 {
@@ -104,8 +104,8 @@ namespace Tests\Acceptance;
 use Codeception\Attribute\Skip;
 use Codeception\Scenario;
 
-class UserCest {
-
+class UserCest
+{
     #[Skip]
     public function notImportantTest(AcceptanceTester $I)
     {
@@ -210,8 +210,8 @@ namespace Tests\Acceptance;
 use Codeception\Attribute\Group;
 use Tests\Support\AcceptanceTester
 
-class UserCest {
-
+class UserCest
+{
     #[Group('admin')] // set a group for this test
     #[Group('slow', 'important')] // add groups in a single attribute
     public function testAdminUser(AcceptanceTester $I)
@@ -238,9 +238,9 @@ Data is defined via the `Examples` attribute
 <?php
 namespace Tests\Api;
 
-use \Tests\Support\ApiTester;
-use \Codeception\Attribute\Examples;
-use \Codeception\Example;
+use Codeception\Attribute\Examples;
+use Codeception\Example;
+use Tests\Support\ApiTester;
 
 class EndpointCest
 {
@@ -263,9 +263,9 @@ You can also use [named arguments](https://www.php.net/manual/en/functions.argum
 
 namespace Tests\Api;
 
-use \Tests\Support\ApiTester;
-use \Codeception\Attribute\Examples;
-use \Codeception\Example;
+use Codeception\Attribute\Examples;
+use Codeception\Example;
+use Tests\Support\ApiTester;
 
 class EndpointCest
 {
@@ -317,8 +317,8 @@ You can also use the `@dataProvider` annotation for creating dynamic examples fo
 <?php
 namespace Tests\Acceptance;
 
-use \Codeception\Attribute\DataProvider;
-use \Codeception\Example;
+use Codeception\Attribute\DataProvider;
+use Codeception\Example;
 
 class PageCest
 {
@@ -351,9 +351,9 @@ by passing them as `#[Before]` and `#[After]` attributes. The referenced method 
 <?php
 namespace Tests\Functional;
 
-use \Tests\Support\FunctionalTester;
 use Codeception\Attribute\Before;
 use Codeception\Attribute\After;
+use Tests\Support\FunctionalTester;
 
 final class ModeratorCest
 {
@@ -402,8 +402,8 @@ namespace Tests\Acceptance;
 
 use Codeception\Attribute\Depends;
 
-class ModeratorCest {
-
+class ModeratorCest
+{
     public function login(AcceptanceTester $I)
     {
         // logs moderator in
@@ -428,7 +428,6 @@ Signature: ModeratorCest:login`
 ```
 
 Codeception reorders tests so dependent tests will always be executed before the tests that rely on them.
-
 
 ## Environments
 

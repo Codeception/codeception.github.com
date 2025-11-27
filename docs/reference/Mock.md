@@ -292,7 +292,7 @@ exception.
 {% highlight php %}
 
 <?php
-use \Codeception\Stub\Expected;
+use Codeception\Stub\Expected;
 
 $user = $this->make('User', [
      'getName' => Expected::never(),
@@ -316,7 +316,7 @@ exception.
 {% highlight php %}
 
 <?php
-use \Codeception\Stub\Expected;
+use Codeception\Stub\Expected;
 
 $user = $this->make(
     'User',
@@ -351,7 +351,7 @@ If the number of invocations is 0 it will throw an exception in verify.
 {% highlight php %}
 
 <?php
-use \Codeception\Stub\Expected;
+use Codeception\Stub\Expected;
 
 $user = $this->make(
     'User',
@@ -392,8 +392,8 @@ exception.
 {% highlight php %}
 
 <?php
-use \Codeception\Stub;
-use \Codeception\Stub\Expected;
+use Codeception\Stub;
+use Codeception\Stub\Expected;
 
 $user = $this->make(
     'User',
