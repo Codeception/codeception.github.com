@@ -16,7 +16,7 @@ Usage:
 {% highlight php %}
 
 <?php
-use \Codeception\Util\HttpCode;
+use Codeception\Util\HttpCode;
 
 // using REST, PhpBrowser, or any Framework module
 $I->seeResponseCodeIs(HttpCode::OK);

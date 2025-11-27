@@ -167,8 +167,8 @@ In the case of a PageObject you should declare a class as a parameter for a test
 
 namespace Tests\Acceptance;
 
-use \Tests\Support\AcceptanceTester;
-use \Tests\Support\Page\Acceptance\Login;
+use Tests\Support\AcceptanceTester;
+use Tests\Support\Page\Acceptance\Login;
 
 class UserCest
 {

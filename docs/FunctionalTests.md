@@ -25,7 +25,7 @@ This is a sample functional test:
 
 namespace Tests\Functional;
 
-use \Tests\Support\FunctionalTester;
+use Tests\Support\FunctionalTester;
 
 class LoginCest
 {
