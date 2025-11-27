@@ -105,7 +105,7 @@ jobs:
         - name: Install PHP
           uses: shivammathur/setup-php@v2
           with:
-            php-version: $
+            php-version: ${{ matrix.php }}
             extensions: curl, mbstring, openssl, pdo, pdo_sqlite
             ini-values: memory_limit=-1, date.timezone='UTC'
             coverage: xdebug
