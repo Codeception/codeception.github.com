@@ -344,9 +344,8 @@ class PageCest
 
 ## Before/After Attributes 
 
-You can control execution flow with `#[Before]` and `#[After]` attributes. You may move common actions
-into protected (i.e. non-test) methods and invoke them before or after the test method by putting them into attributes.
-When adding multiple `#[Before]` or `#[After]` attributes, methods are invoked in order from top to bottom.
+You may move common actions into private/protected (i.e. non-test) methods and invoke them before or after the test method
+by passing them as `#[Before]` and `#[After]` attributes. The referenced method needs to be in the same class as the public function.
 
 ```php
 <?php
@@ -356,9 +355,9 @@ use Codeception\Attribute\Before;
 use Codeception\Attribute\After;
 use Tests\Support\FunctionalTester;
 
-class ModeratorCest
+final class ModeratorCest
 {
-    protected function login(AcceptanceTester $I)
+    protected function login(FunctionalTester $I): void
     {
         $I->amOnPage('/login');
         $I->fillField('Username', 'miles');
@@ -367,21 +366,26 @@ class ModeratorCest
     }
 
     #[Before('login')]
-    public function banUser(AcceptanceTester $I)
+    public function banUser(FunctionalTester $I): void
     {
         $I->amOnPage('/users/charlie-parker');
         $I->see('Ban', '.button');
         $I->click('Ban');
     }
 
-    // you can specify multiple before and after methods:
-    #[Before('login', 'cleanup')]
-    #[After('logout', 'close')]
-    public function addUser(AcceptanceTester $I)
+    // Multiple `#[Before]` or `#[After]` attributes are invoked in order from top to bottom:
+    #[Before('login')]
+    #[Before('cleanup')]
+    public function addUser(FunctionalTester $I): void
     {
-        $I->amOnPage('/users/charlie-parker');
-        $I->see('Ban', '.button');
-        $I->click('Ban');
+        // ...
+    }
+
+    // But you can also pass multiple methods in each attribute:
+    #[Before('login', 'cleanup')]
+    public function addUser(FunctionalTester $I): void
+    {
+        // ...
     }
 }
 ```
