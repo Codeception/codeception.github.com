@@ -31,7 +31,7 @@ You can mix up CSS and XPath selectors here.
 {% highlight php %}
 
 <?php
-use Codeception\Util\Locator;
+use \Codeception\Util\Locator;
 
 $I->see('Title', Locator::combine('h1','h2','h3'));
 
@@ -43,7 +43,7 @@ You can also combine CSS selector with XPath locator:
 {% highlight php %}
 
 <?php
-use Codeception\Util\Locator;
+use \Codeception\Util\Locator;
 
 $I->fillField(Locator::combine('form input[type=text]','//form/textarea[2]'), 'qwerty');
 
@@ -121,7 +121,7 @@ Finds element by it's attribute(s)
 {% highlight php %}
 
 <?php
-use Codeception\Util\Locator;
+use \Codeception\Util\Locator;
 
 $I->seeElement(Locator::find('img', ['title' => 'diagram']));
 
@@ -167,7 +167,7 @@ Matches the *a* element with given URL
 {% highlight php %}
 
 <?php
-use Codeception\Util\Locator;
+use \Codeception\Util\Locator;
 
 $I->see('Log In', Locator::href('/login.php'));
 
@@ -342,7 +342,7 @@ You could try to match elements by their tab position using `tabIndex` method of
 {% highlight php %}
 
 <?php
-use Codeception\Util\Locator;
+use \Codeception\Util\Locator;
 
 $I->fillField(Locator::tabIndex(1), 'davert');
 $I->fillField(Locator::tabIndex(2) , 'qwerty');

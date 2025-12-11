@@ -359,7 +359,7 @@ Note that `$em->persist()`, `$em->refresh()`, and `$em->flush()` are called ever
 * `throws ModuleRequireException`
 * `return void`
 
-Loads fixtures. Fixture can be specified as a fully qualified class name,
+Loads fixtures. The fixture class can be specified as a fully qualified class name,
 an instance, or an array of class names/instances.
 
 {% highlight php %}

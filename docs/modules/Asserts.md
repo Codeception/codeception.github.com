@@ -1221,6 +1221,7 @@ $I->expectThrowable(new MyException(), function() {
 });
 
 {% endhighlight %}
+
 If you want to check message or throwable code, you can pass them with throwable instance:
 {% highlight php %}
 

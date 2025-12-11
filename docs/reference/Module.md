@@ -56,7 +56,7 @@ Module constructor.
 
 Requires module container (to provide access between modules of suite) and config.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L60)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L59)
 
 #### _after()
 
@@ -67,7 +67,7 @@ Requires module container (to provide access between modules of suite) and confi
 
 **HOOK** executed after test
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L223)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L221)
 
 #### _afterStep()
 
@@ -78,7 +78,7 @@ Requires module container (to provide access between modules of suite) and confi
 
 **HOOK** executed after step
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L209)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L207)
 
 #### _afterSuite()
 
@@ -87,7 +87,7 @@ Requires module container (to provide access between modules of suite) and confi
 
 **HOOK** executed after suite
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L195)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L193)
 
 #### _before()
 
@@ -98,7 +98,7 @@ Requires module container (to provide access between modules of suite) and confi
 
 **HOOK** executed before test
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L216)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L214)
 
 #### _beforeStep()
 
@@ -109,7 +109,7 @@ Requires module container (to provide access between modules of suite) and confi
 
 **HOOK** executed before step
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L202)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L200)
 
 #### _beforeSuite()
 
@@ -120,7 +120,7 @@ Requires module container (to provide access between modules of suite) and confi
 
 **HOOK** executed before suite
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L188)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L186)
 
 #### _failed()
 
@@ -132,7 +132,7 @@ Requires module container (to provide access between modules of suite) and confi
 
 **HOOK** executed when test fails but before `_after`
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L230)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L228)
 
 #### _getConfig()
 
@@ -144,7 +144,7 @@ Requires module container (to provide access between modules of suite) and confi
 
 Get config values or specific config item.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L301)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L299)
 
 #### _getName()
 
@@ -166,7 +166,7 @@ Returns a module name for a Module, a class name for Helper
 
 Checks if a module has required fields
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L173)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L171)
 
 #### _initialize()
 
@@ -175,7 +175,7 @@ Checks if a module has required fields
 
 **HOOK** triggered after module is created and configuration is loaded
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L181)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L179)
 
 #### _reconfigure()
 
@@ -202,7 +202,7 @@ public function _before(Test $test) {
 
 {% endhighlight %}
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L104)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L103)
 
 #### _resetConfig()
 
@@ -213,7 +213,7 @@ public function _before(Test $test) {
 
 Reverts config changed by `_reconfigure`
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L122)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L121)
 
 #### _setConfig()
 
@@ -237,7 +237,7 @@ public function _beforeSuite($settings = []) {
 
 {% endhighlight %}
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L81)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L80)
 
 #### assert()
 
@@ -1976,20 +1976,20 @@ Asserts that two XML documents are not equal.
 
 Print debug message to the screen.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L237)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L235)
 
 #### debugSection()
 
- *protected* debugSection($title, $message)
+ *protected* debugSection($title, $msg)
 
 
 * `param string` $title
-* `param mixed` $message
+* `param mixed` $msg
 * `return void`
 
 Print debug message with a title
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L245)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L243)
 
 #### fail()
 
@@ -2020,7 +2020,7 @@ $this->getModule('WebDriver')->_findElements('.items');
 
 {% endhighlight %}
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L287)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L285)
 
 #### getModules()
 
@@ -2031,7 +2031,7 @@ $this->getModule('WebDriver')->_findElements('.items');
 
 Get all enabled modules
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L272)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L270)
 
 #### hasModule()
 
@@ -2043,7 +2043,7 @@ Get all enabled modules
 
 Checks that module is enabled.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L264)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L262)
 
 #### hasStaticAttribute()
 
@@ -2085,7 +2085,7 @@ Mark the test as skipped.
 
 HOOK to be executed when config changes with `_reconfigure`.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L114)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L113)
 
 #### scalarizeArray()
 
@@ -2095,7 +2095,7 @@ HOOK to be executed when config changes with `_reconfigure`.
 * `param array` $array
 * `return array`
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L309)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L304)
 
 #### shortenMessage()
 
@@ -2108,7 +2108,7 @@ HOOK to be executed when config changes with `_reconfigure`.
 
 Short text message to an amount of chars
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L256)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L254)
 
 #### validateConfig()
 
@@ -2120,6 +2120,6 @@ Short text message to an amount of chars
 
 Validates current config for required fields and required packages.
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L132)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php#L131)
 
 <p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Module.php">Help us to improve documentation. Edit module reference</a></div>

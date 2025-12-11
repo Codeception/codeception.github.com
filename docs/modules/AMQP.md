@@ -35,6 +35,7 @@ To use this module with Composer you need <em>"php-amqplib/php-amqplib": "~2.4"<
 * cleanup: true - defined queues will be purged before running every test.
 * queues: [mail, twitter] - queues to cleanup
 * single_channel - create and use only one channel during test execution
+* reconnect - reconnects before each test to drop unused open channels
 
 #### Example
 
@@ -48,6 +49,7 @@ To use this module with Composer you need <em>"php-amqplib/php-amqplib": "~2.4"<
                 vhost: '/'
                 queues: [queue1, queue2]
                 single_channel: false
+                reconnect: false
 
 ### Public Properties
 

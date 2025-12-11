@@ -237,3 +237,9 @@ Recommended to be used for development purposes only.
 
 
 
+## SuiteInitSubscriberTrait
+
+[See Source](https://github.com/Codeception/Codeception/blob/main/ext/SuiteInitSubscriberTrait.php)
+
+
+

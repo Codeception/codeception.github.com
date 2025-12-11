@@ -26,13 +26,6 @@ Use to perform web acceptance tests with non-javascript browser.
 
 If test fails stores last shown page in 'output' dir.
 
-### Status
-
-* Maintainer: **davert**
-* Stability: **stable**
-* Contact: codeception@codeception.com
-
-
 ### Configuration
 
 * url *required* - start url of your app
@@ -46,28 +39,31 @@ If test fails stores last shown page in 'output' dir.
 * .. those and other [Guzzle Request options](https://docs.guzzlephp.org/en/latest/request-options.html)
 
 
-#### Example (`acceptance.suite.yml`)
+#### Example (`Acceptance.suite.yml`)
 
-    modules:
-       enabled:
-           - PhpBrowser:
-               url: 'http://localhost'
-               auth: ['admin', '123345']
-               curl:
-                   CURLOPT_RETURNTRANSFER: true
-               cookies:
-                   cookie-1:
-                       Name: userName
-                       Value: john.doe
-                   cookie-2:
-                       Name: authToken
-                       Value: 1abcd2345
-                       Domain: subdomain.domain.com
-                       Path: /admin/
-                       Expires: 1292177455
-                       Secure: true
-                       HttpOnly: false
+{% highlight yaml %}
 
+modules:
+   enabled:
+       - PhpBrowser:
+           url: 'http://localhost' # Internationalized domain names (IDN) need to be passed in punycode
+           auth: ['admin', '123345']
+           curl:
+               CURLOPT_RETURNTRANSFER: true
+           cookies:
+               cookie-1:
+                   Name: userName
+                   Value: john.doe
+               cookie-2:
+                   Name: authToken
+                   Value: 1abcd2345
+                   Domain: subdomain.domain.com
+                   Path: /admin/
+                   Expires: 1292177455
+                   Secure: true
+                   HttpOnly: false
+
+{% endhighlight %}
 
 All SSL certification checks are disabled by default.
 Use Guzzle request options to configure certifications and others.
@@ -220,8 +216,8 @@ $this->getModule('PhpBrowser')->_savePageSource(codecept_output_dir().'page.html
 
 #### amHttpAuthenticated
 
-* `param ` $username
-* `param ` $password
+* `param string` $username
+* `param string` $password
 * `return void`
 
 Authenticates user for HTTP_AUTH
@@ -247,7 +243,7 @@ $I->amOnPage('/register');
 
 #### amOnSubdomain
 
-* `param ` $subdomain
+* `param string` $subdomain
 * `return void`
 
 Changes the subdomain for the 'url' configuration parameter.
@@ -270,7 +266,7 @@ $I->amOnPage('/');
 
 #### amOnUrl
 
-* `param ` $url
+* `param string` $url
 * `return void`
 
 Open web page at the given absolute URL and sets its hostname as the base host.
@@ -426,7 +422,7 @@ You can set additional cookie params like `domain`, `path` as array passed in la
 * `param string` $uri
 * `return void`
 
-Checks that the current URL doesn't equal the given string.
+Checks that the current URL (path) doesn't equal the given string.
 
 Unlike `dontSeeInCurrentUrl`, this only matches the full URL.
 
@@ -444,13 +440,13 @@ $I->dontSeeCurrentUrlEquals('/');
 * `param string` $uri
 * `return void`
 
-Checks that current url doesn't match the given regular expression.
+Checks that current URL (path) doesn't match the given regular expression.
 
 {% highlight php %}
 
 <?php
 // to match root url
-$I->dontSeeCurrentUrlMatches('~^/users/(\d+)~');
+$I->dontSeeCurrentUrlMatches('~^/users/\d+$~');
 
 {% endhighlight %}
 
@@ -481,7 +477,7 @@ $I->dontSeeElement('input', ['value' => '123456']);
 * `param string` $uri
 * `return void`
 
-Checks that the current URI doesn't contain the given string.
+Checks that the current URI (path) doesn't contain the given string.
 
 {% highlight php %}
 
@@ -978,14 +974,12 @@ $I->seeCookie('PHPSESSID');
 * `param string` $uri
 * `return void`
 
-Checks that the current URL is equal to the given string.
-
-Unlike `seeInCurrentUrl`, this only matches the full URL.
+Checks that the current URL (path) is equal to the given string.
 
 {% highlight php %}
 
 <?php
-// to match root url
+// to match the home page
 $I->seeCurrentUrlEquals('/');
 
 {% endhighlight %}
@@ -996,13 +990,12 @@ $I->seeCurrentUrlEquals('/');
 * `param string` $uri
 * `return void`
 
-Checks that the current URL matches the given regular expression.
+Checks that the current URL (path) matches the given regular expression.
 
 {% highlight php %}
 
 <?php
-// to match root url
-$I->seeCurrentUrlMatches('~^/users/(\d+)~');
+$I->seeCurrentUrlMatches('~^/users/\d+$~');
 
 {% endhighlight %}
 

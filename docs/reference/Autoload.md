@@ -40,7 +40,7 @@ Autoload::addNamespace('app\Codeception', '/path/to/controllers');
 
 {% endhighlight %}
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Util/Autoload.php#L53)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Util/Autoload.php#L57)
 
 #### load()
 
@@ -50,6 +50,6 @@ Autoload::addNamespace('app\Codeception', '/path/to/controllers');
 * `param string` $class
 * `return string|false`
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Util/Autoload.php#L80)
+[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Util/Autoload.php#L75)
 
 <p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Util/Autoload.php">Help us to improve documentation. Edit module reference</a></div>
