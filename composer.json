@@ -39,6 +39,7 @@
   },
   "config": {
     "platform": {
+      "ext-mongodb": "1.21.2",
       "ext-phalcon": "4.1.1"
     },
     "allow-plugins": {
