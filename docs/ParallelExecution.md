@@ -146,9 +146,9 @@ Codeception can organize tests into [groups](https://codeception.com/docs/Advanc
 
 
 ```bash
-tests/functional/LoginCept.php
-tests/functional/AdminCest.php:createUser
-tests/functional/AdminCest.php:deleteUser
+tests/Functional/LoginCept.php
+tests/Functional/AdminCest.php:createUser
+tests/Functional/AdminCest.php:deleteUser
 ```
 
 Tasks from `\Codeception\Task\SplitTestsByGroups` will generate non-intersecting group files.  You can either split your tests by files or by single tests:
@@ -159,7 +159,7 @@ public function parallelSplitTests()
     // Split your tests by files
     $this->taskSplitTestFilesByGroups(5)
         ->projectRoot('.')
-        ->testsFrom('tests/acceptance')
+        ->testsFrom('tests/Acceptance')
         ->groupsTo('tests/Support/Data/paracept_')
         ->run();
 
@@ -167,7 +167,7 @@ public function parallelSplitTests()
     // Split your tests by single tests (alternatively)
     $this->taskSplitTestsByGroups(5)
         ->projectRoot('.')
-        ->testsFrom('tests/acceptance')
+        ->testsFrom('tests/Acceptance')
         ->groupsTo('tests/Support/Data/paracept_')
         ->run();
     */
@@ -207,7 +207,7 @@ Let's try to execute tests from the second group:
 
 
 ```bash
-php vendor/bin/codecept run acceptance -g paracept_2
+php vendor/bin/codecept run Acceptance -g paracept_2
 ```
 
 #### Step 2: Running Tests
@@ -228,7 +228,7 @@ public function parallelRun()
     for ($i = 1; $i <= 5; $i++) {
         $parallel->process(
             $this->taskCodecept() // use built-in Codecept task
-            ->suite('acceptance') // run acceptance tests
+            ->suite('Acceptance') // run acceptance tests
             ->group("paracept_$i") // for all paracept_* groups
             ->xml("tests/_log/result_$i.xml") // save XML results
         );
