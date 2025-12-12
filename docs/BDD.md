@@ -88,7 +88,7 @@ Feature file is written in Gherkin format. Codeception can generate a feature fi
 We will assume that we will use scenarios in feature files for acceptance tests, so feature files to be placed in `acceptance` suite directory:
 
 ```bash
-php vendor/bin/codecept g:feature acceptance checkout
+php vendor/bin/codecept g:feature Acceptance checkout
 ```
 
 Generated template will look like this:
@@ -151,13 +151,13 @@ And in the end we are verifying our expectation using **Then** keyword. The acti
 We can test this scenario by executing it in dry-run mode. In this mode test won't be executed (actually, we didn't define any step for it, so it won't be executed in any case).
 
 ```bash
-php vendor/bin/codecept dry-run acceptance checkout.feature
+php vendor/bin/codecept dry-run Acceptance checkout.feature
 ```
 
 ```bash
 checkout: order several products
 Signature: checkout:order several products
-Test: tests/acceptance/checkout.feature:order several products
+Test: tests/Acceptance/checkout.feature:order several products
 Scenario --
  In order to buy product
  As a customer
@@ -181,7 +181,7 @@ Besides the scenario steps listed we got the notification that our steps are not
 We can define them easily by executing `gherkin:snippets` command for the given suite:
 
 ```bash
-php vendor/bin/codecept gherkin:snippets acceptance
+php vendor/bin/codecept gherkin:snippets Acceptance
 ```
 
 This will produce code templates for all undefined steps in all feature files of this suite.
@@ -551,7 +551,7 @@ While Behat is a great tool for Behavior Driven Development, you still may prefe
 If you decided to run your features with Codeception, we recommend to start with symlinking your `features` directory into one of the test suites:
 
 ```bash
-ln -s $PWD/features tests/acceptance
+ln -s $PWD/features tests/Acceptance
 ```
 
 Then you will need to implement all step definitions. Run `gherkin:snippets` to generate stubs for them.

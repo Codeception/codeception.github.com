@@ -105,7 +105,7 @@ Possible settings:
 * `shuffle: true`: Randomize test order
 * `strict_xml: false`: Generate XML JUnit report using strict schema. Avoid putting additional report fields like steps or scenario names to it. Required for XML reports on Jenkins CI
 
-## Suite Configuration: `unit.suite.yml`, `functional.suite.yml` etc.
+## Suite Configuration: `Unit.suite.yml`, `Functional.suite.yml` etc.
 
 Each suite has its own configuration inside the directory set by `paths: tests: ` in `codeception.yml`. Alphabetical list of options:
 
@@ -178,12 +178,12 @@ Default namespace for new tests of this suite (ignores `namespace` option)
 
 To provide the same configuration template for your development team, you can create a `codeception.dist.yml` config file, which will be loaded before `codeception.yml`. The dist config provides shared options, while local `codeception.yml` files override them on a per-installation basis. Therefore, `codeception.yml` should be ignored by your VCS system.
 
-Config templates can also be used for suite configuration, by creating a `suitename.suite.dist.yml` file.
+Config templates can also be used for suite configuration, by creating a `suitename.Suite.dist.yml` file.
 
 Configuration loading order:
 
 1. `codeception.dist.yml`
 2. `codeception.yml`
-3. `acceptance.suite.dist.yml`
-4. `acceptance.suite.yml`
+3. `Acceptance.suite.dist.yml`
+4. `Acceptance.suite.yml`
 5. environment config
