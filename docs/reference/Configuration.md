@@ -48,7 +48,7 @@ modules:
             dsn: ''
             user: ''
             password: ''
-            dump: tests/_data/dump.sql
+            dump: tests/Support/Data/dump.sql
 {% endhighlight %}
 
 ### `namespace`
@@ -65,11 +65,11 @@ Directories used by Codeception. Default values:
 
 {% highlight yaml %}
 paths:
-    tests  : tests          # where the tests stored
-    data   : tests/_data    # directory for fixture data
-    support: tests/_support # directory for support code
-    output : tests/_output  # directory for output
-    envs   : tests/_envs    # directory for environment configuration
+    tests  : tests              # where the tests stored
+    data   : tests/Support/Data # directory for fixture data
+    support: tests/Support      # directory for support code
+    output : tests/_output      # directory for output
+    envs   : tests/_envs        # directory for environment configuration
 {% endhighlight %}
 
 ### `reporters`
