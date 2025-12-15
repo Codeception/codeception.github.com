@@ -9,6 +9,22 @@ title: Codeception Changelog
 
 
 
+### lib-innerbrowser 4.0.8: 4.0.8
+
+Released by [![](https://avatars.githubusercontent.com/u/20659830?v=4&s=16) W0rma](https://github.com/W0rma) on 2025/12/15 13:16:59 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
+
+
+
+## What's Changed
+* Fix PHP 8.5 deprecation warning in https://github.com/Codeception/lib-innerbrowser/pull/81
+* Fix use statements (docs) in https://github.com/Codeception/lib-innerbrowser/pull/83
+* Fix type error for element without form in https://github.com/Codeception/lib-innerbrowser/pull/82
+* Allow symfony 8 in https://github.com/Codeception/lib-innerbrowser/pull/84
+
+
+**Full Changelog**: https://github.com/Codeception/lib-innerbrowser/compare/4.0.7...4.0.8
+
+
 ### module-webdriver 4.0.4: 4.0.4
 
 Released by [![](https://avatars.githubusercontent.com/u/20659830?v=4&s=16) W0rma](https://github.com/W0rma) on 2025/12/08 13:15:00 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
@@ -4527,15 +4543,6 @@ Fixes some compatibility issue with MariaDB https://github.com/Codeception/Codec
 ### module-filesystem 1.0.2: Support symfony/finder 5
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/12/04 17:14:16 / [Repository](https://github.com/Codeception/module-filesystem)   / [Releases](https://github.com/Codeception/module-filesystem/releases)
-
-
-
-
-
-
-### lib-innerbrowser 1.2.3: Symfony 5: catch another exception
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2019/11/26 16:50:50 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
 
 
 
