@@ -9,6 +9,22 @@ title: Codeception Changelog
 
 
 
+### module-redis 3.2.2: 3.2.2
+
+Released by [![](https://avatars.githubusercontent.com/u/20659830?v=4&s=16) W0rma](https://github.com/W0rma) on 2025/12/16 07:40:07 / [Repository](https://github.com/Codeception/module-redis)   / [Releases](https://github.com/Codeception/module-redis/releases)
+
+
+
+## What's Changed
+* Test against PHP 8.5 in https://github.com/Codeception/module-redis/pull/24
+* Allow PRedis version 3 by **[ChrisTitos](https://github.com/ChrisTitos)** in https://github.com/Codeception/module-redis/pull/23
+
+## New Contributors
+* **[ChrisTitos](https://github.com/ChrisTitos)** made their first contribution in https://github.com/Codeception/module-redis/pull/23
+
+**Full Changelog**: https://github.com/Codeception/module-redis/compare/3.2.1...3.2.2
+
+
 ### lib-innerbrowser 4.0.8: 4.0.8
 
 Released by [![](https://avatars.githubusercontent.com/u/20659830?v=4&s=16) W0rma](https://github.com/W0rma) on 2025/12/15 13:16:59 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
