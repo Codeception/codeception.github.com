@@ -9,6 +9,48 @@ title: Codeception Changelog
 
 
 
+### Codeception 5.3.3: 5.3.3
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2025/12/17 15:19:44 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+## What's Changed
+* Fix empty data provider case by **[joester89](https://github.com/joester89)** in https://github.com/Codeception/Codeception/pull/6866
+* Fix Composer `branch-alias` for feature releases 5.3.x by **[llaville](https://github.com/llaville)** in https://github.com/Codeception/Codeception/pull/6879
+* Add guard before deleting directory by **[fabacino](https://github.com/fabacino)** in https://github.com/Codeception/Codeception/pull/6877
+* Remove Reflection*::setAccessible() usage by **[Disservin](https://github.com/Disservin)** in https://github.com/Codeception/Codeception/pull/6869
+* Update RunProcess.php: Removing MailCatcher by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/Codeception/pull/6815
+* update readme links by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/Codeception/pull/6882
+* chore: allow installation of lib-asserts v3 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/Codeception/pull/6887
+* Replace backtick with shell_exec to prevent php8.5 deprecation by **[craig-mcmahon](https://github.com/craig-mcmahon)** in https://github.com/Codeception/Codeception/pull/6892
+* Readme updated: Contribution link fixed by **[Sunsetboy](https://github.com/Sunsetboy)** in https://github.com/Codeception/Codeception/pull/6895
+* Update Cest.php: Minor rewording by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/Codeception/pull/6897
+* Update composer.json: Updating description by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/Codeception/pull/6896
+* Fix test for lib-asserts v3 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/Codeception/pull/6899
+* Avoid declaring nullable parameter implicitly in BuildCest by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/Codeception/pull/6900
+* Add support for never return type in DryRun by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/Codeception/pull/6901
+* Fix ci when using behat/gherkin v4.15 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/Codeception/pull/6902
+* Test against PHP 8.5 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/Codeception/pull/6903
+* CI: fix module-phpbrowser test in experimental build by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/Codeception/pull/6904
+* Bump actions/checkout from 3 to 6 by **[dependabot](https://github.com/dependabot)**[bot] in https://github.com/Codeception/Codeception/pull/6893
+* Remove obsolete version check in tests by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/Codeception/pull/6907
+* Add support for iterable return type in DryRun by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/Codeception/pull/6906
+* Add support for symfony 8 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/Codeception/pull/6898
+* Use upper-cased suite names by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/Codeception/pull/6909
+* Update readme.md: Cleaning up Installation by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/Codeception/pull/6911
+* Update Run.php: Adding `codecept run -g failed` by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/Codeception/pull/6910
+
+## New Contributors
+* **[joester89](https://github.com/joester89)** made their first contribution in https://github.com/Codeception/Codeception/pull/6866
+* **[llaville](https://github.com/llaville)** made their first contribution in https://github.com/Codeception/Codeception/pull/6879
+* **[Disservin](https://github.com/Disservin)** made their first contribution in https://github.com/Codeception/Codeception/pull/6869
+* **[Sunsetboy](https://github.com/Sunsetboy)** made their first contribution in https://github.com/Codeception/Codeception/pull/6895
+* **[dependabot](https://github.com/dependabot)**[bot] made their first contribution in https://github.com/Codeception/Codeception/pull/6893
+
+**Full Changelog**: https://github.com/Codeception/Codeception/compare/5.3.2...5.3.3
+
+
 ### module-redis 3.2.2: 3.2.2
 
 Released by [![](https://avatars.githubusercontent.com/u/20659830?v=4&s=16) W0rma](https://github.com/W0rma) on 2025/12/16 07:40:07 / [Repository](https://github.com/Codeception/module-redis)   / [Releases](https://github.com/Codeception/module-redis/releases)
@@ -2007,16 +2049,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
   * Implemented new setting `convert_deprecations_to_exceptions` ([#6469](https://github.com/Codeception/Codeception/issues/6469))
   * Action file generator: Do not return when return type is never ([#6462](https://github.com/Codeception/Codeception/issues/6462))
   * Execute setupBeforeClass/tearDownAfterClass only once ([#6481](https://github.com/Codeception/Codeception/issues/6481))
-
-
-### Codeception 4.2.1: 4.2.1
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2022/06/22 06:26:08 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Execute setupBeforeClass/tearDownAfterClass only once ([#6481](https://github.com/Codeception/Codeception/issues/6481))
-* Handle action with intersection return type correctly in dry-run command
 
 
 ### module-yii2 1.1.6: 1.1.6

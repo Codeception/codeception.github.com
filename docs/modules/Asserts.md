@@ -25,18 +25,20 @@ Special module for using asserts in your tests.
 
 #### assertArrayHasKey
 
-* `param int|string` $key
-* `param array|\ArrayAccess` $array
+* `param string|int` $key
+* `param \ArrayAccess|array` $array
 * `param string` $message
+* `return void`
 
 Asserts that an array has a specified key.
 
 
 #### assertArrayNotHasKey
 
-* `param int|string` $key
-* `param array|\ArrayAccess` $array
+* `param string|int` $key
+* `param \ArrayAccess|array` $array
 * `param string` $message
+* `return void`
 
 Asserts that an array does not have a specified key.
 
@@ -44,8 +46,9 @@ Asserts that an array does not have a specified key.
 #### assertClassHasAttribute
 
 * `param string` $attributeName
-* `param string` $className
+* `param class-string` $className
 * `param string` $message
+* `return void`
 
 Asserts that a class has a specified attribute.
 
@@ -53,8 +56,9 @@ Asserts that a class has a specified attribute.
 #### assertClassHasStaticAttribute
 
 * `param string` $attributeName
-* `param string` $className
+* `param class-string` $className
 * `param string` $message
+* `return void`
 
 Asserts that a class has a specified static attribute.
 
@@ -62,8 +66,9 @@ Asserts that a class has a specified static attribute.
 #### assertClassNotHasAttribute
 
 * `param string` $attributeName
-* `param string` $className
+* `param class-string` $className
 * `param string` $message
+* `return void`
 
 Asserts that a class does not have a specified attribute.
 
@@ -71,8 +76,9 @@ Asserts that a class does not have a specified attribute.
 #### assertClassNotHasStaticAttribute
 
 * `param string` $attributeName
-* `param string` $className
+* `param class-string` $className
 * `param string` $message
+* `return void`
 
 Asserts that a class does not have a specified static attribute.
 
@@ -80,8 +86,9 @@ Asserts that a class does not have a specified static attribute.
 #### assertContains
 
 * `param mixed` $needle
-* `param iterable` $haystack
+* `param iterable<mixed>` $haystack
 * `param string` $message
+* `return void`
 
 Asserts that a haystack contains a needle.
 
@@ -89,25 +96,28 @@ Asserts that a haystack contains a needle.
 #### assertContainsEquals
 
 * `param mixed` $needle
-* `param iterable` $haystack
+* `param iterable<mixed>` $haystack
 * `param string` $message
+* `return void`
 
 
 #### assertContainsOnly
 
 * `param string` $type
-* `param iterable` $haystack
+* `param iterable<mixed>` $haystack
 * `param ?bool` $isNativeType
 * `param string` $message
+* `return void`
 
 Asserts that a haystack contains only values of a given type.
 
 
 #### assertContainsOnlyInstancesOf
 
-* `param string` $className
-* `param iterable` $haystack
+* `param class-string` $className
+* `param iterable<mixed>` $haystack
 * `param string` $message
+* `return void`
 
 Asserts that a haystack contains only instances of a given class name.
 
@@ -115,8 +125,9 @@ Asserts that a haystack contains only instances of a given class name.
 #### assertCount
 
 * `param int` $expectedCount
-* `param \Countable|iterable` $haystack
+* `param \Countable|iterable<mixed>` $haystack
 * `param string` $message
+* `return void`
 
 Asserts the number of elements of an array, Countable or Traversable.
 
@@ -125,6 +136,7 @@ Asserts the number of elements of an array, Countable or Traversable.
 
 * `param string` $directory
 * `param string` $message
+* `return void`
 
 Asserts that a directory does not exist.
 
@@ -133,6 +145,7 @@ Asserts that a directory does not exist.
 
 * `param string` $directory
 * `param string` $message
+* `return void`
 
 Asserts that a directory exists.
 
@@ -141,6 +154,7 @@ Asserts that a directory exists.
 
 * `param string` $directory
 * `param string` $message
+* `return void`
 
 Asserts that a directory exists and is not readable.
 
@@ -149,6 +163,7 @@ Asserts that a directory exists and is not readable.
 
 * `param string` $directory
 * `param string` $message
+* `return void`
 
 Asserts that a directory exists and is not writable.
 
@@ -157,6 +172,7 @@ Asserts that a directory exists and is not writable.
 
 * `param string` $directory
 * `param string` $message
+* `return void`
 
 Asserts that a directory exists and is readable.
 
@@ -165,6 +181,7 @@ Asserts that a directory exists and is readable.
 
 * `param string` $directory
 * `param string` $message
+* `return void`
 
 Asserts that a directory exists and is writable.
 
@@ -174,6 +191,7 @@ Asserts that a directory exists and is writable.
 * `param string` $pattern
 * `param string` $string
 * `param string` $message
+* `return void`
 
 Asserts that a string does not match a given regular expression.
 
@@ -183,6 +201,7 @@ Asserts that a string does not match a given regular expression.
 * `phpstan-assert` empty $actual
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is empty.
 
@@ -192,6 +211,7 @@ Asserts that a variable is empty.
 * `param mixed` $expected
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that two variables are equal.
 
@@ -201,6 +221,7 @@ Asserts that two variables are equal.
 * `param mixed` $expected
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that two variables are equal (canonicalizing).
 
@@ -210,6 +231,7 @@ Asserts that two variables are equal (canonicalizing).
 * `param mixed` $expected
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that two variables are equal (ignoring case).
 
@@ -220,6 +242,7 @@ Asserts that two variables are equal (ignoring case).
 * `param mixed` $actual
 * `param float` $delta
 * `param string` $message
+* `return void`
 
 Asserts that two variables are equal (with delta).
 
@@ -229,6 +252,7 @@ Asserts that two variables are equal (with delta).
 * `phpstan-assert` false $condition
 * `param mixed` $condition
 * `param string` $message
+* `return void`
 
 Asserts that a condition is false.
 
@@ -237,6 +261,7 @@ Asserts that a condition is false.
 
 * `param string` $filename
 * `param string` $message
+* `return void`
 
 Asserts that a file does not exist.
 
@@ -246,6 +271,7 @@ Asserts that a file does not exist.
 * `param string` $expected
 * `param string` $actual
 * `param string` $message
+* `return void`
 
 Asserts that the contents of one file is equal to the contents of another file.
 
@@ -255,6 +281,7 @@ Asserts that the contents of one file is equal to the contents of another file.
 * `param string` $expected
 * `param string` $actual
 * `param string` $message
+* `return void`
 
 Asserts that the contents of one file is equal to the contents of another file (canonicalizing).
 
@@ -264,6 +291,7 @@ Asserts that the contents of one file is equal to the contents of another file (
 * `param string` $expected
 * `param string` $actual
 * `param string` $message
+* `return void`
 
 Asserts that the contents of one file is equal to the contents of another file (ignoring case).
 
@@ -272,6 +300,7 @@ Asserts that the contents of one file is equal to the contents of another file (
 
 * `param string` $filename
 * `param string` $message
+* `return void`
 
 Asserts that a file exists.
 
@@ -280,6 +309,7 @@ Asserts that a file exists.
 
 * `param string` $file
 * `param string` $message
+* `return void`
 
 Asserts that a file exists and is not readable.
 
@@ -288,6 +318,7 @@ Asserts that a file exists and is not readable.
 
 * `param string` $file
 * `param string` $message
+* `return void`
 
 Asserts that a file exists and is not writable.
 
@@ -296,6 +327,7 @@ Asserts that a file exists and is not writable.
 
 * `param string` $file
 * `param string` $message
+* `return void`
 
 Asserts that a file exists and is readable.
 
@@ -304,6 +336,7 @@ Asserts that a file exists and is readable.
 
 * `param string` $file
 * `param string` $message
+* `return void`
 
 Asserts that a file exists and is writable.
 
@@ -313,6 +346,7 @@ Asserts that a file exists and is writable.
 * `param string` $expected
 * `param string` $actual
 * `param string` $message
+* `return void`
 
 Asserts that the contents of one file is not equal to the contents of another file.
 
@@ -322,6 +356,7 @@ Asserts that the contents of one file is not equal to the contents of another fi
 * `param string` $expected
 * `param string` $actual
 * `param string` $message
+* `return void`
 
 Asserts that the contents of one file is not equal to the contents of another file (canonicalizing).
 
@@ -331,6 +366,7 @@ Asserts that the contents of one file is not equal to the contents of another fi
 * `param string` $expected
 * `param string` $actual
 * `param string` $message
+* `return void`
 
 Asserts that the contents of one file is not equal to the contents of another file (ignoring case).
 
@@ -339,6 +375,7 @@ Asserts that the contents of one file is not equal to the contents of another fi
 
 * `param string` $filename
 * `param string` $message
+* `return void`
 
 Asserts that a file does not exist.
 
@@ -347,6 +384,7 @@ Asserts that a file does not exist.
 
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is finite.
 
@@ -356,6 +394,7 @@ Asserts that a variable is finite.
 * `param mixed` $expected
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a value is greater than or equal to another value.
 
@@ -365,6 +404,7 @@ Asserts that a value is greater than or equal to another value.
 * `param mixed` $expected
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a value is greater than another value.
 
@@ -374,6 +414,7 @@ Asserts that a value is greater than another value.
 * `param mixed` $expected
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a value is greater than or equal to another value.
 
@@ -382,6 +423,7 @@ Asserts that a value is greater than or equal to another value.
 
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is infinite.
 
@@ -393,15 +435,17 @@ Asserts that a variable is infinite.
 * `param class-string<ExpectedType>` $expected
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is of a given type.
 
 
 #### assertIsArray
 
-* `phpstan-assert` array $actual
+* `phpstan-assert` array<mixed> $actual
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is of type array.
 
@@ -411,6 +455,7 @@ Asserts that a variable is of type array.
 * `phpstan-assert` bool $actual
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is of type bool.
 
@@ -420,6 +465,7 @@ Asserts that a variable is of type bool.
 * `phpstan-assert` callable $actual
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is of type callable.
 
@@ -429,6 +475,7 @@ Asserts that a variable is of type callable.
 * `phpstan-assert` resource $actual
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is of type resource and is closed.
 
@@ -437,6 +484,7 @@ Asserts that a variable is of type resource and is closed.
 
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is empty.
 
@@ -446,6 +494,7 @@ Asserts that a variable is empty.
 * `phpstan-assert` float $actual
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is of type float.
 
@@ -455,24 +504,27 @@ Asserts that a variable is of type float.
 * `phpstan-assert` int $actual
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is of type int.
 
 
 #### assertIsIterable
 
-* `phpstan-assert` iterable $actual
+* `phpstan-assert` iterable<mixed> $actual
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is of type iterable.
 
 
 #### assertIsNotArray
 
-* `phpstan-assert` !array $actual
+* `phpstan-assert` !array<mixed> $actual
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is not of type array.
 
@@ -482,6 +534,7 @@ Asserts that a variable is not of type array.
 * `phpstan-assert` !bool $actual
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is not of type bool.
 
@@ -491,6 +544,7 @@ Asserts that a variable is not of type bool.
 * `phpstan-assert` !callable $actual
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is not of type callable.
 
@@ -500,6 +554,7 @@ Asserts that a variable is not of type callable.
 * `phpstan-assert` !resource $actual
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is not of type resource.
 
@@ -509,6 +564,7 @@ Asserts that a variable is not of type resource.
 * `phpstan-assert` !float $actual
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is not of type float.
 
@@ -518,15 +574,17 @@ Asserts that a variable is not of type float.
 * `phpstan-assert` !int $actual
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is not of type int.
 
 
 #### assertIsNotIterable
 
-* `phpstan-assert` !iterable $actual
+* `phpstan-assert` !iterable<mixed> $actual
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is not of type iterable.
 
@@ -536,6 +594,7 @@ Asserts that a variable is not of type iterable.
 * `phpstan-assert` !numeric $actual
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is not of type numeric.
 
@@ -545,6 +604,7 @@ Asserts that a variable is not of type numeric.
 * `phpstan-assert` !object $actual
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is not of type object.
 
@@ -553,6 +613,7 @@ Asserts that a variable is not of type object.
 
 * `param string` $filename
 * `param string` $message
+* `return void`
 
 Asserts that a file/dir exists and is not readable.
 
@@ -562,6 +623,7 @@ Asserts that a file/dir exists and is not readable.
 * `phpstan-assert` !resource $actual
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is not of type resource.
 
@@ -571,6 +633,7 @@ Asserts that a variable is not of type resource.
 * `psalm-assert` !scalar $actual
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is not of type scalar.
 
@@ -580,6 +643,7 @@ Asserts that a variable is not of type scalar.
 * `phpstan-assert` !string $actual
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is not of type string.
 
@@ -588,6 +652,7 @@ Asserts that a variable is not of type string.
 
 * `param string` $filename
 * `param string` $message
+* `return void`
 
 Asserts that a file/dir exists and is not writable.
 
@@ -597,6 +662,7 @@ Asserts that a file/dir exists and is not writable.
 * `phpstan-assert` numeric $actual
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is of type numeric.
 
@@ -606,6 +672,7 @@ Asserts that a variable is of type numeric.
 * `phpstan-assert` object $actual
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is of type object.
 
@@ -614,6 +681,7 @@ Asserts that a variable is of type object.
 
 * `param string` $filename
 * `param string` $message
+* `return void`
 
 Asserts that a file/dir is readable.
 
@@ -623,6 +691,7 @@ Asserts that a file/dir is readable.
 * `phpstan-assert` resource $actual
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is of type resource.
 
@@ -632,6 +701,7 @@ Asserts that a variable is of type resource.
 * `phpstan-assert` scalar $actual
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is of type scalar.
 
@@ -641,6 +711,7 @@ Asserts that a variable is of type scalar.
 * `phpstan-assert` string $actual
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is of type string.
 
@@ -649,6 +720,7 @@ Asserts that a variable is of type string.
 
 * `param string` $filename
 * `param string` $message
+* `return void`
 
 Asserts that a file/dir exists and is writable.
 
@@ -657,6 +729,7 @@ Asserts that a file/dir exists and is writable.
 
 * `param string` $actualJson
 * `param string` $message
+* `return void`
 
 Asserts that a string is a valid JSON string.
 
@@ -666,6 +739,7 @@ Asserts that a string is a valid JSON string.
 * `param string` $expectedFile
 * `param string` $actualFile
 * `param string` $message
+* `return void`
 
 Asserts that two JSON files are equal.
 
@@ -675,6 +749,7 @@ Asserts that two JSON files are equal.
 * `param string` $expectedFile
 * `param string` $actualFile
 * `param string` $message
+* `return void`
 
 Asserts that two JSON files are not equal.
 
@@ -684,6 +759,7 @@ Asserts that two JSON files are not equal.
 * `param string` $expectedFile
 * `param string` $actualJson
 * `param string` $message
+* `return void`
 
 Asserts that the generated JSON encoded object and the content of the given file are equal.
 
@@ -693,6 +769,7 @@ Asserts that the generated JSON encoded object and the content of the given file
 * `param string` $expectedJson
 * `param string` $actualJson
 * `param string` $message
+* `return void`
 
 Asserts that two given JSON encoded objects or arrays are equal.
 
@@ -702,6 +779,7 @@ Asserts that two given JSON encoded objects or arrays are equal.
 * `param string` $expectedFile
 * `param string` $actualJson
 * `param string` $message
+* `return void`
 
 Asserts that the generated JSON encoded object and the content of the given file are not equal.
 
@@ -711,6 +789,7 @@ Asserts that the generated JSON encoded object and the content of the given file
 * `param string` $expectedJson
 * `param string` $actualJson
 * `param string` $message
+* `return void`
 
 Asserts that two given JSON encoded objects or arrays are not equal.
 
@@ -720,6 +799,7 @@ Asserts that two given JSON encoded objects or arrays are not equal.
 * `param mixed` $expected
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a value is smaller than or equal to another value.
 
@@ -729,6 +809,7 @@ Asserts that a value is smaller than or equal to another value.
 * `param mixed` $expected
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a value is smaller than another value.
 
@@ -738,6 +819,7 @@ Asserts that a value is smaller than another value.
 * `param mixed` $expected
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a value is smaller than or equal to another value.
 
@@ -747,6 +829,7 @@ Asserts that a value is smaller than or equal to another value.
 * `param string` $pattern
 * `param string` $string
 * `param string` $message
+* `return void`
 
 Asserts that a string matches a given regular expression.
 
@@ -755,6 +838,7 @@ Asserts that a string matches a given regular expression.
 
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is nan.
 
@@ -762,25 +846,28 @@ Asserts that a variable is nan.
 #### assertNotContains
 
 * `param mixed` $needle
-* `param iterable` $haystack
+* `param iterable<mixed>` $haystack
 * `param string` $message
+* `return void`
 
 Asserts that a haystack does not contain a needle.
 
 
 #### assertNotContainsEquals
 
-* `param ` $needle
-* `param iterable` $haystack
+* `param mixed` $needle
+* `param iterable<mixed>` $haystack
 * `param string` $message
+* `return void`
 
 
 #### assertNotContainsOnly
 
 * `param string` $type
-* `param iterable` $haystack
+* `param iterable<mixed>` $haystack
 * `param ?bool` $isNativeType
 * `param string` $message
+* `return void`
 
 Asserts that a haystack does not contain only values of a given type.
 
@@ -788,8 +875,9 @@ Asserts that a haystack does not contain only values of a given type.
 #### assertNotCount
 
 * `param int` $expectedCount
-* `param \Countable|iterable` $haystack
+* `param \Countable|iterable<mixed>` $haystack
 * `param string` $message
+* `return void`
 
 Asserts the number of elements of an array, Countable or Traversable.
 
@@ -799,6 +887,7 @@ Asserts the number of elements of an array, Countable or Traversable.
 * `phpstan-assert` !empty $actual
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is not empty.
 
@@ -808,6 +897,7 @@ Asserts that a variable is not empty.
 * `param mixed` $expected
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that two variables are not equal.
 
@@ -817,6 +907,7 @@ Asserts that two variables are not equal.
 * `param mixed` $expected
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that two variables are not equal (canonicalizing).
 
@@ -826,6 +917,7 @@ Asserts that two variables are not equal (canonicalizing).
 * `param mixed` $expected
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that two variables are not equal (ignoring case).
 
@@ -836,6 +928,7 @@ Asserts that two variables are not equal (ignoring case).
 * `param mixed` $actual
 * `param float` $delta
 * `param string` $message
+* `return void`
 
 Asserts that two variables are not equal (with delta).
 
@@ -845,6 +938,7 @@ Asserts that two variables are not equal (with delta).
 * `phpstan-assert` !false $condition
 * `param mixed` $condition
 * `param string` $message
+* `return void`
 
 Asserts that a condition is not false.
 
@@ -856,6 +950,7 @@ Asserts that a condition is not false.
 * `param class-string<ExpectedType>` $expected
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is not of a given type.
 
@@ -865,6 +960,7 @@ Asserts that a variable is not of a given type.
 * `phpstan-assert` !null $actual
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is not null.
 
@@ -874,6 +970,7 @@ Asserts that a variable is not null.
 * `param string` $pattern
 * `param string` $string
 * `param string` $message
+* `return void`
 
 Asserts that a string does not match a given regular expression.
 
@@ -883,15 +980,17 @@ Asserts that a string does not match a given regular expression.
 * `param mixed` $expected
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that two variables do not have the same type and value.
 
 
 #### assertNotSameSize
 
-* `param \Countable|iterable` $expected
-* `param \Countable|iterable` $actual
+* `param \Countable|iterable<mixed>` $expected
+* `param \Countable|iterable<mixed>` $actual
 * `param string` $message
+* `return void`
 
 Assert that the size of two arrays (or `Countable` or `Traversable` objects) is not the same.
 
@@ -901,6 +1000,7 @@ Assert that the size of two arrays (or `Countable` or `Traversable` objects) is 
 * `phpstan-assert` !true $condition
 * `param mixed` $condition
 * `param string` $message
+* `return void`
 
 Asserts that a condition is not true.
 
@@ -910,6 +1010,7 @@ Asserts that a condition is not true.
 * `phpstan-assert` null $actual
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that a variable is null.
 
@@ -919,6 +1020,7 @@ Asserts that a variable is null.
 * `param string` $attributeName
 * `param object` $object
 * `param string` $message
+* `return void`
 
 Asserts that an object has a specified attribute.
 
@@ -928,6 +1030,7 @@ Asserts that an object has a specified attribute.
 * `param string` $attributeName
 * `param object` $object
 * `param string` $message
+* `return void`
 
 Asserts that an object does not have a specified attribute.
 
@@ -937,6 +1040,7 @@ Asserts that an object does not have a specified attribute.
 * `param string` $pattern
 * `param string` $string
 * `param string` $message
+* `return void`
 
 Asserts that a string matches a given regular expression.
 
@@ -948,6 +1052,7 @@ Asserts that a string matches a given regular expression.
 * `param ExpectedType` $expected
 * `param mixed` $actual
 * `param string` $message
+* `return void`
 
 Asserts that two variables have the same type and value.
 
@@ -957,9 +1062,10 @@ the same object.
 
 #### assertSameSize
 
-* `param \Countable|iterable` $expected
-* `param \Countable|iterable` $actual
+* `param \Countable|iterable<mixed>` $expected
+* `param \Countable|iterable<mixed>` $actual
 * `param string` $message
+* `return void`
 
 Assert that the size of two arrays (or `Countable` or `Traversable` objects) is the same.
 
@@ -969,6 +1075,7 @@ Assert that the size of two arrays (or `Countable` or `Traversable` objects) is 
 * `param string` $needle
 * `param string` $haystack
 * `param string` $message
+* `return void`
 
 
 #### assertStringContainsStringIgnoringCase
@@ -976,22 +1083,25 @@ Assert that the size of two arrays (or `Countable` or `Traversable` objects) is 
 * `param string` $needle
 * `param string` $haystack
 * `param string` $message
+* `return void`
 
 
 #### assertStringEndsNotWith
 
-* `param string` $suffix
+* `param non-empty-string` $suffix
 * `param string` $string
 * `param string` $message
+* `return void`
 
 Asserts that a string ends not with a given suffix.
 
 
 #### assertStringEndsWith
 
-* `param string` $suffix
+* `param non-empty-string` $suffix
 * `param string` $string
 * `param string` $message
+* `return void`
 
 Asserts that a string ends with a given suffix.
 
@@ -1001,6 +1111,7 @@ Asserts that a string ends with a given suffix.
 * `param string` $expectedFile
 * `param string` $actualString
 * `param string` $message
+* `return void`
 
 Asserts that the contents of a string is equal to the contents of a file.
 
@@ -1010,6 +1121,7 @@ Asserts that the contents of a string is equal to the contents of a file.
 * `param string` $expectedFile
 * `param string` $actualString
 * `param string` $message
+* `return void`
 
 Asserts that the contents of a string is equal to the contents of a file (canonicalizing).
 
@@ -1019,6 +1131,7 @@ Asserts that the contents of a string is equal to the contents of a file (canoni
 * `param string` $expectedFile
 * `param string` $actualString
 * `param string` $message
+* `return void`
 
 Asserts that the contents of a string is equal to the contents of a file (ignoring case).
 
@@ -1028,6 +1141,7 @@ Asserts that the contents of a string is equal to the contents of a file (ignori
 * `param string` $format
 * `param string` $string
 * `param string` $message
+* `return void`
 
 Asserts that a string matches a given format string.
 
@@ -1037,6 +1151,7 @@ Asserts that a string matches a given format string.
 * `param string` $formatFile
 * `param string` $string
 * `param string` $message
+* `return void`
 
 Asserts that a string matches a given format file.
 
@@ -1046,6 +1161,7 @@ Asserts that a string matches a given format file.
 * `param string` $needle
 * `param string` $haystack
 * `param string` $message
+* `return void`
 
 
 #### assertStringNotContainsStringIgnoringCase
@@ -1053,6 +1169,7 @@ Asserts that a string matches a given format file.
 * `param string` $needle
 * `param string` $haystack
 * `param string` $message
+* `return void`
 
 
 #### assertStringNotEqualsFile
@@ -1060,6 +1177,7 @@ Asserts that a string matches a given format file.
 * `param string` $expectedFile
 * `param string` $actualString
 * `param string` $message
+* `return void`
 
 Asserts that the contents of a string is not equal to the contents of a file.
 
@@ -1069,6 +1187,7 @@ Asserts that the contents of a string is not equal to the contents of a file.
 * `param string` $expectedFile
 * `param string` $actualString
 * `param string` $message
+* `return void`
 
 Asserts that the contents of a string is not equal to the contents of a file (canonicalizing).
 
@@ -1078,6 +1197,7 @@ Asserts that the contents of a string is not equal to the contents of a file (ca
 * `param string` $expectedFile
 * `param string` $actualString
 * `param string` $message
+* `return void`
 
 Asserts that the contents of a string is not equal to the contents of a file (ignoring case).
 
@@ -1087,6 +1207,7 @@ Asserts that the contents of a string is not equal to the contents of a file (ig
 * `param string` $format
 * `param string` $string
 * `param string` $message
+* `return void`
 
 Asserts that a string does not match a given format string.
 
@@ -1096,24 +1217,27 @@ Asserts that a string does not match a given format string.
 * `param string` $formatFile
 * `param string` $string
 * `param string` $message
+* `return void`
 
 Asserts that a string does not match a given format string.
 
 
 #### assertStringStartsNotWith
 
-* `param string` $prefix
+* `param non-empty-string` $prefix
 * `param string` $string
 * `param string` $message
+* `return void`
 
 Asserts that a string starts not with a given prefix.
 
 
 #### assertStringStartsWith
 
-* `param string` $prefix
+* `param non-empty-string` $prefix
 * `param string` $string
 * `param string` $message
+* `return void`
 
 Asserts that a string starts with a given prefix.
 
@@ -1123,6 +1247,7 @@ Asserts that a string starts with a given prefix.
 * `param mixed` $value
 * `param \PHPUnit\Framework\Constraint\Constraint` $constraint
 * `param string` $message
+* `return void`
 
 Evaluates a PHPUnit\Framework\Constraint matcher object.
 
@@ -1132,6 +1257,7 @@ Evaluates a PHPUnit\Framework\Constraint matcher object.
 * `param mixed` $value
 * `param \PHPUnit\Framework\Constraint\Constraint` $constraint
 * `param string` $message
+* `return void`
 
 Evaluates a PHPUnit\Framework\Constraint matcher object.
 
@@ -1141,6 +1267,7 @@ Evaluates a PHPUnit\Framework\Constraint matcher object.
 * `phpstan-assert` true $condition
 * `param mixed` $condition
 * `param string` $message
+* `return void`
 
 Asserts that a condition is true.
 
@@ -1150,6 +1277,7 @@ Asserts that a condition is true.
 * `param string` $expectedFile
 * `param string` $actualFile
 * `param string` $message
+* `return void`
 
 Asserts that two XML files are equal.
 
@@ -1159,6 +1287,7 @@ Asserts that two XML files are equal.
 * `param string` $expectedFile
 * `param string` $actualFile
 * `param string` $message
+* `return void`
 
 Asserts that two XML files are not equal.
 
@@ -1168,6 +1297,7 @@ Asserts that two XML files are not equal.
 * `param string` $expectedFile
 * `param \DOMDocument|string` $actualXml
 * `param string` $message
+* `return void`
 
 Asserts that two XML documents are equal.
 
@@ -1177,6 +1307,7 @@ Asserts that two XML documents are equal.
 * `param \DOMDocument|string` $expectedXml
 * `param \DOMDocument|string` $actualXml
 * `param string` $message
+* `return void`
 
 Asserts that two XML documents are equal.
 
@@ -1186,6 +1317,7 @@ Asserts that two XML documents are equal.
 * `param string` $expectedFile
 * `param \DOMDocument|string` $actualXml
 * `param string` $message
+* `return void`
 
 Asserts that two XML documents are not equal.
 
@@ -1195,6 +1327,7 @@ Asserts that two XML documents are not equal.
 * `param \DOMDocument|string` $expectedXml
 * `param \DOMDocument|string` $actualXml
 * `param string` $message
+* `return void`
 
 Asserts that two XML documents are not equal.
 
@@ -1237,6 +1370,7 @@ $I->expectThrowable(new MyError("Don't do bad things"), function() {
 #### fail
 
 * `param string` $message
+* `return never`
 
 Fails a test with the given message.
 
@@ -1244,6 +1378,7 @@ Fails a test with the given message.
 #### markTestIncomplete
 
 * `param string` $message
+* `return never`
 
 Mark the test as incomplete.
 
@@ -1251,6 +1386,7 @@ Mark the test as incomplete.
 #### markTestSkipped
 
 * `param string` $message
+* `return never`
 
 Mark the test as skipped.
 

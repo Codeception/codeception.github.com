@@ -187,7 +187,7 @@ On each execution failed tests are logged and saved into `tests/_output/failed` 
 [See Source](https://github.com/Codeception/Codeception/blob/main/ext/RunProcess.php)
 
 Extension to start and stop processes per suite.
-Can be used to start/stop selenium server, chromedriver, [MailCatcher](https://mailcatcher.me/), etc.
+Can be used to start/stop selenium server, chromedriver, etc.
 Each command is executed only once, at the beginning of the test suite. To execute a command before each test, see [Before/After Attributes](https://codeception.com/docs/AdvancedUsage#BeforeAfter-Attributes).
 
 Can be enabled in suite config:
@@ -213,15 +213,15 @@ extensions:
 
 In the end of a suite all launched processes will be stopped.
 
-To wait for the process to be launched use `sleep` option. In this case you need configuration to be specified as object:
+To wait for the process to be launched use the `sleep` option. In this case you need configuration to be specified as object:
 
 ```yaml
 extensions:
     enabled:
         - Codeception\Extension\RunProcess:
-            0: java -jar ~/selenium-server.jar
-            1: mailcatcher
-            sleep: 5 # wait 5 seconds for processes to boot
+            0: php -S 127.0.0.1:8000 -t tests/data/app
+            1: java -jar ~/selenium-server.jar
+            sleep: 5 # wait 5 seconds for the processes to boot
 ```
 
 HINT: You can use different configurations per environment.
