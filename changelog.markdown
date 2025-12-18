@@ -9,6 +9,23 @@ title: Codeception Changelog
 
 
 
+### module-rest 3.4.2: 3.4.2
+
+Released by [![](https://avatars.githubusercontent.com/u/20659830?v=4&s=16) W0rma](https://github.com/W0rma) on 2025/12/18 12:02:38 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
+
+
+
+## What's Changed
+* Test against PHP 8.5 + drop support for PHP < 8.2 in https://github.com/Codeception/module-rest/pull/117
+* Bump codeception/util-universalframework version to 2 in https://github.com/Codeception/module-rest/pull/118
+* Add support for softcreatr/jsonpath v0.11 by **[npwvestjens](https://github.com/npwvestjens)** in https://github.com/Codeception/module-rest/pull/119
+
+## New Contributors
+* **[npwvestjens](https://github.com/npwvestjens)** made their first contribution in https://github.com/Codeception/module-rest/pull/119
+
+**Full Changelog**: https://github.com/Codeception/module-rest/compare/3.4.1...3.4.2
+
+
 ### Codeception 5.3.3: 5.3.3
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16) TavoNiievez](https://github.com/TavoNiievez) on 2025/12/17 15:19:44 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
@@ -4523,15 +4540,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 ### module-apc 1.0.1: Removed requirement for ext-apc from composer.json
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/01/21 07:45:14 / [Repository](https://github.com/Codeception/module-apc)   / [Releases](https://github.com/Codeception/module-apc/releases)
-
-
-
-
-
-
-### module-rest 1.0.1: Updated flow/jsonpath library to 0.5
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/01/17 16:55:55 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
 
 
 
