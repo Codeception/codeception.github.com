@@ -9,6 +9,21 @@ title: Codeception Changelog
 
 
 
+### module-yii2 v2.0.5: v2.0.5
+
+Released by [![](https://avatars.githubusercontent.com/u/47294?v=4&s=16) samdark](https://github.com/samdark) on 2025/12/18 19:07:02 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
+
+
+
+## What's Changed
+* Fix missing recreateComponents in configureClient() breaks tests after v2 upgrade by **[Eseperio](https://github.com/Eseperio)** in https://github.com/Codeception/module-yii2/pull/143
+
+## New Contributors
+* **[Eseperio](https://github.com/Eseperio)** made their first contribution in https://github.com/Codeception/module-yii2/pull/143
+
+**Full Changelog**: https://github.com/Codeception/module-yii2/compare/v2.0.4...v2.0.5
+
+
 ### module-rest 3.4.2: 3.4.2
 
 Released by [![](https://avatars.githubusercontent.com/u/20659830?v=4&s=16) W0rma](https://github.com/W0rma) on 2025/12/18 12:02:38 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
