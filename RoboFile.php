@@ -12,6 +12,7 @@ class RoboFile extends \Robo\Tasks
     const REPO_BLOB_URL = 'https://github.com/Codeception/Codeception/blob';
     const BRANCH_4x = '4.2';
     const BRANCH_5x = '5.1';
+    const BRANCH_53 = '5.3';
     const BRANCH_MAIN = 'main';
 
     function post()
@@ -413,6 +414,33 @@ EOF;
         file_put_contents($documentationFile, $contents);
     }
 
+    public function buildPhar82()
+    {
+        $ignoredPlatformReqs = array(
+            'ext-apcu',
+            'ext-mongodb',
+            'ext-phalcon',
+        );
+
+        $version    = self::BRANCH_53 . '.' . date('Ymd');
+        $releaseDir = "releases/$version";
+        $this->stopOnFail();
+        $this->taskFilesystemStack()->mkdir('build/82')->run();
+        $this->setCodeceptionVersionTo('^' . self::BRANCH_53, $ignoredPlatformReqs);
+        $this->setPlatformVersionTo('8.2.0', $ignoredPlatformReqs);
+        $buildFile = 'build/82/codecept.phar';
+        $this->buildPhar($buildFile);
+        $this->updateVersionFile($buildFile, 'php82/codecept.version');
+        $versionedFile = "$releaseDir/codecept.phar";
+        $this->taskFilesystemStack()
+            ->stopOnFail()
+            ->mkdir($releaseDir)
+            ->copy($buildFile, $versionedFile)
+            ->remove('php82/codecept.phar')
+            ->symlink("../$versionedFile", 'php82/codecept.phar')
+            ->run();
+    }
+
     public function buildPhar80()
     {
         $version    = self::BRANCH_5x . '.' . date('Ymd');
@@ -524,17 +552,40 @@ EOF;
             ->run();
     }
 
-    private function setPlatformVersionTo($version)
+    public function release82()
     {
-        $this->taskComposerConfig()->workingDir('package')->set('platform.php', $version)->run();
-        $this->taskComposerUpdate()->preferDist()->optimizeAutoloader()->workingDir('package')->run();
+        $version    = self::BRANCH_53 . '.' . date('Ymd');
+        $releaseDir = "releases/$version";
+        $this->updateBuildsPage();
+
+        $this->taskGitStack()
+            ->stopOnFail()
+            ->checkout('-- package/composer.json')
+            ->add('builds.markdown')
+            ->add('php82/codecept.phar')
+            ->add('php82/codecept.version')
+            ->add($releaseDir)
+            ->run();
     }
 
-    private function setCodeceptionVersionTo($version)
+    private function setPlatformVersionTo($version, $ignoredPlatformReqs = array())
     {
-        $this->taskComposerRequire()
-            ->dependency('codeception/codeception', $version)
-            ->workingDir('package')
+        $this->taskComposerConfig()->workingDir('package')->set('platform.php', $version)->run();
+        $composerUpdate = $this->taskComposerUpdate();
+        foreach ($ignoredPlatformReqs as $ignoredPlatformReq) {
+            $composerUpdate->option('--ignore-platform-req', $ignoredPlatformReq);
+        }
+        $composerUpdate->preferDist()->optimizeAutoloader()->workingDir('package')->run();
+    }
+
+    private function setCodeceptionVersionTo($version, $ignoredPlatformReqs = array())
+    {
+        $composerRequire = $this->taskComposerRequire()
+            ->dependency('codeception/codeception', $version);
+        foreach ($ignoredPlatformReqs as $ignoredPlatformReq) {
+            $composerRequire->option('--ignore-platform-req', $ignoredPlatformReq);
+        }
+        $composerRequire->workingDir('package')
             ->run();
     }
 
@@ -696,8 +747,10 @@ EOF;
                     $releaseFile->line("*Requires: PHP 5.4 and higher + CURL*\n");
                 } elseif ($major < 5) {
                     $releaseFile->line("*Requires: PHP 5.6 and higher + CURL*\n");
-                } else {
+                } elseif ($minor < 3) {
                     $releaseFile->line("*Requires: PHP 8.0 and higher + CURL*\n");
+                } else {
+                    $releaseFile->line("*Requires: PHP 8.2 and higher + CURL*\n");
                 }
                 $releaseFile->line("* **[Download Latest $branch Release]($downloadUrl)**");
             }
