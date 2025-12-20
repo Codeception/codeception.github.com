@@ -2,8 +2,8 @@ This directory contains files necessary for building Phar file
 
 Modules excluded from phar file:
 * datafactory
-* doctrine2
-* laravel5
+* doctrine
+* laravel
 * lumen
 * phalcon
 * symfony
@@ -24,6 +24,9 @@ Additional dependency compared with codeception/codecepion:
 4. Build Codeception 5 phar file:
     1. Run `./vendor/bin/robo build:phar80`
     2. Run `./vendor/bin/robo release80`
-5. Commit added files and push
+5. Build Codeception 5.3 phar file
+    1. Run `./vendor/bin/robo build:phar82`
+    2. Run `./vendor/bin/robo release82`
+6. Commit added files and push
 
 Note: it is necessary to delete package/composer.lock and package/vendor between Codeception 4 and 5 builds.
