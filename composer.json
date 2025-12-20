@@ -39,6 +39,7 @@
   },
   "config": {
     "platform": {
+      "ext-apcu": "5.1.28",
       "ext-mongodb": "1.21.2",
       "ext-phalcon": "4.1.1"
     },
