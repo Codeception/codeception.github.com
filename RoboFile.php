@@ -10,7 +10,7 @@ class RoboFile extends \Robo\Tasks
     use DocumentationHelpers;
 
     const REPO_BLOB_URL = 'https://github.com/Codeception/Codeception/blob';
-    const BRANCH_53 = '5.3';
+    const BRANCH_5x = '5.3';
     const BRANCH_MAIN = 'main';
 
     function post()
@@ -420,11 +420,11 @@ EOF;
             'ext-phalcon',
         );
 
-        $version    = self::BRANCH_53 . '.' . date('Ymd');
+        $version    = self::BRANCH_5x . '.' . date('Ymd');
         $releaseDir = "releases/$version";
         $this->stopOnFail();
         $this->taskFilesystemStack()->mkdir('build/82')->run();
-        $this->setCodeceptionVersionTo('^' . self::BRANCH_53, $ignoredPlatformReqs);
+        $this->setCodeceptionVersionTo('^' . self::BRANCH_5x, $ignoredPlatformReqs);
         $this->setPlatformVersionTo('8.2.0', $ignoredPlatformReqs);
         $buildFile = 'build/82/codecept.phar';
         $this->buildPhar($buildFile);
@@ -441,7 +441,7 @@ EOF;
 
     public function release82()
     {
-        $version    = self::BRANCH_53 . '.' . date('Ymd');
+        $version    = self::BRANCH_5x . '.' . date('Ymd');
         $releaseDir = "releases/$version";
         $this->updateBuildsPage();
 
