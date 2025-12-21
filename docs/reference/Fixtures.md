@@ -29,7 +29,7 @@ Fixtures::exists('user1');
 * `param ` $data
 * `return void`
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Util/Fixtures.php#L23)
+[See source](https://github.com/Codeception/Codeception/blob/5.3/src/Codeception/Util/Fixtures.php#L23)
 
 #### cleanup()
 
@@ -39,7 +39,7 @@ Fixtures::exists('user1');
 * `param string` $name
 * `return void`
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Util/Fixtures.php#L37)
+[See source](https://github.com/Codeception/Codeception/blob/5.3/src/Codeception/Util/Fixtures.php#L37)
 
 #### exists()
 
@@ -49,7 +49,7 @@ Fixtures::exists('user1');
 * `param string` $name
 * `return bool`
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Util/Fixtures.php#L47)
+[See source](https://github.com/Codeception/Codeception/blob/5.3/src/Codeception/Util/Fixtures.php#L47)
 
 #### get()
 
@@ -58,6 +58,6 @@ Fixtures::exists('user1');
 
 * `param string` $name
 
-[See source](https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Util/Fixtures.php#L28)
+[See source](https://github.com/Codeception/Codeception/blob/5.3/src/Codeception/Util/Fixtures.php#L28)
 
-<p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/blob/5.1/src/Codeception/Util/Fixtures.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/blob/5.3/src/Codeception/Util/Fixtures.php">Help us to improve documentation. Edit module reference</a></div>
