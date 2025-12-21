@@ -10,8 +10,7 @@ class RoboFile extends \Robo\Tasks
     use DocumentationHelpers;
 
     const REPO_BLOB_URL = 'https://github.com/Codeception/Codeception/blob';
-    const BRANCH_4x = '4.2';
-    const BRANCH_5x = '5.1';
+    const BRANCH_5x = '5.3';
     const BRANCH_MAIN = 'main';
 
     function post()
@@ -413,102 +412,34 @@ EOF;
         file_put_contents($documentationFile, $contents);
     }
 
-    public function buildPhar80()
+    public function buildPhar82()
     {
+        $ignoredPlatformReqs = array(
+            'ext-apcu',
+            'ext-mongodb',
+            'ext-phalcon',
+        );
+
         $version    = self::BRANCH_5x . '.' . date('Ymd');
         $releaseDir = "releases/$version";
         $this->stopOnFail();
-
-        $this->taskFilesystemStack()->mkdir('build/80')->run();
-        $this->setCodeceptionVersionTo('^' . self::BRANCH_5x);
-        $this->setPlatformVersionTo('8.0.2');
-        $buildFile = 'build/80/codecept.phar';
+        $this->taskFilesystemStack()->mkdir('build/82')->run();
+        $this->setCodeceptionVersionTo('^' . self::BRANCH_5x, $ignoredPlatformReqs);
+        $this->setPlatformVersionTo('8.2.0', $ignoredPlatformReqs);
+        $buildFile = 'build/82/codecept.phar';
         $this->buildPhar($buildFile);
-        $this->updateVersionFile($buildFile, 'php80/codecept.version');
+        $this->updateVersionFile($buildFile, 'php82/codecept.version');
         $versionedFile = "$releaseDir/codecept.phar";
         $this->taskFilesystemStack()
             ->stopOnFail()
             ->mkdir($releaseDir)
             ->copy($buildFile, $versionedFile)
-            ->remove('php80/codecept.phar')
-            ->symlink("../$versionedFile", 'php80/codecept.phar')
+            ->remove('php82/codecept.phar')
+            ->symlink("../$versionedFile", 'php82/codecept.phar')
             ->run();
     }
 
-    public function buildPhar72()
-    {
-        $version    = self::BRANCH_4x . '.' . date('Ymd');
-        $releaseDir = "releases/$version";
-        $this->stopOnFail();
-
-        $this->taskFilesystemStack()->mkdir('build/72')->run();
-        $this->setCodeceptionVersionTo('^4.1');
-        $this->setPlatformVersionTo('7.2.0');
-        $this->requireHoaConsole();
-        $buildFile = 'build/72/codecept.phar';
-        $this->buildPhar($buildFile);
-        $this->updateVersionFile($buildFile, 'codecept.version');
-        $versionedFile = "$releaseDir/codecept.phar";
-        $this->taskFilesystemStack()
-            ->stopOnFail()
-            ->mkdir($releaseDir)
-            ->copy($buildFile, $versionedFile)
-            ->remove('codecept.phar')
-            ->symlink($versionedFile, 'codecept.phar')
-            ->run();
-    }
-
-    public function buildPhar56()
-    {
-        $version    = self::BRANCH_4x . '.' . date('Ymd');
-        $releaseDir = "releases/$version";
-        $this->stopOnFail();
-
-        $this->taskFilesystemStack()->mkdir('build/56')->run();
-        $this->setCodeceptionVersionTo('^4.1');
-        $this->setPlatformVersionTo('5.6.4');
-        $this->requireHoaConsole();
-        //filenames must be different, because Phar refuses to build second file with the same name
-        $buildFile = 'build/56/codecept.phar';
-        $this->buildPhar($buildFile);
-        $this->updateVersionFile($buildFile, 'php56/codecept.version');
-        $versionedFile = "$releaseDir/php56/codecept.phar";
-        $this->taskFilesystemStack()
-            ->stopOnFail()
-            ->mkdir("$releaseDir/php56")
-            ->copy($buildFile, $versionedFile)
-            ->remove('php56/codecept.phar')
-            ->symlink("../$versionedFile", 'php56/codecept.phar')
-            ->run();
-    }
-
-    private function requireHoaConsole(): void
-    {
-        $this->taskComposerRequire()
-            ->dependency('hoa/console')
-            ->workingDir('package')
-            ->run();
-    }
-
-    public function release()
-    {
-        $version    = self::BRANCH_4x . '.' . date('Ymd');
-        $releaseDir = "releases/$version";
-        $this->updateBuildsPage();
-
-        $this->taskGitStack()
-            ->stopOnFail()
-            ->checkout('-- package/composer.json')
-            ->add('builds.markdown')
-            ->add('codecept.phar')
-            ->add('codecept.version')
-            ->add('php56/codecept.phar')
-            ->add('php56/codecept.version')
-            ->add($releaseDir)
-            ->run();
-    }
-
-    public function release80()
+    public function release82()
     {
         $version    = self::BRANCH_5x . '.' . date('Ymd');
         $releaseDir = "releases/$version";
@@ -518,23 +449,30 @@ EOF;
             ->stopOnFail()
             ->checkout('-- package/composer.json')
             ->add('builds.markdown')
-            ->add('php80/codecept.phar')
-            ->add('php80/codecept.version')
+            ->add('php82/codecept.phar')
+            ->add('php82/codecept.version')
             ->add($releaseDir)
             ->run();
     }
 
-    private function setPlatformVersionTo($version)
+    private function setPlatformVersionTo($version, $ignoredPlatformReqs = array())
     {
         $this->taskComposerConfig()->workingDir('package')->set('platform.php', $version)->run();
-        $this->taskComposerUpdate()->preferDist()->optimizeAutoloader()->workingDir('package')->run();
+        $composerUpdate = $this->taskComposerUpdate();
+        foreach ($ignoredPlatformReqs as $ignoredPlatformReq) {
+            $composerUpdate->option('--ignore-platform-req', $ignoredPlatformReq);
+        }
+        $composerUpdate->preferDist()->optimizeAutoloader()->workingDir('package')->run();
     }
 
-    private function setCodeceptionVersionTo($version)
+    private function setCodeceptionVersionTo($version, $ignoredPlatformReqs = array())
     {
-        $this->taskComposerRequire()
-            ->dependency('codeception/codeception', $version)
-            ->workingDir('package')
+        $composerRequire = $this->taskComposerRequire()
+            ->dependency('codeception/codeception', $version);
+        foreach ($ignoredPlatformReqs as $ignoredPlatformReq) {
+            $composerRequire->option('--ignore-platform-req', $ignoredPlatformReq);
+        }
+        $composerRequire->workingDir('package')
             ->run();
     }
 
@@ -696,8 +634,10 @@ EOF;
                     $releaseFile->line("*Requires: PHP 5.4 and higher + CURL*\n");
                 } elseif ($major < 5) {
                     $releaseFile->line("*Requires: PHP 5.6 and higher + CURL*\n");
-                } else {
+                } elseif ($minor < 3) {
                     $releaseFile->line("*Requires: PHP 8.0 and higher + CURL*\n");
+                } else {
+                    $releaseFile->line("*Requires: PHP 8.2 and higher + CURL*\n");
                 }
                 $releaseFile->line("* **[Download Latest $branch Release]($downloadUrl)**");
             }
