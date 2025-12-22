@@ -277,7 +277,7 @@ EOF;
     protected function documentApiClass($file, $className, $all = false, $repositoryName = null)
     {
         if ($repositoryName === null) {
-            $repositoryUrl = self::REPO_BLOB_URL . "/" . self::BRANCH_5x;
+            $repositoryUrl = self::REPO_BLOB_URL . "/" . self::BRANCH_MAIN;
         } else {
             $repositoryUrl = 'https://github.com/Codeception/' . $repositoryName . '/blob/master';
         }
