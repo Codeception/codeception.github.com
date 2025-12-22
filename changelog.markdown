@@ -46,7 +46,7 @@ Released by [![](https://avatars.githubusercontent.com/in/15368?v=4&s=16) github
   * `assertContainsOnlyClosedResource()`
   * `assertContainsOnlyScalar()`
   * `assertContainsOnlyString()`
-* drop support for php 8.5 [[#18](https://github.com/Codeception/lib-asserts/issues/18)](https://github.com/Codeception/lib-asserts/pull/18)
+* add support for php 8.5 [[#18](https://github.com/Codeception/lib-asserts/issues/18)](https://github.com/Codeception/lib-asserts/pull/18)
 
 
 
