@@ -9,6 +9,19 @@ title: Codeception Changelog
 
 
 
+### module-rest 3.4.3: 3.4.3
+
+Released by [![](https://avatars.githubusercontent.com/u/20659830?v=4&s=16) W0rma](https://github.com/W0rma) on 2025/12/22 14:15:21 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
+
+
+
+## What's Changed
+* Allow softcreatr/jsonpath v1.0 in https://github.com/Codeception/module-rest/pull/120
+
+
+**Full Changelog**: https://github.com/Codeception/module-rest/compare/3.4.2...3.4.3
+
+
 ### lib-asserts 3.1.0: 3.1.0
 
 Released by [![](https://avatars.githubusercontent.com/in/15368?v=4&s=16) github-actions[bot]](https://github.com/apps/github-actions) on 2025/12/22 08:25:52 / [Repository](https://github.com/Codeception/lib-asserts)   / [Releases](https://github.com/Codeception/lib-asserts/releases)
@@ -4558,15 +4571,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktib
 
 
 
-
-
-### module-rest 1.1.0: Allow to add or remove server parameters
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16) Naktibalda](https://github.com/Naktibalda) on 2020/01/28 08:16:49 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
-
-
-
-[#7](https://github.com/Codeception/module-rest/issues/7) by **[svycka](https://github.com/svycka)** 
 
 
 ### lib-innerbrowser 1.3.0: Allow to add or remove server parameters
