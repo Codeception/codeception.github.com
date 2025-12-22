@@ -35,10 +35,10 @@ and you want to get a single report in JUnit and HTML format. The code coverage 
 If you want to run a specific suite from the application you can execute:
 
 ```bash
-php vendor/bin/codecept run unit -c frontend
+php vendor/bin/codecept run Unit -c frontend
 ```
 
-Where `unit` is the name of suite and the `-c` option specifies the path to the `codeception.yml` configuration file to use.
+Where `Unit` is the name of suite and the `-c` option specifies the path to the `codeception.yml` configuration file to use.
 In this example we will assume that there is `frontend/codeception.yml` configuration file
 and that we will execute the unit tests for only that app.
 
@@ -199,7 +199,7 @@ extensions:
 
 ```
 
-Extensions can also be enabled per suite inside suite configs (like `acceptance.suite.yml`) and for a specific environment.
+Extensions can also be enabled per suite inside suite configs (like `Acceptance.suite.yml`) and for a specific environment.
 
 To enable extension dynamically, execute the `run` command with `--ext` option.
 Provide a class name as a parameter:
@@ -371,7 +371,7 @@ You can pass the `-c` option to any Codeception command (except `bootstrap`), to
 ```
 php vendor/bin/codecept run -c ~/projects/ecommerce/
 php vendor/bin/codecept run -c ~/projects/drupal
-php vendor/bin/codecept generate:cest acceptance CreateArticle -c ~/projects/drupal/
+php vendor/bin/codecept generate:cest Acceptance CreateArticle -c ~/projects/drupal/
 
 ```
 
@@ -393,19 +393,19 @@ Tests for groups can be specified as an array of file names or directories conta
 ```yaml
 groups:
   # add 2 tests to db group
-  db: [tests/unit/PersistTest.php, tests/unit/DataTest.php]
+  db: [tests/Unit/PersistTest.php, tests/Unit/DataTest.php]
 
   # add all tests from a directory to api group
-  api: [tests/functional/api]
+  api: [tests/Functional/api]
 
 ```
 
 A list of tests for the group can be passed from a Group file. It should be defined in plain text with test names on separate lines:
 
 ```
-tests/unit/DbTest.php
-tests/unit/UserTest.php:creat
-tests/unit/UserTest.php:update
+tests/Unit/DbTest.php
+tests/Unit/UserTest.php:creat
+tests/Unit/UserTest.php:update
 
 ```
 A group file can be included by its relative filename:
@@ -542,11 +542,11 @@ You should also specify the path to the `log` directory, where the reports and l
 It is possible to run specific suites from included applications:
 
 * `codecept run` ⬅ Execute all tests from all apps and all suites
-* `codecept run unit` ⬅ Runs unit suite from the current app
-* `codecept run admin::unit` ⬅ Runs unit suite from admin app
-* `codecept run *::unit` ⬅ Runs unit suites from all included apps and NOT the root suite
-* `codecept run unit,*::unit` ⬅ Runs included unit suites AND root unit suite
-* `codecept run functional,*::unit` ⬅ Runs included unit suites and root functional suite
+* `codecept run Unit` ⬅ Runs unit suite from the current app
+* `codecept run admin::Unit` ⬅ Runs unit suite from admin app
+* `codecept run *::Unit` ⬅ Runs unit suites from all included apps and NOT the root suite
+* `codecept run Unit,*::Unit` ⬅ Runs included unit suites AND root unit suite
+* `codecept run Functional,*::Unit` ⬅ Runs included unit suites and root functional suite
 
 
 <div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/Customization.md"><strong>Improve</strong> this guide</a></div>

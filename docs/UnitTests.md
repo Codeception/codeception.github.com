@@ -19,7 +19,7 @@ Create a test using `generate:test` command with a suite and test names as param
 php vendor/bin/codecept generate:test Unit Example
 ```
 
-It creates a new `ExampleTest` file located in the `tests/unit` directory.
+It creates a new `ExampleTest` file located in the `tests/Unit` directory.
 
 As always, you can run the newly created test with this command:
 
@@ -255,7 +255,7 @@ function testSavingUser()
 ```
 
 To enable the database functionality in unit tests, make sure the `Db` module is included
-in the `unit.suite.yml` configuration file.
+in the `Unit.suite.yml` configuration file.
 The database will be cleaned and populated after each test, the same way it happens for acceptance and functional tests.
 If that's not your required behavior, change the settings of the `Db` module for the current suite. See [Db Module](https://codeception.com/docs/modules/Db)
 
