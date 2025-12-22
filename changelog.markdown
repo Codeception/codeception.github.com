@@ -9,6 +9,50 @@ title: Codeception Changelog
 
 
 
+### lib-asserts 3.1.0: 3.1.0
+
+Released by [![](https://avatars.githubusercontent.com/in/15368?v=4&s=16) github-actions[bot]](https://github.com/apps/github-actions) on 2025/12/22 08:25:52 / [Repository](https://github.com/Codeception/lib-asserts)   / [Releases](https://github.com/Codeception/lib-asserts/releases)
+
+
+
+# [3.1.0](https://github.com/Codeception/lib-asserts/compare/3.0.1...3.1.0) (2025-12-22)
+
+
+### Features
+
+* add replacements for deprecated assertContainsOnly() and assertNotContainsOnly() ([[#19](https://github.com/Codeception/lib-asserts/issues/19)](https://github.com/Codeception/lib-asserts/issues/19)) ([8e161f3](https://github.com/Codeception/lib-asserts/commit/8e161f38a71cdf3dc638c5427df21c0f01f12d13))
+  * `assertContainsNotOnlyArray()`
+  * `assertContainsNotOnlyBool()`
+  * `assertContainsNotOnlyCallable()`
+  * `assertContainsNotOnlyFloat()`
+  * `assertContainsNotOnlyInstancesOf()`
+  * `assertContainsNotOnlyInt()`
+  * `assertContainsNotOnlyIterable()`
+  * `assertContainsNotOnlyNumeric()`
+  * `assertContainsNotOnlyObject()`
+  * `assertContainsNotOnlyResource()`
+  * `assertContainsNotOnlyClosedResource()`
+  * `assertContainsNotOnlyScalar()`
+  * `assertContainsNotOnlyString()`
+  * `assertContainsOnlyArray()`
+  * `assertContainsOnlyBool()`
+  * `assertContainsOnlyCallable()`
+  * `assertContainsOnlyFloat()`
+  * `assertContainsOnlyInt()`
+  * `assertContainsOnlyIterable()`
+  * `assertContainsOnlyNumeric()`
+  * `assertContainsOnlyObject()`
+  * `assertContainsOnlyResource()`
+  * `assertContainsOnlyClosedResource()`
+  * `assertContainsOnlyScalar()`
+  * `assertContainsOnlyString()`
+* drop support for php 8.5 [[#18](https://github.com/Codeception/lib-asserts/issues/18)](https://github.com/Codeception/lib-asserts/pull/18)
+
+
+
+
+
+
 ### module-yii2 v2.0.5: v2.0.5
 
 Released by [![](https://avatars.githubusercontent.com/u/47294?v=4&s=16) samdark](https://github.com/samdark) on 2025/12/18 19:07:02 / [Repository](https://github.com/Codeception/module-yii2)   / [Releases](https://github.com/Codeception/module-yii2/releases)
