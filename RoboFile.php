@@ -577,7 +577,7 @@ EOF;
             $repo = $release['repo'] ?? 'Codeception';
             $changelog .= sprintf("\n\n### %s %s: %s\n\n", $repo, $release['tag_name'], $release['name']);
 
-            $changelog .= sprintf("Released by [![](%s) %s](%s) on %s",
+            $changelog .= sprintf('Released by [![](%s){:height="16" width="16"} %s](%s) on %s',
                 $release['author']['avatar_url'] . '&s=16',
                 $release['author']['login'],
                 $release['author']['html_url'],
