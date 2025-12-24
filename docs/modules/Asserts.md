@@ -101,6 +101,105 @@ Asserts that a haystack contains a needle.
 * `return void`
 
 
+#### assertContainsNotOnlyArray
+
+* `param iterable<mixed>` $haystack
+* `param string` $message
+* `return void`
+
+
+#### assertContainsNotOnlyBool
+
+* `param iterable<mixed>` $haystack
+* `param string` $message
+* `return void`
+
+
+#### assertContainsNotOnlyCallable
+
+* `param iterable<mixed>` $haystack
+* `param string` $message
+* `return void`
+
+
+#### assertContainsNotOnlyClosedResource
+
+* `param iterable<mixed>` $haystack
+* `param string` $message
+* `return void`
+
+
+#### assertContainsNotOnlyFloat
+
+* `param iterable<mixed>` $haystack
+* `param string` $message
+* `return void`
+
+
+#### assertContainsNotOnlyInstancesOf
+
+* `param class-string` $className
+* `param iterable<mixed>` $haystack
+* `param string` $message
+* `return void`
+
+
+#### assertContainsNotOnlyInt
+
+* `param iterable<mixed>` $haystack
+* `param string` $message
+* `return void`
+
+
+#### assertContainsNotOnlyIterable
+
+* `param iterable<mixed>` $haystack
+* `param string` $message
+* `return void`
+
+
+#### assertContainsNotOnlyNull
+
+* `param iterable<mixed>` $haystack
+* `param string` $message
+* `return void`
+
+
+#### assertContainsNotOnlyNumeric
+
+* `param iterable<mixed>` $haystack
+* `param string` $message
+* `return void`
+
+
+#### assertContainsNotOnlyObject
+
+* `param iterable<mixed>` $haystack
+* `param string` $message
+* `return void`
+
+
+#### assertContainsNotOnlyResource
+
+* `param iterable<mixed>` $haystack
+* `param string` $message
+* `return void`
+
+
+#### assertContainsNotOnlyScalar
+
+* `param iterable<mixed>` $haystack
+* `param string` $message
+* `return void`
+
+
+#### assertContainsNotOnlyString
+
+* `param iterable<mixed>` $haystack
+* `param string` $message
+* `return void`
+
+
 #### assertContainsOnly
 
 * `param string` $type
@@ -112,6 +211,41 @@ Asserts that a haystack contains a needle.
 Asserts that a haystack contains only values of a given type.
 
 
+#### assertContainsOnlyArray
+
+* `param iterable<mixed>` $haystack
+* `param string` $message
+* `return void`
+
+
+#### assertContainsOnlyBool
+
+* `param iterable<mixed>` $haystack
+* `param string` $message
+* `return void`
+
+
+#### assertContainsOnlyCallable
+
+* `param iterable<mixed>` $haystack
+* `param string` $message
+* `return void`
+
+
+#### assertContainsOnlyClosedResource
+
+* `param iterable<mixed>` $haystack
+* `param string` $message
+* `return void`
+
+
+#### assertContainsOnlyFloat
+
+* `param iterable<mixed>` $haystack
+* `param string` $message
+* `return void`
+
+
 #### assertContainsOnlyInstancesOf
 
 * `param class-string` $className
@@ -120,6 +254,62 @@ Asserts that a haystack contains only values of a given type.
 * `return void`
 
 Asserts that a haystack contains only instances of a given class name.
+
+
+#### assertContainsOnlyInt
+
+* `param iterable<mixed>` $haystack
+* `param string` $message
+* `return void`
+
+
+#### assertContainsOnlyIterable
+
+* `param iterable<mixed>` $haystack
+* `param string` $message
+* `return void`
+
+
+#### assertContainsOnlyNull
+
+* `param iterable<mixed>` $haystack
+* `param string` $message
+* `return void`
+
+
+#### assertContainsOnlyNumeric
+
+* `param iterable<mixed>` $haystack
+* `param string` $message
+* `return void`
+
+
+#### assertContainsOnlyObject
+
+* `param iterable<mixed>` $haystack
+* `param string` $message
+* `return void`
+
+
+#### assertContainsOnlyResource
+
+* `param iterable<mixed>` $haystack
+* `param string` $message
+* `return void`
+
+
+#### assertContainsOnlyScalar
+
+* `param iterable<mixed>` $haystack
+* `param string` $message
+* `return void`
+
+
+#### assertContainsOnlyString
+
+* `param iterable<mixed>` $haystack
+* `param string` $message
+* `return void`
 
 
 #### assertCount

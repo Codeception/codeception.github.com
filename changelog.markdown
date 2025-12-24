@@ -9,6 +9,45 @@ title: Codeception Changelog
 
 
 
+### module-asserts 3.3.0: 3.3.0
+
+Released by [![](https://avatars.githubusercontent.com/u/20659830?v=4&s=16){:height="16" width="16"} W0rma](https://github.com/W0rma) on 2025/12/24 12:38:38 / [Repository](https://github.com/Codeception/module-asserts)   / [Releases](https://github.com/Codeception/module-asserts/releases)
+
+
+
+## What's Changed
+* Test against PHP 8.5 in https://github.com/Codeception/module-asserts/pull/34
+* feat: add replacements for deprecated `assertContainsOnly()` and `assertNotContainsOnly()` + drop support for `lib-asserts` < 3.1 in https://github.com/Codeception/module-asserts/pull/35
+  * `assertContainsNotOnlyArray()`
+  * `assertContainsNotOnlyBool()`
+  * `assertContainsNotOnlyCallable()`
+  * `assertContainsNotOnlyFloat()`
+  * `assertContainsNotOnlyInstancesOf()`
+  * `assertContainsNotOnlyInt()`
+  * `assertContainsNotOnlyIterable()`
+  * `assertContainsNotOnlyNumeric()`
+  * `assertContainsNotOnlyObject()`
+  * `assertContainsNotOnlyResource()`
+  * `assertContainsNotOnlyClosedResource()`
+  * `assertContainsNotOnlyScalar()`
+  * `assertContainsNotOnlyString()`
+  * `assertContainsOnlyArray()`
+  * `assertContainsOnlyBool()`
+  * `assertContainsOnlyCallable()`
+  * `assertContainsOnlyFloat()`
+  * `assertContainsOnlyInt()`
+  * `assertContainsOnlyIterable()`
+  * `assertContainsOnlyNumeric()`
+  * `assertContainsOnlyObject()`
+  * `assertContainsOnlyResource()`
+  * `assertContainsOnlyClosedResource()`
+  * `assertContainsOnlyScalar()`
+  * `assertContainsOnlyString()`
+
+
+**Full Changelog**: https://github.com/Codeception/module-asserts/compare/3.2.1...3.3.0
+
+
 ### module-rest 3.4.3: 3.4.3
 
 Released by [![](https://avatars.githubusercontent.com/u/20659830?v=4&s=16){:height="16" width="16"} W0rma](https://github.com/W0rma) on 2025/12/22 14:15:21 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
