@@ -9,6 +9,23 @@ title: Codeception Changelog
 
 
 
+### module-mongodb 3.1.0: 3.1.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16){:height="16" width="16"} TavoNiievez](https://github.com/TavoNiievez) on 2026/01/09 15:54:01 / [Repository](https://github.com/Codeception/module-mongodb)   / [Releases](https://github.com/Codeception/module-mongodb/releases)
+
+
+
+## What's Changed
+* Fix CI, update PHP support and MongoDB driver by **[pbromb](https://github.com/pbromb)** in https://github.com/Codeception/module-mongodb/pull/18
+* Drop support for PHP 8.0 + 8.1 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/module-mongodb/pull/19
+
+## New Contributors
+* **[pbromb](https://github.com/pbromb)** made their first contribution in https://github.com/Codeception/module-mongodb/pull/18
+* **[W0rma](https://github.com/W0rma)** made their first contribution in https://github.com/Codeception/module-mongodb/pull/19
+
+**Full Changelog**: https://github.com/Codeception/module-mongodb/compare/3.0.0...3.1.0
+
+
 ### module-asserts 3.3.0: 3.3.0
 
 Released by [![](https://avatars.githubusercontent.com/u/20659830?v=4&s=16){:height="16" width="16"} W0rma](https://github.com/W0rma) on 2025/12/24 12:38:38 / [Repository](https://github.com/Codeception/module-asserts)   / [Releases](https://github.com/Codeception/module-asserts/releases)
