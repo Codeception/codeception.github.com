@@ -192,7 +192,7 @@ public function testNotReadyToday()
 There are several ways to execute a bunch of tests. You can run tests from a specific directory:
 
 ```
-php vendor/bin/codecept run tests/acceptance/admin
+php vendor/bin/codecept run tests/Acceptance/admin
 ```
 
 You can execute one (or several) specific groups of tests:

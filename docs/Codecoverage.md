@@ -153,7 +153,7 @@ coverage:
 ### Remote Server
 
 But if you run tests on different server (or your webserver doesn't use code from current directory) a single option `remote` should be added to config.
-For example, let's turn on remote coverage for acceptance suite in `acceptance.suite.yml`:
+For example, let's turn on remote coverage for acceptance suite in `Acceptance.suite.yml`:
 
 
 ```yaml

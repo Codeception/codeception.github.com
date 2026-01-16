@@ -35,7 +35,7 @@ Run them by executing in terminal:
 
 ### Unit Tests
 
-Unit tests are located in `tests/unit` directory and are supposed to contain all kind of unit and integration testing.
+Unit tests are located in `tests/Unit` directory and are supposed to contain all kind of unit and integration testing.
 
 Each test case extends `Codeception\Test\Unit` class, which is standard Codeception format for unit testing. 
  It is pretty hard to develop completely isolated unit tests in Yii, so an application is bootstrapped before each test case. Tests are configured in `tests/unit.suite.yml` file with Yii2 module enabled:
@@ -152,10 +152,10 @@ Yii2 module actions like `amOnPage` or `see` should not be available for testing
 
 From a test perspective acceptance tests do the same as functional tests. They test the user interaction with application but in this case using *real* browser and web server. They are much slower and much more fragile. They should not duplicate functional tests in matter of testing functionality but should be used for testing the UI of your application. If you are unsure which tests should be acceptance and which are functional, write acceptance tests for JavaScript-rich applications, where UI highly depends on a browser processing. You can also use acceptance tests for happy-path scenarios, just to ensure that a real user using a real browser achieve the same results you expect in functional tests.
 
-By default in basic application acceptance tests are disabled (as they require web server, Selenium Server and browser to be running). You can easily enable them by renaming `acceptance.suite.yml.example` to `acceptance.suite.yml`
+By default in basic application acceptance tests are disabled (as they require web server, Selenium Server and browser to be running). You can easily enable them by renaming `Acceptance.suite.yml.example` to `Acceptance.suite.yml`
 
 ```
-mv tests/acceptance.suite.yml.example tests/acceptance.suite.yml
+mv tests/Acceptance.suite.yml.example tests/Acceptance.suite.yml
 ```
 
 Basic template uses `codeception/base` package which doesn't contain `facebook/webdriver` library required to run acceptance tests. Please change `codeception/base` to `codeception/codeception` in `composer.json` and run the update command.
@@ -169,7 +169,7 @@ Then you will need to launch application server in test mode:
 and start a [Selenium Server](https://codeception.com/docs/modules/WebDriver#Local-Testing). For acceptance WebDriver module is used. Please check its reference to learn how to work with it. Unlike Yii2 module it does know nothing about your application, so if you want to use features of Yii like fixtures for acceptance testing, you should check that enable Yii2 module is enabled as well:
 
 ```yml
-# config at tests/acceptance.yml
+# config at tests/Acceptance.yml
 modules:
     enabled:
         - WebDriver:
@@ -186,7 +186,7 @@ As it was said, functional and acceptance tests are similar, so in order to avoi
 Similar as for functional tests it is recommended to use Cest format for acceptance testing:
 
 ```
-./vendor/bin/codecept g:cest acceptance MyNewScenarioCest
+./vendor/bin/codecept g:cest Acceptance MyNewScenarioCest
 ```
 
 <div class="alert alert-warning">
@@ -222,10 +222,10 @@ Create basic test suites
 ./vendor/bin/codecept bootstrap
 ```
 
-Enable module Yii2 for functional tests inside `functional.suite.yml`: 
+Enable module Yii2 for functional tests inside `Functional.suite.yml`: 
 
 ```yml
-# functional.suite.yml
+# Functional.suite.yml
 modules:
     enabled:
         - Yii2:

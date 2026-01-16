@@ -36,7 +36,7 @@ This will create `tests` directory and configuration file `codeception.yml`. Thi
 
 ### Unit Testing
 
-Add Phalcon to your unit test by adding the following to your `unit.suite.yml`:
+Add Phalcon to your unit test by adding the following to your `Unit.suite.yml`:
 ```yaml
 # Codeception Test Suite Configuration
 #
@@ -57,7 +57,7 @@ modules:
 To generate a plain PHPUnit test for class `Users`, run:
 
 ```
-vendor/bin/codecept g:test unit Users
+vendor/bin/codecept g:test Unit Users
 ```
 
 Actions of the Phalcon module will be accessible from `$this->tester` inside a test of `Codeception\Test\Unit`.
@@ -95,7 +95,7 @@ modules:
 
 Then use [Cest](https://codeception.com/docs/07-AdvancedUsage) or Cept to create a test.
 ```
-vendor/bin/codecept g:cest functional Login
+vendor/bin/codecept g:cest Functional Login
 ```
 Then add your test case
 ```php
@@ -138,7 +138,7 @@ class LoginCest
 
 ### Acceptance Testing
 
-Sample configuration of `tests/acceptance.suite.yml`:
+Sample configuration of `tests/Acceptance.suite.yml`:
 
 ```yaml
 class_name: AcceptanceTester
@@ -155,10 +155,10 @@ Browser can be specified as `chrome`, `firefox`, `phantomjs`, or others.
 To create a sample test called, run:
 
 ```
-vendor/bin/codecept g:cest acceptance Login
+vendor/bin/codecept g:cest Acceptance Login
 ```
 
-This will create the file `tests/acceptance/LoginCest.php`. Each method of a class (except `_before` and `_after`) is a test. Tests use `$I` object (instance of `AcceptanceTester` class) to perform actions on a webpage. Methods of `AcceptanceTester` are proxified to corresponding modules, which in current case is `WebDriver`. 
+This will create the file `tests/Acceptance/LoginCest.php`. Each method of a class (except `_before` and `_after`) is a test. Tests use `$I` object (instance of `AcceptanceTester` class) to perform actions on a webpage. Methods of `AcceptanceTester` are proxified to corresponding modules, which in current case is `WebDriver`. 
 
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
@@ -168,7 +168,7 @@ This will create the file `tests/acceptance/LoginCest.php`. Each method of a cla
 To run the tests you will need chrome browser, [selenium server running](https://codeception.com/docs/modules/WebDriver#Selenium). If this requirements met acceptance tests can be executed as
 
 ```
-vendor/bin/codecept run acceptance
+vendor/bin/codecept run Acceptance
 ```
 
 ### BDD
@@ -176,7 +176,7 @@ vendor/bin/codecept run acceptance
 If you prefer to describe application with feature files, Codeception can turn them to acceptance tests. It is recommended to store feature files in `features` directory (like Behat does it) but symlinking it to `tests/acceptance/features` so they can be treated as tests too. 
 
 ```
-ln -s $PWD/features tests/acceptance
+ln -s $PWD/features tests/Acceptance
 ```
 
 Codeception allows to combine tests written in different formats. If you are about to write a regression test it probably should not be described as a product's feature. That's why feature-files are a subset of all acceptance tests, and they are stored in subfolder of `tests/acceptance`. 

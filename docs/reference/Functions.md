@@ -21,4 +21,4 @@ Returns absolute path to the root directory (where `codeception.yml` is located)
 
 #### codecept_data_dir()
 
-Returns absolute path to data directory (`tests/_data`)
+Returns absolute path to data directory (`tests/Support/Data`)

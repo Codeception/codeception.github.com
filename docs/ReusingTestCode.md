@@ -95,7 +95,7 @@ Do not hard-code complex CSS or XPath locators in your tests but rather move the
 Codeception can generate a PageObject class for you with command:
 
 ```
-php vendor/bin/codecept generate:pageobject acceptance Login
+php vendor/bin/codecept generate:pageobject Acceptance Login
 ```
 
 > It is recommended to use page objects for acceptance testing only
@@ -197,17 +197,17 @@ We call such a classes StepObjects.
 Lets create an Admin StepObject with the generator:
 
 ```
-php vendor/bin/codecept generate:stepobject acceptance Admin
+php vendor/bin/codecept generate:stepobject Acceptance Admin
 ```
 
 You can supply optional action names. Enter one at a time, followed by a newline.
 End with an empty line to continue to StepObject creation.
 
 ```
-php vendor/bin/codecept generate:stepobject acceptance Admin
+php vendor/bin/codecept generate:stepobject Acceptance Admin
 Add action to StepObject class (ENTER to exit): loginAsAdmin
 Add action to StepObject class (ENTER to exit):
-StepObject was created in /tests/acceptance/_support/Step/Acceptance/Admin.php
+StepObject was created in /tests/Acceptance/_support/Step/Acceptance/Admin.php
 ```
 
 This will generate a class in `/tests/Support/Step/Acceptance/Admin.php` similar to this:
