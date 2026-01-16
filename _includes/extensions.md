@@ -135,7 +135,7 @@ Dependent processes run sequentially one by one.
 Can be configured in suite config:
 
 ```yaml
-# Acceptance.suite.yml
+# acceptance.suite.yml
 extensions:
     enabled:
         - Codeception\Extension\RunBefore:
