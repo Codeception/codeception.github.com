@@ -9,6 +9,30 @@ title: Codeception Changelog
 
 
 
+### module-phpbrowser 4.0.0: 4.0.0
+
+Released by [![](https://avatars.githubusercontent.com/in/15368?v=4&s=16){:height="16" width="16"} github-actions[bot]](https://github.com/apps/github-actions) on 2026/01/23 13:25:25 / [Repository](https://github.com/Codeception/module-phpbrowser)   / [Releases](https://github.com/Codeception/module-phpbrowser/releases)
+
+
+
+# [4.0.0](https://github.com/Codeception/module-phpbrowser/compare/3.0.2...4.0.0) (2026-01-23)
+
+
+### Features
+
+* allow symfony 8 ([0c65e95](https://github.com/Codeception/module-phpbrowser/commit/0c65e956c1b355d0edb5b4c279265255ac4ac3f6))
+
+
+### BREAKING CHANGES
+
+* The native object return type was added to the doRequest() method of the Guzzle connector.
+That might break code extending from this class.
+
+
+
+
+
+
 ### Codeception 5.3.4: 5.3.4
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16){:height="16" width="16"} TavoNiievez](https://github.com/TavoNiievez) on 2026/01/14 12:07:18 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
