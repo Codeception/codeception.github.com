@@ -3016,9 +3016,9 @@ $form = [
      'checkbox1' => true,
      // ...
 ];
-$I->submitForm('//form[@id=my-form]', string $form, 'submitButton');
+$I->submitForm('//form[@id=my-form]', $form, 'submitButton');
 // $I->amOnPage('/path/to/form-page') may be needed
-$I->seeInFormFields('//form[@id=my-form]', string $form);
+$I->seeInFormFields('//form[@id=my-form]', $form);
 
 {% endhighlight %}
 

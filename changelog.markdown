@@ -9,6 +9,42 @@ title: Codeception Changelog
 
 
 
+### lib-web 2.1.0: 2.1.0
+
+Released by [![](https://avatars.githubusercontent.com/in/15368?v=4&s=16){:height="16" width="16"} github-actions[bot]](https://github.com/apps/github-actions) on 2026/02/06 15:23:02 / [Repository](https://github.com/Codeception/lib-web)   / [Releases](https://github.com/Codeception/lib-web/releases)
+
+
+
+# [2.1.0](https://github.com/Codeception/lib-web/compare/2.0.1...2.1.0) (2026-02-06)
+
+
+### Features
+
+* add support for phpunit 13 ([[#23](https://github.com/Codeception/lib-web/issues/23)](https://github.com/Codeception/lib-web/issues/23)) ([a030a3a](https://github.com/Codeception/lib-web/commit/a030a3a22fc8e856b5957086794ed5403c7992d9))
+
+
+
+
+
+
+### lib-asserts 3.2.0: 3.2.0
+
+Released by [![](https://avatars.githubusercontent.com/in/15368?v=4&s=16){:height="16" width="16"} github-actions[bot]](https://github.com/apps/github-actions) on 2026/02/06 15:20:17 / [Repository](https://github.com/Codeception/lib-asserts)   / [Releases](https://github.com/Codeception/lib-asserts/releases)
+
+
+
+# [3.2.0](https://github.com/Codeception/lib-asserts/compare/3.1.0...3.2.0) (2026-02-06)
+
+
+### Features
+
+* add support for phpunit 13 ([[#20](https://github.com/Codeception/lib-asserts/issues/20)](https://github.com/Codeception/lib-asserts/issues/20)) ([f161e5d](https://github.com/Codeception/lib-asserts/commit/f161e5d3a9e5ae573ca01cfb3b5601ff5303df03))
+
+
+
+
+
+
 ### module-phpbrowser 4.0.0: 4.0.0
 
 Released by [![](https://avatars.githubusercontent.com/in/15368?v=4&s=16){:height="16" width="16"} github-actions[bot]](https://github.com/apps/github-actions) on 2026/01/23 13:25:25 / [Repository](https://github.com/Codeception/module-phpbrowser)   / [Releases](https://github.com/Codeception/module-phpbrowser/releases)
