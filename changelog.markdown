@@ -9,6 +9,60 @@ title: Codeception Changelog
 
 
 
+### module-redis 3.2.3: 3.2.3
+
+Released by [![](https://avatars.githubusercontent.com/u/20659830?v=4&s=16){:height="16" width="16"} W0rma](https://github.com/W0rma) on 2026/02/18 06:48:20 / [Repository](https://github.com/Codeception/module-redis)   / [Releases](https://github.com/Codeception/module-redis/releases)
+
+
+
+## What's Changed
+* Add support for sebastian/comparator v8 in https://github.com/Codeception/module-redis/pull/25
+
+
+**Full Changelog**: https://github.com/Codeception/module-redis/compare/3.2.2...3.2.3
+
+
+### module-webdriver 4.0.5: 4.0.5
+
+Released by [![](https://avatars.githubusercontent.com/u/20659830?v=4&s=16){:height="16" width="16"} W0rma](https://github.com/W0rma) on 2026/02/18 06:32:29 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
+
+
+
+## What's Changed
+* Add support for PHPUnit 13 https://github.com/Codeception/module-webdriver/pull/145
+
+
+**Full Changelog**: https://github.com/Codeception/module-webdriver/compare/4.0.4...4.0.5
+
+
+### lib-innerbrowser 4.1.0: 4.1.0
+
+Released by [![](https://avatars.githubusercontent.com/u/20659830?v=4&s=16){:height="16" width="16"} W0rma](https://github.com/W0rma) on 2026/02/18 06:25:58 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
+
+
+
+## What's Changed
+* chore(deps): add support for phpunit 13 in https://github.com/Codeception/lib-innerbrowser/pull/85
+* chore(ci): remove obsolete workaround for php > 8.5 in https://github.com/Codeception/lib-innerbrowser/pull/86
+
+
+**Full Changelog**: https://github.com/Codeception/lib-innerbrowser/compare/4.0.8...4.1.0
+
+
+### Codeception 5.3.5: 5.3.5
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16){:height="16" width="16"} TavoNiievez](https://github.com/TavoNiievez) on 2026/02/18 06:22:46 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+## What's Changed
+* PHP 8.5: Avoid accessing deprecated $http_response_header by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/Codeception/pull/6924
+* Add support for PHPUnit 13 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/Codeception/pull/6925
+
+
+**Full Changelog**: https://github.com/Codeception/Codeception/compare/5.3.4...5.3.5
+
+
 ### lib-web 2.1.0: 2.1.0
 
 Released by [![](https://avatars.githubusercontent.com/in/15368?v=4&s=16){:height="16" width="16"} github-actions[bot]](https://github.com/apps/github-actions) on 2026/02/06 15:23:02 / [Repository](https://github.com/Codeception/lib-web)   / [Releases](https://github.com/Codeception/lib-web/releases)
@@ -2236,15 +2290,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:heigh
 * Codeception attributes are supported in unit tests
 * Cest format can use data providers from other classes
 
-
-
-### Codeception 5.0.0-RC5: 5.0.0-RC5
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:height="16" width="16"} Naktibalda](https://github.com/Naktibalda) on 2022/06/28 06:42:39 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Substitute invalid UTF-8 characters in debug and step output by **[SamoylenkoSU](https://github.com/SamoylenkoSU)** ([#6483](https://github.com/Codeception/Codeception/issues/6483))
 
 
 ### module-yii2 1.1.6: 1.1.6
@@ -4496,15 +4541,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:heigh
 * Introduced switchToFrame method [#9](https://github.com/Codeception/module-webdriver/issues/9) 
 
 
-### module-webdriver 1.0.8: Suppress UnknownErrorException in _closeSession
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:height="16" width="16"} Naktibalda](https://github.com/Naktibalda) on 2020/04/29 13:52:51 / [Repository](https://github.com/Codeception/module-webdriver)   / [Releases](https://github.com/Codeception/module-webdriver/releases)
-
-
-
-* Suppress UnknownErrorException in _closeSession [#15](https://github.com/Codeception/module-webdriver/issues/15) 
-
-
 ### module-asserts 1.2.1: Require lib-asserts 1.12+
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:height="16" width="16"} Naktibalda](https://github.com/Naktibalda) on 2020/04/20 07:28:56 / [Repository](https://github.com/Codeception/module-asserts)   / [Releases](https://github.com/Codeception/module-asserts/releases)
@@ -4678,15 +4714,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:heigh
 
 
 
-
-
-### lib-innerbrowser 1.3.0: Allow to add or remove server parameters
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:height="16" width="16"} Naktibalda](https://github.com/Naktibalda) on 2020/01/27 09:33:02 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
-
-
-
-* [#5](https://github.com/Codeception/lib-innerbrowser/issues/5) by **[svycka](https://github.com/svycka)**
 
 
 ### module-zf2 1.0.2: Empty request content can't be null
