@@ -97,7 +97,7 @@ Possible settings:
     * PhpStorm: `'phpstorm://open?file=%%file%%&line=%%line%%'`
     * Visual Studio Code: `'vscode://file/%%file%%:%%line%%'`
     * Atom: `'atom://core/open/file?filename=%%file%%&line=%%line%%'`
-* `error_level: E_ALL & ~E_STRICT & ~E_DEPRECATED`: Set the error_reporting level. You can specify either a predefined constant or an integer value, see https://www.php.net/manual/en/function.error-reporting.php and https://www.php.net/manual/en/errorfunc.constants.php
+* `error_level: E_ALL & ~E_DEPRECATED`: Set the error_reporting level. You can specify either a predefined constant or an integer value, see https://www.php.net/manual/en/function.error-reporting.php and https://www.php.net/manual/en/errorfunc.constants.php. For PHP < 8.4 `E_ALL & ~E_STRICT & ~E_DEPRECATED` is used by default.
 * `memory_limit: 1024M`: Tests (especially functional) can take a lot of memory. We set a high limit for them by default.
 * `lint: true`: Enable/disable syntax of test files before loading. For PHP < 7 `exec('php -l')` is used. Disable if you need to speed up tests execution.
 * `log_incomplete_skipped: false`: Log the incomplete and skipped tests into junit report ,see https://phpunit.de/manual/current/en/appendixes.configuration.html Section logging > junit
