@@ -63,6 +63,24 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16){:hei
 **Full Changelog**: https://github.com/Codeception/Codeception/compare/5.3.4...5.3.5
 
 
+### lib-web 2.1.0: 2.1.0
+
+Released by [![](https://avatars.githubusercontent.com/in/15368?v=4&s=16){:height="16" width="16"} github-actions[bot]](https://github.com/apps/github-actions) on 2026/02/06 15:23:02 / [Repository](https://github.com/Codeception/lib-web)   / [Releases](https://github.com/Codeception/lib-web/releases)
+
+
+
+# [2.1.0](https://github.com/Codeception/lib-web/compare/2.0.1...2.1.0) (2026-02-06)
+
+
+### Features
+
+* add support for phpunit 13 ([[#23](https://github.com/Codeception/lib-web/issues/23)](https://github.com/Codeception/lib-web/issues/23)) ([a030a3a](https://github.com/Codeception/lib-web/commit/a030a3a22fc8e856b5957086794ed5403c7992d9))
+
+
+
+
+
+
 ### lib-asserts 3.2.0: 3.2.0
 
 Released by [![](https://avatars.githubusercontent.com/in/15368?v=4&s=16){:height="16" width="16"} github-actions[bot]](https://github.com/apps/github-actions) on 2026/02/06 15:20:17 / [Repository](https://github.com/Codeception/lib-asserts)   / [Releases](https://github.com/Codeception/lib-asserts/releases)
@@ -398,6 +416,21 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16){:hei
 **Full Changelog**: https://github.com/Codeception/module-symfony/compare/3.7.1...3.8.0
 
 
+### lib-web 2.0.1: 2.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16){:height="16" width="16"} TavoNiievez](https://github.com/TavoNiievez) on 2025/11/27 21:15:41 / [Repository](https://github.com/Codeception/lib-web)   / [Releases](https://github.com/Codeception/lib-web/releases)
+
+
+
+## What's Changed
+* Test against PHP 8.5 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/lib-web/pull/19
+* Allow Symfony 8 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/lib-web/pull/20
+* Update Web.php: Added hints that `seeCurrentUrlEquals` etc. are only … by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/lib-web/pull/18
+
+
+**Full Changelog**: https://github.com/Codeception/lib-web/compare/2.0.0...2.0.1
+
+
 ### module-doctrine 3.3.0: 3.3.0
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16){:height="16" width="16"} TavoNiievez](https://github.com/TavoNiievez) on 2025/11/13 08:09:32 / [Repository](https://github.com/Codeception/module-doctrine)   / [Releases](https://github.com/Codeception/module-doctrine/releases)
@@ -492,6 +525,24 @@ Released by [![](https://avatars.githubusercontent.com/in/15368?v=4&s=16){:heigh
 
 
 # [3.0.0](https://github.com/Codeception/lib-asserts/compare/2.2.0...3.0.0) (2025-09-04)
+
+
+
+
+
+
+### lib-web 2.0.0: 2.0.0
+
+Released by [![](https://avatars.githubusercontent.com/in/15368?v=4&s=16){:height="16" width="16"} github-actions[bot]](https://github.com/apps/github-actions) on 2025/09/04 11:39:54 / [Repository](https://github.com/Codeception/lib-web)   / [Releases](https://github.com/Codeception/lib-web/releases)
+
+
+
+# [2.0.0](https://github.com/Codeception/lib-web/compare/1.0.7...2.0.0) (2025-09-04)
+
+
+### Bug Fixes
+
+* **ci:** correct branch name ([f901da6](https://github.com/Codeception/lib-web/commit/f901da66668ddaeb8bb9dd2b1e8b19dd83e96b99))
 
 
 
@@ -884,6 +935,18 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:heigh
 
 * Test against PHP 8.4 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/module-redis/pull/20
 * Support PHPUnit 12 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/module-redis/pull/21
+
+
+### lib-web 1.0.7: 1.0.7
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:height="16" width="16"} Naktibalda](https://github.com/Naktibalda) on 2025/02/23 14:06:56 / [Repository](https://github.com/Codeception/lib-web)   / [Releases](https://github.com/Codeception/lib-web/releases)
+
+
+
+* Declare nullable parameter types explicitly for PHP 8.4 compatibility by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/lib-web/pull/12
+* Test against PHP 8.4 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/lib-web/pull/13
+* Support PHPUnit 12 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/lib-web/pull/14
+
 
 
 ### Codeception 5.2.1: 5.2.1
@@ -1353,6 +1416,17 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:heigh
 * Removed dependency on PHPUnit
 
 
+### lib-web 1.0.6: 1.0.6
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:height="16" width="16"} Naktibalda](https://github.com/Naktibalda) on 2024/02/06 20:50:54 / [Repository](https://github.com/Codeception/lib-web)   / [Releases](https://github.com/Codeception/lib-web/releases)
+
+
+
+* Support PHPUnit 11 by **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/lib-web/pull/11
+* Adding details to `grabAttributeFrom()` by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/lib-web/pull/10
+
+
+
 ### Codeception 5.1.0: 5.1.0
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:height="16" width="16"} Naktibalda](https://github.com/Naktibalda) on 2024/02/04 13:52:44 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
@@ -1371,6 +1445,15 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:heigh
 
 
 * Support PHPUnit 11 by **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/lib-innerbrowser/pull/67
+
+
+### lib-web 1.0.5: 1.0.5
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:height="16" width="16"} Naktibalda](https://github.com/Naktibalda) on 2024/01/13 11:56:59 / [Repository](https://github.com/Codeception/lib-web)   / [Releases](https://github.com/Codeception/lib-web/releases)
+
+
+
+* Fixing Markdown Code Syntax by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/lib-web/pull/9
 
 
 ### module-db 3.1.2: 3.1.2
@@ -1476,6 +1559,15 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:heigh
 * Support symfony/finder v7
 
 
+### lib-web 1.0.4: 1.0.4
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:height="16" width="16"} Naktibalda](https://github.com/Naktibalda) on 2023/12/01 11:38:48 / [Repository](https://github.com/Codeception/lib-web)   / [Releases](https://github.com/Codeception/lib-web/releases)
+
+
+
+* Support Symfony 7 by **[Naktibalda](https://github.com/Naktibalda)** in https://github.com/Codeception/lib-web/pull/8
+
+
 ### module-db 3.1.1: 3.1.1
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:height="16" width="16"} Naktibalda](https://github.com/Naktibalda) on 2023/12/01 11:34:57 / [Repository](https://github.com/Codeception/module-db)   / [Releases](https://github.com/Codeception/module-db/releases)
@@ -1493,6 +1585,16 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:heigh
 
 
 * Support Symfony 7.x by **[pfuhrmann](https://github.com/pfuhrmann)** in https://github.com/Codeception/lib-innerbrowser/pull/66
+
+
+### lib-web 1.0.3: 1.0.3
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:height="16" width="16"} Naktibalda](https://github.com/Naktibalda) on 2023/11/27 06:43:46 / [Repository](https://github.com/Codeception/lib-web)   / [Releases](https://github.com/Codeception/lib-web/releases)
+
+
+
+* Minor: Newer array syntax by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/lib-web/pull/6
+
 
 
 ### lib-innerbrowser 4.0.1: 4.0.1
@@ -1568,6 +1670,15 @@ Released by [![](https://avatars.githubusercontent.com/u/47294?v=4&s=16){:height
 - [#85](https://github.com/Codeception/module-yii2/issues/85): Fix the case for "yii" namespace in phpdoc (@ilyaplot)
 - [#86](https://github.com/Codeception/module-yii2/issues/86): Use correct type declaration for amOnPage method (@erickskrauch)
 - [#88](https://github.com/Codeception/module-yii2/issues/88): Enable object override to InitDbFixture during FixturesStore initialization (@PoohOka)
+
+
+### lib-web 1.0.2: 1.0.2
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:height="16" width="16"} Naktibalda](https://github.com/Naktibalda) on 2023/04/18 20:33:22 / [Repository](https://github.com/Codeception/lib-web)   / [Releases](https://github.com/Codeception/lib-web/releases)
+
+
+
+* Mentioning `<html>` tag requirement by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/lib-web/pull/4
 
 
 ### module-doctrine2 3.0.3: 3.0.3
@@ -2362,6 +2473,15 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:heigh
 * Removed dontSeeCheckboxIsChecked parameter type declaration to permit arrays
 
 
+### lib-web 1.0.1: 1.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:height="16" width="16"} Naktibalda](https://github.com/Naktibalda) on 2022/04/09 08:19:47 / [Repository](https://github.com/Codeception/lib-web)   / [Releases](https://github.com/Codeception/lib-web/releases)
+
+
+
+* Removed dontSeeCheckboxIsChecked parameter type declaration to permit arrays and match seeCheckboxIsChecked
+
+
 ### module-rest 2.0.2: 2.0.2
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:height="16" width="16"} Naktibalda](https://github.com/Naktibalda) on 2022/03/30 05:43:05 / [Repository](https://github.com/Codeception/module-rest)   / [Releases](https://github.com/Codeception/module-rest/releases)
@@ -2477,6 +2597,15 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:heigh
 ### lib-xml 1.0.0: Initial release
 
 Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:height="16" width="16"} Naktibalda](https://github.com/Naktibalda) on 2022/03/11 10:04:52 / [Repository](https://github.com/Codeception/lib-xml)   / [Releases](https://github.com/Codeception/lib-xml/releases)
+
+
+
+
+
+
+### lib-web 1.0.0: Initial release
+
+Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:height="16" width="16"} Naktibalda](https://github.com/Naktibalda) on 2022/03/11 08:38:48 / [Repository](https://github.com/Codeception/lib-web)   / [Releases](https://github.com/Codeception/lib-web/releases)
 
 
 
