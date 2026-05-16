@@ -548,5 +548,15 @@ It is possible to run specific suites from included applications:
 * `codecept run Unit,*::Unit` ⬅ Runs included unit suites AND root unit suite
 * `codecept run Functional,*::Unit` ⬅ Runs included unit suites and root functional suite
 
+Depending if you run just a single file or the entire suite(s), Codeception will inject `App\Tests\Support\UnitTester` or your bundle's
+`MyBundle\Tests\Support\UnitTester` into your `*Test.php` files. This might lead to an error message like:
+
+> [TypeError] Cannot assign MyBundle\Tests\Support\UnitTester to property MyBundle\Tests\Unit\MyTest::$tester of type App\Tests\Support\UnitTester
+
+The simplest way to deal with this is to just add both runners as a union type hint:
+```php
+<?php
+protected \MyBundle\Tests\Support\UnitTester|\App\Tests\Support\UnitTester $tester;
+```
 
 <div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/Customization.md"><strong>Improve</strong> this guide</a></div>
