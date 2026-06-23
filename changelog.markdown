@@ -9,6 +9,19 @@ title: Codeception Changelog
 
 
 
+### module-symfony 3.9.2: 3.9.2
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16){:height="16" width="16"} TavoNiievez](https://github.com/TavoNiievez) on 2026/06/23 05:24:22 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
+
+
+
+## What's Changed
+* Restore InnerBrowser navigation state for Codeception runs by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-symfony/pull/238
+
+
+**Full Changelog**: https://github.com/Codeception/module-symfony/compare/3.9.1...3.9.2
+
+
 ### module-symfony 3.9.1: 3.9.1
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16){:height="16" width="16"} TavoNiievez](https://github.com/TavoNiievez) on 2026/04/14 20:34:41 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
@@ -4173,28 +4186,6 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16){:hei
   * seeFormHasErrors function ([#48](https://github.com/Codeception/module-symfony/issues/48))
 
 * Minor logic fixes ([#51](https://github.com/Codeception/module-symfony/issues/51)), ([#47](https://github.com/Codeception/module-symfony/issues/47)), ([#44](https://github.com/Codeception/module-symfony/issues/44)), ([#41](https://github.com/Codeception/module-symfony/issues/41)) and ([#56](https://github.com/Codeception/module-symfony/issues/56)).
-
-
-### module-symfony 1.3.0: 1.3.0
-
-Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16){:height="16" width="16"} TavoNiievez](https://github.com/TavoNiievez) on 2020/11/16 16:52:18 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
-
-
-
-* New methods by **[TavoNiievez](https://github.com/TavoNiievez)**:
-  * grabRepository ([#27](https://github.com/Codeception/module-symfony/issues/27))
-  * seeUserPasswordDoesNotNeedRehash ([#29](https://github.com/Codeception/module-symfony/issues/29))
-  * grabParameter ([#30](https://github.com/Codeception/module-symfony/issues/30))
-  * submitSymfonyForm ([#32](https://github.com/Codeception/module-symfony/issues/32))
-  * seePageIsAvailable ([#33](https://github.com/Codeception/module-symfony/issues/33))
-  * seePageRedirectsTo ([#33](https://github.com/Codeception/module-symfony/issues/33))
-
-* Supports vlucas/phpdotenv v5 ([#28](https://github.com/Codeception/module-symfony/issues/28))
-* Minor logic fixes ([#35](https://github.com/Codeception/module-symfony/issues/35)), ([#36](https://github.com/Codeception/module-symfony/issues/36)), ([#37](https://github.com/Codeception/module-symfony/issues/37)) and ([#38](https://github.com/Codeception/module-symfony/issues/38))
-
-* Improved documentation of the 'Parts' feature by **[ThomasLandauer](https://github.com/ThomasLandauer)** ([#40](https://github.com/Codeception/module-symfony/issues/40))
-
-* **BC**: Removed support for php 5.6 and Symfony 2.8 ([#39](https://github.com/Codeception/module-symfony/issues/39))
 
 
 ### module-webdriver 1.1.4: Documentation improvements
