@@ -9,6 +9,19 @@ title: Codeception Changelog
 
 
 
+### lib-innerbrowser 4.1.1: 4.1.1
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16){:height="16" width="16"} TavoNiievez](https://github.com/TavoNiievez) on 2026/06/26 22:08:38 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
+
+
+
+## What's Changed
+* Fix moveBack() history pointer + add symmetric moveForward() by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/lib-innerbrowser/pull/87
+
+
+**Full Changelog**: https://github.com/Codeception/lib-innerbrowser/compare/4.1.0...4.1.1
+
+
 ### module-symfony 3.9.2: 3.9.2
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16){:height="16" width="16"} TavoNiievez](https://github.com/TavoNiievez) on 2026/06/23 05:24:22 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
@@ -4633,15 +4646,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:heigh
 
 
 
-
-
-### lib-innerbrowser 1.3.1: PHPUnit9 compatibility
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:height="16" width="16"} Naktibalda](https://github.com/Naktibalda) on 2020/02/20 14:52:13 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
-
-
-
-* proceedSeeInField casts value to string before comparison
 
 
 ### lib-asserts 1.11.0: Support PHPUnit 9

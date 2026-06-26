@@ -239,6 +239,7 @@ public function seeResponseContains($text)
 * `param array` $files
 * `param array` $server
 * `param ?string` $content
+* `param bool` $changeHistory
 * `return void`
 
 Opens a page with arbitrary request parameters.
@@ -1165,6 +1166,14 @@ $I->makeHtmlSnapshot();
 * `return void`
 
 Moves back in history.
+
+
+#### moveForward
+
+* `param int` $numberOfSteps (default value 1)
+* `return void`
+
+Moves forward in history.
 
 
 #### resetCookie
