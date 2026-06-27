@@ -34,7 +34,7 @@ and [HttpKernel Component](https://symfony.com/doc/current/components/http_kerne
 
 ### Config
 
-#### Symfony 5.4, 6.4, 7.4 or 8.0
+#### Symfony 5.4, 6.4, 7.4 or 8.1
 
 * `app_path`: 'src' - Specify custom path to your app dir, where the kernel interface is located.
 * `environment`: 'local' - Environment used for load kernel
@@ -333,6 +333,57 @@ $I->amOnRoute('posts.show', ['id' => 34]);
 {% endhighlight %}
 
 
+#### assertAnySelectorTextContains
+
+* `param string` $selector
+* `param string` $text
+* `param string` $message
+* `return void`
+
+Asserts that at least one element matching the given selector contains the expected text.
+
+{% highlight php %}
+
+<?php
+$I->assertAnySelectorTextContains('.item', 'Available');
+
+{% endhighlight %}
+
+
+#### assertAnySelectorTextNotContains
+
+* `param string` $selector
+* `param string` $text
+* `param string` $message
+* `return void`
+
+Asserts that no element matching the given selector contains the expected text.
+
+{% highlight php %}
+
+<?php
+$I->assertAnySelectorTextNotContains('.item', 'Error');
+
+{% endhighlight %}
+
+
+#### assertAnySelectorTextSame
+
+* `param string` $selector
+* `param string` $text
+* `param string` $message
+* `return void`
+
+Asserts that at least one element matching the given selector has exactly the expected text.
+
+{% highlight php %}
+
+<?php
+$I->assertAnySelectorTextSame('.item', 'In stock');
+
+{% endhighlight %}
+
+
 #### assertBrowserCookieValueSame
 
 * `param string` $name
@@ -368,6 +419,66 @@ This indicates that the cookie was set by any response during the test.
 {% highlight yaml %}
 <?php
 $I->assertBrowserHasCookie('cookie_name');
+
+{% endhighlight %}
+
+
+#### assertBrowserHistoryIsNotOnFirstPage
+
+* `param string` $message
+* `return void`
+
+Asserts that the browser history is not currently on the first page.
+
+{% highlight php %}
+
+<?php
+$I->assertBrowserHistoryIsNotOnFirstPage();
+
+{% endhighlight %}
+
+
+#### assertBrowserHistoryIsNotOnLastPage
+
+* `param string` $message
+* `return void`
+
+Asserts that the browser history is not currently on the last page.
+
+{% highlight php %}
+
+<?php
+$I->assertBrowserHistoryIsNotOnLastPage();
+
+{% endhighlight %}
+
+
+#### assertBrowserHistoryIsOnFirstPage
+
+* `param string` $message
+* `return void`
+
+Asserts that the browser history is currently on the first page.
+
+{% highlight php %}
+
+<?php
+$I->assertBrowserHistoryIsOnFirstPage();
+
+{% endhighlight %}
+
+
+#### assertBrowserHistoryIsOnLastPage
+
+* `param string` $message
+* `return void`
+
+Asserts that the browser history is currently on the last page.
+
+{% highlight php %}
+
+<?php
+$I->assertBrowserHistoryIsOnLastPage();
 
 {% endhighlight %}
 
@@ -428,18 +539,37 @@ $I->assertCheckboxNotChecked('subscribe');
 
 * `param string` $headerName
 * `param string` $expectedValue
-* `param ?\Symfony\Component\Mime\Email` $email
+* `param ?\Symfony\Component\Mime\Message` $email
 * `return void`
 
-Verify that an email contains addresses with a [header](https://datatracker.ietf.org/doc/html/rfc4021)
+Verify that a message contains addresses with a [header](https://datatracker.ietf.org/doc/html/rfc4021)
 `$headerName` and its expected value `$expectedValue`.
 
-If the Email object is not specified, the last email sent is used instead.
+If no Message is specified, the last sent message is used instead.
 
 {% highlight php %}
 
 <?php
 $I->assertEmailAddressContains('To', 'jane_doe@example.com');
+
+{% endhighlight %}
+
+
+#### assertEmailAddressNotContains
+
+* `param string` $headerName
+* `param string` $expectedValue
+* `param ?\Symfony\Component\Mime\Message` $email
+* `return void`
+
+Verify that an email does not contain the given address in the specified header.
+
+If no Message is specified, the last sent message is used instead.
+
+{% highlight php %}
+
+<?php
+$I->assertEmailAddressNotContains('To', 'john_doe@example.com');
 
 {% endhighlight %}
 
@@ -450,9 +580,9 @@ $I->assertEmailAddressContains('To', 'jane_doe@example.com');
 * `param ?\Symfony\Component\Mime\Email` $email
 * `return void`
 
-Verify that an email has sent the specified number `$count` of attachments.
+Verify that an email has the specified number `$count` of attachments.
 
-If the Email object is not specified, the last email sent is used instead.
+If no Email is specified, the last sent email is used instead.
 
 {% highlight php %}
 
@@ -482,12 +612,12 @@ $I->assertEmailCount(2, 'smtp');
 #### assertEmailHasHeader
 
 * `param string` $headerName
-* `param ?\Symfony\Component\Mime\Email` $email
+* `param ?\Symfony\Component\Mime\Message` $email
 * `return void`
 
-Verify that an email has a [header](https://datatracker.ietf.org/doc/html/rfc4021) `$headerName`.
+Verify that a message has a [header](https://datatracker.ietf.org/doc/html/rfc4021) `$headerName`.
 
-If the Email object is not specified, the last email sent is used instead.
+If no Message is specified, the last sent message is used instead.
 
 {% highlight php %}
 
@@ -501,13 +631,13 @@ $I->assertEmailHasHeader('Bcc');
 
 * `param string` $headerName
 * `param string` $expectedValue
-* `param ?\Symfony\Component\Mime\Email` $email
+* `param ?\Symfony\Component\Mime\Message` $email
 * `return void`
 
 Verify that the [header](https://datatracker.ietf.org/doc/html/rfc4021)
-`$headerName` of an email is not the expected one `$expectedValue`.
+`$headerName` of a message is not the expected one `$expectedValue`.
 
-If the Email object is not specified, the last email sent is used instead.
+If no Message is specified, the last sent message is used instead.
 
 {% highlight php %}
 
@@ -521,13 +651,13 @@ $I->assertEmailHeaderNotSame('To', 'john_doe@gmail.com');
 
 * `param string` $headerName
 * `param string` $expectedValue
-* `param ?\Symfony\Component\Mime\Email` $email
+* `param ?\Symfony\Component\Mime\Message` $email
 * `return void`
 
 Verify that the [header](https://datatracker.ietf.org/doc/html/rfc4021)
-`$headerName` of an email is the same as expected `$expectedValue`.
+`$headerName` of a message is the same as expected `$expectedValue`.
 
-If the Email object is not specified, the last email sent is used instead.
+If no Message is specified, the last sent message is used instead.
 
 {% highlight php %}
 
@@ -545,7 +675,7 @@ $I->assertEmailHeaderSame('To', 'jane_doe@gmail.com');
 
 Verify that the HTML body of an email contains `$text`.
 
-If the Email object is not specified, the last email sent is used instead.
+If no Email is specified, the last sent email is used instead.
 
 {% highlight php %}
 
@@ -563,7 +693,7 @@ $I->assertEmailHtmlBodyContains('Successful registration');
 
 Verify that the HTML body of an email does not contain a text `$text`.
 
-If the Email object is not specified, the last email sent is used instead.
+If no Email is specified, the last sent email is used instead.
 
 {% highlight php %}
 
@@ -614,17 +744,53 @@ $I->assertEmailIsQueued($event);
 #### assertEmailNotHasHeader
 
 * `param string` $headerName
-* `param ?\Symfony\Component\Mime\Email` $email
+* `param ?\Symfony\Component\Mime\Message` $email
 * `return void`
 
-Verify that an email does not have a [header](https://datatracker.ietf.org/doc/html/rfc4021) `$headerName`.
+Verify that a message does not have a [header](https://datatracker.ietf.org/doc/html/rfc4021) `$headerName`.
 
-If the Email object is not specified, the last email sent is used instead.
+If no Message is specified, the last sent message is used instead.
 
 {% highlight php %}
 
 <?php
 $I->assertEmailNotHasHeader('Bcc');
+
+{% endhighlight %}
+
+
+#### assertEmailSubjectContains
+
+* `param string` $expectedValue
+* `param ?\Symfony\Component\Mime\Email` $email
+* `return void`
+
+Verify that an email subject contains `$expectedValue`.
+
+If no Email is specified, the last sent email is used instead.
+
+{% highlight php %}
+
+<?php
+$I->assertEmailSubjectContains('Account created successfully');
+
+{% endhighlight %}
+
+
+#### assertEmailSubjectNotContains
+
+* `param string` $expectedValue
+* `param ?\Symfony\Component\Mime\Email` $email
+* `return void`
+
+Verify that an email subject does not contain `$expectedValue`.
+
+If no Email is specified, the last sent email is used instead.
+
+{% highlight php %}
+
+<?php
+$I->assertEmailSubjectNotContains('Password reset');
 
 {% endhighlight %}
 
@@ -637,7 +803,7 @@ $I->assertEmailNotHasHeader('Bcc');
 
 Verify the text body of an email contains a `$text`.
 
-If the Email object is not specified, the last email sent is used instead.
+If no Email is specified, the last sent email is used instead.
 
 {% highlight php %}
 
@@ -655,7 +821,7 @@ $I->assertEmailTextBodyContains('Example text body');
 
 Verify that the text body of an email does not contain a `$text`.
 
-If the Email object is not specified, the last email sent is used instead.
+If no Email is specified, the last sent email is used instead.
 
 {% highlight php %}
 
@@ -669,7 +835,7 @@ $I->assertEmailTextBodyNotContains('My secret text body');
 
 * `param string` $formSelector
 * `param string` $fieldName
-* `param string` $value
+* `param string` $expectedValue
 * `param string` $message
 * `return void`
 
@@ -1247,6 +1413,23 @@ $I->assertRouteSame('profile', ['id' => 123]);
 {% endhighlight %}
 
 
+#### assertSelectorCount
+
+* `param int` $expectedCount
+* `param string` $selector
+* `param string` $message
+* `return void`
+
+Asserts that the given selector matches the expected number of elements.
+
+{% highlight php %}
+
+<?php
+$I->assertSelectorCount(3, '.item');
+
+{% endhighlight %}
+
+
 #### assertSelectorExists
 
 * `param string` $selector
@@ -1739,7 +1922,7 @@ $I->dontSeeInFormFields('#form-id', [
 #### dontSeeInSession
 
 * `param string` $attribute
-* `param mixed` $value
+* `param mixed` $expectedValue
 * `return void`
 
 Assert that a session attribute does not exist, or is not equal to the passed value.
@@ -1792,6 +1975,23 @@ If the second parameter is given, only links with a matching "href" attribute wi
 <?php
 $I->dontSeeLink('Logout'); // I suppose user is not logged in
 $I->dontSeeLink('Checkout now', '/store/cart.php');
+
+{% endhighlight %}
+
+
+#### dontSeeMessageDispatched
+
+* `param class-string` $messageClass
+* `param ?string` $bus
+* `return void`
+
+Asserts no message of the given class was dispatched (optionally on a single bus).
+
+{% highlight php %}
+
+<?php
+$I->dontSeeMessageDispatched(SendWelcomeEmail::class);
+$I->dontSeeMessageDispatched(SendWelcomeEmail::class, 'messenger.bus.default');
 
 {% endhighlight %}
 
@@ -1979,6 +2179,52 @@ $event = $I->getMailerEvent();
 {% endhighlight %}
 
 
+#### getMailerEvents
+
+* `param ?string` $transport
+* `return MessageEvent[]`
+
+Returns all mailer events for the given transport.
+
+{% highlight php %}
+
+<?php
+$events = $I->getMailerEvents();
+
+{% endhighlight %}
+
+
+#### getMailerMessage
+
+* `param int` $index
+* `param ?string` $transport
+* `return ?\Symfony\Component\Mime\RawMessage`
+
+Returns the mailer message at the specified index.
+
+{% highlight php %}
+
+<?php
+$message = $I->getMailerMessage();
+
+{% endhighlight %}
+
+
+#### getMailerMessages
+
+* `param ?string` $transport
+* `return RawMessage[]`
+
+Returns all sent mailer messages for the given transport.
+
+{% highlight php %}
+
+<?php
+$messages = $I->getMailerMessages();
+
+{% endhighlight %}
+
+
 #### getNotifierEvent
 
 * `param int` $index
@@ -2066,6 +2312,24 @@ $count = $I->grabDefinedTranslations();
 {% endhighlight %}
 
 
+#### grabDispatchedMessageClasses
+
+* `param ?string` $bus
+* `return list<class-string>`
+
+Returns the dispatched message class names, in dispatch order (optionally for a single bus).
+
+The profiler stores cloned snapshots, so this yields class names, not the message objects.
+
+{% highlight php %}
+
+<?php
+$classes = $I->grabDispatchedMessageClasses();
+$classes = $I->grabDispatchedMessageClasses('messenger.bus.default');
+
+{% endhighlight %}
+
+
 #### grabFromCurrentUrl
 
 * `param ?string` $uri
@@ -2086,10 +2350,11 @@ $uri = $I->grabFromCurrentUrl();
 
 #### grabLastSentEmail
 
-* `return ?\Symfony\Component\Mime\Email`
+* `return ?\Symfony\Component\Mime\RawMessage`
 
-Returns the last sent email.
+Returns the last sent message or `null` if no message was sent.
 
+The return type is `RawMessage`, which covers both `Email` and `Message` objects.
 The function is based on `\Symfony\Component\Mailer\EventListener\MessageLoggerListener`, which means:
 If your app performs an HTTP redirect after sending the email, you need to suppress it using [stopFollowingRedirects()](#stopFollowingRedirects) first.
 See also: [grabSentEmails()](https://codeception.com/docs/modules/Symfony#grabSentEmails)
@@ -2098,8 +2363,7 @@ See also: [grabSentEmails()](https://codeception.com/docs/modules/Symfony#grabSe
 
 <?php
 $email = $I->grabLastSentEmail();
-$address = $email->getTo()[0];
-$I->assertSame('john_doe@example.com', $address->getAddress());
+$I->assertEmailHasHeader('To', $email);
 
 {% endhighlight %}
 
@@ -2154,7 +2418,8 @@ $aLinks = $I->grabMultiple('a', 'href');
 
 #### grabNumRecords
 
-* `param class-string<object>` $entityClass Fully-qualified entity class name
+* `template` T of object
+* `param class-string<T>` $entityClass Fully-qualified entity class name
 * `param array` $criteria
 * `return int`
 
@@ -2195,8 +2460,9 @@ This only works for explicitly set parameters (just using `bind` for Symfony's d
 
 #### grabRepository
 
-* `param object|class-string` $mixed
-* `return EntityRepository<object>`
+* `template` T of object
+* `param object|class-string<T>` $entityOrClass
+* `return ($entityOrClass` is class-string<T> ? EntityRepository<T> : EntityRepository<object>)
 
 Obtains the Doctrine entity repository {@see EntityRepository}
 for a given entity, repository class or interface.
@@ -2214,7 +2480,7 @@ $I->grabRepository(UserRepositoryInterface::class); // interface
 
 #### grabSentEmails
 
-* `return \Symfony\Component\Mime\RawMessage[]`
+* `return RawMessage[]`
 
 Returns an array of all sent emails.
 
@@ -2694,6 +2960,23 @@ $I->seeDefaultLocaleIs('en');
 {% endhighlight %}
 
 
+#### seeDispatchedMessageCount
+
+* `param int` $expectedCount
+* `param ?string` $bus
+* `return void`
+
+Asserts how many messages were dispatched (optionally on a single bus).
+
+{% highlight php %}
+
+<?php
+$I->seeDispatchedMessageCount(1);
+$I->seeDispatchedMessageCount(2, 'messenger.bus.default');
+
+{% endhighlight %}
+
+
 #### seeElement
 
 * `param ` $selector
@@ -3033,7 +3316,7 @@ $I->seeInFormFields('//form[@id=my-form]', $form);
 #### seeInSession
 
 * `param string` $attribute
-* `param mixed` $value
+* `param mixed` $expectedValue
 * `return void`
 
 Assert that a session attribute exists.
@@ -3097,6 +3380,23 @@ $I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
 {% endhighlight %}
 
 
+#### seeMessageDispatched
+
+* `param class-string` $messageClass
+* `param ?string` $bus
+* `return void`
+
+Asserts at least one message of the given class was dispatched (optionally on a single bus).
+
+{% highlight php %}
+
+<?php
+$I->seeMessageDispatched(SendWelcomeEmail::class);
+$I->seeMessageDispatched(SendWelcomeEmail::class, 'messenger.bus.default');
+
+{% endhighlight %}
+
+
 #### seeMissingTranslationsCountLessThan
 
 * `param int` $limit Maximum count of missing translations
@@ -3132,8 +3432,9 @@ $I->seeNotificationIsSent(2);
 
 #### seeNumRecords
 
+* `template` T of object
 * `param int` $expectedNum Expected count
-* `param class-string<object>` $className Entity class
+* `param class-string<T>` $className Entity class
 * `param array` $criteria
 * `return void`
 

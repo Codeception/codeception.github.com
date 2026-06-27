@@ -9,6 +9,60 @@ title: Codeception Changelog
 
 
 
+### module-symfony 3.10.0: 3.10.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16){:height="16" width="16"} TavoNiievez](https://github.com/TavoNiievez) on 2026/06/27 01:10:38 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
+
+
+
+Minor release featuring two new assertion trait groups, Symfony 8.1 test support, plus DX, performance, and bug fixes. 
+
+## 🚀 New Features
+
+### Messenger Assertions
+Introduced `MessengerAssertionsTrait` for testing dispatched messages ([[#241](https://github.com/Codeception/module-symfony/issues/241)]):
+* `seeMessageDispatched()`
+* `dontSeeMessageDispatched()`
+* `seeDispatchedMessageCount()`
+* `grabDispatchedMessageClasses()`
+
+### Symfony-Inherited Assertions
+Ported directly from Symfony's own test helpers ([[#240](https://github.com/Codeception/module-symfony/issues/240)]):
+
+* **Browser:** `assertBrowserHistoryIsOnFirstPage()`, `assertBrowserHistoryIsNotOnFirstPage()`, `assertBrowserHistoryIsOnLastPage()`, `assertBrowserHistoryIsNotOnLastPage()`
+* **DomCrawler:** `assertSelectorCount()`, `assertAnySelectorTextContains()`, `assertAnySelectorTextSame()`, `assertAnySelectorTextNotContains()`
+* **Mailer:** `getMailerEvents()`, `getMailerMessages()`, `getMailerMessage()`
+* **Mime:** `assertEmailAddressNotContains()`, `assertEmailSubjectContains()`, `assertEmailSubjectNotContains()`
+
+## 🔄 Changed
+
+### Mail/Mime Assertions Refactor
+Assertions now operate on `RawMessage` instead of `Email` to support any sent message type ([[#232](https://github.com/Codeception/module-symfony/issues/232)]):
+* `grabLastSentEmail()` return type widened from `?Email` to `?RawMessage`.
+* `assertEmailAddressContains()`, `assertEmailHasHeader()`, `assertEmailNotHasHeader()`, `assertEmailHeaderSame()`, and `assertEmailHeaderNotSame()` now accept `?Message` instead of `?Email`.
+
+> ⚠️ **Important Runtime Note:**
+> The object returned by `grabLastSentEmail()` remains an `Email` instance at runtime, but its declared type is now the wider `RawMessage`. If your tests rely on `Email`-specific methods (like `->getTo()` or `->getSubject()`), you must explicitly narrow the type using `instanceof Email` or a type cast. Alternatively, migrate to the new `assertEmailSubjectContains()` or header assertions where possible.
+
+### Quality of Life & Performance
+* Improved DX, type safety, and performance across all assertion traits by adding/tightening type hints and reducing redundant operations in hot paths. ([[#235](https://github.com/Codeception/module-symfony/issues/235)], [[#234](https://github.com/Codeception/module-symfony/issues/234)])
+
+## 🐛 Fixed
+
+* **Doctrine:** Fixed missing security context in Doctrine entity listeners after a kernel reboot. ([[#236](https://github.com/Codeception/module-symfony/issues/236)])
+* **Profiler:** Fixed profiler service deprecation by switching to the non-deprecated internal service ID. ([[#237](https://github.com/Codeception/module-symfony/issues/237)])
+
+## 🛠️ Maintenance
+
+* Added **Symfony 8.1** to the test matrix and included `symfony/messenger` as an unchanged dev dependency. ([[#243](https://github.com/Codeception/module-symfony/issues/243)])
+* Applied the 7.4 `reset-formats` patch using GNU patch (fuzz) and pinned `codeception/module-rest` to `^3.4` in the functional suite. ([[#242](https://github.com/Codeception/module-symfony/issues/242)])
+
+## 🤝 New Contributors
+* **@krrico** made their first contribution in https://github.com/Codeception/module-symfony/pull/232
+
+**Full Changelog**: https://github.com/Codeception/module-symfony/compare/3.9.1...3.10.0
+
+
 ### lib-innerbrowser 4.1.1: 4.1.1
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16){:height="16" width="16"} TavoNiievez](https://github.com/TavoNiievez) on 2026/06/26 22:08:38 / [Repository](https://github.com/Codeception/lib-innerbrowser)   / [Releases](https://github.com/Codeception/lib-innerbrowser/releases)
@@ -4185,20 +4239,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:heigh
 
 
 
-
-
-### module-symfony 1.4.0: 1.4.0
-
-Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16){:height="16" width="16"} TavoNiievez](https://github.com/TavoNiievez) on 2020/11/24 16:56:31 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
-
-
-
-* New methods by **[TavoNiievez](https://github.com/TavoNiievez)**:
-  * seeFormErrorMessage ([#50](https://github.com/Codeception/module-symfony/issues/50))
-  * dontSeeFormErrors function ([#49](https://github.com/Codeception/module-symfony/issues/49))
-  * seeFormHasErrors function ([#48](https://github.com/Codeception/module-symfony/issues/48))
-
-* Minor logic fixes ([#51](https://github.com/Codeception/module-symfony/issues/51)), ([#47](https://github.com/Codeception/module-symfony/issues/47)), ([#44](https://github.com/Codeception/module-symfony/issues/44)), ([#41](https://github.com/Codeception/module-symfony/issues/41)) and ([#56](https://github.com/Codeception/module-symfony/issues/56)).
 
 
 ### module-webdriver 1.1.4: Documentation improvements
