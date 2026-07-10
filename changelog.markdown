@@ -9,6 +9,19 @@ title: Codeception Changelog
 
 
 
+### module-symfony 3.10.1: 3.10.1
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16){:height="16" width="16"} TavoNiievez](https://github.com/TavoNiievez) on 2026/07/10 20:20:54 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
+
+
+
+### What's Changed
+* Restore doctrine.connections after kernel shutdown by **[d-mitrofanov-v](https://github.com/d-mitrofanov-v)** in https://github.com/Codeception/module-symfony/pull/244
+
+
+**Full Changelog**: https://github.com/Codeception/module-symfony/compare/3.10.0...3.10.1
+
+
 ### module-symfony 3.10.0: 3.10.0
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16){:height="16" width="16"} TavoNiievez](https://github.com/TavoNiievez) on 2026/06/27 01:10:38 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
@@ -4202,15 +4215,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:heigh
 
 
 
-
-
-### module-symfony 1.4.1: 1.4.1
-
-Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16){:height="16" width="16"} TavoNiievez](https://github.com/TavoNiievez) on 2020/11/25 19:31:47 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
-
-
-
-* Minor logic fixes ([#58](https://github.com/Codeception/module-symfony/issues/58)), ([#59](https://github.com/Codeception/module-symfony/issues/59)), and ([#60](https://github.com/Codeception/module-symfony/issues/60)) by **[TavoNiievez](https://github.com/TavoNiievez)** 
 
 
 ### module-laminas 1.0.0: First release
