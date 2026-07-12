@@ -245,10 +245,10 @@ use Tests\Support\ApiTester;
 class EndpointCest
 {
 
-  #[Examples('/api', 200)]
-  #[Examples('/api/protected', 401)]
-  #[Examples('/api/not-found-url', 404)]
-  #[Examples('/api/faulty', 500)]
+  #[Examples(['/api', 200)]]
+  #[Examples(['/api/protected', 401])]
+  #[Examples(['/api/not-found-url', 404])]
+  #[Examples(['/api/faulty', 500])]
   public function checkEndpoints(ApiTester $I, Example $example)
   {
     $I->sendGet($example[0]);
