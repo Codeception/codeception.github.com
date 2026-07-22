@@ -9,6 +9,21 @@ title: Codeception Changelog
 
 
 
+### lib-web 2.1.1: 2.1.1
+
+Released by [![](https://avatars.githubusercontent.com/u/20659830?v=4&s=16){:height="16" width="16"} W0rma](https://github.com/W0rma) on 2026/07/22 06:35:20 / [Repository](https://github.com/Codeception/lib-web)   / [Releases](https://github.com/Codeception/lib-web/releases)
+
+
+
+## What's Changed
+* chore(deps): allow installation of guzzlehttp/psr7:3 by **[GrahamCampbell](https://github.com/GrahamCampbell)** in https://github.com/Codeception/lib-web/pull/24
+
+## New Contributors
+* **[GrahamCampbell](https://github.com/GrahamCampbell)** made their first contribution in https://github.com/Codeception/lib-web/pull/24
+
+**Full Changelog**: https://github.com/Codeception/lib-web/compare/2.1.0...2.1.1
+
+
 ### module-symfony 3.10.1: 3.10.1
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16){:height="16" width="16"} TavoNiievez](https://github.com/TavoNiievez) on 2026/07/10 20:20:54 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
