@@ -49,7 +49,7 @@ modules:
            url: 'http://localhost' # Internationalized domain names (IDN) need to be passed in punycode
            auth: ['admin', '123345']
            curl:
-               CURLOPT_RETURNTRANSFER: true
+               CURLOPT_TCP_KEEPALIVE: true
            cookies:
                cookie-1:
                    Name: userName

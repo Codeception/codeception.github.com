@@ -9,6 +9,21 @@ title: Codeception Changelog
 
 
 
+### module-phpbrowser 4.1.0: 4.1.0
+
+Released by [![](https://avatars.githubusercontent.com/in/15368?v=4&s=16){:height="16" width="16"} github-actions[bot]](https://github.com/apps/github-actions) on 2026/07/27 06:12:28 / [Repository](https://github.com/Codeception/module-phpbrowser)   / [Releases](https://github.com/Codeception/module-phpbrowser/releases)
+
+
+
+# [4.1.0](https://github.com/Codeception/module-phpbrowser/compare/4.0.0...4.1.0) (2026-07-27)
+
+
+### Features
+
+* add support for Guzzle 8 ([23dba2f](https://github.com/Codeception/module-phpbrowser/commit/23dba2f6e159dfca681b2c5a4186f1d77f316d5a))
+
+
+
 ### lib-web 2.1.1: 2.1.1
 
 Released by [![](https://avatars.githubusercontent.com/u/20659830?v=4&s=16){:height="16" width="16"} W0rma](https://github.com/W0rma) on 2026/07/22 06:35:20 / [Repository](https://github.com/Codeception/lib-web)   / [Releases](https://github.com/Codeception/lib-web/releases)
