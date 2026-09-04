@@ -64,9 +64,12 @@ and [HttpKernel Component](https://symfony.com/doc/current/components/http_kerne
 ### Parts
 
 * `services`: Includes methods related to the Symfony dependency injection container (DIC):
+    * grabContainer
     * grabService
+    * mockService
     * persistService
     * persistPermanentService
+    * unmockService
     * unpersistService
 
 See [WebDriver module](https://codeception.com/docs/modules/WebDriver#Loading-Parts-from-other-Modules)
@@ -531,6 +534,87 @@ Asserts that the checkbox with the given name is not checked.
 
 <?php
 $I->assertCheckboxNotChecked('subscribe');
+
+{% endhighlight %}
+
+
+#### assertCommandFailed
+
+* `param \Symfony\Component\Console\Tester\ExecutionResult` $result
+* `param string` $message
+* `return void`
+
+Asserts that a command run with [`runCommand()`](https://codeception.com/docs/modules/Symfony#runCommand)
+exited with a non-zero (failure) status code.
+
+{% highlight php %}
+
+<?php
+$result = $I->runCommand('app:import-users', ['file' => 'broken.csv']);
+$I->assertCommandFailed($result);
+
+{% endhighlight %}
+
+
+#### assertCommandIsInvalid
+
+* `param \Symfony\Component\Console\Tester\ExecutionResult` $result
+* `param string` $message
+* `return void`
+
+Asserts that a command run with [`runCommand()`](https://codeception.com/docs/modules/Symfony#runCommand)
+exited with the "invalid" status code (`Command::INVALID`, i.e. `2`).
+
+{% highlight php %}
+
+<?php
+$result = $I->runCommand('app:import-users');
+$I->assertCommandIsInvalid($result);
+
+{% endhighlight %}
+
+
+#### assertCommandIsSuccessful
+
+* `param \Symfony\Component\Console\Tester\ExecutionResult` $result
+* `param string` $message
+* `return void`
+
+Asserts that a command run with [`runCommand()`](https://codeception.com/docs/modules/Symfony#runCommand)
+exited successfully (status code `0`).
+
+{% highlight php %}
+
+<?php
+$result = $I->runCommand('app:import-users', ['file' => 'users.csv']);
+$I->assertCommandIsSuccessful($result);
+
+{% endhighlight %}
+
+
+#### assertCommandResultEquals
+
+* `param \Symfony\Component\Console\Tester\ExecutionResult` $result
+* `param ?int` $expectedStatusCode
+* `param ?string` $expectedOutput
+* `param ?string` $expectedErrorOutput
+* `param ?string` $expectedDisplay
+* `param string` $message
+* `return void`
+
+Asserts on the parts of an {@see ExecutionResult} you pass: any of the
+status code, stdout, stderr and the combined display. Arguments left `null`
+are not checked.
+
+{% highlight php %}
+
+<?php
+$result = $I->runCommand('app:import-users', ['file' => 'broken.csv']);
+$I->assertCommandResultEquals(
+    $result,
+    expectedStatusCode: 1,
+    expectedErrorOutput: "Invalid CSV\n",
+);
 
 {% endhighlight %}
 
@@ -1513,6 +1597,38 @@ $I->assertSelectorTextSame('h1', 'Dashboard');
 {% endhighlight %}
 
 
+#### assertSessionHasFlashMessage
+
+* `param string` $messageType
+* `param string|list<string>` $messages
+* `return void`
+
+Asserts that the session has a flash message of the given type, optionally
+checking that it contains at least one of the given messages.
+
+This is a port of Symfony 8.1's `assertSessionHasFlashMessage()`: when one
+or more messages are given, the assertion passes if any of them is present
+in the type's channel. The flash bag is read with `peek()`, so the
+assertion is non-destructive and a later `see()` on the rendered page still
+works.
+
+Because templates consume the flash bag while rendering, the followed
+redirect page drains it before the assertion runs. Call
+[`stopFollowingRedirects()`](https://codeception.com/docs/modules/Symfony#stopFollowingRedirects)
+before the request so the flash survives.
+
+{% highlight php %}
+
+<?php
+$I->stopFollowingRedirects();
+$I->amOnPage('/register'); // an action that adds a flash and redirects
+$I->assertSessionHasFlashMessage('success');
+$I->assertSessionHasFlashMessage('success', 'Your account has been created.');
+$I->assertSessionHasFlashMessage('notice', ['First notice', 'Second notice']);
+
+{% endhighlight %}
+
+
 #### attachFile
 
 * `param ` $field
@@ -1577,6 +1693,30 @@ $I->click('//form/*[@type="submit"]');
 $I->click('Logout', '#nav');
 // using strict locator
 $I->click(['link' => 'Login']);
+
+{% endhighlight %}
+
+
+#### consumeMessengerMessages
+
+* `param string` $transportName
+* `param int` $limit
+* `return void`
+
+Processes messages waiting on an in-memory transport by dispatching them
+back through the message bus to their handlers, then acknowledging them.
+
+Use it to assert side effects that happen during handling (an email is sent,
+a row is written, another message is dispatched).
+
+Requires the bus to be routed to a Symfony in-memory transport
+(`MESSENGER_TRANSPORT_DSN=in-memory://`) in the test environment.
+
+{% highlight php %}
+
+<?php
+$I->consumeMessengerMessages('async');           // process one message
+$I->consumeMessengerMessages('async', limit: 5); // process up to five
 
 {% endhighlight %}
 
@@ -1710,6 +1850,26 @@ Asserts that there are no deprecation messages in Symfony's log.
 <?php
 $I->amOnPage('/home');
 $I->dontSeeDeprecations();
+
+{% endhighlight %}
+
+
+#### dontSeeDuplicateQueries
+
+* `return void`
+
+Asserts that no identical SQL query was executed more than once during the
+last request — a common symptom of an N+1 problem.
+
+Transaction-control statements (`START TRANSACTION`, `COMMIT`, ...) are ignored,
+so legitimately repeated transaction boundaries are not flagged as duplicates.
+
+Reads Doctrine's `db` profiler collector, so it requires `doctrine/doctrine-bundle`.
+
+{% highlight php %}
+
+<?php
+$I->dontSeeDuplicateQueries();
 
 {% endhighlight %}
 
@@ -2111,6 +2271,22 @@ $I->dontSeeResponseCodeIs(\Codeception\Util\HttpCode::OK);
 {% endhighlight %}
 
 
+#### dontSeeUserIsGranted
+
+* `param string` $attribute
+* `param mixed` $subject
+* `return void`
+
+Checks that the current user is not granted an attribute, optionally over a subject.
+
+{% highlight php %}
+
+<?php
+$I->dontSeeUserIsGranted('POST_DELETE', $post);
+
+{% endhighlight %}
+
+
 #### dontSeeViolatedConstraint
 
 * `param object` $subject
@@ -2286,6 +2462,30 @@ $I->grabAttributeFrom('#tooltip', 'title');
 {% endhighlight %}
 
 
+#### grabContainer
+
+* `part` services
+* `return \Symfony\Component\DependencyInjection\ContainerInterface`
+
+Returns the Symfony dependency injection container (DIC).
+
+In the "test" environment this is Symfony's special `test.service_container`,
+so private services are reachable too, unlike
+`$I->grabService('kernel')->getContainer()`, which only ever exposes the public ones.
+
+The container belongs to the kernel that is currently booted, so grab it again after
+a request or a [`rebootClientKernel()`](#rebootClientKernel) instead of keeping it
+in a property.
+
+{% highlight php %}
+
+<?php
+$container = $I->grabContainer();
+$isDebug = $container->getParameter('kernel.debug');
+
+{% endhighlight %}
+
+
 #### grabCookie
 
 * `param string` $cookie
@@ -2326,6 +2526,29 @@ The profiler stores cloned snapshots, so this yields class names, not the messag
 <?php
 $classes = $I->grabDispatchedMessageClasses();
 $classes = $I->grabDispatchedMessageClasses('messenger.bus.default');
+
+{% endhighlight %}
+
+
+#### grabEntityManager
+
+* `return \Doctrine\ORM\EntityManagerInterface`
+
+Returns the Doctrine EntityManager the module is configured to use:
+the `em_service` option, `doctrine.orm.entity_manager` by default.
+
+The manager is resolved from the container on every call, so it always belongs to the
+kernel that is currently booted. Don't keep it in a property across requests:
+[`amOnPage()`](#amOnPage) and friends reboot the kernel, which builds a new manager.
+
+To reach a manager other than the configured one, grab it by service id:
+`$I->grabService('doctrine.orm.other_entity_manager')`.
+
+{% highlight php %}
+
+<?php
+$em = $I->grabEntityManager();
+$user = $em->getRepository(User::class)->findOneBy(['email' => 'john_doe@gmail.com']);
 
 {% endhighlight %}
 
@@ -2383,6 +2606,28 @@ See also: [grabSentNotifications()](https://codeception.com/docs/modules/Symfony
 <?php
 $message = $I->grabLastSentNotification();
 $I->assertSame('Subject', $message->getSubject());
+
+{% endhighlight %}
+
+
+#### grabMessengerTransport
+
+* `param string` $transportName
+* `return \Symfony\Component\Messenger\Transport\InMemory\InMemoryTransport`
+
+Grabs a Symfony in-memory transport so you can inspect the real message
+objects it holds via `getSent()`, `getAcknowledged()` and `getRejected()`.
+
+Unlike the profiler-based assertions, this exposes the actual envelopes
+(with their payload and stamps), not a lossy class-name snapshot.
+
+Requires the bus to be routed to a Symfony in-memory transport
+(`MESSENGER_TRANSPORT_DSN=in-memory://`) in the test environment.
+
+{% highlight php %}
+
+<?php
+$message = $I->grabMessengerTransport('async')->getSent()[0]->getMessage();
 
 {% endhighlight %}
 
@@ -2677,6 +2922,32 @@ $I->makeHtmlSnapshot();
 {% endhighlight %}
 
 
+#### mockService
+
+* `part` services
+* `param non-empty-string` $serviceId
+* `param object` $replacement
+* `return void`
+
+Replaces a service in the container with a test double (mock, stub or fake).
+
+Build the double however you like — Codeception `Stub`, PHPUnit mocks,
+Mockery, or a hand-written fake — then swap it in. The replacement is kept
+as a persistent service, so it survives the kernel reboots that happen
+between requests and stays active for the rest of the test.
+
+Typical uses: stub outbound HTTP, freeze the clock, or replace a collaborator.
+
+{% highlight php %}
+
+<?php
+$I->mockService('http_client', new MockHttpClient($responses));
+$I->mockService(PaymentGateway::class, $this->makeEmpty(PaymentGateway::class));
+$I->mockService('clock', new MockClock('2030-01-01'));
+
+{% endhighlight %}
+
+
 #### moveBack
 
 * `param int` $numberOfSteps (default value 1)
@@ -2743,6 +3014,69 @@ $I->rebootClientKernel();
 Unsets cookie with the given name.
 
 You can set additional cookie params like `domain`, `path` in array passed as last argument.
+
+
+#### resetDoctrineManager
+
+* `param non-empty-string|null` $name Manager name as registered in Doctrine's registry,
+                                   `null` for the default one.
+* `return void`
+
+Resets the Doctrine EntityManager.
+
+Doctrine closes the EntityManager as soon as an exception escapes a `flush()`:
+a unique constraint violation, a deadlock, a failed transaction. Every write after
+that throws `EntityManagerClosed`, which usually surfaces as an unrelated failure
+further down the test. Call this after deliberately provoking such an error to carry
+on with a healthy manager.
+
+If the manager is still open it is only cleared, detaching every managed entity,
+which is handy to prove that the next read really hits the database.
+The open test transaction is preserved either way: the manager is rebuilt,
+the DBAL connection underneath it is not.
+
+{% highlight php %}
+
+<?php
+$I->amOnPage('/register');
+$I->resetDoctrineManager();
+$I->seeNumRecords(1, User::class);
+
+{% endhighlight %}
+
+
+#### runCommand
+
+* `param string` $name
+* `param array` $input
+* `param list<string>` $interactiveInputs Inputs for interactive questions
+* `param ?bool` $interactive
+* `param ?bool` $decorated
+* `param OutputInterface::VERBOSITY_*|null` $verbosity
+* `param array` $normalizers
+* `return \Symfony\Component\Console\Tester\ExecutionResult`
+
+Runs a console command and returns its {@see ExecutionResult}, which exposes
+the exit status code together with stdout, stderr and the combined display as
+separate streams.
+
+Unlike [`runSymfonyConsoleCommand()`](https://codeception.com/docs/modules/Symfony#runSymfonyConsoleCommand),
+which merges stdout and stderr into a single string, this lets you assert on
+the error output in isolation. Pair it with [`assertCommandIsSuccessful()`](https://codeception.com/docs/modules/Symfony#assertCommandIsSuccessful),
+[`assertCommandFailed()`](https://codeception.com/docs/modules/Symfony#assertCommandFailed),
+[`assertCommandIsInvalid()`](https://codeception.com/docs/modules/Symfony#assertCommandIsInvalid)
+or [`assertCommandResultEquals()`](https://codeception.com/docs/modules/Symfony#assertCommandResultEquals).
+
+Requires `symfony/console` 8.1 or higher; on older versions use `runSymfonyConsoleCommand()`.
+
+{% highlight php %}
+
+<?php
+$result = $I->runCommand('app:import-users', ['file' => 'broken.csv']);
+$I->assertCommandFailed($result);
+$I->assertStringContainsString('Invalid CSV', $result->getErrorOutput());
+
+{% endhighlight %}
 
 
 #### runSymfonyConsoleCommand
@@ -2973,6 +3307,25 @@ Asserts how many messages were dispatched (optionally on a single bus).
 <?php
 $I->seeDispatchedMessageCount(1);
 $I->seeDispatchedMessageCount(2, 'messenger.bus.default');
+
+{% endhighlight %}
+
+
+#### seeDoctrineSchemaIsValid
+
+* `return void`
+
+Asserts that the Doctrine mapping is valid and that the database schema is in sync with it.
+
+In-process equivalent of `bin/console doctrine:schema:validate`: it catches mapping mistakes
+and missing migrations before they surface as unrelated failures in other tests.
+
+The entity manager checked is the one configured in the module's `em_service` option.
+
+{% highlight php %}
+
+<?php
+$I->seeDoctrineSchemaIsValid();
 
 {% endhighlight %}
 
@@ -3397,6 +3750,39 @@ $I->seeMessageDispatched(SendWelcomeEmail::class, 'messenger.bus.default');
 {% endhighlight %}
 
 
+#### seeMessengerQueueCount
+
+* `param int` $expectedCount
+* `param string` $transportName
+* `return void`
+
+Asserts how many messages are still waiting on an in-memory transport
+(sent but not yet acknowledged or rejected).
+
+{% highlight php %}
+
+<?php
+$I->seeMessengerQueueCount(1, 'async');
+
+{% endhighlight %}
+
+
+#### seeMessengerTransportContains
+
+* `param class-string` $messageClass
+* `param string` $transportName
+* `return void`
+
+Asserts that a message of the given class is waiting on an in-memory transport.
+
+{% highlight php %}
+
+<?php
+$I->seeMessengerTransportContains(SendInvoice::class, 'async');
+
+{% endhighlight %}
+
+
 #### seeMissingTranslationsCountLessThan
 
 * `param int` $limit Maximum count of missing translations
@@ -3426,6 +3812,28 @@ If your app performs an HTTP redirect after sending the notification, you need t
 
 <?php
 $I->seeNotificationIsSent(2);
+
+{% endhighlight %}
+
+
+#### seeNumQueriesIsLessThan
+
+* `param int` $expectedCount
+* `return void`
+
+Asserts that fewer than the given number of database queries were executed
+during the last request — a ceiling guard against N+1 problems.
+
+Transaction-control statements (`START TRANSACTION`, `COMMIT`, ...) are not
+counted, so the number reflects the application queries only.
+
+Reads Doctrine's `db` profiler collector, so it requires `doctrine/doctrine-bundle`.
+Counts are environment-sensitive, so assert a ceiling rather than an exact number.
+
+{% highlight php %}
+
+<?php
+$I->seeNumQueriesIsLessThan(5);
 
 {% endhighlight %}
 
@@ -3693,6 +4101,26 @@ Verifies that the current user has multiple roles
 
 <?php
 $I->seeUserHasRoles(['ROLE_USER', 'ROLE_ADMIN']);
+
+{% endhighlight %}
+
+
+#### seeUserIsGranted
+
+* `param string` $attribute
+* `param mixed` $subject
+* `return void`
+
+Checks that the current user is granted an attribute, optionally over a subject.
+
+This runs the application's voters through `Security::isGranted()`, so unlike
+`seeUserHasRole()` it also covers custom voters and permissions that depend on
+the object being accessed.
+
+{% highlight php %}
+
+<?php
+$I->seeUserIsGranted('POST_EDIT', $post);
 
 {% endhighlight %}
 
@@ -4201,6 +4629,22 @@ Unticks a checkbox.
 
 <?php
 $I->uncheckOption('#notify');
+
+{% endhighlight %}
+
+
+#### unmockService
+
+* `part` services
+* `param non-empty-string` $serviceId
+* `return void`
+
+Removes a previously mocked service, restoring the real one on the next kernel reboot.
+
+{% highlight php %}
+
+<?php
+$I->unmockService('http_client');
 
 {% endhighlight %}
 

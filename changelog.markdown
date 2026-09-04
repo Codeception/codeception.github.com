@@ -9,6 +9,111 @@ title: Codeception Changelog
 
 
 
+### module-symfony 3.11.0: 3.11.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16){:height="16" width="16"} TavoNiievez](https://github.com/TavoNiievez) on 2026/09/04 08:45:11 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
+
+
+
+## What's Changed
+
+> **20 new methods.** No breaking changes, no new configuration options, no new traits.
+> PHP `^8.2` · Symfony `5.4` · `6.4` · `7.4` · `8.1`
+
+## 🗄️ Doctrine
+
+| Method | |
+| --- | --- |
+| `grabEntityManager()` | The EntityManager on the Actor, honouring `em_service`. |
+| `resetDoctrineManager()` | Reopens an EntityManager closed by a failed `flush()`. Clears it if still open. |
+| `seeDoctrineSchemaIsValid()` | In-process `doctrine:schema:validate`. |
+| `seeNumQueriesIsLessThan()` | N+1 guard. |
+| `dontSeeDuplicateQueries()` | N+1 guard. |
+
+```php
+$I->amOnPage('/register');
+$I->resetDoctrineManager();
+$I->seeNumRecords(1, User::class);
+```
+
+## 🧩 Services
+
+| Method | |
+| --- | --- |
+| `grabContainer()` | The **test** container — private services included. |
+| `mockService()` / `unmockService()` | Swap a service for a double. Survives kernel reboots. |
+
+```php
+$I->mockService('http_client', new MockHttpClient($responses));
+```
+
+## 🔐 Security
+
+| Method | |
+| --- | --- |
+| `seeUserIsGranted()` / `dontSeeUserIsGranted()` | Runs the app's voters — **with a subject**. |
+
+```php
+$I->seeUserIsGranted('EDIT', $post);
+```
+
+## 📨 Messenger
+
+> [!NOTE]
+> Requires `symfony/messenger >= 6.3`.
+
+| Method | |
+| --- | --- |
+| `grabMessengerTransport()` | The in-memory transport itself. |
+| `seeMessengerTransportContains()` | A message class is queued. |
+| `seeMessengerQueueCount()` | Pending count — sent minus acknowledged or rejected. |
+| `consumeMessengerMessages()` | Handles queued envelopes in-process. |
+
+```php
+$I->seeMessengerQueueCount(1, 'async');
+$I->consumeMessengerMessages('async');
+```
+
+## 🖥️ Console
+
+> [!NOTE]
+> Requires Symfony `8.1`. `runSymfonyConsoleCommand()` is unchanged and remains the path for earlier versions.
+
+| Method | |
+| --- | --- |
+| `runCommand()` | Returns an `ExecutionResult`: status code, stdout and stderr separately. |
+| `assertCommandIsSuccessful()` | |
+| `assertCommandFailed()` | |
+| `assertCommandIsInvalid()` | |
+| `assertCommandResultEquals()` | |
+
+```php
+$result = $I->runCommand('app:import', ['--dry-run' => true]);
+$I->assertCommandIsSuccessful($result);
+```
+
+## 🔔 Session
+
+| Method | |
+| --- | --- |
+| `assertSessionHasFlashMessage()` | Non-destructive — reads the flash bag with `peek()`. |
+
+```php
+$I->assertSessionHasFlashMessage('success', 'Your changes were saved.');
+```
+
+---
+
+## 🛠️ Also
+
+- `_getEntityManager()` reopens a closed manager, so one failed write no longer cascades through the test.
+- Clearer failure when the `em_service` service is missing or is the wrong type.
+- Internal-domain lookup is now `O(N)` instead of `O(N²)`.
+
+<sub>[#246](https://github.com/Codeception/module-symfony/issues/246) · [#247](https://github.com/Codeception/module-symfony/issues/247) · [#248](https://github.com/Codeception/module-symfony/issues/248) — **[Full changelog](https://github.com/Codeception/module-symfony/compare/3.10.1...3.11.0)**</sub>
+
+
+
 ### module-phpbrowser 4.1.0: 4.1.0
 
 Released by [![](https://avatars.githubusercontent.com/in/15368?v=4&s=16){:height="16" width="16"} github-actions[bot]](https://github.com/apps/github-actions) on 2026/07/27 06:12:28 / [Repository](https://github.com/Codeception/module-phpbrowser)   / [Releases](https://github.com/Codeception/module-phpbrowser/releases)
@@ -4215,18 +4320,6 @@ Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16){:hei
 * **BC:** Removed parameter flags in `seeAuthentication`, `dontSeeAuthentication` and `persistService`, use  `seeRememberedAuthentication`, `dontSeeRememberedAuthentication` and `persistPermanentService` instead.
 
 > Minor logical change in [#74](https://github.com/Codeception/module-symfony/issues/74).
-
-
-### module-symfony 1.4.2: 1.4.2
-
-Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16){:height="16" width="16"} TavoNiievez](https://github.com/TavoNiievez) on 2020/11/26 12:56:36 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
-
-
-
-* Support PHP 8 by **[Naktibalda](https://github.com/Naktibalda)** 
-
-> Minor non-logical changes in [#57](https://github.com/Codeception/module-symfony/issues/57) and [#62](https://github.com/Codeception/module-symfony/issues/62).
-
 
 
 ### module-mongodb 1.1.1: Support PHP 8
