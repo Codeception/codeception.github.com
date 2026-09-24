@@ -5,14 +5,27 @@ title: Commands - Codeception - Documentation
 
 # Console Commands
 
-## GherkinSteps
+## CompletionFallback
 
-Prints all steps from all Gherkin contexts for a specific suite
 
-{% highlight yaml %}
-codecept gherkin:steps Acceptance
 
-{% endhighlight %}
+## SelfUpdate
+
+Auto-updates phar archive from official site: 'https://codeception.com/codecept.phar' .
+
+* `php codecept.phar self-update`
+
+@author Franck Cassedanne <franck@cassedanne.com>
+
+
+
+## GenerateStepObject
+
+Generates StepObject class. You will be asked for steps you want to implement.
+
+* `codecept g:stepobject Acceptance AdminSteps`
+* `codecept g:stepobject Acceptance UserSteps --silent` - skip action questions
+
 
 
 
@@ -26,12 +39,29 @@ Required to have `envs` path to be specified in `codeception.yml`
 
 
 
-## GenerateTest
+## DryRun
 
-Generates skeleton for Unit Test that extends `Codeception\TestCase\Test`.
+Shows step-by-step execution process for scenario driven tests without actually running them.
 
-* `codecept g:test Unit User`
-* `codecept g:test Unit "App\User"`
+* `codecept dry-run Acceptance`
+* `codecept dry-run Acceptance MyCest`
+* `codecept dry-run Acceptance checkout.feature`
+* `codecept dry-run tests/Acceptance/MyCest.php`
+
+
+
+
+## GherkinSnippets
+
+Generates code snippets for matched feature files in a suite.
+Code snippets are expected to be implemented in Actor or PageObjects
+
+Usage:
+
+* `codecept gherkin:snippets Acceptance` - snippets from all feature of acceptance tests
+* `codecept gherkin:snippets Acceptance/feature/users` - snippets from `feature/users` dir of acceptance tests
+* `codecept gherkin:snippets Acceptance user_account.feature` - snippets from a single feature file
+* `codecept gherkin:snippets Acceptance/feature/users/user_accout.feature` - snippets from feature file in a dir
 
 
 
@@ -128,15 +158,24 @@ Options:
 
 
 
+## GherkinSteps
 
-## DryRun
+Prints all steps from all Gherkin contexts for a specific suite
 
-Shows step-by-step execution process for scenario driven tests without actually running them.
+{% highlight yaml %}
+codecept gherkin:steps Acceptance
 
-* `codecept dry-run Acceptance`
-* `codecept dry-run Acceptance MyCest`
-* `codecept dry-run Acceptance checkout.feature`
-* `codecept dry-run tests/Acceptance/MyCest.php`
+{% endhighlight %}
+
+
+
+## GenerateFeature
+
+Generates Feature file (in Gherkin):
+
+* `codecept generate:feature suite Login`
+* `codecept g:feature suite subdir/subdir/login.feature`
+* `codecept g:feature suite login.feature -c path/to/project`
 
 
 
@@ -145,26 +184,11 @@ Shows step-by-step execution process for scenario driven tests without actually 
 
 
 
-## Clean
+## Console
 
-Recursively cleans `output` directory and generated code.
+Try to execute test commands in run-time. You may try commands before writing the test.
 
-* `codecept clean`
-
-
-
-
-## GherkinSnippets
-
-Generates code snippets for matched feature files in a suite.
-Code snippets are expected to be implemented in Actor or PageObjects
-
-Usage:
-
-* `codecept gherkin:snippets Acceptance` - snippets from all feature of acceptance tests
-* `codecept gherkin:snippets Acceptance/feature/users` - snippets from `feature/users` dir of acceptance tests
-* `codecept gherkin:snippets Acceptance user_account.feature` - snippets from a single feature file
-* `codecept gherkin:snippets Acceptance/feature/users/user_accout.feature` - snippets from feature file in a dir
+* `codecept console Acceptance` - starts acceptance suite environment. If you use WebDriver you can manipulate browser with Codeception commands.
 
 
 
@@ -180,13 +204,69 @@ Create new test suite. Requires suite name and actor name
 
 
 
-## SelfUpdate
+## GenerateGroup
 
-Auto-updates phar archive from official site: 'https://codeception.com/codecept.phar' .
+Creates empty GroupObject - extension which handles all group events.
 
-* `php codecept.phar self-update`
+* `codecept g:group Admin`
 
-@author Franck Cassedanne <franck@cassedanne.com>
+
+
+## Clean
+
+Recursively cleans `output` directory and generated code.
+
+* `codecept clean`
+
+
+
+
+## GeneratePageObject
+
+Generates PageObject. Can be generated either globally, or just for one suite.
+If PageObject is generated globally it will act as UIMap, without any logic in it.
+
+* `codecept g:page Login`
+* `codecept g:page Registration`
+* `codecept g:page Acceptance Login`
+
+
+
+## GenerateCest
+
+Generates Cest (scenario-driven object-oriented test) file:
+
+* `codecept generate:cest suite Login`
+* `codecept g:cest suite subdir/subdir/testnameCest.php`
+* `codecept g:cest suite LoginCest -c path/to/project`
+* `codecept g:cest "App\Login"`
+
+
+
+
+## Bootstrap
+
+Creates default config, tests directory and sample suites for current project.
+Use this command to start building a test suite.
+
+By default, it will create 3 suites **Acceptance**, **Functional**, and **Unit**.
+
+* `codecept bootstrap` - creates `tests` dir and `codeception.yml` in current dir.
+* `codecept bootstrap --empty` - creates `tests` dir without suites
+* `codecept bootstrap --namespace Frontend` - creates tests, and use `Frontend` namespace for actor classes and helpers.
+* `codecept bootstrap --actor Wizard` - sets actor as Wizard, to have `TestWizard` actor in tests.
+* `codecept bootstrap path/to/the/project` - provide different path to a project, where tests should be placed
+
+
+
+
+## GenerateScenarios
+
+Generates user-friendly text scenarios from scenario-driven tests (Cest).
+
+* `codecept g:scenarios Acceptance` - for all acceptance tests
+* `codecept g:scenarios Acceptance --format html` - in html format
+* `codecept g:scenarios Acceptance --path doc` - generate scenarios to `doc` dir
 
 
 
@@ -214,23 +294,12 @@ Check overriding config values (like in `run` command)
 
 
 
-## GenerateGroup
+## GenerateTest
 
-Creates empty GroupObject - extension which handles all group events.
+Generates skeleton for Unit Test that extends `Codeception\TestCase\Test`.
 
-* `codecept g:group Admin`
-
-
-
-## GenerateCest
-
-Generates Cest (scenario-driven object-oriented test) file:
-
-* `codecept generate:cest suite Login`
-* `codecept g:cest suite subdir/subdir/testnameCest.php`
-* `codecept g:cest suite LoginCest -c path/to/project`
-* `codecept g:cest "App\Login"`
-
+* `codecept g:test Unit User`
+* `codecept g:test Unit "App\User"`
 
 
 
@@ -255,35 +324,6 @@ If suite name is provided, an actor class will be included into placeholder
 
 
 
-## Console
-
-Try to execute test commands in run-time. You may try commands before writing the test.
-
-* `codecept console Acceptance` - starts acceptance suite environment. If you use WebDriver you can manipulate browser with Codeception commands.
-
-
-
-## GenerateStepObject
-
-Generates StepObject class. You will be asked for steps you want to implement.
-
-* `codecept g:stepobject Acceptance AdminSteps`
-* `codecept g:stepobject Acceptance UserSteps --silent` - skip action questions
-
-
-
-
-## GenerateFeature
-
-Generates Feature file (in Gherkin):
-
-* `codecept generate:feature suite Login`
-* `codecept g:feature suite subdir/subdir/login.feature`
-* `codecept g:feature suite login.feature -c path/to/project`
-
-
-
-
 ## Build
 
 Generates Actor classes (initially Guy classes) from suite configs.
@@ -293,46 +333,6 @@ Starting from Codeception 2.0 actor classes are auto-generated. Use this command
 * `codecept build path/to/project`
 
 
-
-
-## GenerateScenarios
-
-Generates user-friendly text scenarios from scenario-driven tests (Cest).
-
-* `codecept g:scenarios Acceptance` - for all acceptance tests
-* `codecept g:scenarios Acceptance --format html` - in html format
-* `codecept g:scenarios Acceptance --path doc` - generate scenarios to `doc` dir
-
-
-
-## Bootstrap
-
-Creates default config, tests directory and sample suites for current project.
-Use this command to start building a test suite.
-
-By default, it will create 3 suites **Acceptance**, **Functional**, and **Unit**.
-
-* `codecept bootstrap` - creates `tests` dir and `codeception.yml` in current dir.
-* `codecept bootstrap --empty` - creates `tests` dir without suites
-* `codecept bootstrap --namespace Frontend` - creates tests, and use `Frontend` namespace for actor classes and helpers.
-* `codecept bootstrap --actor Wizard` - sets actor as Wizard, to have `TestWizard` actor in tests.
-* `codecept bootstrap path/to/the/project` - provide different path to a project, where tests should be placed
-
-
-
-
-## CompletionFallback
-
-
-
-## GeneratePageObject
-
-Generates PageObject. Can be generated either globally, or just for one suite.
-If PageObject is generated globally it will act as UIMap, without any logic in it.
-
-* `codecept g:page Login`
-* `codecept g:page Registration`
-* `codecept g:page Acceptance Login`
 
 
 
