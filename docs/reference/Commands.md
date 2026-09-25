@@ -76,7 +76,7 @@ Run with specific extension
 * `codecept run --ext DotReporter` run with DotReporter printer
 * `codecept run --ext "My\Custom\Extension"` run with an extension loaded by class name
 
-Re-Run failed tests
+Re-run tests that failed or had errors (according to `_output/failed`)
 
 * `codecept run -g failed`
 

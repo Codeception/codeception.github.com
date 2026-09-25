@@ -9,6 +9,38 @@ title: Codeception Changelog
 
 
 
+### Codeception 5.3.6: 5.3.6
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16){:height="16" width="16"} TavoNiievez](https://github.com/TavoNiievez) on 2026/09/25 12:37:55 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+## What's Changed
+* Prevent serialization of non-backed enums by **[innerfly](https://github.com/innerfly)** in https://github.com/Codeception/Codeception/pull/6796
+* Fix cs by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/Codeception/pull/6930
+* Fix typo in Debug::debug() docblock by **[rhuijts](https://github.com/rhuijts)** in https://github.com/Codeception/Codeception/pull/6934
+* Update Configuration.php: Minor rewording of error message by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/Codeception/pull/6936
+* Improve handling of coverage exclude option on PHPUnit 11+ by **[marcovtwout](https://github.com/marcovtwout)** in https://github.com/Codeception/Codeception/pull/6937
+* Add support for phpunit/php-code-coverage 14.0 by **[michalbundyra](https://github.com/michalbundyra)** in https://github.com/Codeception/Codeception/pull/6938
+* catch general Throwable for before test execution code by **[applyACS](https://github.com/applyACS)** in https://github.com/Codeception/Codeception/pull/6929
+* Support for Variadic parameters by **[mvvelde](https://github.com/mvvelde)** in https://github.com/Codeception/Codeception/pull/6932
+* Fix compatibility with sebastian/diff v8.3.0 + v9.0.0 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/Codeception/pull/6941
+* Migrate internal tests to the canonical v5 Support layout by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/Codeception/pull/6943
+* Fix `ArgumentCountError` in ReportPrinter when test names contain `%` characters by **[Fahl-Design](https://github.com/Fahl-Design)** in https://github.com/Codeception/Codeception/pull/6927
+* Minor: More details about `codecept run -g failed` by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/Codeception/pull/6926
+* Bump actions/checkout and actions/cache by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/Codeception/pull/6948
+* fix(ci): relax expected shell output in LocalCept by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/Codeception/pull/6950
+
+## New Contributors
+* **[innerfly](https://github.com/innerfly)** made their first contribution in https://github.com/Codeception/Codeception/pull/6796
+* **[rhuijts](https://github.com/rhuijts)** made their first contribution in https://github.com/Codeception/Codeception/pull/6934
+* **[michalbundyra](https://github.com/michalbundyra)** made their first contribution in https://github.com/Codeception/Codeception/pull/6938
+* **[applyACS](https://github.com/applyACS)** made their first contribution in https://github.com/Codeception/Codeception/pull/6929
+* **[mvvelde](https://github.com/mvvelde)** made their first contribution in https://github.com/Codeception/Codeception/pull/6932
+
+**Full Changelog**: https://github.com/Codeception/Codeception/compare/5.3.5...5.3.6
+
+
 ### module-symfony 3.11.0: 3.11.0
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16){:height="16" width="16"} TavoNiievez](https://github.com/TavoNiievez) on 2026/09/04 08:45:11 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
@@ -2545,19 +2577,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:heigh
 
 
 * Fix compatibility with Codeception 5.0.0-RC6 [#72](https://github.com/Codeception/module-yii2/issues/72) 
-
-
-### Codeception 5.0.0-RC6: 5.0.0-RC6
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:height="16" width="16"} Naktibalda](https://github.com/Naktibalda) on 2022/07/12 07:13:56 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Added new attributes (Prepare, Env, BeforeClass,AfterClass, Given, When, Then)
-* Class level attributes are applied to all methods
-* Codeception attributes are supported in unit tests
-* Cest format can use data providers from other classes
-
 
 
 ### module-yii2 1.1.6: 1.1.6
