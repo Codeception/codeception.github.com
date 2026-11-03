@@ -43,6 +43,12 @@
       "ext-mongodb": "1.21.2",
       "ext-phalcon": "4.1.1"
     },
+    "policy": {
+      "advisories": {
+        "block": false,
+        "audit": "report"
+      }
+    },
     "allow-plugins": {
       "php-http/discovery": true
     }
