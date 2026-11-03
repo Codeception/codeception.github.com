@@ -9,6 +9,48 @@ title: Codeception Changelog
 
 
 
+### module-doctrine 3.3.1: 3.3.1
+
+Released by [![](https://avatars.githubusercontent.com/u/20659830?v=4&s=16){:height="16" width="16"} W0rma](https://github.com/W0rma) on 2026/11/02 13:25:09 / [Repository](https://github.com/Codeception/module-doctrine)   / [Releases](https://github.com/Codeception/module-doctrine/releases)
+
+
+
+## What's Changed
+* Fix compatibility with doctrine/collections v3 and bump phpstan to v2 in https://github.com/Codeception/module-doctrine/pull/51
+* Test against doctrine/data-fixtures v2 in https://github.com/Codeception/module-doctrine/pull/42
+* Mention the new `SortDirection` enum in the documentation by **[ThomasLandauer](https://github.com/ThomasLandauer)** in https://github.com/Codeception/module-doctrine/pull/50
+
+**Full Changelog**: https://github.com/Codeception/module-doctrine/compare/3.3.0...3.3.1
+
+
+### module-laravel 3.2.2: 3.2.2
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16){:height="16" width="16"} TavoNiievez](https://github.com/TavoNiievez) on 2026/10/26 14:15:01 / [Repository](https://github.com/Codeception/module-laravel)   / [Releases](https://github.com/Codeception/module-laravel/releases)
+
+
+
+## What's Changed
+* Add laravel v12 to CI by **[asanikovich](https://github.com/asanikovich)** in https://github.com/Codeception/module-laravel/pull/57
+* Fix: fully-qualify \Closure in docblock type hints for correct reflection-copy resolution by **[bolivir](https://github.com/bolivir)** in https://github.com/Codeception/module-laravel/pull/59
+
+## New Contributors
+* **[bolivir](https://github.com/bolivir)** made their first contribution in https://github.com/Codeception/module-laravel/pull/59
+
+**Full Changelog**: https://github.com/Codeception/module-laravel/compare/3.2.1...3.2.2
+
+
+### Codeception 5.3.7: 5.3.7
+
+Released by [![](https://avatars.githubusercontent.com/u/20659830?v=4&s=16){:height="16" width="16"} W0rma](https://github.com/W0rma) on 2026/10/03 18:41:08 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
+
+
+
+## What's Changed
+* Fix compatibility with phpunit 13.4 in https://github.com/Codeception/Codeception/pull/6953
+
+**Full Changelog**: https://github.com/Codeception/Codeception/compare/5.3.6...5.3.7
+
+
 ### Codeception 5.3.6: 5.3.6
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16){:height="16" width="16"} TavoNiievez](https://github.com/TavoNiievez) on 2026/09/25 12:37:55 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
@@ -2549,16 +2591,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:heigh
 
 
 * Fix type error in PHP 8.1 when converting ms to sec [#103](https://github.com/Codeception/module-webdriver/issues/103)
-
-
-### Codeception 5.0.0-RC7: 5.0.0-RC7
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:height="16" width="16"} Naktibalda](https://github.com/Naktibalda) on 2022/07/22 05:52:09 / [Repository](https://github.com/Codeception/Codeception)   / [Releases](https://github.com/Codeception/Codeception/releases)
-
-
-
-* Fixed injecting dependencies to actor in Cest and Gherkin formats [#6506](https://github.com/Codeception/Codeception/issues/6506)
-* Variadic parameters can be skipped in dependency injection [#6505](https://github.com/Codeception/Codeception/issues/6505)
 
 
 ### module-datafactory 3.0.0: 3.0.0

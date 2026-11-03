@@ -280,7 +280,7 @@ Authenticates user for HTTP_AUTH
 
 #### amLoggedAs
 
-* `param Authenticatable|array` $user
+* `param \Illuminate\Contracts\Auth\Authenticatable|array` $user
 * `param string|null` $guardName
 * `return void`
 
@@ -1155,7 +1155,7 @@ Grabs current page source code.
 * `part` orm
 * `param string` $table
 * `param array` $attributes
-* `return array|EloquentModel`
+* `return array|\Illuminate\Database\Eloquent\Model`
 
 Retrieves record from database
 If you pass the name of a database table as the first argument, this method returns an array.
@@ -1279,7 +1279,7 @@ $I->haveApplicationHandler(function($app) {
 #### haveBinding
 
 * `param string` $abstract
-* `param Closure|string|null` $concrete
+* `param \Closure|string|null` $concrete
 * `param bool` $shared
 * `return void`
 
@@ -1299,7 +1299,7 @@ $I->haveBinding('My\Interface', 'My\Implementation');
 
 * `param string` $concrete
 * `param string` $abstract
-* `param Closure|string` $implementation
+* `param \Closure|string` $implementation
 * `return void`
 
 Add a contextual binding to the Laravel service container.
@@ -1392,7 +1392,7 @@ $I->haveInstance('App\MyClass', new App\MyClass());
 * `param int` $times
 * `param array` $attributes
 * `param string` $name
-* `return EloquentModel|EloquentCollection`
+* `return \Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Collection`
 
 Use Laravel model factory to create multiple models.
 
@@ -1411,8 +1411,8 @@ $I->haveMultiple('App\Models\User', 10, [], 'admin');
 * `part` orm
 * `param string` $table
 * `param array` $attributes
-* `throws RuntimeException`
-* `return EloquentModel|int`
+* `throws \RuntimeException`
+* `return \Illuminate\Database\Eloquent\Model|int`
 
 Inserts record into the database.
 
@@ -1446,7 +1446,7 @@ $I->haveServerParameter('name', 'value');
 #### haveSingleton
 
 * `param string` $abstract
-* `param Closure|string|null` $concrete
+* `param \Closure|string|null` $concrete
 * `return void`
 
 Add a singleton binding to the Laravel service container.
@@ -1482,7 +1482,7 @@ $I->logout();
 * `param string` $model
 * `param array` $attributes
 * `param string` $name
-* `return EloquentCollection|EloquentModel`
+* `return \Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model`
 
 Use Laravel model factory to make a model instance.
 
@@ -1522,7 +1522,7 @@ $I->makeHtmlSnapshot();
 * `param int` $times
 * `param array` $attributes
 * `param string` $name
-* `return EloquentCollection|EloquentModel`
+* `return \Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model`
 
 Use Laravel model factory to make multiple model instances.
 

@@ -143,7 +143,7 @@ Criteria can be used not only to filter data, but also to change the order of re
 
 $I->grabEntitiesFromRepository('User', [
     'status' => 'active',
-    Criteria::create()->orderBy(['name' => 'asc']),
+    Criteria::create()->orderBy(['name' => SortDirection::Ascending]), // or `['name' => 'asc']`
 ]);
 
 {% endhighlight %}
