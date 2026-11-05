@@ -83,3 +83,7 @@
 - name: Gherkin-Dependsload
   link: https://github.com/labbots/codeception-gherkin-dependsload
   description: The Codeception extension for Gherkin features to load and execute dependent scenarios. This extension provides `@dependsload` annotation which lets adding dependencies to gherkin scenarios.
+
+- name: Qase Reporter
+  link: https://github.com/qase-tms/qase-codeception
+  description: Report test results to [Qase](https://qase.io) test management and link them to test cases
