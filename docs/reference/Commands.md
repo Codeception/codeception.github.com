@@ -64,7 +64,6 @@ By default, it will create 3 suites **Acceptance**, **Functional**, and **Unit**
 
 Create new test suite. Requires suite name and actor name
 
-* ``
 * `codecept g:suite Api` -> api + ApiTester
 * `codecept g:suite Integration Code` -> integration + CodeTester
 * `codecept g:suite Frontend Front` -> frontend + FrontTester
