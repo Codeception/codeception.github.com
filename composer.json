@@ -35,7 +35,7 @@
     "guzzlehttp/guzzle": "^7.0.1"
   },
   "require-dev": {
-    "consolidation/robo": "^4.0"
+    "consolidation/robo": "^5.2.3"
   },
   "config": {
     "platform": {
