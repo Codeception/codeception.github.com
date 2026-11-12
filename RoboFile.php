@@ -516,6 +516,8 @@ EOF;
             ->name('*.tpl')
             ->name('*.tpl.dist')
             ->name('*.html.dist')
+            // symfony/console scans its Resources/ dir for shell completion scripts
+            ->name('completion.*')
             ->exclude('Tests')
             ->exclude('tests')
             ->exclude('benchmark')
