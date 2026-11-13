@@ -522,6 +522,8 @@ EOF;
             ->exclude('tests')
             ->exclude('benchmark')
             ->exclude('demo')
+            // superseded by autoload_static.php
+            ->notPath('composer/autoload_classmap.php')
             ->in('package/vendor');
 
         foreach ($finder as $file) {
