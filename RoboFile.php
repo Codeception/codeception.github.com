@@ -494,8 +494,8 @@ EOF;
 
     private function packPhar($pharFileName)
     {
+        // compression is done below, Robo silently skips it for archives with more than 1000 files
         $pharTask = $this->taskPackPhar($pharFileName)
-            ->compress()
             ->stub('package/stub.php');
 
         $finder = Finder::create()->files()
@@ -535,6 +535,8 @@ EOF;
         }
 
         $pharTask->run();
+
+        (new Phar($pharFileName))->compressFiles(Phar::GZ);
     }
 
     public function processChangelog()
