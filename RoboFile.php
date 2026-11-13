@@ -494,8 +494,8 @@ EOF;
 
     private function packPhar($pharFileName)
     {
+        // compression is done below, Robo silently skips it for archives with more than 1000 files
         $pharTask = $this->taskPackPhar($pharFileName)
-            ->compress()
             ->stub('package/stub.php');
 
         $finder = Finder::create()->files()
@@ -516,10 +516,14 @@ EOF;
             ->name('*.tpl')
             ->name('*.tpl.dist')
             ->name('*.html.dist')
+            // symfony/console scans its Resources/ dir for shell completion scripts
+            ->name('completion.*')
             ->exclude('Tests')
             ->exclude('tests')
             ->exclude('benchmark')
             ->exclude('demo')
+            // superseded by autoload_static.php
+            ->notPath('composer/autoload_classmap.php')
             ->in('package/vendor');
 
         foreach ($finder as $file) {
@@ -533,6 +537,8 @@ EOF;
         }
 
         $pharTask->run();
+
+        (new Phar($pharFileName))->compressFiles(Phar::GZ);
     }
 
     public function processChangelog()
