@@ -57,7 +57,6 @@ class RoboFile extends \Robo\Tasks
         $this->buildDocsStub();
         $this->buildDocsApi();
         $this->buildDocsExtensions();
-        $this->changelog();
     }
 
     public function buildDocsModules()
@@ -555,16 +554,11 @@ EOF;
             if ($repository['disabled'] || $repository['archived']) {
                 continue;
             }
-            try {
-                $releases = $client->repo()->releases()->all('codeception', $repositoryName);
-                foreach ($releases as $k=> $release) {
-                    $releases[$k]['repo'] = $repositoryName;
-                }
-                $allReleases = array_merge($allReleases, $releases);
-            } catch (\Exception $err) {
-//                $this->say("Repository not available " . $repository['name']);
-//                $this->say($err->getMessage());
+            $releases = $this->fetchReleases($client, $repositoryName);
+            foreach ($releases as $k=> $release) {
+                $releases[$k]['repo'] = $repositoryName;
             }
+            $allReleases = array_merge($allReleases, $releases);
         }
 
         usort($allReleases, function($r1, $r2) {
@@ -601,6 +595,25 @@ EOF;
         }
 
         return $changelog;
+    }
+
+    /**
+     * Retries transient GitHub API failures. Gives up by throwing, so that
+     * an incomplete changelog is never written and published.
+     */
+    private function fetchReleases(\Github\Client $client, string $repositoryName, int $attempts = 3): array
+    {
+        for ($attempt = 1; ; $attempt++) {
+            try {
+                return $client->repo()->releases()->all('codeception', $repositoryName);
+            } catch (\Exception $err) {
+                $this->say("Fetching releases of $repositoryName failed (attempt $attempt/$attempts): " . $err->getMessage());
+                if ($attempt >= $attempts) {
+                    throw new \RuntimeException("Could not fetch releases of $repositoryName", 0, $err);
+                }
+                sleep(5 * $attempt);
+            }
+        }
     }
 
     public function updateBuildsPage()
