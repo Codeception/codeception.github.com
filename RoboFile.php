@@ -57,7 +57,6 @@ class RoboFile extends \Robo\Tasks
         $this->buildDocsStub();
         $this->buildDocsApi();
         $this->buildDocsExtensions();
-        $this->changelog();
     }
 
     public function buildDocsModules()
