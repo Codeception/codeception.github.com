@@ -299,7 +299,7 @@ class Categories extends \Codeception\Snapshot
         $this->i = $I;
     }
 
-    protected function fetchData()
+    protected function fetchData(): array|string|false
     {
         // fetch texts from all 'a.category' elements on a page        
         return $this->i->grabMultiple('a.category');

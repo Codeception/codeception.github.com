@@ -462,7 +462,7 @@ It is important to understand that SmartWait works only with a specific locators
 
 * `#locator` - CSS ID locator, works
 * `//locator` - general XPath locator, works
-* `['css' => 'button'']` - strict locator, works
+* `['css' => 'button']` - strict locator, works
 
 But it won't be executed for all other locator types.
 See the example:

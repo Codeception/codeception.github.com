@@ -64,7 +64,7 @@ it might declare a conflict rule to be used with other modules. For instance, We
 with all modules implementing the `Codeception\Lib\Interfaces\Web` interface.
 
 ```php
-public function _conflicts()
+public function _conflicts(): string
 {
     return 'Codeception\Lib\Interfaces\Web';
 }
@@ -189,10 +189,10 @@ In your helpers you can use these assertions:
 function seeCanCheckEverything($thing)
 {
     $this->assertTrue(isset($thing), "this thing is set");
-    $this->assertFalse(empty($any), "this thing is not empty");
+    $this->assertFalse(empty($thing), "this thing is not empty");
     $this->assertNotNull($thing, "this thing is not null");
-    $this->assertContains("world", $thing, "this thing contains 'world'");
-    $this->assertNotContains("bye", $thing, "this thing doesn't contain 'bye'");
+    $this->assertStringContainsString("world", $thing, "this thing contains 'world'");
+    $this->assertStringNotContainsString("bye", $thing, "this thing doesn't contain 'bye'");
     $this->assertEquals("hello world", $thing, "this thing is 'Hello world'!");
     // ...
 }
@@ -359,7 +359,7 @@ Here is how it is done in the Db module:
 ```php
 class Db extends \Codeception\Module
 {
-    protected $requiredFields = ['dsn', 'user', 'password'];
+    protected array $requiredFields = ['dsn', 'user', 'password'];
     // ...
 }
 ```
@@ -372,8 +372,8 @@ as well as their values. In the WebDriver module we use the default Selenium Ser
 ```php
 class WebDriver extends \Codeception\Module
 {
-    protected $requiredFields = ['browser', 'url'];
-    protected $config = ['host' => '127.0.0.1', 'port' => '4444'];
+    protected array $requiredFields = ['browser', 'url'];
+    protected array $config = ['host' => '127.0.0.1', 'port' => '4444'];
     // ...
 }
 

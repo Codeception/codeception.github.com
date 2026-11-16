@@ -225,7 +225,7 @@ public function amAuthorized($role)
 Parameters can be also passed in non-regex strings using ":" params placeholder.
 
 ```php
-#[Given('Given I am logged in as :role')
+#[Given('I am logged in as :role')]
 ```
 
 This will match any word (passed in double quotes) or a number passed:
@@ -399,7 +399,7 @@ Tables is a recommended ways to pass arrays into test scenarios.
 Inside a step definition data is stored in argument passed as `\Behat\Gherkin\Node\TableNode` instance.
 
 ```php
-  #[Given('i have products in my cart')
+  #[Given('i have products in my cart')]
   public function iHaveProductsInCart(\Behat\Gherkin\Node\TableNode $products)
   {
       // iterate over all rows
@@ -452,7 +452,7 @@ paths:
 This string is passed as a standard PHP string parameter
 
 ```php
-    #[Then('i see in file :filename')
+    #[Then('i see in file :filename')]
     public function seeInFile($fileName, $fileContents)
     {
         // note: module "Asserts" is enabled in this suite

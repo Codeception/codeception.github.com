@@ -459,17 +459,17 @@ class MyFormat implements \Codeception\Test\Loader\LoaderInterface
         $this->settings = $settings;
     }
 
-    public function loadTests($filename)
+    public function loadTests(string $filename): void
     {
         //Load file and create tests
     }
 
-    public function getTests()
+    public function getTests(): array
     {
         return $this->tests;
     }
 
-    public function getPattern()
+    public function getPattern(): string
     {
         return '~Myformat\.php$~';
     }

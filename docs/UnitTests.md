@@ -461,7 +461,7 @@ $this->assertUserCanPostToBlog($user, $blog);
 // instead of just calling a bunch of assertions
 $this->assertNotNull($user);
 $this->assertNotNull($blog);
-$this->assertContain($user, $blog->getOwners());
+$this->assertContains($user, $blog->getOwners());
 ```
 
 With custom assertion methods you can improve readability of your tests and keep them focused around the specification.

@@ -208,7 +208,7 @@ The concept of groups was taken from PHPUnit and behaves in the same way. You ca
 namespace Tests\Acceptance;
 
 use Codeception\Attribute\Group;
-use Tests\Support\AcceptanceTester
+use Tests\Support\AcceptanceTester;
 
 class UserCest
 {
@@ -383,7 +383,7 @@ final class ModeratorCest
 
     // But you can also pass multiple methods in each attribute:
     #[Before('login', 'cleanup')]
-    public function addUser(FunctionalTester $I): void
+    public function addAdmin(FunctionalTester $I): void
     {
         // ...
     }
@@ -586,7 +586,7 @@ $scenario->current('capabilities');
 You can inject `\Codeception\Scenario` like this:
 
 ```php
-use Codeception\Scenario $scenario;
+use Codeception\Scenario;
 
 public function myTest(Scenario $scenario)
 {
