@@ -48,7 +48,7 @@ Splitting test by shards is done automatically with zero-config. However, in thi
 
 To get an aggregated report without an extra stage and without managing artifacts use [Testomat.io](https://testomat.io). This is a SaaS platform that can receive test results from different parallel run and show them in the one interface.
 
-![](images/testomatio-report.png)
+![](/images/testomatio-report.png)
 
 By running tests with Testomat.io reporter attached results will be sent to a centralized server. By default each execution will create its own report. To store results from different shards in one report set the Run title for them. You can use a common environment variable, like number of a build, to create the unique title which will be the same for all jobs. If build id is stored as $BUILDID variable, execution script for shard #3 can be following: 
 
@@ -60,7 +60,7 @@ TESTOMATIO={apiKey} TESTOMATIO_TITLE="Build $BUILDID" ./vendor/bin/codecept run 
 
 While sharding provides a simplified setup for testing the complete pipeline schema may look like this. 
 
-![](images/codeception-pipeline.png)
+![](/images/codeception-pipeline.png)
 
 * On the first stage, tests should be split into groups. The group file should be committed into the repository or passed to next stage as an artifact.
 * On the second stage tests are executed. XML, HTML, and CodeCoverage reports must be stored as artifacts.
@@ -230,7 +230,7 @@ public function parallelRun()
             $this->taskCodecept() // use built-in Codecept task
             ->suite('Acceptance') // run acceptance tests
             ->group("paracept_$i") // for all paracept_* groups
-            ->xml("tests/_log/result_$i.xml") // save XML results
+            ->xml("result_paracept_$i.xml") // save XML results to tests/_output
         );
     }
     return $parallel->run();

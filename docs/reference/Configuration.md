@@ -19,7 +19,7 @@ Bootstrap script that will be executed before all suites. A script should be put
 
 ### `coverage`
 
-[CodeCoverage](https://codeception.com/docs/11-Codecoverage#Configuration) settings.
+[CodeCoverage](https://codeception.com/docs/Codecoverage#Configuration) settings.
 
 ### `extends`
 
@@ -27,15 +27,15 @@ Allows you to specify a file (relative to the `codeception.yml` file) that holds
 
 ### `extensions`
 
-Allows to enable and configure [Codeception extensions](https://codeception.com/docs/08-Customization#Extension), [Group Objects](https://codeception.com/docs/08-Customization#Group-Objects), and [Custom Commands](https://codeception.com/docs/08-Customization#Custom-Commands).
+Allows to enable and configure [Codeception extensions](https://codeception.com/docs/Customization#Extension), [Group Objects](https://codeception.com/docs/Customization#Group-Objects), and [Custom Commands](https://codeception.com/docs/Customization#Custom-Commands).
 
 ### `gherkin`
 
-[Gherkin options](https://codeception.com/docs/07-BDD#Configuration).
+[Gherkin options](https://codeception.com/docs/BDD#Configuration).
 
 ### `include`
 
-Include additional Codeception configurations for [multiple applications setup](https://codeception.com/docs/08-Customization#Namespaces).
+Include additional Codeception configurations for [multiple applications setup](https://codeception.com/docs/Customization#Namespaces).
 
 ### `modules`
 
@@ -53,11 +53,11 @@ modules:
 
 ### `namespace`
 
-Sets the namespace under which all new tests and support classes will be generated. Allows to configure [multiple test setups for one runner](https://codeception.com/docs/08-Customization#Namespaces).
+Sets the namespace under which all new tests and support classes will be generated. Allows to configure [multiple test setups for one runner](https://codeception.com/docs/Customization#Namespaces).
 
 ### `params`
 
-Allows to pass [external parameters](https://codeception.com/docs/06-ModulesAndHelpers#Dynamic-Configuration-With-Parameters) into module configuration.
+Allows to pass [external parameters](https://codeception.com/docs/ModulesAndHelpers#Dynamic-Configuration-With-Parameters) into module configuration.
 
 ### `paths`
 
@@ -74,11 +74,11 @@ paths:
 
 ### `reporters`
 
-Allows to [change default reporters](https://codeception.com/docs/08-Customization#Custom-Reporters) of Codeception
+No longer supported since Codeception 5: a warning is printed if this option is set. Custom reporters must be implemented as [extensions](https://codeception.com/docs/Reporting#Custom-Reporter).
 
 ### `settings`
 
-Provide additional options for the test runner. They may dramatically change the way Codeception is executed. For instance, take a note of `shuffle` option which allows to randomize tests execution order and `lint` option that toggles parsing a test file (using `php -l`) before loading it.
+Provide additional options for the test runner. They may dramatically change the way Codeception is executed. For instance, take a note of `shuffle` option which allows to randomize tests execution order.
 
 Syntax example:
 {% highlight yaml %}
@@ -90,7 +90,7 @@ Possible settings:
 
 * `backup_globals: true`: Controls whether PHPUnit attempts to backup global variables, see https://phpunit.de/manual/current/en/appendixes.annotations.html#appendixes.annotations.backupGlobals
 * `be_strict_about_changes_to_global_state: false`: PHPUnit can be strict about tests that manipulate global state, see https://phpunit.de/manual/current/en/risky-tests.html#risky-tests.global-state-manipulation
-* `colors: true`: By default this is false on Windows. Use [ANSICON](https://github.com/adoxa/ansicon) to colorize output.
+* `colors: true`: Colorize console output. On older Windows consoles you may need [ANSICON](https://github.com/adoxa/ansicon) to display colors.
 * `convert_deprecations_to_exceptions: false` Converts E_DEPRECATED and E_USER_DEPRECATED events to exceptions. Introduced in Codeception 4.2.0
 * `disallow_test_output: false`: PHPUnit can be strict about output during tests, see https://phpunit.de/manual/current/en/risky-tests.html#risky-tests.output-during-test-execution
 * `editor_url: 'atom://core/open/file?filename=%%file%%&line=%%line%%'`: In the console output, the test runner will replace all references to files with "clickable" URL's, allowing you to open the file directly in your IDE. Depending on your operating system, you may have to set up an appropriate uri handler. Syntax for some common editors (same as in [PHPStan](https://phpstan.org/user-guide/output-format#opening-file-in-an-editor)):
@@ -99,11 +99,13 @@ Possible settings:
     * Atom: `'atom://core/open/file?filename=%%file%%&line=%%line%%'`
 * `error_level: E_ALL & ~E_DEPRECATED`: Set the error_reporting level. You can specify either a predefined constant or an integer value, see https://www.php.net/manual/en/function.error-reporting.php and https://www.php.net/manual/en/errorfunc.constants.php. For PHP < 8.4 `E_ALL & ~E_STRICT & ~E_DEPRECATED` is used by default.
 * `memory_limit: 1024M`: Tests (especially functional) can take a lot of memory. We set a high limit for them by default.
-* `lint: true`: Enable/disable syntax of test files before loading. For PHP < 7 `exec('php -l')` is used. Disable if you need to speed up tests execution.
-* `log_incomplete_skipped: false`: Log the incomplete and skipped tests into junit report ,see https://phpunit.de/manual/current/en/appendixes.configuration.html Section logging > junit
 * `report_useless_tests: false`: PHPUnit can be strict about tests that do not test anything, see https://phpunit.de/manual/current/en/risky-tests.html#risky-tests.useless-tests
-* `shuffle: true`: Randomize test order
+* `shuffle: false`: Set to `true` to randomize test order
 * `strict_xml: false`: Generate XML JUnit report using strict schema. Avoid putting additional report fields like steps or scenario names to it. Required for XML reports on Jenkins CI
+
+### `support_namespace`
+
+Namespace of support classes (actors, helpers, page objects, step objects etc.), relative to `namespace`. `codecept bootstrap` sets it to `Support`, so actors are generated as `Tests\Support\AcceptanceTester`.
 
 ## Suite Configuration: `Unit.suite.yml`, `Functional.suite.yml` etc.
 
@@ -119,15 +121,15 @@ Bootstrap script that will be executed before current suite. A script should be 
 
 ### `coverage`
 
-Per suite [CodeCoverage](https://codeception.com/docs/11-Codecoverage#Configuration) settings.
+Per suite [CodeCoverage](https://codeception.com/docs/Codecoverage#Configuration) settings.
 
 ### `env`
 
-Override any configuration per [environment](https://codeception.com/docs/07-AdvancedUsage#Environments).
+Override any configuration per [environment](https://codeception.com/docs/AdvancedUsage#Environments).
 
 ### `error_level`
 
-[error level](https://codeception.com/docs/04-FunctionalTests#Error-Reporting) for runner in the current suite. Can be specified for unit, integration, functional tests. Passes value to `error_reporting` function.
+[error level](https://codeception.com/docs/FunctionalTests#Error-Reporting) for runner in the current suite. Can be specified for unit, integration, functional tests. Passes value to `error_reporting` function.
 
 ### `extends`
 
@@ -135,15 +137,15 @@ Allows you to specify a file (relative to `*.suite.yml`) that holds some already
 
 ### `gherkin`
 
-Per suite [Gherkin](https://codeception.com/docs/07-BDD#Configuration) settings.
+Per suite [Gherkin](https://codeception.com/docs/BDD#Configuration) settings.
 
 ### `groups`
 
-[groups](https://codeception.com/docs/07-AdvancedUsage#Groups) with the list of tests of for corresponding group.
+[groups](https://codeception.com/docs/AdvancedUsage#Groups) with the list of tests of for corresponding group.
 
 ### `formats`
 
-[formats](https://codeception.com/docs/07-AdvancedUsage#Formats) with the list of extra test format classes.
+[formats](https://codeception.com/docs/Customization#Formats) with the list of extra test format classes.
 
 ### `modules`
 
@@ -155,7 +157,7 @@ modules:
         - PhpBrowser: # built-in modules are listed by their names
             url: http://localhost # module configuration
         - Db # Module without configuration (or inherited from `codeception.yml`)
-        - \Helper\Acceptance # helper names are listed by their class names, starting with `\`
+        - \Tests\Support\Helper\Acceptance # helper names are listed by their class names, starting with `\`
 
     # Additional modules configuration; can be used for modules which are not currently enabled
     config:
@@ -170,15 +172,30 @@ modules:
 
 Default namespace of actor, support classes and tests.
 
+### `shuffle`
+
+Set to `true` to randomize the execution order of tests in the current suite.
+
+### `step_decorators`
+
+List of [step decorators](https://codeception.com/docs/Customization#Step-Decorators) used to generate additional actions in the actor class. Set to `~` to disable them.
+
+{% highlight yaml %}
+step_decorators:
+    - Codeception\Step\ConditionalAssertion
+    - Codeception\Step\TryTo
+    - Codeception\Step\Retry
+{% endhighlight %}
+
 ### `suite_namespace`
 
-Default namespace for new tests of this suite (ignores `namespace` option)
+Namespace of the tests of this suite. It is always computed as `namespace` + `\` + suite name (e.g. `Tests\Acceptance`), so a value set in the suite config is ignored.
 
 ## Configuration Templates: `*.dist.yml`
 
 To provide the same configuration template for your development team, you can create a `codeception.dist.yml` config file, which will be loaded before `codeception.yml`. The dist config provides shared options, while local `codeception.yml` files override them on a per-installation basis. Therefore, `codeception.yml` should be ignored by your VCS system.
 
-Config templates can also be used for suite configuration, by creating a `suitename.Suite.dist.yml` file.
+Config templates can also be used for suite configuration, by creating a `<SuiteName>.suite.dist.yml` file (e.g. `Acceptance.suite.dist.yml`).
 
 Configuration loading order:
 
