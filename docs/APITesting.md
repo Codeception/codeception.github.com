@@ -361,7 +361,7 @@ $I->seeSoapResponseIncludes(\Codeception\Util\Xml::build()
 
 It's up to you to decide whether to use `XmlBuilder` or plain XML. `XmlBuilder` will return XML string as well.
 
-You may extend current functionality by using `SOAP` module in your helper class. To access the SOAP response as `\DOMDocument` you can use `response` property of `SOAP` module.
+You may extend current functionality by using `SOAP` module in your helper class. To access the SOAP response as `\DOMDocument` you can use `xmlResponse` property of `SOAP` module.
 
 ```php
 <?php
@@ -370,7 +370,7 @@ class Api extends \Codeception\Module {
 
     public function seeResponseIsValidOnSchema($schema)
     {
-        $response = $this->getModule('SOAP')->response;
+        $response = $this->getModule('SOAP')->xmlResponse;
         $this->assertTrue($response->schemaValidate($schema));
     }
 }

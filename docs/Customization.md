@@ -183,7 +183,7 @@ Extensions have some basic methods you can use:
 * `writeln` - prints to the screen with a new-line character at the end
 * `getModule` - allows you to access a module
 * `hasModule` - checks if a module is enabled
-* `getModuleNames` - list all enabled modules
+* `getCurrentModuleNames` - list all enabled modules
 * `_reconfigure` - can be implemented instead of overriding the constructor
 
 ### Enabling Extension
@@ -271,8 +271,6 @@ public function testAdminCreatingNewBlogPost(AcceptanceTester $I)
 This test will trigger the following events:
 
 * `test.before.admin`
-* `step.before.admin`
-* `step.after.admin`
 * `test.success.admin`
 * `test.fail.admin`
 * `test.after.admin`
@@ -347,13 +345,13 @@ List of available step decorators:
 - [TryTo](https://github.com/Codeception/Codeception/blob/5.0.0/src/Codeception/Step/TryTo.php) - failed action will be ignored.
 - [Retry](https://github.com/Codeception/Codeception/blob/5.0.0/src/Codeception/Step/Retry.php) - failed action will be retried automatically.
 
-Step decorators can be added to suite config inside `steps` block:
+Step decorators can be added to suite config inside `step_decorators` block:
 
 ```yaml
 step_decorators:
-    - Codeception/Step/TryTo
-    - Codeception/Step/Retry
-    - Codeception/Step/ConditionalAssertion
+    - Codeception\Step\TryTo
+    - Codeception\Step\Retry
+    - Codeception\Step\ConditionalAssertion
 
 ```
 

@@ -83,7 +83,7 @@ public function trySignupForm(FunctionalTester $I): void
       'email'    => 'miles@example.com'
     ]);
     $I->see('Thank you for Signing Up!');
-    $I->seeEmailIsSent('miles@example.com', 'Thank you for your registration');
+    $I->seeEmailIsSent();
     $I->seeInDatabase('users', ['email' => 'miles@example.com']);
 }
 ```

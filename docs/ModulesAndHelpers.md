@@ -390,7 +390,7 @@ modules:
             browser: 'firefox'
         - Db:
             cleanup: false
-            repopulate: false
+            populate: false
 
 ```
 

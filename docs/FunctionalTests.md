@@ -209,7 +209,7 @@ class Functional extends \Codeception\Module
 {
     function doSomethingWithMyService()
     {
-        $service = $this->getModule('Symfony')->grabServiceFromContainer('myservice');
+        $service = $this->getModule('Symfony')->grabService('myservice');
         $service->doSomething();
     }
 }
