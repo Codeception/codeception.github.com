@@ -42,7 +42,7 @@ The FunctionalTester class has its methods defined in modules. Actually, it does
 but rather acts as a proxy. It knows which module executes this action and passes parameters into it.
 To make your IDE see all of the FunctionalTester methods, you should run the `codecept build` command.
 It generates method signatures from enabled modules and saves them into a trait which is included in an actor.
-In the current example, the `tests/support/_generated/FunctionalTesterActions.php` file will be generated.
+In the current example, the `tests/Support/_generated/FunctionalTesterActions.php` file will be generated.
 By default, Codeception automatically rebuilds the Actions trait on each change of the suite configuration.
 
 ## Standard Modules
@@ -207,20 +207,20 @@ For example, for your module you might need to access the responses or internal 
 Modules can interact with each other through the `getModule` method.
 Please note that this method will throw an exception if the required module was not loaded.
 
-Let's imagine that we are writing a module that reconnects to a database.
-It's supposed to use the dbh connection value from the Db module.
+Let's imagine that we are writing a module that runs a custom query.
+It's supposed to use the PDO connection of the Db module.
 
 ```php
-function reconnectToDatabase()
+function seeNumberOfUsers(int $num): void
 {
-    $dbh = $this->getModule('Db')->dbh;
-    $dbh->close();
-    $dbh->open();
+    $dbh = $this->getModule('Db')->_getDbh();
+    $count = (int) $dbh->query('SELECT COUNT(*) FROM users')->fetchColumn();
+    $this->assertSame($num, $count);
 }
 ```
 
 By using the `getModule` function, you get access to all of the public methods and properties of the requested module.
-The `dbh` property was defined as public specifically to be available to other modules.
+The `_getDbh()` method was defined as public specifically to be available to other modules.
 
 Modules may also contain methods that are exposed for use in helper classes. Those methods start with a `_` prefix
 and are not available in Actor classes, so can be accessed only from modules and extensions.
@@ -242,9 +242,9 @@ function seeNumResults($num)
 }
 ```
 
-In this example we use the API of the <a href="https://github.com/facebook/php-webdriver">facebook/php-webdriver</a> library,
-a Selenium WebDriver client the module is build on.
-You can also access the `webDriver` property of a module to get access to the `Facebook\WebDriver\RemoteWebDriver` instance
+In this example we use the API of the <a href="https://github.com/php-webdriver/php-webdriver">php-webdriver/webdriver</a> library,
+a Selenium WebDriver client the module is built on.
+You can also access the `webDriver` property of a module to get access to the `Facebook\WebDriver\Remote\RemoteWebDriver` instance
 for direct Selenium interaction.
 
 ### Extending a Module
@@ -503,9 +503,9 @@ At the end of a test all configuration changes will be rolled back to the origin
 ### Runtime Configuration of a Test
 
 Sometimes it is needed to set custom configuration for a specific test only.
-For [Cest](https://codeception.com/docs/07-AdvancedUsage#Cest-Classes) and [Test\Unit](https://codeception.com/docs/05-UnitTests)
+For [Cest](https://codeception.com/docs/AdvancedUsage#Cest-Classes) and [Test\Unit](https://codeception.com/docs/UnitTests)
 formats you can use `#[Prepare]` attribute which executes the code before other hooks are executed. This allows `#[Prepare]`
-to change the module configuration in runtime. `#[Prepare]` uses [dependency injection](https://codeception.com/docs/07-AdvancedUsage#Dependency-Injection)
+to change the module configuration in runtime. `#[Prepare]` uses [dependency injection](https://codeception.com/docs/AdvancedUsage#Dependency-Injection)
 to automatically inject required modules into a method.
 
 To run a specific test only in Chrome browser, you can call `_reconfigure` from WebDriver module for a test itself using `#[Prepare]`.
@@ -529,7 +529,7 @@ protected function useChrome(\Codeception\Module\WebDriver $webdriver)
 
 Prepare methods can invoke all methods of a module, as well as hidden API methods (starting with `_`). Use them to customize the module setup for a specific test.
 
-To change module configuration for a specific group of tests use [GroupObjects](https://codeception.com/docs/08-Customization#Group-Objects).
+To change module configuration for a specific group of tests use [GroupObjects](https://codeception.com/docs/Customization#Group-Objects).
 
 ## Conclusion
 
