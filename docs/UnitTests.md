@@ -107,7 +107,7 @@ There are pretty many assertions you can use inside tests. The most common are:
 * `$this->assertNull()`
 * `$this->assertEmpty()`
 
-Assertion methods come from PHPUnit. [See the complete reference at phpunit.de](https://phpunit.de/manual/current/en/appendixes.assertions.html).
+Assertion methods come from PHPUnit. [See the complete reference at phpunit.de](https://docs.phpunit.de/en/main/assertions.html).
 
 
 ### Fluent Assertions

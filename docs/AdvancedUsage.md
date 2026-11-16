@@ -622,10 +622,9 @@ codecept run -o "settings: shuffle: true"
 Tests will be randomly reordered on each run. When tests are executed in shuffle mode a seed value will be printed.
 Copy this seed value from the output to be able to rerun tests in the same order.
 
-```yaml
+```bash
 $ codecept run
-Codeception PHP Testing Framework v2.4.5
-Powered by PHPUnit 5.7.27 by Sebastian Bergmann and contributors.
+Codeception PHP Testing Framework v5.3.7 https://stand-with-ukraine.pp.ua
 [Seed] 1872290562
 ```
 
