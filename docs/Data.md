@@ -34,7 +34,7 @@ modules:
 ```
 
 <div class="alert alert-notice">
-Use <a href="https://codeception.com/docs/06-ModulesAndHelpers#Dynamic-Configuration-With-Params">module parameters</a>
+Use <a href="https://codeception.com/docs/ModulesAndHelpers#Dynamic-Configuration-With-Parameters">module parameters</a>
 to set the database credentials from environment variables or from application configuration files.
 </div>
 
@@ -161,7 +161,7 @@ $I->click('Delete');
 $I->dontSeeRecord('posts', ['id' => $id]);
 ```
 
-Laravel5 module provides the method `have` which uses the [factory](https://laravel.com/docs/9.x/database-testing#creating-models-using-factories) method to generate models with fake data.
+[Laravel](https://codeception.com/docs/modules/Laravel) module provides the method `have` which uses the [factory](https://laravel.com/docs/eloquent-factories) method to generate models with fake data.
 
 If you want to use ORM for integration testing only, you should enable the framework module with only the `ORM` part enabled:
 
@@ -227,7 +227,7 @@ Doctrine also provides methods to create and check data:
 ### DataFactory
 
 Preparing data for testing is a very creative, although boring, task. If you create a record,
-you need to fill in all the fields of the model. It is much easier to use [Faker](https://github.com/fzaninotto/Faker)
+you need to fill in all the fields of the model. It is much easier to use [Faker](https://github.com/FakerPHP/Faker)
 for this task, which is more effective to set up data generation rules for models.
 Such a set of rules is called *factories*
 and are provided by the [DataFactory](https://codeception.com/docs/modules/DataFactory) module.
