@@ -97,7 +97,7 @@ Possible settings:
     * PhpStorm: `'phpstorm://open?file=%%file%%&line=%%line%%'`
     * Visual Studio Code: `'vscode://file/%%file%%:%%line%%'`
     * Atom: `'atom://core/open/file?filename=%%file%%&line=%%line%%'`
-* `error_level: E_ALL & ~E_DEPRECATED`: Set the error_reporting level. You can specify either a predefined constant or an integer value, see https://www.php.net/manual/en/function.error-reporting.php and https://www.php.net/manual/en/errorfunc.constants.php. For PHP < 8.4 `E_ALL & ~E_STRICT & ~E_DEPRECATED` is used by default.
+* `error_level: E_ALL & ~E_DEPRECATED`: Set the error_reporting level. You can specify either a predefined constant or an integer value, see https://www.php.net/manual/en/function.error-reporting.php and https://www.php.net/manual/en/errorfunc.constants.php. `E_STRICT` is deprecated as of PHP 8.4: remove it from your `error_level` if you still reference it, to avoid a deprecation notice.
 * `memory_limit: 1024M`: Tests (especially functional) can take a lot of memory. We set a high limit for them by default.
 * `report_useless_tests: false`: PHPUnit can be strict about tests that do not test anything, see https://phpunit.de/manual/current/en/risky-tests.html#risky-tests.useless-tests
 * `shuffle: false`: Set to `true` to randomize test order

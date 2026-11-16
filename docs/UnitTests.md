@@ -489,7 +489,7 @@ public function testSingleton()
 
 ## Error Reporting
 
-By default Codeception uses the `E_ALL & ~E_DEPRECATED` error reporting level (PHP < 8.4: `E_ALL & ~E_STRICT & ~E_DEPRECATED`).
+By default Codeception uses the `E_ALL & ~E_DEPRECATED` error reporting level.
 In unit tests you might want to change this level depending on your framework's error policy.
 The error reporting level can be set in the suite configuration file:
 
