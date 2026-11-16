@@ -533,7 +533,7 @@ settings:
 
 ```
 
-You should also specify the path to the `log` directory, where the reports and logs will be saved.
+You should also specify the path to the `output` directory, where the reports and logs will be saved.
 
 > Wildcards (`*`) can be used to specify multiple directories at once.
 

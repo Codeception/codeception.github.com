@@ -159,7 +159,7 @@ We should see a step-by-step report on the performed actions:
 
 ```bash
 Acceptance Tests (1) -------------------------------
-SigninCest: Login to website
+SigninCest: sign in successfully
 Signature: SigninCest.php:signInSuccessfully
 Test: tests/Acceptance/SigninCest.php:signInSuccessfully
 Scenario --

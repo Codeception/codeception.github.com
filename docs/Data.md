@@ -101,7 +101,7 @@ $I->see('Top 10 Testing Frameworks');
 All added records will be deleted at the end of the test.
 
 If you want to check that a table record was created
-use [`seeInDatabase`](https://codeception.com/docs/modules/Db#haveInDatabase) method:
+use [`seeInDatabase`](https://codeception.com/docs/modules/Db#seeInDatabase) method:
 
 ```php
 $I->amOnPage('/posts/1');
@@ -310,7 +310,7 @@ class Categories extends \Codeception\Snapshot
 Inside a test you can inject the snapshot class and call `assert` method on it:
 
 ```php
-public function testCategoriesAreTheSame(AcceptanceTester $I, \Tests\Snapshot\Categories $snapshot)
+public function testCategoriesAreTheSame(AcceptanceTester $I, \Tests\Support\Snapshot\Categories $snapshot)
 {
     $I->amOnPage('/categories');
     // if previously saved array of users does not match current set, test will fail
@@ -332,7 +332,7 @@ The assertion performed by `assertData` will not display the typical diff output
 To have the diff displayed when running tests, you can call the snapshot method `shouldShowDiffOnFail`:
 
 ```php
-public function testCategoriesAreTheSame(AcceptanceTester $I, \Tests\Snapshot\Categories $snapshot)
+public function testCategoriesAreTheSame(AcceptanceTester $I, \Tests\Support\Snapshot\Categories $snapshot)
 {
     $I->amOnPage('/categories');
     // I want to see the diff in case the snapshot data changes
@@ -349,7 +349,7 @@ By default, all snapshot files are stored in json format, so if you have to work
 To fix this, you can call the snapshot method `shouldSaveAsJson(false)` and set the file extension by calling `setSnapshotFileExtension()`:
 
 ```php
-public function testCategoriesAreTheSame(AcceptanceTester $I, \Tests\Snapshot\Categories $snapshot)
+public function testCategoriesAreTheSame(AcceptanceTester $I, \Tests\Support\Snapshot\Categories $snapshot)
 {
     // I fetch an HTML page
     $I->amOnPage('/categories.html');

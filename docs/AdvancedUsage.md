@@ -285,7 +285,7 @@ class EndpointCest
 
 ## Example Annotation
 
-As well as the `\Codeception\Attribute\Examples` attribute, available for Cest tests, the `@example` attribute allows you to
+As well as the `\Codeception\Attribute\Examples` attribute, available for Cest tests, the `@example` annotation allows you to
 inject test parameters in place of an actual [DataProvider](#dataprovider-attribute) for Unit tests.
 
 ```php
@@ -311,7 +311,7 @@ class ExampleTest extends \Codeception\Test\Unit
 
 ## DataProvider Attribute
 
-You can also use the `@dataProvider` annotation for creating dynamic examples for [Cest classes](#Cest-Classes), using a **protected method** for providing example data:
+You can also use the `#[DataProvider]` attribute for creating dynamic examples for [Cest classes](#Cest-Classes), using a **protected method** for providing example data:
 
 ```php
 <?php
@@ -424,7 +424,7 @@ Normally, the test signature matches the `className:methodName` format.
 But to get the exact test signature just run the test with the `--steps` option to see it:
 
 ```
-Signature: ModeratorCest:login`
+Signature: ModeratorCest:login
 ```
 
 Codeception reorders tests so dependent tests will always be executed before the tests that rely on them.
@@ -502,7 +502,7 @@ To run the tests in all browsers, list all the environments:
 php vendor/bin/codecept run Acceptance --env chrome --env firefox
 ```
 
-The tests will be executed 3 times, each time in a different browser.
+The tests will be executed 2 times, each time in a different browser.
 
 It's also possible to merge multiple environments into a single configuration by separating them with a comma:
 
@@ -644,7 +644,7 @@ passing all dependencies as arguments. This may be useful when working with Help
 
 ```php
 <?php
-namespace Tests\Unit;
+namespace Tests\Acceptance;
 
 use Tests\Support\AcceptanceTester;
 use Tests\Support\Helper\SignUp;
