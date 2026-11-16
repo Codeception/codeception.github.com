@@ -80,24 +80,29 @@ This will generate the `SigninCest.php` file inside the `tests/Acceptance` direc
 
 ```php
 <?php
+
+declare(strict_types=1);
+
 namespace Tests\Acceptance;
 
 use Tests\Support\AcceptanceTester;
 
-class SigninCest
+final class SigninCest
 {
-    public function _before(AcceptanceTester $I)
+    public function _before(AcceptanceTester $I): void
     {
+        // Code here will be executed before each test function.
     }
 
-    // tests
-    public function tryToTest(AcceptanceTester $I)
+    // All `public` methods will be executed as tests.
+    public function tryToTest(AcceptanceTester $I): void
     {
+        // Write your test content here.
     }
 }
 ```
 
-We have `_before` and `_after` methods to run some common actions before and after a test. And we have a placeholder method `tryToTest`.
+We have a `_before` method to run some common actions before each test (you can add an `_after` method for actions after each test). And we have a placeholder method `tryToTest`.
 If we want to test a signin process it's a good start to test a successful signin. Let's rename this method to `signInSuccessfully`.
 
 ```php
