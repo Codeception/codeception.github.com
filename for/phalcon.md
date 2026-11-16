@@ -48,10 +48,10 @@ modules:
         - Asserts
         - \Helper\Unit
         - Phalcon4:
-          bootstrap: public/index.php
-          cleanup: true
-          savepoints: true
-    step_decorators: ~
+            bootstrap: public/index.php
+            cleanup: true
+            savepoints: true
+step_decorators: ~
 ```
 
 To generate a plain PHPUnit test for class `Users`, run:
@@ -87,10 +87,10 @@ modules:
         # add a framework module here
         - \Helper\Functional
         - Phalcon4:
-          bootstrap: public/index.php
-          cleanup: true
-          savepoints: true
-    step_decorators: ~        
+            bootstrap: public/index.php
+            cleanup: true
+            savepoints: true
+step_decorators: ~
 ```
 
 Then use [Cest](https://codeception.com/docs/07-AdvancedUsage) or Cept to create a test.

@@ -169,7 +169,7 @@ If you want to use ORM for integration testing only, you should enable the frame
 modules:
     enabled:
         - Laravel:
-            - part: ORM
+            part: ORM
 ```
 
 Similarly for Yii2 framework:
@@ -178,7 +178,7 @@ Similarly for Yii2 framework:
 modules:
     enabled:
         - Yii2:
-            - part: ORM
+            part: ORM
 ```
 
 This way no web actions will be added to `$I` object.

@@ -142,7 +142,7 @@ modules:
             depends: Laravel
         - \Helper\Api
     config:
-        - Laravel:
+        Laravel:
             environment_file: .env.testing
 
 ```

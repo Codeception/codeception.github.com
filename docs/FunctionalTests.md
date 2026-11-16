@@ -143,8 +143,8 @@ modules:
     enabled:
         - Phalcon5:
             bootstrap: 'app/config/bootstrap.php'
-             cleanup: true
-             savepoints: true
+            cleanup: true
+            savepoints: true
 ```
 
 [See the full reference](https://codeception.com/docs/modules/Phalcon4)
