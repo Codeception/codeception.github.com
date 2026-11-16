@@ -90,7 +90,7 @@ modules:
             depends: Symfony # connect to Symfony
 ```
 
-By default this module will search for AppKernel in the `app` directory.
+By default this module will search for the `App\Kernel` class in the `src` directory. Use the `kernel_class` and `app_path` options to change this.
 
 The module uses the Symfony Profiler to provide additional information and assertions.
 
