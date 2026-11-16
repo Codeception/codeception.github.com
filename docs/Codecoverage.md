@@ -108,7 +108,7 @@ XML clover reports are used by IDEs (like PHPStorm) or Continuous Integration se
 
 If you run your application via Webserver (Apache, Nginx, PHP WebServer) you don't have a direct access to tested code,
 so collecting coverage becomes a non-trivial task. The same goes for scripts that are tested on different nodes.
-To get access to this code you need `xdebug` installed with coverage enabled (`xdebug.mode=coverage` in Xdebug 3).
+To get access to this code you need a coverage driver on the server: `pcov` or `xdebug` with coverage enabled (`xdebug.mode=coverage`). Path coverage (`path_coverage: true`) requires `xdebug`.
 Codeception also requires a little spy to interact with your application. As your application runs standalone,
 without even knowing it is being tested, a small file should be included in order to collect coverage info.
 
