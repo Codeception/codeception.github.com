@@ -9,6 +9,21 @@ title: Codeception Changelog
 
 
 
+### lib-asserts 3.2.1: 3.2.1
+
+Released by [![](https://avatars.githubusercontent.com/in/15368?v=4&s=16){:height="16" width="16"} github-actions[bot]](https://github.com/apps/github-actions) on 2026/11/16 14:23:36 / [Repository](https://github.com/Codeception/lib-asserts)   / [Releases](https://github.com/Codeception/lib-asserts/releases)
+
+
+
+## [3.2.1](https://github.com/Codeception/lib-asserts/compare/3.2.0...3.2.1) (2026-11-16)
+
+
+### Bug Fixes
+
+* use fully qualified ArrayAccess in PHPDoc ([[#21](https://github.com/Codeception/lib-asserts/issues/21)](https://github.com/Codeception/lib-asserts/issues/21)) ([fe78fb4](https://github.com/Codeception/lib-asserts/commit/fe78fb4b7999680aac1cbf888d449dfef845f52d)), closes [[#10](https://github.com/Codeception/lib-asserts/issues/10)](https://github.com/Codeception/lib-asserts/issues/10) [[#11](https://github.com/Codeception/lib-asserts/issues/11)](https://github.com/Codeception/lib-asserts/issues/11) [[#15](https://github.com/Codeception/lib-asserts/issues/15)](https://github.com/Codeception/lib-asserts/issues/15)
+
+
+
 ### module-doctrine 3.3.1: 3.3.1
 
 Released by [![](https://avatars.githubusercontent.com/u/20659830?v=4&s=16){:height="16" width="16"} W0rma](https://github.com/W0rma) on 2026/11/02 13:25:09 / [Repository](https://github.com/Codeception/module-doctrine)   / [Releases](https://github.com/Codeception/module-doctrine/releases)
