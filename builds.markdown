@@ -4,6 +4,14 @@ title: Codeception Builds
 ---
 
 
+## 5.3 and newer
+*Requires: PHP 8.2 and higher + CURL*
+
+Starting with Codeception 5.3, the phar is built automatically and attached to every GitHub release.
+
+* **[Download Latest Release](https://github.com/Codeception/Codeception/releases/latest/download/codecept.phar)**
+* [All Releases](https://github.com/Codeception/Codeception/releases)
+
 ## 5.1
 *Requires: PHP 8.0 and higher + CURL*
 
