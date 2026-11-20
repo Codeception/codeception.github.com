@@ -9,6 +9,36 @@ title: Codeception Changelog
 
 
 
+### module-ftp 3.1.0: 3.1.0
+
+Released by [![](https://avatars.githubusercontent.com/u/20659830?v=4&s=16){:height="16" width="16"} W0rma](https://github.com/W0rma) on 2026/11/20 16:36:05 / [Repository](https://github.com/Codeception/module-ftp)   / [Releases](https://github.com/Codeception/module-ftp/releases)
+
+
+
+## What's Changed
+* update links by **[Arhell](https://github.com/Arhell)** in https://github.com/Codeception/module-ftp/pull/10
+* Add support for phpseclib v3 and v4 in https://github.com/Codeception/module-ftp/pull/12
+* Bugfix: ftp_mdtm() returns -1 on error in https://github.com/Codeception/module-ftp/pull/14
+* Drop support for PHP 8.0 + 8.1 and test against latest PHP versions in https://github.com/Codeception/module-ftp/pull/13
+
+**Full Changelog**: https://github.com/Codeception/module-ftp/compare/3.0.0...3.1.0
+
+
+### module-sequence 3.0.1: 3.0.1
+
+Released by [![](https://avatars.githubusercontent.com/u/20659830?v=4&s=16){:height="16" width="16"} W0rma](https://github.com/W0rma) on 2026/11/20 16:32:46 / [Repository](https://github.com/Codeception/module-sequence)   / [Releases](https://github.com/Codeception/module-sequence/releases)
+
+
+
+## What's Changed
+* Fix PHP 8.4 deprecation warning by **[djadobe16](https://github.com/djadobe16)** in https://github.com/Codeception/module-sequence/pull/9
+
+## New Contributors
+* **[djadobe16](https://github.com/djadobe16)** made their first contribution in https://github.com/Codeception/module-sequence/pull/9
+
+**Full Changelog**: https://github.com/Codeception/module-sequence/compare/3.0.0...3.0.1
+
+
 ### lib-asserts 3.2.1: 3.2.1
 
 Released by [![](https://avatars.githubusercontent.com/in/15368?v=4&s=16){:height="16" width="16"} github-actions[bot]](https://github.com/apps/github-actions) on 2026/11/16 14:23:36 / [Repository](https://github.com/Codeception/lib-asserts)   / [Releases](https://github.com/Codeception/lib-asserts/releases)

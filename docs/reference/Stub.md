@@ -8,7 +8,7 @@ title: Stub - Codeception - Documentation
 
 
 
-#### *public static* make($class, array $params = array ( ), $testCase = null)
+#### *public static* make($class, array $params = [], $testCase = false)
 
 * `template` RealInstanceType of object
 * `param ` $class
@@ -62,7 +62,7 @@ Stub::make('User', [
 
 {% endhighlight %}
 
-#### *public static* factory($class, $num = 1, array $params = array ( ))
+#### *public static* factory($class, $num = 1, array $params = [])
 
 * `param mixed` $class
 * `param int` $num
@@ -72,7 +72,7 @@ Stub::make('User', [
 
 Creates $num instances of class through `Stub::make`.
 
-#### *public static* makeEmptyExcept($class, $method, array $params = array ( ), $testCase = null)
+#### *public static* makeEmptyExcept($class, $method, array $params = [], $testCase = false)
 
 * `template` RealInstanceType of object
 * `param ` $class
@@ -127,7 +127,7 @@ Stub::makeEmptyExcept('User', 'validate', [
 
 {% endhighlight %}
 
-#### *public static* makeEmpty($class, array $params = array ( ), $testCase = null)
+#### *public static* makeEmpty($class, array $params = [], $testCase = false)
 
 * `template` RealInstanceType of object
 * `param ` $class
@@ -181,7 +181,7 @@ Stub::makeEmpty('User', [
 
 {% endhighlight %}
 
-#### *public static* copy($obj, array $params = array ( ))
+#### *public static* copy($obj, array $params = [])
 
 * `param ` $obj
 * `param array` $params
@@ -190,7 +190,7 @@ Stub::makeEmpty('User', [
 
 Clones an object and redefines it's properties (even protected and private)
 
-#### *public static* construct($class, array $constructorParams = array ( ), array $params = array ( ), $testCase = null)
+#### *public static* construct($class, array $constructorParams = [], array $params = [], $testCase = false)
 
 * `template` RealInstanceType of object
 * `param ` $class
@@ -245,7 +245,7 @@ Stub::construct('User', [], [
 
 {% endhighlight %}
 
-#### *public static* constructEmpty($class, array $constructorParams = array ( ), array $params = array ( ), $testCase = null)
+#### *public static* constructEmpty($class, array $constructorParams = [], array $params = [], $testCase = false)
 
 * `template` RealInstanceType of object
 * `param ` $class
@@ -299,7 +299,7 @@ Stub::constructEmpty('User', [], [
 
 {% endhighlight %}
 
-#### *public static* constructEmptyExcept($class, $method, array $constructorParams = array ( ), array $params = array ( ), $testCase = null)
+#### *public static* constructEmptyExcept($class, $method, array $constructorParams = [], array $params = [], $testCase = false)
 
 * `template` RealInstanceType of object
 * `param ` $class

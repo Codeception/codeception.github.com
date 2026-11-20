@@ -170,7 +170,7 @@ Create an empty directory and add a placeholder file into it
 
 #### createHelper()
 
- *protected* createHelper($name, $directory, array $settings = array ( ))
+ *protected* createHelper($name, $directory, array $settings = [])
 
 
 * `param string` $name

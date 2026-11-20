@@ -9,7 +9,7 @@ Declare mocks inside `Codeception\Test\Unit` class.
 If you want to use mocks outside it, check the reference for [Codeception/Stub](https://github.com/Codeception/Stub) library.      
 
 
-#### *public* make($class, array $params = array ( ))
+#### *public* make($class, array $params = [])
 
 * `template` RealInstanceType of object
 * `param ` $class
@@ -51,7 +51,7 @@ $this->make('User', ['save' => true]);
 
 {% endhighlight %}
 
-#### *public* makeEmpty($class, array $params = array ( ))
+#### *public* makeEmpty($class, array $params = [])
 
 * `template` RealInstanceType of object
 * `param ` $class
@@ -93,7 +93,7 @@ $this->makeEmpty('User', ['save' => true]);
 
 {% endhighlight %}
 
-#### *public* makeEmptyExcept($class, $method, array $params = array ( ))
+#### *public* makeEmptyExcept($class, $method, array $params = [])
 
 * `template` RealInstanceType of object
 * `param ` $class
@@ -136,7 +136,7 @@ $this->makeEmptyExcept('User', 'save', ['isValid' => true]);
 
 {% endhighlight %}
 
-#### *public* construct($class, array $constructorParams = array ( ), array $params = array ( ))
+#### *public* construct($class, array $constructorParams = [], array $params = [])
 
 * `template` RealInstanceType of object
 * `param ` $class
@@ -179,7 +179,7 @@ $this->construct('User', [], ['save' => true]);
 
 {% endhighlight %}
 
-#### *public* constructEmpty($class, array $constructorParams = array ( ), array $params = array ( ))
+#### *public* constructEmpty($class, array $constructorParams = [], array $params = [])
 
 * `template` RealInstanceType of object
 * `param ` $class
@@ -232,7 +232,7 @@ $this->constructEmpty('User', [], [
 
 {% endhighlight %}
 
-#### *public* constructEmptyExcept($class, $method, array $constructorParams = array ( ), array $params = array ( ))
+#### *public* constructEmptyExcept($class, $method, array $constructorParams = [], array $params = [])
 
 * `template` RealInstanceType of object
 * `param ` $class

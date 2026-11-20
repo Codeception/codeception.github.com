@@ -113,7 +113,7 @@ Requires module container (to provide access between modules of suite) and confi
 
 #### _beforeSuite()
 
- *public* _beforeSuite(array $settings = array ( ))
+ *public* _beforeSuite(array $settings = [])
 
 
 * `param array` $settings
