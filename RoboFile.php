@@ -10,8 +10,9 @@ class RoboFile extends \Robo\Tasks
     use DocumentationHelpers;
 
     const REPO_BLOB_URL = 'https://github.com/Codeception/Codeception/blob';
-    const BRANCH_5x = '5.3';
     const BRANCH_MAIN = 'main';
+    const RELEASES_URL = 'https://github.com/Codeception/Codeception/releases';
+    const PHAR_LATEST_URL = self::RELEASES_URL . '/latest/download/codecept.phar';
 
     function post()
     {
@@ -412,129 +413,6 @@ EOF;
         file_put_contents($documentationFile, $contents);
     }
 
-    public function buildPhar82()
-    {
-        $ignoredPlatformReqs = array(
-            'ext-apcu',
-            'ext-mongodb',
-            'ext-phalcon',
-        );
-
-        $version    = self::BRANCH_5x . '.' . date('Ymd');
-        $releaseDir = "releases/$version";
-        $this->stopOnFail();
-        $this->taskFilesystemStack()->mkdir('build/82')->run();
-        $this->setCodeceptionVersionTo('^' . self::BRANCH_5x, $ignoredPlatformReqs);
-        $this->setPlatformVersionTo('8.2.0', $ignoredPlatformReqs);
-        $buildFile = 'build/82/codecept.phar';
-        $this->buildPhar($buildFile);
-        $this->updateVersionFile($buildFile, 'php82/codecept.version');
-        $versionedFile = "$releaseDir/codecept.phar";
-        $this->taskFilesystemStack()
-            ->stopOnFail()
-            ->mkdir($releaseDir)
-            ->copy($buildFile, $versionedFile)
-            ->remove('php82/codecept.phar')
-            ->symlink("../$versionedFile", 'php82/codecept.phar')
-            ->run();
-    }
-
-    public function release82()
-    {
-        $version    = self::BRANCH_5x . '.' . date('Ymd');
-        $releaseDir = "releases/$version";
-        $this->updateBuildsPage();
-
-        $this->taskGitStack()
-            ->stopOnFail()
-            ->checkout('-- package/composer.json')
-            ->add('builds.markdown')
-            ->add('php82/codecept.phar')
-            ->add('php82/codecept.version')
-            ->add($releaseDir)
-            ->run();
-    }
-
-    private function setPlatformVersionTo($version, $ignoredPlatformReqs = array())
-    {
-        $this->taskComposerConfig()->workingDir('package')->set('platform.php', $version)->run();
-        $composerUpdate = $this->taskComposerUpdate();
-        foreach ($ignoredPlatformReqs as $ignoredPlatformReq) {
-            $composerUpdate->option('--ignore-platform-req', $ignoredPlatformReq);
-        }
-        $composerUpdate->preferDist()->optimizeAutoloader()->workingDir('package')->run();
-    }
-
-    private function setCodeceptionVersionTo($version, $ignoredPlatformReqs = array())
-    {
-        $composerRequire = $this->taskComposerRequire()
-            ->dependency('codeception/codeception', $version);
-        foreach ($ignoredPlatformReqs as $ignoredPlatformReq) {
-            $composerRequire->option('--ignore-platform-req', $ignoredPlatformReq);
-        }
-        $composerRequire->workingDir('package')
-            ->run();
-    }
-
-    /**
-     * @desc creates codecept.phar
-     * @throws Exception
-     */
-    public function buildPhar($targetFile)
-    {
-        $this->packPhar($targetFile);
-        $dir = dirname($targetFile);
-        //the file must be named codecept.phar to be executable
-        $this->taskFilesystemStack()->copy($targetFile, $dir . '/codecept.phar')->run();
-        $code = $this->taskExec('php codecept.phar')->dir($dir)->run()->getExitCode();
-        if ($code !== 0) {
-            throw new Exception("There was problem compiling phar");
-        }
-    }
-
-    private function packPhar($pharFileName)
-    {
-        $pharTask = $this->taskPackPhar($pharFileName)
-            ->compress()
-            ->stub('package/stub.php');
-
-        $finder = Finder::create()->files()
-            ->ignoreVCS(true)
-            ->name('*.php')
-            ->name('*.php8')
-            ->name('*.css')
-            ->name('*.png')
-            ->name('*.js')
-            ->name('*.css')
-            ->name('*.eot')
-            ->name('*.svg')
-            ->name('*.ttf')
-            ->name('*.wof')
-            ->name('*.woff')
-            ->name('*.woff2')
-            ->name('*.png')
-            ->name('*.tpl')
-            ->name('*.tpl.dist')
-            ->name('*.html.dist')
-            ->exclude('Tests')
-            ->exclude('tests')
-            ->exclude('benchmark')
-            ->exclude('demo')
-            ->in('package/vendor');
-
-        foreach ($finder as $file) {
-            $relativePathname = $file->getRelativePathname();
-            if (strpos($relativePathname, 'codeception/') === 0) {
-                //don't remove whitespace from Codeception files
-                $pharTask->addFile('vendor/' . $relativePathname, $file->getRealPath());
-            } else {
-                $pharTask->addStripped('vendor/' . $relativePathname, $file->getRealPath());
-            }
-        }
-
-        $pharTask->run();
-    }
-
     public function processChangelog()
     {
         $client = new \Github\Client();
@@ -618,7 +496,13 @@ EOF;
             ->line('layout: page')
             ->line('title: Codeception Builds')
             ->line('---')
-            ->line('');
+            ->line('')
+            ->line("\n## 5.3 and newer")
+            ->line("*Requires: PHP 8.2 and higher + CURL*\n")
+            ->line('Starting with Codeception 5.3, the phar is built automatically and attached to every GitHub release.')
+            ->line('')
+            ->line('* **[Download Latest Release](' . self::PHAR_LATEST_URL . ')**')
+            ->line('* [All Releases](' . self::RELEASES_URL . ')');
 
         foreach ($releases as $release) {
             $releaseName = $release->getBasename();
@@ -666,19 +550,4 @@ EOF;
         }
         $releaseFile->run();
     }
-
-    /**
-     * @param $pharFile
-     * @param $versionFile
-     */
-    private function updateVersionFile($pharFile, $versionFile)
-    {
-        $hash = sha1_file($pharFile);
-        if ($hash === false) {
-            throw new Exception('Failed to write hash to file: ' . $versionFile);
-        }
-        $this->taskWriteToFile($versionFile)->text($hash)->run();
-    }
-
-
 }

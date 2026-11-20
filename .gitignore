@@ -1,13 +1,10 @@
 _site/
 /.idea
 .jekyll-metadata
-/build
 /composer.lock
 Gemfile.lock
 /docs/modules/AbstractAsserts.md
 /docs/modules/Phalcon.md
 /docs/modules/Phalcon4.md
-/package/composer.lock
-/package/vendor
 /vendor
 .jekyll-cache
