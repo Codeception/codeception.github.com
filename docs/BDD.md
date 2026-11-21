@@ -518,7 +518,7 @@ gherkin:
     contexts:
         role:
             admin:
-                - "Step\Admin"
+                - 'Step\Admin'
 ```
 
 Contexts can be attached to tags as well. This may be useful if you want to redefine steps for some scenarios. Let's say we want to bypass login steps for some scenarios loading already defined session. In this case we can create `Step\FastLogin` class with redefined step "I am logged in as".
@@ -529,7 +529,7 @@ gherkin:
     contexts:
         tag:
             fastlogin:
-                - "Step\FastLogin"
+                - 'Step\FastLogin'
 ```
 
 Contexts can be autoloaded as well:

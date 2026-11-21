@@ -397,7 +397,7 @@ actor: AcceptanceTester
 modules:
     enabled:
         - WebDriver:
-            url: {{your site URL}}
+            url: http://localhost/myapp
             browser: chrome
 ```
 

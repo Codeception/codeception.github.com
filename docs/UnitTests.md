@@ -495,7 +495,7 @@ The error reporting level can be set in the suite configuration file:
 
 ```yaml
 actor: UnitTester
-...
+# ...
 error_level: E_ALL & ~E_DEPRECATED
 ```
 

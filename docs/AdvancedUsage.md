@@ -615,7 +615,7 @@ settings:
 
 Alternatively, you may run tests in the shuffle without changing the config:
 
-```yaml
+```bash
 codecept run -o "settings: shuffle: true"
 ```
 
@@ -630,7 +630,7 @@ Codeception PHP Testing Framework v5.3.7 https://stand-with-ukraine.pp.ua
 
 Pass the copied seed into `--seed` option:  
 
-```yaml
+```bash
 codecept run --seed 1872290562
 ```
 

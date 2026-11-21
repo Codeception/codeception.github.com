@@ -291,8 +291,8 @@ actor: ApiTester
 modules:
     enabled:
         - SOAP:
-          depends: PhpBrowser
-          endpoint: http://serviceapp/api/v1/
+            depends: PhpBrowser
+            endpoint: http://serviceapp/api/v1/
 ```
 
 SOAP request may contain application specific information, like authentication or payment. This information is provided with SOAP header inside the `<soap:Header>` element of XML request. In case you need to submit such header, you can use `haveSoapHeader` action. For example, next line of code
