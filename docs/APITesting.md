@@ -160,7 +160,7 @@ and rebuild actions:
 php vendor/bin/codecept build
 ```
 
-> `sendGetAsJson`, `sendPutAsJson`, and others, are implemented as a [Step Decorator](https://codeception.com/docs/08-Customization#Step-Decorators).
+> `sendGetAsJson`, `sendPutAsJson`, and others, are implemented as a [Step Decorator](https://codeception.com/docs/Customization#Step-Decorators).
 
 
 ### JSON Structure Validation
@@ -236,7 +236,7 @@ $I->seeResponseContainsJson([
 
 ```
 
-You may want to perform even more complex assertions on a response. This can be done by writing your own methods in the [Helper](https://codeception.com/docs/06-ReusingTestCode#Modules-and-Helpers) classes. To access the latest JSON response you will need to get the `response` property of the `REST` module. Let's demonstrate it with the `seeResponseIsHtml` method:
+You may want to perform even more complex assertions on a response. This can be done by writing your own methods in the [Helper](https://codeception.com/docs/ModulesAndHelpers#Helpers) classes. To access the latest JSON response you will need to get the `response` property of the `REST` module. Let's demonstrate it with the `seeResponseIsHtml` method:
 
 ```php
 <?php

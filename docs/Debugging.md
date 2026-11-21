@@ -41,7 +41,7 @@ So it is safe to keep `codecept_debug` inside a test, it won't affect the code r
 `codecept_debug` can be used in any place of your tests, but it is prohibited to use it in application code. 
 This function is loaded only by Codeception, so the application may be broken trying to call this line.
 
-Inside a [Helper](/docs/06-ModulesAndHelpers#Helpers) you can use analogs of this function to provide a debug output for a complex action. 
+Inside a [Helper](/docs/ModulesAndHelpers#Helpers) you can use analogs of this function to provide a debug output for a complex action. 
 
 
 ```php

@@ -22,7 +22,7 @@ To test the behavior of your application as a whole, you should also write funct
 
 | | Unit Tests | Functional Tests | Acceptance Tests
 | --- | --- | --- | --- |
-| Scope of the test | Single PHP class | PHP Framework (Routing, Database, etc.) | Page in browser (Chrome, Firefox, or [PhpBrowser](https://codeception.com/docs/03-AcceptanceTests#PhpBrowser)) |
+| Scope of the test | Single PHP class | PHP Framework (Routing, Database, etc.) | Page in browser (Chrome, Firefox, or [PhpBrowser](https://codeception.com/docs/AcceptanceTests#PhpBrowser)) |
 | Testing computer needs access to project's PHP files | Yes | Yes | No |
 | Webserver required | No | No | Yes |
 | JavaScript  | No | No | Yes |
@@ -96,7 +96,7 @@ Testing pieces of code before coupling them together is highly important as well
 you can be sure that some deeply hidden feature still works, even if it was not covered by functional or acceptance tests.
 This also shows care in producing stable and testable code.
 
-Codeception is created on top of [PHPUnit](https://www.phpunit.de/). If you have experience writing unit tests with PHPUnit
+Codeception is created on top of [PHPUnit](https://phpunit.de/). If you have experience writing unit tests with PHPUnit
 you can continue doing so. Codeception has no problem executing standard PHPUnit tests,
 but, additionally, Codeception provides some well-built tools to make your unit tests simpler and cleaner.
 

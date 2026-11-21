@@ -81,7 +81,7 @@ coverage:
     show_only_summary: false
 ```
 
-For further information please refer to the [PHPUnit configuration docs](https://phpunit.readthedocs.io/en/latest/configuration.html)
+For further information please refer to the [PHPUnit configuration docs](https://docs.phpunit.de/en/12.5/configuration.html)
 
 ## Local CodeCoverage
 

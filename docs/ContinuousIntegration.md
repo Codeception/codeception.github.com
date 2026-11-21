@@ -184,7 +184,7 @@ test:
     expire_in: 1 week
     paths:
       - tests/_output
-    # make the report available in Gitlab UI. see https://docs.gitlab.com/ee/ci/unit_test_reports.html
+    # make the report available in Gitlab UI. see https://docs.gitlab.com/ci/testing/unit_test_reports/
     reports:
       junit: tests/_output/report.xml
 ```

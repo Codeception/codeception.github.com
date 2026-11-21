@@ -107,7 +107,7 @@ There are pretty many assertions you can use inside tests. The most common are:
 * `$this->assertNull()`
 * `$this->assertEmpty()`
 
-Assertion methods come from PHPUnit. [See the complete reference at phpunit.de](https://docs.phpunit.de/en/main/assertions.html).
+Assertion methods come from PHPUnit. [See the complete reference at phpunit.de](https://docs.phpunit.de/en/12.5/assertions.html).
 
 
 ### Fluent Assertions
@@ -363,7 +363,7 @@ The same can be done for all public properties of an enabled module. Accessible 
 
 ### Scenario Driven Testing
 
-[Cest format](https://codeception.com/docs/07-AdvancedUsage#Cest-Classes) can also be used for integration testing.
+[Cest format](https://codeception.com/docs/AdvancedUsage#Cest-Classes) can also be used for integration testing.
 In some cases it makes tests cleaner as it simplifies module access by using common `$I->` syntax:
 
 ```php

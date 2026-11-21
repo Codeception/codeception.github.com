@@ -47,7 +47,7 @@ We will start writing our first acceptance tests with PhpBrowser.
 
 This is the fastest way to run acceptance tests since it doesn't require running an actual browser.
 We use a PHP web scraper, which acts like a browser: It sends a request, then receives and parses the response.
-Codeception uses [Guzzle](https://guzzlephp.org) and [Symfony BrowserKit](https://symfony.com/doc/current/components/browser_kit.html) to interact with HTML web pages.
+Codeception uses [Guzzle](https://docs.guzzlephp.org/) and [Symfony BrowserKit](https://symfony.com/doc/current/components/browser_kit.html) to interact with HTML web pages.
 
 Common PhpBrowser drawbacks:
 
@@ -376,13 +376,13 @@ Launch this command in a separate terminal:
 selenium-standalone start
 ```
 
-![](https://raw.githubusercontent.com/vvo/selenium-standalone/HEAD/screencast.gif)
+![](https://raw.githubusercontent.com/webdriverio/selenium-standalone/HEAD/screencast.gif)
 
 Now, you are ready to run WebDriver tests using Codeception.
 
 > Alternatively, Selenium Server can be installed manually. [Download it](https://www.selenium.dev/downloads/) from the official site and launch a server with Java: `java -jar selenium-server-....jar`. In this case ChromeDriver and GeckoDriver must be installed separately.
 
-* For more information refer to [Installation Instructions](https://codeception.com/docs/modules/WebDriver#Selenium)
+* For more information refer to [Installation Instructions](https://codeception.com/docs/modules/WebDriver#Selenium-Recommended)
 * Enable [RunProcess](https://codeception.com/extensions#RunProcess) extension to start/stop Selenium automatically *(optional)*.
 
 
@@ -440,7 +440,7 @@ $I->wait(3); // wait for 3 secs
 
 It is possible to wait for elements programmatically.
 If a test uses an element which is not on a page yet, Codeception will wait for a few extra seconds before failing.
-This feature is based on [Implicit Wait](https://www.seleniumhq.org/docs/04_webdriver_advanced.jsp#implicit-waits) of Selenium.
+This feature is based on [Implicit Wait](https://www.selenium.dev/documentation/webdriver/waits/#implicit-waits) of Selenium.
 Codeception enables implicit wait only when searching for a specific element and disables in all other cases. Thus, the performance of a test is not affected.
 
 SmartWait can be enabled by setting `wait` option in WebDriver config. It expects the number of seconds to wait. Example:
@@ -650,7 +650,7 @@ You just need to set the [WebDriver configuration](https://codeception.com/docs/
 * browser
 * OS
 
-We recommend using [params](https://codeception.com/docs/06-ModulesAndHelpers#Dynamic-Configuration-With-Params)
+We recommend using [params](https://codeception.com/docs/ModulesAndHelpers#Dynamic-Configuration-With-Parameters)
 to provide authorization credentials.
 
 It should be mentioned that Cloud Testing services are not free. You should investigate their pricing models
@@ -671,8 +671,8 @@ PhpBrowser will store the HTML code and WebDriver will save a screenshot of the 
 
 Additional debugging features by Codeception:
 
-* [Interactive Pause](https://codeception.com/docs/02-GettingStarted#Interactive-Pause) is a REPL that allows to type and check commands for instant feedback.
-* [Recorder Extension](https://codeception.com/addons#CodeceptionExtensionRecorder) allows to record tests step-by-step and show them in slideshow
+* [Interactive Pause](https://codeception.com/docs/Debugging#Pause) is a REPL that allows to type and check commands for instant feedback.
+* [Recorder Extension](https://codeception.com/extensions#Recorder) allows to record tests step-by-step and show them in slideshow
 
 ### Common Cases
 
@@ -751,16 +751,16 @@ Note that session restoration only works for `WebDriver` modules
 
 By default, WebDriver module is configured to automatically start browser before the test and stop afterward.
 However, this can be switched off with `start: false` module configuration.
-To start a browser you will need to write corresponding methods in Acceptance [Helper](https://codeception.com/docs/06-ModulesAndHelpers#Helpers).
+To start a browser you will need to write corresponding methods in Acceptance [Helper](https://codeception.com/docs/ModulesAndHelpers#Helpers).
 
 WebDriver module provides advanced methods for the browser session, however, they can only be used from Helpers.
 
 * [_initializeSession](https://codeception.com/docs/modules/WebDriver#_initializeSession) - starts a new browser session
 * [_closeSession](https://codeception.com/docs/modules/WebDriver#_closeSession) - stops the browser session
 * [_restart](https://codeception.com/docs/modules/WebDriver#_restart) - updates configuration and restarts browser
-* [_capabilities](https://codeception.com/docs/modules/WebDriver#_capabilities) - set [desired capabilities](https://github.com/SeleniumHQ/selenium/wiki/DesiredCapabilities) programmatically.
+* [_capabilities](https://codeception.com/docs/modules/WebDriver#_capabilities) - set [desired capabilities](https://www.selenium.dev/documentation/webdriver/drivers/options/) programmatically.
 
-Those methods can be used to create custom commands like `$I->startBrowser()` or used in [before/after](https://codeception.com/docs/06-ModulesAndHelpers#Hooks) hooks.
+Those methods can be used to create custom commands like `$I->startBrowser()` or used in [before/after](https://codeception.com/docs/ModulesAndHelpers#Hooks) hooks.
 
 ## Conclusion
 

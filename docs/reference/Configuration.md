@@ -88,18 +88,18 @@ settings:
 
 Possible settings:
 
-* `backup_globals: true`: Controls whether PHPUnit attempts to backup global variables, see https://phpunit.de/manual/current/en/appendixes.annotations.html#appendixes.annotations.backupGlobals
-* `be_strict_about_changes_to_global_state: false`: PHPUnit can be strict about tests that manipulate global state, see https://phpunit.de/manual/current/en/risky-tests.html#risky-tests.global-state-manipulation
+* `backup_globals: true`: Controls whether PHPUnit attempts to backup global variables, see https://docs.phpunit.de/en/12.5/attributes.html#backupglobals
+* `be_strict_about_changes_to_global_state: false`: PHPUnit can be strict about tests that manipulate global state, see https://docs.phpunit.de/en/12.5/risky-tests.html#global-state-manipulation
 * `colors: true`: Colorize console output. On older Windows consoles you may need [ANSICON](https://github.com/adoxa/ansicon) to display colors.
 * `convert_deprecations_to_exceptions: false` Converts E_DEPRECATED and E_USER_DEPRECATED events to exceptions. Introduced in Codeception 4.2.0
-* `disallow_test_output: false`: PHPUnit can be strict about output during tests, see https://phpunit.de/manual/current/en/risky-tests.html#risky-tests.output-during-test-execution
+* `disallow_test_output: false`: PHPUnit can be strict about output during tests, see https://docs.phpunit.de/en/12.5/risky-tests.html#output-during-test-execution
 * `editor_url: 'atom://core/open/file?filename=%%file%%&line=%%line%%'`: In the console output, the test runner will replace all references to files with "clickable" URL's, allowing you to open the file directly in your IDE. Depending on your operating system, you may have to set up an appropriate uri handler. Syntax for some common editors (same as in [PHPStan](https://phpstan.org/user-guide/output-format#opening-file-in-an-editor)):
     * PhpStorm: `'phpstorm://open?file=%%file%%&line=%%line%%'`
     * Visual Studio Code: `'vscode://file/%%file%%:%%line%%'`
     * Atom: `'atom://core/open/file?filename=%%file%%&line=%%line%%'`
 * `error_level: E_ALL & ~E_DEPRECATED`: Set the error_reporting level. You can specify either a predefined constant or an integer value, see https://www.php.net/manual/en/function.error-reporting.php and https://www.php.net/manual/en/errorfunc.constants.php. `E_STRICT` is deprecated as of PHP 8.4: remove it from your `error_level` if you still reference it, to avoid a deprecation notice.
 * `memory_limit: 1024M`: Tests (especially functional) can take a lot of memory. We set a high limit for them by default.
-* `report_useless_tests: false`: PHPUnit can be strict about tests that do not test anything, see https://phpunit.de/manual/current/en/risky-tests.html#risky-tests.useless-tests
+* `report_useless_tests: false`: PHPUnit can be strict about tests that do not test anything, see https://docs.phpunit.de/en/12.5/risky-tests.html#useless-tests
 * `shuffle: false`: Set to `true` to randomize test order
 * `strict_xml: false`: Generate XML JUnit report using strict schema. Avoid putting additional report fields like steps or scenario names to it. Required for XML reports on Jenkins CI
 
