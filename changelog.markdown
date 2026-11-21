@@ -9,6 +9,21 @@ title: Codeception Changelog
 
 
 
+### module-amqp 3.1.0: 3.1.0
+
+Released by [![](https://avatars.githubusercontent.com/u/20659830?v=4&s=16){:height="16" width="16"} W0rma](https://github.com/W0rma) on 2026/11/21 12:36:33 / [Repository](https://github.com/Codeception/module-amqp)   / [Releases](https://github.com/Codeception/module-amqp/releases)
+
+
+
+## What's Changed
+* Test against PHP 8.5 + drop support for PHP < 8.2 in https://github.com/Codeception/module-amqp/pull/24
+* Fix BC break if reconnect config parameter is not defined in https://github.com/Codeception/module-amqp/pull/26
+* Test against PHP 8.6 in https://github.com/Codeception/module-amqp/pull/28
+
+
+**Full Changelog**: https://github.com/Codeception/module-amqp/compare/3.0.1...3.0.2
+
+
 ### module-ftp 3.1.0: 3.1.0
 
 Released by [![](https://avatars.githubusercontent.com/u/20659830?v=4&s=16){:height="16" width="16"} W0rma](https://github.com/W0rma) on 2026/11/20 16:36:05 / [Repository](https://github.com/Codeception/module-ftp)   / [Releases](https://github.com/Codeception/module-ftp/releases)
