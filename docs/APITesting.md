@@ -201,7 +201,8 @@ Codeception uses this simple and lightweight definitions format which can be [ea
 
 Responses are returned from `send*` methods:
 
-```php<?php
+```php
+<?php
 
 $users = $I->sendGet('/users');
 
@@ -212,7 +213,8 @@ $users = $I->grabResponse();
 
 When you need to obtain a value from a response and use it in subsequent requests, you can use `grab*` methods. For instance, `grabDataFromResponseByJsonPath` allows querying JSON for a value.
 
-```php<?php
+```php
+<?php
 list($id) = $I->grabDataFromResponseByJsonPath('$.id');
 $I->sendGet('/pet/' . $id);
 ```
@@ -335,7 +337,7 @@ And here is the list of sample assertions that can be used with SOAP.
 
 ```php
 <?php
-$I->seeSoapResponseEquals('<?xml version="1.0"<error>500</error>');
+$I->seeSoapResponseEquals('<?xml version="1.0"?><error>500</error>');
 $I->seeSoapResponseIncludes('<result>1</result>');
 $I->seeSoapResponseContainsStructure('<user><name></name><email></email>');
 $I->seeSoapResponseContainsXPath('//result/user/name[@id=1]');
@@ -348,7 +350,7 @@ In the next example we will use `XmlBuilder` instead of regular XML.
 ```php
 <?php
 $I->haveSoapHeader('Session', array('token' => '123456'));
-$I->sendSoapRequest('CreateUser', Xml::build()
+$I->sendSoapRequest('CreateUser', \Codeception\Util\Xml::build()
   ->user->email->val('miles@davis.com'));
 $I->seeSoapResponseIncludes(\Codeception\Util\Xml::build()
   ->result->val('Ok')

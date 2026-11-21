@@ -236,7 +236,7 @@ Once configured, it can create records with ease:
 
 ```php
 // creates a new user
-$user_id = $I->have(\App\Model\User::class);
+$user = $I->have(\App\Model\User::class);
 // creates 3 posts
 $I->haveMultiple(\App\Model\Post::class, 3);
 ```
@@ -277,7 +277,7 @@ This principle is so general that it can work for testing APIs, items on a web p
 Let's check that list of categories on a page is the same it was before.    
 Create a snapshot class:
 
-```php
+```bash
 php vendor/bin/codecept g:snapshot Categories
 ```
 
@@ -313,7 +313,7 @@ Inside a test you can inject the snapshot class and call `assert` method on it:
 public function testCategoriesAreTheSame(AcceptanceTester $I, \Tests\Support\Snapshot\Categories $snapshot)
 {
     $I->amOnPage('/categories');
-    // if previously saved array of users does not match current set, test will fail
+    // if previously saved array of categories does not match current set, test will fail
     // to update data in snapshot run test with --debug flag
     $snapshot->assert();
 }

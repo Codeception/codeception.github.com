@@ -74,6 +74,12 @@ php vendor/bin/codecept g:cest Acceptance Signin
 It will be placed into `tests/Acceptance` directory.
 
 ```php
+<?php
+
+namespace Tests\Acceptance;
+
+use Tests\Support\AcceptanceTester;
+
 class SigninCest
 {
     public function tryToTest(AcceptanceTester $I)
@@ -104,7 +110,7 @@ $I->click('Log in');
 // CSS selector applied
 $I->click('#login a');
 // XPath
-$I->click('//a[@id=login]');
+$I->click('//a[@id="login"]');
 // Using context as second argument
 $I->click('Login', '.nav');
 ```

@@ -73,7 +73,7 @@ bootstrap: bootstrap.php
 
 Bootstrap script can be executed with `--bootstrap` option for `codecept run` command:
 
-```php
+```bash
 php vendor/bin/codecept run --bootstrap bootstrap.php
 ```
 
@@ -93,7 +93,7 @@ but can be useful if you are an experienced developer and you want to hook into 
 By default, one `RunFailed` Extension is already enabled in your global `codeception.yml`.
 It allows you to rerun failed tests by using the `-g failed` option:
 
-```php
+```bash
 php vendor/bin/codecept run -g failed
 ```
 

@@ -78,9 +78,9 @@ To sum up, we need to install:
 
 ## Using Robo and Robo-paracept
 
-Execute this command in an empty folder to install Robo and Robo-paracept :
+Execute this command in your project root to install Robo and Robo-paracept:
 
-```php
+```bash
 composer require codeception/robo-paracept --dev
 ```
 
@@ -266,16 +266,16 @@ php vendor/bin/robo parallel:merge-results
 
 `result_paracept.xml` file will be generated. It can be processed and analyzed.
 
-If you prefer HTML reports, they can be generated in the same way:
+If you prefer HTML reports, add `->html("result_paracept_$i.html")` to the Codecept task in `parallelRun` and merge them in the same way:
 
 ```php
 public function parallelMergeResults()
 {
     $merge = $this->taskMergeHtmlReports();
     for ($i=1; $i<=5; $i++) {
-        $merge->from("tests/_output/result_$i.html");
+        $merge->from("tests/_output/result_paracept_$i.html");
     }
-    $merge->into("tests/_output/result.html")->run();
+    $merge->into("tests/_output/result_paracept.html")->run();
 }
 ```
 

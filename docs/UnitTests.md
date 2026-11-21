@@ -51,7 +51,7 @@ class ExampleTest extends \Codeception\Test\Unit
     }
 
     // tests
-    public function testMe()
+    public function testSomeFeature()
     {
 
     }
@@ -128,7 +128,7 @@ verify($user->getRate())
     ->equals(7, 'first user rate is 7');
 
 // array assertions
-Verify::Array($user->getRoles())
+\Codeception\Verify\Verify::Array($user->getRoles())
     ->contains('admin', 'first user is admin')
     ->notContains('banned', 'first user is not banned');    
 ```
@@ -196,14 +196,14 @@ To declare expectations for mocks use `Codeception\Stub\Expected` class:
 ```php
 // create a mock where $user->getName() should never be called
 $user = $this->make('User', [
-     'getName' => Expected::never(),
+     'getName' => \Codeception\Stub\Expected::never(),
      'someMethod' => function() {}
 ]);
 $user->someMethod();
 
 // create a mock where $user->getName() should be called at least once
 $user = $this->make('User', [
-        'getName' => Expected::atLeastOnce('Davert')
+        'getName' => \Codeception\Stub\Expected::atLeastOnce('Davert')
     ]
 );
 $user->getName();
@@ -235,7 +235,7 @@ modules:
         - Db
 ```
 
-To access UnitTester methods you can use the `UnitTester` property in a test.
+To access UnitTester methods you can use the `$this->tester` property in a test.
 
 ### Testing Database
 
@@ -474,12 +474,14 @@ For instance, you can test singletons!
 
 ```php
 <?php
+use AspectMock\Test as test;
+
 public function testSingleton()
 {
 	$class = MySingleton::getInstance();
 	$this->assertInstanceOf('MySingleton', $class);
 	test::double('MySingleton', ['getInstance' => new DOMDocument]);
-	$this->assertInstanceOf('DOMDocument', $class);
+	$this->assertInstanceOf('DOMDocument', MySingleton::getInstance());
 }
 ```
 

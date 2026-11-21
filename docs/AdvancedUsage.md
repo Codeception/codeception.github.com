@@ -103,6 +103,7 @@ namespace Tests\Acceptance;
 
 use Codeception\Attribute\Skip;
 use Codeception\Scenario;
+use Tests\Support\AcceptanceTester;
 
 class UserCest
 {
@@ -319,6 +320,7 @@ namespace Tests\Acceptance;
 
 use Codeception\Attribute\DataProvider;
 use Codeception\Example;
+use Tests\Support\AcceptanceTester;
 
 class PageCest
 {
@@ -401,6 +403,7 @@ If that test fails, the current test will be skipped. You should pass the method
 namespace Tests\Acceptance;
 
 use Codeception\Attribute\Depends;
+use Tests\Support\AcceptanceTester;
 
 class ModeratorCest
 {
@@ -507,7 +510,7 @@ The tests will be executed 2 times, each time in a different browser.
 It's also possible to merge multiple environments into a single configuration by separating them with a comma:
 
 ```
-php vendor/bin/codecept run Acceptance --env dev,firefox --env dev,chrome --env dev,firefox
+php vendor/bin/codecept run Acceptance --env dev,firefox --env dev,chrome
 ```
 
 The configuration is merged in the order given.
@@ -523,6 +526,7 @@ The desired environments can be specified with the `Env` attribute:
 namespace Tests\Acceptance;
 
 use Codeception\Attribute\Env;
+use Tests\Support\AcceptanceTester;
 
 class UserCest
 {
@@ -531,7 +535,7 @@ class UserCest
      */
     #[Env('firefox')]
     #[Env('chrome')]
-    public function webkitOnlyTest(AcceptanceTester $I)
+    public function firefoxAndChromeOnlyTest(AcceptanceTester $I)
     {
         // I do something
     }
@@ -554,7 +558,7 @@ It is possible to combine environments. For instance, if a test should be execut
 
 Test marked with this attribute will be executed only if both environments are set:
 
-```php
+```bash
 php vendor/bin/codecept run --env chrome,staging
 ```
 

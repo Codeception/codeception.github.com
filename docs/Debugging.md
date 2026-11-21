@@ -15,7 +15,7 @@ By looking into the following debugging practices you will learn how to get all 
 
 Codeception saves the list of failed tests. To re-run failed test run tests from `failed` group:
 
-```php
+```bash
 php vendor/bin/codecept run -g failed
 ```
 
@@ -75,7 +75,7 @@ php vendor/bin/codecept run --debug
 To launch interactive pause in a context when the `$I` object is not available, use `codecept_pause` function instead. To inspect local variables pass them into interactive shell using an array:
 
 ```php
-$I->pause(['user' => $user])
+$I->pause(['user' => $user]);
 // or
 codecept_pause(['user' => $user]);
 ```
