@@ -79,7 +79,7 @@ The most important part is the `_generated\AcceptanceTesterActions` trait, which
 It knows which module executes which action and passes parameters into it.
 This trait was created by running `codecept build` and is regenerated each time module or configuration changes.
 
-> Use actor classes to set common actions which can be used accross a suite.
+> Use actor classes to set common actions which can be used across a suite.
 
 
 ## PageObjects
@@ -194,7 +194,7 @@ Let's say you are going to test an admin area of a site. You probably won't need
 while testing the front end, so it's a good idea to move these admin-specific tests into their own class.
 We call such a classes StepObjects.
 
-Lets create an Admin StepObject with the generator:
+Let's create an Admin StepObject with the generator:
 
 ```
 php vendor/bin/codecept generate:stepobject Acceptance Admin

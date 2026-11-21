@@ -30,7 +30,7 @@ Think of it as `var_dump` but for testing:
 codecept_debug($user);
 ```
 
-Unlinke var_dump, the output will be printed to screen only if tests are executed with `--debug` flag.
+Unlike var_dump, the output will be printed to screen only if tests are executed with `--debug` flag.
 
 ```
 php vendor/bin/codecept run --debug
@@ -66,7 +66,7 @@ $I->amOnPage('/');
 $I->pause();
 ```
 
-Interactive pause is launched only when `--debug ` option is enabled:
+Interactive pause is launched only when `--debug` option is enabled:
 
 ```
 php vendor/bin/codecept run --debug

@@ -54,7 +54,7 @@ I put first product with $600 price to my cart
 And then another one with $1000 price
 When I go to checkout process
 I should see that total number of products I want to buy is 2
-Andmy order amount is $1600
+And my order amount is $1600
 ```
 
 As we can see this simple story highlights core concepts that are called *contracts*. We should fulfill those contracts to model software correctly. But how we can verify that those contracts are being satisfied? [Cucumber](https://cucumber.io) introduced a special language for such stories called **Gherkin**. Same story transformed to Gherkin will look like this:
@@ -294,7 +294,7 @@ class AcceptanceTester extends \Codeception\Actor
 Please note that `:num1` placeholder can be used for strings and numbers (may contain currency sign).
 In current case `:num1` matches `$600` and `$num1` is assigned to be 600. If you need to receive exact string, wrap the value into quotes: `"600$"`
 
-By default they throw Incomplete exceptions to ensure test with missing steps won't be accidentally marked as successful. We will need to implement those steps. As we are in acceptance suite we are probably using [PHPBrowser](https://codeception.com/docs/modules/PhpBrowser) or [WebDriver](https://codeception.com/docs/modules/WebDriver) modules. This means that we can use their methods inside Tester file, as we do with writing tests using `$I->`. You can use `amOnPage`, `click`, `see` methods inside a step definitions, so each Gherkin scenario step to be extended with basic Codeception steps. Let's show how it can be implemented in our case:
+By default they throw Incomplete exceptions to ensure test with missing steps won't be accidentally marked as successful. We will need to implement those steps. As we are in acceptance suite we are probably using [PhpBrowser](https://codeception.com/docs/modules/PhpBrowser) or [WebDriver](https://codeception.com/docs/modules/WebDriver) modules. This means that we can use their methods inside Tester file, as we do with writing tests using `$I->`. You can use `amOnPage`, `click`, `see` methods inside a step definitions, so each Gherkin scenario step to be extended with basic Codeception steps. Let's show how it can be implemented in our case:
 
 ```php
 <?php
@@ -368,7 +368,7 @@ Let's improve our BDD suite by using the advanced features of Gherkin language.
 
 ### Background
 
-If a group of scenarios have the same initial steps, let's that for dashboard we always need to be logged in as administrator. We can use *Background* section to do the required preparations and not to repeat same steps across scenarios.
+If a group of scenarios have the same initial steps, let's say that for the dashboard we always need to be logged in as administrator. We can use *Background* section to do the required preparations and not to repeat same steps across scenarios.
 
 ```gherkin
 Feature: Dashboard

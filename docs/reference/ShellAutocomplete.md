@@ -19,8 +19,8 @@ By using the above code in your shell, Codeception will try to autocomplete the 
 * Suites
 * Test paths
 
-Usage of `-use-vendor-bin` is optional. This option will work for most Codeception projects, where Codeception is located in your `vendor/bin` folder.
+Usage of `--use-vendor-bin` is optional. This option will work for most Codeception projects, where Codeception is located in your `vendor/bin` folder.
 But in case you are using a global Codeception installation for example, you wouldn't use this option.
 
-Note that with the `-use-vendor-bin` option, your commands will be completed using the Codeception binary located in your project's root.
+Note that with the `--use-vendor-bin` option, your commands will be completed using the Codeception binary located in your project's root.
 Without the option, it will use whatever Codeception binary you originally used to generate the completion script ('codecept location' in the above examples)

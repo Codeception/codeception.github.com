@@ -27,7 +27,7 @@ To see step-by-step execution in a runtime use `--steps` flag:
 php vendor/bin/codecept run --steps
 ```
 
-To get additional information which may be handful for debugging tests use `--debug` flag. 
+To get additional information which may be handy for debugging tests use `--debug` flag. 
 This flag is your best friend for writing new tests. 
 
 ```
@@ -67,7 +67,7 @@ Testomat.io reports are easy to set up and without storing artifacts on CI syste
 
 > 😻 Testomat.io is free for small teams, so you can use its reporting features with Codeception.
 
-Testomat.io imports all tests into UI, so your managers, business analysts, and manual QAs can see all your unit, funcitonal, and acceptance tests listed in one place:
+Testomat.io imports all tests into UI, so your managers, business analysts, and manual QAs can see all your unit, functional, and acceptance tests listed in one place:
 
 ![](/images/testomatio-import.png)
 

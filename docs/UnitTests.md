@@ -136,13 +136,13 @@ Verify::Array($user->getRoles())
 ### Test Doubles
 
 Codeception provides [Codeception\Stub library](https://github.com/Codeception/Stub) for building mocks and stubs for tests. 
-Under the hood it used PHPUnit's mock builder but with much simplified API.
+Under the hood it uses PHPUnit's mock builder but with much simplified API.
 
 Alternatively, [Mockery](https://github.com/Codeception/MockeryModule) can be used inside Codeception.
 
 #### Stubs
 
-Stubs can be created with a static methods of `Codeception\Stub`.
+Stubs can be created with static methods of `Codeception\Stub`.
 
 ```php
 $user = \Codeception\Stub::make('User', ['getName' => 'john']);

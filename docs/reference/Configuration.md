@@ -141,7 +141,7 @@ Per suite [Gherkin](https://codeception.com/docs/BDD#Configuration) settings.
 
 ### `groups`
 
-[groups](https://codeception.com/docs/AdvancedUsage#Groups) with the list of tests of for corresponding group.
+[groups](https://codeception.com/docs/AdvancedUsage#Groups) with the list of tests for the corresponding group.
 
 ### `formats`
 

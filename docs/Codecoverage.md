@@ -142,7 +142,7 @@ It's possible to override the cookie domain set by Codeception during code cover
 have several subdomains that your acceptance tests are visiting, e.g. `mysite.com` and `admin.mysite.com`. By default,
 Codeception will run code coverage only for the domain set in the url of the  `WebDriver/url` (or `c3_url` if defined),
 thus leaving out other subdomains from code coverage. To avoid that and to include all relevant subdomains in code
-covereage, it's advised to set `.mysite.com` as the cookie domain option:
+coverage, it's advised to set `.mysite.com` as the cookie domain option:
 
 
 ```yaml
@@ -190,7 +190,7 @@ coverage:
 ### Remote Context Options
 
 HTML report generation can at times take a little more time than the default 30 second timeout. Or maybe you want to alter SSL settings (verify_peer, for example)
-To alter the way c3 sends it's service requests to your webserver (be it a local or a remote one), you can use the `remote_context_options` key in `coverage` settings.
+To alter the way c3 sends its service requests to your webserver (be it a local or a remote one), you can use the `remote_context_options` key in `coverage` settings.
 
 
 ```yaml

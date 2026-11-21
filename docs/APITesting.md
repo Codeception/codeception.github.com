@@ -34,7 +34,7 @@ modules:
             depends: PhpBrowser
 ```
 
-The REST module will connect to `PhpBrowser` according to this configuration. Depending on the web service we may deal with XML or JSON responses. Codeception handles both data formats well, however If you don't need one of them, you can explicitly specify that the JSON or XML parts of the module will be used:
+The REST module will connect to `PhpBrowser` according to this configuration. Depending on the web service we may deal with XML or JSON responses. Codeception handles both data formats well, however, if you don't need one of them, you can explicitly specify that the JSON or XML parts of the module will be used:
 
 ```yaml
 actor: ApiTester
@@ -223,7 +223,7 @@ The last line of the previous example verified that the response contained the p
 
 ```php
 <?php
-// matches {"result":"ok"}'
+// matches {"result":"ok"}
 $I->seeResponseContainsJson(['result' => 'ok']);
 // it can match tree-like structures as well
 $I->seeResponseContainsJson([

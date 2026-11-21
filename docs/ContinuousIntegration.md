@@ -7,7 +7,7 @@ title: Continuous Integration - Codeception Docs
 
 # Continuous Integration
 
-Once you get testing suite up and running you are interested in running your tests regularly. If you ensure that tests are running on every code change or at least once a day you can be sure that no regression is introduced. This allows to keep you system stable. But developers are not so passionate about running all tests manually, they also can forget to execute tests before pushing code to production... The solution is simple, test execution should be automated. Instead of running them locally it is better to have dedicated server responsible for running tests for a team. This way we can ensure that everyone's tests executed, which commit made a regression in codebase, and that we can deploy only once tests pass.
+Once you get testing suite up and running you are interested in running your tests regularly. If you ensure that tests are running on every code change or at least once a day you can be sure that no regression is introduced. This allows to keep your system stable. But developers are not so passionate about running all tests manually, they also can forget to execute tests before pushing code to production... The solution is simple, test execution should be automated. Instead of running them locally it is better to have dedicated server responsible for running tests for a team. This way we can ensure that everyone's tests executed, which commit made a regression in codebase, and that we can deploy only once tests pass.
 
 There are many Continuous Integration Servers out there. We will try to list basic steps to setup Codeception tests with them. If your CI system is not mentioned, you can get the idea by analogy. Please also help us to extend this guide by adding instructions for different CIs.
 
@@ -65,7 +65,7 @@ Now we should specify path to PHPUnit style XML reports. In case of standard Cod
 
 ![Jenkins Result Trend](https://codeception.com/images/jenkins/Jenk8.png)
 
-Now for all builds we will see results trend graph that shows us percentage of passing and failing tests. We also will see a **Latest Test Result** link which will lead to to the page where all executed tests and their stats listed in a table.
+Now for all builds we will see results trend graph that shows us percentage of passing and failing tests. We also will see a **Latest Test Result** link which will lead to the page where all executed tests and their stats listed in a table.
 
 ### HTML Reports
 

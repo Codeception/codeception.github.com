@@ -251,7 +251,7 @@ extensions:
 
 ```
 
-If you want to activate the Command globally, because you are using more then one `codeception.yml` file,
+If you want to activate the Command globally, because you are using more than one `codeception.yml` file,
 you have to register your command in the `codeception.dist.yml` in the root folder of your project.
 
 Please see the [complete example](https://github.com/Codeception/Codeception/blob/5.0/tests/data/register_command/examples/MyCustomCommand.php)
@@ -337,7 +337,7 @@ Actor classes include generated steps taken from corresponding modules and helpe
 You can introduce wrappers for those steps by using step decorators. 
 
 Step decorators are used to implement conditional assertions. 
-When enabled, conditional assertions take all method prefixed by `see` or `dontSee` and introduce new steps prefixed with `canSee` and `cantSee`. 
+When enabled, conditional assertions take all methods prefixed by `see` or `dontSee` and introduce new steps prefixed with `canSee` and `cantSee`. 
 Contrary to standard assertions those assertions won't stop test on failure. This is done by wrapping action into try/catch blocks.
 
 List of available step decorators:
@@ -381,7 +381,7 @@ php vendor/bin/codecept bootstrap ~/projects/drupal/
 ```
 
 Also, the `-c` option allows you to specify another config file to be used.
-Thus, you can have several `codeception.yml` files for your test suite (e.g. to to specify different environments
+Thus, you can have several `codeception.yml` files for your test suite (e.g. to specify different environments
 and settings). Just pass the `.yml` filename as the `-c` parameter to execute tests with specific config settings.
 
 ### Group Files
@@ -403,7 +403,7 @@ A list of tests for the group can be passed from a Group file. It should be defi
 
 ```
 tests/Unit/DbTest.php
-tests/Unit/UserTest.php:creat
+tests/Unit/UserTest.php:create
 tests/Unit/UserTest.php:update
 
 ```
