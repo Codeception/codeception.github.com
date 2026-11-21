@@ -15,7 +15,7 @@ There are many Continuous Integration Servers out there. We will try to list bas
 
 ![Jenkins](https://codeception.com/images/jenkins/Jenk1.png)
 
-[Jenkins](https://jenkins-ci.org/) is one of the most popular open-source solution on market. It is easy to setup and is easy to customize by applying various plugins.
+[Jenkins](https://jenkins-ci.org/) is one of the most popular open-source solutions on the market. It is easy to setup and is easy to customize by applying various plugins.
 
 ![Create new job in Jenkins](https://codeception.com/images/jenkins/Jenk2.png)
 

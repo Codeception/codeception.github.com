@@ -46,7 +46,7 @@ modules:
             part: Json
 ```
 
-API tests can be functional and be executed using Symfony, Laravel, Yii2, or any other framework module. You will need slightly update configuration for it:
+API tests can be functional and be executed using Symfony, Laravel, Yii2, or any other framework module. You will need to slightly update the configuration for it:
 
 ```yaml
 actor: ApiTester
@@ -177,7 +177,7 @@ $I->seeResponseJsonMatchesXpath('//user/login');
 ```
 
 More detailed check can be applied if you need to validate the type of fields in a response.
-You can do that by using with a [seeResponseMatchesJsonType](https://codeception.com/docs/modules/REST#seeResponseMatchesJsonType) action in which you define the structure of JSON response.
+You can do that by using a [seeResponseMatchesJsonType](https://codeception.com/docs/modules/REST#seeResponseMatchesJsonType) action in which you define the structure of JSON response.
 
 ```php
 <?php
@@ -210,7 +210,7 @@ $users = $I->sendGet('/users');
 $users = $I->grabResponse();
 ```
 
-When you need to obtain a value from a response and use it in next requests you can use `grab*` methods. For instance, use `grabDataFromResponseByJsonPath` allows to query JSON for a value.
+When you need to obtain a value from a response and use it in subsequent requests, you can use `grab*` methods. For instance, `grabDataFromResponseByJsonPath` allows querying JSON for a value.
 
 ```php<?php
 list($id) = $I->grabDataFromResponseByJsonPath('$.id');

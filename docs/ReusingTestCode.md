@@ -192,7 +192,7 @@ Dependency Injection will be described in the next chapter.
 StepObjects are great if you need some common functionality for a group of tests.
 Let's say you are going to test an admin area of a site. You probably won't need the same actions from the admin area
 while testing the front end, so it's a good idea to move these admin-specific tests into their own class.
-We call such a classes StepObjects.
+We call such classes StepObjects.
 
 Let's create an Admin StepObject with the generator:
 

@@ -72,7 +72,7 @@ coverage:
     show_uncovered: false
 ```
 
-By default, show only the coverage report summary in `--coverage-text` output is set to false, config option:
+The `show_only_summary` option controls whether `--coverage-text` output shows only the coverage report summary (default: `false`):
 
 
 ```yaml
@@ -128,10 +128,10 @@ coverage:
     # url of file which includes c3 router.
     c3_url: 'http://127.0.0.1:8000/index-test.php/'
 ```
-> note: we can't have multiple `c3_url` on same host difference only by port. Please, use alias of domain 
+> note: we can't have multiple `c3_url` on the same host differing only by port. Please, use alias of domain 
 (i.e. `frontend.test:8000`,`backend.test:8080`) instead.
 
-After the `c3.php` file is included in application you can start gather coverage.
+After the `c3.php` file is included in application you can start gathering coverage.
 In case you execute your application locally there is nothing to be changed in config.
 All codecoverage reports will be collected as usual and merged afterwards.
 Think of it: Codeception runs remote coverage in the same way as local.

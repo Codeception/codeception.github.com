@@ -151,8 +151,8 @@ $name = $user->getName(); // 'john'
 
 [See complete reference](https://codeception.com/docs/reference/Mock)
 
-To keep compatibility with PHPUnit its verification of expectations for Mocks,
-it is recommended to use alternative API in unit tests (`Codeception\Test\Unit`):
+To keep PHPUnit's verification of mock expectations working,
+it is recommended to use the alternative API in unit tests (`Codeception\Test\Unit`):
 
 ```php
 // create a stub with find method replaced
@@ -215,8 +215,8 @@ $this->assertEquals('Davert', $userName);
 
 ## Integration Tests
 
-Unlike unit tests integration tests doesn't require the code to be executed in isolation.
-That allows us to use database and other components inside a tests. 
+Unlike unit tests, integration tests don't require the code to be executed in isolation.
+That allows us to use database and other components inside tests. 
 To improve the testing experience modules can be used as in functional testing.
 
 ### Using Modules

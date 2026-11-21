@@ -9,12 +9,12 @@ title: Parallel Execution - Codeception Docs
 
 When execution time of your tests is longer than a coffee break, it is a good reason to think about making your tests faster. If you have already tried to run them on SSD drive, and the execution time still upsets you, it might be a good idea to run your tests in parallel. However, PHP runs in a single-process and you can't parallelize tests natively similarly to how this works in Java or in NodeJS. 
 
-Depending on the project size and requirements you can choose how the best to implement parallel testing for your case.
+Depending on the project size and requirements you can choose how best to implement parallel testing for your case.
 In this guide we will overview possible options.
 
 ## Sharding
 
-Minimal setup can be implemented by executing several independent CI jobs and running.
+Minimal setup can be implemented by executing several independent CI jobs, each running a part of the tests.
 Sharding in Codeception allows to combine stages 1 and 2 so tests could be split by groups on the fly. 
 In this case a pipeline could be simplified to one stage with several jobs.  
 

@@ -7,11 +7,11 @@ title: Reporting - Codeception Docs
 
 ## Reporting
 
-Clear reports gives a picture of the current state of the system. Which tests are passed, which tests are failed, and if failed what was the reason. Reports may vary on the level of detail and by the technical information collected. Codeception provides as built-in reporters and customizable API to create your own reporter.      
+Clear reports give a picture of the current state of the system. Which tests are passed, which tests are failed, and if failed what was the reason. Reports may vary on the level of detail and by the technical information collected. Codeception provides built-in reporters and a customizable API to create your own reporter.      
 
 ## CLI
 
-The standard reporter you already is CLI reporter. It is great for writing and debugging tests as well, as checking the results on CI. On failure, CLI reporter prints a list of all failed tests, if test includes some valuable data like last send requests for REST module, it will also be printed under 'artifacts' section of a test.  
+The standard reporter you already know is the CLI reporter. It is great for writing and debugging tests as well as checking the results on CI. On failure, CLI reporter prints a list of all failed tests, if test includes some valuable data like last sent requests for REST module, it will also be printed under 'artifacts' section of a test.  
 
 ![](/images/codecept-cli.png)
 
@@ -98,7 +98,7 @@ Check an [Example Project](https://github.com/testomatio/examples/tree/master/co
 
 ## Recorder
 
-By default Codeception saves the screenshot for a failed test for acceptance tests and show it in HTML report. However, can't be possible to understand cause of failure just by one screenshot. This is where Recorder extension is handy, it saves a screenshot after each step and shows them in a slideshow. 
+By default Codeception saves the screenshot for a failed test for acceptance tests and shows it in the HTML report. However, it may not be possible to understand the cause of failure just by one screenshot. This is where Recorder extension is handy, it saves a screenshot after each step and shows them in a slideshow. 
 
 ![](https://codeception.com/images/recorder.gif)
 

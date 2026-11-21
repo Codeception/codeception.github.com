@@ -343,7 +343,7 @@ $user_id = $I->grabFromCurrentUrl('~^/user/(\d+)/~');
 
 ## WebDriver
 
-A nice feature of Codeception is that most scenarios are similar, no matter of how they are executed.
+A nice feature of Codeception is that most scenarios are similar, no matter how they are executed.
 `PhpBrowser` was emulating browser requests but how to execute such test in a real browser like Chrome or Firefox?
 Selenium WebDriver can drive them so in our acceptance tests we can automate scenarios we used to test manually.
 In such tests, we should concentrate more on **testing the UI** than on testing functionality.
@@ -415,7 +415,7 @@ WebDriver also adds browser-specific functionality:
 
 #### Wait
 
-While testing web application, you may need to wait for JavaScript events to occur. Due to its asynchronous nature,
+While testing a web application, you may need to wait for JavaScript events to occur. Due to its asynchronous nature,
 complex JavaScript interactions are hard to test. That's why you may need to use waiters, actions with `wait` prefix.
 They can be used to specify what event you expect to occur on a page, before continuing the test.
 
@@ -430,7 +430,7 @@ In this case, we are waiting for the 'agree' button to appear and then click it.
 the test will fail. There are other `wait` methods you may use, like [waitForText](https://codeception.com/docs/modules/WebDriver#waitForText),
 [waitForElementVisible](https://codeception.com/docs/modules/WebDriver#waitForElementVisible) and others.
 
-If you don't know what exact element you need to wait for, you can simply pause execution with using `$I->wait()`
+If you don't know what exact element you need to wait for, you can simply pause execution by using `$I->wait()`
 
 ```php
 $I->wait(3); // wait for 3 secs
@@ -439,7 +439,7 @@ $I->wait(3); // wait for 3 secs
 #### SmartWait
 
 It is possible to wait for elements programmatically.
-If a test uses element which is not on a page yet, Codeception will wait for few extra seconds before failing.
+If a test uses an element which is not on a page yet, Codeception will wait for a few extra seconds before failing.
 This feature is based on [Implicit Wait](https://www.seleniumhq.org/docs/04_webdriver_advanced.jsp#implicit-waits) of Selenium.
 Codeception enables implicit wait only when searching for a specific element and disables in all other cases. Thus, the performance of a test is not affected.
 
@@ -458,7 +458,7 @@ With this config we have the following test:
 $I->click(['css' => '#click-me']);
 ```
 
-It is important to understand that SmartWait works only with a specific locators:
+It is important to understand that SmartWait works only with specific locators:
 
 * `#locator` - CSS ID locator, works
 * `//locator` - general XPath locator, works
@@ -480,9 +480,9 @@ $I->seeNumberOfElements(['css' => 'button.link'], 5); // DISABLED, can wait only
 
 #### Retry
 
-When it's hard to define condition to wait for, we can retry a command few times until it succeeds.
-For instance, if you try to click while it's animating you can try to do it few times until it freezes.
-Each action and assertion have an alias prefixed with `retry` which allows to retry a flaky command.
+When it's hard to define a condition to wait for, we can retry a command a few times until it succeeds.
+For instance, if you try to click while it's animating you can try to do it a few times until it freezes.
+Each action and assertion has an alias prefixed with `retry` which allows to retry a flaky command.
 
 ```php
 $I->retryClick('flaky element');
@@ -552,11 +552,11 @@ For more options see [`performOn()` reference](https://codeception.com/docs/modu
 
 #### A/B Testing
 
-When a web site acts unpredictably you may need to react on that change.
-This happens if site configured for A/B testing, or shows different popups, based on environment.
+When a web site acts unpredictably you may need to react to that change.
+This happens if a site is configured for A/B testing, or shows different popups, based on environment.
 
 Since Codeception 3.0 you can have some actions to fail silently, if they are errored.
-Let's say, you open a page and some times there is a popup which should be closed. 
+Let's say, you open a page and sometimes there is a popup which should be closed. 
 We may try to hit the "close" button but if this action fails (no popup on page) we just continue the test.
 
 This is how it can be implemented:
@@ -634,7 +634,7 @@ class AcceptanceTester extends \Codeception\Actor
 
 ### Cloud Testing
 
-Some environments are hard to be reproduced manually, testing Internet Explorer 6-8 on Windows XP may be a hard thing,
+Some environments are hard to reproduce manually, testing Internet Explorer 6-8 on Windows XP may be a hard thing,
 especially if you don't have Windows XP installed. This is where Cloud Testing services come to help you.
 Services such as [SauceLabs](https://saucelabs.com), [BrowserStack](https://www.browserstack.com/)
 and [others](https://codeception.com/docs/modules/WebDriver#Cloud-Testing) can create virtual machines on demand
@@ -655,7 +655,7 @@ to provide authorization credentials.
 
 It should be mentioned that Cloud Testing services are not free. You should investigate their pricing models
 and choose one that fits your needs. They also may work painfully slowly if ping times between the local server
-and the cloud is too high. This may lead to random failures in acceptance tests.
+and the cloud are too high. This may lead to random failures in acceptance tests.
 
 ### Debugging
 

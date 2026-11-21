@@ -65,7 +65,7 @@ modules:
           user: 'root'
           password: ''
           cleanup: true # run populator before each test
-          populate: true # run populator before all test
+          populate: true # run populator before all tests
           populator: 'mysql -u $user $dbname < tests/Support/Data/dump.sql'
 ```
 
@@ -271,7 +271,7 @@ Read the [full reference](https://codeception.com/docs/modules/DataFactory) to l
 What if you deal with data which you don't own? For instance, the page look depends on number of categories in database, 
 and categories are set by admin user. How would you test that the page is still valid?  
 
-There is a way to get it tested as well. Codeception allows you take a snapshot of a data on first run and compare with on next executions.
+There is a way to get it tested as well. Codeception allows you to take a snapshot of data on the first run and compare it on subsequent executions.
 This principle is so general that it can work for testing APIs, items on a web page, etc.
 
 Let's check that list of categories on a page is the same it was before.    
@@ -345,7 +345,7 @@ If ever needed, the diff output can also be omitted by calling `shouldShowDiffOn
 
 ### Change Storage Format
 
-By default, all snapshot files are stored in json format, so if you have to work with different formats, neither the diff output or the snapshot file data will be helpful. 
+By default, all snapshot files are stored in json format, so if you have to work with different formats, neither the diff output nor the snapshot file data will be helpful. 
 To fix this, you can call the snapshot method `shouldSaveAsJson(false)` and set the file extension by calling `setSnapshotFileExtension()`:
 
 ```php

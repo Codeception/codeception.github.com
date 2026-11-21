@@ -15,7 +15,7 @@ BDD was introduced by [Dan North](https://dannorth.net/introducing-bdd/). He des
 
 >  outside-in, pull-based, multiple-stakeholder, multiple-scale, high-automation, agile methodology. It describes a cycle of interactions with well-defined outputs, resulting in the delivery of working, tested software that matters.
 
-BDD has its own evolution from the days it was born, started by replacing "test" to "should" in unit tests, and moving towards powerful tools like Cucumber and Behat, which made user stories (human readable text) to be executed as an acceptance test.
+BDD has its own evolution from the days it was born, started by replacing "test" with "should" in unit tests, and moving towards powerful tools like Cucumber and Behat, which made it possible to execute user stories (human-readable text) as acceptance tests.
 
 The idea of story BDD can be narrowed to:
 
@@ -34,7 +34,7 @@ With this procedure we also ensure that everyone in a team knows what has been d
 
 ### Ubiquitous Language
 
-The ubiquitous language is always referred as *common* language. That is it's main benefit. It is not a couple of our business specification's words, and not a couple of developer's technical terms. It is a common words and terms that can be understood by people for whom we are building the software and should be understood by developers. Establishing correct communication between this two groups people is vital for building successful project that will fit the domain and fulfill all business needs.
+The ubiquitous language is always referred to as *common* language. That is its main benefit. It is not a couple of our business specification's words, and not a couple of developer's technical terms. It is the common words and terms that can be understood by people for whom we are building the software and should be understood by developers. Establishing correct communication between these two groups of people is vital for building a successful project that will fit the domain and fulfill all business needs.
 
 Each feature of a product should be born from a talk between
 
@@ -44,7 +44,7 @@ Each feature of a product should be born from a talk between
 
 which are known in BDD as "three amigos".
 
-Such talks should produce written stories. There should be an actor that doing some things, the feature that should be fulfilled within the story and the result achieved.
+Such talks should produce written stories. There should be an actor that does some things, the feature that should be fulfilled within the story and the result achieved.
 
 We can try to write such simple story:
 
@@ -189,7 +189,7 @@ Our next step will be to define those steps and transforming feature-file into v
 
 ### Step Definitions
 
-To match steps from a feature file to PHP code we use attribute which are added to class methods.
+To match steps from a feature file to PHP code we use attributes which are added to class methods.
 By default Codeception expects steps in methods marked with `Given`, `When`, `Then` attributes.
 Attributes can be loaded from `Codeception\Attribute` namespace:
 
@@ -395,7 +395,7 @@ Scenarios can become more descriptive when you represent repeating data as table
     | Nuclear Bomb | Weapons     | 100000 |
 ```
 
-Tables is a recommended ways to pass arrays into test scenarios.
+Tables are the recommended way to pass arrays into test scenarios.
 Inside a step definition data is stored in argument passed as `\Behat\Gherkin\Node\TableNode` instance.
 
 ```php
@@ -511,7 +511,7 @@ class AdditionalSteps
 ```
 This way PageObjects, Helpers and StepObjects can become contexts as well. But more preferable to include context classes by their tags or roles.
 
-If you have `Step\Admin` class which defines only admin steps, it is a good idea to use it as context for all features containing with "As an admin". In this case "admin" is a role and we can configure it to use additional context.
+If you have `Step\Admin` class which defines only admin steps, it is a good idea to use it as context for all features containing "As an admin". In this case "admin" is a role and we can configure it to use additional context.
 
 ```yaml
 gherkin:

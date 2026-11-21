@@ -463,7 +463,7 @@ modules:
 
 ```
 
-Parameters can set in JSON format. So objects, arrays, booleans and strings can also be passed into config.
+Parameters can be set in JSON format. So objects, arrays, booleans and strings can also be passed into config.
 
 ```yaml
 modules:
