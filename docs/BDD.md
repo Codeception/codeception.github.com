@@ -15,7 +15,7 @@ BDD was introduced by [Dan North](https://dannorth.net/introducing-bdd/). He des
 
 >  outside-in, pull-based, multiple-stakeholder, multiple-scale, high-automation, agile methodology. It describes a cycle of interactions with well-defined outputs, resulting in the delivery of working, tested software that matters.
 
-BDD has its own evolution from the days it was born, started by replacing "test" to "should" in unit tests, and moving towards powerful tools like Cucumber and Behat, which made user stories (human readable text) to be executed as an acceptance test.
+BDD has its own evolution from the days it was born, started by replacing "test" with "should" in unit tests, and moving towards powerful tools like Cucumber and Behat, which made it possible to execute user stories (human-readable text) as acceptance tests.
 
 The idea of story BDD can be narrowed to:
 
@@ -34,7 +34,7 @@ With this procedure we also ensure that everyone in a team knows what has been d
 
 ### Ubiquitous Language
 
-The ubiquitous language is always referred as *common* language. That is it's main benefit. It is not a couple of our business specification's words, and not a couple of developer's technical terms. It is a common words and terms that can be understood by people for whom we are building the software and should be understood by developers. Establishing correct communication between this two groups people is vital for building successful project that will fit the domain and fulfill all business needs.
+The ubiquitous language is always referred to as *common* language. That is its main benefit. It is not a couple of our business specification's words, and not a couple of developer's technical terms. It is the common words and terms that can be understood by people for whom we are building the software and should be understood by developers. Establishing correct communication between these two groups of people is vital for building a successful project that will fit the domain and fulfill all business needs.
 
 Each feature of a product should be born from a talk between
 
@@ -44,7 +44,7 @@ Each feature of a product should be born from a talk between
 
 which are known in BDD as "three amigos".
 
-Such talks should produce written stories. There should be an actor that doing some things, the feature that should be fulfilled within the story and the result achieved.
+Such talks should produce written stories. There should be an actor that does some things, the feature that should be fulfilled within the story and the result achieved.
 
 We can try to write such simple story:
 
@@ -54,7 +54,7 @@ I put first product with $600 price to my cart
 And then another one with $1000 price
 When I go to checkout process
 I should see that total number of products I want to buy is 2
-Andmy order amount is $1600
+And my order amount is $1600
 ```
 
 As we can see this simple story highlights core concepts that are called *contracts*. We should fulfill those contracts to model software correctly. But how we can verify that those contracts are being satisfied? [Cucumber](https://cucumber.io) introduced a special language for such stories called **Gherkin**. Same story transformed to Gherkin will look like this:
@@ -189,7 +189,7 @@ Our next step will be to define those steps and transforming feature-file into v
 
 ### Step Definitions
 
-To match steps from a feature file to PHP code we use attribute which are added to class methods.
+To match steps from a feature file to PHP code we use attributes which are added to class methods.
 By default Codeception expects steps in methods marked with `Given`, `When`, `Then` attributes.
 Attributes can be loaded from `Codeception\Attribute` namespace:
 
@@ -240,7 +240,7 @@ Steps are defined in Context files. Default context is an actor class, i.e. for 
 To list all defined steps run `gherkin:steps` command:
 
 ```bash
-php vendor/bin/codecept gherkin:steps
+php vendor/bin/codecept gherkin:steps Acceptance
 ```
 
 ## Testing Behavior
@@ -294,7 +294,7 @@ class AcceptanceTester extends \Codeception\Actor
 Please note that `:num1` placeholder can be used for strings and numbers (may contain currency sign).
 In current case `:num1` matches `$600` and `$num1` is assigned to be 600. If you need to receive exact string, wrap the value into quotes: `"600$"`
 
-By default they throw Incomplete exceptions to ensure test with missing steps won't be accidentally marked as successful. We will need to implement those steps. As we are in acceptance suite we are probably using [PHPBrowser](https://codeception.com/docs/modules/PhpBrowser) or [WebDriver](https://codeception.com/docs/modules/WebDriver) modules. This means that we can use their methods inside Tester file, as we do with writing tests using `$I->`. You can use `amOnPage`, `click`, `see` methods inside a step definitions, so each Gherkin scenario step to be extended with basic Codeception steps. Let's show how it can be implemented in our case:
+By default they throw Incomplete exceptions to ensure test with missing steps won't be accidentally marked as successful. We will need to implement those steps. As we are in acceptance suite we are probably using [PhpBrowser](https://codeception.com/docs/modules/PhpBrowser) or [WebDriver](https://codeception.com/docs/modules/WebDriver) modules. This means that we can use their methods inside Tester file, as we do with writing tests using `$I->`. You can use `amOnPage`, `click`, `see` methods inside a step definitions, so each Gherkin scenario step to be extended with basic Codeception steps. Let's show how it can be implemented in our case:
 
 ```php
 <?php
@@ -368,7 +368,7 @@ Let's improve our BDD suite by using the advanced features of Gherkin language.
 
 ### Background
 
-If a group of scenarios have the same initial steps, let's that for dashboard we always need to be logged in as administrator. We can use *Background* section to do the required preparations and not to repeat same steps across scenarios.
+If a group of scenarios have the same initial steps, let's say that for the dashboard we always need to be logged in as administrator. We can use *Background* section to do the required preparations and not to repeat same steps across scenarios.
 
 ```gherkin
 Feature: Dashboard
@@ -395,7 +395,7 @@ Scenarios can become more descriptive when you represent repeating data as table
     | Nuclear Bomb | Weapons     | 100000 |
 ```
 
-Tables is a recommended ways to pass arrays into test scenarios.
+Tables are the recommended way to pass arrays into test scenarios.
 Inside a step definition data is stored in argument passed as `\Behat\Gherkin\Node\TableNode` instance.
 
 ```php
@@ -511,14 +511,14 @@ class AdditionalSteps
 ```
 This way PageObjects, Helpers and StepObjects can become contexts as well. But more preferable to include context classes by their tags or roles.
 
-If you have `Step\Admin` class which defines only admin steps, it is a good idea to use it as context for all features containing with "As an admin". In this case "admin" is a role and we can configure it to use additional context.
+If you have `Step\Admin` class which defines only admin steps, it is a good idea to use it as context for all features containing "As an admin". In this case "admin" is a role and we can configure it to use additional context.
 
 ```yaml
 gherkin:
     contexts:
         role:
             admin:
-                - "Step\Admin"
+                - 'Step\Admin'
 ```
 
 Contexts can be attached to tags as well. This may be useful if you want to redefine steps for some scenarios. Let's say we want to bypass login steps for some scenarios loading already defined session. In this case we can create `Step\FastLogin` class with redefined step "I am logged in as".
@@ -529,7 +529,7 @@ gherkin:
     contexts:
         tag:
             fastlogin:
-                - "Step\FastLogin"
+                - 'Step\FastLogin'
 ```
 
 Contexts can be autoloaded as well:

@@ -34,7 +34,7 @@ modules:
             depends: PhpBrowser
 ```
 
-The REST module will connect to `PhpBrowser` according to this configuration. Depending on the web service we may deal with XML or JSON responses. Codeception handles both data formats well, however If you don't need one of them, you can explicitly specify that the JSON or XML parts of the module will be used:
+The REST module will connect to `PhpBrowser` according to this configuration. Depending on the web service we may deal with XML or JSON responses. Codeception handles both data formats well, however, if you don't need one of them, you can explicitly specify that the JSON or XML parts of the module will be used:
 
 ```yaml
 actor: ApiTester
@@ -46,7 +46,7 @@ modules:
             part: Json
 ```
 
-API tests can be functional and be executed using Symfony, Laravel, Yii2, or any other framework module. You will need slightly update configuration for it:
+API tests can be functional and be executed using Symfony, Laravel, Yii2, or any other framework module. You will need to slightly update the configuration for it:
 
 ```yaml
 actor: ApiTester
@@ -160,7 +160,7 @@ and rebuild actions:
 php vendor/bin/codecept build
 ```
 
-> `sendGetAsJson`, `sendPutAsJson`, and others, are implemented as a [Step Decorator](https://codeception.com/docs/08-Customization#Step-Decorators).
+> `sendGetAsJson`, `sendPutAsJson`, and others, are implemented as a [Step Decorator](https://codeception.com/docs/Customization#Step-Decorators).
 
 
 ### JSON Structure Validation
@@ -177,7 +177,7 @@ $I->seeResponseJsonMatchesXpath('//user/login');
 ```
 
 More detailed check can be applied if you need to validate the type of fields in a response.
-You can do that by using with a [seeResponseMatchesJsonType](https://codeception.com/docs/modules/REST#seeResponseMatchesJsonType) action in which you define the structure of JSON response.
+You can do that by using a [seeResponseMatchesJsonType](https://codeception.com/docs/modules/REST#seeResponseMatchesJsonType) action in which you define the structure of JSON response.
 
 ```php
 <?php
@@ -201,7 +201,8 @@ Codeception uses this simple and lightweight definitions format which can be [ea
 
 Responses are returned from `send*` methods:
 
-```php<?php
+```php
+<?php
 
 $users = $I->sendGet('/users');
 
@@ -210,9 +211,10 @@ $users = $I->sendGet('/users');
 $users = $I->grabResponse();
 ```
 
-When you need to obtain a value from a response and use it in next requests you can use `grab*` methods. For instance, use `grabDataFromResponseByJsonPath` allows to query JSON for a value.
+When you need to obtain a value from a response and use it in subsequent requests, you can use `grab*` methods. For instance, `grabDataFromResponseByJsonPath` allows querying JSON for a value.
 
-```php<?php
+```php
+<?php
 list($id) = $I->grabDataFromResponseByJsonPath('$.id');
 $I->sendGet('/pet/' . $id);
 ```
@@ -223,7 +225,7 @@ The last line of the previous example verified that the response contained the p
 
 ```php
 <?php
-// matches {"result":"ok"}'
+// matches {"result":"ok"}
 $I->seeResponseContainsJson(['result' => 'ok']);
 // it can match tree-like structures as well
 $I->seeResponseContainsJson([
@@ -236,7 +238,7 @@ $I->seeResponseContainsJson([
 
 ```
 
-You may want to perform even more complex assertions on a response. This can be done by writing your own methods in the [Helper](https://codeception.com/docs/06-ReusingTestCode#Modules-and-Helpers) classes. To access the latest JSON response you will need to get the `response` property of the `REST` module. Let's demonstrate it with the `seeResponseIsHtml` method:
+You may want to perform even more complex assertions on a response. This can be done by writing your own methods in the [Helper](https://codeception.com/docs/ModulesAndHelpers#Helpers) classes. To access the latest JSON response you will need to get the `response` property of the `REST` module. Let's demonstrate it with the `seeResponseIsHtml` method:
 
 ```php
 <?php
@@ -291,8 +293,8 @@ actor: ApiTester
 modules:
     enabled:
         - SOAP:
-          depends: PhpBrowser
-          endpoint: http://serviceapp/api/v1/
+            depends: PhpBrowser
+            endpoint: http://serviceapp/api/v1/
 ```
 
 SOAP request may contain application specific information, like authentication or payment. This information is provided with SOAP header inside the `<soap:Header>` element of XML request. In case you need to submit such header, you can use `haveSoapHeader` action. For example, next line of code
@@ -335,7 +337,7 @@ And here is the list of sample assertions that can be used with SOAP.
 
 ```php
 <?php
-$I->seeSoapResponseEquals('<?xml version="1.0"<error>500</error>');
+$I->seeSoapResponseEquals('<?xml version="1.0"?><error>500</error>');
 $I->seeSoapResponseIncludes('<result>1</result>');
 $I->seeSoapResponseContainsStructure('<user><name></name><email></email>');
 $I->seeSoapResponseContainsXPath('//result/user/name[@id=1]');
@@ -348,7 +350,7 @@ In the next example we will use `XmlBuilder` instead of regular XML.
 ```php
 <?php
 $I->haveSoapHeader('Session', array('token' => '123456'));
-$I->sendSoapRequest('CreateUser', Xml::build()
+$I->sendSoapRequest('CreateUser', \Codeception\Util\Xml::build()
   ->user->email->val('miles@davis.com'));
 $I->seeSoapResponseIncludes(\Codeception\Util\Xml::build()
   ->result->val('Ok')

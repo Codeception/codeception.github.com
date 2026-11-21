@@ -51,7 +51,7 @@ class ExampleTest extends \Codeception\Test\Unit
     }
 
     // tests
-    public function testMe()
+    public function testSomeFeature()
     {
 
     }
@@ -107,7 +107,7 @@ There are pretty many assertions you can use inside tests. The most common are:
 * `$this->assertNull()`
 * `$this->assertEmpty()`
 
-Assertion methods come from PHPUnit. [See the complete reference at phpunit.de](https://docs.phpunit.de/en/main/assertions.html).
+Assertion methods come from PHPUnit. [See the complete reference at phpunit.de](https://docs.phpunit.de/en/12.5/assertions.html).
 
 
 ### Fluent Assertions
@@ -128,7 +128,7 @@ verify($user->getRate())
     ->equals(7, 'first user rate is 7');
 
 // array assertions
-Verify::Array($user->getRoles())
+\Codeception\Verify\Verify::Array($user->getRoles())
     ->contains('admin', 'first user is admin')
     ->notContains('banned', 'first user is not banned');    
 ```
@@ -136,13 +136,13 @@ Verify::Array($user->getRoles())
 ### Test Doubles
 
 Codeception provides [Codeception\Stub library](https://github.com/Codeception/Stub) for building mocks and stubs for tests. 
-Under the hood it used PHPUnit's mock builder but with much simplified API.
+Under the hood it uses PHPUnit's mock builder but with much simplified API.
 
 Alternatively, [Mockery](https://github.com/Codeception/MockeryModule) can be used inside Codeception.
 
 #### Stubs
 
-Stubs can be created with a static methods of `Codeception\Stub`.
+Stubs can be created with static methods of `Codeception\Stub`.
 
 ```php
 $user = \Codeception\Stub::make('User', ['getName' => 'john']);
@@ -151,8 +151,8 @@ $name = $user->getName(); // 'john'
 
 [See complete reference](https://codeception.com/docs/reference/Mock)
 
-To keep compatibility with PHPUnit its verification of expectations for Mocks,
-it is recommended to use alternative API in unit tests (`Codeception\Test\Unit`):
+To keep PHPUnit's verification of mock expectations working,
+it is recommended to use the alternative API in unit tests (`Codeception\Test\Unit`):
 
 ```php
 // create a stub with find method replaced
@@ -196,14 +196,14 @@ To declare expectations for mocks use `Codeception\Stub\Expected` class:
 ```php
 // create a mock where $user->getName() should never be called
 $user = $this->make('User', [
-     'getName' => Expected::never(),
+     'getName' => \Codeception\Stub\Expected::never(),
      'someMethod' => function() {}
 ]);
 $user->someMethod();
 
 // create a mock where $user->getName() should be called at least once
 $user = $this->make('User', [
-        'getName' => Expected::atLeastOnce('Davert')
+        'getName' => \Codeception\Stub\Expected::atLeastOnce('Davert')
     ]
 );
 $user->getName();
@@ -215,8 +215,8 @@ $this->assertEquals('Davert', $userName);
 
 ## Integration Tests
 
-Unlike unit tests integration tests doesn't require the code to be executed in isolation.
-That allows us to use database and other components inside a tests. 
+Unlike unit tests, integration tests don't require the code to be executed in isolation.
+That allows us to use database and other components inside tests. 
 To improve the testing experience modules can be used as in functional testing.
 
 ### Using Modules
@@ -235,7 +235,7 @@ modules:
         - Db
 ```
 
-To access UnitTester methods you can use the `UnitTester` property in a test.
+To access UnitTester methods you can use the `$this->tester` property in a test.
 
 ### Testing Database
 
@@ -363,7 +363,7 @@ The same can be done for all public properties of an enabled module. Accessible 
 
 ### Scenario Driven Testing
 
-[Cest format](https://codeception.com/docs/07-AdvancedUsage#Cest-Classes) can also be used for integration testing.
+[Cest format](https://codeception.com/docs/AdvancedUsage#Cest-Classes) can also be used for integration testing.
 In some cases it makes tests cleaner as it simplifies module access by using common `$I->` syntax:
 
 ```php
@@ -474,12 +474,14 @@ For instance, you can test singletons!
 
 ```php
 <?php
+use AspectMock\Test as test;
+
 public function testSingleton()
 {
 	$class = MySingleton::getInstance();
 	$this->assertInstanceOf('MySingleton', $class);
 	test::double('MySingleton', ['getInstance' => new DOMDocument]);
-	$this->assertInstanceOf('DOMDocument', $class);
+	$this->assertInstanceOf('DOMDocument', MySingleton::getInstance());
 }
 ```
 
@@ -495,7 +497,7 @@ The error reporting level can be set in the suite configuration file:
 
 ```yaml
 actor: UnitTester
-...
+# ...
 error_level: E_ALL & ~E_DEPRECATED
 ```
 

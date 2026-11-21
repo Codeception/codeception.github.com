@@ -72,7 +72,7 @@ coverage:
     show_uncovered: false
 ```
 
-By default, show only the coverage report summary in `--coverage-text` output is set to false, config option:
+The `show_only_summary` option controls whether `--coverage-text` output shows only the coverage report summary (default: `false`):
 
 
 ```yaml
@@ -81,7 +81,7 @@ coverage:
     show_only_summary: false
 ```
 
-For further information please refer to the [PHPUnit configuration docs](https://phpunit.readthedocs.io/en/latest/configuration.html)
+For further information please refer to the [PHPUnit configuration docs](https://docs.phpunit.de/en/12.5/configuration.html)
 
 ## Local CodeCoverage
 
@@ -128,10 +128,10 @@ coverage:
     # url of file which includes c3 router.
     c3_url: 'http://127.0.0.1:8000/index-test.php/'
 ```
-> note: we can't have multiple `c3_url` on same host difference only by port. Please, use alias of domain 
+> note: we can't have multiple `c3_url` on the same host differing only by port. Please, use alias of domain 
 (i.e. `frontend.test:8000`,`backend.test:8080`) instead.
 
-After the `c3.php` file is included in application you can start gather coverage.
+After the `c3.php` file is included in application you can start gathering coverage.
 In case you execute your application locally there is nothing to be changed in config.
 All codecoverage reports will be collected as usual and merged afterwards.
 Think of it: Codeception runs remote coverage in the same way as local.
@@ -142,7 +142,7 @@ It's possible to override the cookie domain set by Codeception during code cover
 have several subdomains that your acceptance tests are visiting, e.g. `mysite.com` and `admin.mysite.com`. By default,
 Codeception will run code coverage only for the domain set in the url of the  `WebDriver/url` (or `c3_url` if defined),
 thus leaving out other subdomains from code coverage. To avoid that and to include all relevant subdomains in code
-covereage, it's advised to set `.mysite.com` as the cookie domain option:
+coverage, it's advised to set `.mysite.com` as the cookie domain option:
 
 
 ```yaml
@@ -190,7 +190,7 @@ coverage:
 ### Remote Context Options
 
 HTML report generation can at times take a little more time than the default 30 second timeout. Or maybe you want to alter SSL settings (verify_peer, for example)
-To alter the way c3 sends it's service requests to your webserver (be it a local or a remote one), you can use the `remote_context_options` key in `coverage` settings.
+To alter the way c3 sends its service requests to your webserver (be it a local or a remote one), you can use the `remote_context_options` key in `coverage` settings.
 
 
 ```yaml

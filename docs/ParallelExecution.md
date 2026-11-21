@@ -9,12 +9,12 @@ title: Parallel Execution - Codeception Docs
 
 When execution time of your tests is longer than a coffee break, it is a good reason to think about making your tests faster. If you have already tried to run them on SSD drive, and the execution time still upsets you, it might be a good idea to run your tests in parallel. However, PHP runs in a single-process and you can't parallelize tests natively similarly to how this works in Java or in NodeJS. 
 
-Depending on the project size and requirements you can choose how the best to implement parallel testing for your case.
+Depending on the project size and requirements you can choose how best to implement parallel testing for your case.
 In this guide we will overview possible options.
 
 ## Sharding
 
-Minimal setup can be implemented by executing several independent CI jobs and running.
+Minimal setup can be implemented by executing several independent CI jobs, each running a part of the tests.
 Sharding in Codeception allows to combine stages 1 and 2 so tests could be split by groups on the fly. 
 In this case a pipeline could be simplified to one stage with several jobs.  
 
@@ -67,7 +67,7 @@ While sharding provides a simplified setup for testing the complete pipeline sch
 * On the third stage the results from previous jobs must be collected or aggregated.
 
 
-To get more control on how the jobs are split excuted and results aggregated you can use a task runner.  
+To get more control on how the jobs are split, executed and results aggregated you can use a task runner.  
 
 Codeception provides a toolset for [Robo task runner](https://robo.li) called [robo-paracept](https://github.com/Codeception/robo-paracept) for splitting tests into groups and merging resulting JUnit XML reports.
 
@@ -78,9 +78,9 @@ To sum up, we need to install:
 
 ## Using Robo and Robo-paracept
 
-Execute this command in an empty folder to install Robo and Robo-paracept :
+Execute this command in your project root to install Robo and Robo-paracept:
 
-```php
+```bash
 composer require codeception/robo-paracept --dev
 ```
 
@@ -132,7 +132,7 @@ class Robofile extends \Robo\Tasks
 }
 ```
 
-When running `robo` you should see all 3 that these methods availble as CLI commands:
+When running `robo` you should see all 3 of these methods available as CLI commands:
 
 ```
 parallel:split-tests
@@ -142,7 +142,7 @@ parallel:merge-results
 
 #### Step 1: Split Tests
 
-Codeception can organize tests into [groups](https://codeception.com/docs/AdvancedUsage#Groups). Starting from 2.0 it can load information about a group from a files. Sample text file with a list of file names can be treated as a dynamically configured group. Take a look into sample group file:
+Codeception can organize tests into [groups](https://codeception.com/docs/AdvancedUsage#Groups). Starting from 2.0 it can load information about a group from a file. Sample text file with a list of file names can be treated as a dynamically configured group. Take a look into sample group file:
 
 
 ```bash
@@ -214,9 +214,9 @@ php vendor/bin/codecept run Acceptance -g paracept_2
 
 At this point you should decide if tests are executed on the same job or use multiple jobs for them. We recommend using multiple jobs, as in this case the burden of parallelization goes to CI server. This makes a lot of sense as a single machine has limited resources. If you split tests into CI jobs, you are limited only to the number of agents (build servers) that the CI can provide. For cloud-based services like GitHub Actions, GitLab CI, CircleCI, etc, this number is unlimited.
 
-> Please refer to documentation of your CI platform to learn how to set up multiple jobs runnninng in parallel. Then proceed to merging of results. 
+> Please refer to documentation of your CI platform to learn how to set up multiple jobs running in parallel. Then proceed to merging of results. 
 
-In some situations you may want to keep tests running on the same machine and scale it up with more resourses. This makes sense if you have heavy application setup for each test run and setting it up for each machine can waste a lot of resources.   
+In some situations you may want to keep tests running on the same machine and scale it up with more resources. This makes sense if you have heavy application setup for each test run and setting it up for each machine can waste a lot of resources.   
 
 
 To execute tests in multiple processes Robo has `ParallelExec` task to spawn background processes.
@@ -266,16 +266,16 @@ php vendor/bin/robo parallel:merge-results
 
 `result_paracept.xml` file will be generated. It can be processed and analyzed.
 
-If you prefer HTML reports, they can be generated in the same way:
+If you prefer HTML reports, add `->html("result_paracept_$i.html")` to the Codecept task in `parallelRun` and merge them in the same way:
 
 ```php
 public function parallelMergeResults()
 {
     $merge = $this->taskMergeHtmlReports();
     for ($i=1; $i<=5; $i++) {
-        $merge->from("tests/_output/result_$i.html");
+        $merge->from("tests/_output/result_paracept_$i.html");
     }
-    $merge->into("tests/_output/result.html")->run();
+    $merge->into("tests/_output/result_paracept.html")->run();
 }
 ```
 

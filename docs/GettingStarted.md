@@ -15,7 +15,7 @@ They are well described in the [Introduction](https://codeception.com/docs/Intro
 
 Codeception follows simple naming rules to make it easy to remember (as well as easy to understand) its method names.
 
-* **Actions** start with a plain english verb, like "click" or "fill". Examples:
+* **Actions** start with a plain English verb, like "click" or "fill". Examples:
 
   ```php
   $I->click('Login');
