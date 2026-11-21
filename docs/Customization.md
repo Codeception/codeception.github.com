@@ -19,10 +19,10 @@ php vendor/bin/codecept bootstrap --namespace frontend
 ```
 
 This will bootstrap a new project with the `namespace: frontend` parameter in the `codeception.yml` file.
-Helpers will be in the `frontend\Codeception\Module` namespace and Actor classes will be in the `frontend` namespace.
+Actor classes will be in the `frontend\Support` namespace and Helpers will be in the `frontend\Support\Helper` namespace.
 
 Once each of your applications (bundles) has its own namespace and different Helper or Actor classes,
-you can execute all the tests in a single runner. Run the Codeception tests as usual, using the meta-config we created earlier:
+you can execute all the tests in a single runner. Run the Codeception tests as usual, using a meta-config which [includes all applications](#One-Runner-for-Multiple-Applications):
 
 ```bash
 php vendor/bin/codecept run
@@ -137,9 +137,10 @@ All listed events are available as constants in `Codeception\Events` class.
 | `result.print.after` | After result was printed                | [Result, Printer](https://github.com/Codeception/Codeception/blob/5.0/src/Codeception/Event/PrintResultEvent.php)
 
 There may be some confusion between `test.start`/`test.before` and `test.after`/`test.end`.
-The start and end events are triggered by PHPUnit, but the before and after events are triggered by Codeception.
-Thus, when you are using classical PHPUnit tests (extended from `PHPUnit\Framework\TestCase`),
-the before/after events won't be triggered for them. During the `test.before` event you can mark a test
+The start and end events are triggered by the suite around each test, while the before and after events are triggered
+from inside the test and are also dispatched per group (see [Group Objects](#Group-Objects)).
+All of them are triggered for every kind of test, including classical PHPUnit tests (extended from `PHPUnit\Framework\TestCase`).
+During the `test.before` event you can mark a test
 as skipped or incomplete, which is not possible in `test.start`. You can learn more from
 [Codeception internal event listeners](https://github.com/Codeception/Codeception/tree/5.0/src/Codeception/Subscriber).
 
@@ -183,13 +184,13 @@ Extensions have some basic methods you can use:
 * `writeln` - prints to the screen with a new-line character at the end
 * `getModule` - allows you to access a module
 * `hasModule` - checks if a module is enabled
-* `getModuleNames` - list all enabled modules
+* `getCurrentModuleNames` - list all enabled modules
 * `_reconfigure` - can be implemented instead of overriding the constructor
 
 ### Enabling Extension
 
-Once you've implemented a simple extension class, you can require it in `tests/_bootstrap.php`,
-load it with Composer's autoloader defined in `composer.json`, or store the class inside `tests/Support`dir.
+Once you've implemented a simple extension class, you can require it in a [bootstrap file](#Bootstrap),
+load it with Composer's autoloader defined in `composer.json`, or store the class inside `tests/Support` dir.
 
 You can then enable it in `codeception.yml`
 
@@ -271,8 +272,6 @@ public function testAdminCreatingNewBlogPost(AcceptanceTester $I)
 This test will trigger the following events:
 
 * `test.before.admin`
-* `step.before.admin`
-* `step.after.admin`
 * `test.success.admin`
 * `test.fail.admin`
 * `test.after.admin`
@@ -281,7 +280,7 @@ A group object is built to listen for these events. It is useful when an additio
 for some of your tests. Let's say you want to load fixtures for tests that belong to the `admin` group:
 ```php
 <?php
-namespace Group;
+namespace Tests\Support\Group;
 
 class Admin extends \Codeception\GroupObject
 {
@@ -319,14 +318,14 @@ For instance, for `nocleanup` group we prevent Doctrine module from wrapping tes
 
 ```
 
-A group class can be created with `php vendor/bin/codecept generate:group groupname` command.
+A group class can be created with `php vendor/bin/codecept generate:groupobject groupname` command.
 Group classes will be stored in the `tests/Support/Group` directory.
 
 A group class can be enabled just like you enable an extension class. In the file `codeception.yml`:
 
 ```yaml
 extensions:
-    enabled: [Group\Admin]
+    enabled: [Tests\Support\Group\Admin]
 
 ```
 
@@ -347,13 +346,13 @@ List of available step decorators:
 - [TryTo](https://github.com/Codeception/Codeception/blob/5.0.0/src/Codeception/Step/TryTo.php) - failed action will be ignored.
 - [Retry](https://github.com/Codeception/Codeception/blob/5.0.0/src/Codeception/Step/Retry.php) - failed action will be retried automatically.
 
-Step decorators can be added to suite config inside `steps` block:
+Step decorators can be added to suite config inside `step_decorators` block:
 
 ```yaml
 step_decorators:
-    - Codeception/Step/TryTo
-    - Codeception/Step/Retry
-    - Codeception/Step/ConditionalAssertion
+    - Codeception\Step\TryTo
+    - Codeception\Step\Retry
+    - Codeception\Step\ConditionalAssertion
 
 ```
 
@@ -459,17 +458,17 @@ class MyFormat implements \Codeception\Test\Loader\LoaderInterface
         $this->settings = $settings;
     }
 
-    public function loadTests($filename)
+    public function loadTests(string $filename): void
     {
         //Load file and create tests
     }
 
-    public function getTests()
+    public function getTests(): array
     {
         return $this->tests;
     }
 
-    public function getPattern()
+    public function getPattern(): string
     {
         return '~Myformat\.php$~';
     }
@@ -535,7 +534,7 @@ settings:
 
 ```
 
-You should also specify the path to the `log` directory, where the reports and logs will be saved.
+You should also specify the path to the `output` directory, where the reports and logs will be saved.
 
 > Wildcards (`*`) can be used to specify multiple directories at once.
 

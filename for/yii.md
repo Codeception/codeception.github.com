@@ -136,8 +136,6 @@ modules:
             url: /api/v1
             depends: Yii2
         - \ApiBundle\Helper\Api
-    config:
-        - Yii2
 
 ```
 

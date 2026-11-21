@@ -81,9 +81,15 @@ title: Quickstart Codeception
                 {% highlight php %}
 <?php
 
-class FirstCest
+declare(strict_types=1);
+
+namespace Tests\Acceptance;
+
+use Tests\Support\AcceptanceTester;
+
+final class FirstCest
 {
-    public function frontpageWorks(AcceptanceTester $I)
+    public function frontpageWorks(AcceptanceTester $I): void
     {
         $I->amOnPage('/');
         $I->see('Home');

@@ -90,7 +90,7 @@ modules:
             depends: Symfony # connect to Symfony
 ```
 
-By default this module will search for AppKernel in the `app` directory.
+By default this module will search for the `App\Kernel` class in the `src` directory. Use the `kernel_class` and `app_path` options to change this.
 
 The module uses the Symfony Profiler to provide additional information and assertions.
 
@@ -143,8 +143,8 @@ modules:
     enabled:
         - Phalcon5:
             bootstrap: 'app/config/bootstrap.php'
-             cleanup: true
-             savepoints: true
+            cleanup: true
+            savepoints: true
 ```
 
 [See the full reference](https://codeception.com/docs/modules/Phalcon4)
@@ -209,7 +209,7 @@ class Functional extends \Codeception\Module
 {
     function doSomethingWithMyService()
     {
-        $service = $this->getModule('Symfony')->grabServiceFromContainer('myservice');
+        $service = $this->getModule('Symfony')->grabService('myservice');
         $service->doSomething();
     }
 }
@@ -219,7 +219,7 @@ Also check all available *Public Properties* of the used modules to get full acc
 
 ## Error Reporting
 
-By default Codeception uses the `E_ALL & ~E_DEPRECATED` error reporting level (PHP < 8.4: `E_ALL & ~E_STRICT & ~E_DEPRECATED`).
+By default Codeception uses the `E_ALL & ~E_DEPRECATED` error reporting level.
 In functional tests you might want to change this level depending on your framework's error policy.
 The error reporting level can be set in the suite configuration file:
 

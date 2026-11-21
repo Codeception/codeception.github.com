@@ -17,7 +17,7 @@ The required information is provided by [SebastianBergmann\CodeCoverage](https:/
 | Driver | Description |
 | --- | --- |
 | [Xdebug](https://github.com/xdebug/xdebug) | Great for debugging, but too slow when collecting coverage |
-| [phpdbg](https://www.php.net/manual/en/book.phpdbg.php) | Faster than `Xdebug` but inaccurate |
+| [phpdbg](https://www.php.net/manual/en/book.phpdbg.php) | Faster than `Xdebug` but inaccurate. Only supported with PHPUnit 9 |
 | [pcov](https://github.com/krakjoe/pcov) | Fast and accurate, but no debug functionality &mdash; perfect for CI |
 
 ![Code Coverage Example](https://codeception.com/images/coverage.png)
@@ -63,7 +63,7 @@ coverage:
     high_limit: 60
 ```
 
-By default, show all whitelisted files in `--coverage-text` output not just the ones with coverage information is set to false, config option:
+By default, `--coverage-text` output only shows files with coverage information. To show all included files, set `show_uncovered` to `true` (default: `false`):
 
 
 ```yaml
@@ -108,7 +108,7 @@ XML clover reports are used by IDEs (like PHPStorm) or Continuous Integration se
 
 If you run your application via Webserver (Apache, Nginx, PHP WebServer) you don't have a direct access to tested code,
 so collecting coverage becomes a non-trivial task. The same goes for scripts that are tested on different nodes.
-To get access to this code you need `xdebug` installed with `remote_enable` option turned on.
+To get access to this code you need a coverage driver on the server: `pcov` or `xdebug` with coverage enabled (`xdebug.mode=coverage`). Path coverage (`path_coverage: true`) requires `xdebug`.
 Codeception also requires a little spy to interact with your application. As your application runs standalone,
 without even knowing it is being tested, a small file should be included in order to collect coverage info.
 

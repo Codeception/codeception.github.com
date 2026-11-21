@@ -21,7 +21,7 @@ We will put all the api tests there.
 
 > **NOTE:** REST API testing requires the `codeception/module-rest` package to be installed.
 
-The REST web service is accessed via HTTP with standard methods: `GET`, `POST`, `PUT`, `DELETE`. They allow users to receive and manipulate entities from the service. Accessing a WebService requires an HTTP client, so for using it you need the module `PhpBrowser` or one of framework modules set up. For example, we can use the `Symfony` module for Symfony2 applications in order to ignore web server and test web service internally.
+The REST web service is accessed via HTTP with standard methods: `GET`, `POST`, `PUT`, `DELETE`. They allow users to receive and manipulate entities from the service. Accessing a WebService requires an HTTP client, so for using it you need the module `PhpBrowser` or one of framework modules set up. For example, we can use the `Symfony` module for Symfony applications in order to ignore web server and test web service internally.
 
 Configure modules in `Api.suite.yml`:
 
@@ -137,8 +137,6 @@ To send a request with custom method use `send` action:
 $response = $I->send('TRACE', '/posts');
 ```
 
-> sendAsJson methods were introduced in module-rest 1.4.1
-
 If API endpoint accepts JSON you can use `send` methods with `AsJson` suffix to convert data automatically.
 In this case `Content-Type` header is sent with `application/json` value and response if JSON is parsed:
 
@@ -249,7 +247,7 @@ class Api extends \Codeception\Module
   public function seeResponseIsHtml()
   {
     $response = $this->getModule('REST')->response;
-    $this->assertRegExp('~^<!DOCTYPE HTML(.*?)<html>.*?<\/html>~m', $response);
+    $this->assertMatchesRegularExpression('~^<!DOCTYPE HTML(.*?)<html>.*?<\/html>~m', $response);
   }
 }
 
@@ -361,7 +359,7 @@ $I->seeSoapResponseIncludes(\Codeception\Util\Xml::build()
 
 It's up to you to decide whether to use `XmlBuilder` or plain XML. `XmlBuilder` will return XML string as well.
 
-You may extend current functionality by using `SOAP` module in your helper class. To access the SOAP response as `\DOMDocument` you can use `response` property of `SOAP` module.
+You may extend current functionality by using `SOAP` module in your helper class. To access the SOAP response as `\DOMDocument` you can use `xmlResponse` property of `SOAP` module.
 
 ```php
 <?php
@@ -370,7 +368,7 @@ class Api extends \Codeception\Module {
 
     public function seeResponseIsValidOnSchema($schema)
     {
-        $response = $this->getModule('SOAP')->response;
+        $response = $this->getModule('SOAP')->xmlResponse;
         $this->assertTrue($response->schemaValidate($schema));
     }
 }

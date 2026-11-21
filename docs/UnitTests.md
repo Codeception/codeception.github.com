@@ -107,7 +107,7 @@ There are pretty many assertions you can use inside tests. The most common are:
 * `$this->assertNull()`
 * `$this->assertEmpty()`
 
-Assertion methods come from PHPUnit. [See the complete reference at phpunit.de](https://phpunit.de/manual/current/en/appendixes.assertions.html).
+Assertion methods come from PHPUnit. [See the complete reference at phpunit.de](https://docs.phpunit.de/en/main/assertions.html).
 
 
 ### Fluent Assertions
@@ -461,7 +461,7 @@ $this->assertUserCanPostToBlog($user, $blog);
 // instead of just calling a bunch of assertions
 $this->assertNotNull($user);
 $this->assertNotNull($blog);
-$this->assertContain($user, $blog->getOwners());
+$this->assertContains($user, $blog->getOwners());
 ```
 
 With custom assertion methods you can improve readability of your tests and keep them focused around the specification.
@@ -489,7 +489,7 @@ public function testSingleton()
 
 ## Error Reporting
 
-By default Codeception uses the `E_ALL & ~E_DEPRECATED` error reporting level (PHP < 8.4: `E_ALL & ~E_STRICT & ~E_DEPRECATED`).
+By default Codeception uses the `E_ALL & ~E_DEPRECATED` error reporting level.
 In unit tests you might want to change this level depending on your framework's error policy.
 The error reporting level can be set in the suite configuration file:
 

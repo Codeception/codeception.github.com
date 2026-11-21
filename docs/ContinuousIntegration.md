@@ -49,11 +49,11 @@ Then we can start the very first job and check the execution progress. If tests 
 
 ### XML Reports
 
-But we don't want to analyze console output for each failing build. Especially If Jenkins can collect and display the results inside its web UI. Codeception can export its results using JUnit XML format. To generate XML report on each build we will need to append `--xml` option to Codeception execution command. Codeception will print `result.xml` file containing information about test status with steps and stack traces for failing tests.
+But we don't want to analyze console output for each failing build. Especially If Jenkins can collect and display the results inside its web UI. Codeception can export its results using JUnit XML format. To generate XML report on each build we will need to append `--xml` option to Codeception execution command. Codeception will print `report.xml` file into `tests/_output` containing information about test status with steps and stack traces for failing tests.
 
 Now let's update our build step to generate xml:
 
-```php
+```bash
 php vendor/bin/codecept run --xml
 ```
 
@@ -71,7 +71,7 @@ Now for all builds we will see results trend graph that shows us percentage of p
 
 To get more details on steps executed you can generate HTML report and use Jenkins to display them.
 
-```php
+```bash
 php vendor/bin/codecept run --html
 ```
 
@@ -101,11 +101,11 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Checkout
-          uses: actions/checkout@v2
+          uses: actions/checkout@v4
         - name: Install PHP
           uses: shivammathur/setup-php@v2
           with:
-            php-version: ${{ matrix.php }}
+            php-version: '8.4'
             extensions: curl, mbstring, openssl, pdo, pdo_sqlite
             ini-values: memory_limit=-1, date.timezone='UTC'
             coverage: xdebug
@@ -115,7 +115,7 @@ jobs:
           run: composer validate
   
         - name: Install dependencies
-          run: composer install --prefer-dist --no-progress --no-interaction --no-suggest
+          run: composer install --prefer-dist --no-progress --no-interaction
   
         - name: Run tests
           run: php vendor/bin/codecept run
@@ -125,11 +125,11 @@ jobs:
 
 ![report](https://codeception.com/images/gitlab/logo.png)
 
-If a file `.gitlab-ci.yml` exists in the root of the git repository, GitLab will run a pipeline each time you push to the gitlab server. The file configures the docker image that will be called. Below is a sample which loads a php7 docker image, clones your files, installs composer dependencies, runs the built-in php webserver and finally runs codeception:
+If a file `.gitlab-ci.yml` exists in the root of the git repository, GitLab will run a pipeline each time you push to the gitlab server. The file configures the docker image that will be called. Below is a sample which loads a PHP 8.4 docker image, clones your files, installs composer dependencies, runs the built-in php webserver and finally runs codeception:
 
 ```yaml
 # Select image from https://hub.docker.com/_/php/
-image: php:7.0
+image: php:8.4
 
 # Select what we should cache
 cache:
@@ -188,17 +188,5 @@ test:
     reports:
       junit: tests/_output/report.xml
 ```
-
-## TravisCI
-
-![Travis CI](https://codeception.com/images/travis.png)
-
-Travis CI is popular service CI with good GitHub integration. Codeception is self-tested with Travis CI. There nothing special about configuration. Just add to the bottom line of travis configuration:
-
-```
-php vendor/bin/codecept run
-```
-
-Travis doesn't provide visualization for XML or HTML reports so you can't view reports in format any different than console output. However, Codeception produces nice console output with detailed error reports.
 
 <div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/ContinuousIntegration.md"><strong>Improve</strong> this guide</a></div>

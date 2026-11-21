@@ -34,7 +34,7 @@ modules:
 ```
 
 <div class="alert alert-notice">
-Use <a href="https://codeception.com/docs/06-ModulesAndHelpers#Dynamic-Configuration-With-Params">module parameters</a>
+Use <a href="https://codeception.com/docs/ModulesAndHelpers#Dynamic-Configuration-With-Parameters">module parameters</a>
 to set the database credentials from environment variables or from application configuration files.
 </div>
 
@@ -101,7 +101,7 @@ $I->see('Top 10 Testing Frameworks');
 All added records will be deleted at the end of the test.
 
 If you want to check that a table record was created
-use [`seeInDatabase`](https://codeception.com/docs/modules/Db#haveInDatabase) method:
+use [`seeInDatabase`](https://codeception.com/docs/modules/Db#seeInDatabase) method:
 
 ```php
 $I->amOnPage('/posts/1');
@@ -161,7 +161,7 @@ $I->click('Delete');
 $I->dontSeeRecord('posts', ['id' => $id]);
 ```
 
-Laravel5 module provides the method `have` which uses the [factory](https://laravel.com/docs/9.x/database-testing#creating-models-using-factories) method to generate models with fake data.
+[Laravel](https://codeception.com/docs/modules/Laravel) module provides the method `have` which uses the [factory](https://laravel.com/docs/eloquent-factories) method to generate models with fake data.
 
 If you want to use ORM for integration testing only, you should enable the framework module with only the `ORM` part enabled:
 
@@ -169,7 +169,7 @@ If you want to use ORM for integration testing only, you should enable the frame
 modules:
     enabled:
         - Laravel:
-            - part: ORM
+            part: ORM
 ```
 
 Similarly for Yii2 framework:
@@ -178,7 +178,7 @@ Similarly for Yii2 framework:
 modules:
     enabled:
         - Yii2:
-            - part: ORM
+            part: ORM
 ```
 
 This way no web actions will be added to `$I` object.
@@ -227,7 +227,7 @@ Doctrine also provides methods to create and check data:
 ### DataFactory
 
 Preparing data for testing is a very creative, although boring, task. If you create a record,
-you need to fill in all the fields of the model. It is much easier to use [Faker](https://github.com/fzaninotto/Faker)
+you need to fill in all the fields of the model. It is much easier to use [Faker](https://github.com/FakerPHP/Faker)
 for this task, which is more effective to set up data generation rules for models.
 Such a set of rules is called *factories*
 and are provided by the [DataFactory](https://codeception.com/docs/modules/DataFactory) module.
@@ -299,7 +299,7 @@ class Categories extends \Codeception\Snapshot
         $this->i = $I;
     }
 
-    protected function fetchData()
+    protected function fetchData(): array|string|false
     {
         // fetch texts from all 'a.category' elements on a page        
         return $this->i->grabMultiple('a.category');
@@ -310,7 +310,7 @@ class Categories extends \Codeception\Snapshot
 Inside a test you can inject the snapshot class and call `assert` method on it:
 
 ```php
-public function testCategoriesAreTheSame(AcceptanceTester $I, \Tests\Snapshot\Categories $snapshot)
+public function testCategoriesAreTheSame(AcceptanceTester $I, \Tests\Support\Snapshot\Categories $snapshot)
 {
     $I->amOnPage('/categories');
     // if previously saved array of users does not match current set, test will fail
@@ -332,7 +332,7 @@ The assertion performed by `assertData` will not display the typical diff output
 To have the diff displayed when running tests, you can call the snapshot method `shouldShowDiffOnFail`:
 
 ```php
-public function testCategoriesAreTheSame(AcceptanceTester $I, \Tests\Snapshot\Categories $snapshot)
+public function testCategoriesAreTheSame(AcceptanceTester $I, \Tests\Support\Snapshot\Categories $snapshot)
 {
     $I->amOnPage('/categories');
     // I want to see the diff in case the snapshot data changes
@@ -349,7 +349,7 @@ By default, all snapshot files are stored in json format, so if you have to work
 To fix this, you can call the snapshot method `shouldSaveAsJson(false)` and set the file extension by calling `setSnapshotFileExtension()`:
 
 ```php
-public function testCategoriesAreTheSame(AcceptanceTester $I, \Tests\Snapshot\Categories $snapshot)
+public function testCategoriesAreTheSame(AcceptanceTester $I, \Tests\Support\Snapshot\Categories $snapshot)
 {
     // I fetch an HTML page
     $I->amOnPage('/categories.html');
