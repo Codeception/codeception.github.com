@@ -198,7 +198,7 @@ Take a look at the complete reference for the module you are using. Most of its 
 but some of them are unique.
 
 You can also access framework globals inside a test or access the dependency injection container
-inside the `Helper\Functional` class:
+inside the `Tests\Support\Helper\Functional` class:
 
 ```php
 <?php

@@ -308,7 +308,7 @@ modules:
         - Asserts
         - Doctrine:
             depends: Symfony
-        - \Helper\Unit
+        - \Tests\Support\Helper\Unit
 ```
 
 In this case you can use the methods from the Doctrine module, while Doctrine itself uses the Symfony module

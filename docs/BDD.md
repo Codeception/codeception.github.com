@@ -511,17 +511,17 @@ class AdditionalSteps
 ```
 This way PageObjects, Helpers and StepObjects can become contexts as well. But more preferable to include context classes by their tags or roles.
 
-If you have `Step\Admin` class which defines only admin steps, it is a good idea to use it as context for all features containing "As an admin". In this case "admin" is a role and we can configure it to use additional context.
+If you have `Tests\Support\Step\Acceptance\Admin` class which defines only admin steps, it is a good idea to use it as context for all features containing "As an admin". In this case "admin" is a role and we can configure it to use additional context.
 
 ```yaml
 gherkin:
     contexts:
         role:
             admin:
-                - 'Step\Admin'
+                - Tests\Support\Step\Acceptance\Admin
 ```
 
-Contexts can be attached to tags as well. This may be useful if you want to redefine steps for some scenarios. Let's say we want to bypass login steps for some scenarios loading already defined session. In this case we can create `Step\FastLogin` class with redefined step "I am logged in as".
+Contexts can be attached to tags as well. This may be useful if you want to redefine steps for some scenarios. Let's say we want to bypass login steps for some scenarios loading already defined session. In this case we can create `Tests\Support\Step\Acceptance\FastLogin` class with redefined step "I am logged in as".
 
 ```yaml
 
@@ -529,7 +529,7 @@ gherkin:
     contexts:
         tag:
             fastlogin:
-                - 'Step\FastLogin'
+                - Tests\Support\Step\Acceptance\FastLogin
 ```
 
 Contexts can be autoloaded as well:

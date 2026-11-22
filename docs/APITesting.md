@@ -242,7 +242,7 @@ You may want to perform even more complex assertions on a response. This can be 
 
 ```php
 <?php
-namespace Helper;
+namespace Tests\Support\Helper;
 
 class Api extends \Codeception\Module
 {
@@ -365,7 +365,7 @@ You may extend current functionality by using `SOAP` module in your helper class
 
 ```php
 <?php
-namespace Helper;
+namespace Tests\Support\Helper;
 class Api extends \Codeception\Module {
 
     public function seeResponseIsValidOnSchema($schema)
