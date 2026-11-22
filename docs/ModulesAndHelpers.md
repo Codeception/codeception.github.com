@@ -413,11 +413,11 @@ params:
     - env # load params from environment vars
 ```
 
-Example: load parameters from YAML file (Symfony):
+Example: load parameters from YAML file:
 
 ```yaml
 params:
-    - app/config/parameters.yml
+    - config/parameters.yml
 ```
 
 Example: load parameters from php file (Yii)

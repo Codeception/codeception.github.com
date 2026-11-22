@@ -394,8 +394,9 @@ you will have issues figuring out what tests will be affected by the introductio
 That's why it's pretty important not just to cover your application with unit tests, but make unit tests self-explanatory.
 We do this for scenario-driven acceptance and functional tests, and we should do this for unit and integration tests as well.
 
-For this case we have a stand-alone project [Specify](https://github.com/Codeception/Specify)
-(which is included in the phar package) for writing specifications inside unit tests:
+For this case we have a stand-alone project [Specify](https://github.com/Codeception/Specify) for writing specifications inside unit tests:
+
+> Specify supports only PHPUnit 8 and 9.
 
 ```php
 <?php
@@ -445,6 +446,8 @@ will not be reflected in other code blocks as it is marked with `@specify` annot
 The more complicated your domain is the more explicit your tests should be. With [DomainAssert](https://github.com/Codeception/DomainAssert)
 library you can easily create custom assertion methods for unit and integration tests.
 
+> DomainAssert supports only PHPUnit 7 to 9.
+
 It allows to reuse business rules inside assertion methods:
 
 ```php
@@ -470,6 +473,8 @@ With custom assertion methods you can improve readability of your tests and keep
 [AspectMock](https://github.com/Codeception/AspectMock) is an advanced mocking framework which allows you to replace any methods of any class in a test.
 Static methods, class methods, date and time functions can be easily replaced with AspectMock.
 For instance, you can test singletons!
+
+> The latest AspectMock release requires PHP 7.4 and PHPUnit 9, so it can't be installed together with Codeception 5.
 
 ```php
 <?php

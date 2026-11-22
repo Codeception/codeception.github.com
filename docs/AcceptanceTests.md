@@ -561,7 +561,7 @@ For more options see [`performOn()` reference](https://codeception.com/docs/modu
 When a web site acts unpredictably you may need to react to that change.
 This happens if a site is configured for A/B testing, or shows different popups, based on environment.
 
-Since Codeception 3.0 you can have some actions to fail silently, if they are errored.
+You can have some actions to fail silently, if they are errored.
 Let's say, you open a page and sometimes there is a popup which should be closed. 
 We may try to hit the "close" button but if this action fails (no popup on page) we just continue the test.
 
@@ -638,8 +638,8 @@ class AcceptanceTester extends \Codeception\Actor
 
 ### Cloud Testing
 
-Some environments are hard to reproduce manually, testing Internet Explorer 6-8 on Windows XP may be a hard thing,
-especially if you don't have Windows XP installed. This is where Cloud Testing services come to help you.
+Some environments are hard to reproduce manually, testing Safari on macOS or browsers on mobile devices may be a hard thing,
+especially if you don't have such a device. This is where Cloud Testing services come to help you.
 Services such as [SauceLabs](https://saucelabs.com), [BrowserStack](https://www.browserstack.com/)
 and [others](https://codeception.com/docs/modules/WebDriver#Cloud-Testing) can create virtual machines on demand
 and set up Selenium Server and the desired browser. Tests are executed on a remote machine in a cloud,

@@ -142,7 +142,7 @@ parallel:merge-results
 
 #### Step 1: Split Tests
 
-Codeception can organize tests into [groups](https://codeception.com/docs/AdvancedUsage#Groups). Starting from 2.0 it can load information about a group from a file. Sample text file with a list of file names can be treated as a dynamically configured group. Take a look into sample group file:
+Codeception can organize tests into [groups](https://codeception.com/docs/AdvancedUsage#Groups). It can load information about a group from a file. Sample text file with a list of file names can be treated as a dynamically configured group. Take a look into sample group file:
 
 
 ```bash
@@ -212,7 +212,7 @@ php vendor/bin/codecept run Acceptance -g paracept_2
 
 #### Step 2: Running Tests
 
-At this point you should decide if tests are executed on the same job or use multiple jobs for them. We recommend using multiple jobs, as in this case the burden of parallelization goes to CI server. This makes a lot of sense as a single machine has limited resources. If you split tests into CI jobs, you are limited only to the number of agents (build servers) that the CI can provide. For cloud-based services like GitHub Actions, GitLab CI, CircleCI, etc, this number is unlimited.
+At this point you should decide if tests are executed on the same job or use multiple jobs for them. We recommend using multiple jobs, as in this case the burden of parallelization goes to CI server. This makes a lot of sense as a single machine has limited resources. If you split tests into CI jobs, you are limited only to the number of agents (build servers) that the CI can provide. For cloud-based services like GitHub Actions, GitLab CI, CircleCI, etc, this number depends on your plan.
 
 > Please refer to documentation of your CI platform to learn how to set up multiple jobs running in parallel. Then proceed to merging of results. 
 

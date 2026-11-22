@@ -234,7 +234,7 @@ extensions:
 
 The passed in configuration is accessible via the `config` property: `$this->config['param']`.
 
-Check out a very basic extension [Notifier](https://github.com/Codeception/Notifier).
+Check out the [extensions shipped with Codeception](https://github.com/Codeception/Codeception/tree/main/ext) for examples.
 
 ### Custom Commands
 
