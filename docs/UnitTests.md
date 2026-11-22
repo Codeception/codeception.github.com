@@ -149,7 +149,7 @@ $user = \Codeception\Stub::make('User', ['getName' => 'john']);
 $name = $user->getName(); // 'john'
 ```
 
-[See complete reference](https://codeception.com/docs/reference/Mock)
+[See complete reference](https://codeception.com/docs/reference/Stub)
 
 To keep PHPUnit's verification of mock expectations working,
 it is recommended to use the alternative API in unit tests (`Codeception\Test\Unit`):

@@ -147,7 +147,7 @@ modules:
             savepoints: true
 ```
 
-[See the full reference](https://codeception.com/docs/modules/Phalcon4)
+[See the full reference](https://github.com/Codeception/module-phalcon5/blob/main/documentation.md)
 
 ## Writing Functional Tests
 
