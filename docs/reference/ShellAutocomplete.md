@@ -1,4 +1,15 @@
-## Shell auto-completion
+---
+layout: doc
+title: Shell Autocomplete - Codeception - Documentation
+---
+
+# Shell Auto-Completion
+
+Auto-completion requires the optional `stecman/symfony-console-completion` package:
+
+```bash
+composer require --dev stecman/symfony-console-completion
+```
 
 For bash and zsh shells, you can use auto-completion for your Codeception projects by executing the following in your shell (or add it to your .bashrc/.zshrc):
 

@@ -33,6 +33,10 @@ Allows to enable and configure [Codeception extensions](https://codeception.com/
 
 [Gherkin options](https://codeception.com/docs/BDD#Configuration).
 
+### `groups`
+
+Defines [groups](https://codeception.com/docs/Customization#Group-Files) for all suites, either as a list of test files and directories or as a path to a group file.
+
 ### `include`
 
 Include additional Codeception configurations for [multiple applications setup](https://codeception.com/docs/Customization#One-Runner-for-Multiple-Applications).
