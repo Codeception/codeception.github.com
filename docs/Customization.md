@@ -28,7 +28,7 @@ you can execute all the tests in a single runner. Run the Codeception tests as u
 php vendor/bin/codecept run
 ```
 
-This will launch the test suites for all three applications and merge the reports from all of them.
+This will launch the test suites for all included applications and merge the reports from all of them.
 This is very useful when you run your tests on a Continuous Integration server
 and you want to get a single report in JUnit and HTML format. The code coverage report will be merged too.
 

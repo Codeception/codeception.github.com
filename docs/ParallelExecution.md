@@ -15,7 +15,7 @@ In this guide we will overview possible options.
 ## Sharding
 
 Minimal setup can be implemented by executing several independent CI jobs, each running a part of the tests.
-Sharding in Codeception allows to combine stages 1 and 2 so tests could be split by groups on the fly. 
+Sharding in Codeception allows to combine the splitting and running stages (see [Building Pipeline](#Building-Pipeline)) so tests could be split by groups on the fly. 
 In this case a pipeline could be simplified to one stage with several jobs.  
 
 ![](/images/codeception-sharding.png)

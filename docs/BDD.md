@@ -170,7 +170,7 @@ Scenario --
 
  INCOMPLETE
 Step definition for `I have product with $600 price in my cart` not found in contexts
-Step definition for `I have product with $1000 price` not found in contexts
+Step definition for `I have product with $1000 price in my cart` not found in contexts
 Step definition for `I go to checkout process` not found in contexts
 Step definition for `I should see that total number of products is 2` not found in contexts
 Step definition for `my order amount is $1600` not found in contexts
@@ -292,7 +292,7 @@ class AcceptanceTester extends \Codeception\Actor
 ```
 
 Please note that `:num1` placeholder can be used for strings and numbers (may contain currency sign).
-In current case `:num1` matches `$600` and `$num1` is assigned to be 600. If you need to receive exact string, wrap the value into quotes: `"600$"`
+In current case `:num1` matches `$600` and `$num1` is assigned to be 600. If you need to receive exact string, wrap the value into quotes: `"$600"`
 
 By default they throw Incomplete exceptions to ensure test with missing steps won't be accidentally marked as successful. We will need to implement those steps. As we are in acceptance suite we are probably using [PhpBrowser](https://codeception.com/docs/modules/PhpBrowser) or [WebDriver](https://codeception.com/docs/modules/WebDriver) modules. This means that we can use their methods inside Tester file, as we do with writing tests using `$I->`. You can use `amOnPage`, `click`, `see` methods inside a step definitions, so each Gherkin scenario step to be extended with basic Codeception steps. Let's show how it can be implemented in our case:
 
