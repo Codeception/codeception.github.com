@@ -15,7 +15,7 @@ By looking into the following debugging practices you will learn how to get all 
 
 Codeception saves the list of failed tests. To re-run failed test run tests from `failed` group:
 
-```php
+```bash
 php vendor/bin/codecept run -g failed
 ```
 
@@ -30,7 +30,7 @@ Think of it as `var_dump` but for testing:
 codecept_debug($user);
 ```
 
-Unlinke var_dump, the output will be printed to screen only if tests are executed with `--debug` flag.
+Unlike var_dump, the output will be printed to screen only if tests are executed with `--debug` flag.
 
 ```
 php vendor/bin/codecept run --debug
@@ -41,7 +41,7 @@ So it is safe to keep `codecept_debug` inside a test, it won't affect the code r
 `codecept_debug` can be used in any place of your tests, but it is prohibited to use it in application code. 
 This function is loaded only by Codeception, so the application may be broken trying to call this line.
 
-Inside a [Helper](/docs/06-ModulesAndHelpers#Helpers) you can use analogs of this function to provide a debug output for a complex action. 
+Inside a [Helper](/docs/ModulesAndHelpers#Helpers) you can use analogs of this function to provide a debug output for a complex action. 
 
 
 ```php
@@ -66,7 +66,7 @@ $I->amOnPage('/');
 $I->pause();
 ```
 
-Interactive pause is launched only when `--debug ` option is enabled:
+Interactive pause is launched only when `--debug` option is enabled:
 
 ```
 php vendor/bin/codecept run --debug
@@ -75,7 +75,7 @@ php vendor/bin/codecept run --debug
 To launch interactive pause in a context when the `$I` object is not available, use `codecept_pause` function instead. To inspect local variables pass them into interactive shell using an array:
 
 ```php
-$I->pause(['user' => $user])
+$I->pause(['user' => $user]);
 // or
 codecept_pause(['user' => $user]);
 ```

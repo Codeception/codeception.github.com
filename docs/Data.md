@@ -65,7 +65,7 @@ modules:
           user: 'root'
           password: ''
           cleanup: true # run populator before each test
-          populate: true # run populator before all test
+          populate: true # run populator before all tests
           populator: 'mysql -u $user $dbname < tests/Support/Data/dump.sql'
 ```
 
@@ -236,7 +236,7 @@ Once configured, it can create records with ease:
 
 ```php
 // creates a new user
-$user_id = $I->have(\App\Model\User::class);
+$user = $I->have(\App\Model\User::class);
 // creates 3 posts
 $I->haveMultiple(\App\Model\Post::class, 3);
 ```
@@ -271,13 +271,13 @@ Read the [full reference](https://codeception.com/docs/modules/DataFactory) to l
 What if you deal with data which you don't own? For instance, the page look depends on number of categories in database, 
 and categories are set by admin user. How would you test that the page is still valid?  
 
-There is a way to get it tested as well. Codeception allows you take a snapshot of a data on first run and compare with on next executions.
+There is a way to get it tested as well. Codeception allows you to take a snapshot of data on the first run and compare it on subsequent executions.
 This principle is so general that it can work for testing APIs, items on a web page, etc.
 
 Let's check that list of categories on a page is the same it was before.    
 Create a snapshot class:
 
-```php
+```bash
 php vendor/bin/codecept g:snapshot Categories
 ```
 
@@ -313,7 +313,7 @@ Inside a test you can inject the snapshot class and call `assert` method on it:
 public function testCategoriesAreTheSame(AcceptanceTester $I, \Tests\Support\Snapshot\Categories $snapshot)
 {
     $I->amOnPage('/categories');
-    // if previously saved array of users does not match current set, test will fail
+    // if previously saved array of categories does not match current set, test will fail
     // to update data in snapshot run test with --debug flag
     $snapshot->assert();
 }
@@ -345,7 +345,7 @@ If ever needed, the diff output can also be omitted by calling `shouldShowDiffOn
 
 ### Change Storage Format
 
-By default, all snapshot files are stored in json format, so if you have to work with different formats, neither the diff output or the snapshot file data will be helpful. 
+By default, all snapshot files are stored in json format, so if you have to work with different formats, neither the diff output nor the snapshot file data will be helpful. 
 To fix this, you can call the snapshot method `shouldSaveAsJson(false)` and set the file extension by calling `setSnapshotFileExtension()`:
 
 ```php

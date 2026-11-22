@@ -53,7 +53,7 @@ and not on reinventing the wheel. Each module provides methods for testing its o
 by combining modules you can get a powerful setup to test an application at all levels.
 
 There is the `WebDriver` module for acceptance testing, modules for all popular PHP frameworks,
-`PHPBrowser` to emulate browser execution, `REST` for testing APIs, and more.
+`PhpBrowser` to emulate browser execution, `REST` for testing APIs, and more.
 Modules are considered to be the most valuable part of Codeception.
 They are constantly improving to provide the best testing experience, and be flexible to satisfy everyone's needs.
 
@@ -74,7 +74,7 @@ This way if you try to use two modules sharing the same conflicted interface you
 
 To avoid confusion, **Framework modules, PhpBrowser, and WebDriver** can't be used together. For instance,
 the `amOnPage` method exists in all those modules, and you should not try to guess which module will actually execute it.
-If you are doing acceptance testing, set up either WebDriver or PHPBrowser but do not set both up at the same time.
+If you are doing acceptance testing, set up either WebDriver or PhpBrowser but do not set both up at the same time.
 If you are doing functional testing, enable only one of the framework modules.
 
 In case you need to use a module which depends on a conflicted one, specify it as a dependent module in the configuration.
@@ -463,7 +463,7 @@ modules:
 
 ```
 
-Parameters can set in JSON format. So objects, arrays, booleans and strings can also be passed into config.
+Parameters can be set in JSON format. So objects, arrays, booleans and strings can also be passed into config.
 
 ```yaml
 modules:
@@ -473,7 +473,7 @@ modules:
             books: "%BOOKS_ARRAY%"
 ```
 
-In this case `USER_ARRAY` and `BOOKS_ARRAY` are JSON-fromatted arrays. Codeception turns them into array while parsing configuration.
+In this case `USERS_ARRAY` and `BOOKS_ARRAY` are JSON-formatted arrays. Codeception turns them into array while parsing configuration.
 
 ### Runtime Configuration
 

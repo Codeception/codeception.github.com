@@ -151,7 +151,7 @@ modules:
 
 ## Writing Functional Tests
 
-Functional tests are written in the same manner as [Acceptance Tests](https://codeception.com/docs/03-AcceptanceTests)
+Functional tests are written in the same manner as [Acceptance Tests](https://codeception.com/docs/AcceptanceTests)
 with the `PhpBrowser` module enabled. All framework modules and the `PhpBrowser` module share the same methods
 and the same engine.
 
@@ -225,7 +225,7 @@ The error reporting level can be set in the suite configuration file:
 
 ```yaml
 actor: FunctionalTester
-...
+# ...
 error_level: E_ALL & ~E_DEPRECATED
 ```
 

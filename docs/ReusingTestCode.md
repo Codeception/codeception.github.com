@@ -79,14 +79,14 @@ The most important part is the `_generated\AcceptanceTesterActions` trait, which
 It knows which module executes which action and passes parameters into it.
 This trait was created by running `codecept build` and is regenerated each time module or configuration changes.
 
-> Use actor classes to set common actions which can be used accross a suite.
+> Use actor classes to set common actions which can be used across a suite.
 
 
 ## PageObjects
 
 For acceptance and functional testing, we will not only need to have common actions being reused across different tests,
 we should have buttons, links and form fields being reused as well. For those cases we need to implement
-the [PageObject pattern](https://www.selenium.dev/documentation/en/guidelines_and_recommendations/page_object_models/),
+the [PageObject pattern](https://www.selenium.dev/documentation/test_practices/encouraged/page_object_models/),
 which is widely used by test automation engineers. The PageObject pattern represents a web page as a class
 and the DOM elements on that page as its properties, and some basic interactions as its methods.
 PageObjects are very important when you are developing a flexible architecture of your acceptance or functional tests.
@@ -192,9 +192,9 @@ Dependency Injection will be described in the next chapter.
 StepObjects are great if you need some common functionality for a group of tests.
 Let's say you are going to test an admin area of a site. You probably won't need the same actions from the admin area
 while testing the front end, so it's a good idea to move these admin-specific tests into their own class.
-We call such a classes StepObjects.
+We call such classes StepObjects.
 
-Lets create an Admin StepObject with the generator:
+Let's create an Admin StepObject with the generator:
 
 ```
 php vendor/bin/codecept generate:stepobject Acceptance Admin

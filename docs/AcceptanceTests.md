@@ -47,7 +47,7 @@ We will start writing our first acceptance tests with PhpBrowser.
 
 This is the fastest way to run acceptance tests since it doesn't require running an actual browser.
 We use a PHP web scraper, which acts like a browser: It sends a request, then receives and parses the response.
-Codeception uses [Guzzle](https://guzzlephp.org) and [Symfony BrowserKit](https://symfony.com/doc/current/components/browser_kit.html) to interact with HTML web pages.
+Codeception uses [Guzzle](https://docs.guzzlephp.org/) and [Symfony BrowserKit](https://symfony.com/doc/current/components/browser_kit.html) to interact with HTML web pages.
 
 Common PhpBrowser drawbacks:
 
@@ -74,6 +74,12 @@ php vendor/bin/codecept g:cest Acceptance Signin
 It will be placed into `tests/Acceptance` directory.
 
 ```php
+<?php
+
+namespace Tests\Acceptance;
+
+use Tests\Support\AcceptanceTester;
+
 class SigninCest
 {
     public function tryToTest(AcceptanceTester $I)
@@ -104,7 +110,7 @@ $I->click('Log in');
 // CSS selector applied
 $I->click('#login a');
 // XPath
-$I->click('//a[@id=login]');
+$I->click('//a[@id="login"]');
 // Using context as second argument
 $I->click('Login', '.nav');
 ```
@@ -343,7 +349,7 @@ $user_id = $I->grabFromCurrentUrl('~^/user/(\d+)/~');
 
 ## WebDriver
 
-A nice feature of Codeception is that most scenarios are similar, no matter of how they are executed.
+A nice feature of Codeception is that most scenarios are similar, no matter how they are executed.
 `PhpBrowser` was emulating browser requests but how to execute such test in a real browser like Chrome or Firefox?
 Selenium WebDriver can drive them so in our acceptance tests we can automate scenarios we used to test manually.
 In such tests, we should concentrate more on **testing the UI** than on testing functionality.
@@ -376,13 +382,13 @@ Launch this command in a separate terminal:
 selenium-standalone start
 ```
 
-![](https://raw.githubusercontent.com/vvo/selenium-standalone/HEAD/screencast.gif)
+![](https://raw.githubusercontent.com/webdriverio/selenium-standalone/HEAD/screencast.gif)
 
 Now, you are ready to run WebDriver tests using Codeception.
 
 > Alternatively, Selenium Server can be installed manually. [Download it](https://www.selenium.dev/downloads/) from the official site and launch a server with Java: `java -jar selenium-server-....jar`. In this case ChromeDriver and GeckoDriver must be installed separately.
 
-* For more information refer to [Installation Instructions](https://codeception.com/docs/modules/WebDriver#Selenium)
+* For more information refer to [Installation Instructions](https://codeception.com/docs/modules/WebDriver#Selenium-Recommended)
 * Enable [RunProcess](https://codeception.com/extensions#RunProcess) extension to start/stop Selenium automatically *(optional)*.
 
 
@@ -397,7 +403,7 @@ actor: AcceptanceTester
 modules:
     enabled:
         - WebDriver:
-            url: {{your site URL}}
+            url: http://localhost/myapp
             browser: chrome
 ```
 
@@ -415,7 +421,7 @@ WebDriver also adds browser-specific functionality:
 
 #### Wait
 
-While testing web application, you may need to wait for JavaScript events to occur. Due to its asynchronous nature,
+While testing a web application, you may need to wait for JavaScript events to occur. Due to its asynchronous nature,
 complex JavaScript interactions are hard to test. That's why you may need to use waiters, actions with `wait` prefix.
 They can be used to specify what event you expect to occur on a page, before continuing the test.
 
@@ -430,7 +436,7 @@ In this case, we are waiting for the 'agree' button to appear and then click it.
 the test will fail. There are other `wait` methods you may use, like [waitForText](https://codeception.com/docs/modules/WebDriver#waitForText),
 [waitForElementVisible](https://codeception.com/docs/modules/WebDriver#waitForElementVisible) and others.
 
-If you don't know what exact element you need to wait for, you can simply pause execution with using `$I->wait()`
+If you don't know what exact element you need to wait for, you can simply pause execution by using `$I->wait()`
 
 ```php
 $I->wait(3); // wait for 3 secs
@@ -438,9 +444,9 @@ $I->wait(3); // wait for 3 secs
 
 #### SmartWait
 
-It is possible to wait for elements pragmatically.
-If a test uses element which is not on a page yet, Codeception will wait for few extra seconds before failing.
-This feature is based on [Implicit Wait](https://www.seleniumhq.org/docs/04_webdriver_advanced.jsp#implicit-waits) of Selenium.
+It is possible to wait for elements programmatically.
+If a test uses an element which is not on a page yet, Codeception will wait for a few extra seconds before failing.
+This feature is based on [Implicit Wait](https://www.selenium.dev/documentation/webdriver/waits/#implicit-waits) of Selenium.
 Codeception enables implicit wait only when searching for a specific element and disables in all other cases. Thus, the performance of a test is not affected.
 
 SmartWait can be enabled by setting `wait` option in WebDriver config. It expects the number of seconds to wait. Example:
@@ -458,7 +464,7 @@ With this config we have the following test:
 $I->click(['css' => '#click-me']);
 ```
 
-It is important to understand that SmartWait works only with a specific locators:
+It is important to understand that SmartWait works only with specific locators:
 
 * `#locator` - CSS ID locator, works
 * `//locator` - general XPath locator, works
@@ -480,9 +486,9 @@ $I->seeNumberOfElements(['css' => 'button.link'], 5); // DISABLED, can wait only
 
 #### Retry
 
-When it's hard to define condition to wait for, we can retry a command few times until it succeeds.
-For instance, if you try to click while it's animating you can try to do it few times until it freezes.
-Each action and assertion have an alias prefixed with `retry` which allows to retry a flaky command.
+When it's hard to define a condition to wait for, we can retry a command a few times until it succeeds.
+For instance, if you try to click while it's animating you can try to do it a few times until it freezes.
+Each action and assertion has an alias prefixed with `retry` which allows to retry a flaky command.
 
 ```php
 $I->retryClick('flaky element');
@@ -552,11 +558,11 @@ For more options see [`performOn()` reference](https://codeception.com/docs/modu
 
 #### A/B Testing
 
-When a web site acts unpredictably you may need to react on that change.
-This happens if site configured for A/B testing, or shows different popups, based on environment.
+When a web site acts unpredictably you may need to react to that change.
+This happens if a site is configured for A/B testing, or shows different popups, based on environment.
 
 Since Codeception 3.0 you can have some actions to fail silently, if they are errored.
-Let's say, you open a page and some times there is a popup which should be closed. 
+Let's say, you open a page and sometimes there is a popup which should be closed. 
 We may try to hit the "close" button but if this action fails (no popup on page) we just continue the test.
 
 This is how it can be implemented:
@@ -634,7 +640,7 @@ class AcceptanceTester extends \Codeception\Actor
 
 ### Cloud Testing
 
-Some environments are hard to be reproduced manually, testing Internet Explorer 6-8 on Windows XP may be a hard thing,
+Some environments are hard to reproduce manually, testing Internet Explorer 6-8 on Windows XP may be a hard thing,
 especially if you don't have Windows XP installed. This is where Cloud Testing services come to help you.
 Services such as [SauceLabs](https://saucelabs.com), [BrowserStack](https://www.browserstack.com/)
 and [others](https://codeception.com/docs/modules/WebDriver#Cloud-Testing) can create virtual machines on demand
@@ -650,12 +656,12 @@ You just need to set the [WebDriver configuration](https://codeception.com/docs/
 * browser
 * OS
 
-We recommend using [params](https://codeception.com/docs/06-ModulesAndHelpers#Dynamic-Configuration-With-Params)
+We recommend using [params](https://codeception.com/docs/ModulesAndHelpers#Dynamic-Configuration-With-Parameters)
 to provide authorization credentials.
 
 It should be mentioned that Cloud Testing services are not free. You should investigate their pricing models
 and choose one that fits your needs. They also may work painfully slowly if ping times between the local server
-and the cloud is too high. This may lead to random failures in acceptance tests.
+and the cloud are too high. This may lead to random failures in acceptance tests.
 
 ### Debugging
 
@@ -671,8 +677,8 @@ PhpBrowser will store the HTML code and WebDriver will save a screenshot of the 
 
 Additional debugging features by Codeception:
 
-* [Interactive Pause](https://codeception.com/docs/02-GettingStarted#Interactive-Pause) is a REPL that allows to type and check commands for instant feedback.
-* [Recorder Extension](https://codeception.com/addons#CodeceptionExtensionRecorder) allows to record tests step-by-steps and show them in slideshow
+* [Interactive Pause](https://codeception.com/docs/Debugging#Pause) is a REPL that allows to type and check commands for instant feedback.
+* [Recorder Extension](https://codeception.com/extensions#Recorder) allows to record tests step-by-step and show them in slideshow
 
 ### Common Cases
 
@@ -751,16 +757,16 @@ Note that session restoration only works for `WebDriver` modules
 
 By default, WebDriver module is configured to automatically start browser before the test and stop afterward.
 However, this can be switched off with `start: false` module configuration.
-To start a browser you will need to write corresponding methods in Acceptance [Helper](https://codeception.com/docs/06-ModulesAndHelpers#Helpers).
+To start a browser you will need to write corresponding methods in Acceptance [Helper](https://codeception.com/docs/ModulesAndHelpers#Helpers).
 
 WebDriver module provides advanced methods for the browser session, however, they can only be used from Helpers.
 
 * [_initializeSession](https://codeception.com/docs/modules/WebDriver#_initializeSession) - starts a new browser session
 * [_closeSession](https://codeception.com/docs/modules/WebDriver#_closeSession) - stops the browser session
 * [_restart](https://codeception.com/docs/modules/WebDriver#_restart) - updates configuration and restarts browser
-* [_capabilities](https://codeception.com/docs/modules/WebDriver#_capabilities) - set [desired capabilities](https://github.com/SeleniumHQ/selenium/wiki/DesiredCapabilities) programmatically.
+* [_capabilities](https://codeception.com/docs/modules/WebDriver#_capabilities) - set [desired capabilities](https://www.selenium.dev/documentation/webdriver/drivers/options/) programmatically.
 
-Those methods can be used to create custom commands like `$I->startBrowser()` or used in [before/after](https://codeception.com/docs/06-ModulesAndHelpers#Hooks) hooks.
+Those methods can be used to create custom commands like `$I->startBrowser()` or used in [before/after](https://codeception.com/docs/ModulesAndHelpers#Hooks) hooks.
 
 ## Conclusion
 
