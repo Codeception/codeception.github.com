@@ -609,7 +609,7 @@ public function myTest(Scenario $scenario)
 ## Shuffle
 
 By default, Codeception runs tests in alphabetic order.
-To ensure that tests are not depending on each other (unless explicitly declared via `@depends`) you can enable `shuffle` option.
+To ensure that tests are not depending on each other (unless explicitly declared via `#[Depends]`) you can enable `shuffle` option.
 
 ```yaml
 # inside codeception.yml
