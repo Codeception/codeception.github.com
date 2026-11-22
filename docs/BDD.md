@@ -442,9 +442,9 @@ Text values inside a scenarios can be set inside a `"""` block:
 """
 paths:
     tests: tests
-    log: tests/_output
+    output: tests/_output
     data: tests/Support/Data
-    helpers: tests/Support
+    support: tests/Support
     envs: tests/_envs
 """
 ```

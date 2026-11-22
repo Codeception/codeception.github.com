@@ -69,7 +69,7 @@ By default, `--coverage-text` output only shows files with coverage information.
 ```yaml
 coverage:
     enabled: true
-    show_uncovered: false
+    show_uncovered: true
 ```
 
 The `show_only_summary` option controls whether `--coverage-text` output shows only the coverage report summary (default: `false`):

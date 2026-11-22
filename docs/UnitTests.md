@@ -172,7 +172,7 @@ $user = $this->construct(User::class, ['name' => 'davert'], ['save' => false]);
 // create a stub by calling constructor with empty methods
 $user = $this->constructEmpty(User::class, ['name' => 'davert']);
 
-// create a stub by calling constructor with empty methods
+// create a stub by calling constructor with all methods replaced except one
 $user = $this->constructEmptyExcept(User::class, 'getName', ['name' => 'davert']);
 $user->getName(); // => davert
 $user->setName('jane'); // => this method is empty
@@ -181,7 +181,6 @@ $user->setName('jane'); // => this method is empty
 [See complete reference](https://codeception.com/docs/reference/Mock)
 
 Stubs can also be created using static methods from `Codeception\Stub` class.
-In this 
 
 ```php
 \Codeception\Stub::make(UserRepository::class, ['find' => new User]);

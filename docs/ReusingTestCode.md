@@ -15,7 +15,7 @@ Modules allow you to choose the actions and assertions that can be performed in 
 All actions and assertions that can be performed by the Actor object in a class are defined in modules.
 It might look like Codeception limits you in testing, but that's not true. You can extend the testing suite
 with your own actions and assertions, by writing them into a custom module, called a Helper.
-We will get back to this later in this chapter, but for now let's look at the following test:
+We covered Helpers in the [previous chapter](https://codeception.com/docs/ModulesAndHelpers#Helpers). Now let's look at the following test:
 
 ```php
 $I->amOnPage('/');
@@ -61,7 +61,7 @@ namespace Tests\Support;
  * @method void am($role)
  * @method void lookForwardTo($achieveValue)
  * @method void comment($description)
- * @method void haveFriend($name, $actorClass = null)
+ * @method void pause($vars = [])
  *
  * @SuppressWarnings(PHPMD)
 */

@@ -185,7 +185,7 @@ Extensions have some basic methods you can use:
 * `getModule` - allows you to access a module
 * `hasModule` - checks if a module is enabled
 * `getCurrentModuleNames` - list all enabled modules
-* `_reconfigure` - can be implemented instead of overriding the constructor
+* `_initialize` - can be implemented instead of overriding the constructor
 
 ### Enabling Extension
 

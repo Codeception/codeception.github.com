@@ -37,7 +37,7 @@ class LoginCest
         $I->fillField('Password', 'Davis');
         $I->click('Enter');
         $I->see('Hello, Miles', 'h1');
-        // $I->seeEmailIsSent(); // only for Symfony
+        // $I->seeEmailIsSent(); // only for Symfony and Yii2
     }
 }
 ```
