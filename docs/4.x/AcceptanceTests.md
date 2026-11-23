@@ -466,7 +466,7 @@ actor: AcceptanceTester
 modules:
     enabled:
         - WebDriver:
-            url: {{your site URL}}
+            url: {% raw %}{{your site URL}}{% endraw %}
             browser: chrome
         - \Helper\Acceptance
 
