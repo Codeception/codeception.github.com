@@ -1562,7 +1562,7 @@ body #footer .links {
   font-size: 16px;
 }
 
-.intro-block .pull-right {
+.intro-block .float-end {
   float: none !important;
 }
 
@@ -1571,7 +1571,7 @@ body #footer .links {
     display: flex;
     justify-content: space-between;
 
-    .pull-right {
+    .float-end {
       float: right !important;
     }
   }
