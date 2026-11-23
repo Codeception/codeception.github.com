@@ -7,7 +7,7 @@ title: Addons
     <h1>Addons</h1>
     <p class="alert alert-info">See built-in <a href="/extensions">official extensions</a> of Codeception</p>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-lg-6">
             <div class="page">
                 <h2>
                     <a href="https://chrome.google.com/webstore/detail/codeception-testtools/jhaegbojocomemkcnmnpmoobbmnkijik">Codeception
@@ -22,7 +22,7 @@ title: Addons
                 </p>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-lg-6">
             <div class="page">
                 <h2><a href="https://github.com/jayhealey/Webception">WebCeption <small>Web Runner</small> </a></h2>
                 <img
@@ -49,22 +49,22 @@ title: Addons
     <div class="row">
         <div class="grid" data-columns>
             {% for module in site.data.modules %}
-            <div class="card module" {% if module.color %}
+            <div class="addon-card module" {% if module.color %}
                  style="background: {{module.color}};"
                  {% endif %}>
                 <a href="{{module.link}}" target="_blank">
                     {% if module.image %}
-                    <span class="card-image" style="background-image: url({{ module.image }}); ">
-    <span class="card-title">      
+                    <span class="addon-card-image" style="background-image: url({{ module.image }}); ">
+    <span class="addon-card-title">      
       {{module.name}}
     </span>
   </span>
                     {% else %}
-                    <span class="card-title">
+                    <span class="addon-card-title">
     {{module.name}}
     </span>
                     {% endif %}
-                    <div class="card-content">
+                    <div class="addon-card-content">
                         {{module.description | markdownify }}
                     </div>
                 </a>
@@ -84,23 +84,23 @@ title: Addons
     <div class="row">
         <div class="grid" data-columns>
             {% for extension in site.data.extensions %}
-            <div class="card extension" {% if extension.color %}
+            <div class="addon-card extension" {% if extension.color %}
                  style="background: {{extension.color}};"
                  {% endif %}>
                 <a href="{{extension.link}}" target="_blank" aria-label="{{extension.name}}"
                 >
                     {% if extension.image %}
-                    <span class="card-image" style="background-image: url({{ extension.image }}); ">
-    <span class="card-title">      
+                    <span class="addon-card-image" style="background-image: url({{ extension.image }}); ">
+    <span class="addon-card-title">      
       {{extension.name}}
     </span>
   </span>
                     {% else %}
-                    <span class="card-title">
+                    <span class="addon-card-title">
     {{extension.name}}
     </span>
                     {% endif %}
-                    <div class="card-content">
+                    <div class="addon-card-content">
                         {{extension.description | markdownify }}
                     </div>
                 </a></div>

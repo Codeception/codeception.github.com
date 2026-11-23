@@ -2,7 +2,7 @@
 layout: bootstrap
 ---
 <div class="row pt">
-    <div class="col-sm-12 col-lg-8">
+    <div class="col-md-12 col-xl-8">
         <div class="content page" id="page">
             {% if page.url == '/changelog' %}
             <div class="changelog-wrapper">
@@ -13,14 +13,14 @@ layout: bootstrap
             {% endif %}
         </div>
     </div>
-    <div class="col-sm-12 col-lg-4">
+    <div class="col-md-12 col-xl-4">
         {% if page.sidebar %}
-        <div class="well sidebar">
+        <div class="card card-body mb-3 sidebar">
             {{ page.sidebar | markdownify }}
         </div>
         {% else%}
-        <div class="well">
-            <a class="btn btn-lg btn-warning btn-block" href="/quickstart">Quick Start →</a>
+        <div class="card card-body mb-3 bg-body-tertiary">
+            <a class="btn btn-lg btn-warning w-100" href="/quickstart">Quick Start →</a>
             <p><br/>Write and execute a test for an existing app
                 <b>in less than a 5 mins!</b>
             </p>

@@ -1,0 +1,119 @@
+/*Base: keeps the typography and density the site was designed with on Bootstrap 3*/
+
+:root {
+  --bs-body-color: #333;
+  --bs-body-color-rgb: 51, 51, 51;
+  --bs-body-line-height: 1.428571429;
+  --bs-link-color: #337ab7;
+  --bs-link-color-rgb: 51, 122, 183;
+  --bs-link-hover-color: #23527c;
+  --bs-link-hover-color-rgb: 35, 82, 124;
+}
+
+html {
+  font-size: 14px;
+}
+
+.container, .container-fluid, .row {
+  --bs-gutter-x: 30px;
+}
+
+.container {
+  max-width: none;
+
+  @media (min-width: 768px) {
+    max-width: 750px;
+  }
+
+  @media (min-width: 992px) {
+    max-width: 970px;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 1170px;
+  }
+}
+
+a {
+  text-decoration: none;
+
+  &:hover, &:focus {
+    text-decoration: underline;
+  }
+}
+
+.btn, .nav-link, .navbar-brand, .dropdown-item, .list-group-item, .carousel-control-next {
+  &:hover, &:focus {
+    text-decoration: none;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.1;
+}
+
+h1, h2, h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+h4, h5, h6 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+h1 { font-size: 36px; }
+h2 { font-size: 30px; }
+h3 { font-size: 24px; }
+h4 { font-size: 18px; }
+h5 { font-size: 14px; }
+h6 { font-size: 12px; }
+
+p {
+  margin: 0 0 10px;
+}
+
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+
+pre {
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.428571429;
+  color: #333;
+  border-radius: 4px;
+
+  code {
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+    border-radius: 0;
+  }
+}
+
+blockquote {
+  padding: 10px 20px;
+  margin: 0 0 20px;
+  font-size: 17.5px;
+  border-left: 5px solid #eee;
+}
+
+.card {
+  margin-bottom: 20px;
+
+  > .card-header .card-title {
+    margin: 0;
+    font-size: 16px;
+
+    a {
+      color: inherit;
+    }
+  }
+}

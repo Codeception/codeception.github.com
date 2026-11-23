@@ -60,7 +60,7 @@ modules:
 
 
 <div class="alert alert-warning">
-  <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+  <i class="bi bi-info-circle-fill" aria-hidden="true"></i>
   Continue to <a href="https://codeception.com/docs/04-FunctionalTests">Functional Testing Guide &raquo;</a>
 </div>
 
@@ -83,7 +83,7 @@ This generates `Codeception\Test\Unit` testcase which is inherited from PHPUnit 
 Enable Laravel module in `Unit.suite.yml` to have its methods inside a testcase. They are available injected into `$this->tester` property of a testcase.
 
 <div class="alert alert-warning">
-  <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+  <i class="bi bi-info-circle-fill" aria-hidden="true"></i>
   Continue to <a href="https://codeception.com/docs/05-UnitTests">Unit Testing Guide &raquo;</a>.
 </div>
 
@@ -151,7 +151,7 @@ Laravel module actions like `amOnPage` or `see` should not be available for test
 
 
 <div class="alert alert-warning">
-  <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+  <i class="bi bi-info-circle-fill" aria-hidden="true"></i>
   Continue to <a href="https://codeception.com/docs/10-APITesting#REST-API">REST API Testing Guide &raquo;</a>.
 </div>
 
@@ -174,6 +174,6 @@ php vendor/bin/codecept gherkin:snippets
 In the same manner features can be set up as functional tests.
 
 <div class="alert alert-warning">
-  <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+  <i class="bi bi-info-circle-fill" aria-hidden="true"></i>
   Continue to <a href="https://codeception.com/docs/07-BDD">Behavior Driven Development Guide &raquo;</a>
 </div>

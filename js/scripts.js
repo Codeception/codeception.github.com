@@ -110,9 +110,9 @@ $(document).ready(function () {
 // js
 $(document).ready(function () {
     function randomCarousel(id) {
-        var num = $(id + ' .item').length;
+        var num = $(id + ' .carousel-item').length;
         var slide = Math.floor((Math.random() * num));
-        $(id + ' .item').each(function (index) {
+        $(id + ' .carousel-item').each(function (index) {
             if (index == slide) {
                 $(this).addClass('active');
             } else {
@@ -174,7 +174,7 @@ $(document).ready(function () {
     // docrdy
 
     // Adding this layout functionality for mobile views with the homepage hero
-    var navbarToggle = $('.navbar-toggle')
+    var navbarToggle = $('.navbar-toggler')
     if (navbarToggle.length) {
         navbarToggle.click(function () {
             $('.row.home').toggleClass('no-padding-top');
@@ -182,9 +182,9 @@ $(document).ready(function () {
     }
 
     function randomCarousel(id) {
-        var num = $(id + ' .item').length;
+        var num = $(id + ' .carousel-item').length;
         var slide = Math.floor((Math.random() * num));
-        $(id + ' .item').each(function (index) {
+        $(id + ' .carousel-item').each(function (index) {
             if (index == slide) {
                 $(this).addClass('active');
             } else {
@@ -256,7 +256,7 @@ $(document).ready(function () {
     // docrdy
 
     // Adding this layout functionality for mobile views with the homepage hero
-    var navbarToggle = $('.navbar-toggle')
+    var navbarToggle = $('.navbar-toggler')
     if (navbarToggle.length) {
         navbarToggle.click(function () {
             $('.row.home').toggleClass('no-padding-top');

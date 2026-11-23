@@ -8,7 +8,7 @@ title: Quickstart Codeception
     <div class="wide">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-lg-12 col-sm-12 text-center">
+          <div class="col-xl-12 col-md-12 text-center">
             <h1>
               Quickstart
             </h1>
@@ -21,13 +21,13 @@ title: Quickstart Codeception
   <div class="wide">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-xs-12 col-lg-6 col-lg-offset-3">
-          <div class="panel panel-info quickstart-panel">
-            <div class="panel-heading">
-              <h4 class="panel-title">1.Install</h4>
+        <div class="col-12 col-xl-6 offset-xl-3">
+          <div class="card card-info quickstart-panel">
+            <div class="card-header">
+              <h4 class="card-title">1.Install</h4>
               <a href="/install">Alternative Installations &raquo;</a>
             </div>
-            <div class="panel-body text-center">
+            <div class="card-body text-center">
               <div class="">
                 Install via Composer
                 <div class="highlight">
@@ -36,16 +36,16 @@ title: Quickstart Codeception
                 <p>
               </div>
               <!-- <p>Use <code>codecept</code> instead of codecept.phar in this case.</p> -->
-            </div> <!-- /.panel-body -->
-          </div> <!-- /.panel -->
+            </div> <!-- /.card-body -->
+          </div> <!-- /.card -->
         </div> <!-- /.col -->
 
       </div>
       <div class="row">
-        <div class="col-sm-12 col-md-6">
-          <div class="panel panel-info">
-            <div class="panel-heading"><h4 class="panel-title">2. Bootstrap</h4></div>
-            <div class="panel-body">
+        <div class="col-md-12 col-lg-6">
+          <div class="card card-info">
+            <div class="card-header"><h4 class="card-title">2. Bootstrap</h4></div>
+            <div class="card-body">
               <p>Execute:</p>
               <div class="highlight">
                 <p>
@@ -54,26 +54,26 @@ title: Quickstart Codeception
               <p class="text-muted">This creates the global configuration file
                 <b>codeception.yml</b>, the <b>tests/</b> directory, and the default test suites.
               </p>
-            </div> <!-- /.panel-body -->
-          </div> <!-- /.panel -->
+            </div> <!-- /.card-body -->
+          </div> <!-- /.card -->
 
-          <div class="panel panel-info">
-            <div class="panel-heading"><h4 class="panel-title">3. Create Test</h4></div>
-            <div class="panel-body">
+          <div class="card card-info">
+            <div class="card-header"><h4 class="card-title">3. Create Test</h4></div>
+            <div class="card-body">
               <p>Generate your first acceptance test. Acceptance tests emulate the behavior
                 of a real user visiting your site.<br><a href="/docs/AcceptanceTests" class="btn btn-secondary">Acceptance Testing Guide &raquo;</a></p>
               <div class="highlight">
                 <p>
                 <pre>php vendor/bin/codecept generate:cest Acceptance First</pre>
               </div>
-            </div> <!-- /.panel-body -->
-          </div> <!-- /.panel -->
+            </div> <!-- /.card-body -->
+          </div> <!-- /.card -->
 
-          <div class="panel panel-info">
-            <div class="panel-heading">
-              <h4 class="panel-title">4. Write a Basic Test</h4>
+          <div class="card card-info">
+            <div class="card-header">
+              <h4 class="card-title">4. Write a Basic Test</h4>
             </div>
-            <div class="panel-body">
+            <div class="card-body">
               <p>It's now time to write your first test. Edit the file we've just created
                 <b>tests/Acceptance/FirstCest.php</b>
               </p>
@@ -98,12 +98,12 @@ final class FirstCest
                 {% endhighlight %}
               </div>
               <p class="text-muted">It will check if your frontpage contains the word <b>Home</b>.</p>
-            </div> <!-- /.panel-body -->
-          </div> <!-- /.panel -->
+            </div> <!-- /.card-body -->
+          </div> <!-- /.card -->
 
-          <div class="panel panel-info">
-            <div class="panel-heading"><h4 class="panel-title">5. Configure Acceptance Tests</h4></div>
-            <div class="panel-body">
+          <div class="card card-info">
+            <div class="card-header"><h4 class="card-title">5. Configure Acceptance Tests</h4></div>
+            <div class="card-body">
               <p>Please make sure your local
                 <b>development server</b> is running. &nbsp;Put application URL into:&nbsp;
                 <b>tests/Acceptance.suite.yml</b>&nbsp;</p>
@@ -116,12 +116,12 @@ modules:
             url: {YOUR APP'S URL}
                 </pre>
               </div>
-            </div> <!-- /.panel-body -->
-          </div> <!-- /.panel -->
+            </div> <!-- /.card-body -->
+          </div> <!-- /.card -->
 
-          <div class="panel panel-info">
-            <div class="panel-heading"><h4 class="panel-title">6. Run!</h4></div>
-            <div class="panel-body">
+          <div class="card card-info">
+            <div class="card-header"><h4 class="card-title">6. Run!</h4></div>
+            <div class="card-body">
               <p>Tests are executed with 'run' command</p>
               <div class="highlight">
                 <p>
@@ -131,12 +131,12 @@ modules:
                 <a href="https://codeception.com/docs/modules/PhpBrowser">PhpBrowser</a>. It's PHP script that can check HTML page contents, click
                 links, fill forms, and submit POST and GET requests. For tests that require a real browser (e.g. JavaScript) use
                 the <a href="https://codeception.com/docs/modules/WebDriver">WebDriver</a> module.</p>
-            </div> <!-- /.panel-body -->
-          </div> <!-- /.panel -->
+            </div> <!-- /.card-body -->
+          </div> <!-- /.card -->
 
         </div> <!-- /.row -->
 
-        <div class="col-sm-12 col-md-6">
+        <div class="col-md-12 col-lg-6">
           <div class="page">
 
             <h3>Setup for a Single Test Suite</h3>
@@ -177,12 +177,12 @@ modules:
       </div>
 
       <div class="row">
-        <div class="col-sm-12 col-md-6">
-          <div class="panel panel-success">
+        <div class="col-md-12 col-lg-6">
+          <div class="card card-success">
             <img src="/images/codecept_run.gif" alt="codeception run">
           </div>
         </div>
-        <div class="col-sm-12 col-md-6">
+        <div class="col-md-12 col-lg-6">
 
           <div class="page">
 
