@@ -1607,7 +1607,7 @@ body #footer .links {
   .release-well-block {
     float: right;
 
-    .card {
+    .well {
       margin-top: 1.5em;
       margin-right: 2.5em;
     }
@@ -1639,6 +1639,14 @@ body #footer .links {
 
   .card + .card {
     margin-top: 5px;
+  }
+
+  .card-header {
+    background-color: #f5f5f5;
+  }
+
+  .card-body {
+    padding: 15px 15px 0;
   }
 
   .phar-download {

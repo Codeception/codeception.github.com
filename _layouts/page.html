@@ -15,11 +15,11 @@ layout: bootstrap
     </div>
     <div class="col-md-12 col-xl-4">
         {% if page.sidebar %}
-        <div class="card card-body mb-3 sidebar">
+        <div class="well sidebar">
             {{ page.sidebar | markdownify }}
         </div>
         {% else%}
-        <div class="card card-body mb-3 bg-body-tertiary">
+        <div class="well">
             <a class="btn btn-lg btn-warning w-100" href="/quickstart">Quick Start →</a>
             <p><br/>Write and execute a test for an existing app
                 <b>in less than a 5 mins!</b>
