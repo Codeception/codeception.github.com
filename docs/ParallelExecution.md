@@ -151,7 +151,7 @@ tests/Functional/AdminCest.php:createUser
 tests/Functional/AdminCest.php:deleteUser
 ```
 
-Tasks from `\Codeception\Task\SplitTestsByGroups` will generate non-intersecting group files.  You can either split your tests by files or by single tests:
+Tasks from `\Codeception\Task\Splitter\TestsSplitterTrait` will generate non-intersecting group files.  You can either split your tests by files or by single tests:
 
 ```php
 public function parallelSplitTests()
@@ -187,12 +187,12 @@ php vendor/bin/robo parallel:split-tests
 The output should be similar to this:
 
 ```
- [Codeception\Task\SplitTestFilesByGroupsTask] Processing 33 files
- [Codeception\Task\SplitTestFilesByGroupsTask] Writing tests/Support/Data/paracept_1
- [Codeception\Task\SplitTestFilesByGroupsTask] Writing tests/Support/Data/paracept_2
- [Codeception\Task\SplitTestFilesByGroupsTask] Writing tests/Support/Data/paracept_3
- [Codeception\Task\SplitTestFilesByGroupsTask] Writing tests/Support/Data/paracept_4
- [Codeception\Task\SplitTestFilesByGroupsTask] Writing tests/Support/Data/paracept_5
+ [Codeception\Task\Splitter\TestFileSplitterTask] Processing 33 files
+ [Codeception\Task\Splitter\TestFileSplitterTask] Writing tests/Support/Data/paracept_1
+ [Codeception\Task\Splitter\TestFileSplitterTask] Writing tests/Support/Data/paracept_2
+ [Codeception\Task\Splitter\TestFileSplitterTask] Writing tests/Support/Data/paracept_3
+ [Codeception\Task\Splitter\TestFileSplitterTask] Writing tests/Support/Data/paracept_4
+ [Codeception\Task\Splitter\TestFileSplitterTask] Writing tests/Support/Data/paracept_5
 
 ```
 

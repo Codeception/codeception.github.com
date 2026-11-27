@@ -442,9 +442,9 @@ Text values inside a scenarios can be set inside a `"""` block:
 """
 paths:
     tests: tests
-    log: tests/_output
+    output: tests/_output
     data: tests/Support/Data
-    helpers: tests/Support
+    support: tests/Support
     envs: tests/_envs
 """
 ```
@@ -511,17 +511,17 @@ class AdditionalSteps
 ```
 This way PageObjects, Helpers and StepObjects can become contexts as well. But more preferable to include context classes by their tags or roles.
 
-If you have `Step\Admin` class which defines only admin steps, it is a good idea to use it as context for all features containing "As an admin". In this case "admin" is a role and we can configure it to use additional context.
+If you have `Tests\Support\Step\Acceptance\Admin` class which defines only admin steps, it is a good idea to use it as context for all features containing "As an admin". In this case "admin" is a role and we can configure it to use additional context.
 
 ```yaml
 gherkin:
     contexts:
         role:
             admin:
-                - 'Step\Admin'
+                - Tests\Support\Step\Acceptance\Admin
 ```
 
-Contexts can be attached to tags as well. This may be useful if you want to redefine steps for some scenarios. Let's say we want to bypass login steps for some scenarios loading already defined session. In this case we can create `Step\FastLogin` class with redefined step "I am logged in as".
+Contexts can be attached to tags as well. This may be useful if you want to redefine steps for some scenarios. Let's say we want to bypass login steps for some scenarios loading already defined session. In this case we can create `Tests\Support\Step\Acceptance\FastLogin` class with redefined step "I am logged in as".
 
 ```yaml
 
@@ -529,7 +529,7 @@ gherkin:
     contexts:
         tag:
             fastlogin:
-                - 'Step\FastLogin'
+                - Tests\Support\Step\Acceptance\FastLogin
 ```
 
 Contexts can be autoloaded as well:
@@ -561,19 +561,33 @@ By default it is recommended to place step definitions into actor class (Tester)
 
 It is common to think that BDD scenario is equal to test. But it's actually not. Not every test should be described as a feature. Not every test is written to test real business value. For instance, regression tests or negative scenario tests are not bringing any value to business. Business analysts don't care about scenario reproducing bug #13, or what error message is displayed when user tries to enter wrong password on login screen. Writing all the tests inside a feature files creates informational overflow.
 
-In Codeception you can combine tests written in Gherkin format with tests written in Cept/Cest/Test formats. This way you can keep your feature files compact with minimal set of scenarios, and write regular tests to cover all cases.
+In Codeception you can combine tests written in Gherkin format with tests written in Cest/Test formats. This way you can keep your feature files compact with minimal set of scenarios, and write regular tests to cover all cases.
 
 Corresponding features and tests can be attached to the same group. And what is more interesting, you can make tests to depend on feature scenarios. Let's say we have `login.feature` file with "Log regular user" scenario in it. In this case you can specify that every test which requires login to pass to depend on "Log regular user" scenario:
 
-```yaml
-@depends login:Log regular user
+```php
+<?php
+
+namespace Tests\Acceptance;
+
+use Codeception\Attribute\Depends;
+use Tests\Support\AcceptanceTester;
+
+class DashboardCest
+{
+    #[Depends('login:Log regular user')]
+    public function openDashboard(AcceptanceTester $I)
+    {
+        // ...
+    }
+}
 ```
 
-Inside `@depends` block you should use test signature. Execute your feature with `dry-run` to see  signatures for all scenarios in it. By marking tests with `@depends` you ensure that this test won't be executed before the test it depends on.
+Inside the `#[Depends]` attribute you should use the test signature. Execute your feature with `dry-run` to see signatures for all scenarios in it. By marking tests with `#[Depends]` you ensure that this test won't be executed before the test it depends on.
 
 ## Conclusions
 
-If you like the concept of Behavior Driven Development or prefer to keep test scenarios in human readable format, Codeception allows you to write and execute scenarios in Gherkin. Feature files is just another test format inside Codeception, so it can be combined with Cept and Cest files inside the same suite. Steps definitions of your scenarios can use all the power of Codeception modules, PageObjects, and StepObjects.
+If you like the concept of Behavior Driven Development or prefer to keep test scenarios in human readable format, Codeception allows you to write and execute scenarios in Gherkin. Feature files is just another test format inside Codeception, so it can be combined with Cest and Test files inside the same suite. Steps definitions of your scenarios can use all the power of Codeception modules, PageObjects, and StepObjects.
 
 
 <div class="alert alert-warning"><a href="https://github.com/Codeception/codeception.github.com/edit/master/docs/BDD.md"><strong>Improve</strong> this guide</a></div>

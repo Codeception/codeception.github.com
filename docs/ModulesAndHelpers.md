@@ -380,7 +380,7 @@ class WebDriver extends \Codeception\Module
 ```
 
 The host and port parameter can be redefined in the suite configuration.
-Values are set in the `modules:config` section of the configuration file.
+Values are set in the `modules:enabled` section of the configuration file.
 
 ```yaml
 modules:

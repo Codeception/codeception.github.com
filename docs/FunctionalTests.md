@@ -37,7 +37,7 @@ class LoginCest
         $I->fillField('Password', 'Davis');
         $I->click('Enter');
         $I->see('Hello, Miles', 'h1');
-        // $I->seeEmailIsSent(); // only for Symfony
+        // $I->seeEmailIsSent(); // only for Symfony and Yii2
     }
 }
 ```
@@ -147,7 +147,7 @@ modules:
             savepoints: true
 ```
 
-[See the full reference](https://codeception.com/docs/modules/Phalcon4)
+[See the full reference](https://github.com/Codeception/module-phalcon5/blob/main/documentation.md)
 
 ## Writing Functional Tests
 
@@ -198,7 +198,7 @@ Take a look at the complete reference for the module you are using. Most of its 
 but some of them are unique.
 
 You can also access framework globals inside a test or access the dependency injection container
-inside the `Helper\Functional` class:
+inside the `Tests\Support\Helper\Functional` class:
 
 ```php
 <?php

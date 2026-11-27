@@ -35,7 +35,7 @@ Allows to enable and configure [Codeception extensions](https://codeception.com/
 
 ### `include`
 
-Include additional Codeception configurations for [multiple applications setup](https://codeception.com/docs/Customization#Namespaces).
+Include additional Codeception configurations for [multiple applications setup](https://codeception.com/docs/Customization#One-Runner-for-Multiple-Applications).
 
 ### `modules`
 

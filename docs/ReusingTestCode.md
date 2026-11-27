@@ -15,7 +15,7 @@ Modules allow you to choose the actions and assertions that can be performed in 
 All actions and assertions that can be performed by the Actor object in a class are defined in modules.
 It might look like Codeception limits you in testing, but that's not true. You can extend the testing suite
 with your own actions and assertions, by writing them into a custom module, called a Helper.
-We will get back to this later in this chapter, but for now let's look at the following test:
+We covered Helpers in the [previous chapter](https://codeception.com/docs/ModulesAndHelpers#Helpers). Now let's look at the following test:
 
 ```php
 $I->amOnPage('/');
@@ -61,7 +61,7 @@ namespace Tests\Support;
  * @method void am($role)
  * @method void lookForwardTo($achieveValue)
  * @method void comment($description)
- * @method void haveFriend($name, $actorClass = null)
+ * @method void pause($vars = [])
  *
  * @SuppressWarnings(PHPMD)
 */
@@ -182,7 +182,7 @@ class UserCest
 ```
 
 The dependency injection container can construct any object that requires any known class type.
-For instance, `Page\Login` required `AcceptanceTester`, and so it was injected into `Page\Login` constructor,
+For instance, `Tests\Support\Page\Acceptance\Login` required `AcceptanceTester`, and so it was injected into the `Login` constructor,
 and PageObject was created and passed into method arguments. You should explicitly specify
 the types of required objects for Codeception to know what objects should be created for a test.
 Dependency Injection will be described in the next chapter.
@@ -207,7 +207,7 @@ End with an empty line to continue to StepObject creation.
 php vendor/bin/codecept generate:stepobject Acceptance Admin
 Add action to StepObject class (ENTER to exit): loginAsAdmin
 Add action to StepObject class (ENTER to exit):
-StepObject was created in /tests/Acceptance/_support/Step/Acceptance/Admin.php
+StepObject was created in /tests/Support/Step/Acceptance/Admin.php
 ```
 
 This will generate a class in `/tests/Support/Step/Acceptance/Admin.php` similar to this:

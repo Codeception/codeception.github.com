@@ -272,9 +272,7 @@ $I->cantSeeInField('user[name]', 'Miles');
 
 Each failed assertion will be shown in the test results, but it won't stop the test.
 
-Conditional assertions are disabled in bootstrap setup. To enable them you should add corresponding step decorators to suite config:
-
-> If you started project as `codecept init Acceptance` they should be already enabled in config
+Conditional assertions are enabled in the Acceptance suite created by `codecept bootstrap` or `codecept init Acceptance`. To enable them in other suites you should add corresponding step decorators to suite config:
 
 ```yaml
 # in Acceptance.suite.yml 
@@ -507,9 +505,7 @@ $I->retry(4, 400);
 * number of retries (1 by default)
 * initial interval (200ms by default)
 
-Retries are disabled by default. To enable them you should add retry step decorators to suite config:
-
-> If you started project as `codecept init Acceptance` they should be already enabled in config
+The Acceptance suite created by `codecept bootstrap` or `codecept init Acceptance` already has the retry step decorator configured. To enable retries in other suites you should add retry step decorators to suite config:
 
 ```yaml
 # in Acceptance.suite.yml 
@@ -518,7 +514,7 @@ step_decorators:
   - \Codeception\Step\Retry
 ```
 
-Then add `\Codeception\Lib\Actor\Shared\Retry` trait into `AcceptanceTester` class:
+In all suites, including the bootstrapped Acceptance suite, you also need to add the `\Codeception\Lib\Actor\Shared\Retry` trait into the actor class, e.g. `AcceptanceTester`:
 
 ```php
 class AcceptanceTester extends \Codeception\Actor
@@ -582,9 +578,7 @@ if ($I->tryToSeeElement('.alert')) {
 }
 ```
 
-A/B testing is disabled by default. To enable it you should add corresponding step decorators to suite config:
-
-> If you started project as `codecept init Acceptance` in Codeception >= 3.0 they should be already enabled in config
+A/B testing is enabled in the Acceptance suite created by `codecept bootstrap` or `codecept init Acceptance`. To enable it in other suites you should add corresponding step decorators to suite config:
 
 ```yaml
 # in Acceptance.suite.yml 
