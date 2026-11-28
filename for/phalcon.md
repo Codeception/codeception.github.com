@@ -173,13 +173,13 @@ vendor/bin/codecept run Acceptance
 
 ### BDD
 
-If you prefer to describe application with feature files, Codeception can turn them to acceptance tests. It is recommended to store feature files in `features` directory (like Behat does it) but symlinking it to `tests/acceptance/features` so they can be treated as tests too. 
+If you prefer to describe application with feature files, Codeception can turn them to acceptance tests. It is recommended to store feature files in `features` directory (like Behat does it) but symlinking it to `tests/Acceptance/features` so they can be treated as tests too. 
 
 ```
 ln -s $PWD/features tests/Acceptance
 ```
 
-Codeception allows to combine tests written in different formats. If you are about to write a regression test it probably should not be described as a product's feature. That's why feature-files are a subset of all acceptance tests, and they are stored in subfolder of `tests/acceptance`. 
+Codeception allows to combine tests written in different formats. If you are about to write a regression test it probably should not be described as a product's feature. That's why feature-files are a subset of all acceptance tests, and they are stored in subfolder of `tests/Acceptance`. 
 
 There are no standard Gherkin steps built in. By writing your feature files you can get code snippets which should be added to `AcceptanceTester` class. 
 
@@ -197,10 +197,10 @@ vendor/bin/codecept gherkin:snippets
 API Tests are done at functional testing level but instead of testing HTML responses on user actions, they test requests and responses via protocols like REST or SOAP. To create api tests, you should create a suite for them:
 
 ```
-vendor/bin/codecept g:suite api
+vendor/bin/codecept g:suite Api
 ```
 
-You will need to enable `REST` and `Phalcon` module in `tests/api.suite.yml`:
+You will need to enable `REST` and `Phalcon` module in `tests/Api.suite.yml`:
 
 ```yaml
 actor: ApiTester

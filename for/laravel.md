@@ -69,7 +69,7 @@ Codeception will also use **Eloquent to cleanup changes to database** by wrappin
 To create first functional test for `Login` you should run:
 
 ```
-php vendor/bin/codecept g:cest functional Login
+php vendor/bin/codecept g:cest Functional Login
 ```
 
 ## Unit Tests
@@ -128,10 +128,10 @@ Laravel module won't be able to wrap test execution in a transaction but methods
 API Tests are done at functional testing level but instead of testing HTML responses on user actions, they test requests and responses via protocols like REST or SOAP. To create api tests you should create a suite for them
 
 ```
-php vendor/bin/codecept g:suite api
+php vendor/bin/codecept g:suite Api
 ```
 
-You will need to enable `REST`, `Laravel` module in `tests/api.suite.yml`:
+You will need to enable `REST`, `Laravel` module in `tests/Api.suite.yml`:
 
 ```yaml
 actor: ApiTester
