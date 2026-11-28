@@ -177,7 +177,7 @@ Then you will need to launch application server in test mode:
 and start a [Selenium Server](https://codeception.com/docs/modules/WebDriver#Local-Testing). For acceptance WebDriver module is used. Please check its reference to learn how to work with it. Unlike Yii2 module it does know nothing about your application, so if you want to use features of Yii like fixtures for acceptance testing, you should check that enable Yii2 module is enabled as well:
 
 ```yml
-# config at tests/Acceptance.yml
+# config at tests/Acceptance.suite.yml
 modules:
     enabled:
         - WebDriver:
