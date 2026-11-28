@@ -63,7 +63,7 @@ Actions of the Phalcon module will be accessible from `$this->tester` inside a t
 
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-  Continue to <a href="https://codeception.com/docs/05-UnitTests">Unit Testing Guide &raquo;</a>.
+  Continue to <a href="https://codeception.com/docs/UnitTests">Unit Testing Guide &raquo;</a>.
 </div>
 
 ## Functional Tests
@@ -91,7 +91,7 @@ modules:
 step_decorators: ~
 ```
 
-Then use [Cest](https://codeception.com/docs/07-AdvancedUsage) or Cept to create a test.
+Then use [Cest](https://codeception.com/docs/AdvancedUsage) or Cept to create a test.
 ```
 vendor/bin/codecept g:cest Functional Login
 ```
@@ -131,7 +131,7 @@ class LoginCest
 
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-  Continue to <a href="https://codeception.com/docs/04-FunctionalTests">Functional Testing Guide &raquo;</a>
+  Continue to <a href="https://codeception.com/docs/FunctionalTests">Functional Testing Guide &raquo;</a>
 </div>
 
 ### Acceptance Testing
@@ -159,7 +159,7 @@ This will create the file `tests/Acceptance/LoginCest.php`. Each method of a cla
 
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-  Continue to <a href="https://codeception.com/docs/03-AcceptanceTests">Acceptance Testing Guide &raquo;</a>
+  Continue to <a href="https://codeception.com/docs/AcceptanceTests">Acceptance Testing Guide &raquo;</a>
 </div>
 
 To run the tests you will need chrome browser, [selenium server running](https://codeception.com/docs/modules/WebDriver#Selenium). If this requirements met acceptance tests can be executed as
@@ -186,7 +186,7 @@ vendor/bin/codecept gherkin:snippets
 
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-  Continue to <a href="https://codeception.com/docs/07-BDD">Behavior Driven Development Guide &raquo;</a>
+  Continue to <a href="https://codeception.com/docs/BDD">Behavior Driven Development Guide &raquo;</a>
 </div>
 
 ### API Tests
@@ -217,7 +217,7 @@ Phalcon [module](/docs/modules/Phalcon4) actions like `amOnPage` or `see` should
 
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-  Continue to <a href="https://codeception.com/docs/10-APITesting#REST-API">REST API Testing Guide &raquo;</a>.
+  Continue to <a href="https://codeception.com/docs/APITesting#REST-API">REST API Testing Guide &raquo;</a>.
 </div>
 
 [Edit this page on GitHub](https://github.com/Codeception/codeception.github.com/blob/master/for/phalcon.md)
