@@ -38,7 +38,7 @@ Run them by executing in terminal:
 Unit tests are located in `tests/Unit` directory and are supposed to contain all kind of unit and integration testing.
 
 Each test case extends `Codeception\Test\Unit` class, which is standard Codeception format for unit testing. 
- It is pretty hard to develop completely isolated unit tests in Yii, so an application is bootstrapped before each test case. Tests are configured in `tests/unit.suite.yml` file with Yii2 module enabled:
+ It is pretty hard to develop completely isolated unit tests in Yii, so an application is bootstrapped before each test case. Tests are configured in `tests/Unit.suite.yml` file with Yii2 module enabled:
 
 ```yaml
 modules:
@@ -109,7 +109,7 @@ Codeception provides standard set of actions like `amOnPage`, `submitForm`, `see
 Functional tests should be written inside [Cest files](https://codeception.com/docs/07-AdvancedUsage#Cest-Classes), which is a scenario-driven test format of Codeception. You can easily create a new test by running:
 
 ```
-./vendor/bin/codecept g:cest functional MyNewScenarioCest
+./vendor/bin/codecept g:cest Functional MyNewScenarioCest
 ```
 
 <div class="alert alert-warning">
@@ -120,26 +120,36 @@ Functional tests should be written inside [Cest files](https://codeception.com/d
 
 ### API Tests
 
-API tests are not included in any Yii templates so you need to set up them manually if you developing a web service. API testing is done at functional testing level but instead of testing HTML responses on user actions, they test requests and responses via protocols like REST or SOAP. To start writing api tests you should create a suite for them
+API tests are not included in any Yii templates so you need to set them up manually if you are developing a web service. API testing is done at functional testing level but instead of testing HTML responses on user actions, they test requests and responses via protocols like REST or SOAP. API tests require the REST module, which is not installed by default:
 
 ```
-./vendor/bin/codecept g:suite api
+composer require codeception/module-rest --dev
 ```
 
-You will need to enable `REST`, `Yii2` module in `tests/api.suite.yml`:
+To start writing API tests you should create a suite for them:
+
+```
+./vendor/bin/codecept g:suite Api
+```
+
+You will need to enable the `REST` module in `tests/Api.suite.yml`:
 
 ```yaml
-class_name: ApiTester
+actor: ApiTester
 modules:
     enabled:
         - REST:
             url: /api/v1
             depends: Yii2
-        - \ApiBundle\Helper\Api
-
 ```
 
-Yii2 module actions like `amOnPage` or `see` should not be available for testing API. This is why Yii2 module is not enabled but declared with `depends` for REST module.
+Yii2 module actions like `amOnPage` or `see` should not be available for testing API. This is why Yii2 module is not enabled but declared with `depends` for REST module. The `configFile` for Yii2 is taken from the global `codeception.yml`, so it doesn't need to be repeated here.
+
+Run `./vendor/bin/codecept build` after changing the enabled modules, then create your first API test:
+
+```
+./vendor/bin/codecept g:cest Api CreateUserCest
+```
 
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
