@@ -63,7 +63,7 @@ vendor/bin/codecept g:test Unit Users
 Actions of the Phalcon module will be accessible from `$this->tester` inside a test of `Codeception\Test\Unit`.
 
 <div class="alert alert-warning">
-  <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+  <i class="bi bi-info-circle-fill" aria-hidden="true"></i>
   Continue to <a href="https://codeception.com/docs/05-UnitTests">Unit Testing Guide &raquo;</a>.
 </div>
 
@@ -132,7 +132,7 @@ class LoginCest
 ```
 
 <div class="alert alert-warning">
-  <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+  <i class="bi bi-info-circle-fill" aria-hidden="true"></i>
   Continue to <a href="https://codeception.com/docs/04-FunctionalTests">Functional Testing Guide &raquo;</a>
 </div>
 
@@ -161,7 +161,7 @@ vendor/bin/codecept g:cest Acceptance Login
 This will create the file `tests/Acceptance/LoginCest.php`. Each method of a class (except `_before` and `_after`) is a test. Tests use `$I` object (instance of `AcceptanceTester` class) to perform actions on a webpage. Methods of `AcceptanceTester` are proxified to corresponding modules, which in current case is `WebDriver`. 
 
 <div class="alert alert-warning">
-  <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+  <i class="bi bi-info-circle-fill" aria-hidden="true"></i>
   Continue to <a href="https://codeception.com/docs/03-AcceptanceTests">Acceptance Testing Guide &raquo;</a>
 </div>
 
@@ -188,7 +188,7 @@ vendor/bin/codecept gherkin:snippets
 ```
 
 <div class="alert alert-warning">
-  <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+  <i class="bi bi-info-circle-fill" aria-hidden="true"></i>
   Continue to <a href="https://codeception.com/docs/07-BDD">Behavior Driven Development Guide &raquo;</a>
 </div>
 
@@ -220,7 +220,7 @@ Phalcon [module](/docs/modules/Phalcon4) actions like `amOnPage` or `see` should
 
 
 <div class="alert alert-warning">
-  <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+  <i class="bi bi-info-circle-fill" aria-hidden="true"></i>
   Continue to <a href="https://codeception.com/docs/10-APITesting#REST-API">REST API Testing Guide &raquo;</a>.
 </div>
 

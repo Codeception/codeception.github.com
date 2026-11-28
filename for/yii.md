@@ -82,7 +82,7 @@ $this->tester->grabFixture('user', 0);
 If `Yii2` module is enabled you can safely call `Yii::$app` inside a test, as application is initialized and cleaned up after a test. If you want to add your helper methods or custom assertions for your test case you should not extend `Codeception\Test\Unit` but write your own separate [Helper class](https://codeception.com/docs/06-ModulesAndHelpers#Helpers).
 
 <div class="alert alert-warning">
-  <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+  <i class="bi bi-info-circle-fill" aria-hidden="true"></i>
   Continue to <a href="https://codeception.com/docs/05-UnitTests">Unit Testing Guide &raquo;</a>
 </div>
 
@@ -113,7 +113,7 @@ Functional tests should be written inside [Cest files](https://codeception.com/d
 ```
 
 <div class="alert alert-warning">
-  <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+  <i class="bi bi-info-circle-fill" aria-hidden="true"></i>
   Functional tests are really powerful and simple. They are highly <strong>recommended to use</strong> for any Yii application.<br>
   Continue to <a href="https://codeception.com/docs/04-FunctionalTests">Functional Testing Guide &raquo;</a>
 </div>
@@ -142,7 +142,7 @@ modules:
 Yii2 module actions like `amOnPage` or `see` should not be available for testing API. This is why Yii2 module is not enabled but declared with `depends` for REST module.
 
 <div class="alert alert-warning">
-  <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+  <i class="bi bi-info-circle-fill" aria-hidden="true"></i>
   Continue to <a href="https://codeception.com/docs/10-APITesting#REST-API">REST API Testing Guide &raquo;</a>.
 </div>
 
@@ -188,7 +188,7 @@ Similar as for functional tests it is recommended to use Cest format for accepta
 ```
 
 <div class="alert alert-warning">
-  <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+  <i class="bi bi-info-circle-fill" aria-hidden="true"></i>
   Continue to <a href="https://codeception.com/docs/03-AcceptanceTests">Acceptance Testing Guide &raquo;</a>
 </div>
 
@@ -201,7 +201,7 @@ Advanced template also has Codeception preinstalled with examples of unit, funct
 Tests also include namespaces for testcase classes and testers to avoid conflicts between tests from different applications.
 
 <div class="alert alert-warning">
-  <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+  <i class="bi bi-info-circle-fill" aria-hidden="true"></i>
   Learn more about <a href="https://codeception.com/docs/08-Customization#One-Runner-for-Multiple-Applications">testing multiple applications &raquo;</a>
 </div>
 

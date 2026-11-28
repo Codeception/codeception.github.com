@@ -15,8 +15,11 @@
     <!-- CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css"
-          integrity="sha512-Dop/vW3iOtayerlYAqCgkVr2aTr2ErwwTYOvRFUpzl2VhCMJyjQF0Q9TjUXIo6JhuM/3i0vVEt2e/7QQmnHQqw=="
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css"
+          integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX"
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css"
+          integrity="sha384-nWN3KqaaVcbEsCjLSV+2jMjh62Iny/+mN3srM8TZeM8N6aj7eDl5wwYggjAJ4/sJ"
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
     <!-- Other -->
@@ -64,36 +67,34 @@
 {% capture guides %}{% include guides.html %}{% endcapture %}
 {% capture modules %}{% include modules.html %}{% endcapture %}
 {% capture reference %}{% include reference.html %}{% endcapture %}
-<nav class="navbar nav-custom navbar-inverse">
+<nav class="navbar navbar-expand-md nav-custom">
     <div class="container-fluid">
-        <div class="navbar-header">
-            <div class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="2" d="M2 12h20M2 6h20M2 18h20"/></svg>
-            </div>
-            <a href="/" class="navbar-brand main-logo">
-                <svg xmlns="http://www.w3.org/2000/svg" width="81" height="60" viewBox="0 0 81 60"  fill="none" style="vertical-align:middle"><path fill="#236BFD" d="m35.606 29.23-13.087-9.554 12.34 20.6L80.998 2.21 35.607 29.23ZM29.99 54.492c-13.59 0-24.607-10.995-24.607-24.559 0-13.563 11.017-24.56 24.607-24.56 6.018 0 11.529 2.16 15.804 5.74l3.45-4.108A29.888 29.888 0 0 0 29.992 0C13.453 0 0 13.428 0 29.933s13.454 29.933 29.991 29.933c8.577 0 16.318-3.617 21.79-9.396l-3.904-3.68c-4.486 4.74-10.838 7.702-17.886 7.702Zm0-7.118c-9.65 0-17.474-7.809-17.474-17.44 0-9.633 7.823-17.442 17.474-17.442 4.274 0 8.185 1.536 11.221 4.079l2.59-3.084a21.437 21.437 0 0 0-13.81-5.025c-11.863 0-21.514 9.632-21.514 21.471 0 11.84 9.651 21.471 21.514 21.471 6.151 0 11.704-2.595 15.628-6.74l-2.936-2.767c-3.186 3.365-7.687 5.477-12.692 5.477Z"/></svg>
-                CODECEPTION_</a>
-        </div>
+        <a href="/" class="navbar-brand main-logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="81" height="60" viewBox="0 0 81 60"  fill="none" style="vertical-align:middle"><path fill="#236BFD" d="m35.606 29.23-13.087-9.554 12.34 20.6L80.998 2.21 35.607 29.23ZM29.99 54.492c-13.59 0-24.607-10.995-24.607-24.559 0-13.563 11.017-24.56 24.607-24.56 6.018 0 11.529 2.16 15.804 5.74l3.45-4.108A29.888 29.888 0 0 0 29.992 0C13.453 0 0 13.428 0 29.933s13.454 29.933 29.991 29.933c8.577 0 16.318-3.617 21.79-9.396l-3.904-3.68c-4.486 4.74-10.838 7.702-17.886 7.702Zm0-7.118c-9.65 0-17.474-7.809-17.474-17.44 0-9.633 7.823-17.442 17.474-17.442 4.274 0 8.185 1.536 11.221 4.079l2.59-3.084a21.437 21.437 0 0 0-13.81-5.025c-11.863 0-21.514 9.632-21.514 21.471 0 11.84 9.651 21.471 21.514 21.471 6.151 0 11.704-2.595 15.628-6.74l-2.936-2.767c-3.186 3.365-7.687 5.477-12.692 5.477Z"/></svg>
+            CODECEPTION_</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                aria-label="Toggle navigation">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="2" d="M2 12h20M2 6h20M2 18h20"/></svg>
+        </button>
         <div class="collapse navbar-collapse menu" tabindex="-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="/quickstart">QuickStart</a></li>
-                <li class="dropdown docs-dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Docs
-                        <b class="caret"></b>
-                    </a>
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="/quickstart">QuickStart</a></li>
+                <li class="nav-item dropdown docs-dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                       aria-expanded="false">Docs</a>
                     <div class="dropdown-menu  multi-column columns-3">
                         <div class="container">
                             <div class="row">
-                                <div class="col-sm-4 col-md-4 guides-wrapper">
+                                <div class="col-md-4 col-lg-4 guides-wrapper">
 
                                     <ul class="multi-column-dropdown">
                                         <li><h4>Guides</h4></li>
                                         {{ guides }}
-                                        <li role="separator" class="divider"></li>
+                                        <li><hr class="dropdown-divider"></li>
                                         <li><a href="/videos">Videos</a></li>
                                     </ul>
                                 </div>
-                                <div class="col-sm-5 col-md-6">
+                                <div class="col-md-5 col-lg-6">
                                     <ul class="dropdown-modules multi-column-dropdown clearfix">
                                         <li>
                                             <h4>Modules</h4>
@@ -101,7 +102,7 @@
                                         {{ modules }}
                                     </ul>
                                 </div>
-                                <div class="col-sm-3 col-md-2">
+                                <div class="col-md-3 col-lg-2">
                                     <ul class="multi-column-dropdown">
                                         <li><h4>Reference</h4></li>
                                         <li><a href="/install">Install</a></li>
@@ -109,7 +110,7 @@
                                         <li><a href="/extensions">Extensions</a></li>
                                         <li><a href="/docs/reference/Commands">Commands</a></li>
                                         <li><a href="/docs/reference/ShellAutocomplete">Shell Autocomplete</a></li>
-                                        <li role="separator" class="divider"></li>
+                                        <li><hr class="dropdown-divider"></li>
                                         <li><h4>Util Classes</h4></li>
                                         {{ reference }}
                                     </ul>
@@ -118,39 +119,29 @@
                         </div>
                     </div>
                 </li>
-                <li>
-                    <a href="/blog">Blog</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/blog">Blog</a>
                 </li>
-                <li class="dropdown">
-                    <ul class="dropdown-menu">
-                        <li><a href="/for/symfony">Symfony</a></li>
-                        <li><a href="/for/laravel">Laravel</a></li>
-                        <li><a href="/for/yii">Yii Framework</a></li>
-                        <li><a href="/for/phalcon">Phalcon</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="https://phptest.club">
-                        Community
-                        <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/credits"><strong>Credits</strong></a></li>
-                        <li><a href="/addons">Addons</a></li>
-                        <!--                            <li><a href="https://phptest.club/c/codeception/cookbook">Cookbook</a></li>-->
-                        <li role="separator" class="divider"></li>
-                        <li><a href="https://bit.ly/chat-codeception">Join our Slack</a></li>
-                        <li><a href="https://twitter.com/codeception">Follow us in Twitter</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="https://stackoverflow.com/questions/tagged/codeception">StackOverflow</a></li>
-                        <li><a href="https://github.com/codeception/codeception/issues">GitHub Issues</a></li>
-                        <li><a href="https://github.com/Codeception/Codeception/discussions">Github discussions</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="https://opencollective.com/codeception"><strong>Support us via
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="https://phptest.club"
+                       role="button" aria-expanded="false">Community</a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="/credits"><strong>Credits</strong></a></li>
+                        <li><a class="dropdown-item" href="/addons">Addons</a></li>
+                        <!--                            <li><a class="dropdown-item" href="https://phptest.club/c/codeception/cookbook">Cookbook</a></li>-->
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="https://bit.ly/chat-codeception">Join our Slack</a></li>
+                        <li><a class="dropdown-item" href="https://twitter.com/codeception">Follow us in Twitter</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="https://stackoverflow.com/questions/tagged/codeception">StackOverflow</a></li>
+                        <li><a class="dropdown-item" href="https://github.com/codeception/codeception/issues">GitHub Issues</a></li>
+                        <li><a class="dropdown-item" href="https://github.com/Codeception/Codeception/discussions">Github discussions</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="https://opencollective.com/codeception"><strong>Support us via
                             OpenCollective!</strong></a></li>
                     </ul>
                 </li>
-                <li class="nav-social-links">
+                <li class="nav-item nav-social-links">
                     <a href="https://twitter.com/codeception" class="social-link" aria-label="twitter">
                         <svg xmlns="http://www.w3.org/2000/svg" width="512pt" height="512pt" viewBox="0 0 512 512"><path d="M256 0C114.637 0 0 114.637 0 256s114.637 256 256 256 256-114.637 256-256S397.363 0 256 0zm116.887 199.602c.113 2.52.168 5.05.168 7.593 0 77.645-59.102 167.18-167.184 167.184h.004-.004c-33.184 0-64.062-9.727-90.066-26.395 4.597.543 9.277.813 14.015.813 27.532 0 52.868-9.39 72.98-25.152-25.722-.477-47.41-17.465-54.894-40.813a58.481 58.481 0 0 0 11.043 1.063 58.8 58.8 0 0 0 15.496-2.07c-26.886-5.384-47.14-29.145-47.14-57.598 0-.266 0-.504.007-.75a58.354 58.354 0 0 0 26.614 7.347c-15.778-10.527-26.149-28.523-26.149-48.91a58.597 58.597 0 0 1 7.957-29.535c28.977 35.555 72.282 58.937 121.118 61.394a58.708 58.708 0 0 1-1.528-13.398c0-32.437 26.317-58.754 58.766-58.754 16.902 0 32.168 7.145 42.89 18.567a117.855 117.855 0 0 0 37.313-14.262c-4.395 13.715-13.707 25.222-25.84 32.5 11.887-1.422 23.215-4.574 33.742-9.254a119.412 119.412 0 0 1-29.308 30.43zm0 0"/></svg>
                     </a>
@@ -212,7 +203,7 @@
     </div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-12 col-md-6 col-lg-3">
+            <div class="col-md-12 col-lg-6 col-xl-3">
                 <p class="about-framework">
                     Codeception is a BDD-styled PHP testing framework, brought to you by <a
                         href="https://codeception.com/credits">Codeception Team</a>.
@@ -220,7 +211,7 @@
                     Licensed</strong></a>.
                 </p>
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-6 text-center">
+            <div class="col-md-12 col-lg-6 col-xl-6 text-center">
                 <a href="https://github.com/codeception/codeception" class="social" aria-label="github">
                     <svg xmlns="http://www.w3.org/2000/svg" width="438.549" height="438.549" viewBox="0 0 438.549 438.549"><path d="M409.132 114.573c-19.608-33.596-46.205-60.194-79.798-79.8-33.598-19.607-70.277-29.408-110.063-29.408-39.781 0-76.472 9.804-110.063 29.408-33.596 19.605-60.192 46.204-79.8 79.8C9.803 148.168 0 184.854 0 224.63c0 47.78 13.94 90.745 41.827 128.906 27.884 38.164 63.906 64.572 108.063 79.227 5.14.954 8.945.283 11.419-1.996 2.475-2.282 3.711-5.14 3.711-8.562 0-.571-.049-5.708-.144-15.417a2549.81 2549.81 0 0 1-.144-25.406l-6.567 1.136c-4.187.767-9.469 1.092-15.846 1-6.374-.089-12.991-.757-19.842-1.999-6.854-1.231-13.229-4.086-19.13-8.559-5.898-4.473-10.085-10.328-12.56-17.556l-2.855-6.57c-1.903-4.374-4.899-9.233-8.992-14.559-4.093-5.331-8.232-8.945-12.419-10.848l-1.999-1.431c-1.332-.951-2.568-2.098-3.711-3.429-1.142-1.331-1.997-2.663-2.568-3.997-.572-1.335-.098-2.43 1.427-3.289 1.525-.859 4.281-1.276 8.28-1.276l5.708.853c3.807.763 8.516 3.042 14.133 6.851 5.614 3.806 10.229 8.754 13.846 14.842 4.38 7.806 9.657 13.754 15.846 17.847 6.184 4.093 12.419 6.136 18.699 6.136 6.28 0 11.704-.476 16.274-1.423 4.565-.952 8.848-2.383 12.847-4.285 1.713-12.758 6.377-22.559 13.988-29.41-10.848-1.14-20.601-2.857-29.264-5.14-8.658-2.286-17.605-5.996-26.835-11.14-9.235-5.137-16.896-11.516-22.985-19.126-6.09-7.614-11.088-17.61-14.987-29.979-3.901-12.374-5.852-26.648-5.852-42.826 0-23.035 7.52-42.637 22.557-58.817-7.044-17.318-6.379-36.732 1.997-58.24 5.52-1.715 13.706-.428 24.554 3.853 10.85 4.283 18.794 7.952 23.84 10.994 5.046 3.041 9.089 5.618 12.135 7.708 17.705-4.947 35.976-7.421 54.818-7.421s37.117 2.474 54.823 7.421l10.849-6.849c7.419-4.57 16.18-8.758 26.262-12.565 10.088-3.805 17.802-4.853 23.134-3.138 8.562 21.509 9.325 40.922 2.279 58.24 15.036 16.18 22.559 35.787 22.559 58.817 0 16.178-1.958 30.497-5.853 42.966-3.9 12.471-8.941 22.457-15.125 29.979-6.191 7.521-13.901 13.85-23.131 18.986-9.232 5.14-18.182 8.85-26.84 11.136-8.662 2.286-18.415 4.004-29.263 5.146 9.894 8.562 14.842 22.077 14.842 40.539v60.237c0 3.422 1.19 6.279 3.572 8.562 2.379 2.279 6.136 2.95 11.276 1.995 44.163-14.653 80.185-41.062 108.068-79.226 27.88-38.161 41.825-81.126 41.825-128.906-.01-39.771-9.818-76.454-29.414-110.049z"/></svg>
                 </a>
@@ -231,7 +222,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 24 24"><path d="M8.843 12.651a2.521 2.521 0 0 0-2.521 2.521v6.306a2.521 2.521 0 0 0 5.042 0v-6.306a2.523 2.523 0 0 0-2.521-2.521zM.019 15.172a2.524 2.524 0 0 0 5.046 0v-2.523H2.542a2.524 2.524 0 0 0-2.523 2.523zM8.846-.001h-.003a2.524 2.524 0 0 0 0 5.046h2.521V2.517A2.519 2.519 0 0 0 8.846-.001zM2.525 11.37h6.318a2.524 2.524 0 0 0 0-5.046H2.525a2.524 2.524 0 0 0 0 5.046zm18.932-5.047a2.518 2.518 0 0 0-2.518 2.518v2.528h2.521a2.524 2.524 0 0 0 0-5.046h-.003zm-8.816-3.801v6.325a2.521 2.521 0 0 0 5.042 0V2.522a2.521 2.521 0 0 0-5.042 0zm5.041 18.954a2.521 2.521 0 0 0-2.521-2.521H12.64v2.523a2.521 2.521 0 0 0 5.042-.002zm3.797-8.827h-6.318a2.524 2.524 0 0 0 0 5.046h6.318a2.524 2.524 0 0 0 0-5.046z"/></svg>
                 </a>
             </div>
-            <div class="col-sm-12 col-md-12 col-lg-3 text-center footer-social">
+            <div class="col-md-12 col-lg-12 col-xl-3 text-center footer-social">
                 <h4 class="mt-8">additional_thanks_to_</h4>
                 <a href="https://www.jetbrains.com/phpstorm/" rel=nofollow><img src="/images/support/phpstorm.png"
                                                                                 alt="PhpStorm"
