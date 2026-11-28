@@ -147,7 +147,7 @@ modules:
             browser: chrome
 ```
 
-Browser can be specified as `chrome`, `firefox`, `phantomjs`, or others. 
+Browser can be specified as `chrome`, `firefox`, or others. 
 
 To create a sample test called, run:
 
