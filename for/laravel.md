@@ -55,7 +55,6 @@ modules:
     enabled:
         - Laravel:
             environment_file: .env.testing
-        - \AppBundle\Helper\Functional
 ```
 
 
@@ -99,7 +98,6 @@ modules:
         - WebDriver:
             url: 'https://localhost/' # put your local url
             browser: firefox
-        - \Helper\Acceptance            
 ```
 
 Browser can be specified as `firefox`, `chrome`, or others. 
@@ -118,7 +116,6 @@ modules:
         - Laravel:
             part: ORM
             cleanup: false # can't wrap into transaction
-        - \Helper\Acceptance            
 ```
 
 Laravel module won't be able to wrap test execution in a transaction but methods like `haveRecord` or `haveModel` will delete objects they created when test ends. 
@@ -140,7 +137,6 @@ modules:
         - REST:
             url: /api/v1
             depends: Laravel
-        - \Helper\Api
     config:
         Laravel:
             environment_file: .env.testing

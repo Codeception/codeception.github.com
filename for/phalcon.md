@@ -46,7 +46,6 @@ actor: UnitTester
 modules:
     enabled:
         - Asserts
-        - \Helper\Unit
         - Phalcon4:
             bootstrap: public/index.php
             cleanup: true
@@ -85,7 +84,6 @@ actor: FunctionalTester
 modules:
     enabled:
         # add a framework module here
-        - \Helper\Functional
         - Phalcon4:
             bootstrap: public/index.php
             cleanup: true
@@ -147,7 +145,6 @@ modules:
         - WebDriver:
             url: 'https://localhost/' # put your local url
             browser: chrome
-        - \Helper\Acceptance            
 ```
 
 Browser can be specified as `chrome`, `firefox`, `phantomjs`, or others. 
@@ -213,7 +210,6 @@ modules:
         - REST:
             url: /v1
             depends: Phalcon4
-        - \Helper\Api
 ```
 
 Phalcon [module](/docs/modules/Phalcon4) actions like `amOnPage` or `see` should not be available for testing API. This is why Phalcon module is not enabled but declared with `depends` for REST module. But Phalcon module should be configured to load Kernel class from `app_path`.
