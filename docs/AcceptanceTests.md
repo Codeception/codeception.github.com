@@ -361,33 +361,37 @@ In the next section, we will overview the most popular solutions.
 
 ### Local Setup
 
-### Selenium Server
+Codeception can control browsers either through Selenium Server or directly through a browser driver
+(ChromeDriver for Chrome, GeckoDriver for Firefox).
 
-[Selenium](https://www.selenium.dev) is required to launch and control browsers from Codeception.
-Selenium Server is required to be installed and started before running tests.
+#### Selenium Server
 
-The fastest way of getting Selenium is using [selenium-standalone](https://www.npmjs.com/package/selenium-standalone) NodeJS Package.
-It automatically installs Selenium and all required dependencies and starts server. It requires **NodeJS and Java** to be installed.
+[Selenium](https://www.selenium.dev) Server starts browser sessions and passes commands from Codeception to them.
+It requires **Java** to be installed. [Download](https://www.selenium.dev/downloads/) the latest Selenium Server jar
+and launch it in standalone mode in a separate terminal:
 
-```
-npm install selenium-standalone -g
-selenium-standalone install
-```
-
-Launch this command in a separate terminal:
-
-```
-selenium-standalone start
+```bash
+java -jar selenium-server-<version>.jar standalone
 ```
 
-![](https://raw.githubusercontent.com/webdriverio/selenium-standalone/HEAD/screencast.gif)
+There is no need to install ChromeDriver or GeckoDriver separately:
+[Selenium Manager](https://www.selenium.dev/documentation/selenium_manager/) downloads the matching driver for the installed browser automatically.
+
+Alternatively, run Selenium Server with a browser inside Docker using the [official image](https://github.com/SeleniumHQ/docker-selenium):
+
+```bash
+docker run --net=host --shm-size 2g selenium/standalone-chrome
+```
+
+> The [RunProcess](https://codeception.com/extensions#RunProcess) extension can start and stop Selenium automatically.
 
 Now, you are ready to run WebDriver tests using Codeception.
 
-> Alternatively, Selenium Server can be installed manually. [Download it](https://www.selenium.dev/downloads/) from the official site and launch a server with Java: `java -jar selenium-server-....jar`. In this case ChromeDriver and GeckoDriver must be installed separately.
+#### ChromeDriver or GeckoDriver
 
-* For more information refer to [Installation Instructions](https://codeception.com/docs/modules/WebDriver#Selenium-Recommended)
-* Enable [RunProcess](https://codeception.com/extensions#RunProcess) extension to start/stop Selenium automatically *(optional)*.
+If you don't plan to use Selenium, tests can be executed directly through ChromeDriver or GeckoDriver.
+In this case the driver must be installed and started before running tests.
+See the [WebDriver module reference](https://codeception.com/docs/modules/WebDriver#Local-Chrome-andor-Firefox) for how to start each driver and configure the module.
 
 
 ### Configuration
@@ -557,7 +561,7 @@ For more options see [`performOn()` reference](https://codeception.com/docs/modu
 When a web site acts unpredictably you may need to react to that change.
 This happens if a site is configured for A/B testing, or shows different popups, based on environment.
 
-Since Codeception 3.0 you can have some actions to fail silently, if they are errored.
+You can have some actions to fail silently, if they are errored.
 Let's say, you open a page and sometimes there is a popup which should be closed. 
 We may try to hit the "close" button but if this action fails (no popup on page) we just continue the test.
 
@@ -634,8 +638,8 @@ class AcceptanceTester extends \Codeception\Actor
 
 ### Cloud Testing
 
-Some environments are hard to reproduce manually, testing Internet Explorer 6-8 on Windows XP may be a hard thing,
-especially if you don't have Windows XP installed. This is where Cloud Testing services come to help you.
+Some environments are hard to reproduce manually, testing Safari on macOS or browsers on mobile devices may be a hard thing,
+especially if you don't have such a device. This is where Cloud Testing services come to help you.
 Services such as [SauceLabs](https://saucelabs.com), [BrowserStack](https://www.browserstack.com/)
 and [others](https://codeception.com/docs/modules/WebDriver#Cloud-Testing) can create virtual machines on demand
 and set up Selenium Server and the desired browser. Tests are executed on a remote machine in a cloud,

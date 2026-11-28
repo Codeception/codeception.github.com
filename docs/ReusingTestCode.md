@@ -84,12 +84,12 @@ This trait was created by running `codecept build` and is regenerated each time 
 
 ## PageObjects
 
-For acceptance and functional testing, we will not only need to have common actions being reused across different tests,
+For acceptance testing, we will not only need to have common actions being reused across different tests,
 we should have buttons, links and form fields being reused as well. For those cases we need to implement
 the [PageObject pattern](https://www.selenium.dev/documentation/test_practices/encouraged/page_object_models/),
 which is widely used by test automation engineers. The PageObject pattern represents a web page as a class
 and the DOM elements on that page as its properties, and some basic interactions as its methods.
-PageObjects are very important when you are developing a flexible architecture of your acceptance or functional tests.
+PageObjects are very important when you are developing a flexible architecture of your acceptance tests.
 Do not hard-code complex CSS or XPath locators in your tests but rather move them into PageObject classes.
 
 Codeception can generate a PageObject class for you with command:

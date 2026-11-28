@@ -203,7 +203,7 @@ modules:
 
 Doctrine is also a popular ORM, unlike some others it implements the DataMapper pattern and is not bound to any framework.
 The [Doctrine](https://codeception.com/docs/modules/Doctrine) module requires an `EntityManager` instance to work with.
-It can be obtained from a Symfony framework or Zend Framework (configured with Doctrine):
+It can be obtained from a Symfony framework or Laminas (configured with Doctrine):
 
 ```yaml
 modules:

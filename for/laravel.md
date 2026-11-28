@@ -50,18 +50,17 @@ Functional tests allow test application by simulating user actions, this is done
 To start you need to configure `tests/Functional.suite.yml` to use Laravel module:
 
 ```yaml
-class_name: FunctionalTester
+actor: FunctionalTester
 modules:
     enabled:
         - Laravel:
             environment_file: .env.testing
-        - \AppBundle\Helper\Functional
 ```
 
 
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-  Continue to <a href="https://codeception.com/docs/04-FunctionalTests">Functional Testing Guide &raquo;</a>
+  Continue to <a href="https://codeception.com/docs/FunctionalTests">Functional Testing Guide &raquo;</a>
 </div>
 
 Codeception will also use **Eloquent to cleanup changes to database** by wrapping tests into transaction and rolling it back in the end of a test. This makes tests isolated and fast. Laravel module allows to access services from DIC container, user authentication methods, fixture generators, check form validations and more. 
@@ -69,7 +68,7 @@ Codeception will also use **Eloquent to cleanup changes to database** by wrappin
 To create first functional test for `Login` you should run:
 
 ```
-php vendor/bin/codecept g:cest functional Login
+php vendor/bin/codecept g:cest Functional Login
 ```
 
 ## Unit Tests
@@ -84,7 +83,7 @@ Enable Laravel module in `Unit.suite.yml` to have its methods inside a testcase.
 
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-  Continue to <a href="https://codeception.com/docs/05-UnitTests">Unit Testing Guide &raquo;</a>.
+  Continue to <a href="https://codeception.com/docs/UnitTests">Unit Testing Guide &raquo;</a>.
 </div>
 
 
@@ -93,13 +92,12 @@ Enable Laravel module in `Unit.suite.yml` to have its methods inside a testcase.
 To test an application in a real environment by using its UI you should use a real browser. Codeception uses Selenium Webdriver and corresponding WebDriver module to interact with a browser. You should configure `Acceptance.suite.yml` to use WebDriver module and a browser of your choice. 
 
 ```yaml
-class_name: AcceptanceTester
+actor: AcceptanceTester
 modules:
     enabled:
         - WebDriver:
             url: 'https://localhost/' # put your local url
             browser: firefox
-        - \Helper\Acceptance            
 ```
 
 Browser can be specified as `firefox`, `chrome`, or others. 
@@ -109,7 +107,7 @@ Acceptance tests will be executed in development environment using real web serv
 You can also use Eloquent to create data for acceptance tests. This way you can use data factories and models to prepare and cleanup data for tests. You should enable Laravel module with ORM part to add ActiveRecord methods:
 
 ```yaml
-class_name: AcceptanceTester
+actor: AcceptanceTester
 modules:
     enabled:
         - WebDriver:
@@ -118,7 +116,6 @@ modules:
         - Laravel:
             part: ORM
             cleanup: false # can't wrap into transaction
-        - \Helper\Acceptance            
 ```
 
 Laravel module won't be able to wrap test execution in a transaction but methods like `haveRecord` or `haveModel` will delete objects they created when test ends. 
@@ -128,19 +125,18 @@ Laravel module won't be able to wrap test execution in a transaction but methods
 API Tests are done at functional testing level but instead of testing HTML responses on user actions, they test requests and responses via protocols like REST or SOAP. To create api tests you should create a suite for them
 
 ```
-php vendor/bin/codecept g:suite api
+php vendor/bin/codecept g:suite Api
 ```
 
-You will need to enable `REST`, `Laravel` module in `tests/api.suite.yml`:
+You will need to enable `REST`, `Laravel` module in `tests/Api.suite.yml`:
 
 ```yaml
-class_name: ApiTester
+actor: ApiTester
 modules:
     enabled:
         - REST:
             url: /api/v1
             depends: Laravel
-        - \Helper\Api
     config:
         Laravel:
             environment_file: .env.testing
@@ -152,7 +148,7 @@ Laravel module actions like `amOnPage` or `see` should not be available for test
 
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-  Continue to <a href="https://codeception.com/docs/10-APITesting#REST-API">REST API Testing Guide &raquo;</a>.
+  Continue to <a href="https://codeception.com/docs/APITesting#REST-API">REST API Testing Guide &raquo;</a>.
 </div>
 
 ### BDD
@@ -175,5 +171,5 @@ In the same manner features can be set up as functional tests.
 
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-  Continue to <a href="https://codeception.com/docs/07-BDD">Behavior Driven Development Guide &raquo;</a>
+  Continue to <a href="https://codeception.com/docs/BDD">Behavior Driven Development Guide &raquo;</a>
 </div>

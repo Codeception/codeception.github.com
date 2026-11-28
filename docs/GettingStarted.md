@@ -291,8 +291,10 @@ There are plenty of useful Codeception commands:
 * `generate:helper` *filename* - Generates a sample Helper File
 * `generate:pageobject` *suite* *filename* - Generates a sample Page object
 * `generate:stepobject` *suite* *filename* - Generates a sample Step object
+* `generate:snapshot` *suite* *filename* - Generates a sample Snapshot class
 * `generate:environment` *env* - Generates a sample Environment configuration
 * `generate:groupobject` *group* - Generates a sample Group Extension
+* `generate:scenarios` *suite* - Generates text representation for all scenarios
 
 ## Conclusion
 

@@ -28,7 +28,7 @@ you can execute all the tests in a single runner. Run the Codeception tests as u
 php vendor/bin/codecept run
 ```
 
-This will launch the test suites for all three applications and merge the reports from all of them.
+This will launch the test suites for all included applications and merge the reports from all of them.
 This is very useful when you run your tests on a Continuous Integration server
 and you want to get a single report in JUnit and HTML format. The code coverage report will be merged too.
 
@@ -119,6 +119,8 @@ All listed events are available as constants in `Codeception\Events` class.
 
 |    Event             |    When?                                |    Triggered by
 |:--------------------:| --------------------------------------- | --------------------------:
+| `module.init`        | Before modules are initialized          | [Suite, Settings](https://github.com/Codeception/Codeception/blob/main/src/Codeception/Event/SuiteEvent.php)
+| `suite.init`         | After modules are initialized           | [Suite, Settings](https://github.com/Codeception/Codeception/blob/main/src/Codeception/Event/SuiteEvent.php)
 | `suite.before`       | Before suite is executed                | [Suite, Settings](https://github.com/Codeception/Codeception/blob/main/src/Codeception/Event/SuiteEvent.php)
 | `test.start`         | Before test is executed                 | [Test](https://github.com/Codeception/Codeception/blob/main/src/Codeception/Event/TestEvent.php)
 | `test.before`        | At the very beginning of test execution | [Codeception Test](https://github.com/Codeception/Codeception/blob/main/src/Codeception/Event/TestEvent.php)
@@ -129,6 +131,8 @@ All listed events are available as constants in `Codeception\Events` class.
 | `test.error`         | After test ended with error             | [Test, Fail](https://github.com/Codeception/Codeception/blob/main/src/Codeception/Event/FailEvent.php)
 | `test.incomplete`    | After executing incomplete test         | [Test, Fail](https://github.com/Codeception/Codeception/blob/main/src/Codeception/Event/FailEvent.php)
 | `test.skipped`       | After executing skipped test            | [Test, Fail](https://github.com/Codeception/Codeception/blob/main/src/Codeception/Event/FailEvent.php)
+| `test.warning`       | After test ended with warning           | [Test, Fail](https://github.com/Codeception/Codeception/blob/main/src/Codeception/Event/FailEvent.php)
+| `test.useless`       | After test performed no assertions      | [Test, Fail](https://github.com/Codeception/Codeception/blob/main/src/Codeception/Event/FailEvent.php)
 | `test.success`       | After executing successful test         | [Test](https://github.com/Codeception/Codeception/blob/main/src/Codeception/Event/TestEvent.php)
 | `test.after`         | At the end of test execution            | [Codeception Test](https://github.com/Codeception/Codeception/blob/main/src/Codeception/Event/TestEvent.php)
 | `test.end`           | After test execution                    | [Test](https://github.com/Codeception/Codeception/blob/main/src/Codeception/Event/TestEvent.php)
@@ -234,7 +238,7 @@ extensions:
 
 The passed in configuration is accessible via the `config` property: `$this->config['param']`.
 
-Check out a very basic extension [Notifier](https://github.com/Codeception/Notifier).
+Check out the [extensions shipped with Codeception](https://github.com/Codeception/Codeception/tree/main/ext) for examples.
 
 ### Custom Commands
 

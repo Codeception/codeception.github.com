@@ -39,9 +39,6 @@ That's ok for now. But what files should be present in final coverage report?
 Pass an array of files or directory to include/exclude sections. The path ending with '\*' matches the directory.
 Also you can use '\*' mask in a file name, i.e. `app/models/*Model.php` to match all models.
 
-There is a shortcut if you don't need that complex filters:
-
-
 ```yaml
 coverage:
     enabled: true

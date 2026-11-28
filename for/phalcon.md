@@ -46,7 +46,6 @@ actor: UnitTester
 modules:
     enabled:
         - Asserts
-        - \Helper\Unit
         - Phalcon4:
             bootstrap: public/index.php
             cleanup: true
@@ -64,7 +63,7 @@ Actions of the Phalcon module will be accessible from `$this->tester` inside a t
 
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-  Continue to <a href="https://codeception.com/docs/05-UnitTests">Unit Testing Guide &raquo;</a>.
+  Continue to <a href="https://codeception.com/docs/UnitTests">Unit Testing Guide &raquo;</a>.
 </div>
 
 ## Functional Tests
@@ -85,7 +84,6 @@ actor: FunctionalTester
 modules:
     enabled:
         # add a framework module here
-        - \Helper\Functional
         - Phalcon4:
             bootstrap: public/index.php
             cleanup: true
@@ -93,7 +91,7 @@ modules:
 step_decorators: ~
 ```
 
-Then use [Cest](https://codeception.com/docs/07-AdvancedUsage) or Cept to create a test.
+Then use [Cest](https://codeception.com/docs/AdvancedUsage) or Cept to create a test.
 ```
 vendor/bin/codecept g:cest Functional Login
 ```
@@ -133,7 +131,7 @@ class LoginCest
 
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-  Continue to <a href="https://codeception.com/docs/04-FunctionalTests">Functional Testing Guide &raquo;</a>
+  Continue to <a href="https://codeception.com/docs/FunctionalTests">Functional Testing Guide &raquo;</a>
 </div>
 
 ### Acceptance Testing
@@ -141,16 +139,15 @@ class LoginCest
 Sample configuration of `tests/Acceptance.suite.yml`:
 
 ```yaml
-class_name: AcceptanceTester
+actor: AcceptanceTester
 modules:
     enabled:
         - WebDriver:
             url: 'https://localhost/' # put your local url
             browser: chrome
-        - \Helper\Acceptance            
 ```
 
-Browser can be specified as `chrome`, `firefox`, `phantomjs`, or others. 
+Browser can be specified as `chrome`, `firefox`, or others. 
 
 To create a sample test called, run:
 
@@ -162,7 +159,7 @@ This will create the file `tests/Acceptance/LoginCest.php`. Each method of a cla
 
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-  Continue to <a href="https://codeception.com/docs/03-AcceptanceTests">Acceptance Testing Guide &raquo;</a>
+  Continue to <a href="https://codeception.com/docs/AcceptanceTests">Acceptance Testing Guide &raquo;</a>
 </div>
 
 To run the tests you will need chrome browser, [selenium server running](https://codeception.com/docs/modules/WebDriver#Selenium). If this requirements met acceptance tests can be executed as
@@ -173,13 +170,13 @@ vendor/bin/codecept run Acceptance
 
 ### BDD
 
-If you prefer to describe application with feature files, Codeception can turn them to acceptance tests. It is recommended to store feature files in `features` directory (like Behat does it) but symlinking it to `tests/acceptance/features` so they can be treated as tests too. 
+If you prefer to describe application with feature files, Codeception can turn them to acceptance tests. It is recommended to store feature files in `features` directory (like Behat does it) but symlinking it to `tests/Acceptance/features` so they can be treated as tests too. 
 
 ```
 ln -s $PWD/features tests/Acceptance
 ```
 
-Codeception allows to combine tests written in different formats. If you are about to write a regression test it probably should not be described as a product's feature. That's why feature-files are a subset of all acceptance tests, and they are stored in subfolder of `tests/acceptance`. 
+Codeception allows to combine tests written in different formats. If you are about to write a regression test it probably should not be described as a product's feature. That's why feature-files are a subset of all acceptance tests, and they are stored in subfolder of `tests/Acceptance`. 
 
 There are no standard Gherkin steps built in. By writing your feature files you can get code snippets which should be added to `AcceptanceTester` class. 
 
@@ -189,7 +186,7 @@ vendor/bin/codecept gherkin:snippets
 
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-  Continue to <a href="https://codeception.com/docs/07-BDD">Behavior Driven Development Guide &raquo;</a>
+  Continue to <a href="https://codeception.com/docs/BDD">Behavior Driven Development Guide &raquo;</a>
 </div>
 
 ### API Tests
@@ -197,13 +194,13 @@ vendor/bin/codecept gherkin:snippets
 API Tests are done at functional testing level but instead of testing HTML responses on user actions, they test requests and responses via protocols like REST or SOAP. To create api tests, you should create a suite for them:
 
 ```
-vendor/bin/codecept g:suite api
+vendor/bin/codecept g:suite Api
 ```
 
-You will need to enable `REST` and `Phalcon` module in `tests/api.suite.yml`:
+You will need to enable `REST` and `Phalcon` module in `tests/Api.suite.yml`:
 
 ```yaml
-class_name: ApiTester
+actor: ApiTester
 modules:
     enabled:
         - Phalcon4:
@@ -213,7 +210,6 @@ modules:
         - REST:
             url: /v1
             depends: Phalcon4
-        - \Helper\Api
 ```
 
 Phalcon [module](/docs/modules/Phalcon4) actions like `amOnPage` or `see` should not be available for testing API. This is why Phalcon module is not enabled but declared with `depends` for REST module. But Phalcon module should be configured to load Kernel class from `app_path`.
@@ -221,7 +217,7 @@ Phalcon [module](/docs/modules/Phalcon4) actions like `amOnPage` or `see` should
 
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-  Continue to <a href="https://codeception.com/docs/10-APITesting#REST-API">REST API Testing Guide &raquo;</a>.
+  Continue to <a href="https://codeception.com/docs/APITesting#REST-API">REST API Testing Guide &raquo;</a>.
 </div>
 
 [Edit this page on GitHub](https://github.com/Codeception/codeception.github.com/blob/master/for/phalcon.md)

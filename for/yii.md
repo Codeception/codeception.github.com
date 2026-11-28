@@ -38,7 +38,7 @@ Run them by executing in terminal:
 Unit tests are located in `tests/Unit` directory and are supposed to contain all kind of unit and integration testing.
 
 Each test case extends `Codeception\Test\Unit` class, which is standard Codeception format for unit testing. 
- It is pretty hard to develop completely isolated unit tests in Yii, so an application is bootstrapped before each test case. Tests are configured in `tests/unit.suite.yml` file with Yii2 module enabled:
+ It is pretty hard to develop completely isolated unit tests in Yii, so an application is bootstrapped before each test case. Tests are configured in `tests/Unit.suite.yml` file with Yii2 module enabled:
 
 ```yaml
 modules:
@@ -79,11 +79,11 @@ $this->tester->haveFixtures([
 $this->tester->grabFixture('user', 0);
 ```
 
-If `Yii2` module is enabled you can safely call `Yii::$app` inside a test, as application is initialized and cleaned up after a test. If you want to add your helper methods or custom assertions for your test case you should not extend `Codeception\Test\Unit` but write your own separate [Helper class](https://codeception.com/docs/06-ModulesAndHelpers#Helpers).
+If `Yii2` module is enabled you can safely call `Yii::$app` inside a test, as application is initialized and cleaned up after a test. If you want to add your helper methods or custom assertions for your test case you should not extend `Codeception\Test\Unit` but write your own separate [Helper class](https://codeception.com/docs/ModulesAndHelpers#Helpers).
 
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-  Continue to <a href="https://codeception.com/docs/05-UnitTests">Unit Testing Guide &raquo;</a>
+  Continue to <a href="https://codeception.com/docs/UnitTests">Unit Testing Guide &raquo;</a>
 </div>
 
 
@@ -106,44 +106,54 @@ $I->see('Body cannot be blank');
 This way you not only test the ContactForm on a site but actual output of application that user sees.
 Codeception provides standard set of actions like `amOnPage`, `submitForm`, `see` for testing. Yii2 module provides special methods, like `amLoggedInAs` (for fast authentication), `haveRecord`, `seeRecord`, `seeEmailIsSent` and others. They all are listed in [module reference](https://codeception.com/docs/modules/Yii2).
 
-Functional tests should be written inside [Cest files](https://codeception.com/docs/07-AdvancedUsage#Cest-Classes), which is a scenario-driven test format of Codeception. You can easily create a new test by running:
+Functional tests should be written inside [Cest files](https://codeception.com/docs/AdvancedUsage#Cest-Classes), which is a scenario-driven test format of Codeception. You can easily create a new test by running:
 
 ```
-./vendor/bin/codecept g:cest functional MyNewScenarioCest
+./vendor/bin/codecept g:cest Functional MyNewScenarioCest
 ```
 
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
   Functional tests are really powerful and simple. They are highly <strong>recommended to use</strong> for any Yii application.<br>
-  Continue to <a href="https://codeception.com/docs/04-FunctionalTests">Functional Testing Guide &raquo;</a>
+  Continue to <a href="https://codeception.com/docs/FunctionalTests">Functional Testing Guide &raquo;</a>
 </div>
 
 ### API Tests
 
-API tests are not included in any Yii templates so you need to set up them manually if you developing a web service. API testing is done at functional testing level but instead of testing HTML responses on user actions, they test requests and responses via protocols like REST or SOAP. To start writing api tests you should create a suite for them
+API tests are not included in any Yii templates so you need to set them up manually if you are developing a web service. API testing is done at functional testing level but instead of testing HTML responses on user actions, they test requests and responses via protocols like REST or SOAP. API tests require the REST module, which is not installed by default:
 
 ```
-./vendor/bin/codecept g:suite api
+composer require codeception/module-rest --dev
 ```
 
-You will need to enable `REST`, `Yii2` module in `tests/api.suite.yml`:
+To start writing API tests you should create a suite for them:
+
+```
+./vendor/bin/codecept g:suite Api
+```
+
+You will need to enable the `REST` module in `tests/Api.suite.yml`:
 
 ```yaml
-class_name: ApiTester
+actor: ApiTester
 modules:
     enabled:
         - REST:
             url: /api/v1
             depends: Yii2
-        - \ApiBundle\Helper\Api
-
 ```
 
-Yii2 module actions like `amOnPage` or `see` should not be available for testing API. This is why Yii2 module is not enabled but declared with `depends` for REST module.
+Yii2 module actions like `amOnPage` or `see` should not be available for testing API. This is why Yii2 module is not enabled but declared with `depends` for REST module. The `configFile` for Yii2 is taken from the global `codeception.yml`, so it doesn't need to be repeated here.
+
+Run `./vendor/bin/codecept build` after changing the enabled modules, then create your first API test:
+
+```
+./vendor/bin/codecept g:cest Api CreateUserCest
+```
 
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-  Continue to <a href="https://codeception.com/docs/10-APITesting#REST-API">REST API Testing Guide &raquo;</a>.
+  Continue to <a href="https://codeception.com/docs/APITesting#REST-API">REST API Testing Guide &raquo;</a>.
 </div>
 
 ### Acceptance Tests
@@ -164,10 +174,10 @@ Then you will need to launch application server in test mode:
 ./tests/bin/yii serve
 ```
 
-and start a [Selenium Server](https://codeception.com/docs/modules/WebDriver#Local-Testing). For acceptance WebDriver module is used. Please check its reference to learn how to work with it. Unlike Yii2 module it does know nothing about your application, so if you want to use features of Yii like fixtures for acceptance testing, you should check that enable Yii2 module is enabled as well:
+and start a [Selenium Server](https://codeception.com/docs/modules/WebDriver#Selenium-Recommended). For acceptance WebDriver module is used. Please check its reference to learn how to work with it. Unlike Yii2 module it does know nothing about your application, so if you want to use features of Yii like fixtures for acceptance testing, you should check that enable Yii2 module is enabled as well:
 
 ```yml
-# config at tests/Acceptance.yml
+# config at tests/Acceptance.suite.yml
 modules:
     enabled:
         - WebDriver:
@@ -189,7 +199,7 @@ Similar as for functional tests it is recommended to use Cest format for accepta
 
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-  Continue to <a href="https://codeception.com/docs/03-AcceptanceTests">Acceptance Testing Guide &raquo;</a>
+  Continue to <a href="https://codeception.com/docs/AcceptanceTests">Acceptance Testing Guide &raquo;</a>
 </div>
 
 ## Yii Advanced
@@ -202,7 +212,7 @@ Tests also include namespaces for testcase classes and testers to avoid conflict
 
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-  Learn more about <a href="https://codeception.com/docs/08-Customization#One-Runner-for-Multiple-Applications">testing multiple applications &raquo;</a>
+  Learn more about <a href="https://codeception.com/docs/Customization#One-Runner-for-Multiple-Applications">testing multiple applications &raquo;</a>
 </div>
 
 ## Manual Setup && Configuration
