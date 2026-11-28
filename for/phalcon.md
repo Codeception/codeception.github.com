@@ -141,7 +141,7 @@ class LoginCest
 Sample configuration of `tests/Acceptance.suite.yml`:
 
 ```yaml
-class_name: AcceptanceTester
+actor: AcceptanceTester
 modules:
     enabled:
         - WebDriver:
@@ -203,7 +203,7 @@ vendor/bin/codecept g:suite api
 You will need to enable `REST` and `Phalcon` module in `tests/api.suite.yml`:
 
 ```yaml
-class_name: ApiTester
+actor: ApiTester
 modules:
     enabled:
         - Phalcon4:

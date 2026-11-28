@@ -50,7 +50,7 @@ Functional tests allow test application by simulating user actions, this is done
 To start you need to configure `tests/Functional.suite.yml` to use Laravel module:
 
 ```yaml
-class_name: FunctionalTester
+actor: FunctionalTester
 modules:
     enabled:
         - Laravel:
@@ -93,7 +93,7 @@ Enable Laravel module in `Unit.suite.yml` to have its methods inside a testcase.
 To test an application in a real environment by using its UI you should use a real browser. Codeception uses Selenium Webdriver and corresponding WebDriver module to interact with a browser. You should configure `Acceptance.suite.yml` to use WebDriver module and a browser of your choice. 
 
 ```yaml
-class_name: AcceptanceTester
+actor: AcceptanceTester
 modules:
     enabled:
         - WebDriver:
@@ -109,7 +109,7 @@ Acceptance tests will be executed in development environment using real web serv
 You can also use Eloquent to create data for acceptance tests. This way you can use data factories and models to prepare and cleanup data for tests. You should enable Laravel module with ORM part to add ActiveRecord methods:
 
 ```yaml
-class_name: AcceptanceTester
+actor: AcceptanceTester
 modules:
     enabled:
         - WebDriver:
@@ -134,7 +134,7 @@ php vendor/bin/codecept g:suite api
 You will need to enable `REST`, `Laravel` module in `tests/api.suite.yml`:
 
 ```yaml
-class_name: ApiTester
+actor: ApiTester
 modules:
     enabled:
         - REST:
